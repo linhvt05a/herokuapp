@@ -8,12 +8,10 @@ class Dashboard extends Component {
     render() {
         return (
             <div>
-                <div className="row">
-                    <SalesSummary />
-                </div>
-                <div className="row">
+                <SalesSummary />
+                {/* <div className="row">
                     <CardMap user={this.props.user} showToast={this.props.showToast} search={this.props.search} updateLocation={this.props.updateLocation} />
-                </div>
+                </div> */}
 
                 <div className="row">
                     <CardCapital user={this.props.user} showToast={this.props.showToast} />
