@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="60" height="78" viewBox="0 0 60 78">
-  <g id="file_purple" transform="translate(368 1472)">
-    <g id="Group_9635" data-name="Group 9635" transform="translate(-368 -1472)">
-      <path id="Path_4236" data-name="Path 4236" d="M0,0H35.254l11.22,13.745L60,25.059V78H0Z" fill="#7543a7"/>
-      <path id="Path_4235" data-name="Path 4235" d="M-20866.219,15300.482l22.168,22.166h-22.168Z" transform="translate(20902.365 -15298.428)" fill="#6d30ab" stroke="#6d30ab" stroke-width="1"/>
-      <text id="FILE" transform="translate(14.568 49.856)" fill="#fff" font-size="16" font-family="Lato-Medium, Lato" font-weight="500"><tspan x="0" y="0">FILE</tspan></text>
-    </g>
-  </g>
-</svg>
