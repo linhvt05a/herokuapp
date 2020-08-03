@@ -122,10 +122,6 @@ class MainPage extends Component {
             <div className="main-wrapper">
                 <NotificationContainer />
                 <PageHeader user={user} update={this.update}/>
-<<<<<<< HEAD
-                {/* <button onClick={()=>this.setActiveItemMenu('menu_system_currency')}>Thunder</button> */}
-=======
->>>>>>> develop
                 <SideBar user={user} 
                          menudata={menu.datas}
                          active={this.state.menu}
