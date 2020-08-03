@@ -595,5 +595,14 @@
     "Choose FS" : "Choose FS",
     "Members" : "Member",
     "Member Name" : "Member Name",
-    "Role" : "Role"
+    "Role" : "Role",
+
+    
+
+
+    "ProjectFilterTitle": "PROJECT FILTER",
+    "ByRegionTitle": "Region",
+    "ByProvinceTitle": "Province",
+    "ByProjectTypeTitle": "Project Type",
+    "ByProjectStatusTitle": "Project Status"
 }

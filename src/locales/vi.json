@@ -588,5 +588,14 @@
     "Choose FS" : "Chọn",
     "Members" : "Thành Viên",
     "Member Name" : "Thành Viên",
-    "Role" : "Vai trò"
+    "Role" : "Vai trò",
+
+
+
+
+    "ProjectFilterTitle": "TÌM KIẾM DỰ ÁN",
+    "ByRegionTitle": "Theo vùng miền",
+    "ByProvinceTitle": "Theo tỉnh thành",
+    "ByProjectTypeTitle": "Theo loại dự án",
+    "ByProjectStatusTitle": "Theo tình trạng dự án"
 }

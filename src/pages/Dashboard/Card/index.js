@@ -1,8 +1,5 @@
-import CardCapital from './CardCapital';
-import CardCashFlow from './CardCashFlow';
-import CardMap from './CardMap';
-import CardTimeline from './CardTimeline';
+import CardFilter from './CardFilter';
 
 export {
-    CardCapital, CardCashFlow, CardMap, CardTimeline
+    CardFilter
 }
