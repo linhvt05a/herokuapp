@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Trans } from 'react-i18next';
 
-import { Redirect} from "react-router-dom";
 import queryString from 'query-string';
 
 import './MainPage.css';
@@ -30,6 +29,7 @@ function showToast(type, message) {
         case 'error':
             NotificationManager.error(message, 'Minerva', 5000);
             break;
+        default: break;
     }
 }
 
@@ -122,7 +122,6 @@ class MainPage extends Component {
             <div className="main-wrapper">
                 <NotificationContainer />
                 <PageHeader user={user} update={this.update}/>
-                <button onClick={()=>this.setActiveItemMenu('menu_system_currency')}>Thunder</button>
                 <SideBar user={user} 
                          menudata={menu.datas}
                          active={this.state.menu}
