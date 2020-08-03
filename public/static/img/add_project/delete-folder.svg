@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="15.473" height="11.604" viewBox="0 0 15.473 11.604">
-    <defs>
-        <style>
-            .cls-1{fill:#606060}
-        </style>
-    </defs>
-    <path id="delete-folder" d="M8.7 40.7v-.967h5.8V34.9a.955.955 0 0 0-.967-.967h-5.8a2.463 2.463 0 0 1-1.6-.725l-.423-.484A2.463 2.463 0 0 0 4.11 32H.967a.955.955 0 0 0-.967.967v9.67a.955.955 0 0 0 .967.967H8.7zm.967 1.934V40.7h5.8v1.934z" class="cls-1" transform="translate(0 -32)"/>
-</svg>
