@@ -2,6 +2,8 @@ import PageCurrency from './Currency/PageCurrency';
 import PageCurrencyAdd from './Currency/PageCurrencyAdd';
 import PageCurrencyEdit from './Currency/PageCurrencyEdit';
 
+import PageListCart from '../CartArray/PageListCart'
+
 import PageDocumentType from './Document/PageDocumentType';
 import PageDocumentTypeAdd from './Document/PageDocumentTypeAdd';
 import PageDocumentTypeEdit from './Document/PageDocumentTypeEdit';
@@ -31,5 +33,6 @@ export {
     // PageTemplate, PageTemplateEdit, PageTemplateAdd,
     PageWorkflow, PageWorkflowEdit, PageWorkflowAdd,
     PageWorkflowState, PageWorkflowStateEdit, PageWorkflowDraw,
-    PageWorkflowStateAdd
+    PageWorkflowStateAdd,
+    PageListCart
 }
