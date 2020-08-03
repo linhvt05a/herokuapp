@@ -1,0 +1,112 @@
+.center-div{
+	margin:0px;
+}
+
+.tbl_workflow th, .tbl_workflow td {
+	text-align: center;
+	vertical-align: middle;
+	padding: 1rem;
+}
+
+
+.start-workflow{
+	width: 100px;
+	padding: 1rem;
+	border-radius: 2rem;
+}
+
+.wf-state{
+	margin: auto;
+}
+
+.btn-type{
+    padding: 0px;
+    height: 2rem;
+    background-color: transparent;
+}
+.btn-type.type-active{
+    background-color: #bbdefb;
+    box-shadow: 0 1.5px 1.5px 0 rgba(0, 0, 0, 0.16);
+    color: #1565c0;
+}
+
+a.dropdown-item:hover{
+	background-color: #1E9FF2 !important;
+	color: white !important;
+}
+
+.btn-state:hover {
+	color: #fff;
+	background-color: #28D094 !important;
+	border-color: #28D094 !important;
+}
+.btn-state:focus{
+	border-color: #20A576 !important;
+	background-color: #1C9066 !important;
+	color: #FFF !important;
+}	
+
+.wf-state.show .btn-state{
+	border-color: #20A576 !important;
+	background-color: #1C9066 !important;
+	color: #FFF !important;
+}
+
+.select2-selection__choice {
+    clear: both;
+}
+
+.wf-template {
+	display: none !important;
+}
+
+.form-state-template {
+	display: none !important;
+}
+
+.state-field .wf-state{
+	float: left;
+}
+
+.state-field .btn-state{
+	white-space:normal;
+}
+
+.form-state:not(:last-child) {
+	border-bottom: 1px #cacfe7 solid;
+	padding-bottom: 1rem;
+}
+
+#diamond {
+    width: 120px;
+    height: 120px;
+    background: #1eff00;
+/* Rotate */
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+/* Rotate Origin */
+    -webkit-transform-origin: 0 100%;
+    -moz-transform-origin: 0 100%;
+    -ms-transform-origin: 0 100%;
+    -o-transform-origin: 0 100%;
+    transform-origin: 0 100%;
+    margin: 60px 0 10px 310px;
+}
+
+.line {
+    width : 2px;
+    background-color : red;
+    display : block;
+    position : absolute;
+    -webkit-transform-origin : 0 0;
+    transform-origin : 0 0;
+}
+.green {
+    background-color : green;
+}
+.blue {
+    background-color : blue;
+}

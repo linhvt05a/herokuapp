@@ -1,0 +1,411 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1519" height="990" viewBox="0 0 1519 990">
+    <defs>
+        <style>
+            .prefix__cls-1{fill:#ffefe0;stroke:#f59c34}.prefix__cls-2,.prefix__cls-3{fill:#606060}.prefix__cls-13,.prefix__cls-17,.prefix__cls-2{font-size:11px}.prefix__cls-13,.prefix__cls-15,.prefix__cls-17,.prefix__cls-19,.prefix__cls-2,.prefix__cls-20,.prefix__cls-21,.prefix__cls-3,.prefix__cls-4,.prefix__cls-9{font-family:Roboto-Medium,Roboto;font-weight:500}.prefix__cls-21,.prefix__cls-3{font-size:10px}.prefix__cls-4{fill:#f59c34}.prefix__cls-4,.prefix__cls-9{font-size:14px}.prefix__cls-12,.prefix__cls-28,.prefix__cls-5,.prefix__cls-6,.prefix__cls-7{fill:none}.prefix__cls-5,.prefix__cls-6{stroke:#6d6d6d}.prefix__cls-5{stroke-width:2px}.prefix__cls-12,.prefix__cls-6,.prefix__cls-7{stroke-width:3px}.prefix__cls-7{stroke:#000}.prefix__cls-14{fill:#fceeca;stroke:#f69524}.prefix__cls-19,.prefix__cls-20,.prefix__cls-9{fill:#f69524}.prefix__cls-12{stroke:#606060}.prefix__cls-13,.prefix__cls-21{fill:#1c1c1c}.prefix__cls-15,.prefix__cls-17{fill:#6d6d6d}.prefix__cls-15,.prefix__cls-20{font-size:12px}.prefix__cls-16{fill:#fafafa;stroke:#ddd}.prefix__cls-19{font-size:13px}.prefix__cls-27{stroke:none}
+        </style>
+    </defs>
+    <g id="prefix__org_chart" transform="translate(-317 -340)">
+        <g id="prefix__Rectangle_14391" class="prefix__cls-1" data-name="Rectangle 14391">
+            <path d="M0 0H194V83H0z" class="prefix__cls-27" transform="translate(563 673)"/>
+            <path d="M0.5 0.5H193.5V82.5H0.5z" class="prefix__cls-28" transform="translate(563 673)"/>
+        </g>
+        <g id="prefix__Rectangle_14557" class="prefix__cls-1" data-name="Rectangle 14557">
+            <path d="M0 0H194V83H0z" class="prefix__cls-27" transform="translate(806 673)"/>
+            <path d="M0.5 0.5H193.5V82.5H0.5z" class="prefix__cls-28" transform="translate(806 673)"/>
+        </g>
+        <g id="prefix__Rectangle_14558" class="prefix__cls-1" data-name="Rectangle 14558">
+            <path d="M0 0H194V83H0z" class="prefix__cls-27" transform="translate(1165 673)"/>
+            <path d="M0.5 0.5H193.5V82.5H0.5z" class="prefix__cls-28" transform="translate(1165 673)"/>
+        </g>
+        <g id="prefix__Rectangle_14559" class="prefix__cls-1" data-name="Rectangle 14559">
+            <path d="M0 0H194V83H0z" class="prefix__cls-27" transform="translate(1382 673)"/>
+            <path d="M0.5 0.5H193.5V82.5H0.5z" class="prefix__cls-28" transform="translate(1382 673)"/>
+        </g>
+        <g id="prefix__Rectangle_14560" class="prefix__cls-1" data-name="Rectangle 14560">
+            <path d="M0 0H194V83H0z" class="prefix__cls-27" transform="translate(1612 673)"/>
+            <path d="M0.5 0.5H193.5V82.5H0.5z" class="prefix__cls-28" transform="translate(1612 673)"/>
+        </g>
+        <text id="prefix__DESIGN_MANAGEMENT_DIVISION" class="prefix__cls-2" data-name="DESIGN MANAGEMENT DIVISION" transform="translate(578 715)">
+            <tspan x="0" y="0">DESIGN MANAGEMENT DIVISION</tspan>
+        </text>
+        <text id="prefix___MANAGEMENT_DIVISION" class="prefix__cls-2" data-name="MANAGEMENT DIVISION" transform="translate(840 715)">
+            <tspan x="0" y="0">MANAGEMENT DIVISION</tspan>
+        </text>
+        <text id="prefix__TENDER_QUANTITY_SURVEY_DIVISION" class="prefix__cls-3" data-name="TENDER &amp; QUANTITY SURVEY DIVISION" transform="translate(1172 724)">
+            <tspan x="0" y="0">TENDER &amp; QUANTITY SURVEY DIVISION</tspan>
+        </text>
+        <text id="prefix__TECHNICAL_MANAGEMENT_DIVISION" class="prefix__cls-3" data-name="TECHNICAL MANAGEMENT DIVISION" transform="translate(1395 709)">
+            <tspan x="0" y="0">TECHNICAL MANAGEMENT DIVISION</tspan>
+        </text>
+        <text id="prefix__OPERATION_DIVISION_" class="prefix__cls-3" data-name="OPERATION DIVISION" transform="translate(1656 709)">
+            <tspan x="0" y="0">OPERATION DIVISION</tspan>
+        </text>
+        <text id="prefix__KHỐI_QUẢN_LÝ_THIẾT_KẾ" class="prefix__cls-4" data-name="KHỐI QUẢN LÝ THIẾT KẾ" transform="translate(579 684)">
+            <tspan x="0" y="13">KHỐI QUẢN LÝ THIẾT KẾ</tspan>
+        </text>
+        <text id="prefix__KHỐI_QUẢN_LÝ_DỰ_ÁN_" class="prefix__cls-4" data-name="KHỐI QUẢN LÝ DỰ ÁN" transform="translate(833 684)">
+            <tspan x="0" y="13">KHỐI QUẢN LÝ DỰ ÁN</tspan>
+        </text>
+        <text id="prefix__KHỐI_ĐẤU_THẦU_DỰ_TOÁN_KHỐI_LƯỢNG_" class="prefix__cls-4" data-name="KHỐI ĐẤU THẦU &amp; DỰ TOÁN KHỐI LƯỢNG" transform="translate(1183 681)">
+            <tspan x="10.341" y="13">KHỐI ĐẤU THẦU &amp; DỰ </tspan><tspan x="17.973" y="30">TOÁN KHỐI LƯỢNG</tspan>
+        </text>
+        <text id="prefix__KHỐI_QUẢN_LÝ_KỸ_THUẬT" class="prefix__cls-4" data-name="KHỐI QUẢN LÝ KỸ THUẬT" transform="translate(1397 681)">
+            <tspan x="5.605" y="13">KHỐI QUẢN LÝ KỸ THUẬT</tspan>
+        </text>
+        <text id="prefix__KHỐI_HOẠT_ĐỘNG_" class="prefix__cls-4" data-name="KHỐI HOẠT ĐỘNG" transform="translate(1627 681)">
+            <tspan x="28.55" y="13">KHỐI HOẠT ĐỘNG</tspan>
+        </text>
+        <path id="prefix__Path_5195" d="M-16598.5 1400v20.85" class="prefix__cls-5" data-name="Path 5195" transform="translate(17041.861 -644.85)"/>
+        <path id="prefix__Path_5336" d="M-16598.5 1400v20.85" class="prefix__cls-5" data-name="Path 5336" transform="translate(18305.861 -644.85)"/>
+        <path id="prefix__Path_5328" d="M-16598.5 1400v20.85" class="prefix__cls-5" data-name="Path 5328" transform="translate(18078.861 -644.85)"/>
+        <path id="prefix__Path_5216" d="M-16598.5 1400v42.3" class="prefix__cls-6" data-name="Path 5216" transform="translate(17041.861 -770.928)"/>
+        <path id="prefix__Path_5294" d="M-16598.5 1400v42.3" class="prefix__cls-6" data-name="Path 5294" transform="translate(17260.861 -770.928)"/>
+        <path id="prefix__Path_5218" d="M-16598.5 1400v42.3" class="prefix__cls-6" data-name="Path 5218" transform="translate(17501.898 -769.928)"/>
+        <path id="prefix__Path_5295" d="M-16598.5 1400v42.3" class="prefix__cls-7" data-name="Path 5295" transform="translate(17860.898 -769.928)"/>
+        <path id="prefix__Path_5296" d="M-16598.5 1400v42.3" class="prefix__cls-7" data-name="Path 5296" transform="translate(18077.898 -769.928)"/>
+        <path id="prefix__Path_5297" d="M-16598.5 1400v42.3" class="prefix__cls-7" data-name="Path 5297" transform="translate(18307.898 -769.928)"/>
+        <g id="prefix__Rectangle_14382" data-name="Rectangle 14382" style="fill:#fceeca;stroke:#f69524;stroke-width:2px">
+            <path d="M0 0H171V49H0z" class="prefix__cls-27" transform="translate(1084 470)"/>
+            <path d="M1 1H170V48H1z" class="prefix__cls-28" transform="translate(1084 470)"/>
+        </g>
+        <text id="prefix__Thư_Ký_Trợ_Lý_" class="prefix__cls-9" data-name="Thư Ký / Trợ Lý" transform="translate(1115 493)">
+            <tspan x="0" y="0">THƯ KÝ / TRỢ LÝ</tspan>
+        </text>
+        <text id="prefix__Secretary_Assistant" data-name="Secretary / Assistant" transform="translate(1105 508)" style="fill:#3b3b3b;font-family:Roboto-Medium,Roboto;font-weight:500;font-size:11px">
+            <tspan x="0" y="0">SECRETARY / ASSISTANT</tspan>
+        </text>
+        <g id="prefix__Rectangle_14441" data-name="Rectangle 14441" style="fill:#ffe3e3;stroke:#e94c4c;stroke-width:2px">
+            <path d="M0 0H282V83H0z" class="prefix__cls-27" transform="translate(911 340)"/>
+            <path d="M1 1H281V82H1z" class="prefix__cls-28" transform="translate(911 340)"/>
+        </g>
+        <path id="prefix__Path_5214" d="M-16597.242 1400v139.09" class="prefix__cls-12" data-name="Path 5214" transform="translate(17644.076 -976.864)"/>
+        <path id="prefix__Path_5215" d="M3.649 0v37.569" class="prefix__cls-12" data-name="Path 5215" transform="rotate(90 298.025 786.376)"/>
+        <path id="prefix__Path_5196" d="M-16597.773 1400v316" class="prefix__cls-5" data-name="Path 5196" transform="translate(16957.633 -555.549)"/>
+        <path id="prefix__Path_5332" d="M-16579.148 1400v455.049" class="prefix__cls-5" data-name="Path 5332" transform="translate(18203.006 -555.549)"/>
+        <path id="prefix__Path_5327" d="M-16597.773 1400v188.549" class="prefix__cls-5" data-name="Path 5327" transform="translate(17994.633 -555.549)"/>
+        <path id="prefix__Path_5312" d="M-16597.773 1400v404.451" class="prefix__cls-5" data-name="Path 5312" transform="translate(17415.633 -644)"/>
+        <path id="prefix__Path_5305" d="M-16597.773 1400v277" class="prefix__cls-5" data-name="Path 5305" transform="translate(17186.633 -644)"/>
+        <path id="prefix__Path_5319" d="M-16597.773 1400v277" class="prefix__cls-5" data-name="Path 5319" transform="translate(17781.633 -644)"/>
+        <path id="prefix__Path_5197" d="M0 0v8.022" class="prefix__cls-5" data-name="Path 5197" transform="rotate(90 -272.631 639.785)"/>
+        <path id="prefix__Path_5333" d="M0 0v8.022" class="prefix__cls-5" data-name="Path 5333" transform="rotate(90 359.369 1271.785)"/>
+        <path id="prefix__Path_5324" d="M0 0v8.022" class="prefix__cls-5" data-name="Path 5324" transform="rotate(90 245.869 1158.285)"/>
+        <path id="prefix__Path_5313" d="M0 0v8.022" class="prefix__cls-5" data-name="Path 5313" transform="rotate(90 -43.631 868.785)"/>
+        <path id="prefix__Path_5306" d="M0 0v8.022" class="prefix__cls-5" data-name="Path 5306" transform="rotate(90 -158.131 754.285)"/>
+        <path id="prefix__Path_5320" d="M0 0v8.022" class="prefix__cls-5" data-name="Path 5320" transform="rotate(90 139.369 1051.785)"/>
+        <path id="prefix__Path_5200" d="M0 0v8.022" class="prefix__cls-5" data-name="Path 5200" transform="rotate(90 -332.442 699.596)"/>
+        <path id="prefix__Path_5334" d="M0 0v8.022" class="prefix__cls-5" data-name="Path 5334" transform="rotate(90 299.558 1331.596)"/>
+        <path id="prefix__Path_5325" d="M0 0v8.022" class="prefix__cls-5" data-name="Path 5325" transform="rotate(90 186.058 1218.096)"/>
+        <path id="prefix__Path_5309" d="M0 0v8.022" class="prefix__cls-5" data-name="Path 5309" transform="rotate(90 -103.442 928.596)"/>
+        <path id="prefix__Path_5302" d="M0 0v8.022" class="prefix__cls-5" data-name="Path 5302" transform="rotate(90 -217.942 814.096)"/>
+        <path id="prefix__Path_5318" d="M0 0v8.022" class="prefix__cls-5" data-name="Path 5318" transform="rotate(90 79.558 1111.596)"/>
+        <path id="prefix__Path_5201" d="M0 0v8.022" class="prefix__cls-5" data-name="Path 5201" transform="rotate(90 -396.252 763.406)"/>
+        <path id="prefix__Path_5335" d="M0 0v8.021" class="prefix__cls-5" data-name="Path 5335" transform="rotate(90 226.973 1404.18)"/>
+        <path id="prefix__Path_5338" d="M0 0v8.021" class="prefix__cls-5" data-name="Path 5338" transform="rotate(90 166.473 1464.68)"/>
+        <path id="prefix__Path_5310" d="M0 0v8.022" class="prefix__cls-5" data-name="Path 5310" transform="rotate(90 -167.252 992.406)"/>
+        <g id="prefix__Rectangle_14391-2" class="prefix__cls-1" data-name="Rectangle 14391">
+            <path d="M0 0H194V83H0z" class="prefix__cls-27" transform="translate(346 672)"/>
+            <path d="M0.5 0.5H193.5V82.5H0.5z" class="prefix__cls-28" transform="translate(346 672)"/>
+        </g>
+        <text id="prefix__FINANCE_ACCOUNTING_DIVISION" class="prefix__cls-2" data-name="FINANCE &amp; ACCOUNTING DIVISION" transform="translate(355 715)">
+            <tspan x="0" y="0">FINANCE &amp; ACCOUNTING DIVISION</tspan>
+        </text>
+        <text id="prefix__KHỐI_TÀI_CHÍNH_ĐẦU_TƯ" class="prefix__cls-4" data-name="KHỐI TÀI CHÍNH ĐẦU TƯ" transform="translate(363 683)">
+            <tspan x="0" y="13">KHỐI TÀI CHÍNH ĐẦU TƯ</tspan>
+        </text>
+        <text id="prefix__PHÓ_TỔNG_GIÁM_ĐỐC" class="prefix__cls-13" data-name="PHÓ TỔNG GIÁM ĐỐC" transform="translate(388 740)">
+            <tspan x="0" y="0">PHÓ TỔNG GIÁM ĐỐC</tspan>
+        </text>
+        <g id="prefix__Rectangle_14419" class="prefix__cls-14" data-name="Rectangle 14419">
+            <path d="M0 0H187V68H0z" class="prefix__cls-27" transform="translate(350 776)"/>
+            <path d="M0.5 0.5H186.5V67.5H0.5z" class="prefix__cls-28" transform="translate(350 776)"/>
+        </g>
+        <g id="prefix__Rectangle_14594" class="prefix__cls-14" data-name="Rectangle 14594">
+            <path d="M0 0H187V68H0z" class="prefix__cls-27" transform="translate(1614 776)"/>
+            <path d="M0.5 0.5H186.5V67.5H0.5z" class="prefix__cls-28" transform="translate(1614 776)"/>
+        </g>
+        <g id="prefix__Rectangle_14587" class="prefix__cls-14" data-name="Rectangle 14587">
+            <path d="M0 0H187V68H0z" class="prefix__cls-27" transform="translate(1387 776)"/>
+            <path d="M0.5 0.5H186.5V67.5H0.5z" class="prefix__cls-28" transform="translate(1387 776)"/>
+        </g>
+        <text id="prefix__FINANCE_ACCOUNTING_" class="prefix__cls-15" data-name="FINANCE &amp; ACCOUNTING" transform="translate(373 811)">
+            <tspan x="0" y="0">FINANCE &amp; ACCOUNTING</tspan>
+        </text>
+        <text id="prefix__OPERATION_LEGAL" class="prefix__cls-15" data-name="OPERATION LEGAL" transform="translate(1656 811)">
+            <tspan x="0" y="0">OPERATION LEGAL</tspan>
+        </text>
+        <text id="prefix__TECH__MANAGEMENT" class="prefix__cls-15" data-name="TECH. MANAGEMENT" transform="translate(1421 811)">
+            <tspan x="0" y="0">TECH. MANAGEMENT</tspan>
+        </text>
+        <text id="prefix__TÀI_CHÍNH_ĐẦU_TƯ" class="prefix__cls-9" data-name="TÀI CHÍNH ĐẦU TƯ" transform="translate(381 783)">
+            <tspan x="0" y="13">TÀI CHÍNH ĐẦU TƯ</tspan>
+        </text>
+        <text id="prefix__KHỐI_HOẠT_ĐỘNG_2" class="prefix__cls-9" data-name="KHỐI HOẠT ĐỘNG" transform="translate(1646 783)">
+            <tspan x="0" y="13">KHỐI HOẠT ĐỘNG</tspan>
+        </text>
+        <text id="prefix__QUẢN_LÝ_KỸ_THUẬT" class="prefix__cls-9" data-name="QUẢN LÝ KỸ THUẬT" transform="translate(1416 783)">
+            <tspan x="0" y="13">QUẢN LÝ KỸ THUẬT</tspan>
+        </text>
+        <text id="prefix__GIÁM_ĐỐC_KHỐI" class="prefix__cls-13" data-name="GIÁM ĐỐC KHỐI" transform="translate(403 836)">
+            <tspan x="0" y="0">GIÁM ĐỐC KHỐI</tspan>
+        </text>
+        <text id="prefix__GIÁM_ĐỐC_KHỐI-2" class="prefix__cls-13" data-name="GIÁM ĐỐC KHỐI" transform="translate(1667 836)">
+            <tspan x="0" y="0">GIÁM ĐỐC KHỐI</tspan>
+        </text>
+        <text id="prefix__GIÁM_ĐỐC_KHỐI-3" class="prefix__cls-13" data-name="GIÁM ĐỐC KHỐI" transform="translate(1440 836)">
+            <tspan x="0" y="0">GIÁM ĐỐC KHỐI</tspan>
+        </text>
+        <g id="prefix__Rectangle_14419-2" class="prefix__cls-16" data-name="Rectangle 14419">
+            <path d="M0 0H157V61H0z" class="prefix__cls-27" transform="translate(365 880)"/>
+            <path d="M0.5 0.5H156.5V60.5H0.5z" class="prefix__cls-28" transform="translate(365 880)"/>
+        </g>
+        <g id="prefix__Rectangle_14593" class="prefix__cls-16" data-name="Rectangle 14593">
+            <path d="M0 0H157V61H0z" class="prefix__cls-27" transform="translate(1629 1002)"/>
+            <path d="M0.5 0.5H156.5V60.5H0.5z" class="prefix__cls-28" transform="translate(1629 1002)"/>
+        </g>
+        <g id="prefix__Rectangle_14599" class="prefix__cls-16" data-name="Rectangle 14599">
+            <path d="M0 0H157V61H0z" class="prefix__cls-27" transform="translate(1629 883)"/>
+            <path d="M0.5 0.5H156.5V60.5H0.5z" class="prefix__cls-28" transform="translate(1629 883)"/>
+        </g>
+        <g id="prefix__Rectangle_14596" class="prefix__cls-16" data-name="Rectangle 14596">
+            <path d="M0 0H157V61H0z" class="prefix__cls-27" transform="translate(1629 1269)"/>
+            <path d="M0.5 0.5H156.5V60.5H0.5z" class="prefix__cls-28" transform="translate(1629 1269)"/>
+        </g>
+        <g id="prefix__Rectangle_14586" class="prefix__cls-16" data-name="Rectangle 14586">
+            <path d="M0 0H157V61H0z" class="prefix__cls-27" transform="translate(1402 880)"/>
+            <path d="M0.5 0.5H156.5V60.5H0.5z" class="prefix__cls-28" transform="translate(1402 880)"/>
+        </g>
+        <g id="prefix__Rectangle_14575" class="prefix__cls-16" data-name="Rectangle 14575">
+            <path d="M0 0H157V61H0z" class="prefix__cls-27" transform="translate(823 880)"/>
+            <path d="M0.5 0.5H156.5V60.5H0.5z" class="prefix__cls-28" transform="translate(823 880)"/>
+        </g>
+        <g id="prefix__Rectangle_14569" class="prefix__cls-16" data-name="Rectangle 14569">
+            <path d="M0 0H157V61H0z" class="prefix__cls-27" transform="translate(594 880)"/>
+            <path d="M0.5 0.5H156.5V60.5H0.5z" class="prefix__cls-28" transform="translate(594 880)"/>
+        </g>
+        <g id="prefix__Rectangle_14580" class="prefix__cls-16" data-name="Rectangle 14580">
+            <path d="M0 0H157V61H0z" class="prefix__cls-27" transform="translate(1189 880)"/>
+            <path d="M0.5 0.5H156.5V60.5H0.5z" class="prefix__cls-28" transform="translate(1189 880)"/>
+        </g>
+        <g id="prefix__Rectangle_14422" class="prefix__cls-16" data-name="Rectangle 14422">
+            <path d="M0 0H157V62H0z" class="prefix__cls-27" transform="translate(365 1002)"/>
+            <path d="M0.5 0.5H156.5V61.5H0.5z" class="prefix__cls-28" transform="translate(365 1002)"/>
+        </g>
+        <g id="prefix__Rectangle_14584" class="prefix__cls-16" data-name="Rectangle 14584">
+            <path d="M0 0H157V62H0z" class="prefix__cls-27" transform="translate(1403 1002)"/>
+            <path d="M0.5 0.5H156.5V61.5H0.5z" class="prefix__cls-28" transform="translate(1403 1002)"/>
+        </g>
+        <g id="prefix__Rectangle_14573" class="prefix__cls-16" data-name="Rectangle 14573">
+            <path d="M0 0H157V62H0z" class="prefix__cls-27" transform="translate(823 1002)"/>
+            <path d="M0.5 0.5H156.5V61.5H0.5z" class="prefix__cls-28" transform="translate(823 1002)"/>
+        </g>
+        <g id="prefix__Rectangle_14567" class="prefix__cls-16" data-name="Rectangle 14567">
+            <path d="M0 0H157V62H0z" class="prefix__cls-27" transform="translate(594 1002)"/>
+            <path d="M0.5 0.5H156.5V61.5H0.5z" class="prefix__cls-28" transform="translate(594 1002)"/>
+        </g>
+        <g id="prefix__Rectangle_14578" class="prefix__cls-16" data-name="Rectangle 14578">
+            <path d="M0 0H157V62H0z" class="prefix__cls-27" transform="translate(1189 1002)"/>
+            <path d="M0.5 0.5H156.5V61.5H0.5z" class="prefix__cls-28" transform="translate(1189 1002)"/>
+        </g>
+        <g id="prefix__Rectangle_14563" class="prefix__cls-16" data-name="Rectangle 14563">
+            <path d="M0 0H157V62H0z" class="prefix__cls-27" transform="translate(365 1125)"/>
+            <path d="M0.5 0.5H156.5V61.5H0.5z" class="prefix__cls-28" transform="translate(365 1125)"/>
+        </g>
+        <g id="prefix__Rectangle_14589" class="prefix__cls-16" data-name="Rectangle 14589">
+            <path d="M0 0H157V90H0z" class="prefix__cls-27" transform="translate(1629 1124)"/>
+            <path d="M0.5 0.5H156.5V89.5H0.5z" class="prefix__cls-28" transform="translate(1629 1124)"/>
+        </g>
+        <g id="prefix__Rectangle_14571" class="prefix__cls-16" data-name="Rectangle 14571">
+            <path d="M0 0H157V62H0z" class="prefix__cls-27" transform="translate(823 1125)"/>
+            <path d="M0.5 0.5H156.5V61.5H0.5z" class="prefix__cls-28" transform="translate(823 1125)"/>
+        </g>
+        <text id="prefix__INVESTMENT" class="prefix__cls-17" transform="translate(410 912)">
+            <tspan x="0" y="0">INVESTMENT</tspan>
+        </text>
+        <text id="prefix__HR_ADMIN_" class="prefix__cls-17" data-name="HR &amp; ADMIN" transform="translate(1674 1034)">
+            <tspan x="0" y="0">HR &amp; ADMIN</tspan>
+        </text>
+        <text id="prefix__CORPORATE_LEGAL" class="prefix__cls-17" data-name="CORPORATE LEGAL" transform="translate(1706 915)">
+            <tspan x="-49.186" y="0">CORPORATE LEGAL</tspan>
+        </text>
+        <text id="prefix__IT" class="prefix__cls-17" transform="translate(1703 1301)">
+            <tspan x="0" y="0">IT</tspan>
+        </text>
+        <text id="prefix__PROJECT_CONSTRUCTION_MGT" data-name="PROJECT CONSTRUCTION MGT" transform="translate(1409 912)" style="fill:#6d6d6d;font-size:10px;font-family:Roboto-Medium,Roboto;font-weight:500">
+            <tspan x="0" y="0">PROJECT CONSTRUCTION MGT</tspan>
+        </text>
+        <text id="prefix__PROJECT_MGT_PM1_" class="prefix__cls-17" data-name="PROJECT MGT(PM1)" transform="translate(850 912)">
+            <tspan x="0" y="0">PROJECT MGT(PM1)</tspan>
+        </text>
+        <text id="prefix__DESIGN_PLANING_MGT" class="prefix__cls-17" data-name="DESIGN &amp; PLANING MGT" transform="translate(611 912)">
+            <tspan x="0" y="0">DESIGN &amp; PLANING MGT</tspan>
+        </text>
+        <text id="prefix__PRE_CONTRACT" class="prefix__cls-17" data-name="PRE CONTRACT" transform="translate(1228 912)">
+            <tspan x="0" y="0">PRE CONTRACT</tspan>
+        </text>
+        <text id="prefix__FINANCE" class="prefix__cls-17" transform="translate(421 1036)">
+            <tspan x="0" y="0">FINANCE</tspan>
+        </text>
+        <text id="prefix__MEP_MANAGEMENT" class="prefix__cls-17" data-name="MEP MANAGEMENT" transform="translate(1430 1036)">
+            <tspan x="0" y="0">MEP MANAGEMENT</tspan>
+        </text>
+        <text id="prefix__PROJECT_MGT_PM2_" class="prefix__cls-17" data-name="PROJECT MGT(PM2)" transform="translate(850 1036)">
+            <tspan x="0" y="0">PROJECT MGT(PM2)</tspan>
+        </text>
+        <text id="prefix__ARCHITECTURE_MGT" class="prefix__cls-17" data-name="ARCHITECTURE MGT" transform="translate(626 1036)">
+            <tspan x="0" y="0">ARCHITECTURE MGT</tspan>
+        </text>
+        <text id="prefix__POST_CONTRACT" class="prefix__cls-17" data-name="POST CONTRACT" transform="translate(1224 1036)">
+            <tspan x="0" y="0">POST CONTRACT</tspan>
+        </text>
+        <text id="prefix__ACCOUNTING" class="prefix__cls-17" transform="translate(409 1159)">
+            <tspan x="0" y="0">ACCOUNTING</tspan>
+        </text>
+        <text id="prefix__PROCESS_SYSTEM_COMPLIANCE" class="prefix__cls-17" data-name="PROCESS &amp; SYSTEM &amp; COMPLIANCE" transform="translate(1641 1164)">
+            <tspan x="8.066" y="10">PROCESS &amp; SYSTEM &amp; </tspan><tspan x="29.94" y="23">COMPLIANCE</tspan>
+        </text>
+        <text id="prefix__PROJECT_MGT_PM3_" class="prefix__cls-17" data-name="PROJECT MGT(PM3)" transform="translate(850 1159)">
+            <tspan x="0" y="0">PROJECT MGT(PM3)</tspan>
+        </text>
+        <text id="prefix__ĐẦU_TƯ" class="prefix__cls-19" data-name="ĐẦU TƯ" transform="translate(419 887)">
+            <tspan x="0" y="12">ĐẦU TƯ</tspan>
+        </text>
+        <text id="prefix__NHÂN_SỰ_HÀNH_CHÍNH" class="prefix__cls-19" data-name="NHÂN SỰ &amp; HÀNH CHÍNH" transform="translate(1631 1009)">
+            <tspan x="0" y="12">NHÂN SỰ &amp; HÀNH CHÍNH</tspan>
+        </text>
+        <text id="prefix__PHÁP_CHẾ_DN" class="prefix__cls-19" data-name="PHÁP CHẾ DN" transform="translate(1631 890)">
+            <tspan x="35.555" y="12">PHÁP CHẾ DN</tspan>
+        </text>
+        <text id="prefix__CÔNG_NGHỆ_THÔNG_TIN" class="prefix__cls-19" data-name="CÔNG NGHỆ THÔNG TIN" transform="translate(1637 1277)">
+            <tspan x="0" y="12">CÔNG NGHỆ THÔNG TIN</tspan>
+        </text>
+        <text id="prefix__Q_LÝ_DỰ_ÁN_XÂY_DỰNG" class="prefix__cls-19" data-name="Q.LÝ DỰ ÁN XÂY DỰNG" transform="translate(1412 887)">
+            <tspan x="0" y="12">Q.LÝ DỰ ÁN XÂY DỰNG</tspan>
+        </text>
+        <text id="prefix__QUẢN_LÝ_DỰ_ÁN_1" class="prefix__cls-19" data-name="QUẢN LÝ DỰ ÁN 1" transform="translate(848 887)">
+            <tspan x="0" y="12">QUẢN LÝ DỰ ÁN 1</tspan>
+        </text>
+        <text id="prefix__Q_LÝ_THIẾT_KẾ_QUY_HOẠCH_" class="prefix__cls-20" data-name="Q.LÝ THIẾT KẾ QUY HOẠCH" transform="translate(598 885)">
+            <tspan x="0" y="11">Q.LÝ THIẾT KẾ QUY HOẠCH</tspan>
+        </text>
+        <text id="prefix__TRƯỚC_HỢP_ĐỒNG_" class="prefix__cls-20" data-name="TRƯỚC HỢP ĐỒNG" transform="translate(1215 885)">
+            <tspan x="0" y="11">TRƯỚC HỢP ĐỒNG</tspan>
+        </text>
+        <text id="prefix__TÀI_CHÍNH" class="prefix__cls-19" data-name="TÀI CHÍNH" transform="translate(410 1010)">
+            <tspan x="0" y="12">TÀI CHÍNH</tspan>
+        </text>
+        <text id="prefix__QUẢN_LÝ_MEP" class="prefix__cls-19" data-name="QUẢN LÝ MEP" transform="translate(1439 1010)">
+            <tspan x="0" y="12">QUẢN LÝ MEP</tspan>
+        </text>
+        <text id="prefix__QUẢN_LÝ_DỰ_ÁN_2" class="prefix__cls-19" data-name="QUẢN LÝ DỰ ÁN 2" transform="translate(848 1010)">
+            <tspan x="0" y="12">QUẢN LÝ DỰ ÁN 2</tspan>
+        </text>
+        <text id="prefix__QUẢN_LÝ_KIẾN_TRÚC" class="prefix__cls-19" data-name="QUẢN LÝ KIẾN TRÚC" transform="translate(619 1010)">
+            <tspan x="0" y="12">QUẢN LÝ KIẾN TRÚC</tspan>
+        </text>
+        <text id="prefix__SAU_HỢP_ĐỒNG_" class="prefix__cls-19" data-name="SAU HỢP ĐỒNG" transform="translate(1219 1010)">
+            <tspan x="0" y="12">SAU HỢP ĐỒNG</tspan>
+        </text>
+        <text id="prefix__KẾ_TOÁN" class="prefix__cls-19" data-name="KẾ TOÁN" transform="translate(416 1133)">
+            <tspan x="0" y="12">KẾ TOÁN</tspan>
+        </text>
+        <text id="prefix__QUY_TRÌNH_HỆ_THỐNG_TUÂN_THỦ" class="prefix__cls-19" data-name="QUY TRÌNH &amp; HỆ THỐNG &amp; TUÂN THỦ" transform="translate(1641 1132)">
+            <tspan x="17.133" y="12">QUY TRÌNH &amp; HỆ </tspan><tspan x="5.427" y="28">THỐNG &amp; TUÂN THỦ</tspan>
+        </text>
+        <text id="prefix__QUẢN_LÝ_DỰ_ÁN_3" class="prefix__cls-19" data-name="QUẢN LÝ DỰ ÁN 3" transform="translate(846 1133)">
+            <tspan x="0" y="12">QUẢN LÝ DỰ ÁN 3</tspan>
+        </text>
+        <text id="prefix__TRƯỞNG_PHÒNG_" class="prefix__cls-21" data-name="TRƯỞNG PHÒNG" transform="translate(404 932)">
+            <tspan x="0" y="0">TRƯỞNG PHÒNG</tspan>
+        </text>
+        <text id="prefix__TRƯỞNG_PHÒNG_2" class="prefix__cls-21" data-name="TRƯỞNG PHÒNG" transform="translate(1668 1054)">
+            <tspan x="0" y="0">TRƯỞNG PHÒNG</tspan>
+        </text>
+        <text id="prefix__TRƯỞNG_PHÒNG_3" class="prefix__cls-21" data-name="TRƯỞNG PHÒNG" transform="translate(1668 935)">
+            <tspan x="0" y="0">TRƯỞNG PHÒNG</tspan>
+        </text>
+        <text id="prefix__TRƯỞNG_PHÒNG_4" class="prefix__cls-21" data-name="TRƯỞNG PHÒNG" transform="translate(1668 1321)">
+            <tspan x="0" y="0">TRƯỞNG PHÒNG</tspan>
+        </text>
+        <text id="prefix__TRƯỞNG_PHÒNG_5" class="prefix__cls-21" data-name="TRƯỞNG PHÒNG" transform="translate(1441 932)">
+            <tspan x="0" y="0">TRƯỞNG PHÒNG</tspan>
+        </text>
+        <text id="prefix__TRƯỞNG_PHÒNG_6" class="prefix__cls-21" data-name="TRƯỞNG PHÒNG" transform="translate(862 932)">
+            <tspan x="0" y="0">TRƯỞNG PHÒNG</tspan>
+        </text>
+        <path id="prefix__Path_5315" d="M-16597.773 1400v283.976" class="prefix__cls-5" data-name="Path 5315" transform="translate(17688.273 -771.56)"/>
+        <g id="prefix__Rectangle_14576" class="prefix__cls-16" data-name="Rectangle 14576">
+            <path d="M0 0H157V61H0z" class="prefix__cls-27" transform="translate(1012 880)"/>
+            <path d="M0.5 0.5H156.5V60.5H0.5z" class="prefix__cls-28" transform="translate(1012 880)"/>
+        </g>
+        <text id="prefix__PROJECT_LEGAL" class="prefix__cls-17" data-name="PROJECT LEGAL" transform="translate(1049 912)">
+            <tspan x="0" y="0">PROJECT LEGAL</tspan>
+        </text>
+        <text id="prefix__PHÁP_LÝ_DỰ_ÁN" class="prefix__cls-19" data-name="PHÁP LÝ DỰ ÁN" transform="translate(1043 887)">
+            <tspan x="0" y="12">PHÁP LÝ DỰ ÁN</tspan>
+        </text>
+        <text id="prefix__TRƯỞNG_PHÒNG_7" class="prefix__cls-21" data-name="TRƯỞNG PHÒNG" transform="translate(1051 932)">
+            <tspan x="0" y="0">TRƯỞNG PHÒNG</tspan>
+        </text>
+        <text id="prefix__TRƯỞNG_PHÒNG_8" class="prefix__cls-21" data-name="TRƯỞNG PHÒNG" transform="translate(633 932)">
+            <tspan x="0" y="0">TRƯỞNG PHÒNG</tspan>
+        </text>
+        <text id="prefix__TRƯỞNG_PHÒNG_9" class="prefix__cls-21" data-name="TRƯỞNG PHÒNG" transform="translate(1228 932)">
+            <tspan x="0" y="0">TRƯỞNG PHÒNG</tspan>
+        </text>
+        <text id="prefix__TRƯỞNG_PHÒNG_10" class="prefix__cls-21" data-name="TRƯỞNG PHÒNG" transform="translate(404 1053)">
+            <tspan x="0" y="0">TRƯỞNG PHÒNG</tspan>
+        </text>
+        <text id="prefix__TRƯỞNG_PHÒNG_11" class="prefix__cls-21" data-name="TRƯỞNG PHÒNG" transform="translate(1442 1053)">
+            <tspan x="0" y="0">TRƯỞNG PHÒNG</tspan>
+        </text>
+        <text id="prefix__TRƯỞNG_PHÒNG_12" class="prefix__cls-21" data-name="TRƯỞNG PHÒNG" transform="translate(862 1053)">
+            <tspan x="0" y="0">TRƯỞNG PHÒNG</tspan>
+        </text>
+        <text id="prefix__TRƯỞNG_PHÒNG_13" class="prefix__cls-21" data-name="TRƯỞNG PHÒNG" transform="translate(633 1053)">
+            <tspan x="0" y="0">TRƯỞNG PHÒNG</tspan>
+        </text>
+        <text id="prefix__TRƯỞNG_PHÒNG_14" class="prefix__cls-21" data-name="TRƯỞNG PHÒNG" transform="translate(1228 1053)">
+            <tspan x="0" y="0">TRƯỞNG PHÒNG</tspan>
+        </text>
+        <text id="prefix__TRƯỞNG_PHÒNG_15" class="prefix__cls-21" data-name="TRƯỞNG PHÒNG" transform="translate(404 1176)">
+            <tspan x="0" y="0">TRƯỞNG PHÒNG</tspan>
+        </text>
+        <text id="prefix__TRƯỞNG_PHÒNG_16" class="prefix__cls-21" data-name="TRƯỞNG PHÒNG" transform="translate(1668 1207)">
+            <tspan x="0" y="0">TRƯỞNG PHÒNG</tspan>
+        </text>
+        <text id="prefix__TRƯỞNG_PHÒNG_17" class="prefix__cls-21" data-name="TRƯỞNG PHÒNG" transform="translate(862 1176)">
+            <tspan x="0" y="0">TRƯỞNG PHÒNG</tspan>
+        </text>
+        <text id="prefix__PHÓ_TỔNG_GIÁM_ĐỐC-2" class="prefix__cls-13" data-name="PHÓ TỔNG GIÁM ĐỐC" transform="translate(605 742)">
+            <tspan x="0" y="0">PHÓ TỔNG GIÁM ĐỐC</tspan>
+        </text>
+        <text id="prefix__PHÓ_TỔNG_GIÁM_ĐỐC-3" class="prefix__cls-13" data-name="PHÓ TỔNG GIÁM ĐỐC" transform="translate(848 742)">
+            <tspan x="0" y="0">PHÓ TỔNG GIÁM ĐỐC</tspan>
+        </text>
+        <text id="prefix__PHÓ_TỔNG_GIÁM_ĐỐC-4" class="prefix__cls-13" data-name="PHÓ TỔNG GIÁM ĐỐC" transform="translate(1207 742)">
+            <tspan x="0" y="0">PHÓ TỔNG GIÁM ĐỐC</tspan>
+        </text>
+        <text id="prefix__PHÓ_TỔNG_GIÁM_ĐỐC-5" class="prefix__cls-13" data-name="PHÓ TỔNG GIÁM ĐỐC" transform="translate(1424 742)">
+            <tspan x="0" y="0">PHÓ TỔNG GIÁM ĐỐC</tspan>
+        </text>
+        <text id="prefix__PHÓ_TỔNG_GIÁM_ĐỐC-6" class="prefix__cls-13" data-name="PHÓ TỔNG GIÁM ĐỐC" transform="translate(1654 742)">
+            <tspan x="0" y="0">PHÓ TỔNG GIÁM ĐỐC</tspan>
+        </text>
+        <text id="prefix__CEO_CHAIRMAN" data-name="CEO / CHAIRMAN" transform="translate(995 401)" style="font-size:16px;fill:#3b3b3b;font-family:Roboto-Medium,Roboto;font-weight:500">
+            <tspan x="0" y="0">CEO / CHAIRMAN</tspan>
+        </text>
+        <text id="prefix__CHỦ_TỊCH_TỔNG_GIÁM_ĐỐC" data-name="CHỦ TỊCH / TỔNG GIÁM ĐỐC" transform="translate(937 363)" style="font-size:18px;fill:#e94c4c;font-family:Roboto-Medium,Roboto;font-weight:500">
+            <tspan x="0" y="17">CHỦ TỊCH / TỔNG GIÁM ĐỐC</tspan>
+        </text>
+        <g id="prefix__Rectangle_14597" data-name="Rectangle 14597" style="fill:#dbefff;stroke:#0068b9">
+            <path d="M0 0H1519V66H0z" class="prefix__cls-27" transform="translate(317 564)"/>
+            <path d="M0.5 0.5H1518.5V65.5H0.5z" class="prefix__cls-28" transform="translate(317 564)"/>
+        </g>
+        <text id="prefix__BOARD_OF_MANAGEMENT_BOM_" data-name="BOARD OF MANAGEMENT (BOM)" transform="translate(942 613)" style="fill:#3b3b3b;font-size:14px;font-family:Roboto-Medium,Roboto;font-weight:500">
+            <tspan x="0" y="0">BOARD OF MANAGEMENT (BOM)</tspan>
+        </text>
+        <text id="prefix__BAN_ĐIỀU_HÀNH_" data-name="BAN ĐIỀU HÀNH" transform="translate(981 576)" style="fill:#0068b9;font-size:18px;font-family:Roboto-Medium,Roboto;font-weight:500">
+            <tspan x="0" y="17">BAN ĐIỀU HÀNH</tspan>
+        </text>
+    </g>
+</svg>

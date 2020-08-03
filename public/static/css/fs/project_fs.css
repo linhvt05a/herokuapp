@@ -1,0 +1,322 @@
+.excel {
+  height: 20px;
+  margin-top: -6px;
+}
+
+.cl-full-width {
+  width:100%;
+  height:100%;
+}
+
+text > tspan {
+  font-family: Lato;            
+}
+
+.m_financial-indicators .percent .table th {
+  background-color: #7e57c2;
+  color: #fcfcfc;
+  font-size: 14px;
+  border-bottom: 0;
+  text-align: left;
+}
+
+.m_financial-indicators .percent .title {
+  font-size: 16px;
+  color: #000;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.m_financial-indicators .percent .date {
+  color: #6d6d6d;
+  font-size: 12px;
+  display: block;
+  font-weight: 300;
+}
+
+.m_financial-indicators .percent .color_blue {
+  color: #219dfd !important;
+  font-weight: 500;
+}
+
+.m_financial-indicators .percent .color_red {
+  color: #e94c4c !important;
+  font-weight: 500;
+}
+
+
+
+
+.m_shareholder-structure {}
+
+.m_shareholder-structure .title {
+  color: #6d6d6d;
+  font-size: 16px;
+  text-align: center;
+  font-weight: normal;
+}
+
+.m_shareholder-structure .title .number {
+  display: block;
+  font-size: 28px;
+  color: #000;
+}
+
+.m_shareholder-structure .m_progress {
+  margin-top: 45px;
+  background-color: transparent;
+  height: 22px;
+  display: flex;
+}
+
+.m_shareholder-structure .m_progress-bar:first-child {
+  border-radius: 38px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.m_shareholder-structure .m_progress-bar:last-child {
+  border-radius: 38px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.m_shareholder-structure .m_progress-bar {
+  height: 22px;
+  position: relative;
+  cursor: pointer;
+}
+
+.m_shareholder-structure .m_progress-number {
+  position: absolute;
+  padding: 5px 12px;
+  box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.16);
+  border: solid 1px #27bedf;
+  background-color: #ffffff;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 14px;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  color: #000;
+  z-index: 1;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+}
+
+.m_shareholder-structure .m_progress-number::before {
+  position: absolute;
+  content: '';
+  border: 7px solid #27bedf;
+  border-right: 5px solid transparent;
+  border-left: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+}
+
+.m_shareholder-structure .m_progress-bar:hover .m_progress-number {
+  opacity: 1;
+}
+
+
+
+
+
+
+
+
+
+/* ////////////////////////////////////////////////////// */
+
+.m_shareholder-structure {}
+
+.m_shareholder-structure .title {
+    color: #6d6d6d;
+    font-size: 16px;
+    text-align: center;
+    font-weight: normal;
+}
+
+.m_shareholder-structure .title .number {
+    display: block;
+    font-size: 28px;
+    color: #000;
+}
+
+.m_shareholder-structure .m_progress {
+    margin-top: 45px;
+    background-color: transparent;
+    height: 22px;
+    display: flex;
+}
+
+.m_shareholder-structure .m_progress-bar:first-child {
+    border-radius: 38px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.m_shareholder-structure .m_progress-bar:last-child {
+    border-radius: 38px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.m_shareholder-structure .m_progress-bar {
+    height: 22px;
+    position: relative;
+    cursor: pointer;
+}
+
+.m_shareholder-structure .m_progress-number {
+    position: absolute;
+    padding: 5px 12px;
+    box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.16);
+    border: solid 1px #27bedf;
+    background-color: #ffffff;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 14px;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    color: #000;
+    z-index: 1;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+}
+
+.m_shareholder-structure .m_progress-number::before {
+    position: absolute;
+    content: '';
+    border: 7px solid #27bedf;
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+}
+
+
+
+
+.m_shareholder-structure .m_progress-bar:hover .m_progress-number {
+  opacity: 1;
+}
+
+.uni_bg_1 {
+  background-color: #367be3;
+}
+
+.uni_bg_2 {
+  background-color: #f7b84b;
+}
+
+.uni_bg_3 {
+  background-color: #fd7e14;
+}
+
+.uni_bg_4 {
+  background-color: #7e57c2;
+}
+
+.uni_bg_5 {
+  background-color: #1abc9c;
+}
+
+.m_shareholder-structure .table {
+  max-height: 133px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin-top: 40px;
+  padding-right: 10px; 
+}
+
+.m_shareholder-structure .table::-webkit-scrollbar {
+  width: 7px;
+}
+
+.m_shareholder-structure .table::-webkit-scrollbar-thumb {
+  background-color: #dbdbdb;
+  outline: 1px solid #dbdbdb;
+  border-radius: 5px;
+}
+
+.m_shareholder-structure .table .name {
+  color: #424242;
+  font-weight: 500;
+}
+
+.m_shareholder-structure .table .money {
+  color: #000;
+  font-weight: 400;
+}
+
+.m_shareholder-structure .table table {
+  width: 100%;
+  margin-left: 20px;
+}
+
+.m_shareholder-structure .table table td {
+  border-top: none;
+  border-bottom: 1px solid #ddd;
+  position: relative;
+  padding: 0.7rem 0;
+}
+
+.m_shareholder-structure .table .circle {
+  width: 11px;
+  height: 11px;
+  display: inline-block;
+  border-radius: 50%;
+  background-color: #ffffff;
+  position: absolute;
+  left: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+}
+
+.m_shareholder-structure .table .circle.uni_bg_1 {
+  border: solid 1.8px #367be3;
+}
+
+.m_shareholder-structure .table .circle.uni_bg_2 {
+  border: solid 1.8px #f7b84b;
+}
+
+.m_shareholder-structure .table .circle.uni_bg_3 {
+  border: solid 1.8px #fd7e14;
+}
+
+.m_shareholder-structure .table .circle.uni_bg_4 {
+  border: solid 1.8px #7e57c2;
+}
+
+.m_shareholder-structure .table .circle.uni_bg_5 {
+  border: solid 1.8px #1abc9c;
+}

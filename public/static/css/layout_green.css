@@ -1,0 +1,99 @@
+.main-wrapper.mini-sidebar .left-sidebar:hover{
+    background: #4dbea4;
+}
+.header__bg.purple{
+    background-image: url(../../static/img/green_2.png);
+}
+.m_button::before {
+    background-image: linear-gradient(135deg, #38b6ac 17%, #7bce92 114%);
+}
+.m_button::after {
+    background-color: rgba(56, 182, 172, 0.1);
+}
+.m_button {
+    color: #0c6827;
+}
+.m_button span::before {
+    background-color: #38b6ac;
+}
+.m_select--label{
+    background-color: #38b6ac;
+    border: 1px solid #38b6ac;
+}
+.m_search {
+    background-color: #399b54;
+}
+.m_table .text-detail a {
+    color: #399b54;
+}
+.m_filter--show li.active i {
+    color: #399b54;
+}
+.page-breadcrumb .breadcrumb a{
+    color: #38b6ac;
+}
+.left-sidebar .sidebar-nav ul .sidebar-link:hover {
+    color: #38b6ac;
+}
+.left-sidebar .sidebar-nav ul .sidebar-link:hover svg {
+    color: #38b6ac;
+}
+.m_legal-project .item .steps li.done:not(:last-child)::after{
+    background-color: #38b6ac;
+    border-left: 1px solid #38b6ac;
+}
+.m_legal-project .item .steps li.done::before{
+    background-color: #38b6ac;
+    border: solid 1px #38b6ac;
+}
+.m_design-schedule .steps li.done:not(:last-child)::after{
+    background-color: #38b6ac;
+    border-left: 1px solid #38b6ac;
+}
+.m_design-schedule .steps li.done::before{
+    background-color: #38b6ac;
+    border: solid 1px #38b6ac;
+}
+.m_btn_dropdown .dropdown-toggle {
+    background-color: #38b6ac;
+    border: 1px solid #38b6ac;
+}
+.m_btn_dropdown .dropdown-toggle:hover{
+    color: #38b6ac;
+    border-color: #38b6ac;
+}
+.m_financial-indicators .percent .table th {
+    background-color: #38b6ac;
+}
+
+.chat-system .user-list-box .people .person .user-info .f-body .number {
+    border: solid 1px #38b6ac;
+    background-color: #38b6ac;
+}
+.chat-system .user-list-box .people .person .user-info .f-body .meta-info .icon-read {
+    font-size: 14px;
+    color: #38b6ac;
+    padding-left: 5px;
+}
+.chat-system .chat-box .chat-uploads li.btn_send {
+    border: solid 1px #38b6ac;
+    background-color: #38b6ac;
+}
+.chat-system .chat-info .block_05 .readmore {
+    color: #38b6ac;
+}
+.chat-system .chat-info .block_02 .item::before {
+    background-color: #38b6ac;
+}
+.chat-system .chat-box .chat-box-inner .chat-meta-user .icon.active {
+    color: #38b6ac;
+}
+.chat-system .user-list-box .tabs-action li i:hover, .chat-system .user-list-box .tabs-action .nav-link.active i {
+    color: #38b6ac;
+}
+.page-404 header{
+    background-image: url(../../static/img/404_bg_green.png);
+}
+.page-404 .content .btn-goback{
+    background-color: #38b6ac;
+}

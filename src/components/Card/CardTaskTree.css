@@ -1,0 +1,125 @@
+.m_list_task .heading {
+    margin-bottom: 5px;
+}
+.m_list_task tbody tr:hover {
+    cursor: pointer;
+}
+.m_list_task .heading .arrow{
+    font-size: 16px;
+    color: #6d6d6d;
+    padding-right: 15px;
+}
+.m_list_task .user{
+    display: flex;
+    align-items: center;
+}
+
+.heading:hover{
+    color: #000000;
+}
+
+.m_list_task .user .avatar{
+    width: 17px;
+    height: 17px;
+    font-size: 11px;
+    background-color: #f29f05;
+    border-radius: 50%;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    position: relative;
+    top: 2px;
+    justify-content: center;
+}
+
+.m_list_task .status{
+    color: #0068b9;
+}
+.m_list_task .status .date{
+    color: #333333;
+    font-size: 13px;
+    padding-top:5px;
+    display: block;
+}
+
+.m_list_task .documents .version{
+    display: block;
+}
+
+.m_list_task .documents .image{
+    max-width: 19px;
+}
+
+.m_list_task .documents .image img{
+    width: 100%;
+}
+
+.m_list_task .collapse.show .arrow{
+    transform: rotateY(360deg);
+    -moz-transform: rotateY(360deg);
+    -o-transform: rotateY(360deg);
+    -webkit-transform: rotateY(360deg);
+}
+
+.m_list_task tbody tr .arrow {
+    padding-right: 10px;
+    font-size: 20px;
+    font-weight: 500;
+    color: #6d6d6d;
+    display: inline-block;
+}
+
+.m_list_task tbody tr p {
+    margin: 0;
+}
+
+#tree-table .distance {
+    width: 0px;
+    height: 16px;
+    display: inline-block;
+
+}
+#tree-table .user, #tree-table ._quick_assign, #tree-table .status_date{
+    display: flex;
+}
+
+#tree-table .fa-plus:before{
+    position:relative;
+    top:5px;
+}
+
+#tree-table .status_type_2 _quick_set_status{
+        display: flex;
+}
+
+#tree-table .user .name, #tree-table .documents .version{
+    color: #0068b9;
+    font-size: 13px;
+    font-style:italic;
+    padding-top:5px;
+    text-decoration:underline;
+}
+
+.content_assigner_select .fa-plus{
+     font-size:13px;
+     color: #0068b9;
+     position: relative;
+     top: -3px;
+     padding-left: 5px;
+}
+
+.content_assigner_select .assigner_quick{
+    text-decoration:underline;
+}
+
+.m_list_task .level-1 td:nth-child(2){
+    padding-left: 40px !important;
+}
+
+.m_list_task .level-2 td:nth-child(2){
+    padding-left: 30px !important;
+}
+
+.m_list_task .level-3 td:nth-child(2){
+    padding-left: 60px !important;
+}

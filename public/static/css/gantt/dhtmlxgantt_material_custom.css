@@ -1,0 +1,63 @@
+.gantt_grid_scale, .gantt_scale_line {
+    background-color: #71002d;
+}
+
+.gantt_grid .gantt_grid_scale .gantt_grid_head_cell, .gantt_task .gantt_task_scale .gantt_scale_cell {
+    color: white;
+}
+
+.gantt_marker .gantt_marker_content {
+    background: #ffffff;
+}
+
+.high{
+    border-color: #d96c49 !important;
+    color: #d96c49 !important;
+    background-color: #d96c49 !important;
+}
+.high .gantt_task_progress{
+    background-color: #db2536 !important;
+}
+.medium{
+    border-color: #6ba8e3 !important;
+    color:#6ba8e3 !important;
+    background-color: #6ba8e3 !important;
+}
+.medium .gantt_task_progress{
+    background-color: #547dab !important;
+}
+.low{
+    border-color: #34c461 !important;
+    color:#34c461 !important;
+    background-color: #34c461 !important;
+}
+.low .gantt_task_progress{
+    background-color: #23964d !important;
+}
+
+.gantt_task_progress {
+    text-align: left !important;
+    font-size: 12px;
+    padding-left: 4px;
+    color: white;
+}
+
+.marker {
+    position:absolute;
+    color: black;
+    border-left: 2px solid black;
+    padding-left: 2px;
+    margin-left: -2px; /*compensate task borders*/
+}
+.marker.top {
+    top:0px;
+    height: 10px;
+    font-size: 10px;
+    line-height: 11px;
+}
+.marker.bottom {
+    bottom:0px;
+    height: 8px;
+    font-size: 8px;
+    line-height: 9px;
+}

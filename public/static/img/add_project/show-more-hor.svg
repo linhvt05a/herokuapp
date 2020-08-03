@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="25" height="6" viewBox="0 0 25 6">
+    <defs>
+        <style>
+            .cls-1{fill:none}.cls-2{clip-path:url(#clip-path)}.cls-3{fill:#333}
+        </style>
+        <clipPath id="clip-path">
+            <path d="M0 0h25v6H0z" class="cls-1"/>
+        </clipPath>
+    </defs>
+    <g id="Repeat_Grid_15" class="cls-2" data-name="Repeat Grid 15">
+        <g transform="translate(15074 -21992)">
+            <path id="Path_1308" d="M2.5 0A2.5 2.5 0 1 1 0 2.5 2.5 2.5 0 0 1 2.5 0z" class="cls-3" data-name="Path 1308" transform="translate(-15073.214 21992.785)"/>
+        </g>
+        <g transform="translate(15083 -21992)">
+            <path id="Path_1308-2" d="M2.5 0A2.5 2.5 0 1 1 0 2.5 2.5 2.5 0 0 1 2.5 0z" class="cls-3" data-name="Path 1308" transform="translate(-15073.214 21992.785)"/>
+        </g>
+        <g transform="translate(15092 -21992)">
+            <path id="Path_1308-3" d="M2.5 0A2.5 2.5 0 1 1 0 2.5 2.5 2.5 0 0 1 2.5 0z" class="cls-3" data-name="Path 1308" transform="translate(-15073.214 21992.785)"/>
+        </g>
+    </g>
+</svg>

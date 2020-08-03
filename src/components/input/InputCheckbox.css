@@ -1,0 +1,11 @@
+.custom-checkbox .custom-control-label::before {
+    border-radius: 0 !important;
+}
+
+.custom-control-label::before, .custom-control-label::after {
+    transform: translate(0%, -10%);
+}
+
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::after {
+    background-color: #6d30ab !important;
+}

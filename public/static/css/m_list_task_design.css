@@ -1,0 +1,126 @@
+.m_list_task .heading {
+    margin-bottom: 5px;
+}
+.m_list_task tbody tr:hover {
+    cursor: pointer;
+}
+.m_list_task .heading .arrow{
+    font-size: 16px;
+    color: #6d6d6d;
+    padding-right: 15px;
+}
+.m_list_task .user{
+    display: flex;
+    align-items: center;
+}
+
+.heading:hover{
+    color: #000000;
+}
+
+.m_list_task .user .avatar{
+    width: 18px;
+    height: 18px;
+    font-size: 12px;
+    background-color: #f29f05;
+    border-radius: 50%;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.m_list_task .user .name{
+    color: #0068b9;
+    padding-left: 10px;
+    font-size: 12px;
+}
+.m_list_task .user i{
+    font-style: normal;
+}
+.m_list_task .status{
+    color: #0068b9;
+}
+.m_list_task .status .date{
+    color: #333333;
+    font-size: 10px;
+    display: block;
+}
+.m_list_task .updater .date{
+    color: #333333;
+    font-size: 10px;
+    display: block;
+}
+.m_list_task .documents{
+    display: flex;
+    align-items: fl;
+}
+.m_list_task .documents .name{
+    display: flex;
+    padding-left: 10px;
+    flex-direction: column;
+}
+.m_list_task .documents .version{
+    display: inline-block;
+    color: #333333;
+    text-decoration: underline;
+}
+.m_list_task .documents .image{
+    max-width: 19px;
+}
+.m_list_task .documents .image img{
+    width: 100%;
+}
+.m_list_task .collapse.show .arrow{
+    transform: rotateY(360deg);
+    -moz-transform: rotateY(360deg);
+    -o-transform: rotateY(360deg);
+    -webkit-transform: rotateY(360deg);
+}
+.m_list_task tbody td:first-child {
+    width: 50px;
+}
+
+/* ///////  */
+.m_list_task tbody tr.child td:nth-child(2) {
+    padding-left: 40px;
+}
+
+.m_list_task tbody tr .arrow {
+    padding-right: 10px;
+    font-size: 20px;
+    font-weight: 500;
+    color: #6d6d6d;
+    display: inline-block;
+}
+
+.m_list_task tbody tr p {
+    margin: 0;
+}
+
+.m_list_task tbody tr.lv1 td:nth-child(2),.m_list_task tbody tr.lv1.noChild td:nth-child(2){
+    padding-left: 40px;
+}
+
+.m_list_task tbody tr.lv1 .arrow,.m_list_task tbody tr.parent .arrow{
+    display: inline-block;
+}
+
+.m_list_task tbody tr.lv2 td:nth-child(2){
+    padding-left: 80px;
+}
+
+.m_list_task .level-end .arrow{
+    display: none;
+}
+
+.m_list_task .level-1 td:nth-child(2){
+     padding-left: 40px !important;
+}
+
+.m_list_task .level-2 td:nth-child(2){
+     padding-left: 30px !important;
+}
+
+.m_list_task .level-3 td:nth-child(2){
+     padding-left: 60px !important;
+}

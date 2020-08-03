@@ -1,0 +1,195 @@
+
+/*********** BUTTON CSS : BEGIN ***************/
+.m_heading {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap; 
+  float: right;
+}
+
+.m_button {
+  text-transform: uppercase;
+  font-size: 15px;
+  font-weight: 400;
+  color: #6d30ab;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+  border: none;
+  border-bottom: solid 1.5px #6d30ab;
+  background-color: #fff;
+  font-weight: 500;
+  cursor: pointer; }
+.m_button span {
+    position: relative;
+    display: block;
+    padding: 10px 20px; }
+ .m_button span::before {
+      position: absolute;
+      content: '';
+      height: 1.5px;
+      width: 100%;
+      bottom: 0;
+      left: 0;
+      background-color: #6d30ab; }
+  .m_button::before, .m_button::after {
+    position: absolute;
+    content: '';
+    border-radius: 50%;
+    transition: all 0.2s; }
+  .m_button::before {
+    width: 35px;
+    height: 35px;
+    left: -18px;
+    top: -23px;
+    background-color: rgba(94, 53, 185, 0.65); }
+  .m_button::after {
+    height: 50px;
+    width: 50px;
+    left: -25px;
+    top: -32px;
+    background-color: rgba(109, 48, 171, 0.1); }
+
+.m_select {
+  position: relative; }
+  .m_select--label {
+    padding: 10px 20px !important;
+    margin: 0;
+    text-transform: uppercase;
+    background-color: #6233b4;
+    border: 1px solid #6233b4;
+    font-family: "Roboto", sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    color: #fff;
+    position: relative;
+    cursor: pointer; }
+    .m_select--label .text {
+      padding-right: 50px; }
+    .m_select--label::before {
+      position: absolute;
+      content: ''; }
+  .m_select--list {
+    box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.1);
+    margin: 0;
+    list-style: none;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    max-height: 300px;
+    overflow-y: auto; }
+    .m_select--list li {
+      padding: 5px 0;
+      cursor: pointer; }
+
+.m_search {
+  background-color: #426fe9;
+  display: flex;
+  align-items: center;
+  padding: 5px 12px 5px 25px; }
+  .m_search--label {
+    color: #fff;
+    font-size: 15px;
+    line-height: 1.31;
+    font-weight: 400;
+    margin: 0;
+    padding-right: 13px; }
+  .m_search--input {
+    background-color: #fff;
+    min-width: 177px;
+    height: 30px;
+    border: none;
+    padding: 0 5px; }
+  .m_search--button {
+    padding-left: 12px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer; }
+    .m_search--button:focus {
+      outline: none; }
+    .m_search--button .fa {
+      color: #fff;
+      font-size: 19px;
+      margin-bottom: 5px; }
+
+.m_dropdown {
+  position: relative; }
+  .m_dropdown--list {
+    display: none;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    max-height: 300px;
+    overflow-y: auto; }
+    .m_dropdown--list.active {
+      display: block; }
+
+
+.page-breadcrumb {
+            padding: 10px 0px 20px 0;
+        }
+        .page-breadcrumb .page-title{
+            margin: 0;
+        }
+        .page-breadcrumb .breadcrumb{
+            background: transparent;
+            justify-content: flex-end;
+            margin: 0;
+            padding: 0;
+        }
+        .page-breadcrumb .breadcrumb .fa{
+            padding: 0 10px;
+            font-size: 15px;
+        }
+        .page-breadcrumb .breadcrumb-item+.breadcrumb-item::before{
+            display: none;
+        }
+
+.square{
+  border-radius: 0 !important;
+}
+
+.m-action{
+  float: right;
+}
+
+.m-action .btn-uni-action{
+  border: 1px solid #367be3;
+  background-color: #FFFFFF;
+  color: #367be3;
+  padding: 8px 20px !important;
+  margin: 0;
+  text-transform: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.m-action .btn-uni-action:hover{
+  background-color: #367be3;
+  color: #FFFFFF;
+}
+
+.btn-uni-purple{
+  background-color: #6d30ab;
+  border: 1px solid #6d30ab;
+  padding: 9px 25px !important;
+  border-radius: 0 !important;
+  font-size: 14px;
+}
+
+.btn-uni-blue{
+  background-color: #219dfd;
+  border: 1px solid #219dfd;
+  padding: 5px 20px !important;
+  border-radius: 0 !important;
+  font-size: 14px;
+}
+
+.breadcrumb-item+.breadcrumb-item{
+    padding-left: 0px !important;
+}
+
+/********** BUTTON CSS : END ***************/
+

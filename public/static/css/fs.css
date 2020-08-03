@@ -1,0 +1,53 @@
+.value {
+    text-align: left;
+    font-size: 1.5rem;
+    color: #93aa00;
+}
+
+.table-title {
+    font-size: 1.5rem;
+    text-align: left;
+    color: #901a4d;
+    font-family: 'Montserrat', sans-serif !important
+}
+
+.btn-touchspin {
+    background-color: white;
+    color: #1e9ff2;
+    border: 1px solid rgba(94, 191, 255, 0.14);
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+.input-value {
+    background-color: rgba(94, 191, 255, 0.14);
+    font-weight: bold;
+    width: 100%;
+}
+
+.input-group-text {
+    border: 0 !important;
+}
+
+.input-value:focus {
+    background-color: rgba(94, 191, 255, 0.14) !important;
+}
+
+
+#main-table th {
+    background-color: #71002d;
+    font-family: 'Montserrat', sans-serif !important;
+    text-align: center !important;
+    font-weight: 500;
+    color: white;
+}
+
+#main-table th:not(:last-child) {
+    border-right: 1px solid white !important;
+}
+
+.total {
+    background-color: rgba(252, 187, 44, 0.15);
+    font-weight: 600;
+}
+

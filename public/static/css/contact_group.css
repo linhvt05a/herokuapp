@@ -1,0 +1,107 @@
+.nav-tabs {
+    border-bottom: 0px;
+}
+
+.nav-tabs .nav-item {
+    margin-bottom: -1px !important;
+    flex: 1;
+    background-color: #ebebeb;
+    color: #000000;
+}
+
+.nav-tabs .nav-item.active {
+    border-bottom: 0px;
+}
+
+.nav.nav-tabs.nav-top-border .nav-item a {
+    text-transform: uppercase;
+    font-size: 14px;
+    background-color: #e0e0e0;
+    border-left: 1px solid #ffffff;
+}
+
+.nav.nav-tabs .nav-item .nav-link {
+    display: flex !important;
+    justify-content: center;
+    padding: 9px 0px;
+    color: #000000;
+    font-weight: 600;
+}
+
+.nav-tabs .nav-link {
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+}
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    border-left: 2px solid #399b54;
+    border-right: 2px solid #399b54;
+    border-top: 2px solid #399b54;
+    font-weight: 600;
+    box-shadow: none;
+}
+
+/*NO DATA*/
+.no_data {
+    position: relative;
+    max-width: 245px;
+    margin: 80px auto;
+}
+
+.no_data .image {
+    width: 100%;
+}
+
+.no_data .image img {
+    width: 100%;
+}
+
+.no_data .text {
+    position: absolute;
+    font-size: 18px;
+    color: #6d6d6d;
+    background-color: #ffffff;
+    padding: 20px 0;
+    width: 100%;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+textarea.form-control {
+    height: auto;
+    font-size: 14px;
+    color: #000;
+}
+
+::-webkit-input-placeholder {
+    font-style: italic;
+    color: #999999 !important;
+    font-weight: normal;
+    font-weight: 300;
+}
+
+:-moz-placeholder {
+    font-style: italic;
+    color: #999999 !important;
+    font-style: italic;
+    font-weight: normal;
+    font-weight: 300;
+}
+
+::-moz-placeholder {
+    font-style: italic;
+    color: #999999 !important;
+    font-style: italic;
+    font-weight: normal;
+    font-weight: 300;
+}
+
+:-ms-input-placeholder {
+    font-style: italic;
+    color: #999999 !important;
+    font-style: italic;
+    font-weight: normal;
+    font-weight: 300;
+}

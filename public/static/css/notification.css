@@ -1,0 +1,274 @@
+.title_head_page {
+    font-family: Montserrat;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 1.24;
+    text-align: left;
+    color: #424242;
+}
+
+.div_0 {
+    background-color: #a9cc9d;
+    padding-top: 15px;
+    margin-bottom: 35px;
+    border-radius: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.notification_count {
+    font-family: Montserrat;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 1.24;
+    color: #424242;
+}
+
+.create_notification_title {
+    font-size: 20px;
+    font-weight: bold;
+    font-family: Montserrat;
+    line-height: 1.24;
+    color: #baa696;
+}
+
+
+.notification_box {
+    background-color: #F4F5FA;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.notification_tag {
+    margin-left: 20px;
+    margin-bottom: 0px;
+    padding: 10px;
+}
+
+.id_tag {
+    background-color: #666ee8;
+    border-radius: 40px;
+    width: 40px;
+    text-align: center;
+    padding-top: 6px;
+    padding-right: 2px;
+    margin-right: 48px;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+    height: 40px;
+    background-color: #d4edda;
+}
+
+.id_tag:hover {
+    background-color: white;
+    transform: rotateY(360deg);
+    -webkit-transform: rotateY(360deg);
+    transition: 3s;
+}
+
+.btn {
+    white-space: pre-line;
+    background-color: #d4edda;
+    color: black;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.card-body {
+    background-color: #f4f5fa;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: Montserrat;
+}
+
+.show_box {
+    background-color: #d4edda;
+    color: black;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: Montserrat;
+    text-align: center;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: 0px;
+    transform: translate(0, 20px);
+    border-radius: 10px;
+}
+
+.plus_button {
+    font-weight: bold;
+    font-size: 20px;
+    color: red;
+    transform: rotate(45deg);
+}
+
+.text_at_right {
+    float: right;
+}
+
+.box_tagged {
+    background-color: white;
+    border-radius: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.employees_were_tagged {
+    background-color: #caedd8;
+    border-radius: 5px;
+    margin-right: 5px;
+    color: black;
+    font-weight: bold;
+}
+
+.employees {
+    border-bottom: 1px solid white;
+    padding-bottom: 4px;
+    margin-bottom: -10px;
+    font-size: 11px;
+    margin-right: 2px;
+    text-align: center;
+}
+
+.create_notification {
+    color: black;
+}
+
+.create_notification:hover {
+    opacity: 0.5;
+}
+
+
+.remove_employee {
+    font-weight: bold;
+}
+
+.employees_in_tag {
+    color: white;
+    display: inline-block;
+    background-color: #5a9c84;
+    border-radius: 10px;
+    padding-right: 5px;
+    padding-left: 5px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    margin-right: 2px;
+    margin-left: 1px;
+}
+
+<!--
+-->
+
+a.tooltips {
+    position: relative;
+    display: inline;
+}
+
+a.tooltips span {
+    position: absolute;
+    width: 155px;
+    color: #ffffff;
+    background: #000000;
+    height: auto;
+    line-height: 8px;
+    text-align: left;
+    visibility: hidden;
+    border-radius: 8px;
+    white-space: pre-line;
+    font-size: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 15px;
+    max-height: 500px;
+}
+
+a.tooltips span:after {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -8px;
+    width: 0;
+    height: 0;
+    border-bottom: 8px solid #000000;
+    border-right: 8px solid transparent;
+    border-left: 8px solid transparent;
+    white-space: pre-line;
+}
+
+a:hover.tooltips span {
+    visibility: visible;
+    opacity: 0.8;
+    top: 30px;
+    left: 50%;
+    margin-left: -76px;
+    z-index: 999;
+}
+
+.box_create_button {
+    background-color: #088fcc;
+}
+
+.plus_icon {
+    border-radius: 12px;
+    margin: 4px;
+    background-color: white;
+}
+
+.edit_box {
+    margin-left: 5px;
+    border-radius: 10px;
+    background-color: #697fa0;
+    text-align: center;
+    justify-content: center;
+}
+
+.edit_box:hover {
+    color: white;
+}
+
+<!--                Underline                   -->
+
+
+.subheading {
+    font-family: "Open Sans", sans-serif;
+    font-size: 1em;
+    line-height: 1.5;
+}
+
+@media screen and (min-width: 40em) {
+    .subheading {
+        font-size: 1.75vw;
+    }
+}
+
+/*================================================
+ Start Important Part
+ ==================================================*/
+.underline--magical {
+    background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+    background-repeat: no-repeat;
+    background-size: 100% 0.1em;
+    background-position: 0 88%;
+    transition: background-size 0.25s ease-in;
+}
+
+.underline--magical:hover {
+    background-size: 100% 92%;
+}
+
+. delete {
+
+}
+
+/*================================================
+ End Important Part
+ ==================================================*/
+
+
+

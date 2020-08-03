@@ -1,0 +1,163 @@
+.block-select {
+    width: 160px;
+    height: 34px;
+    border-radius: 0px;
+    margin-right: -1px;
+  }
+
+  .form-control.select-title {
+    border-radius: 0px;
+    border: 1px solid #ddd;
+    font-family: Quicksand;
+    font-size: 14px;
+    font-weight: 600;
+    color: #b9b9b9;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    color: white;
+  }
+
+  .form-control.select-title.title1:read-only {
+    background: #f9a825 !important;
+  }
+
+  .form-control.select-title.title2:read-only {
+    background: #ff4961 !important;
+  }
+
+  .form-control.select-title.title3:read-only {
+    background: #1565c0 !important;
+  }
+
+  .card-header.background-header {
+    background: #006064;
+    padding-top: 11px;
+    padding: 9px;
+    border-radius: 0px;
+    font-family: Quicksand;
+  }
+
+  .card-title.color-title {
+    color: white;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .card-title.color-title>span {
+    font-size: 13px;
+  }
+
+  .card-title.color-title>span>.day-title {
+    font-size: 12px;
+    font-weight: 400;
+  }
+
+  .select-basket.select2 {
+    height: 331.5px;
+    background-color: #ffffff;
+    border-radius: 0px;
+    border: 1px solid #ddd;
+    font-family: Quicksand;
+    font-size: 14px;
+    font-weight: 500;
+    font-style: italic;
+    color: #b9b9b9;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+  }
+
+  .la-angle-down.dropdown {
+    position: relative;
+    bottom: 31px;
+    right: 10px;
+    color: #ff4961;
+    font-size: 11px;
+  }
+
+  .search {
+    width: 150px;
+    height: 50px;
+    background-color: #ff4961;
+    color: white;
+    font-family: Quicksand;
+    font-size: 14px;
+    font-weight: bold;
+    border: 1px solid #ddd;
+    box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+  }
+
+  .btn-excel {
+    background-color: #ff6221;
+    color: #fff;
+    height: 46px;
+  }
+
+  .btn-print {
+    background-color: #00b8d4;
+    color: #fff;
+    height: 46px;
+  }
+
+  #card-supplier {
+    margin-top: -25px;
+  }
+
+  .image-table {
+    position: relative;
+    left: -16px;
+  }
+
+  #table-cost-dashboard {
+    font-family: Quicksand;
+  }
+
+  .table thead .table-title-basket {
+    font-family: Quicksand;
+    text-align: left;
+    font-weight: 600;
+    font-size: 15px;
+    background-color: #006064;
+    color: white;
+    padding: 15px;
+    padding-left: 26px;
+  }
+
+  .table-sm tbody .text-table-supplier td {
+    font-weight: bold;
+    font-size: 16px;
+    color: black;
+  }
+
+  .image-date-picker {
+    position: relative;
+    top: -36px;
+    left: -4px;
+  }
+
+  .input-search {
+    margin-bottom: 15px;
+  }
+
+  .date-box {
+    margin-bottom: -16px;
+  }
+
+  .margin-bot-qrcode {
+    margin-bottom: 0px;
+    font-family: Quicksand;
+  }
+
+  .detail-qrcode {
+    background: #ff4961;
+    width: 100px;
+    justify-content: center;
+    text-align: center;
+    color: white;
+  }
+
+  .margin-bot-block-qrcode {
+    margin-bottom: 50px;
+  }

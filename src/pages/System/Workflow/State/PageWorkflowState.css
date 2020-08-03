@@ -1,0 +1,57 @@
+
+.js_checkbox_blue {
+    position: relative;
+}
+
+.js_checkbox_blue::before {
+    content: "";
+    margin-right: 10px;
+    display: inline-block;
+    vertical-align: text-top;
+    width: 20px;
+    height: 20px;
+    background: white;
+    border: solid 1px #51c471;
+}
+.js_checkbox_blue.active::after {
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: 10px;
+    background: #51c471;
+    width: 2px;
+    height: 2px;
+    box-shadow: 2px 0 0 #51c471, 4px 0 0 #51c471, 4px -2px 0 #51c471, 4px -4px 0 #51c471, 4px -6px 0 #51c471, 4px -8px 0 #51c471;
+    transform: rotate(45deg);
+}
+
+.js-btn-state {
+    width: 300px;
+    white-space: normal;
+    word-wrap: break-word;
+    background-color: white;
+    color:#088fcc !important;
+    border: 1px solid #088fcc;
+}
+.js-btn-state a {
+    color:white !important;
+}
+
+.btn-state {
+    display: inline-block;
+    font-weight: 400;
+    color: #212529;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}

@@ -1,0 +1,211 @@
+.notification .item {
+    display: flex;
+    margin-bottom: 18px;
+    padding-right: 8px;
+}
+
+@media (max-width: 375px) {
+    .notification .item {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.notification .item p {
+    margin: 0;
+}
+
+.notification .content {
+    flex: 1;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 15px;
+}
+
+.notification .content .heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0;
+}
+
+@media (max-width: 575px) {
+    .notification .content .heading {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+}
+
+.notification .content .heading .title {
+    font-size: 16px;
+    font-weight: 500;
+    color: #000000;
+}
+
+.notification .content .heading .date {
+    color: #999999;
+    font-size: 10px;
+}
+
+.notification .content .name {
+    display: block;
+    font-size: 13px;
+    font-weight: normal;
+    color: #38b6ac;
+    padding-top: 3px;
+}
+
+.notification .content .name .text {
+    font-style: normal;
+    color: #6d6d6d;
+}
+
+.notification .content .responsibility {
+    padding-top: 3px;
+    padding-bottom: 8px;
+}
+
+@media (max-width: 575px) {
+    .notification .content .responsibility {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.notification .content .responsibility .text {
+    color: #6d6d6d;
+    font-style: normal;
+}
+
+.notification .content .responsibility .las {
+    color: #51c471;
+    font-size: 13px;
+}
+
+.notification .content .responsibility .updater {
+    color: #67a0f5;
+    font-size: 13px;
+    padding-right: 18px;
+    margin-right: 18px;
+    position: relative;
+}
+
+.notification .content .responsibility .updater::before {
+    position: absolute;
+    content: '';
+    height: 16px;
+    width: 1px;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    background-color: #dddd;
+}
+
+@media (max-width: 575px) {
+    .notification .content .responsibility .updater::before {
+        display: none;
+    }
+}
+
+.notification .content .responsibility .assigned {
+    color: #000000;
+    font-size: 12px;
+}
+
+.notification .content .docs > div {
+    margin-bottom: 8px;
+}
+
+.notification.activity .avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 16px;
+}
+
+.notification.activity .docs {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.notification.activity .docs .child {
+    flex: 33.3%;
+}
+
+@media (max-width: 768px) {
+    .notification.activity .docs .child {
+        flex: 50%;
+    }
+}
+
+@media (max-width: 575px) {
+    .notification.activity .docs .child {
+        flex: 100%;
+    }
+}
+
+.notification .content {
+    padding-bottom: 10px;
+}
+
+.notification .content .heading .title {
+    font-size: 14px;
+}
+
+.notification .content .responsibility .text {
+    font-style: italic;
+}
+
+.notification .content .responsibility .updater {
+    color: #000000;
+}
+
+.notification .noti-heading {
+    color: #000000;
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.notification .times {
+    margin-right: 18px;
+}
+
+.notification .times .text {
+    color: #fff;
+    border-radius: 3px;
+    font-size: 10px;
+    padding: 2px 5px;
+    text-align: center;
+}
+
+.notification .times .before {
+    color: #999999;
+    font-size: 10px;
+    margin-top: 4px;
+    display: block;
+}
+
+.notification .bg-danger {
+    background-color: #e94c4c;
+}
+
+.notification .bg-warning {
+    background-color: #fb9334;
+}
+
+.notification .bg-success {
+    background-color: #399b54;
+}
+
+.notification .uni_action {
+    font-size: 20px;
+    color: #e94c4c;
+}

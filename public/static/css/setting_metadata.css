@@ -1,0 +1,66 @@
+.no-display {
+    display: none;
+}
+
+.label_style {
+    font-size: 16px;
+    font-weight: bold;
+    margin-right: 10px;
+    margin-bottom: 5px;
+    color: #baa696;
+}
+
+.br_setting_metadata_formula {
+}
+
+.head_title {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    color: white;
+}
+
+.box_title {
+    background-color: #fcbb2c;
+}
+
+.box_create_button {
+    background-color: #088fcc;
+}
+
+.plus_icon {
+    border-radius: 12px;
+    margin: 4px;
+    background-color: white;
+}
+
+.link {
+
+}
+
+.link:hover {
+    color: red;
+}
+
+.submit_button {
+    font-weight: bold;
+}
+
+.submit_button:hover{
+    background-color: #71002d;
+    font-weight: bold;
+    color: white;
+}
+
+.submit_button:active {
+    background-color: #71002d;
+    font-weight: bold;
+    color: white;
+}
+
+.check {
+
+}
+
+.td_css {
+    text-align: center;
+}

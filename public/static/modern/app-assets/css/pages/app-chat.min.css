@@ -1,0 +1,116 @@
+.chat - application.app - content, .chat - application.content - body, .chat - application.content - right, .chat - application.content - wrapper {
+    height: -webkit - calc(100 % -.2 rem);height: -moz - calc(100 % -.2 rem);height: calc(100 % -.2 rem)
+}.chat - application.content - header {
+    margin - bottom: 0!important
+}.chat - application.content - wrapper {
+    padding: 0!important
+}.chat - application.sidebar - left {
+    border - right: 1 px solid# E4E7ED;
+    height: -webkit - calc(100 % -7.15 rem);
+    height: -moz - calc(100 % -7.15 rem);
+    height: calc(100 % -7.15 rem)
+}.chat - application.sidebar - left.sidebar - content.list - group a.media {
+    margin - right: 2 px
+}.chat - application.sidebar - left.sidebar - content.list - group a.media.active, .chat - application.sidebar - left.sidebar - content.list - group a.media: hover {
+    background: rgba(0, 0, 0, .05);border - right: 2 px solid #1E9FF2!important;margin-right:0}.chat-application .sidebar-left .card{margin-bottom:0}.chat-application .content-overlay{top:0;left:0;right:0;bottom:0;position:absolute;display:block;z-index:2;visibility:hidden}.chat-application .content-overlay.show{visibility:visible;background-color:rgba(0,0,0,.6)}.chat-application .chat-fixed-search{position:fixed;z-index:999;background:# FFF;width: 300 px;border - bottom: 1 px solid# E4E7ED
+}.chat - application.users - list - padding {
+    padding - top: 83 px;
+    padding - bottom: 25 px
+}.chat - application.chat - app - window {
+    padding: 20 px 30 px;overflow - y: scroll;text - align: center;height: -webkit - calc(100 % -112 px);height: -moz - calc(100 % -112 px);height: calc(100 % -112 px);background - color: #FFF;position: relative
+}.chat - application.chat - app - form {
+    position: relative;padding: 20 px 10 px;background - color: #EDEEF0;overflow: hidden
+}.chat - application.chats {
+    padding: 0
+}.chat - application.chats.chat - body {
+    display: block;margin: 10 px 30 px 0 0;overflow: hidden
+}.chat - application.chats.chat - body.chat - content {
+    text - align: right;
+    position: relative;
+    display: block;
+    float: right;
+    padding: 8 px 15 px;
+    margin: 0 20 px 10 px 0;
+    clear: both;
+    color: #FFF;
+    background - color: #1E9FF2;border-radius:4px}.chat-application .chats .chat-body .chat-content:before{position:absolute;top:10px;right:-10px;width:0;height:0;content:'';border:5px solid transparent;border-left-color:# 1E9 FF2
+}.chat - application.chats.chat - body.chat - content + .chat - content: before, .chat - application.chats.chat - left.chat - content + .chat - content: before {
+    border - color: transparent
+}.chat - application.chats.chat - body.chat - content p {
+    margin: 0
+}.chat - application.chats.chat - avatar {
+    float: right
+}.chat - application.chats.chat - avatar.avatar {
+    width: 50 px;margin - top: -10 px
+}.chat - application.chats.time {
+    color: #BABFC7;font - size: 12 px;text - align: center;margin: 40 px 0
+}.chat - application.chats.chat - left.chat - avatar {
+    float: left
+}.chat - application.chats.chat - left.chat - body {
+    margin - right: 0;
+    margin - left: 30 px
+}.chat - application.chats.chat - left.chat - content {
+    text - align: left;
+    float: left;
+    margin: 0 0 10 px 20 px;
+    color: #6B6F82;background-color:# EDEEF0
+}.chat - application.chats.chat - left.chat - content: before {
+    right: auto;left: -10 px;border - right - color: #EDEEF0;border - left - color: transparent
+}.chat - application.form - control - position {
+    cursor: pointer
+}.chat - application.form - control - position.control - position - right {
+    right: 18 px;top: 2 px;cursor: pointer
+}
+@media(max - width: 767.98 px) {
+    .chat - application.chat - app - window {
+        height: -webkit - calc(100 % -132 px);height: -moz - calc(100 % -132 px);height: calc(100 % -132 px)
+    }
+}.horizontal - layout.chat - application.content - body, .horizontal - layout.chat - application.content - right, .horizontal - layout.chat - application.content - wrapper {
+    height: -webkit - calc(100 % -.8 rem);height: -moz - calc(100 % -.8 rem);height: calc(100 % -.8 rem)
+}.horizontal - layout.chat - application.app - content {
+    height: -webkit - calc(100 % -144 px) !important;height: -moz - calc(100 % -144 px) !important;height: calc(100 % -144 px) !important;min - height: -webkit - calc(100 % -144 px) !important;min - height: -moz - calc(100 % -144 px) !important;min - height: calc(100 % -144 px) !important;margin - top: 0!important
+}.horizontal - layout.chat - application.app - content.chat - app - window {
+    height: -webkit - calc(100 % -83 px) !important
+}.horizontal - layout.chat - application.sidebar - left {
+    height: -webkit - calc(100 % -6 rem);height: -moz - calc(100 % -6 rem);height: calc(100 % -6 rem)
+}
+@media only screen and(max - width: 991 px) {
+    .chat - application.chat - fixed - search {
+        width: 286 px;display: none
+    }.chat - application.sidebar - fixed.sidebar - left {
+        -webkit - transform: translateX(-175 % ); - moz - transform: translateX(-175 % ); - ms - transform: translateX(-175 % ); - o - transform: translateX(-175 % );
+        transform: translateX(-175 % ); - webkit - transition: .3 s ease all; - o - transition: .3 s ease all; - moz - transition: .3 s ease all;
+        transition: .3 s ease all;
+        z - index: 999
+    }.chat - application.sidebar - fixed.sidebar - left.show {
+        border - right: 0; - webkit - transform: translateX(0); - moz - transform: translateX(0); - ms - transform: translateX(0); - o - transform: translateX(0);
+        transform: translateX(0); - webkit - transition: .3 s ease all; - o - transition: .3 s ease all; - moz - transition: .3 s ease all;
+        transition: .3 s ease all;
+        width: 300 px
+    }.chat - application.sidebar - fixed.sidebar - left.show.chat - fixed - search {
+        width: 300 px;display: block
+    }.chat - application.sidebar - toggle {
+        float: left;cursor: pointer;position: fixed;z - index: 1;left: .5 rem
+    }.chat - application.vertical - compact - menu.sidebar - toggle {
+        left: 9.5 rem
+    }.chat - application.vertical - menu.sidebar - toggle {
+        left: 5.5 rem
+    }.chat - application.horizontal - layout.header - navbar {
+        z - index: 4
+    }.chat - application.horizontal - layout.sidebar - fixed.sidebar - left.show {
+        left: 0
+    }.chat - application.horizontal - menu - padding.chat - application.sidebar - toggle {
+        left: auto
+    }
+}
+@media only screen and(max - width: 767 px) {
+    .chat - application.sidebar - toggle {
+        left: 2 rem;background: #fff
+    }.chat - application.sidebar - fixed.sidebar - left {
+        height: -webkit - calc(100 % -7.5 rem);height: -moz - calc(100 % -7.5 rem);height: calc(100 % -7.5 rem)
+    }.horizontal - layout.chat - application.app - content {
+        height: -webkit - calc(100 % -65 px) !important;height: -moz - calc(100 % -65 px) !important;height: calc(100 % -65 px) !important
+    }.horizontal - layout.chat - application.app - content.chat - app - window {
+        height: -webkit - calc(100 % -45 px) !important
+    }
+}

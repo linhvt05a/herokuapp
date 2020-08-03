@@ -1,0 +1,140 @@
+/*********************************
+* Slideshow Styling
+*********************************/
+#slideshow,
+#slideshow1,
+#slideshow2,
+#slideshow3
+{
+    width: 100%;
+    top: 30px;
+    height: 100%;
+    position: absolute;
+    overflow: hidden;
+}
+
+#slideshow.fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+
+    overflow: hidden;
+}
+
+.img-wrapper {
+    position: absolute;
+    top: 0;
+    /* bottom: 0; */
+    left: 0;
+    right: 0;
+    margin: auto;
+    overflow: hidden;
+    z-index: 8;
+    background-size: cover;
+    background-position: center center;
+}
+
+#slideshow,
+#slideshow1,
+#slideshow2,
+#slideshow3,
+.img-wrapper.active {
+    z-index: 10;
+    height: 320px;
+}
+
+#slideshow,
+#slideshow1,
+#slideshow2,
+#slideshow3,
+.img-wrapper.last-active {
+    z-index: 9;
+}
+
+/*********************************
+* Thumbnail Styling
+*********************************/
+.thumbs-container {
+    width: 100%;
+    height: 65px;
+    position: absolute;
+    left: 0;
+    z-index: 11;
+    opacity: .9;
+}
+
+.thumbs-container.top {
+    top: 0;
+}
+
+.thumbs-container.bottom {
+    bottom: 0;
+}
+
+.prev, .next {
+    /* width: 3%; */
+    /* margin: 6px; */
+    width: 15px;
+    /* min-width: 33px; */
+    height: 95%;
+    /* padding: 20px 0px 12px 11px; */
+    color: white;
+    cursor: pointer;
+    background: green;
+    margin-top: 2px;
+    font-size: 10px;
+}
+
+.prev {
+    float: left;
+    padding: 23px 0px 19px 0px;
+}
+
+.next {
+    float: right;
+    padding: 21px 0px 17px 1px;
+}
+
+.prev:hover, .next:hover {
+    color: white;
+}
+
+ul.thumbs {
+    position: absolute;
+    top: 0;
+    left: 0%;
+    right: 0%;
+    /*height: 140px;*/
+    padding: 0;
+    margin: 0 5%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.thumb {
+    display: inline-block;
+    width: 72px;
+    height: 60px;
+    margin: 3px;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center center;
+
+    cursor: pointer;
+}
+
+.thumb:first-of-type {
+    margin-left: 0px;
+}
+
+.thumb.active {
+    /*width: 116px;*/
+    height: 60px;
+    border: 2px solid #FFF;
+}

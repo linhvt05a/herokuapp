@@ -1,0 +1,252 @@
+<!--                    SEARCH                      -->
+body {
+	background: #fff;
+	color: #666;
+	font: 90%/180% Arial, Helvetica, sans-serif;
+	width: 800px;
+	max-width: 96%;
+	margin: 0 auto;
+}
+a {
+	color: #69C;
+	text-decoration: none;
+}
+a:hover {
+	color: #F60;
+}
+h1 {
+	font: 1.7em;
+	line-height: 110%;
+	color: #000;
+}
+p {
+	margin: 0 0 20px;
+}
+
+
+input {
+	outline: none;
+}
+input[type=search] {
+	-webkit-appearance: textfield;
+	-webkit-box-sizing: content-box;
+	font-family: inherit;
+	font-size: 100%;
+}
+input::-webkit-search-decoration,
+input::-webkit-search-cancel-button {
+	display: none;
+}
+
+
+input[type=search] {
+	background: #ededed url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
+	border: solid 1px #ccc;
+	padding: 9px 10px 9px 32px;
+	width: 140px;
+
+	-webkit-border-radius: 10em;
+	-moz-border-radius: 10em;
+	border-radius: 10em;
+
+	-webkit-transition: all .5s;
+	-moz-transition: all .5s;
+	transition: all .5s;
+}
+input[type=search]:focus {
+	width: 180px;
+	background-color: #fff;
+	border-color: #66CC75;
+
+	-webkit-box-shadow: 0 0 5px rgba(109,207,246,.5);
+	-moz-box-shadow: 0 0 5px rgba(109,207,246,.5);
+	box-shadow: 0 0 5px rgba(109,207,246,.5);
+}
+
+
+input:-moz-placeholder {
+	color: #999;
+}
+input::-webkit-input-placeholder {
+	color: #999;
+}
+
+
+
+<!--                        NAV                         -->
+
+        /*********************Begin Content USER ***************/
+
+        /* NAV */
+        .nav {
+            border-radius: 0 !important;
+        }
+
+
+        .nav-tabs .nav-link {
+            border-top-left-radius: 0 !important;
+            border-top-right-radius: 0 !important;
+        }
+
+        .nav-tabs .nav-item {
+            margin-bottom: -1px !important;
+            flex: 1;
+        }
+
+        .nav.nav-tabs.nav-top-border .nav-item a.nav-link.active {
+            border-left: 1px solid #ff4723;
+            border-right: 1px solid #ff4723;
+            border-top: 3px solid red;
+            color: #ff4723;
+
+        }
+
+        .nav.nav-tabs .nav-item .nav-link {
+            display: flex !important;
+            justify-content: center;
+        }
+
+        .nav-tabs {
+            border-bottom: 1px solid #ff4723;
+
+        }
+
+        .nav.nav-tabs.nav-top-border .nav-item a {
+            color: #464855;
+            background-color: #fbe8e4;
+            border: 1px solid #ffffff;
+
+        }
+
+        /* button upload image user */
+        #contentUser .btn-update {
+            color: #ff4961;
+            border-color: #ff4961;
+            padding: 10px;
+            background-color: white;
+            font-family: Quicksand;
+            font-weight: bold;
+        }
+
+        .color-darker {
+            color: #006064;
+        }
+
+        /********************* End Content USER ***************/
+        /********************* Begin Content Project ***************/
+        /* thong tin ca nhan */
+        .bg-title {
+            background-color: #71022d;
+        }
+
+        .border-left {
+            border-left: 1px solid #d8d8d8;
+            padding-left: 20px;
+        }
+
+        .info-name {
+            padding-left: 12px;
+            font-size: 15px;
+            color: #575757;
+        }
+
+        /* tinh trang cong viec */
+        .status-project {
+            margin-left: 15px;
+            width: 70px;
+            float: left;
+        }
+
+        .status-project p {
+            float: left;
+            margin-left: 20px;
+            width: 150px;
+            margin-top: -2px;
+            font-size: 12px;
+        }
+
+        .square-1 {
+            width: 12px;
+            height: 12px;
+            float: left;
+            border-radius: 1px;
+            margin-top: 4px;
+            margin-right: 10px;
+            background-color: #636363;
+        }
+
+        .square-2 {
+            width: 12px;
+            height: 12px;
+            float: left;
+            border-radius: 1px;
+            margin-top: 4px;
+            margin-right: 10px;
+            background-color: #93aa00;
+        }
+
+        .square-3 {
+            width: 12px;
+            height: 12px;
+            float: left;
+            border-radius: 1px;
+            margin-top: 4px;
+            margin-right: 10px;
+            background-color: #f2a600;
+        }
+
+        .square-4 {
+            width: 12px;
+            height: 12px;
+            float: left;
+            border-radius: 1px;
+            margin-top: 4px;
+            margin-right: 10px;
+            background-color: #f97448;
+        }
+
+        .square-5 {
+            width: 12px;
+            height: 12px;
+            float: left;
+            border-radius: 1px;
+            margin-top: 4px;
+            margin-right: 10px;
+            background-color: #e44110;
+        }
+
+        .text-time2 {
+            color: #c8d487;
+        }
+
+
+        .background-gray {
+            background-color: gray;
+        }
+
+        /* bar progress */
+        .progress {
+            height: 15px;
+            border-radius: 1em;
+            width: 100%;
+        }
+
+        .progress-bar {
+            border-radius: 1em;
+        }
+
+        /* chi tiet cong viec */
+        .table-detail-project thead th {
+            border: none !important;
+        }
+
+        .table-position > thead > tr > .th-postion {
+        font-family: Quicksand;
+        text-align: left;
+        font-weight: 600;
+        font-size: 15px;
+        background-color: #006064;
+        color: white;
+        padding: 14px;
+        padding-left: 26px;
+    }
