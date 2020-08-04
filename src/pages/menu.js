@@ -113,58 +113,6 @@ let menu_project_manager = [
     }
 ];
 
-//let menu_project_legal = [
-//    {
-//        label: "menu_project_legal_project",
-//        icon: "las la-folder",
-//        href: "/legal/project"
-//    },
-//    {
-//        label: "menu_project_legal_task",
-//        icon: "las la-business-time",
-//        href: "/legal/task"
-//    }
-//]
-//
-//let menu_project_design = [
-//    {
-//        label: "menu_project_design_project",
-//        icon: "las la-folder",
-//        href: "/design/project"
-//    },
-//    {
-//        label: "menu_project_design_task",
-//        icon: "las la-business-time",
-//        href: "/design/task"
-//    }
-//]
-//
-//let menu_project_finance = [
-//    {
-//        label: "menu_project_finance_project",
-//        icon: "las la-folder",
-//        href: "/finance/project"
-//    },
-//    {
-//        label: "menu_project_finance_task",
-//        icon: "las la-business-time",
-//        href: "/finance/task"
-//    }
-//];
-//
-//let menu_project_sale = [
-//    {
-//        label: "menu_project_sale_project",
-//        icon: "las la-folder",
-//        href: "/sale/project"
-//    },
-//    {
-//        label: "menu_project_sale_task",
-//        icon: "las la-business-time",
-//        href: "/sale/task"
-//    }
-//]
-
 let menu_project_workflow = [
     {
         label: "menu_project_workflow_internal_task",
@@ -225,26 +173,6 @@ let menu_data = [
         icon: "las la-copy",
         children: menu_project_manager
     },
-//    {
-//        label: "menu_project_legal",
-//        icon: "las la-balance-scale",
-//        children: menu_project_legal
-//    },
-//    {
-//        label: "menu_project_design",
-//        icon: "las la-pencil-ruler",
-//        children: menu_project_design
-//    },
-//    {
-//        label: "menu_project_finance",
-//        icon: "las la-gavel",
-//        children: menu_project_finance
-//    },
-//    {
-//        label: "menu_project_sale",
-//        icon: "las la-percentage",
-//        children: menu_project_sale
-//    },
     {
         label: "menu_project_workflow",
         icon: "las la-briefcase",
