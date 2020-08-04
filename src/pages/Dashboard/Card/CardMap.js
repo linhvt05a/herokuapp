@@ -182,11 +182,11 @@ class CardMap extends Component {
             },
             bbox: [[left, top], [right, bottom]],
             icons: [
-                { "name": "1", "url": "/static/img/project_status/map-pin-1.png" },
-                { "name": "2", "url": "/static/img/project_status/map-pin-2.png" },
-                { "name": "3", "url": "/static/img/project_status/map-pin-3.png" },
-                { "name": "4", "url": "/static/img/project_status/map-pin-4.png" },
-                { "name": "5", "url": "/static/img/project_status/map-pin-5.png" }
+                { "name": "1", "url": "/static/images/map-pin-1.png" },
+                { "name": "2", "url": "/static/images/map-pin-2.png" },
+                { "name": "3", "url": "/static/images/map-pin-3.png" },
+                { "name": "4", "url": "/static/images/map-pin-4.png" },
+                { "name": "5", "url": "/static/images/map-pin-5.png" }
             ]
         }
         return markers;

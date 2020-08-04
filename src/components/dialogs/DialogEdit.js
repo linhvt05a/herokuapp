@@ -7,7 +7,6 @@ import { InputText } from "../input";
 
 import { userService } from '../../services';
 
-import "./Dialog.css"
 class DialogEdit extends Component {
     constructor(props) {
         super(props);

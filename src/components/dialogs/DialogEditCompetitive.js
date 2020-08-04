@@ -11,7 +11,6 @@ import {
   currency_unit,
 } from "../../constant";
 
-import "./Dialog.css";
 
 class DialogEditCompetitive extends Component {
   constructor() {

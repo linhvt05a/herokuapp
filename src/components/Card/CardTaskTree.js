@@ -2,7 +2,6 @@ import React, { Component, Fragment } from 'react';
 import { Trans } from 'react-i18next';
 
 import { CardHeader, CardNodata} from '../common';
-import './CardTaskTree.css';
 import InfinityMenu from "react-infinity-menu";
 import "react-infinity-menu/src/infinity-menu.css";
 import { InputCheckBox } from '../input';

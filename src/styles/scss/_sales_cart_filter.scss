@@ -1,0 +1,42 @@
+.sales_cart_filter{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    border-top: solid 1px #707070;
+    min-height: 41px;
+    .revenue{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 4.167vw;
+        &::before{
+            display: none;
+        }
+    }
+    .input_revenue {
+        input,select{
+            height: 30px !important;
+        }
+    }
+    .date{
+        padding: 0 4.688vw;
+        &:last-child{
+            &::before{
+                display: none;
+            }
+        }
+    }
+    > div{
+        position: relative;
+        &::before{
+            position: absolute;
+            content: '';
+            width: 1px;
+            height: 100%;
+            right: 0;
+            top: 0;
+            background-color: #6d30ab;
+        }
+    }
+}

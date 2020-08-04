@@ -1,0 +1,100 @@
+.sales_status_cart{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    $cart_01 : #399b54; //new
+    $cart_02 : #6d6d6d; //not yet selling
+    $cart_03 : #399b54; //selling
+    $cart_04 : #f1ab21; //booking
+    $cart_05 : #e94c4c; //sold
+    $cart_06 : #999999; //rent
+
+    &_1{
+        border: solid 1px $cart_01;
+        position: relative;
+        &::before{
+            position: absolute;
+            content: '';
+            height: 1px;
+            width: 65%;
+            background-color: $cart_01;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+    }
+
+    &_2{
+        border: solid 1px $cart_02;
+        color: $cart_02;
+    }
+    &_3{
+        border: solid 1px $cart_03;
+        color: $cart_03;
+    }
+    &_4{
+        border: solid 1px $cart_04;
+        color: $cart_04;
+    }
+    &_5{
+        border: solid 1px $cart_05;
+        color: $cart_05;
+    }
+    &_6{
+        border: solid 1px $cart_06;
+        color: $cart_06;
+    }
+
+    &_bg_0{
+        background-color: #000;
+    }
+
+    &_bg_2{
+        background-color: $cart_02;
+    }
+    &_bg_3{
+        background-color: $cart_03;
+    }
+    &_bg_4{
+        background-color:$cart_04;
+    }
+    &_bg_5{
+        background-color: $cart_05;
+    }
+    &_bg_6{
+        background-color: $cart_06;
+    }
+
+    &_text_2{
+        color: $cart_02 !important;
+    }
+    &_text_3{
+        color: $cart_03 !important;
+    }
+    &_text_4{
+        color:$cart_04 !important;
+    }
+    &_text_5{
+        color: $cart_05 !important;
+    }
+    &_text_6{
+        color: $cart_06 !important;
+    }
+
+    &_bdcolor_2{
+        border-color: $cart_02 !important;
+    }
+    &_bdcolor_3{
+        border-color: $cart_03 !important;
+    }
+    &_bdcolor_4{
+        border-color:$cart_04 !important;
+    }
+    &_bdcolor_5{
+        border-color: $cart_05 !important;
+    }
+    &_bdcolor_6{
+        border-color: $cart_06 !important;
+    }
+}

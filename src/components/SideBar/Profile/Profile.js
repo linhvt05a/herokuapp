@@ -4,8 +4,6 @@ import { Trans } from 'react-i18next';
 import { DropItem } from "../../dropdown"
 import { ButtonChat, ButtonSetting, ButtonNotify } from './Button'
 
-import './Profile.css';
-
 
 let messages = [
     {
