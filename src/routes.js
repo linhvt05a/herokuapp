@@ -24,6 +24,8 @@ const MAINS = [
     { "path": "/system/currency", "value": System.PageCurrency, "menu": "menu_system_currency", "title": "menu_system_currency" },
     { "path": "/system/currency/add", "value": System.PageCurrencyAdd, "menu": "menu_system_currency", "title": "Add" },
     { "path": "/system/currency/edit/:id", "value": System.PageCurrencyEdit, "menu": "menu_system_currency", "title": "Update" },
+    
+    { "path": "/product_card/new_contract/customer_info", "value": System.CustomerInfo, "menu": "menu_system_customer_info", "title": "Căn hộ B2 - F.0.18" },
 
     { "path": "/perm/project", "value": Perm.PagePermProject, "menu": "menu_perm_task_by_projects", "title": "menu_perm_task_by_projects" },
     { "path": "/perm/project/add", "value": Perm.PagePermProjectAdd, "menu": "menu_perm_task_by_projects", "title": "Add" },
