@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import mapboxgl from 'mapbox-gl';
 
-import '../../styles/map.css';
+// import '../../styles/map.css';
 
 //mapboxgl.accessToken = "pk.eyJ1IjoiZXhhbXBsZXMiLCJhIjoiY2p0MG01MXRqMW45cjQzb2R6b2ptc3J4MSJ9.zA2W0IkI0c6KaAhJfk9bWg";
 const MAP_LAYER_PROJECT = "MAP_LAYER_PROJECT";

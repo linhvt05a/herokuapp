@@ -109,7 +109,7 @@ class MainPage extends Component {
     }
 
     render() {
-        console.log('menu', this.state.menu);
+        // console.log('menu', this.state.menu);
         if( this.state.page == null ){
             return <div></div>
         }
