@@ -4,7 +4,7 @@ var pako = require('pako');
 
 const CONTENT_TYPE = 'application/json; charset=utf-8';
 const CONTENT_MULITPART = 'multipart/form-data';
-const MNV_ENCODE = 1
+const MNV_ENCODE = 0
 
 function Encode(data) {
     var text = JSON.stringify(data);

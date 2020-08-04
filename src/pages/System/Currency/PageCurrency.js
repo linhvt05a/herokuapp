@@ -12,6 +12,7 @@ const PageCurrency = (props) => {
   const dispatch = useDispatch();
   const navigate = useHistory();
   const { token } = props.user;
+  console.log('currentcy', currentcy);
   useEffect(() => {
     const pageProp = props.search.page ? props.search.page : 1;
     props.setActiveItemMenu("menu_system_currency");
