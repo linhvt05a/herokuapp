@@ -3,6 +3,8 @@ import { Trans } from 'react-i18next';
 import Modal from 'react-bootstrap/Modal'
 import { CardHeader } from "../common";
 
+import "./Dialog.css"
+
 class Item extends Component{
     render(){
         return(
@@ -17,7 +19,7 @@ class Item extends Component{
 class DialogList extends Component{
     render(){
         const { data } = this.props;
-        // console.log(data)
+        console.log(data)
         return(
             <Modal size="500" animation={true} show={this.props.visible}>
                 <CardHeader label={this.props.title} />

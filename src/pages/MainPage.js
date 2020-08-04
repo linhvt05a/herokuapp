@@ -10,7 +10,7 @@ import SideBar from '../components/SideBar/SideBar.js'
 import menu from './menu.js';
 
 import { NotificationContainer, NotificationManager } from 'react-notifications';
-// import 'react-notifications/lib/notifications.css';
+import 'react-notifications/lib/notifications.css';
 
 function showToast(type, message) {
     switch (type) {
@@ -109,7 +109,7 @@ class MainPage extends Component {
     }
 
     render() {
-        // console.log('menu', this.state.menu);
+        console.log('menu', this.state.menu);
         if( this.state.page == null ){
             return <div></div>
         }
@@ -118,7 +118,7 @@ class MainPage extends Component {
         return (
             <div className="main-wrapper">
                 <NotificationContainer />
-                <div className="header__bg purple" />
+                <div className="header__bg purple"></div>
                 <PageHeader user={user} update={this.update}/>
                 <SideBar user={user} 
                          menudata={menu.datas}

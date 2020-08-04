@@ -75,7 +75,7 @@ function authHeader() {
 
 function handleRequest(url, options) {
     options['url'] = url;
-    // console.log(options);
+    console.log(options);
 
     if (options.hasOwnProperty("body")) {
         if (MNV_ENCODE == 1) {
@@ -122,7 +122,7 @@ function handleResponseText(response) {
 }
 
 function handleData(response, data) {
-    // console.log(data);
+    console.log(data);
     if (data['success'] == false) {
         const error = data['detail'];
         console.log(error);

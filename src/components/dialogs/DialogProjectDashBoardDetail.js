@@ -6,7 +6,7 @@ import { Trans } from 'react-i18next';
 class DialogProjectDashBoardDetail extends Component {
   render() {
     const { data } = this.props;
-    // console.log("dataa", data);
+    console.log("dataa", data);
     return (
       <Modal size="lg" animation={true} show={this.props.visible} onHide={this.props.close}>
         <CardHeader label="News" />

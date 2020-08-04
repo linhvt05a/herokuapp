@@ -82,7 +82,7 @@ class InputText extends Component {
                         onBlur={this.handleInputValidation}
                         onChange={this.onChange}
                     />
-                    {this.props.endLabel && <span class="input-group-text square p-0 pl-1 pr-1 h-100">{this.props.endLabel}</span>}
+                    {this.props.endLabel && <span className="input-group-text square p-0 pl-1 pr-1 h-100">{this.props.endLabel}</span>}
                     {this.state.isInputValid === false && <ul className="parsley-errors-list filled">
                         <li className="parsley-required"><Trans i18nKey={this.state.errorMessage}>{{ value: t(this.props.label), number: t(this.state.number) }}</Trans></li>
                     </ul>}

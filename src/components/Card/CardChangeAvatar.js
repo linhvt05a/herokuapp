@@ -3,6 +3,7 @@ import { Trans } from "react-i18next";
 
 import { CardHeader } from "../common";
 import { userService } from "../../services";
+import "./CardChangeAvatar.css";
 
 class CardChangeAvatar extends Component {
   constructor(props) {

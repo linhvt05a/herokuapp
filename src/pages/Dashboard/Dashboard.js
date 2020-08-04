@@ -1,31 +1,30 @@
 import React, { Component } from 'react';
 import { Trans } from 'react-i18next';
 
-import CardSummary from "./Card/CardSummary";
-import CardFilter from "./Card/CardFilter";
-import CardTable from "./Card/CardTable";
-import CardMap from "./Card/CardMap";
+import { CardCapital, CardCashFlow, CardMap, CardTimeline, ChartSell, ChartRevenua } from "./Card";
+import SalesSummary from './Card/SalesSummary';
 
 class Dashboard extends Component {
     render() {
         return (
             <div>
-                <CardSummary />
+                <SalesSummary />
+                {/* <div className="row">
+                    <CardMap user={this.props.user} showToast={this.props.showToast} search={this.props.search} updateLocation={this.props.updateLocation} />
+                </div> */}
+
                 <div className="row">
+                    <p>List - Maps</p>
+                    {/* <CardCapital user={this.props.user} showToast={this.props.showToast} />
+                    <CardCashFlow user={this.props.user} showToast={this.props.showToast} /> */}
+                </div>
 
-                    {/* filter  */}
-                    <div className="col-xl-9 col-lg-9 col-md-12 col-sm-12 d-flex flex-column">
-                        <div className="h-100">
-                            <CardFilter/>
-                            <CardTable/>
-                        </div>
-                    </div>
-
-                    {/* map  */}
-                    <div className="col-xl-3 col-lg-3 col-md-12 col-sm-12  mt-lg-0 mt-5  d-flex flex-column">
-                        <CardMap />
-                    </div>
-
+                {/* <div className="row">
+                    <CardTimeline user={this.props.user} showToast={this.props.showToast} search={this.props.search} updateLocation={this.props.updateLocation}/>
+                </div> */}
+                <div className="row mt-2">
+                    <ChartSell />
+                    <ChartRevenua />
                 </div>
             </div>
         )

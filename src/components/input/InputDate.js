@@ -4,7 +4,6 @@ import { withTranslation, Trans } from 'react-i18next';
 import "react-datepicker/dist/react-datepicker.css";
 
 //import format from "date-fns/format"
-import './InputDate.css';
 
 import moment from 'moment'
 import DatePicker from "react-datepicker";
@@ -83,7 +82,7 @@ class InputDate extends Component {
                     }
                     <div className="m_datepicker">
                         <DatePicker
-                            className={this.props.classValue ? this.props.classValue : "form-control square text-left text-bold-600"}
+                            className={this.props.classValue ? this.props.classValue : "form-control js-datepicker"}
                             dateFormat= {DATE_FORMAT}
                             placeholderText={this.props.label}
                             selected={this.state.values}

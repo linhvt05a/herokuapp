@@ -3,6 +3,8 @@ import { Trans } from 'react-i18next';
 import Modal from 'react-bootstrap/Modal'
 import { CardHeader } from "../common";
 
+import "./Dialog.css"
+
 class Item extends Component{
     render(){
         return(

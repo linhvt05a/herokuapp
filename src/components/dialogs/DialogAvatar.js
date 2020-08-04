@@ -6,6 +6,8 @@ import { CardHeader } from "../common";
 
 import { userService, imageService } from '../../services';
 
+import "./Dialog.css"
+
 class DialogAvatar extends Component {
     constructor(props) {
         super(props);

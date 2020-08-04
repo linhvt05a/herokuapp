@@ -21,13 +21,13 @@ function uploadFile(file) {
         body: file
     };
 
-    // console.log(headers,file)
-    // console.log(server_url);
+    console.log(headers,file)
+    console.log(server_url);
     return fetch(server_url, requestOptions).then(handleResponseText)
 }
 
 function handleResponseText(response) {
-    // console.log(response)
+    console.log(response)
     if (!response.ok) {
         var content = response.status + ' ' + response.statusText;
         return Promise.reject(content);
