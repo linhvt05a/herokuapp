@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Trans } from 'react-i18next';
-import './InputCheckbox.css';
 
 class InputCheckBox extends Component {
     constructor(props) {

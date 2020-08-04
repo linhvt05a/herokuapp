@@ -13,7 +13,7 @@ class PageTitle extends Component {
         var pages = [];
         var active = false;
         var href = this.props.location.pathname;
-        console.log(href);
+        // console.log(href);
         var pos = href.length;
         if( pos > 1){
             do{

@@ -22,7 +22,7 @@ class Item extends Component {
                                         </a>
                                     </span>
                                     <span className="d-none d-md-block">
-                                        <a href="javascript:void(0)" onClick="removeNotification(event, '/backend/notification/remove_user_notification', '999', '1')">
+                                        <a onClick="removeNotification(event, '/backend/notification/remove_user_notification', '999', '1')">
                                             <i className="uni_action las la-trash"></i>
                                         </a>
                                     </span>
@@ -64,7 +64,7 @@ class PageNotify extends Component {
                             Hoạt Động
                         </button>
                         <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a className="dropdown-item" href="javascript:void(0)">Xóa Tất Cả</a>
+                            <a className="dropdown-item">Xóa Tất Cả</a>
                         </div>
                     </div>
                 </div>

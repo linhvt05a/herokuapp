@@ -2,6 +2,7 @@ import * as Login from './pages/Login';
 
 import * as Dashboard from './pages/Dashboard';
 
+<<<<<<< HEAD
 import * as Account from "./pages/Account";
 
 import * as System from "./pages/System";
@@ -10,6 +11,8 @@ import * as ProductCart from "./pages/ProductCart";
 
 import * as Perm from "./pages/Permission"
 
+=======
+>>>>>>> develop
 const LOGINS = [
     { "path": "/login", "value": Login.PageLogin, "main_title": "login_main_title", "sub_title": "login_sub_title" },
     { "path": "/forgot", "value": Login.PageForgot, "main_title": "forgot_main_title", "sub_title": "forgot_sub_title" }
@@ -17,6 +20,7 @@ const LOGINS = [
 
 const MAINS = [
     { "path": "/", "value": Dashboard.Dashboard, "menu": "menu_home", "title": "home_dashboard" },
+<<<<<<< HEAD
 
     { "path": "/changepass", "value": Account.PageChangePass, "menu": "menu_home", "title": "changepassword_title" },
     { "path": "/profile", "value": Account.PageProfile, "menu": "menu_home", "title": "Profile" },
@@ -36,6 +40,8 @@ const MAINS = [
     { "path": "/perm/internal", "value": Perm.PagePermInternal, "menu": "menu_perm_task_by_departments", "title": "menu_perm_task_by_departments" },
     { "path": "/perm/internal/add", "value": Perm.PagePermInternalAdd, "menu": "menu_perm_task_by_departments", "title": "Add" },
     { "path": "/perm/internal/detail/:id", "value": Perm.PagePermInternalDetail, "menu": "menu_perm_task_by_departments", "title": "Update" },
+=======
+>>>>>>> develop
 ]
 
 var PATHS = {};

@@ -3,8 +3,6 @@ import { Trans } from 'react-i18next';
 
 import { PageLogin, PageForgot } from './Login';
 
-import './MainLogin.css';
-
 class Welcome extends Component {
     render() {
         return (

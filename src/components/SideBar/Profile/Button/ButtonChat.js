@@ -33,11 +33,12 @@ class ButtonChat extends DropItem {
     render() {
         return (
             <div className="item dropdown" ref={node => this.node = node } >
-                <span className="edit-system">
-                    <i className="lar la-comment-alt"></i>
-                </span>
+                <a className="actions_item">
+                    <i className="icon lar la-comment-alt"></i>
+                    <i className="badge-noti" id="count_noti">0</i>
+                </a>
 
-                <div className={ this.state.show ? 'dropdown-menu chatbox show' : 'dropdown-menu chatbox' } x-placement="bottom-start" style={{"position": "absolute", "transform": "translate3d(119px, 50px, 0px)", "top": "0px", "left": "0px"}}>
+                <div className={ this.state.show ? 'dropdown-menu chatbox show' : 'dropdown-menu chatbox' }>
                     <div className="drop-title uni_text_6d30ab"><Trans>New Messages</Trans></div>
                     <ul className="list-style-none" id="popup_chat_notification">
                         {

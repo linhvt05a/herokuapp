@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Trans } from 'react-i18next';
-import './InputFile.css'
 
 class InputFile extends Component{
     render(){
