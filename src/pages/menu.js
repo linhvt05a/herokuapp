@@ -45,6 +45,7 @@ let menu_hr_manager = [
 ];
 
 let menu_infor_manager = [
+
     {
         label: "menu_infor_supplier",
         icon: "las la-user-cog",
@@ -69,7 +70,12 @@ let menu_infor_manager = [
         label: "menu_infor_contact",
         icon: "las la-address-book",
         href: "/info/contact"
-    }
+    },
+    {
+        label: "menu_shipping_cart_list_title",
+        icon: "las la-address-book",
+        href: "/info/shipping"
+    },
 ];
 
 let menu_perm_tasks = [
@@ -225,26 +231,26 @@ let menu_data = [
         icon: "las la-copy",
         children: menu_project_manager
     },
-//    {
-//        label: "menu_project_legal",
-//        icon: "las la-balance-scale",
-//        children: menu_project_legal
-//    },
-//    {
-//        label: "menu_project_design",
-//        icon: "las la-pencil-ruler",
-//        children: menu_project_design
-//    },
-//    {
-//        label: "menu_project_finance",
-//        icon: "las la-gavel",
-//        children: menu_project_finance
-//    },
-//    {
-//        label: "menu_project_sale",
-//        icon: "las la-percentage",
-//        children: menu_project_sale
-//    },
+    //    {
+    //        label: "menu_project_legal",
+    //        icon: "las la-balance-scale",
+    //        children: menu_project_legal
+    //    },
+    //    {
+    //        label: "menu_project_design",
+    //        icon: "las la-pencil-ruler",
+    //        children: menu_project_design
+    //    },
+    //    {
+    //        label: "menu_project_finance",
+    //        icon: "las la-gavel",
+    //        children: menu_project_finance
+    //    },
+    //    {
+    //        label: "menu_project_sale",
+    //        icon: "las la-percentage",
+    //        children: menu_project_sale
+    //    },
     {
         label: "menu_project_workflow",
         icon: "las la-briefcase",
@@ -258,7 +264,7 @@ let menu_data = [
 ]
 
 function contain(datas, label) {
-    for (var i = 0; i < datas.length; i++) {
+    for (var i = 0;i < datas.length;i++) {
         var o = datas[i];
         if (o['label'] == label) {
             return true;

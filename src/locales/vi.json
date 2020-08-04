@@ -585,8 +585,9 @@
     "Attachment": "Tài liệu đính kèm",
     "FS Name": "Tên",
     "New version number": "Số phiên bản",
-    "Choose FS" : "Chọn",
-    "Members" : "Thành Viên",
-    "Member Name" : "Thành Viên",
-    "Role" : "Vai trò"
+    "Choose FS": "Chọn",
+    "Members": "Thành Viên",
+    "Member Name": "Thành Viên",
+    "Role": "Vai trò",
+    "menu_shipping_cart_list_title": "Danh Sách Rổ Hàng"
 }
