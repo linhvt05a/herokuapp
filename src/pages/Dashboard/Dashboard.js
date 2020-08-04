@@ -9,19 +9,9 @@ class Dashboard extends Component {
         return (
             <div>
                 <SalesSummary />
-                {/* <div className="row">
-                    <CardMap user={this.props.user} showToast={this.props.showToast} search={this.props.search} updateLocation={this.props.updateLocation} />
-                </div> */}
-
                 <div className="row">
                     <p>List - Maps</p>
-                    {/* <CardCapital user={this.props.user} showToast={this.props.showToast} />
-                    <CardCashFlow user={this.props.user} showToast={this.props.showToast} /> */}
                 </div>
-
-                {/* <div className="row">
-                    <CardTimeline user={this.props.user} showToast={this.props.showToast} search={this.props.search} updateLocation={this.props.updateLocation}/>
-                </div> */}
                 <div className="row mt-2">
                     <ChartSell />
                     <ChartRevenua />
