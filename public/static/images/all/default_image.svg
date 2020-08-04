@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="286" height="200" viewBox="0 0 286 200">
+    <defs>
+        <style>
+            .prefix__cls-2{fill:#acacac}
+        </style>
+    </defs>
+    <g id="prefix__default_image" transform="translate(-310 -1823)">
+        <path id="prefix__Rectangle_18155" d="M0 0H286V200H0z" data-name="Rectangle 18155" transform="translate(310 1823)" style="fill:#ebebeb"/>
+        <g id="prefix__Group_13368" data-name="Group 13368">
+            <g id="prefix__Group_12528" data-name="Group 12528" transform="translate(414.079 1845)">
+                <path id="prefix__Path_21296" d="M1070.826 361.024a37.568 37.568 0 1 1 37.568-37.567 37.61 37.61 0 0 1-37.568 37.567zm0-71.625a34.058 34.058 0 1 0 34.058 34.058 34.1 34.1 0 0 0-34.058-34.057z" class="prefix__cls-2" data-name="Path 21296" transform="translate(-1033.259 -285.888)"/>
+                <g id="prefix__Group_12524" data-name="Group 12524" transform="translate(14.92 14.921)">
+                    <path id="prefix__Path_21297" d="M1061.136 345.8l-.524-.56a22.647 22.647 0 1 1 35.582-3.194l-.663 1.027-1.193-.265a25.32 25.32 0 0 0-6.207-.652 49.086 49.086 0 0 0-11.923 1.756 53 53 0 0 1-14.308 1.888zm16.023-35.152a19.131 19.131 0 0 0-14.489 31.63 49.171 49.171 0 0 0 12.694-1.772 52.694 52.694 0 0 1 12.67-1.859 28.207 28.207 0 0 1 5.823.482 19.133 19.133 0 0 0-16.7-28.481z" class="prefix__cls-2" data-name="Path 21297" transform="translate(-1054.512 -307.142)"/>
+                </g>
+                <g id="prefix__Group_12525" data-name="Group 12525" transform="translate(4.533 4.067)">
+                    <path id="prefix__Path_21299" d="M1039.716 336.451l9.268-3.837a22.578 22.578 0 0 0-.1 7.935z" class="prefix__cls-2" data-name="Path 21299" transform="translate(-1039.716 -303.878)"/>
+                    <path id="prefix__Path_21300" d="M1053.547 320.177a24.033 24.033 0 0 0-3.121 7.293l-6.909-7.278z" class="prefix__cls-2" data-name="Path 21300" transform="translate(-1040.849 -300.172)"/>
+                    <path id="prefix__Path_21301" d="M1057.46 314.48l-3.616-9.365 9.276 3.807a24.273 24.273 0 0 0-5.66 5.558z" class="prefix__cls-2" data-name="Path 21301" transform="translate(-1043.926 -295.684)"/>
+                    <path id="prefix__Path_21302" d="M1068.819 305.142l.225-10.036 7.123 7.051a23.988 23.988 0 0 0-7.348 2.985z" class="prefix__cls-2" data-name="Path 21302" transform="translate(-1048.388 -292.702)"/>
+                    <path id="prefix__Path_21303" d="M1085.154 300.548a24.16 24.16 0 0 0-3.8.329l4.034-9.2 3.9 9.245a24.243 24.243 0 0 0-4.134-.374z" class="prefix__cls-2" data-name="Path 21303" transform="translate(-1052.122 -291.681)"/>
+                    <path id="prefix__Path_21304" d="M1094.708 302.315l7.228-6.959.085 10.035a24 24 0 0 0-7.313-3.076z" class="prefix__cls-2" data-name="Path 21304" transform="translate(-1056.102 -292.776)"/>
+                    <path id="prefix__Path_21305" d="M1106.859 309.259l9.337-3.681-3.744 9.308a24.288 24.288 0 0 0-5.593-5.627z" class="prefix__cls-2" data-name="Path 21305" transform="translate(-1059.722 -295.822)"/>
+                    <path id="prefix__Path_21306" d="M1115.979 320.583l10.036.155-7.006 7.176a23.976 23.976 0 0 0-3.03-7.331z" class="prefix__cls-2" data-name="Path 21306" transform="translate(-1062.439 -300.293)"/>
+                    <path id="prefix__Path_21307" d="M1121.043 337.052a24.237 24.237 0 0 0-.353-3.969l9.221 3.969-9.221 3.969a24.246 24.246 0 0 0 .353-3.969z" class="prefix__cls-2" data-name="Path 21307" transform="translate(-1063.843 -304.017)"/>
+                </g>
+                <g id="prefix__Group_12527" data-name="Group 12527" transform="translate(2.284 46.422)">
+                    <g id="prefix__Group_12526" data-name="Group 12526">
+                        <path id="prefix__Path_21308" d="M1072.469 380.72c-.647 0-2.68-.038-3.332-.087-14.4-1.091-26.105-9.663-31.92-22.764l-.7-1.65 1.667-.668c2.34-.936 7.629-1.526 10.887 2.958a21.941 21.941 0 0 0 14.628 8.323 16.088 16.088 0 0 0 7.462-1.049 22.764 22.764 0 0 1-15.992-7.225l-2.461-2.879 3.787-.017a49.423 49.423 0 0 0 13.51-1.78 52.7 52.7 0 0 1 12.67-1.859c10.7-.292 21.09 6.578 21.526 6.871l1.338.9-.78 1.409a37.616 37.616 0 0 1-32.29 19.517zm-31.132-22.3c5.81 11.128 16 17.3 28.67 18.748a33.9 33.9 0 0 0 30.829-16.218c-3.057-1.766-10.638-5.638-18.066-5.421a49.082 49.082 0 0 0-11.923 1.756 53.888 53.888 0 0 1-9.8 1.711 19.121 19.121 0 0 0 17.281 2.12l7.574-2.545-5.809 5.485c-4.935 4.659-10.716 6.828-16.725 6.267a25.333 25.333 0 0 1-17.142-9.753 5.288 5.288 0 0 0-4.889-2.148z" class="prefix__cls-2" data-name="Path 21308" transform="translate(-1036.513 -352.012)"/>
+                    </g>
+                </g>
+            </g>
+            <text id="prefix__MINERVA" transform="translate(362.182 1965.559)" style="font-family:Roboto-Medium,Roboto;font-weight:500;font-size:42px;fill:#acacac">
+                <tspan x="0" y="0">MINERVA</tspan>
+            </text>
+            <text id="prefix__TECHNOLOGY_SOLUTIONS_JSC" data-name="TECHNOLOGY SOLUTIONS JSC" transform="translate(354.559 1989)" style="font-size:14px;font-family:Roboto-Medium,Roboto;font-weight:500;fill:#acacac">
+                <tspan x="0" y="0">TECHNOLOGY SOLUTIONS JSC</tspan>
+            </text>
+        </g>
+    </g>
+</svg>
