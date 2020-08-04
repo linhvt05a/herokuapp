@@ -29,55 +29,55 @@ const ProductInfo = () => {
                             <div className="col-12 col-sm-6 col-md-6 col-lg-4">
                                 <div className="form-group">
                                     <label className="fw-medium">Dự án </label>
-                                    <input value="Royal Garden" disabled="" type="text" className="form-control" />
+                                    <input value="Royal Garden" readOnly type="text" className="form-control" />
                                 </div>
                             </div>
                             <div className="col-12 col-sm-6 col-md-6 col-lg-4">
                                 <div className="form-group">
                                     <label className="fw-medium">Khu</label>
-                                    <input value="Khu A" disabled="" type="text" className="form-control" />
+                                    <input value="Khu A" readOnly type="text" className="form-control" />
                                 </div>
                             </div>
                             <div className="col-12 col-sm-6 col-md-6 col-lg-4">
                                 <div className="form-group">
                                     <label className="fw-medium">Khối </label>
-                                    <input value="Khối A1" disabled="" type="text" className="form-control" />
+                                    <input value="Khối A1" readOnly type="text" className="form-control" />
                                 </div>
                             </div>
                             <div className="col-12 col-sm-6 col-md-6 col-lg-4">
                                 <div className="form-group">
                                     <label className="fw-medium">Đợt mở bán </label>
-                                    <input value="Đợt 1 " disabled="" type="text" className="form-control" />
+                                    <input value="Đợt 1 " readOnly type="text" className="form-control" />
                                 </div>
                             </div>
                             <div className="col-12 col-sm-6 col-md-6 col-lg-4">
                                 <div className="form-group">
                                     <label className="fw-medium">Loại hình </label>
-                                    <input value="Chung cư căn hộ " disabled="" type="text" className="form-control" />
+                                    <input value="Chung cư căn hộ " readOnly type="text" className="form-control" />
                                 </div>
                             </div>
                             <div className="col-12 col-sm-6 col-md-6 col-lg-4">
                                 <div className="form-group">
                                     <label className="fw-medium">Tầng / Lô</label>
-                                    <input value="Tầng A1 " disabled="" type="text" className="form-control" />
+                                    <input value="Tầng A1 " readOnly type="text" className="form-control" />
                                 </div>
                             </div>
                             <div className="col-12 col-sm-6 col-md-6 col-lg-4">
                                 <div className="form-group">
                                     <label className="fw-medium">Sản phẩm </label>
-                                    <input value="Căn hộ B2 - F.0.18 " disabled="" type="text" className="form-control" />
+                                    <input value="Căn hộ B2 - F.0.18 " readOnly type="text" className="form-control" />
                                 </div>
                             </div>
                             <div className="col-12 col-sm-6 col-md-6 col-lg-4">
                                 <div className="form-group">
                                     <label className="fw-medium">Kênh phân phối</label>
-                                    <input value="Đại lý " disabled="" type="text" className="form-control" />
+                                    <input value="Đại lý " readOnly type="text" className="form-control" />
                                 </div>
                             </div>
                             <div className="col-12 col-sm-6 col-md-6 col-lg-4">
                                 <div className="form-group">
                                     <label className="fw-medium">Tên đại lý</label>
-                                    <input value="Công ty BĐS Thành Công " disabled="" type="text" className="form-control" />
+                                    <input value="Công ty BĐS Thành Công " readOnly type="text" className="form-control" />
                                 </div>
                             </div>
                             <div class="col-12 col-sm-6 col-md-6 col-lg-4">
@@ -86,21 +86,10 @@ const ProductInfo = () => {
                                     <div class="input-group">
                                         <input type="number" class="form-control" placeholder="Nhập số" value="22.2" readOnly />
                                         <div class="input-group-append select2_currency">
-                                            <select name="" class="form-control js-select2 select2-hidden-accessible" tabindex="-1" aria-hidden="true" data-select2-id="3048">
-                                                <option value="1" data-select2-id="3050">vnd</option>
-                                                <option value="2">usd</option>
+                                            <select>
+                                                <option>VND</option>
+                                                <option>USD</option>
                                             </select>
-                                            <span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="3049" style={{width: '200.039px'}}>
-                                                <span class="selection">
-                                                    <span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false" aria-labelledby="select2--oo-container">
-                                                        <span class="select2-selection__rendered" id="select2--oo-container" role="textbox" aria-readonly="true" title="vnd">
-                                                            vnd
-                                                        </span>
-                                                        <span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span>
-                                                    </span>
-                                                </span>
-                                                    <span class="dropdown-wrapper" aria-hidden="true"></span>
-                                            </span>
                                         </div>
                                     </div>
                                 </div>
@@ -109,7 +98,7 @@ const ProductInfo = () => {
                                 <div className="form-group">
                                     <label className="fw-medium">Hoa hồng mặc định hiện tại </label>
                                     <div className="input-group mb-2">
-                                        <input type="text" className="form-control" placeholder="" value="3.2" disabled="" />
+                                        <input type="text" className="form-control" placeholder="" value="3.2" readOnly />
                                         <div className="input-group-append">
                                             <div className="input-group-text pl-4 pr-4">%</div>
                                         </div>
@@ -119,7 +108,7 @@ const ProductInfo = () => {
                             <div className="col-12 col-sm-6 col-md-6 col-lg-4">
                                 <div className="form-group">
                                     <label className="fw-medium">Số chính sách khuyến mãi đang có </label>
-                                    <input value="4" disabled="" type="text" className="form-control" />
+                                    <input value="4" readOnly type="text" className="form-control" />
                                 </div>
                             </div>
                         </div>
