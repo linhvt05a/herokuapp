@@ -8,7 +8,7 @@ class Welcome extends Component {
         return (
             <div className="m_login--left">
                 <figure className="m_login--logo" >
-                    <img src="/static/img/logo_v3.png" alt="Minerva"/>
+                    <img src="/static/images/logo_full_name.svg" alt="Minerva" />
                 </figure>
                 <div className="content" style={{border: "0px" }}>
                     <p className="main-title"><Trans>{this.props.main_title}</Trans></p>
