@@ -597,5 +597,9 @@
     "ByRegionTitle": "Theo vùng miền",
     "ByProvinceTitle": "Theo tỉnh thành",
     "ByProjectTypeTitle": "Theo loại dự án",
-    "ByProjectStatusTitle": "Theo tình trạng dự án"
+    "ByProjectStatusTitle": "Theo tình trạng dự án",
+    "RegionHintText": "Chọn vùng miền",
+    "ProvinceHintText": "Chọn tỉnh thành",
+    "ProjectTypeHintText": "Chọn loại dự án",
+    "ProjectStatusHintText": "Chọn trạng thái"
 }

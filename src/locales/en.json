@@ -604,5 +604,9 @@
     "ByRegionTitle": "Region",
     "ByProvinceTitle": "Province",
     "ByProjectTypeTitle": "Project Type",
-    "ByProjectStatusTitle": "Project Status"
+    "ByProjectStatusTitle": "Project Status",
+    "RegionHintText": "Choose a region",
+    "ProvinceHintText": "Choose a province",
+    "ProjectTypeHintText": "Choose a type",
+    "ProjectStatusHintText": "Choose a status"
 }

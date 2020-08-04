@@ -7,7 +7,7 @@ class Dashboard extends Component {
     render() {
         return (
             <div className="row">
-                <CardFilter className="col-xl-9 col-lg-9 col-md-12 col-sm-12 d-flex flex-column" />
+                <CardFilter token="MjoxMzliMDZiZmI4OTJhOGYxYmQ2MzVhZmFmODEyZmM5M2RhNDFkM2Yx" className="col-xl-9 col-lg-9 col-md-12 col-sm-12 d-flex flex-column" />
             </div>
         )
     }
