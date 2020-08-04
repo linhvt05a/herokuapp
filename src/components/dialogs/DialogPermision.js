@@ -5,7 +5,7 @@ import { CardHeader } from "../common";
 
 import { permissions } from '../../constant';
 
-import "./Dialog.css"
+
 
 class Permission extends Component {
     render() {
