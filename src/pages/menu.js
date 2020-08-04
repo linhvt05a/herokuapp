@@ -46,31 +46,31 @@ let menu_hr_manager = [
 
 let menu_infor_manager = [
 
-    {
-        label: "menu_infor_supplier",
-        icon: "las la-user-cog",
-        href: "/info/supplier"
-    },
-    {
-        label: "menu_infor_investor",
-        icon: "las la-user-alt",
-        href: "/info/investor"
-    },
-    {
-        label: "menu_infor_shareholder",
-        icon: "las la-address-book",
-        href: "/info/shareholder"
-    },
-    {
-        label: "menu_infor_contact_group",
-        icon: "las la-address-book",
-        href: "/info/contactgroup"
-    },
-    {
-        label: "menu_infor_contact",
-        icon: "las la-address-book",
-        href: "/info/contact"
-    },
+    // {
+    //     label: "menu_infor_supplier",
+    //     icon: "las la-user-cog",
+    //     href: "/info/supplier"
+    // },
+    // {
+    //     label: "menu_infor_investor",
+    //     icon: "las la-user-alt",
+    //     href: "/info/investor"
+    // },
+    // {
+    //     label: "menu_infor_shareholder",
+    //     icon: "las la-address-book",
+    //     href: "/info/shareholder"
+    // },
+    // {
+    //     label: "menu_infor_contact_group",
+    //     icon: "las la-address-book",
+    //     href: "/info/contactgroup"
+    // },
+    // {
+    //     label: "menu_infor_contact",
+    //     icon: "las la-address-book",
+    //     href: "/info/contact"
+    // },
     {
         label: "menu_shipping_cart_list_title",
         icon: "las la-address-book",

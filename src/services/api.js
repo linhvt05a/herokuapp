@@ -20,10 +20,10 @@ export default {
     DASHBOARD_CAPITAL_STRUCTURE: '/api/v1/dashboard/capital_structure/',
 
     PROJECT_LIST: '/api/v1/project/list/',
-    PROJECT_INVESTOR:'/api/v1/information/investor/list_shorten/',
-    PROJECT_MODEL:'/api/v1/project/model/list/',
-    PROJECT_LIST_WORK_FLOW:'/api/v1/system/workflow/list_shorten/',
-    PROJECT_DETAIL:'/api/v1/project/detail/',
+    PROJECT_INVESTOR: '/api/v1/information/investor/list_shorten/',
+    PROJECT_MODEL: '/api/v1/project/model/list/',
+    PROJECT_LIST_WORK_FLOW: '/api/v1/system/workflow/list_shorten/',
+    PROJECT_DETAIL: '/api/v1/project/detail/',
     PROJECT_LIST_SHORTEN: '/api/v1/project/list_shorten/',
     PROJECT_TIMELINE_DEPARMENTS: '/api/v1/project/timeline/department/list/',
     PROJECT_TIMELINE_GROUPS: '/api/v1/project/timeline/group/list/',
@@ -35,11 +35,11 @@ export default {
     PROJECT_CASHFLOW: '/api/v1/project/cash_flow/',
     PROJECT_LEGAL: '/api/v1/project/legal/',
     PROJECT_DESIGN: '/api/v1/project/design/',
-    PROJECT_NEWS_LIST:'/api/v1/project/news/list/',
-    PROJECT_NEWS_ADD:'/api/v1/project/news/add/',
-    PROJECT_NEWS_DETAIL:'/api/v1/project/news/detail/',
-    PROJECT_NEWS_EDIT:'/api/v1/project/news/edit/',
-    PROJECT_NEWS_DELETE:'/api/v1/project/news/delete/',
+    PROJECT_NEWS_LIST: '/api/v1/project/news/list/',
+    PROJECT_NEWS_ADD: '/api/v1/project/news/add/',
+    PROJECT_NEWS_DETAIL: '/api/v1/project/news/detail/',
+    PROJECT_NEWS_EDIT: '/api/v1/project/news/edit/',
+    PROJECT_NEWS_DELETE: '/api/v1/project/news/delete/',
     PROJECT_CURRENCY_LIST: '/api/v1/project/currency/list/',
 
     HR_OFFICE: '/api/v1/human_resource/office/list/',
@@ -142,12 +142,12 @@ export default {
     DEPARTMENT_TASK_ADD: '/api/v1/permission_task/department_task/add/',
     DEPARTMENT_TASK_EDIT: '/api/v1/permission_task/department_task/edit/',
     DEPARTMENT_TASK_DELETE: '/api/v1/permission_task/department_task/delete/',
-    DEPARTMENT_TASK_LAYOUT:'/api/v1/permission_task/department_task/layout/',
+    DEPARTMENT_TASK_LAYOUT: '/api/v1/permission_task/department_task/layout/',
 
     PROJECT_TASK_LIST: '/api/v1/permission_task/project_task/list/',
 
     INTERNAL_PROJECT_TASK: '/api/v1/project/member/list_shorten/',
-    INTERNAL_PROJECT_TASK_LIST:'/api/v1/project/project_internal/task/',
+    INTERNAL_PROJECT_TASK_LIST: '/api/v1/project/project_internal/task/',
 
     PERMISSION_PROJECT_LIST: '/api/v1/permission_task/project_task/list/',
     PERMISSION_PROJECT_DETAIL: '/api/v1/permission_task/project_task/detail/',
@@ -165,8 +165,12 @@ export default {
     FINANCE_LIST: '/api/v1/project/finance/list/',
     FINANCE_PROJECT_MEMBER: '/api/v1/project/member/list/',
     FINANCE_PROJECT: '/api/v1/project_workflow/finance/project/',
-    FINANCE_PROJECT_NEWS : '/api/v1/project/news/list/',
+    FINANCE_PROJECT_NEWS: '/api/v1/project/news/list/',
     FINANCE_INFO: '/api/v1/project/detail/',
+
+    //Shipping
+    SHIPPING_LIST: "/api/be/v1/project/",
+    SHIPPING_DETAIL: "/api/be/v1/project/detail/",
 
     getHeader,
     getUrl,

@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import React, { useState } from 'react';
+import DropdownPurple from "../../../../../components/dropdown/DropdownPurple"
 
 const header = props => {
     const [value, setValue] = useState(null);
@@ -7,20 +8,7 @@ const header = props => {
         <div class="d-flex justify-content-between align-items-end">
             <div class="m_heading">
                 <button class="m_button no-event"><span>Dự Án</span></button>
-                <div class="dropdown m_select m_dropdown">
-                    <button class="m_select--label m_dropdown--label square dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Trạng Thái Dự Án
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-                        <a class="dropdown-item" href="/backend/project/?project_name=&amp;setting_type_id=&amp;status_id=1">Mới</a>
-                        <a class="dropdown-item" href="/backend/project/?project_name=&amp;setting_type_id=&amp;status_id=2">Đang
-                            chờ</a>
-                        <a class="dropdown-item" href="/backend/project/?project_name=&amp;setting_type_id=&amp;status_id=3">Đang triển khai</a>
-                        <a class="dropdown-item" href="/backend/project/?project_name=&amp;setting_type_id=&amp;status_id=4">Dừng</a>
-                        <a class="dropdown-item" href="/backend/project/?project_name=&amp;setting_type_id=&amp;status_id=5">Hoàn
-                            Thành</a>
-                    </div>
-                </div>
+                <DropdownPurple {...props} />
                 <div class="m_search">
                     <label class="m_search--label d-none
                             d-md-block">Tên Dự Án</label>

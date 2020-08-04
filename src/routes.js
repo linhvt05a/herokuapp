@@ -36,7 +36,7 @@ const MAINS = [
     { "path": "/perm/internal/detail/:id", "value": Perm.PagePermInternalDetail, "menu": "menu_perm_task_by_departments", "title": "Update" },
 
     { "path": "/info/shipping", "value": Info.Shipping, "menu": "menu_shipping_cart_list_title", "title": "Danh sách dự án" },
-
+    { "path": "/info/shipping/edit/:id", "value": Info.ShippingDetail, "menu": "menu_shipping_cart_list_title", "title": "Chi tiết giỏ hàng" },
 ]
 
 var PATHS = {};

@@ -1,4 +1,6 @@
-import Shipping from "./Shipping"
+import Shipping from "./Shipping";
+import ShippingDetail from "./Shipping/Detail"
 export {
-    Shipping
+    Shipping,
+    ShippingDetail
 }
