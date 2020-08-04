@@ -48,7 +48,7 @@ class MapBox extends Component {
     }
 
     componentDidMount() {
-        console.log("componentDidMount map")
+        // console.log("componentDidMount map")
         var markers = this.props.markers;
 
         map = new mapboxgl.Map({
@@ -59,7 +59,7 @@ class MapBox extends Component {
         });
 
         map.on('load', function() {
-            console.log("componentDidMount map load")
+            // console.log("componentDidMount map load")
             var icons = markers['icons'];
             if( icons ){
                 for( var i = 0 ; i < icons.length ; i ++ ){

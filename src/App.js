@@ -6,8 +6,6 @@ import { Page403, Page404, Page500 } from "./pages/Error"
 import { MainLogin, MainPage } from "./pages"
 import { LOGINS, MAINS, PATHS } from "./routes"
 
-// link css 
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 // store 
 import { Provider } from 'react-redux';

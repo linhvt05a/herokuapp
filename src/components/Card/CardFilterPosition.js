@@ -4,7 +4,7 @@ import { Trans } from 'react-i18next';
 import { mappingListToSelectList, InputSelect, mapping } from '../input';
 import { CardHeader } from '../common';
 
-import { locationService, projectService } from '../../services';
+import { locationService } from '../../services';
 
 // ====================================================================
 
@@ -75,22 +75,24 @@ class CardFilterPosition extends Component {
     }
 
     loadProjectTypeList = () => {
-        projectService.projectTypeList(this.state.user.token).then(
-            res => {
-                var data = this.props.search
-                var typeProjectList = mappingListToSelectList(res['detail'], 'project_setting_type_id', 'name')
-                typeProjectList.unshift({value: "", label: "Select type project"})
-                var type_project = data.type_project ? mapping(typeProjectList, data.type_project) : typeProjectList[0]
-                this.setState({
-                    type_project: type_project,
-                    typeProjectList: typeProjectList,
-                });
-                this.forceUpdate();
-            },
-            err => {
-                this.props.showToast('error', err);
-            }
-        );
+        if(projectService){
+            projectService.projectTypeList(this.state.user.token).then(
+                res => {
+                    var data = this.props.search
+                    var typeProjectList = mappingListToSelectList(res['detail'], 'project_setting_type_id', 'name')
+                    typeProjectList.unshift({value: "", label: "Select type project"})
+                    var type_project = data.type_project ? mapping(typeProjectList, data.type_project) : typeProjectList[0]
+                    this.setState({
+                        type_project: type_project,
+                        typeProjectList: typeProjectList,
+                    });
+                    this.forceUpdate();
+                },
+                err => {
+                    this.props.showToast('error', err);
+                }
+            );
+        }
     }
 
     loadRegion = () => {

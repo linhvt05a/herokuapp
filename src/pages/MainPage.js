@@ -10,7 +10,7 @@ import SideBar from '../components/SideBar/SideBar.js'
 import menu from './menu.js';
 
 import { NotificationContainer, NotificationManager } from 'react-notifications';
-import 'react-notifications/lib/notifications.css';
+// import 'react-notifications/lib/notifications.css';
 
 function showToast(type, message) {
     switch (type) {

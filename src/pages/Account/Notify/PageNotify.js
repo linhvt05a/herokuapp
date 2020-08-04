@@ -64,7 +64,7 @@ class PageNotify extends Component {
                             Hoạt Động
                         </button>
                         <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a className="dropdown-item" href="javascript:void(0)">Xóa Tất Cả</a>
+                            <a className="dropdown-item">Xóa Tất Cả</a>
                         </div>
                     </div>
                 </div>

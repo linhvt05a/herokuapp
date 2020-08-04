@@ -91,7 +91,7 @@ class CardRight extends Component {
 
     onSave = (e) =>{    
         const { nick_name } = this.state;
-        console.log("nick_name", this.state.nick_name);
+        // console.log("nick_name", this.state.nick_name);
         if (!(nick_name)) {
             return;
         }
@@ -213,7 +213,7 @@ class PageProfile extends Component {
             info => {
                 this.setState({ info: info['detail']}, () => {
                     this.forceUpdate();
-                    console.log('loadInfoData');
+                    // console.log('loadInfoData');
                 });
             },
             err => {

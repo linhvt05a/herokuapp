@@ -1,23 +1,31 @@
 import React, { Component } from 'react';
 import { Trans } from 'react-i18next';
 
-import { CardCapital, CardCashFlow, CardMap, CardTimeline } from "./Card";
+import CardSummary from "./Card/CardSummary";
+import CardFilter from "./Card/CardFilter";
+import CardTable from "./Card/CardTable";
+import CardMap from "./Card/CardMap";
 
 class Dashboard extends Component {
     render() {
         return (
             <div>
+                <CardSummary />
                 <div className="row">
-                    <CardMap user={this.props.user} showToast={this.props.showToast} search={this.props.search} updateLocation={this.props.updateLocation} />
-                </div>
 
-                <div className="row">
-                    <CardCapital user={this.props.user} showToast={this.props.showToast} />
-                    <CardCashFlow user={this.props.user} showToast={this.props.showToast} />
-                </div>
+                    {/* filter  */}
+                    <div className="col-xl-9 col-lg-9 col-md-12 col-sm-12 d-flex flex-column">
+                        <div className="h-100">
+                            <CardFilter/>
+                            <CardTable/>
+                        </div>
+                    </div>
 
-                <div className="row">
-                    <CardTimeline user={this.props.user} showToast={this.props.showToast} search={this.props.search} updateLocation={this.props.updateLocation}/>
+                    {/* map  */}
+                    <div className="col-xl-3 col-lg-3 col-md-12 col-sm-12  mt-lg-0 mt-5  d-flex flex-column">
+                        <CardMap />
+                    </div>
+
                 </div>
             </div>
         )

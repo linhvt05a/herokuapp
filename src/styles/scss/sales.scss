@@ -2711,10 +2711,10 @@ input[type="number"] {
 			content: "";
 			width: 35px;
 			height: 35px;
-			background-image: url(../../images/all/circle_white.png);
+			// background-image: url(../static/images/circle_white.png);
 			background-repeat: no-repeat;
 			background-position: top left;
-			z-index: 3;
+			z-index: 3; 
 		}
 		&::before{
 			left: 0;
