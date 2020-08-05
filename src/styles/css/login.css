@@ -9,7 +9,7 @@ body {
 }
 
 .m_bg_purple .m_login--left {
-    background-image: url(../../public/static/images/bg_login.png);
+    background-image: url(../../../public/static/images/bg_login.png);
 }
 
 .m_bg_purple .m_login--right .main-title {

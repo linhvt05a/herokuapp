@@ -121,7 +121,6 @@ function handleResponseText(response) {
 }
 
 function handleData(response, data) {
-    console.log(data);
     if (data['success'] == false) {
         const error = data['detail'];
         console.log(error);

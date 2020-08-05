@@ -1,12 +1,20 @@
 import { all } from "redux-saga/effects";
 
-import { 
-   currencyListWatcher,
-   currencyDetailWatcher, 
-   currencyEditWatcher,
-   currencyAddWatcher
+import {
+  currencyListWatcher,
+  currencyDetailWatcher,
+  currencyEditWatcher,
+  currencyAddWatcher
 } from './currencySaga';
-import { 
+
+import {
+  shippingDetailWatcher,
+  shippingListlWatcher,
+  shippingSellOpenlWatcher,
+  shippingSellOpenListlWatcher,
+  shippingSellOpenCartWatcher
+} from "./shippingSaga"
+import {
   regionListWatcher,
   provinceListWatcher,
   typeListWatcher,
@@ -19,12 +27,17 @@ function* allSaga() {
     currencyDetailWatcher(),
     currencyEditWatcher(),
     currencyAddWatcher(),
-    
+    shippingDetailWatcher(),
+    shippingListlWatcher(),
+    shippingSellOpenlWatcher(),
+    shippingSellOpenListlWatcher(),
+    shippingSellOpenCartWatcher(),
     regionListWatcher(),
     provinceListWatcher(),
     typeListWatcher(),
     statusListWatcher()
   ]);
 }
+
 
 export default allSaga;

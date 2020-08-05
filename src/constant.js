@@ -638,7 +638,7 @@ const document_type = [
         "document_setting_type_description": "Cập nhật những chứng từ liên quan tới sơ đồ tổ chức của chủ đầu tư",
     },
     {
-        "id":4,
+        "id": 4,
         "document_setting_type_name": "THÔNG TIN DOANH NGHIỆP",
         "document_setting_type_description": "Cập nhật những chứng từ liên quan tới thông tin doanh nghiệp ví dụ như điều lệ, báo cáo thường niên, ….",
     },
@@ -648,6 +648,26 @@ const document_type = [
         "document_setting_type_description": "Cập nhật những chứng từ liên quan tới thông tin doanh nghiệp ví dụ như quy chế quản trị, cấu trúc quản trị, báo cáo quản trị, ….",
     }
 ]
+const product_type_id = [
+    { 'id': 1, "name": "APARTMENT" },
+    { 'id': 2, "name": "DUPLEX" },
+    { 'id': 3, "name": "OFFICETEL" },
+    { 'id': 4, "name": "STUDIO" },
+    { 'id': 5, "name": "PENTHOUSE" },
+    { 'id': 6, "name": "SHOPHOUSE" },
+    { 'id': 7, "name": "VILLA" },
+    { 'id': 8, "name": "SINGLE VILLA" },
+    { 'id': 9, "name": "DUPLEX VILLA" },
+]
+const product_status = [
+    { 'id': 1, 'name': "PROJECT_SALE_STATUS_NEW", 'className': "sales_status_cart_1" },// sales_status_cart_1
+    { 'id': 2, 'name': "PRODUCT_SALES_STATUS_NOT_SOLD_YET", 'className': "sales_status_cart_2" },// sales_status_cart_2
+    { 'id': 3, 'name': "PRODUCT_SALES_STATUS_SELLING", 'className': "sales_status_cart_3" },// sales_status_cart_3
+    { 'id': 4, 'name': "PROJECT_SALE_STATUS_BOOKING", 'className': "sales_status_cart_4" },// sales_status_cart_4
+    { 'id': 5, 'name': "PROJECT_SALE_STATUS_SOLD", 'className': "sales_status_cart_5" },// sales_status_cart_5
+    { 'id': 6, 'name': "PROJECT_SALE_STATUS_RENT", 'className': "" },
+]
+
 module.exports = {
     gender, activates, status, statusActive,
     persons, employees, periods,
@@ -660,5 +680,6 @@ module.exports = {
     projects_investor, duration_years, currency, supplierTab,
     rank_type, project_period, worktimes,
     participants, role, investorProject, projectType, investorsDiaglog, select_rating, selectprovince, select_district, ward, currency_unit,
-    suppliers, group_investor, presenter, document_type
+    suppliers, group_investor, presenter, document_type,
+    product_type_id, product_status
 }

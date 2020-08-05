@@ -8,7 +8,12 @@ import DialogEditCompetitive from './DialogEditCompetitive';
 import DialogProjectDashBoardDetail from './DialogProjectDashBoardDetail'
 import DialogFS from './DialogFS'
 import DialogAddTaskList from './DialogAddTaskList'
+import DialogSaleProject from './DialogSaleProject';
+import DialogSalePromotion from './DialogSalePromotion';
+import DialogResponeHistory from './DialogResponeHistory'
 export {
     DialogAvatar, DialogEdit, DialogTemplateEdit, DialogFS,
-    DialogTrash, DialogPermision, DialogList, DialogEditCompetitive , DialogProjectDashBoardDetail,DialogAddTaskList
+    DialogTrash,
+    DialogPermision,DialogSaleProject, DialogSalePromotion,DialogResponeHistory,
+    DialogList, DialogEditCompetitive , DialogProjectDashBoardDetail,DialogAddTaskList
 }

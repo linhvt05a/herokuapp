@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 
-import './PageNotify.css';
-
 class Item extends Component {
     render() {
         return (

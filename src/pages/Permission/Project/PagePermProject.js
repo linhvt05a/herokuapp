@@ -9,7 +9,6 @@ import {
     CardHeader, Pagination
 } from '../../../components/common'
 import { permissionProjectService } from '../../../services';
-import '../Permission.css'
 
 
 class Row extends Component {

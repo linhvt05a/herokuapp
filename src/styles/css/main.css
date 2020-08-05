@@ -296,10 +296,11 @@ ul.list-style-none {
     z-index: -1;
     pointer-events: none;
     height: 329px;
+    background-color: rgba(74, 59, 204, 0.65);
 }
 
 .header__bg.purple {
-    background-image: url(../../static/images/bg_2.png);
+    background-image: url(../../../public/static/images/bg_2.png); 
 }
 
 .header__topbar {
@@ -845,7 +846,7 @@ ul.list-style-none {
 }
 
 .left-sidebar .user-profile .profile-pic {
-    /* background-image: url(../../static/img/default_avatar.svg); */
+    /* background-image: url(../../../public/static/img/default_avatar.svg); */
     width: 62px;
     height: 62px;
     background-position: center center;
@@ -2952,7 +2953,7 @@ ul.parsley-errors-list {
 /*}*/
 
 .swal-modal .swal-icon--warning {
-    background-image: url(../../static/images/error_icon.png);
+    background-image: url(../../../public/static/images/error_icon.png);
     background-size: contain;
     background-repeat: no-repeat;
     border-radius: 0;
@@ -3769,7 +3770,7 @@ input[type=number]::-webkit-inner-spin-button {
 }
 
 .flag_purple .text::before, .flag_purple .text::after {
-    background-image: url("../../static/images/circle_white.png") !important;
+    background-image: url("../../../public/static/images/circle_white.png") !important;
 
 }
 
