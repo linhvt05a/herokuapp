@@ -41,10 +41,10 @@ const Shipping = props => {
         <div >
             {
                 <div>
-                    <Item.header
+                    {/* <Item.header
                         datas={dataSelect}
                         label={"Trạng Thái Dự Án"}
-                        SEARCH={value => SEARCH(value)} />
+                        SEARCH={value => SEARCH(value)} /> */}
                     <Item.body
                         dataType={dataType}
                         data={dataShipping}

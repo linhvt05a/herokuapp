@@ -45,31 +45,36 @@ let menu_hr_manager = [
 ];
 
 let menu_infor_manager = [
+    // {
+    //     label: "menu_infor_supplier",
+    //     icon: "las la-user-cog",
+    //     href: "/info/supplier"
+    // },
+    // {
+    //     label: "menu_infor_investor",
+    //     icon: "las la-user-alt",
+    //     href: "/info/investor"
+    // },
+    // {
+    //     label: "menu_infor_shareholder",
+    //     icon: "las la-address-book",
+    //     href: "/info/shareholder"
+    // },
+    // {
+    //     label: "menu_infor_contact_group",
+    //     icon: "las la-address-book",
+    //     href: "/info/contactgroup"
+    // },
+    // {
+    //     label: "menu_infor_contact",
+    //     icon: "las la-address-book",
+    //     href: "/info/contact"
+    // },
     {
-        label: "menu_infor_supplier",
-        icon: "las la-user-cog",
-        href: "/info/supplier"
+        label: "menu_hr_employee",
+        icon: "las la-user-tie",
+        href: "/info/shipping"
     },
-    {
-        label: "menu_infor_investor",
-        icon: "las la-user-alt",
-        href: "/info/investor"
-    },
-    {
-        label: "menu_infor_shareholder",
-        icon: "las la-address-book",
-        href: "/info/shareholder"
-    },
-    {
-        label: "menu_infor_contact_group",
-        icon: "las la-address-book",
-        href: "/info/contactgroup"
-    },
-    {
-        label: "menu_infor_contact",
-        icon: "las la-address-book",
-        href: "/info/contact"
-    }
 ];
 
 let menu_perm_tasks = [
@@ -186,7 +191,7 @@ let menu_data = [
 ]
 
 function contain(datas, label) {
-    for (var i = 0; i < datas.length; i++) {
+    for (var i = 0;i < datas.length;i++) {
         var o = datas[i];
         if (o['label'] == label) {
             return true;
