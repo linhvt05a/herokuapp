@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withTranslation, Trans } from 'react-i18next';
 
-import "react-datepicker/dist/react-datepicker.css";
+
 
 //import format from "date-fns/format"
 
