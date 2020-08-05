@@ -141,7 +141,7 @@ class InputSelect extends Component {
                         value={this.props.value}
                         options={this.props.options}
                         styles={this.props.style ? this.props.style : customStyles}
-                        placeholder={t(this.props.label)}
+                        placeholder={t(this.props.placeholder)}
                         isMulti={this.props.isMulti}
                     />
                     {(!this.props.disabled && this.props.submitted && this.props.required && this.props.value.value === "") &&
