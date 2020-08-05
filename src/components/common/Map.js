@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import mapboxgl from 'mapbox-gl';
 
-import './Map.css';
-
 //mapboxgl.accessToken = "pk.eyJ1IjoiZXhhbXBsZXMiLCJhIjoiY2p0MG01MXRqMW45cjQzb2R6b2ptc3J4MSJ9.zA2W0IkI0c6KaAhJfk9bWg";
 const MAP_LAYER_PROJECT = "MAP_LAYER_PROJECT";
 const MAP_STYLE = {
@@ -48,7 +46,7 @@ class MapBox extends Component {
     }
 
     componentDidMount() {
-        console.log("componentDidMount map")
+        // console.log("componentDidMount map")
         var markers = this.props.markers;
 
         map = new mapboxgl.Map({
@@ -59,7 +57,7 @@ class MapBox extends Component {
         });
 
         map.on('load', function() {
-            console.log("componentDidMount map load")
+            // console.log("componentDidMount map load")
             var icons = markers['icons'];
             if( icons ){
                 for( var i = 0 ; i < icons.length ; i ++ ){

@@ -585,6 +585,7 @@
     "Attachment": "Tài liệu đính kèm",
     "FS Name": "Tên",
     "New version number": "Số phiên bản",
+<<<<<<< HEAD
     "Choose FS": "Chọn",
     "Members": "Thành Viên",
     "Member Name": "Thành Viên",
@@ -596,4 +597,23 @@
     "PROJECT_SALE_STATUS_BOOKING": "Đặt cọc",
     "PROJECT_SALE_STATUS_SOLD": "Đã bán",
     "PROJECT_SALE_STATUS_RENT": "Cho thuê"
+=======
+    "Choose FS" : "Chọn",
+    "Members" : "Thành Viên",
+    "Member Name" : "Thành Viên",
+    "Role" : "Vai trò",
+
+
+
+
+    "ProjectFilterTitle": "TÌM KIẾM DỰ ÁN",
+    "ByRegionTitle": "Theo vùng miền",
+    "ByProvinceTitle": "Theo tỉnh thành",
+    "ByProjectTypeTitle": "Theo loại dự án",
+    "ByProjectStatusTitle": "Theo tình trạng dự án",
+    "RegionHintText": "Chọn vùng miền",
+    "ProvinceHintText": "Chọn tỉnh thành",
+    "ProjectTypeHintText": "Chọn loại dự án",
+    "ProjectStatusHintText": "Chọn trạng thái"
+>>>>>>> origin/develop
 }

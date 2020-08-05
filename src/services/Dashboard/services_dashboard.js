@@ -1,39 +1,47 @@
 import api from '../api';
 
 export const dashboardService = {
-    projectList,
-    cashFlow,
-    capitalStructure
+    getRegionList,
+    getProvinceList,
+    getTypeList,
+    getStatusList
 }
 
-function projectList(token, project_name, region_id, province_id) {
+function getRegionList(token) {
     const requestOptions = {
         method: 'GET',
         headers: api.getHeader(token)
     };
-
-    const params = { 'project_name': project_name, 'region_id': region_id, 'province_id': province_id };
-    const url = api.getUrl(api.DASHBOARD_LIST_PROJECT, params)
+    const url = api.getUrl(api.DASHBOARD_REGION_LIST);
     return api.handleRequest(url, requestOptions);
 }
 
-function cashFlow(token) {
+function getProvinceList(token, region_id, search_name, has_project, limit, lang) {
     const requestOptions = {
         method: 'GET',
         headers: api.getHeader(token)
     };
-    const url = api.getUrl(api.DASHBOARD_CASH_FLOW)
+    const params = {'region_id': region_id, 'search_name': search_name, 'has_project': has_project, 'limit': limit, 'lang': lang};
+    const url = api.getUrl(api.DASHBOARD_PROVINCE_LIST, params);
     return api.handleRequest(url, requestOptions);
 }
 
-
-function capitalStructure(token, project_id) {
+function getTypeList(token) {
     const requestOptions = {
         method: 'GET',
         headers: api.getHeader(token)
     };
-    const body = { project_id }
-    const url = api.getUrl(api.DASHBOARD_CAPITAL_STRUCTURE, body)
+    const url = api.getUrl(api.DASHBOARD_TYPE_LIST);
     return api.handleRequest(url, requestOptions);
 }
+
+function getStatusList(token) {
+    const requestOptions = {
+        method: 'GET',
+        headers: api.getHeader(token)
+    };
+    const url = api.getUrl(api.DASHBOARD_STATUS_LIST);
+    return api.handleRequest(url, requestOptions);
+}
+
 

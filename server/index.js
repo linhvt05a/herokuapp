@@ -17,8 +17,8 @@ app.use(express.static("public"));
 
 // PROXY
 
+app.use('/api', createProxyMiddleware({ target: 'http://222.255.217.135:9117', changeOrigin: true }));
 //app.use('/api', createProxyMiddleware({ target: 'http://superapp.minerva.vn:9218', changeOrigin: true }));
-app.use('/api', createProxyMiddleware({ target: 'http://superapp.minerva.vn:9218', changeOrigin: true }));
 app.use('/cdn', createProxyMiddleware({ target: 'https://cloudapi.minerva.vn', changeOrigin: true }));
 
 // REACT
@@ -27,8 +27,8 @@ app.get('/*', (req, res) => {
 })
 
 // START
-app.listen(PORT, () => {
-    console.log("Server started on port " + PORT);
+app.listen( PORT, () => {
+	console.log("Server started on port "+PORT);
 })
 
 //  "proxy": "http://222.255.217.135:9117",

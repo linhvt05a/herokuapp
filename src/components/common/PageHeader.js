@@ -7,7 +7,6 @@ import { DropItem } from "../dropdown"
 
 import { userService } from '../../services';
 
-import icon from './PageHeader.svg';
 
 //$(".nav-toggler").on("click", function(e) {
 //    e.stopPropagation();
@@ -100,9 +99,7 @@ class PageHeader extends Component {
 
     render() {
         return (
-            <div>
-                <div className="header__bg purple" />
-                <header className="header__topbar">
+            <header className="header__topbar">
                     <nav className="navbar top-navbar navbar-expand-md navbar-dark">
 
                         <div className="navbar-header">
@@ -117,11 +114,8 @@ class PageHeader extends Component {
                             <div className="navbar-brand">
                                 <a className="logo" href="/">
                                     <b className="logo-icon">
-                                        <img src="/static/img/icon_logo.png" alt="homepage" className="dark-logo" />
+                                        <img src="/static/images/logo_full_name.svg" alt="Minerva" className="dark-logo" />
                                     </b>
-                                    <span className="logo-text">
-                                        <img src="/static/img/letter_logo.png" alt="homepage" className="dark-logo" />
-                                    </span>
                                 </a>
                                 <a className="sidebartoggler" onClick={this.barToggler}>
                                     <span className="line line-1"></span>
@@ -143,8 +137,6 @@ class PageHeader extends Component {
                         </div>
                     </nav>
                 </header>
-            </div>
-
         )
     }
 };

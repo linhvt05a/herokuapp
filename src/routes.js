@@ -6,9 +6,9 @@ import * as Account from "./pages/Account";
 
 import * as System from "./pages/System";
 
-import * as Perm from "./pages/Permission";
+import * as ProductCart from "./pages/ProductCart";
 
-import * as Info from "./pages/info"
+import * as Perm from "./pages/Permission"
 
 const LOGINS = [
     { "path": "/login", "value": Login.PageLogin, "main_title": "login_main_title", "sub_title": "login_sub_title" },
@@ -17,7 +17,6 @@ const LOGINS = [
 
 const MAINS = [
     { "path": "/", "value": Dashboard.Dashboard, "menu": "menu_home", "title": "home_dashboard" },
-
     { "path": "/changepass", "value": Account.PageChangePass, "menu": "menu_home", "title": "changepassword_title" },
     { "path": "/profile", "value": Account.PageProfile, "menu": "menu_home", "title": "Profile" },
     { "path": "/chat", "value": Account.PageChat, "menu": "menu_home", "title": "Message" },
@@ -26,6 +25,8 @@ const MAINS = [
     { "path": "/system/currency", "value": System.PageCurrency, "menu": "menu_system_currency", "title": "menu_system_currency" },
     { "path": "/system/currency/add", "value": System.PageCurrencyAdd, "menu": "menu_system_currency", "title": "Add" },
     { "path": "/system/currency/edit/:id", "value": System.PageCurrencyEdit, "menu": "menu_system_currency", "title": "Update" },
+    
+    { "path": "/product_card/new_contract/customer_info", "value": ProductCart.CustomerInfo, "menu": "menu_product_cart_customer_info", "title": "Căn hộ B2 - F.0.18" },
 
     { "path": "/perm/project", "value": Perm.PagePermProject, "menu": "menu_perm_task_by_projects", "title": "menu_perm_task_by_projects" },
     { "path": "/perm/project/add", "value": Perm.PagePermProjectAdd, "menu": "menu_perm_task_by_projects", "title": "Add" },
@@ -34,13 +35,10 @@ const MAINS = [
     { "path": "/perm/internal", "value": Perm.PagePermInternal, "menu": "menu_perm_task_by_departments", "title": "menu_perm_task_by_departments" },
     { "path": "/perm/internal/add", "value": Perm.PagePermInternalAdd, "menu": "menu_perm_task_by_departments", "title": "Add" },
     { "path": "/perm/internal/detail/:id", "value": Perm.PagePermInternalDetail, "menu": "menu_perm_task_by_departments", "title": "Update" },
-
-    { "path": "/info/shipping", "value": Info.Shipping, "menu": "menu_shipping_cart_list_title", "title": "Danh sách dự án" },
-    { "path": "/info/shipping/edit/:id", "value": Info.ShippingDetail, "menu": "menu_shipping_cart_list_title", "title": "Chi tiết giỏ hàng" },
 ]
 
 var PATHS = {};
-for (var i = 0;i < MAINS.length;i++) {
+for (var i = 0; i < MAINS.length; i++) {
     var data = MAINS[i];
     var path = data.path.replace("/:id", "");
     PATHS[path] = data.title;

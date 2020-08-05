@@ -4,8 +4,6 @@ import { Trans } from 'react-i18next';
 import { DropItem } from "../../dropdown"
 import { ButtonChat, ButtonSetting, ButtonNotify } from './Button'
 
-import './Profile.css';
-
 
 let messages = [
     {
@@ -21,7 +19,7 @@ let messages = [
     {
         "name": "test 123",
         "content": "undefined",
-        "url": "https://cloudapi.minerva.vn/cdn/sunnyworld-workflow/cdc00e26696a1c429cbb4.jpg"
+        "url": "https://cloudapi.minerva.vn/cdn/minerva-chat/workflow/workflowprod/f711f0af9f34e38071f1158951062683424"
     }
 ]
 

@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import _ from "lodash"
 
 const Content = props => {
-    // console.log(props.data);
+
     useEffect(() => {
         let arr = _.groupBy(props.data.floor_or_lot_list, (item) => (item.floor_or_lot_name))
         console.log(arr);

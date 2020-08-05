@@ -75,6 +75,10 @@ function authHeader() {
 
 function handleRequest(url, options) {
     options['url'] = url;
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/develop
     if (options.hasOwnProperty("body")) {
         if (MNV_ENCODE == 1) {
             options['body'] = Encode(options['body']);

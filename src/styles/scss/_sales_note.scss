@@ -1,0 +1,70 @@
+.sales_note{
+    &--list{
+        max-height: 300px;
+        overflow-y: auto;
+        padding: 6px;
+        margin-bottom: 20px;
+        @include scrollTable;
+        .item{
+            display: flex;
+            position: relative;
+            margin-bottom: 20px;
+            .avatar{
+                width: 40px;
+                height: 40px;
+                border: solid 1px #e7e7e7;
+                border-radius: 50%;
+                overflow: hidden;
+                margin-right: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                
+                img{
+                    width: 100%;
+                }
+            }
+            .info{
+                .name{
+                    
+                    color: #2b8a3e;
+                }
+                .date{
+                    color: #606060;
+                    font-size: 12px;
+                    margin-bottom: 6px;
+                }
+                .text{
+                    font-size: 11px;
+                    color: #000000;
+                }
+            }
+            .icon{
+                position: absolute;
+                right: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                font-size: 19px;
+                color: #6d30ab;
+                cursor: pointer;
+            }
+        }
+    }
+    &--input{
+        .heading{
+            font-size: 18px;
+            font-weight: 500;
+            color: #000000;
+            margin-bottom: 8px;
+        }
+        .content{
+            width: 100%;
+            height: 120px;
+            border: solid 1px #d8d8d8;
+            background-color: #fff;
+            padding: 10px 12px;
+            color: #000;
+            
+        }
+    }
+}

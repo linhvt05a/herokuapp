@@ -1,0 +1,138 @@
+.sales_house-selected {
+    .m_table {
+        margin-bottom: 25px;
+        max-height: 1200px;
+        overflow-y: auto;
+        // overflow-x: hidden;
+        padding-right: 10px;
+    }
+
+    table {
+        // min-width: 1525px;
+    }
+
+    td {
+        // padding-left: 0;
+        // padding-right: 0;
+    }
+
+    thead {
+        th {
+            font-size: 16px;
+
+            &:nth-child(1) {
+                width: 4%;
+            }
+
+            &:nth-child(2) {
+                width: 9%;
+                min-width: 100px;
+            }
+
+            &:nth-child(3) {
+                width: 10%;
+                min-width: 165px;
+            }
+
+            &:nth-child(4) {
+                width: 18%;
+            }
+
+            &:nth-child(5) {
+                width: 20%;
+            }
+
+            &:nth-child(6) {
+                width: 20%;
+            }
+
+            &:nth-child(7) {
+                width: 15%;
+            }
+
+            &:last-child {
+                width: 5%;
+            }
+        }
+    }
+
+
+    input,
+    select {
+        &:focus {
+            outline: none;
+            box-shadow: none;
+        }
+    }
+
+    .form-group {
+        margin-bottom: 0;
+    }
+
+    .dropdown {
+        .dropdown-menu {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        .dropdown-item {
+            color: #000000;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding-left: 0;
+            padding-right: 15px;
+            white-space: nowrap;
+
+            &:not(:last-child) {
+                border-bottom: 1px solid #ddd;
+            }
+        }
+
+        .icon-dropdown {
+            font-size: 22px;
+            font-weight: 900;
+            color: #6d30ab;
+            padding-right: 8px;
+        }
+    }
+
+
+    .batch_item {
+        width: 57px;
+        height: 40px;
+        border: solid 1px #e94c4c;
+        font-weight: 500;
+        color: #e94c4c;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .max-width-200 {
+        max-width: 200px;
+    }
+
+    .list_icons {
+        display: flex;
+        justify-content: center;
+
+        .icon {
+            font-size: 24px;
+            margin: 0 3px;
+        }
+
+        .icon_delete {
+            color: #6d6d6d;
+        }
+    }
+
+    .name_apart {
+        font-weight: 500;
+        color: #367be3;
+        position: relative;
+    }
+
+
+
+}

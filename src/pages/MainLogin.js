@@ -3,14 +3,12 @@ import { Trans } from 'react-i18next';
 
 import { PageLogin, PageForgot } from './Login';
 
-import './MainLogin.css';
-
 class Welcome extends Component {
     render() {
         return (
             <div className="m_login--left">
                 <figure className="m_login--logo" >
-                    <img src="/static/img/logo_v3.png" alt="Minerva"/>
+                    <img src="/static/images/logo_full_name.svg" alt="Minerva" />
                 </figure>
                 <div className="content" style={{border: "0px" }}>
                     <p className="main-title"><Trans>{this.props.main_title}</Trans></p>

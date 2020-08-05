@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { Trans } from 'react-i18next';
 import Modal from 'react-bootstrap/Modal'
 
-import "./Dialog.css"
-
 class DialogTrash extends Component {
     render() {
         let title = this.props.title?this.props.title:"Are you sure you want to delete ?"
