@@ -14,10 +14,10 @@ export default {
     EDIT_USER_INFO: '/api/v1/user/info/edit',
     PASSWORD_CHANGE: '/api/v1/user/info/password/change',
 
-    DASHBOARD_PROJECT_TIME_LINE: '/api/v1/project/timeline/',
-    DASHBOARD_LIST_PROJECT: '/api/v1/dashboard/project_list/',
-    DASHBOARD_CASH_FLOW: '/api/v1/dashboard/cash_flow/',
-    DASHBOARD_CAPITAL_STRUCTURE: '/api/v1/dashboard/capital_structure/',
+    DASHBOARD_REGION_LIST: '/api/fe/v1/region',
+    DASHBOARD_PROVINCE_LIST: '/api/fe/v1/province',
+    DASHBOARD_TYPE_LIST: '/api/be/v1/common/project/setting_type',
+    DASHBOARD_STATUS_LIST: '/api/be/v1/common/project/status',
 
     PROJECT_LIST: '/api/v1/project/list/',
     PROJECT_INVESTOR:'/api/v1/information/investor/list_shorten/',

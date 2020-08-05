@@ -5,7 +5,13 @@ import {
    currencyDetailWatcher, 
    currencyEditWatcher,
    currencyAddWatcher
-  } from './currencySaga';
+} from './currencySaga';
+import { 
+  regionListWatcher,
+  provinceListWatcher,
+  typeListWatcher,
+  statusListWatcher
+} from './dashboardSaga';
 
 function* allSaga() {
   yield all([
@@ -13,6 +19,11 @@ function* allSaga() {
     currencyDetailWatcher(),
     currencyEditWatcher(),
     currencyAddWatcher(),
+    
+    regionListWatcher(),
+    provinceListWatcher(),
+    typeListWatcher(),
+    statusListWatcher()
   ]);
 }
 
