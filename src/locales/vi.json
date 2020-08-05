@@ -92,7 +92,6 @@
     "Yes": "Đồng Ý",
     "Are you sure you want to delete ?": "Bạn chắc chắn muốn xóa ?",
     "Filter": "Lọc",
-    "Map": "Bản đồ",
     "Search": "Tìm kiếm",
     "Message": "Tin Nhắn",
     "Profile": "Hồ Sơ",
@@ -255,7 +254,6 @@
     "Date From": "Từ Ngày",
     "Date To": "Đến Ngày",
     "Add New Position": "Thêm Mới Chức Vụ",
-    "No.": "Stt",
     "Manager": "Quản Lý",
     "Action": "Hành động",
     "Create Block": "Tạo Khối",
@@ -601,5 +599,13 @@
     "RegionHintText": "Chọn vùng miền",
     "ProvinceHintText": "Chọn tỉnh thành",
     "ProjectTypeHintText": "Chọn loại dự án",
-    "ProjectStatusHintText": "Chọn trạng thái"
+    "ProjectStatusHintText": "Chọn trạng thái",
+    "ProjectListTitle": "Danh sách dự án",
+    "No.": "Stt",
+    "ProjectName": "Tên dự án",
+    "ProjectStatus": "Tình trạng dự án",
+    "ExpectedRevenue": "Doanh thu dự kiến",
+    "ActualRevenue": "Doanh thu thực tế",
+    "Cost": "Chi phí",
+    "Map": "Bản đồ"
 }

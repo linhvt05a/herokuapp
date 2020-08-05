@@ -10,7 +10,8 @@ import {
   regionListWatcher,
   provinceListWatcher,
   typeListWatcher,
-  statusListWatcher
+  statusListWatcher,
+  projectListWatcher
 } from './dashboardSaga';
 
 function* allSaga() {
@@ -23,7 +24,8 @@ function* allSaga() {
     regionListWatcher(),
     provinceListWatcher(),
     typeListWatcher(),
-    statusListWatcher()
+    statusListWatcher(),
+    projectListWatcher()
   ]);
 }
 

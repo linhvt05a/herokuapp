@@ -13,7 +13,11 @@ import {
 
     STATUS_LIST_REQUEST,
     STATUS_LIST_SUCCESS,
-    STATUS_LIST_FAILURE
+    STATUS_LIST_FAILURE,
+
+    PROJECT_LIST_REQUEST,
+    PROJECT_LIST_SUCCESS,
+    PROJECT_LIST_FAILURE
   } from '../actionType/dashboard';
   
   const initialState = {
@@ -21,6 +25,7 @@ import {
     provinceList: {},
     typeList: {},
     statusList: {},
+    projectList: {},
     isFetching: false,
   };
   
@@ -33,26 +38,33 @@ import {
       case REGION_LIST_FAILURE:
         return { ...state, isFetching: false, regionList: { success: false, error: action.err } };
 
-        case PROVINCE_LIST_REQUEST:
+      case PROVINCE_LIST_REQUEST:
         return { ...state, isFetching: true, provinceList: { success: false } };
       case PROVINCE_LIST_SUCCESS:
         return { ...state, isFetching: false, provinceList: action.response };
       case PROVINCE_LIST_FAILURE:
         return { ...state, isFetching: false, provinceList: { success: false, error: action.err } };
 
-        case TYPE_LIST_REQUEST:
+      case TYPE_LIST_REQUEST:
         return { ...state, isFetching: true, typeList: { success: false } };
       case TYPE_LIST_SUCCESS:
         return { ...state, isFetching: false, typeList: action.response };
       case TYPE_LIST_FAILURE:
         return { ...state, isFetching: false, typeList: { success: false, error: action.err } };
 
-        case STATUS_LIST_REQUEST:
+      case STATUS_LIST_REQUEST:
         return { ...state, isFetching: true, statusList: { success: false } };
       case STATUS_LIST_SUCCESS:
         return { ...state, isFetching: false, statusList: action.response };
       case STATUS_LIST_FAILURE:
         return { ...state, isFetching: false, statusList: { success: false, error: action.err } };
+
+      case PROJECT_LIST_REQUEST:
+        return { ...state, isFetching: true, projectList: { success: false } };
+      case PROJECT_LIST_SUCCESS:
+        return { ...state, isFetching: false, projectList: action.response };
+      case PROJECT_LIST_FAILURE:
+        return { ...state, isFetching: false, projectList: { success: false, error: action.err } };
       default:
         return state;
     }

@@ -10,7 +10,7 @@ const CardFilter = (props) => {
     const [province, setProvince] = useState(null);
     const [type, setType] = useState(null);
     const [status, setStatus] = useState(null);
-    const { token } = props;
+    const { token, onSearch } = props;
     const dispatch = useDispatch();
     const res = useSelector(state => state.dashboard);
 
@@ -53,9 +53,11 @@ const CardFilter = (props) => {
         }
     }
 
-    console.log('province', province)
+    const onFilterClick = () => {
+        onSearch(region, province, type, status)
+    }
+
     return (
-        regionSuccess ?
         <div className="card square">
             <div className="card-body">
                 <div className="row">
@@ -66,11 +68,11 @@ const CardFilter = (props) => {
                 </div>
                 <div className="row">
                     <div className="col-12">
-                        <button type="submit" style={{float: "right"}} className="btn-uni-purple"><Trans>Search</Trans></button>
+                        <button type="submit" style={{float: "right"}} className="btn-uni-purple" onClick={onFilterClick} ><Trans>Search</Trans></button>
                     </div>
                 </div>
             </div>
-        </div> : ''
+        </div>
     )
 }
 

@@ -13,7 +13,11 @@ import {
 
     STATUS_LIST_REQUEST,
     STATUS_LIST_SUCCESS,
-    STATUS_LIST_FAILURE
+    STATUS_LIST_FAILURE,
+
+    PROJECT_LIST_REQUEST,
+    PROJECT_LIST_SUCCESS,
+    PROJECT_LIST_FAILURE
 } from '../actionType/dashboard';
   
 // region list
@@ -69,5 +73,19 @@ export const statusListSuccess = (payload) => ({
 });
 export const statusListFailure = (payload) => ({
   type: STATUS_LIST_FAILURE,
+  payload,
+});
+
+// project list
+export const projectListRequest = (payload) => ({
+  type: PROJECT_LIST_REQUEST,
+  payload,
+});
+export const projectListSuccess = (payload) => ({
+  type: PROJECT_LIST_SUCCESS,
+  payload,
+});
+export const projectListFailure = (payload) => ({
+  type: PROJECT_LIST_FAILURE,
   payload,
 });
