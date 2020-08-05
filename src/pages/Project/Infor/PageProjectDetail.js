@@ -7,7 +7,7 @@ const PageProjectDetail = () => {
     return (
         <div class="container-fluid">
             <ProjectInfo />
-            <ProjectTab />
+            <ProjectTab token="MjoxMzliMDZiZmI4OTJhOGYxYmQ2MzVhZmFmODEyZmM5M2RhNDFkM2Yx" />
         </div>
     )
 }
