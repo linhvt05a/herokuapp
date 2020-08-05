@@ -300,7 +300,7 @@ ul.list-style-none {
 }
 
 .header__bg.purple {
-    background-image: url(../../static/images/bg_2.png); 
+    background-image: url(../../../public/static/images/bg_2.png); 
 }
 
 .header__topbar {

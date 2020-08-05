@@ -9,6 +9,7 @@ import 'bootstrap/scss/bootstrap.scss';
 import './styles/scss/sales.scss';
 
 //css
+import './styles/css/main.css';
 import './styles/css/login.css';
 import './styles/css/map.css';
 import './styles/css/PageNotify.css';
