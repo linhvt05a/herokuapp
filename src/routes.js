@@ -30,7 +30,7 @@ const MAINS = [
 
     { "path": "/product_card/new_contract/customer_info", "value": ProductCart.CustomerInfo, "menu": "menu_product_cart_customer_info", "title": "Căn hộ B2 - F.0.18" },
 
-    { "path": "/perm/project", "value": Perm.PagePermProject, "menu": "menu_perm_task_by_projects", "title": "menu_perm_task_by_projects" },
+    { "path": "/perm/project", "value": System.PageListCart, "menu": "menu_perm_task_by_projects", "title": "" },
     { "path": "/perm/project/add", "value": Perm.PagePermProjectAdd, "menu": "menu_perm_task_by_projects", "title": "Add" },
     { "path": "/perm/project/detail/:id", "value": Perm.PagePermProjectDetail, "menu": "menu_perm_task_by_projects", "title": "Update" },
 
