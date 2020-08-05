@@ -20,6 +20,7 @@ export default {
     DASHBOARD_PROVINCE_LIST: '/api/fe/v1/province',
     DASHBOARD_TYPE_LIST: '/api/be/v1/common/project/setting_type',
     DASHBOARD_STATUS_LIST: '/api/be/v1/common/project/status',
+    DASHBOARD_PROJECT_LIST: '/api/be/v1/project',
 
     PROJECT_LIST: '/api/v1/project/list/',
     PROJECT_INVESTOR: '/api/v1/information/investor/list_shorten/',

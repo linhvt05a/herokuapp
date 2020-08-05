@@ -8,7 +8,8 @@ import {
     regionListRequest,
     provinceListRequest,
     typeListRequest,
-    statusListRequest
+    statusListRequest,
+    projectListRequest
 } from './dashboard';
 
 export { 
@@ -20,5 +21,6 @@ export {
     regionListRequest,
     provinceListRequest,
     typeListRequest,
-    statusListRequest
+    statusListRequest,
+    projectListRequest
 };

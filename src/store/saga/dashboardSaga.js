@@ -15,7 +15,11 @@ import {
 
     STATUS_LIST_REQUEST,
     STATUS_LIST_SUCCESS,
-    STATUS_LIST_FAILURE
+    STATUS_LIST_FAILURE,
+
+    PROJECT_LIST_REQUEST,
+    PROJECT_LIST_SUCCESS,
+    PROJECT_LIST_FAILURE
 } from '../actionType/dashboard';
 
 // region list
@@ -77,4 +81,30 @@ export function* statusList(payload) {
 }
 export function* statusListWatcher() {
     yield takeLatest(STATUS_LIST_REQUEST, statusList);
+}
+
+// project list
+export function* projectList(payload) {
+    const token = payload.payload.token;
+    const search_name = payload.payload.search_name;
+    const search_alphabet = payload.payload.search_alphabet;
+    const setting_type = payload.payload.setting_type;
+    const distribution_type_id = payload.payload.distribution_type_id; 
+    const project_id = payload.payload.project_id;
+    const status_id = payload.payload.status_id;
+    const province_id = payload.payload.province_id;
+    const region_id = payload.payload.region_id;
+    const distribution_name = payload.payload.distribution_name; 
+    const open_sale_id = payload.payload.open_sale_id;
+    const is_full_project = payload.payload.is_full_project;
+    const has_map_style = payload.payload.has_map_style;
+    try {
+        const response = yield dashboardService.getProjectList(token, search_name, search_alphabet, setting_type, distribution_type_id, project_id, status_id, province_id, region_id, distribution_name, open_sale_id, is_full_project, has_map_style);
+        response.success ? yield put({ type: PROJECT_LIST_SUCCESS, response }) : yield put({ type: PROJECT_LIST_FAILURE, response });
+    } catch (err) {
+        yield put({ type: PROJECT_LIST_FAILURE, err });
+    }
+}
+export function* projectListWatcher() {
+    yield takeLatest(PROJECT_LIST_REQUEST, projectList);
 }

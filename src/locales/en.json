@@ -94,7 +94,6 @@
     "Yes": "Yes",
     "Are you sure you want to delete ?": "Are you sure you want to delete ?",
     "Filter": "Filter",
-    "Map": "Map",
     "Search": "Search",
     "Message": "Message",
     "Profile": "Profile",
@@ -260,7 +259,6 @@
     "Date From": "Date From",
     "Date To": "Date To",
     "Add New Position": "Add New Position",
-    "No.": "No.",
     "Manager": "Manager",
     "Action": "Action",
     "Create Block": "Create Block",
@@ -615,5 +613,13 @@
     "RegionHintText": "Choose a region",
     "ProvinceHintText": "Choose a province",
     "ProjectTypeHintText": "Choose a type",
-    "ProjectStatusHintText": "Choose a status"
+    "ProjectStatusHintText": "Choose a status",
+    "ProjectListTitle": "Project List",
+    "No.": "No.",
+    "ProjectName": "Project Name",
+    "ProjectStatus": "Project Status",
+    "ExpectedRevenue": "Expected Revenue",
+    "ActualRevenue": "Actual Revenue",
+    "Cost": "Cost",
+    "Map": "Map"
 }

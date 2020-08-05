@@ -31,8 +31,7 @@ class Pagination extends Component {
         const page3 = parseInt(page);
         const page4 = parseInt(page) + 1;
         const page5 = parseInt(page) + 2;
-
-//        console.log("Pagination: " + page1 + ";" +page2 + ";" +page + ";" + page4 + ";" + page5)
+        
         return (
             <div className="m_pager mt-lg-4">
                 <ul>
