@@ -171,6 +171,9 @@ export default {
     //Shipping
     SHIPPING_LIST: "/api/be/v1/project/",
     SHIPPING_DETAIL: "/api/be/v1/project/detail/",
+    SHIPPING_SELL_OPEN: "/api/be/v1/sell_open/",
+    SHIPPING_SELL_OPEN_LIST: "/api/be/v1/sell_open/product_list/",
+    SHIPPING_CART: "/api/be/v1/distribution/add_request/shopping_cart/",
 
     getHeader,
     getUrl,

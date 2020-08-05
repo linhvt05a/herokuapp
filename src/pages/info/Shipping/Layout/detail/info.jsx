@@ -4,7 +4,6 @@ import moment from "moment"
 
 const info = props => {
     let { data } = props;
-    console.log("data", data);
     return (
         <div className="card square h-100">
             <div className="card-body">
@@ -22,18 +21,9 @@ const info = props => {
                                     <figure><img src="https://via.placeholder.com/280x270" alt="" /></figure>
                                 }
                                 <figure><img src={data.project_avatar_url} alt="" /></figure>
-                                {/* <figure><img src=" https://via.placeholder.com/280x270" alt="" /></figure>
-                                <figure><img src=" https://via.placeholder.com/280x270" alt="" /></figure>
-                                <figure><img src=" https://via.placeholder.com/280x270" alt="" /></figure>
-                                <figure><img src=" https://via.placeholder.com/280x270" alt="" /></figure> */}
+
                             </div>
-                            {/* <div className="slider slider-nav">
-                                <figure><img src="https://via.placeholder.com/280x270" alt="" /></figure>
-                                <figure><img src=" https://via.placeholder.com/280x270" alt="" /></figure>
-                                <figure><img src=" https://via.placeholder.com/280x270" alt="" /></figure>
-                                <figure><img src=" https://via.placeholder.com/280x270" alt="" /></figure>
-                                <figure><img src=" https://via.placeholder.com/280x270" alt="" /></figure>
-                            </div> */}
+
                         </div>
                     </div>
                     <div className="col-12 col-sm-12 col-md-12 col-xl-7 content-right-info-project">

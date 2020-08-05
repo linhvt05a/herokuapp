@@ -11,10 +11,12 @@ const Edit = props => {
     //     return { buttomName, date_from, date_to, Apartment_from, Apartment_to, Studio_from, Studio_to }
     // }
     useEffect(() => {
-        dispatch(actions.LoadDetail({ token: token, id: localStorage.getItem("productID") }))
+        dispatch(actions.LoadDetail({ token: token, id: props.params.id }));
+        dispatch(actions.LoadSellOpen({ token: token, id: props.params.id }));
+        dispatch(actions.LoadSellOpenCart({ token: token, id: props.params.id }))
     }, [])
     const data = useSelector(state => state.shipping);
-
+    // console.log(data);
     // const newData = [
     //     createData("Sell open 1", "10/06/2020", "31/10/2020", 16, 15),
     //     createData("Sell open 2", "01/07/2020", "30/08/2020", 10, 10),
@@ -22,12 +24,12 @@ const Edit = props => {
     //     createData("Sell open 4", "02/10/2020", "31/10/2020", 0, 0, 4, 5),
     // ]
 
-    const ONLICK = (target) => {
-        if (target.className.indexOf('la-plus-circle') > -1) {
-            target.className = "icon icon_collapse las la-minus-circle"
-        }
-        else target.className = "icon icon_collapse las la-plus-circle"
-    }
+    // const ONLICK = (target) => {
+    //     if (target.className.indexOf('la-plus-circle') > -1) {
+    //         target.className = "icon icon_collapse las la-minus-circle"
+    //     }
+    //     else target.className = "icon icon_collapse las la-plus-circle"
+    // }
     const contentDropdown = [
         { href: "#", value: "1", label: "Khu Valencia" },
         { href: "#", value: "2", label: "Đang chờ" },
@@ -44,7 +46,7 @@ const Edit = props => {
                     <Item.Detail_info data={data.Detail} />
                 </div>
                 <div style={{ paddingRight: 0 }} className="col-xl-6 col-lg-6 col-md-12 col-sm-12 d-flex flex-column">
-                    <Item.Detail_progress data={data.Detail} />
+                    <Item.Detail_progress data={data.Detail} dataSellOpen={data.Sell_Open} />
                 </div>
                 <div className="col-12" style={{ padding: 0 }}>
                     <Title name="DANH SÁCH CÁC KHU" dropdown={{ title: "Tất cả khu", data: contentDropdown }} />
@@ -52,7 +54,7 @@ const Edit = props => {
                 </div>
                 <div className="col-12" style={{ padding: 0 }}>
                     <Title name="CHI TIẾT RỔ HÀNG" dropdown={{ title: "Đợt 1", data: contentDropdown }} />
-                    <Item.Detail_InfoShipping ONCLICK={(value) => ONLICK(value)} />
+                    <Item.Detail_InfoShipping data={data.Sell_Open_Floor} />
                 </div>
 
             </div>

@@ -1269,3 +1269,4 @@ const ListProduct = props => {
         </div>
     )
 }
+export default ListProduct;

@@ -24,7 +24,7 @@ const progress = props => {
                         </div>
 
                         <div class="mb-3 m_table m_table--list_project m_table--sales max-height-100 table_fixed">
-                            {/* <Sell_Open data={props.data} /> */}
+                            <Sell_Open data={props.dataSellOpen} />
                         </div>
                     </div>
 

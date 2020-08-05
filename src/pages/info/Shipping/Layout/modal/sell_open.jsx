@@ -1,7 +1,15 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import React from 'react';
+import { product_type_id } from "../../../../../constant"
 
 const sell_open = props => {
+    const ProductType = (value) => {
+        for (let i in product_type_id) {
+            if (product_type_id[i].id == value)
+                return product_type_id[i].name;
+
+        }
+    }
     return (
         <table style={{ minWidth: `735px` }}>
             <thead>
@@ -14,13 +22,13 @@ const sell_open = props => {
             </thead>
             <tbody style={{ maxHeight: `300px` }}>
 
-                {props.data != null && props.data.map((item, index) => {
+                {props.data.open_sell_detail != null && props.data.open_sell_detail.map((item, index) => {
                     return (
                         <>
                             <tr>
                                 <td key={index} className="col-3 pl-0" style={{ width: 33 + "%" }}>
                                     <button readOnly="" type="button" className="border-0 bg_color_6d30ab text-white pl-2 pr-2 min-height-40 d-inline-block">
-                                        {item.buttomName}
+                                        {item.sell_open_name}
                                     </button>
                                 </td>
                                 <td colSpan="3" className="col-9 pl-0">
@@ -28,54 +36,40 @@ const sell_open = props => {
                                         <div className="input_date mr-4">
                                             <div className="text_date">From</div>
                                             <div className="m_datepicker form-group mb-0">
-                                                <input type="text" className="form-control js-datepicker" placeholder="-" defaultValue={item.date_from} disabled="" />
+                                                <input style={{ backgroundColor: "#ebebeb" }} type="text" className="form-control js-datepicker" placeholder="-" defaultValue={item.sell_open_date} disabled="" />
                                             </div>
                                         </div>
                                         <div className="input_date">
                                             <div className="text_date">To</div>
                                             <div className="m_datepicker form-group mb-0">
-                                                <input type="text" className="form-control js-datepicker" placeholder="-" defaultValue={item.date_to} disabled="" />
+                                                <input style={{ backgroundColor: "#ebebeb" }} type="text" className="form-control js-datepicker" placeholder="-" defaultValue={item.sell_end_date} disabled="" />
                                             </div>
                                         </div>
                                     </div>
                                 </td>
                             </tr>
-                            {item.Apartment_from > 0 ? <tr>
-                                <td className="col-3 pl-0  border-bottom-none "></td>
-                                <td className="col-3 pl-0">
-                                    Apartment
-                        </td>
-                                <td className="col-3 text-center">
-                                    <div className="sales_number_selected">
-                                        <span className="selected selected_01">{item.Apartment_from}</span>
-                                        <span className="selected selected_02">-</span>
-                                    </div>
-                                </td>
-                                <td className="col-3 text-center">
-                                    <div className="sales_number_selected">
-                                        <span className="selected selected_01">{item.Apartment_to}</span>
-                                        <span className="selected selected_02">-</span>
-                                    </div>
-                                </td>
-                            </tr> : null}
-                            {item.Studio_from > 0 ? <tr>
-                                <td className="col-3 pl-0  border-bottom-none "></td>
-                                <td className="col-3 pl-0">
-                                    Studio
-                        </td>
-                                <td className="col-3 text-center">
-                                    <div className="sales_number_selected">
-                                        <span className="selected selected_01">{item.Studio_from}</span>
-                                        <span className="selected selected_02">-</span>
-                                    </div>
-                                </td>
-                                <td className="col-3 text-center">
-                                    <div className="sales_number_selected">
-                                        <span className="selected selected_01">{item.Studio_to}</span>
-                                        <span className="selected selected_02">-</span>
-                                    </div>
-                                </td>
-                            </tr> : null}
+                            {item.list_product_type != null && item.list_product_type.map((value, index) => {
+                                return (
+                                    <tr>
+                                        <td className={`col-3 pl-0  ${index != item.list_product_type.length - 1 ? "border-bottom-none" : null} `}></td>
+                                        <td className="col-3 pl-0">
+                                            {ProductType(value.product_type_id)}
+                                        </td>
+                                        <td className="col-3 text-center">
+                                            <div className="sales_number_selected">
+                                                <span className="selected selected_01">{value.agent_expected_number}</span>
+                                                <span className="selected selected_02">{value.agent_actual_number ? value.agent_actual_number : "-"}</span>
+                                            </div>
+                                        </td>
+                                        <td className="col-3 text-center">
+                                            <div className="sales_number_selected">
+                                                <span className="selected selected_01">{value.internal_expected_number}</span>
+                                                <span className="selected selected_02">{value.internal_actual_number ? value.internal_actual_number : "-"}</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                )
+                            })}
                         </>
                     )
                 })}

@@ -3,6 +3,8 @@ import actions from '../action/shipping';
 const initialState = {
     List: [],
     Detail: [],
+    Sell_Open: [],
+    Sell_Open_Floor: [],
     page: 0,
     total_page: 0,
     total_record: 0,
@@ -20,12 +22,12 @@ export default (state = initialState, action) => {
                 isFetching: true,
                 success: action.response.success
 
-            }
+            };
         case actions.LOAD_DETAIL_FAILURE:
             return {
                 ...state,
                 isFetching: false,
-                // error: action.response.err,
+                error: action.response.err,
                 success: false
             };
         case actions.LOAD_LIST_SUCCESS:
@@ -37,6 +39,34 @@ export default (state = initialState, action) => {
                 total_page: action.response.total_page,
                 total_record: action.response.total_record,
                 success: action.response.success
+            };
+        case actions.LOAD_SELL_OPEN_SUCCESS:
+            return {
+                ...state,
+                Sell_Open: action.response.detail,
+                isFetching: true,
+                success: action.response.success
+            };
+        case actions.LOAD_SELL_OPEN_FAILURE:
+            return {
+                ...state,
+                isFetching: false,
+                error: action.response.err,
+                success: false
+            }
+        case actions.LOAD_SELL_OPEN_LIST_SUCCESS:
+            return {
+                ...state,
+                Sell_Open_Floor: action.response.detail,
+                isFetching: true,
+                success: action.response.success
+            };
+        case actions.LOAD_SELL_OPEN_LIST_FAILURE:
+            return {
+                ...state,
+                isFetching: false,
+                error: action.response.err,
+                success: false
             }
         default:
             return state;

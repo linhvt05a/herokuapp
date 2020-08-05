@@ -9,7 +9,10 @@ import {
 
 import {
     shippingDetailWatcher,
-    shippingListlWatcher
+    shippingListlWatcher,
+    shippingSellOpenlWatcher,
+    shippingSellOpenListlWatcher,
+    shippingSellOpenCartWatcher
 } from "./shippingSaga"
 
 function* allSaga() {
@@ -19,7 +22,10 @@ function* allSaga() {
         currencyEditWatcher(),
         currencyAddWatcher(),
         shippingDetailWatcher(),
-        shippingListlWatcher()
+        shippingListlWatcher(),
+        shippingSellOpenlWatcher(),
+        shippingSellOpenListlWatcher(),
+        shippingSellOpenCartWatcher()
     ]);
 }
 

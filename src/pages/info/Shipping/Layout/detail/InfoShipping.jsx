@@ -1,659 +1,215 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import InputSelect from '../../../../../components/input/InputSelect';
+import { product_type_id, product_status } from "../../../../../constant";
+import { Trans } from 'react-i18next';
 
 const InfoShipping = props => {
+    // console.log(props.data);
+    const [click, setClick] = useState([]);
+    useEffect(() => {
+        if (props.data.floor_or_lot_list) {
+            let arr = []
+            for (let i in props.data.floor_or_lot_list) {
+                arr.push({ id: i, status: "" })
+            }
+            setClick(arr)
+        }
+    }, [props.data.floor_or_lot_list])
+    const ONCLICK = (target, index) => {
+        let newData = [].concat(click);
+        if (target.className.indexOf('la-plus-circle') > -1) {
+            newData[index] = { id: index, status: "active" }
+            target.className = "icon icon_collapse las la-minus-circle"
+        }
+        else { target.className = "icon icon_collapse las la-plus-circle"; newData[index] = { id: index, status: "" } }
+        setClick(newData)
+    }
+    const ProductStatus = (value) => {
+        for (let i in product_status) {
+            if (product_status[i].id == value) {
+                return product_status[i].name
+            }
+        }
+    }
+    const ProductType = (value) => {
+        for (let i in product_type_id) {
+            if (product_type_id[i].id == value)
+                return product_type_id[i].name;
+
+        }
+    }
     return (
-        <div class="card square h-100">
-            <div class="card-body">
-
-                <p class="mb-4 mt-4 fs-18 uni_text_6d30ab text-uppercase text-center font-weight-bold">TÌM KIẾM </p>
-
-                <div class="row mb-4">
-                    <div class="col-lg-6 col-xl-3">
-                        <div class="form-group">
-                            <label class="fw-medium">Chọn khu</label>
-                            <select name="" id="" class="form-control m_select_change js-select2 " data-placeholder="Chọn khu">
-                                <option disabled value="">Chọn khu</option>
-                                <option value="2" selected>Khu Valencia</option>
-                                <option value="2">Căn hộ</option>
-                                <option value="2">Shop house</option>
+        <div className="card square">
+            <div className="card-body m_table--collapse">
+                <p className="mb-4 mt-4 fs-18 uni_text_6d30ab text-uppercase text-center font-weight-bold">TÌM KIẾM </p>
+                <div className="row mb-4 d-flex justify-content-center">
+                    <div className="col-lg-6 col-xl-3">
+                        <div className="form-group mb-2">
+                            <label className="fw-medium">Choose area</label>
+                            <select name="area" className="form-control m_select_change js-select2" data-placeholder="Choose area">
+                                <option value>Choose area</option>
+                                <option value={1} selected="selected">The Evolution test v2</option>
+                                <option value={7}>The Elite</option>
                             </select>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-xl-3">
-                        <div class="form-group">
-                            <label class="fw-medium">Chọn khối</label>
-                            <select name="" id="" class="form-control m_select_change js-select2" data-placeholder="Chọn khối">
-                                <option disabled value="">Chọn khối</option>
-                                <option value="2" selected>Khối F </option>
-                                <option value="2">Căn hộ</option>
-                                <option value="2">Shop house</option>
+                    <div className="col-lg-6 col-xl-3">
+                        <div className="form-group mb-2">
+                            <label className="fw-medium">Choose block</label>
+                            <select name="block" id="block_id" className="form-control m_select_change js-select2" data-placeholder="Choose block">
+                                <option value>Choose block</option>
+                                <option value={2} selected="selected">A1 (QC  TEST)</option>
+                                <option value={8}>B</option>
+                                <option value={16}>C</option>
                             </select>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-xl-3">
-                        <div class="form-group">
-                            <label class="fw-medium">Chọn tầng / lô</label>
-                            <select name="" id="" class="form-control m_select_change js-select2" data-placeholder="Chọn tầng / lô">
-                                <option selected disabled value="">Chọn tầng / lô</option>
-                                <option value="2">Biệt thự</option>
-                                <option value="2">Căn hộ</option>
-                                <option value="2">Shop house</option>
+                    <div className="col-lg-6 col-xl-3">
+                        <div className="form-group mb-2">
+                            <label className="fw-medium">Choose floor or lot</label>
+                            <select name="fl_or_l_id" id="floor_or_lot" className="form-control m_select_change js-select2" data-placeholder="Choose floor or lot">
+                                <option value data-select2-id={49083}>Choose floor or lot</option>
+                                <option value={0}>All</option><option value={3}>Tầng trệt</option>
+                                <option value={30}>Tầng 2</option><option value={31}>Tầng 3</option>
+                                <option value={32}>Tầng 3A</option><option value={33}>Tầng 5</option>
+                                <option value={34}>Tầng 6</option><option value={35}>Tầng 7</option>
+                                <option value={36}>Tầng 8</option><option value={37}>Tầng 9</option>
+                                <option value={38}>Tầng 10</option>
+                                <option value={39}>Tầng 11</option><option value={40}>Tầng 12</option>
+                                <option value={41}>Tầng 12A</option>
                             </select>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-xl-3">
-                        <div class="form-group">
-                            <label class="fw-medium">Chọn chính sách </label>
-                            <select name="" id="" class="form-control m_select_change js-select2" data-placeholder="Chọn chính sách ">
-                                <option selected disabled value="">Chọn chính sách </option>
-                                <option value="2">Biệt thự</option>
-                                <option value="2">Căn hộ</option>
-                                <option value="2">Shop house</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-xl-6">
-                        <div class="form-group custom_select2_multiple">
-                            <label class="fw-medium">Chọn loại sản phẩm </label>
-                            <select name="" id="" class="form-control m_select_change js-select2" multiple data-placeholder="Chọn các loại sản phẩm ">
-                                <option value="2">Biệt thự</option>
-                                <option value="2">Căn hộ</option>
-                                <option value="2">Shop house</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-xl-2 align-items-end d-flex">
-                        <div class="form-group">
-                            <button type="submit" class="min-width-button btn-uni-purple min-height-40">Tìm kiếm </button>
-                        </div>
+                    <div className="col-lg-6 col-xl-2 align-items-end d-flex mt-3 mt-xl-0  mb-2">
+                        <button type="submit" className="min-width-button btn-uni-purple min-height-40 ">
+                            Search
+        </button>
                     </div>
                 </div>
+                <div className="m_table m_table--sales min-width-100-pc">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th className="pl-0">STT</th>
+                                <th>TẦNG<i className="icon_sort las la-exchange-alt" /></th>
+                                <th>CĂN HỘ<i className="icon_sort las la-exchange-alt" /></th>
+                                <th style={{ width: '10%' }}>TRẠNG THÁI </th>
+                                <th style={{ width: '10%' }}>LOẠI SẢN PHẨM</th>
+                                <th style={{ width: '16%' }}>HOA HỒNG</th>
+                                <th style={{ width: '20%' }}>CHÍNH SÁCH ÁP DỤNG</th>
+                                <th>GIÁ BÁN</th>
+                                <th className="text-center">GHI CHÚ</th>
+                            </tr>
+                        </thead>
+                        {/* heading  */}
+                        <tbody>
 
-                <div class="d-flex align-items-center justify-content-xl-between flex-xl-nowrap flex-wrap justify-content-start">
-                    <div class="sales_status sales_management_filter mb-2">
-                        <p class="title">Chú thích</p>
-                        <p class="item" data-status="sales_status_all">
-                            <span class="square sales_status_cart_bg_00"></span>
-                            <a href="#" class="uni_text_000 text"><u>Tất cả</u></a>
-                        </p>
-                        <p class="item" data-status="internal">
-                            <span class="square sales_internal_bg"></span>
-                            <a href="#" class="sales_internal_text"><u>Nội bộ</u></a>
-                        </p>
-                        <p class="item" data-status="agency">
-                            <span class="square sales_agency_bg"></span>
-                            <a href="#" class="sales_agency_text"><u>Đại lý</u></a>
-                        </p>
-                        <p class="item">
-                            <span class="d-flex align-items-center payment_status_1">
-                                Đã thanh toán
-                            <i class="pl-1 fs-16 lar la-check-circle"></i>
-                            </span>
-                        </p>
-                        <p class="item">
-                            <span class="d-flex align-items-center payment_status_2">
-                                Sắp tới hạn
-                            <i class="pl-1 fs-16 las la-fast-forward"></i>
-                            </span>
-                        </p>
-                        <p class="item">
-                            <span class="d-flex align-items-center payment_status_3">
-                                Trễ hạn
-                            <i class="pl-1 fs-16 las la-exclamation-triangle"></i>
-                            </span>
-                        </p>
-                        <p class="item">
-                            <span class="d-flex align-items-center payment_status_4">
-                                Dừng
-                            <i class="pl-1 fs-16 las la-hourglass-end"></i>
-                            </span>
-                        </p>
-                        <p class="item">
-                            <span class="d-flex align-items-center payment_status_5">
-                                Chưa thanh toán
-                            <i class="pl-1 fs-16 las la-file-alt"></i>
-                            </span>
-                        </p>
+                            {props.data.floor_or_lot_list ? props.data.floor_or_lot_list.map((data, index) => {
+                                return (
+                                    <>
+                                        <tr className="parent" data-parent={`row${index}`}>
+                                            <td className="number pl-0">{index + 1}</td>
+                                            <td colSpan={4}>
+                                                <div className="floor_selected">
+                                                    <div className="floor mi" style={{ minWidth: `70px` }}>{data.floor_or_lot_name}</div>
+                                                    <a className="agency channel uni_text_6d30ab text-underline border-right-0" href="#">
+                                                        Tổng số sản phẩm: {data.total_product}
+                                                    </a>
+                                                </div>
+                                            </td>
+                                            <td colSpan={3}>
+                                                <div className="input-group min-max heading">
+                                                    <input className="min form-control" placeholder="Nhập số" defaultValue="min" />
+                                                    <i className="icon las la-long-arrow-alt-right" />
+                                                    <input className="max form-control" placeholder="Nhập số" defaultValue="max" />
+                                                    <div className="input-group-text">%</div>
+                                                </div>
+                                            </td>
+                                            <td className="text-right"><i className="icon icon_collapse las la-plus-circle" onClick={event => ONCLICK(event.target, index)} /></td>
+                                        </tr>
+                                        {console.log(data)}
+                                        <tr className={`child child-row${index} ${click.length > 0 ? click[index].status : null}`} >
+                                            {data.product_list.map((item) => {
+                                                return (<>
+                                                    <td className="border-bottom-none pl-0" colSpan={2}>
+                                                        <a href="#" className="uni_text_e94c4c m_border_e94c4c fw-medium number_circle_top pl-3 pr-3 pt-2 pb-2" data-toggle="modal" data-target="#listProfile">
+                                                            <u>Hồ sơ bị từ chối</u>
+                                                            <small>1</small>
+                                                        </a>
+                                                    </td>
+                                                    <td>
+                                                        <i className="icon las la-sticky-note uni_text_e94c4c icon_total_request"><small>{item.total_request}</small></i>
+                                                        <div className="fw-medium uni_text_6d30ab name_apart">{item.product_name}</div>
+                                                        <span className="fw-medium uni_text_000 ">[ - | 120.0 m2 ]</span>
+                                                    </td>
+                                                    <td>
+                                                        <div
+                                                            className={`sales_status_cart${item.product_status} sales_status_cart_2 min-height-40`}
+                                                        ><Trans>{ProductStatus(item.product_status)}</Trans></div>
+                                                    </td>
+                                                    <td>
+                                                        {ProductType(item.product_type_id)}
+                                                    </td>
+                                                    <td>
+                                                        <div className="input-group min-max">
+                                                            <input disabled className="min form-control" placeholder="Nhập số" defaultValue="-" />
+                                                            <i className="icon">-</i>
+                                                            <input disabled className="max form-control" placeholder="Nhập số" defaultValue="-" />
+                                                            <div className="input-group-text">%</div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div className="form-group max-width-200">
+                                                            <input type="text" defaultValue={item.project_sale_policy_name} placeholder="-" disabled className="form-control" />
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div className="form-group max-width-200">
+                                                            <input type="text" defaultValue={item.product_price} placeholder="-" disabled className="form-control text-right uni_text_000 " />
+                                                        </div>
+                                                    </td>
+                                                    <td className="text-center">
+                                                        <div className="d-flex justify-content-between">
+                                                            <i className="icon icon_noti las la-comments"><small>1</small></i>
+                                                            <div className="dropdown">
+                                                                <a type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                                                    <i className="icon-dots las la-ellipsis-h" />
+                                                                </a>
+                                                                <div className="dropdown-menu" x-placement="top-start" style={{ position: 'absolute', transform: 'translate3d(-183px, -43px, 0px)', top: 0, left: 0, willChange: 'transform' }}>
+                                                                    <a className="dropdown-item" data-toggle="modal" data-target="#createRequest" href="#">
+                                                                        <i className="icon-dropdown las la-question-circle" />
+Tạo yêu cầu
+</a>
+                                                                    <a className="dropdown-item" href="#">
+                                                                        <i className="icon-dropdown las la-list-alt" />
+Xem các yêu cầu
+</a>
+                                                                    <a className="dropdown-item" href="#">
+                                                                        <i className="icon-dropdown las la-plus-square" />
+Tạo hợp đồng
+</a>
+                                                                    <a className="dropdown-item" href="#">
+                                                                        <i className="icon-dropdown las la-undo" />
+Yêu cầu trả lại
+</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </>)
+                                            })}
+                                        </tr>
+                                    </>
+                                )
+                            }) : null}
 
-                    </div>
-                    <div class="uni_text_000">ĐVT: tỷ đồng</div>
+
+                        </tbody></table>
                 </div>
-
-                <div class="sales_house-selected">
-                    <div class="m_table m_table--sales min-width-100-pc">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th class="pl-0">STT</th>
-                                    <th>TẦNG / LÔ
-                                    <i class="icon_sort las la-exchange-alt"></i>
-                                    </th>
-                                    <th>SẢN PHẨM
-                                    <i class="icon_sort las la-exchange-alt"></i>
-                                    </th>
-                                    <th>CHÍNH SÁCH TT
-                                    <i class="icon_sort las la-exchange-alt"></i>
-                                    </th>
-                                    <th>ĐỢT TT</th>
-                                    <th>TÊN KHÁCH HÀNG</th>
-                                    <th>TÌNH TRẠNG</th>
-                                    <th>SỐ TIỀN</th>
-                                    <th>LŨY KẾ</th>
-                                    <th>THỰC TẾ</th>
-                                    <th width="6%"></th>
-                                    <th class="text-right">
-                                        <i class="icon las la-cog"></i>
-                                    </th>
-                                </tr>
-                            </thead>
-
-                            <tr class="parent" data-parent="row01">
-                                <td class="number text-left pl-0">1</td>
-                                <td colspan="2">
-
-                                    <div class="floor_selected">
-                                        <div class="floor text-uppercase min-width-110">B6</div>
-                                        <a class="agency channel min-width-230 uni_text_6d30ab text-underline border-right-0">
-                                            Tổng số sản phẩm: 14
-                                    </a>
-                                    </div>
-
-                                </td>
-                                <td colspan="4"></td>
-
-                                <td>
-                                    <div class="sales_status_style02_01_text sales_status_style02_01_border pl-3 pr-3 font-weight-bold d-flex align-items-center justify-content-center fs-16 min-height-40 min-width-65">
-                                        50
-                                </div>
-                                </td>
-                                <td>
-                                    <div class="sales_status_style02_01_text sales_status_style02_01_border pl-3 pr-3 font-weight-bold d-flex align-items-center justify-content-center fs-16 min-height-40 min-width-65">
-                                        50
-                                </div>
-                                </td>
-                                <td>
-                                    <div class="sales_status_style02_02_text sales_status_style02_02_border pl-3 pr-3 font-weight-bold d-flex align-items-center justify-content-center fs-16 min-height-40  min-width-65 border-width-1">
-                                        50
-                                </div>
-                                </td>
-
-                                <td></td>
-                                <td class="text-center"><i className="icon icon_collapse las la-plus-circle" onClick={(event => props.ONCLICK(event.currentTarget))}></i></td>
-                            </tr>
-
-                            <tr class="child child-row01" data-parent="sub-row0101" data-child="row01">
-                                <td class="text-left pl-0">
-                                    a
-                            </td>
-                                <td colspan="2">
-                                    <div class="floor_selected">
-                                        <div class="agency channel text-uppercase min-width-110 fw-medium uni_text_6d30ab text-center">
-                                            ĐỢT 1
-                                    </div>
-                                        <a class="agency channel min-width-230 text-underline border-right-0 uni_text_6d30ab">
-                                            Tổng số SP theo đợt: 11
-                                    </a>
-                                    </div>
-                                </td>
-
-                                <td colspan="4"></td>
-
-                                <td>
-                                    <div class="sales_status_style02_01_text sales_status_style02_01_border pl-3 pr-3 font-weight-bold d-flex align-items-center justify-content-center fs-16 min-height-40 min-width-65 border-width-1">
-                                        50
-                                </div>
-                                </td>
-                                <td>
-                                    <div class="sales_status_style02_01_text sales_status_style02_01_border pl-3 pr-3 font-weight-bold d-flex align-items-center justify-content-center fs-16 min-height-40 min-width-65 border-width-1">
-                                        50
-                                </div>
-                                </td>
-                                <td>
-                                    <div class="sales_status_style02_02_text sales_status_style02_02_border pl-3 pr-3 font-weight-bold d-flex align-items-center justify-content-center fs-16 min-height-40  min-width-65 border-width-1">
-                                        50
-                                </div>
-                                </td>
-
-                                <td></td>
-                                <td class="text-center">
-                                    <i class="icon icon_collapse angle las la-angle-down"></i>
-                                </td>
-                            </tr>
-
-                            <tr class="child child-sub-row0101" data-filter="agency" data-child="row01">
-                                <td class="border-bottom-none"></td>
-                                <td class="border-bottom-none"></td>
-                                <td colspan="1" class="pl-0">
-                                    <span class="exclamation opacity-0">
-                                        <i class="icon las la-exclamation-triangle"></i>
-                                        <i class="text">1</i>
-                                    </span>
-                                    <a href="#" class="fw-medium sales_agency_text"><u>Căn hộ B2 - F.0.01</u></a>
-                                </td>
-                                <td>
-                                    <a href="#" class="fw-medium uni_text_000"><u>Chính sách A</u></a>
-                                </td>
-                                <td>
-                                    <a href="#" class="fw-medium uni_text_000"><u>TT - 1</u></a>
-                                </td>
-                                <td>
-                                    <a href="#" class="fw-medium uni_text_000"><u>Nguyễn Văn A</u></a>
-                                </td>
-                                <td>
-                                    <span class="payment_status_border_1 payment_status_1 d-inline-flex align-items-center justify-content-center min-height-40 pl-3 pr-3 width-140 w-100 fw-medium">
-                                        Đã thanh toán
-                                </span>
-                                </td>
-
-                                <td>
-                                    <b class="">0.1</b>
-                                </td>
-                                <td>
-                                    <b class="">0.1</b>
-                                </td>
-                                <td>
-                                    <b class="">0.1</b>
-                                </td>
-
-                                <td class="text-center">
-                                    <i class="icon icon_noti las la-comments" data-toggle="modal" data-target="#salesNote"><small>1</small></i>
-                                </td>
-                                <td class="text-center">
-                                    <div class="dropdown">
-                                        <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="icon-dots las la-ellipsis-h"></i>
-                                        </a>
-                                        <div class="dropdown-menu">
-                                            <a class="dropdown-item fw-medium" href="#">
-                                                <i class="icon-dropdown las la-exclamation-triangle"></i>
-                                            Cảnh báo
-                                        </a>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr class="child child-sub-row0101" data-filter="internal" data-child="row01">
-                                <td class="border-bottom-none"></td>
-                                <td class="border-bottom-none"></td>
-                                <td colspan="1" class="pl-0">
-                                    <span class="exclamation">
-                                        <i class="icon las la-exclamation-triangle"></i>
-                                        <i class="text">1</i>
-                                    </span>
-
-                                    <a href="#" class="fw-medium sales_internal_text"><u>Căn hộ B2 - F.0.01</u></a>
-                                </td>
-                                <td>
-                                    <a href="#" class="fw-medium uni_text_000"><u>Chính sách A</u></a>
-                                </td>
-                                <td>
-                                    <a href="#" class="fw-medium uni_text_000"><u>TT - 1</u></a>
-                                </td>
-                                <td>
-                                    <a href="#" class="fw-medium uni_text_000"><u>Nguyễn Văn A</u></a>
-                                </td>
-                                <td>
-                                    <span class="payment_status_border_1 payment_status_1  d-inline-flex align-items-center justify-content-center min-height-40 pl-3 pr-3 width-140 w-100 fw-medium">
-                                        Đã thanh toán</span>
-                                </td>
-
-                                <td>
-                                    <b class="">0.1</b>
-                                </td>
-                                <td>
-                                    <b class="">0.1</b>
-                                </td>
-                                <td>
-                                    <b class="">0.1</b>
-                                </td>
-
-                                <td class="text-center">
-                                    <i class="icon icon_noti las la-comments" data-toggle="modal" data-target="#salesNote"><small>1</small></i>
-                                </td>
-                                <td class="text-center">
-                                    <div class="dropdown">
-                                        <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="icon-dots las la-ellipsis-h"></i>
-                                        </a>
-                                        <div class="dropdown-menu">
-                                            <a class="dropdown-item fw-medium" href="#">
-                                                <i class="icon-dropdown las la-exclamation-triangle"></i>
-                                            Cảnh báo
-                                        </a>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-
-                            <tr class="child child-row01" data-parent="sub-row0102" data-child="row01">
-                                <td class="text-left pl-0">
-                                    b
-                            </td>
-                                <td colspan="2">
-                                    <div class="floor_selected">
-                                        <div class="agency channel text-uppercase min-width-110 fw-medium uni_text_6d30ab text-center">
-                                            ĐỢT 2
-                                    </div>
-                                        <a class="agency channel min-width-230 text-underline border-right-0 uni_text_6d30ab">
-                                            Tổng số SP theo đợt: 11
-                                    </a>
-                                    </div>
-                                </td>
-
-                                <td colspan="4"></td>
-
-                                <td>
-                                    <div class="sales_status_style02_01_text sales_status_style02_01_border pl-3 pr-3 font-weight-bold d-flex align-items-center justify-content-center fs-16 min-height-40 min-width-65 border-width-1">
-                                        50
-                                </div>
-                                </td>
-                                <td>
-                                    <div class="sales_status_style02_01_text sales_status_style02_01_border pl-3 pr-3 font-weight-bold d-flex align-items-center justify-content-center fs-16 min-height-40 min-width-65 border-width-1">
-                                        50
-                                </div>
-                                </td>
-                                <td>
-                                    <div class="sales_status_style02_02_text sales_status_style02_02_border pl-3 pr-3 font-weight-bold d-flex align-items-center justify-content-center fs-16 min-height-40  min-width-65 border-width-1">
-                                        50
-                                </div>
-                                </td>
-
-                                <td></td>
-                                <td class="text-center">
-                                    <i class="icon icon_collapse angle las la-angle-down"></i>
-                                </td>
-                            </tr>
-
-                            <tr class="child child-sub-row0102" data-filter="agency" data-child="row01">
-                                <td class="border-bottom-none"></td>
-                                <td class="border-bottom-none"></td>
-                                <td colspan="1" class="pl-0">
-                                    <span class="exclamation opacity-0">
-                                        <i class="icon las la-exclamation-triangle"></i>
-                                        <i class="text">1</i>
-                                    </span>
-                                    <a href="#" class="fw-medium sales_agency_text"><u>Căn hộ B2 - F.0.01</u></a>
-                                </td>
-                                <td>
-                                    <a href="#" class="fw-medium uni_text_000"><u>Chính sách A</u></a>
-                                </td>
-                                <td>
-                                    <a href="#" class="fw-medium uni_text_000"><u>TT - 1</u></a>
-                                </td>
-                                <td>
-                                    <a href="#" class="fw-medium uni_text_000"><u>Nguyễn Văn A</u></a>
-                                </td>
-                                <td>
-                                    <span class="payment_status_border_1 payment_status_1  d-inline-flex align-items-center justify-content-center min-height-40 pl-3 pr-3 width-140 w-100 fw-medium">
-                                        Đã thanh toán</span>
-                                </td>
-
-                                <td>
-                                    <b class="">0.1</b>
-                                </td>
-                                <td>
-                                    <b class="">0.1</b>
-                                </td>
-                                <td>
-                                    <b class="">0.1</b>
-                                </td>
-
-                                <td class="text-center">
-                                    <i class="icon icon_noti las la-comments" data-toggle="modal" data-target="#salesNote"><small>1</small></i>
-                                </td>
-                                <td class="text-center">
-                                    <div class="dropdown">
-                                        <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="icon-dots las la-ellipsis-h"></i>
-                                        </a>
-                                        <div class="dropdown-menu">
-                                            <a class="dropdown-item fw-medium" href="#">
-                                                <i class="icon-dropdown las la-exclamation-triangle"></i>
-                                            Cảnh báo
-                                        </a>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr class="child child-sub-row0102" data-filter="internal" data-child="row01">
-                                <td class="border-bottom-none"></td>
-                                <td class="border-bottom-none"></td>
-                                <td colspan="1" class="pl-0">
-                                    <span class="exclamation">
-                                        <i class="icon las la-exclamation-triangle"></i>
-                                        <i class="text">1</i>
-                                    </span>
-
-                                    <a href="#" class="fw-medium sales_internal_text"><u>Căn hộ B2 - F.0.01</u></a>
-                                </td>
-                                <td>
-                                    <a href="#" class="fw-medium uni_text_000"><u>Chính sách A</u></a>
-                                </td>
-                                <td>
-                                    <a href="#" class="fw-medium uni_text_000"><u>TT - 1</u></a>
-                                </td>
-                                <td>
-                                    <a href="#" class="fw-medium uni_text_000"><u>Nguyễn Văn A</u></a>
-                                </td>
-                                <td>
-                                    <span class="payment_status_border_1 payment_status_1  d-inline-flex align-items-center justify-content-center min-height-40 pl-3 pr-3 width-140 w-100 fw-medium">
-                                        Đã thanh toán</span>
-                                </td>
-
-                                <td>
-                                    <b class="">0.1</b>
-                                </td>
-                                <td>
-                                    <b class="">0.1</b>
-                                </td>
-                                <td>
-                                    <b class="">0.1</b>
-                                </td>
-
-                                <td class="text-center">
-                                    <i class="icon icon_noti las la-comments" data-toggle="modal" data-target="#salesNote"><small>1</small></i>
-                                </td>
-                                <td class="text-center">
-                                    <div class="dropdown">
-                                        <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="icon-dots las la-ellipsis-h"></i>
-                                        </a>
-                                        <div class="dropdown-menu">
-                                            <a class="dropdown-item fw-medium" href="#">
-                                                <i class="icon-dropdown las la-exclamation-triangle"></i>
-                                            Cảnh báo
-                                        </a>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-
-                            <tr class="parent" data-parent="row02">
-                                <td class="number text-left pl-0">1</td>
-                                <td colspan="2">
-
-                                    <div class="floor_selected">
-                                        <div class="floor text-uppercase min-width-110">B6</div>
-                                        <a class="agency channel min-width-230 uni_text_6d30ab text-underline border-right-0">
-                                            Tổng số sản phẩm: 14
-                                    </a>
-                                    </div>
-
-                                </td>
-                                <td colspan="4"></td>
-
-                                <td>
-                                    <div class="sales_status_style02_01_text sales_status_style02_01_border pl-3 pr-3 font-weight-bold d-flex align-items-center justify-content-center fs-16 min-height-40 min-width-65">
-                                        50
-                                </div>
-                                </td>
-                                <td>
-                                    <div class="sales_status_style02_01_text sales_status_style02_01_border pl-3 pr-3 font-weight-bold d-flex align-items-center justify-content-center fs-16 min-height-40 min-width-65">
-                                        50
-                                </div>
-                                </td>
-                                <td>
-                                    <div class="sales_status_style02_02_text sales_status_style02_02_border pl-3 pr-3 font-weight-bold d-flex align-items-center justify-content-center fs-16 min-height-40  min-width-65 border-width-1">
-                                        50
-                                </div>
-                                </td>
-
-                                <td></td>
-                                <td class="text-center"><i class="icon icon_collapse las la-plus-circle" onClick={(event => props.ONCLICK(event.currentTarget))}></i></td>
-                            </tr>
-
-                            <tr class="child child-row02" data-parent="sub-row0201" data-child="row02">
-                                <td class="text-left pl-0">
-                                    a
-                            </td>
-                                <td colspan="2">
-                                    <div class="floor_selected">
-                                        <div class="agency channel text-uppercase min-width-110 fw-medium uni_text_6d30ab text-center">
-                                            ĐỢT 1
-                                    </div>
-                                        <a class="agency channel min-width-230 text-underline border-right-0 uni_text_6d30ab">
-                                            Tổng số SP theo đợt: 11
-                                    </a>
-                                    </div>
-                                </td>
-
-                                <td colspan="4"></td>
-
-                                <td>
-                                    <div class="sales_status_style02_01_text sales_status_style02_01_border pl-3 pr-3 font-weight-bold d-flex align-items-center justify-content-center fs-16 min-height-40 min-width-65 border-width-1">
-                                        50
-                                </div>
-                                </td>
-                                <td>
-                                    <div class="sales_status_style02_01_text sales_status_style02_01_border pl-3 pr-3 font-weight-bold d-flex align-items-center justify-content-center fs-16 min-height-40 min-width-65 border-width-1">
-                                        50
-                                </div>
-                                </td>
-                                <td>
-                                    <div class="sales_status_style02_02_text sales_status_style02_02_border pl-3 pr-3 font-weight-bold d-flex align-items-center justify-content-center fs-16 min-height-40  min-width-65 border-width-1">
-                                        50
-                                </div>
-                                </td>
-
-                                <td></td>
-                                <td class="text-center">
-                                    <i class="icon icon_collapse angle las la-angle-down"></i>
-                                </td>
-                            </tr>
-
-                            <tr class="child child-sub-row0201" data-filter="internal" data-child="row02">
-                                <td class="border-bottom-none"></td>
-                                <td class="border-bottom-none"></td>
-                                <td colspan="1" class="pl-0">
-                                    <span class="exclamation opacity-0">
-                                        <i class="icon las la-exclamation-triangle"></i>
-                                        <i class="text">1</i>
-                                    </span>
-                                    <a href="#" class="fw-medium sales_internal_text"><u>Căn hộ B2 - F.0.01</u></a>
-                                </td>
-                                <td>
-                                    <a href="#" class="fw-medium uni_text_000"><u>Chính sách A</u></a>
-                                </td>
-                                <td>
-                                    <a href="#" class="fw-medium uni_text_000"><u>TT - 1</u></a>
-                                </td>
-                                <td>
-                                    <a href="#" class="fw-medium uni_text_000"><u>Nguyễn Văn A</u></a>
-                                </td>
-                                <td>
-                                    <span class="payment_status_border_1 payment_status_1  d-inline-flex align-items-center justify-content-center min-height-40 pl-3 pr-3 width-140 w-100 fw-medium">
-                                        Đã thanh toán</span>
-                                </td>
-
-                                <td>
-                                    <b class="">0.1</b>
-                                </td>
-                                <td>
-                                    <b class="">0.1</b>
-                                </td>
-                                <td>
-                                    <b class="">0.1</b>
-                                </td>
-
-                                <td class="text-center">
-                                    <i class="icon icon_noti las la-comments" data-toggle="modal" data-target="#salesNote"><small>1</small></i>
-                                </td>
-                                <td class="text-center">
-                                    <div class="dropdown">
-                                        <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="icon-dots las la-ellipsis-h"></i>
-                                        </a>
-                                        <div class="dropdown-menu">
-                                            <a class="dropdown-item fw-medium" href="#">
-                                                <i class="icon-dropdown las la-exclamation-triangle"></i>
-                                            Cảnh báo
-                                        </a>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr class="child child-sub-row0201" data-filter="agency" data-child="row02">
-                                <td class="border-bottom-none"></td>
-                                <td class="border-bottom-none"></td>
-                                <td colspan="1" class="pl-0">
-                                    <span class="exclamation">
-                                        <i class="icon las la-exclamation-triangle"></i>
-                                        <i class="text">1</i>
-                                    </span>
-
-                                    <a href="#" class="fw-medium sales_agency_text"><u>Căn hộ B2 - F.0.01</u></a>
-                                </td>
-                                <td>
-                                    <a href="#" class="fw-medium uni_text_000"><u>Chính sách A</u></a>
-                                </td>
-                                <td>
-                                    <a href="#" class="fw-medium uni_text_000"><u>TT - 1</u></a>
-                                </td>
-                                <td>
-                                    <a href="#" class="fw-medium uni_text_000"><u>Nguyễn Văn A</u></a>
-                                </td>
-                                <td>
-                                    <span class="payment_status_border_1 payment_status_1  d-inline-flex align-items-center justify-content-center min-height-40 pl-3 pr-3 width-140 w-100 fw-medium">
-                                        Đã thanh toán</span>
-                                </td>
-
-                                <td>
-                                    <b class="">0.1</b>
-                                </td>
-                                <td>
-                                    <b class="">0.1</b>
-                                </td>
-                                <td>
-                                    <b class="">0.1</b>
-                                </td>
-
-                                <td class="text-center">
-                                    <i class="icon icon_noti las la-comments" data-toggle="modal" data-target="#salesNote"><small>1</small></i>
-                                </td>
-                                <td class="text-center">
-                                    <div class="dropdown">
-                                        <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="icon-dots las la-ellipsis-h"></i>
-                                        </a>
-                                        <div class="dropdown-menu">
-                                            <a class="dropdown-item fw-medium" href="#">
-                                                <i class="icon-dropdown las la-exclamation-triangle"></i>
-                                            Cảnh báo
-                                        </a>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-
-
-
-
             </div>
         </div>
+
     )
 }
 export default InfoShipping;
