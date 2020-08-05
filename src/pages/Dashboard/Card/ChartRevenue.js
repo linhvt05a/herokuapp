@@ -122,7 +122,7 @@ class ChartRevenue extends Component {
                                 </div>
                                 <div className="item to">
                                     <div className="text">Đến</div>
-                                    <InputDatePicker />
+                                    <InputDatePicker className="date-input-right" />
                                 </div>
                             </div>
                         </div>
