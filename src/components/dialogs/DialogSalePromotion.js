@@ -139,9 +139,9 @@ const DialogSalePromotion = (props) => {
                                 </tbody>
                             </table>
                         </div>
-                        <div class="form-group">
-                            <label class="fw-medium">Lý do <span class="uni_star_e94c4c">*</span></label>
-                            <textarea name="" placeholder="Nhập lý do " class="form-control" id="" cols="30" rows="4"></textarea>
+                        <div className="form-group">
+                            <label className="fw-medium">Lý do <span className="uni_star_e94c4c">*</span></label>
+                            <textarea name="" placeholder="Nhập lý do " className="form-control" id="" cols="30" rows="4"></textarea>
                         </div>
                         <div className=" pt-0 pb-4 border-0 mt-4 text-right" >
                             <button type="button"  className="min-width-button min-height-40 btn-uni-exit btn-uni-exit-modal"  data-dismiss="modal"  aria-label="Close"  onClick={props.close}  style={{marginRight: 20}} >
