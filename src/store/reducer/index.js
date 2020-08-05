@@ -6,4 +6,4 @@ const allReducers = combineReducers({
     currency, dashboard,
     shipping
 });
-export default allReducers;
+export default allReducers; 
