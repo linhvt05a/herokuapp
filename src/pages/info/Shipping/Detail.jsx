@@ -41,6 +41,7 @@ const Edit = props => {
     ]
     return (
 
+
         <div className="container-fluid">
             <div className="row mt-3">
                 <div style={{ paddingLeft: 0 }} className="col-xl-6 col-lg-6 col-md-12 col-sm-12 d-flex flex-column">
