@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import actions from "../../../store/action/shipping"
 import Item from "./Layout";
-import Title from "../../../components/m_header"
+import Title from "../../../components/common/CardHeader"
 const Edit = props => {
 
     const dispatch = useDispatch();
@@ -44,18 +44,18 @@ const Edit = props => {
         <div className="container-fluid">
             <div className="row mt-3">
                 <div style={{ paddingLeft: 0 }} className="col-xl-6 col-lg-6 col-md-12 col-sm-12 d-flex flex-column">
-                    <Title name="Thông tin dự án" />
+                    <Title label="Thông tin dự án" />
                     <Item.Detail_info data={data.Detail} />
                 </div>
                 <div style={{ paddingRight: 0 }} className="col-xl-6 col-lg-6 col-md-12 col-sm-12 d-flex flex-column">
                     <Item.Detail_progress data={data.Detail} dataSellOpen={data.Sell_Open} />
                 </div>
                 <div className="col-12" style={{ padding: 0 }}>
-                    <Title name="DANH SÁCH CÁC KHU" dropdown={{ title: "Tất cả khu", data: contentDropdown }} />
+                    <Title label="DANH SÁCH CÁC KHU" dropdown={{ title: "Tất cả khu", data: contentDropdown }} />
                     <Item.Detail_content data={data.Sell_Open_Floor} />
                 </div>
                 <div className="col-12" style={{ padding: 0 }}>
-                    <Title name="CHI TIẾT RỔ HÀNG" dropdown={{ title: "Đợt 1", data: contentDropdown }} />
+                    <Title label="CHI TIẾT RỔ HÀNG" dropdown={{ title: "Đợt 1", data: contentDropdown }} />
                     <Item.Detail_InfoShipping data={data.Sell_Open_Floor} />
                 </div>
 

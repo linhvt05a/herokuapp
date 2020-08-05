@@ -39,7 +39,7 @@ const MAINS = [
     { "path": "/perm/internal/detail/:id", "value": Perm.PagePermInternalDetail, "menu": "menu_perm_task_by_departments", "title": "Update" },
     //shipping
     { "path": "/info/shipping", "value": Info.Home, "menu": "menu_shipping_cart_list_title", "title": "menu_shipping_cart_list_title" },
-    { "path": "/perm/project/add", "value": Info.Edit, "menu": "menu_perm_task_by_projects", "title": "Add" },
+    { "path": "/info/shipping/edit/:id", "value": Info.Edit, "menu": "menu_perm_task_by_projects", "title": "Add" },
 ]
 
 var PATHS = {};
