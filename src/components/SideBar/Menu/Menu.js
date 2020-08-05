@@ -76,7 +76,7 @@ class Menu extends Component {
 
     render() {
         return (
-            <div className="scroll-sidebar" style={{cursor: "pointer"}} >
+            <div className="scroll-sidebar">
                 <nav className="sidebar-nav">
                     <ul>
                         { this.props.menudata.map( (item, index) => (
@@ -84,14 +84,6 @@ class Menu extends Component {
                         ))}
                     </ul>
                 </nav>
-
-                <div className="ps-scrollbar-x-rail" style={{left: 0, bottom: 0,}}>
-                    <div className="ps-scrollbar-x" style={{left: 0, width: 0,}}></div>
-                </div>
-
-                <div className="ps-scrollbar-y-rail" style={{top: 0, height: 0, right: 3,}}>
-                    <div className="ps-scrollbar-y" style={{top: 0, height: 0,}}></div>
-                </div>
             </div>
         )
     }
