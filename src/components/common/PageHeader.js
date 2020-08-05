@@ -51,7 +51,7 @@ class ButtonLogout extends Component {
             <li className="nav-item">
                 <div className="nav-link log-out">
                     <a className="arrow" href="/login">
-                        <i className="la la-sign-out"></i> <Trans>Đăng xuất</Trans>
+                        <i className="la la-sign-out"></i> <Trans>logout</Trans>
                     </a>
                 </div>
             </li>
@@ -100,9 +100,7 @@ class PageHeader extends Component {
 
     render() {
         return (
-            <div>
-                <div className="header__bg purple" />
-                <header className="header__topbar">
+            <header className="header__topbar">
                     <nav className="navbar top-navbar navbar-expand-md navbar-dark">
 
                         <div className="navbar-header">
@@ -117,11 +115,8 @@ class PageHeader extends Component {
                             <div className="navbar-brand">
                                 <a className="logo" href="/">
                                     <b className="logo-icon">
-                                        <img src="/static/images/purple/placeholder45.png" alt="homepage" className="dark-logo" />
+                                        <img src="/static/images/logo_full_name.svg" alt="Minerva" className="dark-logo" />
                                     </b>
-                                    <span className="logo-text">
-                                       MINERVA
-                                    </span>
                                 </a>
                                 <a className="sidebartoggler" onClick={this.barToggler}>
                                     <span className="line line-1"></span>
@@ -135,41 +130,7 @@ class PageHeader extends Component {
                         </div>
 
                         <div className="navbar-collapse collapse" id="navbarSupportedContent">
-                            <ul className="navbar-nav">
-                                <li className="nav-item dropdown ">
-                                    <a className="nav-link " href="javascript:void(0) " id="dd3 " role="button " data-toggle="dropdown " aria-haspopup="true " aria-expanded="false ">
-                                        <span className="arrow ">
-                                            Select a project
-                                            <svg xmlns="http://www.w3.org/2000/svg " width="24 " height="24 " viewBox="0 0 24 24 "
-                                                fill="none " stroke="currentColor " stroke-width="2 " stroke-linecap="round "
-                                                stroke-linejoin="round " className="feather feather-chevron-down svg-icon ">
-                                                <polyline points="6 9 12 15 18 9 "></polyline>
-                                            </svg>
-                                        </span>
-                                    </a>
-                                    <div className="dropdown-menu ">
-                                        <div className="row no-gutters ">
-                                            <div>
-                                                <a className="dropdown-item w-100 text-truncate " href="inbox-email.html "><i
-                                                        className="ti-email "></i><span>Email</span> </a>
-                                                <a className="dropdown-item w-100 text-truncate " href="inbox-email-detail.html "><i
-                                                        className="icon-envelope-open "></i><span>Email
-                                                        Details</span></a>
-                                                <a className="dropdown-item w-100 text-truncate " href="inbox-email-compose.html "><i
-                                                        className="ti-pencil-alt "></i><span>Email Compose</span></a>
-                                            </div>
-                                            <div>
-                                                <a className="dropdown-item w-100 text-truncate " href="ticket-list.html "><i
-                                                        className="ti-bookmark "></i><span>Ticket List</span></a>
-                                                <a className="dropdown-item w-100 text-truncate " href="ticket-detail.html "><i
-                                                        className="ti-bookmark-alt "></i><span>Ticket Details</span></a>
-                                                <a className="dropdown-item w-100 text-truncate " href="app-taskboard.html "><i
-                                                        className="icon-notebook "></i><span>Taskboard</span></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
+                            <ul className="navbar-nav"></ul>
                             <ul className="navbar-nav">
                                 <ButtonLanguage switchLang={this.switchLang} />
                                 <ButtonLogout />
@@ -177,8 +138,6 @@ class PageHeader extends Component {
                         </div>
                     </nav>
                 </header>
-            </div>
-
         )
     }
 };

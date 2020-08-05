@@ -31,7 +31,7 @@ class CardHeader extends Component {
                             this.props.searchLabel && <SearchField label={this.props.searchLabel} value={this.props.searchValue} onSearch={this.props.onSearch} placeholder={this.props.searchHolder} />
                         }
                         {
-                            this.props.clickDetail && <a class="m_link-detail" href="#" onClick={this.props.clickDetail}><Trans>Detail</Trans></a>
+                            this.props.clickDetail && <a className="m_link-detail" href="#" onClick={this.props.clickDetail}><Trans>Detail</Trans></a>
                         }
                     </div>
                 </div>

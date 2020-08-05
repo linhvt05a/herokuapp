@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Trans } from 'react-i18next';
 
 import { gantt } from 'dhtmlx-gantt';
-import 'dhtmlx-gantt/codebase/dhtmlxgantt.css';
+// import 'dhtmlx-gantt/codebase/dhtmlxgantt.css';
 
 class Toolbar extends Component {
     handleZoomChange = (e) => {
@@ -17,7 +17,7 @@ class Toolbar extends Component {
                 <li key={index}>
                     <button type="button" key={value} value={value} className={`btn-uni-cancel btn-search-chart ${isActive ? 'btn-uni-purple' : ''}`} onClick={this.handleZoomChange}>
                         {value}
-                    </button>
+                    </button>  
                 </li>
             );
         });

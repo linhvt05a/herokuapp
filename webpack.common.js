@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     entry: './src/index.js',
@@ -23,9 +24,31 @@ module.exports = {
                 ]
             },
             {
-                // Allow CSS to be imported into JavaScript.
                 test: /\.css$/,
-                use: ["style-loader", "css-loader"]
+                use: ExtractTextPlugin.extract({
+                    fallback: "style-loader",
+                    use:  {
+                        loader: 'css-loader',
+                    },
+                })
+            },
+            {
+                test: /\.scss$/,
+                use: ExtractTextPlugin.extract({
+                fallback: 'style-loader',
+                    use: [
+                    {
+                      loader: 'css-loader',
+                      options: {
+                        modules: true,
+                        sourceMap: true,
+                        importLoaders: 2,
+                        localIdentName: '[name]__[local]___[hash:base64:5]'
+                      }
+                    },
+                    'sass-loader'
+                    ]
+                })
             },
             {
                 test: /\.svg$/,
@@ -46,6 +69,7 @@ module.exports = {
         filename: 'bundle.js'
     },
     plugins: [
+        new ExtractTextPlugin("styles.css"),
         new webpack.HotModuleReplacementPlugin(),
         new HtmlWebpackPlugin(
             {

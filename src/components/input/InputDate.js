@@ -4,7 +4,6 @@ import { withTranslation, Trans } from 'react-i18next';
 import "react-datepicker/dist/react-datepicker.css";
 
 //import format from "date-fns/format"
-import './InputDate.css';
 
 import moment from 'moment'
 import DatePicker from "react-datepicker";

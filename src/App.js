@@ -4,11 +4,14 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-d
 
 import { Page403, Page404, Page500 } from "./pages/Error"
 import { MainLogin, MainPage } from "./pages"
-
 import { LOGINS, MAINS, PATHS } from "./routes"
 
+
+// store 
 import { Provider } from 'react-redux';
 import configureStore from './store';
+
+
 const store = configureStore();
 
 

@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { Trans } from 'react-i18next';
 
-import './Pagination.css';
-
 class NumPage extends Component{
     constructor(props) {
         super(props);

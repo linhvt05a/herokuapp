@@ -6,8 +6,6 @@ import { InputText,InputDate } from '../../../components/input'
 import { CardHeader, Spinner } from '../../../components/common'
 import { userService } from '../../../services';
 
-import './PageProfile.css'
-
 class CardlLeft extends Component {
     constructor(props) {
         super(props);

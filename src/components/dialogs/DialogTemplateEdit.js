@@ -5,8 +5,6 @@ import Modal from 'react-bootstrap/Modal'
 import { InputText } from "../input";
 import { CardHeader } from "../common";
 
-import "./Dialog.css"
-
 class DialogTemplateEdit extends Component {
     constructor(props) {
         super(props);

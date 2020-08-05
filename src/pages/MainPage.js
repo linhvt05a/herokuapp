@@ -3,9 +3,6 @@ import { Trans } from 'react-i18next';
 
 import queryString from 'query-string';
 
-import './MainPage.css';
-import './index.css';
-
 import { PageHeader, PageFooter, PageTitle } from '../components/common'
 
 import SideBar from '../components/SideBar/SideBar.js'
@@ -121,6 +118,7 @@ class MainPage extends Component {
         return (
             <div className="main-wrapper">
                 <NotificationContainer />
+                <div className="header__bg purple"></div>
                 <PageHeader user={user} update={this.update}/>
                 <SideBar user={user} 
                          menudata={menu.datas}
