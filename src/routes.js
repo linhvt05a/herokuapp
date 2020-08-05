@@ -26,7 +26,11 @@ const MAINS = [
     { "path": "/system/currency/add", "value": System.PageCurrencyAdd, "menu": "menu_system_currency", "title": "Add" },
     { "path": "/system/currency/edit/:id", "value": System.PageCurrencyEdit, "menu": "menu_system_currency", "title": "Update" },
     
-    { "path": "/product_card/new_contract/customer_info", "value": ProductCart.CustomerInfo, "menu": "menu_product_cart_customer_info", "title": "Căn hộ B2 - F.0.18" },
+    { "path": "/product_card/new_contract/customer_info", "value": ProductCart.CustomerInfo, "menu": "menu_product_cart_customer_info", "title": "" },
+    { "path": "/product_card/new_contract/discount_option", "value": ProductCart.DiscountOption, "menu": "menu_product_cart_customer_info", "title": "" },
+    { "path": "/product_card/new_contract/payment", "value": ProductCart.Payment, "menu": "menu_product_cart_customer_info", "title": "" },
+    { "path": "/product_card/new_contract/order_info", "value": ProductCart.OrderInfo, "menu": "menu_product_cart_customer_info", "title": "" },
+    { "path": "/product_card/new_contract/finish", "value": ProductCart.Finish, "menu": "menu_product_cart_customer_info", "title": "" },
 
     { "path": "/perm/project", "value": Perm.PagePermProject, "menu": "menu_perm_task_by_projects", "title": "menu_perm_task_by_projects" },
     { "path": "/perm/project/add", "value": Perm.PagePermProjectAdd, "menu": "menu_perm_task_by_projects", "title": "Add" },

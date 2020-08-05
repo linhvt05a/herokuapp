@@ -1,12 +1,15 @@
 import React from 'react';
-import ProductInfo from './Layout/ProductInfo';
-import CardHeader from '../../../components/common/CardHeader'
+import ProductInfo from '../../Layout/ProductInfo';
+import CardWrapper from './Layout/CardWrapper';
+import CustomerInfoForm from './Layout/CustomerInfo/CustomerInfoForm';
 
 const CustomerInfo = () => {
     return (
         <div class="container-fluid">
             <ProductInfo />
-            <CardHeader label="Tạo hợp đồng"/>
+            <CardWrapper currentStep={1}
+                         children={<CustomerInfoForm />}
+             />
         </div>
     )
 }
