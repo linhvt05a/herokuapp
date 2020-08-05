@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withTranslation, Trans } from 'react-i18next';
 
-import "react-datepicker/dist/react-datepicker.css";
+
 
 //import format from "date-fns/format"
 
@@ -88,6 +88,8 @@ class InputDate extends Component {
                             selected={this.state.values}
                             onChange={this.handleChange}
                             disabled={this.props.disabled}
+                            popperClassName="date-custom-class"
+                            popperPlacement="top-end"
                         />
                     </div>
                     {(!this.props.disabled && this.props.submitted && this.props.required && (this.state.values === "")) &&

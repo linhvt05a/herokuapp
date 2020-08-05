@@ -7,7 +7,6 @@ import { DropItem } from "../dropdown"
 
 import { userService } from '../../services';
 
-import icon from './PageHeader.svg';
 
 //$(".nav-toggler").on("click", function(e) {
 //    e.stopPropagation();

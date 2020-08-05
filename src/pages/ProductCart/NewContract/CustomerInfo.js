@@ -5,7 +5,7 @@ import CustomerInfoForm from './Layout/CustomerInfo/CustomerInfoForm';
 
 const CustomerInfo = () => {
     return (
-        <div class="container-fluid">
+        <div className="container-fluid">
             <ProductInfo />
             <CardWrapper currentStep={1}
                          children={<CustomerInfoForm />}

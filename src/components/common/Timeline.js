@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Trans } from 'react-i18next';
 
 import { gantt } from 'dhtmlx-gantt';
-// import 'dhtmlx-gantt/codebase/dhtmlxgantt.css';
+
 
 class Toolbar extends Component {
     handleZoomChange = (e) => {

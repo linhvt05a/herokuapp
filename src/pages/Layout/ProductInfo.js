@@ -80,12 +80,12 @@ const ProductInfo = () => {
                                     <input value="Công ty BĐS Thành Công " readOnly type="text" className="form-control" />
                                 </div>
                             </div>
-                            <div class="col-12 col-sm-6 col-md-6 col-lg-4">
-                                <div class="form-group">
-                                    <label class="fw-medium">Giá bán</label>
-                                    <div class="input-group">
-                                        <input type="number" class="form-control" placeholder="Nhập số" value="22.2" readOnly />
-                                        <div class="input-group-append select2_currency">
+                            <div className="col-12 col-sm-6 col-md-6 col-lg-4">
+                                <div className="form-group">
+                                    <label className="fw-medium">Giá bán</label>
+                                    <div className="input-group">
+                                        <input type="number" className="form-control" placeholder="Nhập số" value="22.2" readOnly />
+                                        <div className="input-group-append select2_currency">
                                             <select>
                                                 <option>VND</option>
                                                 <option>USD</option>

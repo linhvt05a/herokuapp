@@ -7,12 +7,10 @@ class SideBar extends Component {
     render() {
         console.log('sidebar render');
         return (
-            <div>
-                <aside className='left-sidebar'>
-                    <Profile user={this.props.user} />
-                    <Menu menudata={this.props.menudata} active={this.props.active} setItemActive={this.props.setItemActive} />
-                </aside>
-            </div>
+            <aside className='left-sidebar'>
+                <Profile user={this.props.user} />
+                <Menu menudata={this.props.menudata} active={this.props.active} setItemActive={this.props.setItemActive} />
+            </aside>
         )
     }
 }

@@ -6,7 +6,6 @@ import { DialogPermision, DialogTrash } from '../../../components/dialogs'
 import { CardHeader, Pagination, Spinner } from '../../../components/common'
 import { mapping, mappingListToSelectList } from '../../../components/input'
 
-import '../Permission.css'
 import { permissionDepartmentService, selectService } from '../../../services';
 
 const departmentDefault = [

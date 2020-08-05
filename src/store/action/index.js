@@ -2,11 +2,25 @@ import {
     currentcyAddRequest, 
     currentcyDetailRequest, 
     currentcyListRequest, 
-    currentcyEditRequest
+    currentcyEditRequest,
 } from './currency';
+import {
+    regionListRequest,
+    provinceListRequest,
+    typeListRequest,
+    statusListRequest,
+    projectListRequest
+} from './dashboard';
+
 export { 
     currentcyAddRequest, 
     currentcyDetailRequest, 
     currentcyListRequest, 
-    currentcyEditRequest
+    currentcyEditRequest,
+    
+    regionListRequest,
+    provinceListRequest,
+    typeListRequest,
+    statusListRequest,
+    projectListRequest
 };

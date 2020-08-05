@@ -69,7 +69,12 @@ let menu_infor_manager = [
         label: "menu_infor_contact",
         icon: "las la-address-book",
         href: "/info/contact"
-    }
+    },
+    {
+        label: "menu_shipping_cart_list_title",
+        icon: "las la-user-tie",
+        href: "/info/shipping"
+    },
 ];
 
 let menu_perm_tasks = [
@@ -186,7 +191,7 @@ let menu_data = [
 ]
 
 function contain(datas, label) {
-    for (var i = 0; i < datas.length; i++) {
+    for (var i = 0;i < datas.length;i++) {
         var o = datas[i];
         if (o['label'] == label) {
             return true;

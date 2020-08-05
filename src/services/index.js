@@ -20,10 +20,13 @@ import { sysWorkingProcessService } from './System/services_system_workflow';
 import { permissionDepartmentService } from './Permission/services_permission_department';
 import { permissionProjectService } from './Permission/services_permission_projects';
 
+//shipping
+import { sysShippingService } from "./System/services_system_shipping"
 
 export {
     userService, dashboardService,
-    locationService, imageService, 
+    locationService, imageService,
     sysCurrencyService, sysDocumentService,
-    permissionDepartmentService, permissionProjectService, sysWorkingProcessService, projectService
+    permissionDepartmentService, permissionProjectService, sysWorkingProcessService, projectService, sysShippingService
+
 }
