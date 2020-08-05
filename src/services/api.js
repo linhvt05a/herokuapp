@@ -14,6 +14,8 @@ export default {
     EDIT_USER_INFO: '/api/v1/user/info/edit',
     PASSWORD_CHANGE: '/api/v1/user/info/password/change',
 
+    HISTORY_APPROVED : '/api/be/v1/approval/',
+
     DASHBOARD_REGION_LIST: '/api/fe/v1/region',
     DASHBOARD_PROVINCE_LIST: '/api/fe/v1/province',
     DASHBOARD_TYPE_LIST: '/api/be/v1/common/project/setting_type',

@@ -1,7 +1,10 @@
 import React, { useState } from "react"
 import {CardHeader} from '../../../components/common'
 import {InputSelect, InputText, InputDate} from '../../../components/input'
+import {DatePicker, Space, Select} from 'antd'
+import moment from 'moment';
 
+const dateFormat = 'YYYY/MM/DD';
 
 const CardApprovedHistory = (props) => {
     const [selected, setSelected] = useState(true)
@@ -25,7 +28,7 @@ const CardFilterApproved =  () =>{
               <InputSelect label="LOẠI YÊU CẦU"/>
             </div>
             <div className="form-group">
-                <InputDate label ="TỪ NGÀY "/>
+                <InputDate label="TỪ NGÀY"/>
             </div>
             <div className="form-group">
                 <InputDate label="ĐẾN NGÀY"/>
