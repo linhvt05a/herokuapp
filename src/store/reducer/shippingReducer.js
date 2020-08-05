@@ -32,6 +32,7 @@ export default (state = initialState, action) => {
                 success: false
             };
         case actions.LOAD_LIST_SUCCESS:
+            console.log(action);
             return {
                 ...state,
                 List: action.response.detail,

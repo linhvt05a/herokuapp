@@ -21,6 +21,7 @@ export function* shoppingList(payload) {
     const token = payload.params.token;
     try {
         const response = yield sysShippingService.list(token);
+        console.log("response1", response);
         response.success ? yield put({ type: actions.LOAD_LIST_SUCCESS, response }) : yield put({ type: actions.LOAD_LIST_FAILURE, response });
     } catch (err) {
         yield put({ type: actions.LOAD_LIST_FAILURE, err });
