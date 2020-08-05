@@ -1,4 +1,4 @@
-import React, { useEffect, useState, Component } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { currentcyListRequest } from "../../../store/action";
 import { CardHeader, Spinner } from '../../../components/common';
