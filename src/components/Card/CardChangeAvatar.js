@@ -59,7 +59,7 @@ class CardChangeAvatar extends Component {
     if (image) {
       return (
         <div className={this.props.className}>
-          <CardHeader label="image" />
+          <CardHeader label={this.props.label} />
           <div className="card h-100 square">
             <div className="card-body">
               <div className="div_image_preview">

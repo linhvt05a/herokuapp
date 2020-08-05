@@ -5,8 +5,9 @@ import { CardHeader } from "../common";
 import { permissions } from "../../constant";
 import { InputSelect, InputText, InputCheckBox } from "../../components/input";
 import "./Dialog.css"
-
+import './Styles.css'
 import "./Sales.css";
+import PropTypes from 'prop-types';
 const data = [
   {
     id: 1,
@@ -25,6 +26,33 @@ const data = [
     cost: "10.000.000",
     convert: "7.000.000",
     isCheck: true,
+  },
+  {
+    id: 3,
+    type: "KHÁCH SẠN",
+    description: "1 đêm ở khách sạn 5 sao ở TPHCM ",
+    code: "VOUCHER456",
+    cost: "10.000.000",
+    convert: "7.000.000",
+    isCheck: true,
+  },
+  {
+    id: 4,
+    type: "KHÁCH SẠN",
+    description: "1 đêm ở khách sạn 5 sao ở TPHCM  ",
+    code: "VOUCHER456",
+    cost: "10.000.000",
+    convert: "7.000.000",
+    isCheck: true,
+  },
+  {
+    id: 5,
+    type: "KHÁCH SẠN",
+    description: "1 đêm ở khách sạn 5 sao ở TPHCM ",
+    code: "VOUCHER456",
+    cost: "10.000.000",
+    convert: "7.000.000",
+    isCheck: false,
   },
 ];
 const DialogSalePromotion = (props) => {
@@ -55,12 +83,12 @@ const DialogSalePromotion = (props) => {
                         <div className="row">
                             <div className="col-12 col-md-8">
                                 <div className="form-group">
-                                        <InputSelect label="Loại yêu cầu" required />
+                                        <InputSelect label="Chương trình khuyến mãi" required />
                                 </div>
                             </div>
                             <div className="col-12 col-md-4">
                                 <div className="form-group">
-                                    <InputSelect type="text" label="Độ ưu tiên" required/>
+                                    <InputSelect type="text" label="Độ ưu tiên" className="priority-input" required/>
                                 </div>
                             </div>
                         </div>
@@ -71,10 +99,10 @@ const DialogSalePromotion = (props) => {
                                 <tr>
                                 <th style={{ width: "28%" }} className="col-1 pl-0">STT</th>
                                 <th style={{ width: "52%" }} className="col-1">LOẠI</th>
-                                <th className="col-3 pl-0">NỘI DUNG</th>
-                                <th className="col-1" style={{width: '28%'}}>MÃ</th>
-                                <th className="col-2">CHI PHÍ(VND)</th>
-                                <th className="col-2">QUY ĐỔI TỐI ĐA(VND)</th>
+                                <th className="col-3 pl-0"><span style={{marginLeft: 20}}>NỘI DUNG</span></th>
+                                <th className="col-1" style={{width: '30%'}}><span style={{marginLeft: 30}}>MÃ</span></th>
+                                <th className="col-2"><span style={{marginLeft: 50}}>CHI PHÍ</span></th>
+                                <th className="col-2"><span style={{marginLeft: 20}}>QUY ĐỔI TỐI ĐA</span></th>
                                 <th style={{ width: "50%" }} className="col-1"> YÊU CẦU</th>
                                 </tr>
                             </thead>
@@ -85,20 +113,22 @@ const DialogSalePromotion = (props) => {
                                             <td style={{ width: "15.5%"}} colSpan={2} className="pl-0">
                                                 <span className="voucher_type">{item.type}</span>
                                             </td>
-                                            <td className="pl-0" style={{width :'25%'}}>
-                                                <span className="uni_text_6d30ab fw-medium">{item.description} </span>
+                                            <td className="pl-0" style={{width :'25%', textAlign:'left'}} >
+                                                <span className="uni_text_6d30ab fw-medium" style={{marginLeft:-100}}>{item.description} </span>
                                             </td>
                                             <td>
-                                                <span className="m_text_367be3 fw-medium">{item.code}</span>
+                                                <span className="m_text_367be3 fw-medium" style={{marginLeft:-150}}>{item.code}</span>
                                             </td>
                                             <td>
                                                 <div className="form-group mb-0">
-                                                    <InputText disabled type="text" value ={item.cost}/>
+                                                    <InputText disabled type="text" value ={item.cost} className="cost-input" />
+                                                    <InputSelect className="currency-unit"/>
                                                 </div>
                                             </td>
                                             <td>
                                                 <div className="form-group mb-0">
-                                                    <InputText disabled type="text" value ={item.convert}/>
+                                                    <InputText disabled type="text" className ="convert-input" value ={item.convert}/>
+                                                    <InputSelect className="currency-unit-convert"/>
                                                 </div>
                                             </td>
                                             <td className="text-center" style={{ width: "8%" }}>
@@ -133,3 +163,7 @@ const DialogSalePromotion = (props) => {
   return <></>
 };
 export default DialogSalePromotion;
+
+DialogSalePromotion.propTypes = {
+    visible: PropTypes.bool,
+}

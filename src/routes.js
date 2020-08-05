@@ -25,7 +25,7 @@ const MAINS = [
     { "path": "/system/currency/add", "value": System.PageCurrencyAdd, "menu": "menu_system_currency", "title": "Add" },
     { "path": "/system/currency/edit/:id", "value": System.PageCurrencyEdit, "menu": "menu_system_currency", "title": "Update" },
 
-    { "path": "/system/document-type", "value": System.PageListCart, "menu": "", "title": "Project List" },
+    { "path": "/system/document-type", "value": System.PageListCart, "menu": "", "title": "ghgfhfghfgh" },
 
     { "path": "/system/document-type/add", "value": System.PageDocumentTypeAdd, "menu": "menu_system_document_type", "title": "Add" },
     { "path": "/system/document-type/edit/:id", "value": System.PageDocumentTypeEdit, "menu": "menu_system_document_type", "title": "Update" },
