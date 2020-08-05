@@ -13,7 +13,9 @@ const Edit = props => {
     useEffect(() => {
         dispatch(actions.LoadDetail({ token: token, id: props.params.id }));
         dispatch(actions.LoadSellOpen({ token: token, id: props.params.id }));
-        dispatch(actions.LoadSellOpenCart({ token: token, id: props.params.id }))
+        dispatch(actions.LoadSellOpenList({ token: token, id: props.params.id }));
+        dispatch(actions.LoadSellOpenCart({ token: token, id: props.params.id }));
+
     }, [])
     const data = useSelector(state => state.shipping);
     // console.log(data);
@@ -50,7 +52,7 @@ const Edit = props => {
                 </div>
                 <div className="col-12" style={{ padding: 0 }}>
                     <Title name="DANH SÁCH CÁC KHU" dropdown={{ title: "Tất cả khu", data: contentDropdown }} />
-                    <Item.Detail_content />
+                    <Item.Detail_content data={data.Sell_Open_Floor} />
                 </div>
                 <div className="col-12" style={{ padding: 0 }}>
                     <Title name="CHI TIẾT RỔ HÀNG" dropdown={{ title: "Đợt 1", data: contentDropdown }} />

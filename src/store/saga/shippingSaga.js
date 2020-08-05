@@ -66,7 +66,6 @@ export function* shoppingSellOpenCart(payload) {
     const id = payload.params.id;
     try {
         const response = yield sysShippingService.cart(token, id);
-        console.log("response", response);
         response.success ? yield put({ type: actions.LOAD_SELL_OPEN_CART_SUCCESS, response }) : yield put({ type: actions.LOAD_SELL_OPEN_CART_FAILURE, response });
     } catch (err) {
         yield put({ type: actions.LOAD_SELL_OPEN_CART_FAILURE, err });

@@ -1,6 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import _ from "lodash"
 
 const Content = props => {
+    // console.log(props.data);
+    useEffect(() => {
+        let arr = _.groupBy(props.data.floor_or_lot_list, (item) => (item.floor_or_lot_name))
+        console.log(arr);
+    }, [props.data.floor_or_lot_list])
     return (
         <div class="card square h-100">
             <div class="card-body sales_list-zone">
@@ -178,4 +184,4 @@ const Content = props => {
     )
 }
 
-export default Content;
+export default React.memo(Content);

@@ -5,7 +5,6 @@ import React from 'react';
 import Pagination from "../../../../../components/common/Pagination"
 import { Link } from "react-router-dom"
 const body = props => {
-    console.log(props);
     return (
         <div class="m_table--wrapper">
             <div class="m_filter pb-4">
@@ -20,6 +19,15 @@ const body = props => {
                                 </li>
                             )
                         }) : null}
+                    </ul>
+                    <ul class="m_filter--show mt-xl-0 mt-2">
+
+                        <li class="first"><span>Display</span></li>
+
+                        <li class=" active "><a onclick="display_data_grid_list_project('grid');"><i class="la la-th"></i></a></li>
+
+                        <li class=""><a onclick="display_data_grid_list_project('list');"><i class="la la-th-list"></i></a></li>
+
                     </ul>
                 </div>
             </div>

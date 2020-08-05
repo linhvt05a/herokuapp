@@ -57,7 +57,7 @@ function sellopenList(token, productId) {
         headers: api.getHeader(token)
     };
 
-    const params = { 'project_id': productId, 'product_type_id': 5 };
+    const params = { 'project_id': productId };
     const url = api.getUrl(api.SHIPPING_SELL_OPEN_LIST, params);
     return api.handleRequest(url, requestOptions);
 }

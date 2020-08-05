@@ -5,6 +5,7 @@ const initialState = {
     Detail: [],
     Sell_Open: [],
     Sell_Open_Floor: [],
+    Sell_Open_Cart: [],
     page: 0,
     total_page: 0,
     total_record: 0,
@@ -55,6 +56,7 @@ export default (state = initialState, action) => {
                 success: false
             }
         case actions.LOAD_SELL_OPEN_LIST_SUCCESS:
+            console.log("chay", action)
             return {
                 ...state,
                 Sell_Open_Floor: action.response.detail,
@@ -62,6 +64,20 @@ export default (state = initialState, action) => {
                 success: action.response.success
             };
         case actions.LOAD_SELL_OPEN_LIST_FAILURE:
+            return {
+                ...state,
+                isFetching: false,
+                error: action.response.err,
+                success: false
+            }
+        case actions.LOAD_SELL_OPEN_CART_SUCCESS:
+            return {
+                ...state,
+                Sell_Open_Cart: action.response.detail,
+                isFetching: true,
+                success: action.response.success
+            };
+        case actions.LOAD_SELL_OPEN_CART_FAILURE:
             return {
                 ...state,
                 isFetching: false,

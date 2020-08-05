@@ -5,7 +5,6 @@ import { product_type_id, product_status } from "../../../../../constant";
 import { Trans } from 'react-i18next';
 
 const InfoShipping = props => {
-    // console.log(props.data);
     const [click, setClick] = useState([]);
     useEffect(() => {
         if (props.data.floor_or_lot_list) {
@@ -16,6 +15,7 @@ const InfoShipping = props => {
             setClick(arr)
         }
     }, [props.data.floor_or_lot_list])
+
     const ONCLICK = (target, index) => {
         let newData = [].concat(click);
         if (target.className.indexOf('la-plus-circle') > -1) {
@@ -25,6 +25,7 @@ const InfoShipping = props => {
         else { target.className = "icon icon_collapse las la-plus-circle"; newData[index] = { id: index, status: "" } }
         setClick(newData)
     }
+
     const ProductStatus = (value) => {
         for (let i in product_status) {
             if (product_status[i].id == value) {
@@ -32,6 +33,7 @@ const InfoShipping = props => {
             }
         }
     }
+
     const ProductType = (value) => {
         for (let i in product_type_id) {
             if (product_type_id[i].id == value)
@@ -39,6 +41,7 @@ const InfoShipping = props => {
 
         }
     }
+
     return (
         <div className="card square">
             <div className="card-body m_table--collapse">
@@ -70,13 +73,19 @@ const InfoShipping = props => {
                             <label className="fw-medium">Choose floor or lot</label>
                             <select name="fl_or_l_id" id="floor_or_lot" className="form-control m_select_change js-select2" data-placeholder="Choose floor or lot">
                                 <option value data-select2-id={49083}>Choose floor or lot</option>
-                                <option value={0}>All</option><option value={3}>Tầng trệt</option>
-                                <option value={30}>Tầng 2</option><option value={31}>Tầng 3</option>
-                                <option value={32}>Tầng 3A</option><option value={33}>Tầng 5</option>
-                                <option value={34}>Tầng 6</option><option value={35}>Tầng 7</option>
-                                <option value={36}>Tầng 8</option><option value={37}>Tầng 9</option>
+                                <option value={0}>All</option>
+                                <option value={3}>Tầng trệt</option>
+                                <option value={30}>Tầng 2</option>
+                                <option value={31}>Tầng 3</option>
+                                <option value={32}>Tầng 3A</option>
+                                <option value={33}>Tầng 5</option>
+                                <option value={34}>Tầng 6</option>
+                                <option value={35}>Tầng 7</option>
+                                <option value={36}>Tầng 8</option>
+                                <option value={37}>Tầng 9</option>
                                 <option value={38}>Tầng 10</option>
-                                <option value={39}>Tầng 11</option><option value={40}>Tầng 12</option>
+                                <option value={39}>Tầng 11</option>
+                                <option value={40}>Tầng 12</option>
                                 <option value={41}>Tầng 12A</option>
                             </select>
                         </div>
@@ -128,7 +137,6 @@ const InfoShipping = props => {
                                             </td>
                                             <td className="text-right"><i className="icon icon_collapse las la-plus-circle" onClick={event => ONCLICK(event.target, index)} /></td>
                                         </tr>
-                                        {console.log(data)}
                                         <tr className={`child child-row${index} ${click.length > 0 ? click[index].status : null}`} >
                                             {data.product_list.map((item) => {
                                                 return (<>

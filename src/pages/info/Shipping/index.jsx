@@ -30,11 +30,12 @@ const Shipping = props => {
         { href: "#", value: "5", label: "Hoàn thành" },
     ];
     let dataType = [
-        { id: `1`, color: "m_text", name: "Tất cả" },
-        { id: `2`, color: "m_text_a8c200", name: "Chung Cư Căn Hộ" },
-        { id: `3`, color: "m_text_f35e5e", name: "Văn Phòng Cho Thuê" },
-        { id: `4`, color: "m_text_e9c301", name: "Trung Tâm Thương Mại" },
-        { id: `5`, color: "m_text_fb9334", name: "Biệt Thự Cao Cấp" },
+        { id: `1`, color: "m_text_000000", name: "All" },
+        { id: `2`, color: "m_text_a8c200", name: "Apartment" },
+        { id: `3`, color: "m_text_f35e5e", name: "Office" },
+        { id: `4`, color: "m_text_e9c301", name: "Shopping Mall" },
+        { id: `5`, color: "m_text_fb9334", name: "Villa" },
+        { id: `5`, color: "m_text_212529", name: "Supermarket" },
     ]
     return (
         <div >
