@@ -8,6 +8,8 @@ import * as System from "./pages/System";
 
 import * as ProductCart from "./pages/ProductCart";
 
+import * as Project from "./pages/Project";
+
 import * as Perm from "./pages/Permission"
 
 const LOGINS = [
@@ -26,6 +28,9 @@ const MAINS = [
     { "path": "/system/currency/add", "value": System.PageCurrencyAdd, "menu": "menu_system_currency", "title": "Add" },
     { "path": "/system/currency/edit/:id", "value": System.PageCurrencyEdit, "menu": "menu_system_currency", "title": "Update" },
     
+    { "path": "/info/project", "value": Project.PageProject, "menu": "menu_list_task_by_projects", "title": "Dự án" },
+    { "path": "/info/project/detail/:id", "value": Project.PageProjectDetail, "menu": "menu_project_detail_customer_info", "title": "Thông tin dự án" },
+
     { "path": "/product_card/new_contract/customer_info", "value": ProductCart.CustomerInfo, "menu": "menu_product_cart_customer_info", "title": "Căn hộ B2 - F.0.18" },
 
     { "path": "/perm/project", "value": Perm.PagePermProject, "menu": "menu_perm_task_by_projects", "title": "menu_perm_task_by_projects" },
