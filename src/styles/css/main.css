@@ -1179,6 +1179,7 @@ ul.list-style-none {
     text-align: left;
     color: #000;
     position: relative;
+    cursor: pointer;  
 }
 
 .left-sidebar .sidebar-nav ul .sidebar-link:hover {
