@@ -12,13 +12,13 @@ const CardHeader = props => {
                 <span><Trans>{props.label}</Trans>{props.labelEnd}</span>
             </button>
             {props.dropdown ?
-                <div class="dropdown m_select m_dropdown">
-                    <button class=" m_select--label m_dropdown--label square  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <div className="dropdown m_select m_dropdown">
+                    <button className=" m_select--label m_dropdown--label square  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         {props.dropdown.title}
                     </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         {props.dropdown.data.map((value, index) => {
-                            return <a key={index} class="dropdown-item" href={`${value.href}`}>{value.label.toUpperCase()}</a>
+                            return <a key={index} className="dropdown-item" href={`${value.href}`}>{value.label.toUpperCase()}</a>
                         })}
                     </div>
                 </div>

@@ -71,8 +71,8 @@ const DialogSaleProject = (props) =>{
                         <div className="col-md-12 col-lg-4 col-xl-4 col-sm-12 " style={{marginLeft: -20}}>
                             <div className="form-group">
                                     <div className="input-group">
-                                        <label style={{color:'#e94c4c'}} class="fw-medium">Hoa hồng đề nghị
-                                            <span class="uni_star_e94c4c"> * </span>
+                                        <label style={{color:'#e94c4c'}} className="fw-medium">Hoa hồng đề nghị
+                                            <span className="uni_star_e94c4c"> * </span>
                                         </label>
                                         <InputText type="text"  className="price-sale-project"/>
                                         <InputText placeholder = "%" className="sale-project-save"/>
@@ -82,7 +82,7 @@ const DialogSaleProject = (props) =>{
                         <div className="col-md-12 col-lg-4 col-xl-4 col-sm-12 " style={{marginLeft: -15, }}>
                             <div className="form-group">
                             <label style={{color:'#e94c4c'}} className="fw-medium">Độ ưu tiên
-                                    <span class="uni_star_e94c4c"> * </span>
+                                    <span className="uni_star_e94c4c"> * </span>
                                 </label>
                                 <InputSelect required className="sale-priority"/>
                             </div>
@@ -91,9 +91,9 @@ const DialogSaleProject = (props) =>{
                     </div>
                     <div className="row" style={{marginLeft: 5}}>
                         <div className="col-12">
-                            <div class="form-group">
-                                <label class="fw-medium">Lý do
-                                    <span class="uni_star_e94c4c"> * </span>
+                            <div className="form-group">
+                                <label className="fw-medium">Lý do
+                                    <span className="uni_star_e94c4c"> * </span>
                                 </label>
                             </div>
                                 <textarea  name="project_news_content" className="text-area-case"/>
