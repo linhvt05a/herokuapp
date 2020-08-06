@@ -19,8 +19,8 @@ const PageListCart = (props) =>{
     const isSuccess = approveList.approveList.success
     const isError = approveList.approveList.error
 
-    const data = isSuccess ? approveList.approveList.detail: null
-    console.log(data)
+    const data = isSuccess ? approveList.approveList.detail.approvals: null
+
     const handleClick = (e) => {
         e.preventDefault()
         setShowPopUp(!showPopUp)
@@ -30,7 +30,7 @@ const PageListCart = (props) =>{
         <CardInfo />
         {isError && props.showToast('error', isError)}
         <CardApprovedHistory data={data} handleClick ={handleClick}/>
-        <DialogResponeHistory showPopUp={showPopUp} close ={setShowPopUp}/>
+        <DialogResponeHistory showPopUp={showPopUp} close ={()=>setShowPopUp(false)}/>
        </>
     )
 }
