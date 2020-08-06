@@ -23,7 +23,7 @@ const InputSelect = (props) => {
                     placeholder={<Trans>{placeholder}</Trans>}
                     optionFilterProp="children"
                     onChange={onChange}
-                    value={isClear ? null : value}
+                    //value={isClear ? null : value}
                 >
                     {datas && datas.map((e, key) => {
                         return <Option key={key} value={e.value}>{e.label}</Option>;
