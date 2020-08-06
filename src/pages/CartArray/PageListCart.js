@@ -20,7 +20,7 @@ const PageListCart = (props) =>{
     const isError = approveList.approveList.error
 
     const data = isSuccess ? approveList.approveList.detail.approvals: null
-
+    
     const handleClick = (e) => {
         e.preventDefault()
         setShowPopUp(!showPopUp)

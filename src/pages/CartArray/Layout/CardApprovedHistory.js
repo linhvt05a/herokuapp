@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import {CardHeader, CardNodata} from '../../../components/common'
 import {InputSelect, InputText, InputDate} from '../../../components/input'
-import {DatePicker, Input, Space} from 'antd'
+import {DatePicker, Input, Space, Select} from 'antd'
 import moment from 'moment';
 import { DateTimePicker } from "react-widgets";
 import Item from "antd/lib/list/Item";
@@ -27,7 +27,7 @@ const CardFilterApproved =  () =>{
         <div className="card square">
           <div className="card-body">
             <div className="form-group">
-              <InputSelect label="LOẠI YÊU CẦU"/>
+              <Select/>
             </div>
            
             <Space direction="vertical" size={12}>
@@ -39,10 +39,10 @@ const CardFilterApproved =  () =>{
                 <DatePicker defaultValue={moment('2015/01/01', dateFormat)} format={dateFormat}/>
             </div>
             <div className="form-group">
-                <InputSelect label="TRẠNG THÁI"/>
+                <Select label="TRẠNG THÁI"/>
             </div>
             <div className="form-group">
-              <InputSelect label ="ĐỘ ƯU TIÊN"/>
+              <Select label ="ĐỘ ƯU TIÊN"/>
             </div>
                 <FilterButton />
           </div>
@@ -133,7 +133,7 @@ const NewestMessage = (props) => {
                             <span className="fw-medium">Cao (1 - 3 ngày)</span>
                         </p>
                         <a href="#" className="uni_text_6d30ab fs-12" onClick={props.handleClick}>
-                           <u> Xem lịch sử phản hồi</u>
+                          {props.data && props.data.request_status === 1 ?  <u> Phản hồi</u> : <u> Xem lịch sử phản hồi</u>}
                         </a>
                         </div>
                 </div>
@@ -163,7 +163,7 @@ const OldestMessage = (props) => {
                             <span className="fw-medium">Cao (1 - 3 ngày)</span>
                         </p>
                         <a href="#" className="uni_text_6d30ab fs-12" onClick={props.handleClick}>
-                            <u>Xem lịch sử phản hồi</u>
+                            {<u>Xem lịch sử phản hồi</u>}
                         </a>
                     </div>
                 </div>
@@ -175,7 +175,7 @@ const OldestMessage = (props) => {
 const ApprovedStatus = (props) => {
     if(props.data.request_status === 1){
         return (
-            <div className="approval_history--status status_01">
+            <div className="approval_history--status status_03">
                 <div className="status">
                     <i className="las fs-16 pr-1 la-check-circle" />
                     <span className="fw-medium">Chờ duyệt</span>
@@ -184,7 +184,7 @@ const ApprovedStatus = (props) => {
         )         
     }else if(props.data.request_status === 2){
         return (
-            <div className="approval_history--status status_02">
+            <div className="approval_history--status status_01">
                 <div className="status">
                     <i className="las fs-16 pr-1 la-check-circle" />
                     <span className="fw-medium">Phê duyệt</span>
@@ -193,7 +193,7 @@ const ApprovedStatus = (props) => {
         )         
     }else if(props.data.request_status === 3){
         return (
-            <div className="approval_history--status status_03">
+            <div className="approval_history--status status_02">
                 <div className="status">
                     <i className="las fs-16 pr-1 la-check-circle" />
                     <span className="fw-medium">Từ chối</span>
