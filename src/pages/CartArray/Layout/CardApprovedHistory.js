@@ -4,7 +4,7 @@ import {InputText, InputDate} from '../../../components/input'
 import {DatePicker, Input, Space} from 'antd'
 import moment from 'moment';
 import {InputSelect} from '../../../components/input'
-
+import {request_type, request_status, priority_request} from '../../../constant'
 const dateFormat = 'YYYY/MM/DD';
 
 const CardApprovedHistory = (props) => {
@@ -26,16 +26,16 @@ const CardFilterApproved =  () =>{
         <div className="card square">
           <div className="card-body">
             <div className="form-group">
-                <InputSelect value="" label="LOẠI YÊU CẦU" placeholder="RegionHintText" datas={[]}/>
+                <InputSelect value="" label="LOẠI YÊU CẦU" placeholder="RegionHintText" datas={request_type}/>
             </div>
             <div className="form-group">
                
             </div>
             <div className="form-group">
-                <InputSelect  label="TRẠNG THÁI"/>
+                <InputSelect  label="TRẠNG THÁI" datas={request_status}/>
             </div>
             <div className="form-group">
-              <InputSelect  label ="ĐỘ ƯU TIÊN"/>
+              <InputSelect  label ="ĐỘ ƯU TIÊN" datas={priority_request}/>
             </div>
                 <FilterButton />
           </div>
@@ -119,11 +119,11 @@ const NewestMessage = (props) => {
                         </p>
                         <p className="child">
                             <i className="icon uni_text_6d30ab las la-calendar-check" />Thời gian gửi yêu cầu:
-                                            <span className="fw-medium">17/06/2020 9:30AM</span>
+                            <span className="fw-medium">17/06/2020 9:30AM</span>
                         </p>
                         <p className="child">
                             <i className="icon uni_text_6d30ab las la-flag" /> Độ ưu tiên:
-                            <span className="fw-medium">Cao (1 - 3 ngày)</span>
+                            <Priority data ={props.data}/>
                         </p>
                         <a href="#" className="uni_text_6d30ab fs-12" onClick={props.handleClick}>
                           {props.data && props.data.request_status === 1 ?  <u> Phản hồi</u> : <u> Xem lịch sử phản hồi</u>}
@@ -153,7 +153,7 @@ const OldestMessage = (props) => {
                         </p>
                         <p className="child">
                             <i className="icon uni_text_6d30ab las la-flag" /> Độ ưu tiên:
-                            <span className="fw-medium">Cao (1 - 3 ngày)</span>
+                            <Priority data={props.data}/>
                         </p>
                         <a href="#" className="uni_text_6d30ab fs-12" onClick={props.handleClick}>
                             {<u>Xem lịch sử phản hồi</u>}
@@ -164,7 +164,17 @@ const OldestMessage = (props) => {
             </>
         )
     }
+const Priority = (props) =>{
+    if(props.data.priority === 1){
+        return <span className="fw-medium">Cao (1 - 3 ngày)</span>  
+    }
+    if(props.data.priority === 2){
+        return <span className="fw-medium">Trung bình (1 - 5 ngày)</span>  
+    }else {
+        return <span className="fw-medium">Thấp (1 - 7 ngày)</span>
+    }
     
+}
 const ApprovedStatus = (props) => {
     if(props.data.request_status === 1){
         return (
