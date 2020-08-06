@@ -118,7 +118,6 @@ const NewestMessage = (props) => {
                     <p className="child">
                         <i className="icon uni_text_6d30ab las la-user" /> Ngày gửi yêu cầu:
                                 <span className="fw-medium">Trưởng phòng sales Công ty Bất Động Sản Thành Công</span>
-<<<<<<< HEAD
                         </p>
                         <p className="child">
                             <i className="icon uni_text_6d30ab las la-calendar-check" />Thời gian gửi yêu cầu:
@@ -132,22 +131,7 @@ const NewestMessage = (props) => {
                           {props.data && props.data.request_status === 1 ?  <u> Phản hồi</u> : <u> Xem lịch sử phản hồi</u>}
                         </a>
                         </div>
-=======
-                    </p>
-                    <p className="child">
-                        <i className="icon uni_text_6d30ab las la-calendar-check" />Thời gian gửi yêu cầu:
-                                            <span className="fw-medium">17/06/2020 9:30AM</span>
-                    </p>
-                    <p className="child">
-                        <i className="icon uni_text_6d30ab las la-flag" /> Độ ưu tiên:
-                            <span className="fw-medium">Cao (1 - 3 ngày)</span>
-                    </p>
-                    <a href="#" className="uni_text_6d30ab fs-12" onClick={props.handleClick}>
-                        <u> Xem lịch sử phản hồi</u>
-                    </a>
->>>>>>> dev_uyen
                 </div>
-            </div>
             <ApprovedStatus data={props.data} />
         </>
     )
@@ -168,7 +152,6 @@ const OldestMessage = (props) => {
                     <p className="child">
                         <i className="icon uni_text_6d30ab las la-calendar-check" />Thời gian gửi yêu cầu:
                             <span className="fw-medium">17/06/2020 9:30AM</span>
-<<<<<<< HEAD
                         </p>
                         <p className="child">
                             <i className="icon uni_text_6d30ab las la-flag" /> Độ ưu tiên:
@@ -194,23 +177,6 @@ const Priority = (props) =>{
     }
     
 }
-=======
-                    </p>
-                    <p className="child">
-                        <i className="icon uni_text_6d30ab las la-flag" /> Độ ưu tiên:
-                            <span className="fw-medium">Cao (1 - 3 ngày)</span>
-                    </p>
-                    <a href="#" className="uni_text_6d30ab fs-12" onClick={props.handleClick}>
-                        <u>Xem lịch sử phản hồi</u>
-                    </a>
-                </div>
-            </div>
-            <ApprovedStatus data={props.data} />
-        </>
-    )
-}
-
->>>>>>> dev_uyen
 const ApprovedStatus = (props) => {
     if (props.data.request_status === 1) {
         return (
