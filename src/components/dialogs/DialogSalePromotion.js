@@ -4,9 +4,6 @@ import Modal from "react-bootstrap/Modal";
 import { CardHeader } from "../common";
 import { permissions } from "../../constant";
 import { InputSelect, InputText, InputCheckBox } from "../../components/input";
-import "./Dialog.css"
-import './Styles.css'
-import "./Sales.css";
 import PropTypes from 'prop-types';
 const data = [
   {

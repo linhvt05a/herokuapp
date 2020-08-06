@@ -4,7 +4,6 @@ import Modal from 'react-bootstrap/Modal'
 import { CardHeader } from "../common";
 import { permissions } from '../../constant';
 import {InputSelect, InputText} from '../../components/input'
-import "./Dialog.css"
 
 const DialogPermision = (props)=> {
         return (
