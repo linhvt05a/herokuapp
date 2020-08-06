@@ -51,15 +51,14 @@ const Edit = props => {
                 <div style={{ paddingRight: 0 }} className="col-xl-6 col-lg-6 col-md-12 col-sm-12 d-flex flex-column">
                     <Item.Detail_progress data={data.Detail} dataSellOpen={data.Sell_Open} />
                 </div>
-                <div className="col-12" style={{ padding: 0 }}>
-                    <Title label="DANH SÁCH CÁC KHU" dropdown={{ title: "Tất cả khu", data: contentDropdown }} />
-                    <Item.Detail_content data={data.Sell_Open_Floor} />
-                </div>
-                <div className="col-12" style={{ padding: 0 }}>
-                    <Title label="CHI TIẾT RỔ HÀNG" dropdown={{ title: "Đợt 1", data: contentDropdown }} />
-                    <Item.Detail_InfoShipping data={data.Sell_Open_Floor} />
-                </div>
-
+            </div>
+            <div>
+                <Title label="DANH SÁCH CÁC KHU" dropdown={{ title: "Tất cả khu", data: contentDropdown }} />
+                <Item.Detail_content data={data.Sell_Open_Floor} />
+            </div>
+            <div>
+                <Title label="CHI TIẾT RỔ HÀNG" dropdown={{ title: "Đợt 1", data: contentDropdown }} />
+                <Item.Detail_InfoShipping data={data.Sell_Open_Floor} />
             </div>
         </div>
     )
