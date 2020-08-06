@@ -1769,6 +1769,7 @@ ul.parsley-errors-list {
     color: #fff;
     position: relative;
     cursor: pointer;
+    border-radius: 0;
 }
 
 .m_select--label .text {
