@@ -34,13 +34,15 @@
 }
 
 .ant-picker{
-    display: block;
+    display: flex;
     padding: 0 15px;
-
+    align-items: center;
     .ant-picker-input{
         input{
-            border:none;
+            border-radius: 0 !important;
             padding: 0;
+            border: none !important;
+            height: 100% !important;
             [value='']{
                 
             }
@@ -61,6 +63,7 @@
             font-size: 20px;
             right: 11px;
             top: 20px;
+            font-weight: 900;
         }
         .anticon{
             

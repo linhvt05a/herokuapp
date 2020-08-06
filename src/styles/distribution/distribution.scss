@@ -6,3 +6,29 @@
         font-size: 0;
     }
 }
+
+
+.sales_select-dates{
+    .ant-picker {
+        padding: 0 10px;
+        .ant-picker-suffix::before{
+            content: "\f107";
+            font-size: 13px;
+        }
+    }
+    .ant-picker-input{
+        padding-right: 20px;
+    }
+}
+
+.m_map::before{
+    display: none;
+}
+
+.min-width-button{
+    @media(max-width: 1400px){
+        max-width: 150px;
+        width: 100%;
+        min-width: auto;
+    }
+}
