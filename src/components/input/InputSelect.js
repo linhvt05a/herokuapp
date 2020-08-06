@@ -1,4 +1,4 @@
-/* eslint-disable react/jsx-no-undef */
+/* eslint-disable*/
 import React, { Component } from 'react';
 import { withTranslation, Trans } from 'react-i18next';
 import { Select, Option } from 'antd';
