@@ -1,6 +1,7 @@
 import React from 'react';
 import Title from "../../../../../components/common/CardHeader"
-import moment from "moment"
+import moment from "moment";
+import LogoDefault from '../../../../../../public/static/images/logo.svg';
 
 const info = props => {
     let { data } = props;
@@ -18,7 +19,9 @@ const info = props => {
                                         )
                                     })
                                     :
-                                    <figure><img src="https://via.placeholder.com/280x270" alt="" /></figure>
+                                    <figure>
+                                        { LogoDefault }
+                                    </figure>
                                 }
                                 <figure><img src={data.project_avatar_url} alt="" /></figure>
 

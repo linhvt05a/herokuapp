@@ -5,7 +5,7 @@ const Map = ReactMapboxGl({
     accessToken:
       "pk.eyJ1IjoiZmFrZXVzZXJnaXRodWIiLCJhIjoiY2pwOGlneGI4MDNnaDN1c2J0eW5zb2ZiNyJ9.mALv0tCpbYUPtzT7YysA2g",
 });
-const MAP_LAYER_PROJECT = "MAP_LAYER_PROJECT";
+
 const MAP_STYLE = {
     'version': 8,
     'sources': {
@@ -27,11 +27,13 @@ const MAP_STYLE = {
         }
     ]
 };
+
 const polygonPaint = {
     'fill-color': '#990000',
     'fill-outline-color': '#990000',
-    'fill-opacity': 0.7
+    'fill-opacity': 0.11
 };
+
 const AllShapesPolygonCoords = [
     [
         [106.689159, 10.784759],
@@ -41,50 +43,27 @@ const AllShapesPolygonCoords = [
         [106.689159, 10.784759]
     ]
 ];
-var map = null;
-var markerUrl = 'http://maps.google.com/mapfiles/ms/icons/red-dot.png';
 
-class MapArea extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            lng: 106.689347268802,
-            lat: 10.7826565256751,
-            zoom: 12,
-            map: null,
-            datas: {}
-        };
-    } 
+const MapArea = (props) => {
+    const { projectListSuccess } = props
 
-    componentDidUpdate(prevProps, prevState) {
-       if(this.state.datas != this.props.detail){
-          this.setState({ datas: this.props.detail });
-       }
-       if(this.state.datas != null) {
-            // this.loadDataMap(this.state.datas)
-       }
-    }
-
-    render() {
-        return (
-            <div className="card h-100">
-                <div className="card-body p-0">
+    return (
+        <div className="card h-100">
+            <div className="card-body p-0">
+                {/* {
+                    projectListSuccess &&
                     <Map 
+                        className="map"
                         style= { MAP_STYLE }
                         center= {[this.state.lng, this.state.lat]}
-                        zoom={[12]}
+                        zoom={[14]}
                         containerStyle={{
-                            height: '48vh',
+                            minHeight: '715px',
                             width: '100%',
                         }}>
                         <Layer type="fill" paint={polygonPaint}>
                             <Feature coordinates={AllShapesPolygonCoords} />
                         </Layer>
-                        <Marker
-                            coordinates={[this.state.lng, this.state.lat]}
-                            anchor="bottom">
-                        <img src={markerUrl}/>
-                        </Marker>
                         <Popup
                             coordinates={[this.state.lng, this.state.lat]}
                             offset={{
@@ -105,11 +84,10 @@ class MapArea extends Component {
                             </div>
                         </Popup>
                     </Map>
-                </div>
-
+                } */}
             </div>
-        )
-    }
+        </div>
+    )
 }
 
 export default MapArea;

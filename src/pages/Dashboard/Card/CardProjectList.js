@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Trans } from 'react-i18next';
 
 import { projectListRequest } from '../../../store/action/dashboard';
@@ -6,20 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Pagination } from '../../../components/common';
 
 const CardProjectList = (props) => {
-    const { token, updateLocation, region, province, type, status } = props;
-    const dispatch = useDispatch();
-    const res = useSelector(state => state.dashboard);
-    console.log("data", res)
-
-    useEffect(() => {
-        dispatch(projectListRequest({ token }));
-    }, []);
-
-    const projectListSuccess = res.projectList.success;
-    const projectListRes = projectListSuccess ? res.projectList.detail : null;
-    const page = projectListSuccess ? res.projectList.page : null;
-    const totalPage = projectListSuccess ? res.projectList.total_page : null;
-    const totalRecord = projectListSuccess ? res.projectList.total_record : null;
+    const { updateLocation, projectListSuccess, projectListRes, page, totalPage, totalRecord } = props;
 
     const changePage = (value) => {
         var params = page
