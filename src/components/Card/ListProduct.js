@@ -20,13 +20,9 @@ const body = props => {
                         }) : null}
                     </ul>
                     <ul className="m_filter--show mt-xl-0 mt-2">
-
                         <li className="first"><span>Display</span></li>
-
                         <li className=" active "><a><i className="la la-th"></i></a></li>
-
                         <li className=""><a><i className="la la-th-list"></i></a></li>
-
                     </ul>
                 </div>
             </div>
@@ -34,7 +30,7 @@ const body = props => {
 
             <div className="m_grid m_grid--list_project">
                 <div className="row">
-                    {data.List.length > 0 ? data.List.map((item, index) => {
+                    {data.length > 0 ? data.map((item, index) => {
                         return <ListProductDetail item={item} index={index} key={index} />
                     }) : null}
                 </div >

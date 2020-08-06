@@ -45,7 +45,7 @@ const Shipping = props => {
                         SEARCH={value => SEARCH(value)} />
                     <ListProduct
                         dataFilter={dataType}
-                        data={dataShipping}
+                        data={dataShipping.List}
                     />
                 </div>}
 

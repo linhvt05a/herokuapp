@@ -5,10 +5,14 @@ import { Select } from "antd"
 
 const Content = props => {
     const { Option } = Select
-    const [state, setState] = useState([])
+    const [state, setState] = useState({
+        floor: [],
+        Maps: [],
+        index: 0
+    })
     useEffect(() => {
         let arr = _.groupBy(props.data.floor_or_lot_list, (item) => (item.floor_or_lot_name))
-        setState(arr)
+        setState({ ...state, floor: Object.keys(arr), Maps: Object.values(arr) })
     }, [props.data.floor_or_lot_list])
     return (
         <div class="card square h-100">
@@ -45,7 +49,12 @@ const Content = props => {
                 <div class="zone--heading mt-4">TỔNG SỐ CÁC KHU</div>
 
                 <ul class="nav nav-tabs" role="tablist">
-                    <li class="nav-item">
+                    {state.floor ? state.floor.map((item, index) => (
+                        <li class="nav-item" key={item + index}>
+                            <a class={`nav-link ${index == state.index ? 'active' : null}`} data-toggle="tab" href="#zone_01">{item}</a>
+                        </li>
+                    )) : null}
+                    {/* <li class="nav-item">
                         <a class="nav-link active" data-toggle="tab" href="#zone_01">Khu F</a>
                     </li>
                     <li class="nav-item">
@@ -62,7 +71,7 @@ const Content = props => {
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" data-toggle="tab" href="#zone_06">Khu A</a>
-                    </li>
+                    </li> */}
                 </ul>
                 <div class="tab-content">
                     <div class="tab-pane fade show active" id="zone_01">
