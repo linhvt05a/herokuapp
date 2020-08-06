@@ -66,10 +66,8 @@ const CardFilter = (props) => {
                     <InputSelect className="col-xl-3 col-lg-6 col-md-12 col-sm-12" value={type === null ? '' : type} label="ByProjectTypeTitle" placeholder="ProjectTypeHintText" datas={typeData} onChange={onChange} />
                     <InputSelect className="col-xl-3 col-lg-6 col-md-12 col-sm-12" value={status === null ? '' : status} label="ByProjectStatusTitle" placeholder="ProjectStatusHintText" datas={statusData} onChange={onChange} />
                 </div>
-                <div className="row">
-                    <div className="col-12">
-                        <button type="submit" style={{float: "right"}} className="btn-uni-purple" onClick={onFilterClick} ><Trans>Search</Trans></button>
-                    </div>
+                <div className="text-right mt-2">
+                    <button type="submit" className="btn-uni-purple" onClick={onFilterClick} ><Trans>Search</Trans></button>
                 </div>
             </div>
         </div>
