@@ -2,10 +2,9 @@
 import React, { useState, useEffect } from 'react';
 import { product_type_id, product_status } from "../../../../../constant";
 import { Trans } from 'react-i18next';
-import { Select } from "antd"
+import { InputSelect } from "../../../../../components/input"
 
 const InfoShipping = props => {
-    const { Option } = Select
     const [click, setClick] = useState([]);
     useEffect(() => {
         if (props.data.floor_or_lot_list) {
@@ -140,64 +139,10 @@ const InfoShipping = props => {
             <div className="card-body m_table--collapse">
                 <p className="mb-4 mt-4 fs-18 uni_text_6d30ab text-uppercase text-center font-weight-bold">TÌM KIẾM </p>
                 <div className="row mb-4 d-flex justify-content-center">
-                    <div className="col-lg-6 col-xl-3">
-                        <div className="form-group mb-2">
-                            <label className="fw-medium">Choose area</label>
-                            <Select
-                                className="form-control m_select_change js-select2"
-                                showArrow={false}
-                                defaultValue={{ value: 1 }}
-                                labelInValue
-                            >
-                                <Option value={2}>Choose area</Option>
-                                <Option value={1} selected="selected">The Evolution test v2</Option>
-                                <Option value={7}>The Elite</Option>
-                            </Select>
-                        </div>
-                    </div>
-                    <div className="col-lg-6 col-xl-3">
-                        <div className="form-group mb-2">
-                            <label className="fw-medium">Choose block</label>
-                            <Select
-                                className="form-control m_select_change js-select2"
-                                showArrow={false}
-                                defaultValue={{ value: 1 }}
-                                labelInValue>
-                                <Option value={1}>Choose block</Option>
-                                <Option value={2} selected="selected">A1 (QC  TEST)</Option>
-                                <Option value={8}>B</Option>
-                                <Option value={16}>C</Option>
-                            </Select>
-                        </div>
-                    </div>
-                    <div className="col-lg-6 col-xl-3">
-                        <div className="form-group mb-2">
-                            <label className="fw-medium">Choose floor or lot</label>
-                            <Select
-                                className="form-control m_select_change js-select2"
-                                defaultValue={{ value: 1 }}
-                                labelInValue
-                                showArrow={false}
-                            >
-                                <Option value={1} >Choose floor or lot</Option>
-                                <Option value={0}>All</Option>
-                                <Option value={3}>Tầng trệt</Option>
-                                <Option value={30}>Tầng 2</Option>
-                                <Option value={31}>Tầng 3</Option>
-                                <Option value={32}>Tầng 3A</Option>
-                                <Option value={33}>Tầng 5</Option>
-                                <Option value={34}>Tầng 6</Option>
-                                <Option value={35}>Tầng 7</Option>
-                                <Option value={36}>Tầng 8</Option>
-                                <Option value={37}>Tầng 9</Option>
-                                <Option value={38}>Tầng 10</Option>
-                                <Option value={39}>Tầng 11</Option>
-                                <Option value={40}>Tầng 12</Option>
-                                <Option value={41}>Tầng 12A</Option>
-                            </Select>
+                    <InputSelect className="col-lg-3 col-md-3 col-sm-12" label="Choose area" placeholder="Choose area" name="status" value={props.dropdown.title} datas={props.dropdown.data} />
+                    <InputSelect className="col-lg-3 col-md-3 col-sm-12" label="Choose block" placeholder="Choose block" name="status" value={props.dropdown.title} datas={props.dropdown.data} />
+                    <InputSelect className="col-lg-3 col-md-3 col-sm-12" label="Choose floor or lot" placeholder="Choose floor or lot" name="status" value={props.dropdown.title} datas={props.dropdown.data} />
 
-                        </div>
-                    </div>
                     <div className="col-lg-6 col-xl-2 align-items-end d-flex mt-3 mt-xl-0  mb-2">
                         <button type="submit" className="min-width-button btn-uni-purple min-height-40 ">
                             Search

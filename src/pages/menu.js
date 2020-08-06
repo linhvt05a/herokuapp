@@ -73,7 +73,7 @@ let menu_infor_manager = [
     {
         label: "menu_shipping_cart_list_title",
         icon: "las la-user-tie",
-        href: "/info/shipping"
+        href: "/cart/cart_list"
     },
 ];
 

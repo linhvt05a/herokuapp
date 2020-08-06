@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, memo } from 'react';
 import { Trans } from 'react-i18next';
 
 import ReactMapboxGl, { Marker, Popup, Source, Feature, Layer } from "react-mapbox-gl";
 
 const Map = ReactMapboxGl({
     accessToken:
-      "pk.eyJ1IjoiZmFrZXVzZXJnaXRodWIiLCJhIjoiY2pwOGlneGI4MDNnaDN1c2J0eW5zb2ZiNyJ9.mALv0tCpbYUPtzT7YysA2g",
+        "pk.eyJ1IjoiZmFrZXVzZXJnaXRodWIiLCJhIjoiY2pwOGlneGI4MDNnaDN1c2J0eW5zb2ZiNyJ9.mALv0tCpbYUPtzT7YysA2g",
 });
 
 const MAP_STYLE = {
@@ -19,7 +19,7 @@ const MAP_STYLE = {
             'tileSize': 256,
         }
     },
-        'layers': [
+    'layers': [
         {
             'id': 'simple-tiles',
             'type': 'raster',
@@ -39,7 +39,6 @@ const polygonPaint = {
 const MapArea = (props) => {
     const { projectListSuccess, projectListRes, locationData } = props;
     const markerData = projectListRes ? projectListRes[locationData] : {}
-
     return (
         <div className="card h-100">
             <div className="card-body p-0">
@@ -47,8 +46,8 @@ const MapArea = (props) => {
                     (projectListSuccess && markerData) &&
                     <Map 
                         className="map"
-                        style= { MAP_STYLE }
-                        center= {[markerData.lon, markerData.lat]}
+                        style={MAP_STYLE}
+                        center={[markerData.lon, markerData.lat]}
                         zoom={[14]}
                         containerStyle={{
                             minHeight: '715px',
@@ -63,10 +62,10 @@ const MapArea = (props) => {
                         <Popup
                             coordinates={[markerData.lon, markerData.lat]}
                             offset={{
-                                'bottom-left': [12, -38],  'bottom': [0, -38], 'bottom-right': [-12, -38]
+                                'bottom-left': [12, -38], 'bottom': [0, -38], 'bottom-right': [-12, -38]
                             }}>
                             <div className='m_map'>
-                                <h1 className='top' style={{borderBottom: "1px solid #f3f3f3"}}>{markerData.project_name}<i class='address'>{markerData.address}</i></h1>
+                                <h1 className='top' style={{ borderBottom: "1px solid #f3f3f3" }}>{markerData.project_name}<i class='address'>{markerData.address}</i></h1>
                                 <ul className='bottom'>
                                     <li><Trans>LandArea</Trans>: <span className='value'>{markerData.project_acreage}</span></li>
                                     <li className='investor'><Trans>Investor</Trans>: <span className='value'>{markerData.investor_name}</span></li>
@@ -80,4 +79,4 @@ const MapArea = (props) => {
     )
 }
 
-export default MapArea;
+export default memo(MapArea);
