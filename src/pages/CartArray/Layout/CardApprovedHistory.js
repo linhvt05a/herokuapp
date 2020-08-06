@@ -1,10 +1,9 @@
 import React, { useState } from "react"
 import {CardHeader, CardNodata} from '../../../components/common'
-import {InputSelect, InputText, InputDate} from '../../../components/input'
-import {DatePicker, Input, Space, Select} from 'antd'
+import {InputText, InputDate} from '../../../components/input'
+import {DatePicker, Input, Space} from 'antd'
 import moment from 'moment';
-import { DateTimePicker } from "react-widgets";
-import Item from "antd/lib/list/Item";
+import {InputSelect} from '../../../components/input'
 
 const dateFormat = 'YYYY/MM/DD';
 
@@ -27,22 +26,16 @@ const CardFilterApproved =  () =>{
         <div className="card square">
           <div className="card-body">
             <div className="form-group">
-              <Select/>
-            </div>
-           
-            <Space direction="vertical" size={12}>
-                <DatePicker defaultValue={moment('01/01/2015', dateFormat)} format={dateFormat} />
-    
-                </Space>
-          
-            <div className="form-group">
-                <DatePicker defaultValue={moment('2015/01/01', dateFormat)} format={dateFormat}/>
+                <InputSelect value="" label="LOẠI YÊU CẦU" placeholder="RegionHintText" datas={[]}/>
             </div>
             <div className="form-group">
-                <Select label="TRẠNG THÁI"/>
+               
             </div>
             <div className="form-group">
-              <Select label ="ĐỘ ƯU TIÊN"/>
+                <InputSelect  label="TRẠNG THÁI"/>
+            </div>
+            <div className="form-group">
+              <InputSelect  label ="ĐỘ ƯU TIÊN"/>
             </div>
                 <FilterButton />
           </div>
