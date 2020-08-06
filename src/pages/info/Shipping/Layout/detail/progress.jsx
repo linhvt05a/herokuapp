@@ -1,7 +1,17 @@
-import React from 'react';
-import Sell_Open from "../modal/sell_open"
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable no-undef */
+/* eslint-disable react-hooks/rules-of-hooks */
+import React, { useState } from 'react';
+import Sell_Open from "../modal/sell_open";
+import ModalAgent from "../modal/ModalAgent";
+import ModalInternal from "../modal/ModalInternal"
 
 const progress = props => {
+    const [state, setState] = useState({
+        AgentsStatus: false,
+        InternalStatus: false
+    });
+    console.log(props);
     return (
         <div >
             <div className="m_heading">
@@ -29,11 +39,13 @@ const progress = props => {
                     </div>
 
                     <div className="statistical_list_href">
-                        <a className="statistical_list_href_01" href="javascript:void(0)" data-toggle="modal" data-target="#listAgencyChannel">List of participating agents
+                        <a className="statistical_list_href_01" data-toggle="modal" data-target="#listAgencyChannel" onClick={() => setState({ ...state, AgentsStatus: true })}>List of participating agents
                                         [5]</a>
-                        <a className="statistical_list_href_02" href="javascript:void(0)" data-toggle="modal" data-target="#listInternalChannel">List of internal sales
+                        <a className="statistical_list_href_02" data-toggle="modal" data-target="#listInternalChannel" onClick={() => setState({ ...state, InternalStatus: true })}>List of internal sales
                                         [8]</a>
                     </div>
+                    <ModalAgent active={state.AgentsStatus} onClick={() => setState({ ...state, AgentsStatus: false })} />
+                    <ModalInternal active={state.InternalStatus} onClick={() => setState({ ...state, InternalStatus: false })} />
                 </div>
             </div>   </div >
 
