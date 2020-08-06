@@ -2,8 +2,18 @@ import React, { useState } from 'react';
 import {CardHeader} from '../../../components/common'
 import {CardChangeAvatar} from '../../../components/Card'
 import { InputText, InputSelect} from '../../../components/input';
+import { Input, Select } from 'antd';
 
  const CardInfo = () => {
+    const selectAfter = (
+        <Select defaultValue=".com" className="select-after">
+            <Option value=".com">.com</Option>
+            <Option value=".jp">.jp</Option>
+            <Option value=".cn">.cn</Option>
+            <Option value=".org">.org</Option>
+        </Select>
+    );
+
      return <>
          <div className="row ">
                 <div className="col-xl-3 col-lg-3 col-md-12 col-sm-12 d-flex flex-column">
@@ -69,12 +79,15 @@ import { InputText, InputSelect} from '../../../components/input';
                         </div>
                         <div className="col-12 col-sm-6 col-md-6 col-lg-4">
                             <div className="form-group">
-                            <div className="input-group">
-                                <InputText label="Giá bán" disabled/>
-                                <div className="input-group-append select2_currency">
-                                    <InputSelect />
+                                <label className="fw-medium">Giá bán</label>
+                                <div className="input-group">
+                                    {/* <InputText label="Giá bán" disabled/>
+                                    <div className="input-group-append select2_currency sdd">
+                                        <InputSelect />
+                                    </div> */}
+
+                                    <Input className="form-control" disabled addonAfter={selectAfter} defaultValue="mysite" />
                                 </div>
-                            </div>
                             </div>
                         </div>
                         <div className="col-12 col-sm-6 col-md-6 col-lg-4">

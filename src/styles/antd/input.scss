@@ -1,0 +1,27 @@
+.ant-input-group-addon{
+    width: 30%;
+    padding: 0;
+    .ant-select-selector{
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    }
+    .ant-select .ant-select-arrow{
+        width: 10px;
+        right: 5px;
+    }
+}
+
+.form-control{
+    &.ant-input-group-wrapper{
+        padding: 0;
+        border: none;
+        input{
+            border: solid 1px #d8d8d8;
+            height: 40px;
+            border-radius: 0;
+            padding-left: 14px;
+            font-size: 14px;
+            color: #000;
+        }
+    }
+}
