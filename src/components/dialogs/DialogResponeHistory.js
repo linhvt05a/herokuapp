@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import "./Dialog.css";
-import "./Sales.css";
 import { CardHeader } from "../common";
 
 const data = [

@@ -5,8 +5,8 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 
-// all styles 
-import './styles';
+// style for libs
+import './styles/libs';
 
 
 ReactDOM.render(
