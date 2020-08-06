@@ -1,12 +1,12 @@
 import React from 'react';
-import ProductInfo from '../../Layout/ProductInfo';
+import ProductDetail from '../../Layout/ProductDetail';
 import CardWrapper from './Layout/CardWrapper';
 import OrderInfoWrapper from './Layout/OrderInfo/OrderInfoWrapper';
 
 const OrderInfo = () => {
     return (
         <div class="container-fluid">
-            <ProductInfo />
+            <ProductDetail />
             <CardWrapper currentStep={4}
                          children={<OrderInfoWrapper />}
              />

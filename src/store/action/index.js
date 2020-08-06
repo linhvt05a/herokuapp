@@ -12,6 +12,10 @@ import {
     projectListRequest
 } from './dashboard';
 
+import {
+    productDetailRequest
+} from './product';
+
 export { 
     currentcyAddRequest, 
     currentcyDetailRequest, 
@@ -22,5 +26,6 @@ export {
     provinceListRequest,
     typeListRequest,
     statusListRequest,
-    projectListRequest
+    projectListRequest,
+    productDetailRequest
 };

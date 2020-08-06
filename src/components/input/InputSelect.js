@@ -143,6 +143,7 @@ class InputSelect extends Component {
                         styles={this.props.style ? this.props.style : customStyles}
                         placeholder={t(this.props.placeholder)}
                         isMulti={this.props.isMulti}
+                        name={name}
                     />
                     {(!this.props.disabled && this.props.submitted && this.props.required && this.props.value.value === "") &&
                         <ul className="parsley-errors-list filled">
