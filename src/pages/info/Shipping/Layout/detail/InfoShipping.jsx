@@ -100,12 +100,12 @@ const InfoShipping = props => {
                         </div>
                     </td>
                     <td>
-                        <div className="form-group max-width-200">
+                        <div className="form-group max-width-200 mb-0">
                             <input type="text" defaultValue={value.project_sale_policy_name} placeholder="-" disabled className="form-control" />
                         </div>
                     </td>
                     <td>
-                        <div className="form-group max-width-200">
+                        <div className="form-group max-width-200 mb-0">
                             <input type="text" defaultValue={value.product_price} placeholder="-" disabled className="form-control text-right uni_text_000 " />
                         </div>
                     </td>

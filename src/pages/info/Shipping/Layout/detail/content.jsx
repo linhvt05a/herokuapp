@@ -35,6 +35,7 @@ const Content = props => {
                                 <Select
                                     defaultValue={{ value: '2' }}
                                     labelInValue
+                                    className="form-control"
                                 >
                                     <Option value="1">-</Option>
                                     <Option value="2">B6</Option>
@@ -74,11 +75,10 @@ const Content = props => {
                                 {/* </figure> */}
                                 <div class="form-group">
                                     <Select
-                                        style={{ backgroundColor: "red", borderWidth: `1px`, padding: 0 }}
                                         defaultActiveFirstOption
                                         defaultValue={{ value: '1' }}
                                         labelInValue
-                                        showArrow={false}
+                                        className="form-control"
                                     >
                                         <Option value="1">Tầng B6 đến tầng B4</Option>
                                         <Option value="2">Tầng B6 đến tầng B1</Option>

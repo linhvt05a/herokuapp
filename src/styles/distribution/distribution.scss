@@ -1,5 +1,8 @@
 .m_slider {
     overflow: hidden;
+    @media(max-width: 1400px){
+        height: auto;
+    }
     .slider-single .slick-arrow {
         border: none;
         color: #fff;
@@ -31,4 +34,7 @@
         width: 100%;
         min-width: auto;
     }
+}
+.m_pager ul li{
+    margin: 0 2px;
 }
