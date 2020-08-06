@@ -44,7 +44,7 @@ const MapArea = (props) => {
         <div className="card h-100">
             <div className="card-body p-0">
                 {
-                    projectListSuccess &&
+                    (projectListSuccess && markerData) &&
                     <Map 
                         className="map"
                         style= { MAP_STYLE }
