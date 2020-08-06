@@ -25,6 +25,7 @@ const PageListCart = (props) =>{
         e.preventDefault()
         setShowPopUp(!showPopUp)
     }
+    
     return (
        <>   
         <CardInfo />

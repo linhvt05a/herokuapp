@@ -42,7 +42,8 @@ function* allSaga() {
     typeListWatcher(),
     statusListWatcher(),
     projectListWatcher(),
-    productDetaillWatcher()
+    productDetaillWatcher(),
+    approveListHistory()
   ]);
 }
 
