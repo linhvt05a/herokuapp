@@ -1,6 +1,5 @@
 import currency from './currencyReducer';
 import dashboard from './dashboardReducer';
-<<<<<<< HEAD
 import shipping from "./shippingReducer";
 import product from "./productReducer"
 import approveList from './approveListReducer'
