@@ -22,6 +22,9 @@ import {
   statusListWatcher,
   projectListWatcher
 } from './dashboardSaga';
+import {
+  productDetaillWatcher
+} from './productSaga';
 
 function* allSaga() {
   yield all([
@@ -39,7 +42,7 @@ function* allSaga() {
     typeListWatcher(),
     statusListWatcher(),
     projectListWatcher(),
-    approveListHistory()
+    productDetaillWatcher()
   ]);
 }
 
