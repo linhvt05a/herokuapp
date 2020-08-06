@@ -3,29 +3,15 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import React, { useState } from 'react';
 import Sell_Open from "../modal/sell_open";
-import ModalAgent from "../modal/ModalAgent"
+import ModalAgent from "../modal/ModalAgent";
+import ModalInternal from "../modal/ModalInternal"
 
 const progress = props => {
     const [state, setState] = useState({
         AgentsStatus: false,
         InternalStatus: false
     });
-    const onAgentClick = () => {
-        if (state.AgentsStatus) {
-            setState({ ...state, AgentsStatus: false })
-        }
-        else {
-            setState({ ...state, AgentsStatus: true })
-        }
-    }
-    const onInternalClick = () => {
-        if (state.InternalStatus) {
-            setState({ ...state, InternalStatus: false })
-        }
-        else {
-            setState({ ...state, InternalStatus: true })
-        }
-    }
+    console.log(props);
     return (
         <div >
             <div className="m_heading">
@@ -53,12 +39,13 @@ const progress = props => {
                     </div>
 
                     <div className="statistical_list_href">
-                        <a className="statistical_list_href_01" data-toggle="modal" data-target="#listAgencyChannel" onClick={() => onAgentClick()}>List of participating agents
+                        <a className="statistical_list_href_01" data-toggle="modal" data-target="#listAgencyChannel" onClick={() => setState({ ...state, AgentsStatus: true })}>List of participating agents
                                         [5]</a>
-                        <a className="statistical_list_href_02" data-toggle="modal" data-target="#listInternalChannel" onClick={() => onInternalClick()}>List of internal sales
+                        <a className="statistical_list_href_02" data-toggle="modal" data-target="#listInternalChannel" onClick={() => setState({ ...state, InternalStatus: true })}>List of internal sales
                                         [8]</a>
                     </div>
-                    <ModalAgent active={state.AgentsStatus} onClick={() => onAgentClick()} />
+                    <ModalAgent active={state.AgentsStatus} onClick={() => setState({ ...state, AgentsStatus: false })} />
+                    <ModalInternal active={state.InternalStatus} onClick={() => setState({ ...state, InternalStatus: false })} />
                 </div>
             </div>   </div >
 
