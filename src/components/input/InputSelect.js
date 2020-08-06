@@ -1,13 +1,11 @@
-/* eslint-disable react/jsx-no-undef */
-import React, { Component } from 'react';
-import { withTranslation, Trans } from 'react-i18next';
-import { Select, Option } from 'antd';
-
+import React from 'react';
+import { Trans } from 'react-i18next';
+import { Select } from 'antd';
+import "antd/dist/antd.css";
 
 const InputSelect = (props) => {
-    const { className, optionClassName, label, datas, value, placeholder, onChange } = props;
-    console.log('props', props);
-
+    const { className, name, value, label, datas, placeholder, onChange, isClear } = props;
+    
     return (
         <div className={className ? className : ''}>
             <div className="form-group">
@@ -22,11 +20,11 @@ const InputSelect = (props) => {
                     showSearch
                     style={{ width: 200 }}
                     className="form-control"
-                    placeholder="Select a option"
-                    optionFilterProp="children"
-                >
+                    onChange={onChange}
+                    value={isClear ? null : value}
+                    placeholder={<Trans>{placeholder}</Trans>}>
                     {datas && datas.map((e, key) => {
-                        return <option key={key} value={e.value}>{e.label}</option>;
+                        return <option name={name}  key={key} value={e.value}>{e.label}</option>;
                     })}
                 </Select>
 
