@@ -7,20 +7,23 @@ import { useDispatch, useSelector } from "react-redux";
 
 const PageProjectDetail = (props) => {
     const token = 'MjoxMzliMDZiZmI4OTJhOGYxYmQ2MzVhZmFmODEyZmM5M2RhNDFkM2Yx';
+    const tab_include = "['investor']";
     const dispatch = useDispatch();
     const projectStore = useSelector(state => state.project);
     useEffect(() => {
-        dispatch(projectDetailRequest({ token: token, project_id: 13 }));
+        dispatch(projectDetailRequest({ token: token, project_id: 13, tab_include: tab_include }));
     }, []);
 
     const isProjectDetailSuccess = projectStore.projectDetail.success;
     const projectDetailRes = isProjectDetailSuccess ? projectStore.projectDetail.detail : null;
 
     return (
-        <div class="container-fluid">
-            <ProjectInfo detail={projectDetailRes} />
-            <ProjectTab />
-        </div>
+        projectDetailRes != null ?
+            <div class="container-fluid">
+                <ProjectInfo detail={projectDetailRes} />           
+                <ProjectTab tabdata={projectDetailRes.investor} detail={projectDetailRes} />
+            </div>
+        : ""
     )
 }
 

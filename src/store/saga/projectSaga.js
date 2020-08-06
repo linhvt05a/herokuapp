@@ -39,8 +39,9 @@ export function* projectDetail(payload) {
     console.log('Detail Load', payload);
     const token = payload.project.token;
     const id = payload.project.project_id;
+    const tab_include = payload.project.tab_include;
     try {
-        const response = yield projectService.projectDetail(token, id);
+        const response = yield projectService.projectDetail(token, id, tab_include);
         response.success ? yield put({ type: PROJECT_DETAIL_SUCCESS, response }) : yield put({ type: PROJECT_DETAIL_FAILURE, response });
     } catch (err) {
         yield put({ type: PROJECT_DETAIL_FAILURE, err });

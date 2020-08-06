@@ -2,8 +2,6 @@ import React from 'react';
 
 const ProjectInfo = (props) => {
     let { detail } = props;
-    if(detail !== null){ console.log('detail', detail.name); }
-
     return (
         detail != null ?
         <div className="row ">
@@ -14,9 +12,6 @@ const ProjectInfo = (props) => {
                 <div className="card h-100 square ">
                     <div className="card-body p-0">
                         <div id="div_image_preview">
-                            {/* {
-                                detail.image_list 
-                            } */}
                             <img src={detail.project_avatar_url} className="w-100" alt="" />
                         </div>
                     </div>
