@@ -1,11 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Trans } from 'react-i18next';
+import { Select } from 'antd';
 
-import { DropdownAction, DropdownPurple, DropdownBlue } from '../dropdown';
-import { SearchField } from '../common';
 
 const CardHeader = props => {
-
     return (
         <div className={props.classHeading ? props.classHeading : "m_heading"}>
             <button className="m_button no-event">
@@ -13,18 +11,18 @@ const CardHeader = props => {
             </button>
             {
                 props.dropdown ?
-                <div className="dropdown m_select m_dropdown">
-                    <button className=" m_select--label m_dropdown--label square  dropdown-toggle" type="button">
-                        {props.dropdown.title}
-                    </button>
-                    <div className="dropdown-menu">
-                        {
-                            props.dropdown.data.map((value, index) => {
-                                return <a key={index} className="dropdown-item" href={`${value.href}`}>{value.label.toUpperCase()}</a>
-                            })
-                        }
-                    </div>
-                </div> : null
+                    <div className="dropdown m_select m_dropdown">
+                        <button className=" m_select--label m_dropdown--label square  dropdown-toggle" type="button">
+                            {props.dropdown.title}
+                        </button>
+                        <div className="dropdown-menu">
+                            {
+                                props.dropdown.data.map((value, index) => {
+                                    return <a key={index} className="dropdown-item" href={`${value.href}`}>{value.label.toUpperCase()}</a>
+                                })
+                            }
+                        </div>
+                    </div> : null
             }
         </div>
 

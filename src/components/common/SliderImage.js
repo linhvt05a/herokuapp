@@ -27,7 +27,6 @@ class SliderImage extends Component {
 			autoplay: false,
 			arrows: false
 		}
-		console.log(1,this.props.datas);
 
 		return (
 			<div className={this.props.className}>
@@ -35,8 +34,8 @@ class SliderImage extends Component {
 					className="slider slider-single"
 					asNavFor={this.state.nav2}
 					ref={slider => (this.slider1 = slider)}>
-					{this.props.datas.map((item, index) => 
-						<figure>
+					{this.props.datas.map((item, index) =>
+						<figure key={index}>
 							<img src={item.project_image_url} alt='Minerva' />
 						</figure>
 					)}
@@ -48,8 +47,8 @@ class SliderImage extends Component {
 					slidesToShow={4}
 					swipeToSlide={true}
 					focusOnSelect={true}>
-					{this.props.datas.map((item, index) => 
-						<figure>
+					{this.props.datas.map((item, index) =>
+						<figure key={index}>
 							<img src={item.project_image_url} alt='Minerva' />
 						</figure>
 					)}
