@@ -7,6 +7,10 @@ import './distribution/distribution.scss';
 import './distribution/login.scss';
 import './distribution/map.scss';
 
-//antd customize
+//antd 
 import './antd/select.scss';
+import './antd/input.scss';
+
+//react-bootstrap 
+import './react-bootstrap/modal.scss';
 
