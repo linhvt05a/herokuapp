@@ -70,11 +70,12 @@ class MapArea extends Component {
             <div className="card h-100">
                 <div className="card-body p-0">
                     <Map 
+                        className="map"
                         style= { MAP_STYLE }
                         center= {[this.state.lng, this.state.lat]}
-                        zoom={[12]}
+                        zoom={[14]}
                         containerStyle={{
-                            height: '48vh',
+                            minHeight: '715px',
                             width: '100%',
                         }}>
                         <Layer type="fill" paint={polygonPaint}>
