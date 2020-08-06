@@ -25,7 +25,7 @@ import {
     provinceList: {},
     typeList: {},
     statusList: {},
-    projectList: {},
+    projectList: {success: false},
     isFetching: false,
   };
   

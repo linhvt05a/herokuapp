@@ -581,7 +581,6 @@
     "Document Name": "Tên tài liệu",
     "Document Content": "Nội dung tài liệu",
     "Attachment": "Tài liệu đính kèm",
-    "FS Name": "Tên",
     "New version number": "Số phiên bản",
     "Choose FS": "Chọn",
     "Members": "Thành Viên",
@@ -614,5 +613,6 @@
     "ExpectedRevenue": "Doanh thu dự kiến",
     "ActualRevenue": "Doanh thu thực tế",
     "Cost": "Chi phí",
-    "Map": "Bản đồ"
+    "Map": "Bản đồ",
+    "LandArea": "Diện tích đất"
 }

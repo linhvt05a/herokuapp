@@ -588,7 +588,6 @@
     "Document Name": "Document Name",
     "Document Content": "Document Content",
     "Attachment": "Attachment",
-    "FS Name": "FS Name",
     "New version number": "New version number",
     "Choose FS": "Choose FS",
     "Members": "Member",
@@ -621,5 +620,6 @@
     "ExpectedRevenue": "Expected Revenue",
     "ActualRevenue": "Actual Revenue",
     "Cost": "Cost",
-    "Map": "Map"
+    "Map": "Map",
+    "LandArea": "Land Area"
 }
