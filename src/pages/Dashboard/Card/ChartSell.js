@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, memo } from 'react';
 import InputDatePicker from '../../../components/input/InputDate';
 import ApexCharts from 'react-apexcharts';
 
@@ -117,4 +117,4 @@ class ChartSell extends Component {
     }
 }
 
-export default ChartSell;
+export default memo(ChartSell);

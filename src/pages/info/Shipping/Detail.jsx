@@ -59,7 +59,7 @@ const Edit = props => {
             </div>
             <div>
                 <Title label="CHI TIẾT RỔ HÀNG" dropdown={{ title: "Đợt 1", data: contentDropdown }} />
-                <Item.Detail_InfoShipping data={data.Sell_Open_Floor} />
+                <Item.Detail_InfoShipping data={data.Sell_Open_Floor} dropdown={{ title: "Đợt 1", data: contentDropdown }} />
             </div>
         </div>
     )

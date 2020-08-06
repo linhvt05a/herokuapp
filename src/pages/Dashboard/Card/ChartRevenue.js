@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, memo } from 'react';
 import InputDatePicker from '../../../components/input/InputDate';
 import ApexChartsRevenue from 'react-apexcharts';
 
@@ -34,7 +34,7 @@ class ChartRevenue extends Component {
                     show: false,
                 },
                 fill: {
-                    colors:['#9a59dc', '#6bbcd7'],
+                    colors: ['#9a59dc', '#6bbcd7'],
                     type: 'solid',
                     opacity: [1, 0.4, 1],
                     gradient: {
@@ -71,16 +71,16 @@ class ChartRevenue extends Component {
                     shared: true,
                     intersect: false,
                     y: {
-                        formatter: function(y) {
+                        formatter: function (y) {
                             if (typeof y !== "undefined") {
                                 return y.toFixed(0) + " Sản phẩm";
                             }
                             return y;
-    
+
                         }
                     }
                 },
-                colors:['#9a59dc', '#6bbcd7'],
+                colors: ['#9a59dc', '#6bbcd7'],
             },
         };
     }
@@ -138,4 +138,4 @@ class ChartRevenue extends Component {
     }
 }
 
-export default ChartRevenue;
+export default memo(ChartRevenue);
