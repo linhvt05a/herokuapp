@@ -1,23 +1,36 @@
 import {
-    APPROVED_LIST_FAILURE, 
-    APPROVED_LIST_SUCCESS,
-    APPROVED_LIST_REQUEST
-} from '../actionType/approved'
+    APPROVAL_LIST_REQUEST,
+    APPROVAL_LIST_SUCCESS,
+    APPROVAL_LIST_FAILURE,
+
+    COMMENT_LIST_REQUEST,
+    COMMENT_LIST_SUCCESS,
+    COMMENT_LIST_FAILURE
+} from '../actionType/approval'
 
 const initialState = {
     approveList: [],
+    commentList: [],
     isFetching: false,
     success : false,
     error : []
   };
   export default (state = initialState, action) => {
     switch (action.type) {
-      case APPROVED_LIST_FAILURE:
+      case APPROVAL_LIST_FAILURE:
         return { ...state, isFetching: true, approveList: { success: false } };
-      case APPROVED_LIST_SUCCESS:
+      case APPROVAL_LIST_SUCCESS:
         return { ...state, isFetching: false, approveList: action.response };
-      case APPROVED_LIST_REQUEST:
+      case APPROVAL_LIST_REQUEST:
         return { ...state, isFetching: false, approveList: { success: false, error: action.err } };
+
+        case COMMENT_LIST_FAILURE:
+          return { ...state, isFetching: true, commentList: { success: false } };
+        case COMMENT_LIST_SUCCESS:
+          return { ...state, isFetching: false, commentList: action.response };
+        case COMMENT_LIST_REQUEST:
+          return { ...state, isFetching: false, commentList: { success: false, error: action.err } };
+  
       default:
         return state;
     }

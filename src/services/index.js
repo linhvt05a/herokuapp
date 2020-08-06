@@ -9,11 +9,11 @@ import { imageService } from './user/services_image';
 
 import { projectService } from './Project/services_project';
 
+import { productService } from './Product/service_product';
+
 
 // SYSTEM
 import { sysCurrencyService } from './System/services_system_currency';
-import { sysDocumentService } from './System/services_system_document';
-import { sysWorkingProcessService } from './System/services_system_workflow';
 //SUPPLIER
 
 //PERMISSION
@@ -26,7 +26,11 @@ import { sysShippingService } from "./System/services_system_shipping"
 export {
     userService, dashboardService,
     locationService, imageService,
-    sysCurrencyService, sysDocumentService,
-    permissionDepartmentService, permissionProjectService, sysWorkingProcessService, projectService, sysShippingService
+    sysCurrencyService,
+    permissionDepartmentService, 
+    permissionProjectService, 
+    projectService, 
+    sysShippingService,
+    productService
 
 }

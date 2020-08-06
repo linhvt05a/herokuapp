@@ -3,7 +3,7 @@ import { CardHeader, CardNodata } from '../../../components/common'
 import { InputSelect, InputText, InputDate } from '../../../components/input'
 import { DatePicker, Input, Space } from 'antd'
 import moment from 'moment';
-
+import {request_type, request_status, priority_request} from '../../../constant'
 const dateFormat = 'YYYY/MM/DD';
 
 const CardApprovedHistory = (props) => {
@@ -21,26 +21,23 @@ const CardApprovedHistory = (props) => {
 const CardFilterApproved = () => {
     return (
         <div className="col-xl-3 col-lg-3 col-md-12 col-sm-12">
-            <CardHeader label="LỌC LỊCH SỬ PHÊ DUYỆT" />
-            <div className="card square">
-                <div className="card-body">
-                    <div className="form-group">
-                        <InputSelect label="LOẠI YÊU CẦU" />
-                    </div>
-                    <div className="form-group">
-                        <label className="fw-medium">Choose Date</label>
-                        <DatePicker defaultValue={moment('01/01/2015', dateFormat)} format={dateFormat} />
-                    </div>
-
-                    <div className="form-group">
-                        <label className="fw-medium">Choose Date</label>
-                        <DatePicker defaultValue={moment('2015/01/01', dateFormat)} format={dateFormat} />
-                    </div>
-                    <InputSelect className="form-group" label="TRẠNG THÁI" />
-                    <InputSelect className="form-group" label="ĐỘ ƯU TIÊN" />
-                    <FilterButton />
-                </div>
+             <CardHeader label="LỌC LỊCH SỬ PHÊ DUYỆT"/>
+        <div className="card square">
+          <div className="card-body">
+            <div className="form-group">
+                <InputSelect value="" label="LOẠI YÊU CẦU" placeholder="RegionHintText" datas={request_type}/>
             </div>
+            <div className="form-group">
+               
+            </div>
+            <div className="form-group">
+                <InputSelect  label="TRẠNG THÁI" datas={request_status}/>
+            </div>
+            <div className="form-group">
+              <InputSelect  label ="ĐỘ ƯU TIÊN" datas={priority_request}/>
+            </div>
+        </div>
+        </div>
         </div>
 
     )
@@ -169,7 +166,7 @@ const OldestMessage = (props) => {
 const ApprovedStatus = (props) => {
     if (props.data.request_status === 1) {
         return (
-            <div className="approval_history--status status_01">
+            <div className="approval_history--status status_03">
                 <div className="status">
                     <i className="las fs-16 pr-1 la-check-circle" />
                     <span className="fw-medium">Chờ duyệt</span>
@@ -178,7 +175,7 @@ const ApprovedStatus = (props) => {
         )
     } else if (props.data.request_status === 2) {
         return (
-            <div className="approval_history--status status_02">
+            <div className="approval_history--status status_01">
                 <div className="status">
                     <i className="las fs-16 pr-1 la-check-circle" />
                     <span className="fw-medium">Phê duyệt</span>
@@ -187,7 +184,7 @@ const ApprovedStatus = (props) => {
         )
     } else if (props.data.request_status === 3) {
         return (
-            <div className="approval_history--status status_03">
+            <div className="approval_history--status status_02">
                 <div className="status">
                     <i className="las fs-16 pr-1 la-check-circle" />
                     <span className="fw-medium">Từ chối</span>
