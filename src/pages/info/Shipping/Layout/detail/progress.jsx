@@ -1,7 +1,31 @@
-import React from 'react';
-import Sell_Open from "../modal/sell_open"
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable no-undef */
+/* eslint-disable react-hooks/rules-of-hooks */
+import React, { useState } from 'react';
+import Sell_Open from "../modal/sell_open";
+import ModalAgent from "../modal/ModalAgent"
 
 const progress = props => {
+    const [state, setState] = useState({
+        AgentsStatus: false,
+        InternalStatus: false
+    });
+    const onAgentClick = () => {
+        if (state.AgentsStatus) {
+            setState({ ...state, AgentsStatus: false })
+        }
+        else {
+            setState({ ...state, AgentsStatus: true })
+        }
+    }
+    const onInternalClick = () => {
+        if (state.InternalStatus) {
+            setState({ ...state, InternalStatus: false })
+        }
+        else {
+            setState({ ...state, InternalStatus: true })
+        }
+    }
     return (
         <div >
             <div className="m_heading">
@@ -29,11 +53,12 @@ const progress = props => {
                     </div>
 
                     <div className="statistical_list_href">
-                        <a className="statistical_list_href_01" href="#" data-toggle="modal" data-target="#listAgencyChannel">List of participating agents
+                        <a className="statistical_list_href_01" data-toggle="modal" data-target="#listAgencyChannel" onClick={() => onAgentClick()}>List of participating agents
                                         [5]</a>
-                        <a className="statistical_list_href_02" href="#" data-toggle="modal" data-target="#listInternalChannel">List of internal sales
+                        <a className="statistical_list_href_02" data-toggle="modal" data-target="#listInternalChannel" onClick={() => onInternalClick()}>List of internal sales
                                         [8]</a>
                     </div>
+                    <ModalAgent active={state.AgentsStatus} onClick={() => onAgentClick()} />
                 </div>
             </div>   </div >
 

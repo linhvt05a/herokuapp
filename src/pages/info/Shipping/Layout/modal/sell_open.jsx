@@ -76,7 +76,7 @@ const sell_open = props => {
             <tbody style={{ maxHeight: `300px` }}>
 
                 {props.data.open_sell_detail != null && props.data.open_sell_detail.map((item, index) => {
-                    return [trParent(item, index), trParent(item)]
+                    return [trParent(item, index), trChild(item)]
                 })}
             </tbody>
         </table>

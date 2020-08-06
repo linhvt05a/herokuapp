@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import _ from "lodash";
 import Map from "../modal/Map";
+import Image from "../modal/Image"
 import { Select } from "antd"
 
 const Content = props => {
@@ -8,7 +9,8 @@ const Content = props => {
     const [state, setState] = useState({
         floor: [],
         Maps: [],
-        index: 0
+        index: 0,
+        width: 50
     })
     useEffect(() => {
         let arr = _.groupBy(props.data.floor_or_lot_list, (item) => (item.floor_or_lot_name))
@@ -50,7 +52,7 @@ const Content = props => {
 
                 <ul class="nav nav-tabs" role="tablist">
                     {state.floor ? state.floor.map((item, index) => (
-                        <li class="nav-item" key={item + index}>
+                        <li class="nav-item" key={item + index} onClick={() => setState({ ...state, index: index })}>
                             <a class={`nav-link ${index == state.index ? 'active' : null}`} data-toggle="tab" href="#zone_01">{item}</a>
                         </li>
                     )) : null}
@@ -77,9 +79,10 @@ const Content = props => {
                     <div class="tab-pane fade show active" id="zone_01">
                         <div class="zone--wrap">
                             <div class="zone--left border-0">
-                                <figure class="map">
-                                    <Map data={state} />
-                                </figure>
+                                {/* <figure class="map"> */}
+                                {/* <Map data={state.Maps[state.index]} /> */}
+                                <Image data={state.Maps[state.index]} width={`${state.width}%`} />
+                                {/* </figure> */}
                                 <div class="form-group">
                                     <Select
                                         style={{ backgroundColor: "red", borderWidth: `1px`, padding: 0 }}
@@ -94,18 +97,12 @@ const Content = props => {
                                         <Select.Option value="4">Tầng B6 đến tầng B3</Select.Option>
                                     </Select>
 
-                                    {/* <select name="" data-placeholder="-" class="form-control m_select_change js-select2" data-chosen="1">
-                                        <option value="1"></option>
-                                        <option value="2" selected>Tầng B6 đến tầng B1</option>
-                                        <option value="2">Tầng B6 đến tầng B2</option>
-                                        <option value="2">Tầng B6 đến tầng B3</option>
-                                    </select> */}
                                 </div>
                                 <figure class="compass"><img src="../../../../../components/images/all/compass.png" alt="" /></figure>
                                 <div class="actions">
                                     <a href="#"><i class="icon las la-arrows-alt"></i></a>
-                                    <a href="#"><i class="icon las la-plus"></i></a>
-                                    <a href="#"><i class="icon las la-minus"></i></a>
+                                    <a ><i class="icon las la-plus" onClick={() => setState({ ...state, width: state.width == 100 ? 100 : state.width + 10 })}></i></a>
+                                    <a ><i class="icon las la-minus" onClick={() => setState({ ...state, width: state.width == 50 ? 50 : state.width - 10 })}></i></a>
                                 </div>
                             </div>
                         </div>

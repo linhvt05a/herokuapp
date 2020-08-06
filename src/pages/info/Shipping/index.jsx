@@ -19,7 +19,6 @@ const Shipping = props => {
     }, [])
     const dataShipping = useSelector(state => state.shipping)
 
-
     let dataSelect = [
         { href: "#", value: "1", label: "Mới" },
         { href: "#", value: "2", label: "Đang chờ" },
@@ -46,6 +45,9 @@ const Shipping = props => {
                     <ListProduct
                         dataFilter={dataType}
                         data={dataShipping.List}
+                        page={dataShipping.page}
+                        total_page={6}
+                        total_record={dataShipping.total_record}
                     />
                 </div>}
 

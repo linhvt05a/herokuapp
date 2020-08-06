@@ -1,6 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState, useEffect } from 'react';
-import InputSelect from '../../../../../components/input/InputSelect';
 import { product_type_id, product_status } from "../../../../../constant";
 import { Trans } from 'react-i18next';
 import { Select } from "antd"

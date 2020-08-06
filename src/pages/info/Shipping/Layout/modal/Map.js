@@ -66,12 +66,11 @@ class MapArea extends Component {
     }
 
     render() {
-        console.log(this.props);
         return (
             <div className="card h-100">
                 <div className="card-body p-0">
                     <Map
-                        style={MAP_STYLE}
+                        style={this.props.data ? this.props.data[0].floor_or_lot_map_style : null}
                         center={[this.state.lng, this.state.lat]}
                         zoom={[12]}
                         containerStyle={{

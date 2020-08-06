@@ -1,7 +1,8 @@
+/* eslint-disable react/jsx-no-undef */
 import React, { Component } from 'react';
 import { withTranslation, Trans } from 'react-i18next';
 import Select from 'react-select';
-import Validate from "validator"
+import Validate from "validator";
 const customStyles = {
     control: (base, state) => ({
         ...base,
@@ -121,7 +122,7 @@ class InputSelect extends Component {
         return result
     }
     render() {
-        const { t } = this.props;
+        const { className, label, value, placeholder, onChange, datas } = this.props;
         return (
             <div className={className ? className : ''}>
                 <div className="form-group">
@@ -138,15 +139,15 @@ class InputSelect extends Component {
                         placeholder={placeholder}
                         onChange={onChange}>
                         {
-                            datas && datas.map((item, key) => {
+                            datas && datas.map((item, key) => (
                                 <Option className="abc" value={item.value} key={key}>{item.label}</Option>
-                            })
+                            ))
                         }
                     </Select>
                 </div>
             </div>
         )
     }
-
-    export default InputSelect;
+}
+export default InputSelect;
 

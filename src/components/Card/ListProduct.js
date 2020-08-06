@@ -3,7 +3,7 @@ import Pagination from "../common/Pagination"
 import { Link } from "react-router-dom";
 import ListProductDetail from "./ListProductDetail"
 const body = props => {
-    let { dataFilter, data } = props;
+    let { dataFilter, data, page, total_page, total_record } = props;
     return (
         <div className="m_table--wrapper">
             <div className="m_filter pb-4">
@@ -36,9 +36,9 @@ const body = props => {
                 </div >
             </div >
             <Pagination
-                total_page={3}
-                total_record={5}
-                page={1}
+                total_page={total_page}
+                total_record={total_record}
+                page={page}
                 change={() => console.log("chay")}
             />
         </div >
