@@ -11,6 +11,11 @@ import {
     statusListRequest,
     projectListRequest
 } from './dashboard';
+import {
+    projectAddRequest, 
+    projectDetailRequest,  
+    projectEditRequest,
+} from './project';
 
 export { 
     currentcyAddRequest, 
@@ -22,5 +27,9 @@ export {
     provinceListRequest,
     typeListRequest,
     statusListRequest,
-    projectListRequest
+    projectListRequest,
+
+    projectAddRequest, 
+    projectDetailRequest, 
+    projectEditRequest,
 };
