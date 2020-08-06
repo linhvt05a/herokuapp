@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { withTranslation, Trans } from 'react-i18next';
 import { Select, Option } from 'antd';
-import "antd/dist/antd.css";
+
 
 const InputSelect = (props) => {
     const { className, optionClassName, label, datas, value, placeholder, onChange } = props;
