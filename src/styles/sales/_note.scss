@@ -24,25 +24,25 @@
 }
 .uni_border_399b54{
     border: solid 1px #399b54;
-} 
+}
 .uni_text_219dfd{
     color: #219dfd !important;
-} 
+}
 .uni_text_25b15f{
     color: #25b15f !important;
-} 
+}
 .uni_border_219dfd{
     border: solid 1px #219dfd;
-} 
+}
 .uni_text_e94c4c{
-    color: #e94c4c !important; 
+    color: #e94c4c !important;
 }
 .uni_text_f1ab21{
-    color: #f1ab21; 
+    color: #f1ab21;
 }
 .m_border_e94c4c{
     border: solid 1px #e94c4c;
-} 
+}
 .m_text_367be3{
     color: #367be3 !important;
 }
@@ -62,7 +62,7 @@
 .sales_agency{
     &_text{
         color: #38b6ac !important;
-    }   
+    }
     &_bg{
         background: #38b6ac !important;
     }
@@ -74,7 +74,7 @@
 .sales_internal{
     &_text{
         color: #219dfd !important;
-    }   
+    }
     &_bg{
         background: #219dfd !important;
     }
@@ -143,10 +143,13 @@
         color: #9a59dc;
     }
     &_style02_01_bg{
-        background-color: #9155ce !important; 
+        background-color: #9155ce !important;
     }
     &_style02_02_bg{
-        background-color: #f06464 !important; 
+        background-color: #f06464 !important;
+    }
+    &_style02_03_bg{
+        background-color: #67a0f5 !important;
     }
     &_style02_01_text{
         color: #9155ce;
@@ -154,11 +157,17 @@
     &_style02_02_text{
         color: #f06464;
     }
+    &_style02_03_text{
+        color: #67a0f5;
+    }
     &_style02_01_border{
         border:2px solid #9155ce;
     }
     &_style02_02_border{
         border:2px solid #f06464;
+    }
+    &_style02_03_border{
+        border:2px solid #67a0f5;
     }
 }
 
@@ -186,7 +195,7 @@
      }
 }
 
-// sales_status_transaction 
+// sales_status_transaction
 .transaction_status{
     &_1{
         font-weight: 500;
@@ -331,7 +340,7 @@
     border: solid 1px #ee7777;
     background-color: #fff2f2;
     color: #e94c4c;
-    padding: 6px 20px;  
+    padding: 6px 20px;
     text-transform: uppercase;
     display: block;
     font-weight: 500;
@@ -347,7 +356,7 @@
 			display: none;
 		}
 		.dropdown-menu{
-			box-shadow: 0 6px 12px rgba(0,0,0,.175);    
+			box-shadow: 0 6px 12px rgba(0,0,0,.175);
 			border: 1px solid rgba(0,0,0,.15);
 			background-color: #fff;
 			padding: 5px 0;
@@ -376,7 +385,7 @@
 						content: '';
 						font-family: 'Line Awesome Free';
 						font-weight: 900;
-						
+
 					}
 				}
 				&.checked i {
@@ -385,10 +394,10 @@
 						content: "\f00c";
 					}
 				}
-				
+
 			}
 		}
-		
+
 		.note-toolbar{
 			position: absolute;
 			z-index: 1;
@@ -402,7 +411,7 @@
 			}
 			> .note-btn-group{
 				position: relative;
-				
+
 				&:not(:last-child){
 					padding-right: 10px;
 					&::before{
@@ -416,8 +425,8 @@
 						transform: translateY(-50%);
 					}
 				}
-				
-			   
+
+
 			}
 		}
 		.note-editable{
