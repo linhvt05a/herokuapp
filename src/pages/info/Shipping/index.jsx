@@ -2,7 +2,8 @@
 import React, { useState, useEffect } from 'react';
 import Item from "./Layout";
 import { useDispatch, useSelector } from "react-redux";
-import actions from "../../../store/action/shipping"
+import actions from "../../../store/action/shipping";
+import CardProduct from "../../../components/Card/CardProduct"
 
 const Shipping = props => {
     const dispatch = useDispatch();
@@ -18,9 +19,6 @@ const Shipping = props => {
     }, [])
     const dataShipping = useSelector(state => state.shipping)
 
-    const Router = (route) => {
-        localStorage.setItem("productID", route.project_id)
-    }
 
     let dataSelect = [
         { href: "#", value: "1", label: "Mới" },
@@ -45,10 +43,9 @@ const Shipping = props => {
                         datas={dataSelect}
                         label={"Trạng Thái Dự Án"}
                         SEARCH={value => SEARCH(value)} />
-                    <Item.body
-                        dataType={dataType}
+                    <CardProduct
+                        dataFilter={dataType}
                         data={dataShipping}
-                        Router={value => Router(value)}
                     />
                 </div>}
 

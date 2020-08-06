@@ -5,7 +5,6 @@ import React from 'react';
 import Pagination from "../../../../../components/common/Pagination"
 import { Link } from "react-router-dom"
 const body = props => {
-    console.log(props.data);
     return (
         <div className="m_table--wrapper">
             <div className="m_filter pb-4">
