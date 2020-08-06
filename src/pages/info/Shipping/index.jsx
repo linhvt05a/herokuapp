@@ -28,11 +28,11 @@ const Shipping = props => {
     ];
     let dataType = [
         { id: `1`, color: "m_text_000000", name: "All" },
-        { id: `2`, color: "m_text_a8c200", name: "Apartment" },
-        { id: `3`, color: "m_text_f35e5e", name: "Office" },
-        { id: `4`, color: "m_text_e9c301", name: "Shopping Mall" },
-        { id: `5`, color: "m_text_fb9334", name: "Villa" },
-        { id: `5`, color: "m_text_212529", name: "Supermarket" },
+        { id: `2`, color: "m_text_a8c200", name: "Type Apartment" },
+        { id: `3`, color: "m_text_f35e5e", name: "Type Office" },
+        { id: `4`, color: "m_text_e9c301", name: "Type Shopping Mall" },
+        { id: `5`, color: "m_text_fb9334", name: "Type Villa" },
+        { id: `5`, color: "m_text_212529", name: "Type Supermarket" },
     ]
     return (
         <div >

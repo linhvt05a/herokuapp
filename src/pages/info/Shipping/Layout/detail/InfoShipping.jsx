@@ -90,7 +90,7 @@ const InfoShipping = props => {
                         ><Trans>{ProductStatus(value.product_status)}</Trans></div>
                     </td>
                     <td>
-                        {ProductType(value.product_type_id)}
+                        <Trans>   {ProductType(value.product_type_id)}</Trans>
                     </td>
                     <td>
                         <div className="input-group min-max">

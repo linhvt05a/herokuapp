@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { CardHeader } from "../common";
-
+import { Modal } from 'react-bootstrap'
 const data = [
   {
     id: 1,
@@ -54,62 +54,61 @@ const data = [
 
 const DialogResponeHistory = (props) => {
   const [showReplyForm, setshowReplyForm] = useState(false)
-  if (props.showPopUp === true) {
-    return (
-      <div className="popup">
-        <div
-          className="modal fade show"
-          style={{ display: "block", paddingRight: 15 }}
-        >
-          <div
-            className="modal-dialog center"
-            style={{ maxWidth: 1095 }}
-            role="document"
-          >
-            <CardHeader label="LỊCH SỬ PHẢN HỒI" />
-            <div className="modal-content square">
-              <div className="modal-body pb-0 pr-3">
-                <div className="uni_text_6d30ab fw-medium fs-18 mb-2">
-                  PHẢN HỒI
-                </div>
-                <div className="approval_history--modal">
-                  {data &&
-                    data.map((item) => (
-                      <div className="item">
-                        <figure className="avatar">
-                          <img src={item.avatar} />
-                        </figure>
-                        <div className="content">
-                          <div className="head">
-                            <b className="name">{item.title}</b>
-                            <span className="d-flex align-items-center">
-                              <i className="time">{item.time}</i>
-                              {item.id === 6 ? (
-                                <i className="reply las la-undo" onClick={() => setshowReplyForm(true)}></i>
-                              ) : (
-                                  <></>
-                                )}
-                            </span>
-                          </div>
-                          <div className="detail">{item.descriptiom}</div>
-                        </div>
-                      </div>
-                    ))}
-                  <ShowFormReply showReplyForm={showReplyForm} closeForm={() => setshowReplyForm(false)} />
-                </div>
 
+  return (
+    <Modal show={props.showPopUp} onHide={props.close}>
+      <div
+        className="modal fade show"
+        style={{ display: "block", paddingRight: 15 }}
+      >
+        <div
+          className="modal-dialog center"
+          style={{ maxWidth: 1095 }}
+          role="document"
+        >
+          <CardHeader label="LỊCH SỬ PHẢN HỒI" />
+          <div className="modal-content square">
+            <div className="modal-body pb-0 pr-3">
+              <div className="uni_text_6d30ab fw-medium fs-18 mb-2">
+                PHẢN HỒI
+                </div>
+              <div className="approval_history--modal">
+                {data &&
+                  data.map((item) => (
+                    <div className="item">
+                      <figure className="avatar">
+                        <img src={item.avatar} />
+                      </figure>
+                      <div className="content">
+                        <div className="head">
+                          <b className="name">{item.title}</b>
+                          <span className="d-flex align-items-center">
+                            <i className="time">{item.time}</i>
+                            {item.id === 6 ? (
+                              <i className="reply las la-undo" onClick={() => setshowReplyForm(true)}></i>
+                            ) : (
+                                <></>
+                              )}
+                          </span>
+                        </div>
+                        <div className="detail">{item.descriptiom}</div>
+                      </div>
+                    </div>
+                  ))}
+                <ShowFormReply showReplyForm={showReplyForm} closeForm={() => setshowReplyForm(false)} />
               </div>
 
-              <CreateBtn close={props.close} />
             </div>
+
+            <CreateBtn close={props.close} />
           </div>
         </div>
       </div>
-    );
-  } else {
-    return <></>;
-  }
-};
+
+    </Modal>
+
+  );
+}
 
 function ShowFormReply(props) {
   if (props.showReplyForm === true) {

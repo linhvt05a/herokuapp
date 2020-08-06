@@ -25,7 +25,7 @@ const InputSelect = (props) => {
                     placeholder="Select a option"
                     optionFilterProp="children"
                 >
-                    {datas.map((e, key) => {
+                    {datas && datas.map((e, key) => {
                         return <option key={key} value={e.value}>{e.label}</option>;
                     })}
                 </Select>

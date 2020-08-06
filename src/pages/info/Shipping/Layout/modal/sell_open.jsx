@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import React from 'react';
 import { product_type_id } from "../../../../../constant"
-
+import { Trans } from 'react-i18next';
 const sell_open = props => {
     const ProductType = (value) => {
         for (let i in product_type_id) {
@@ -17,7 +17,7 @@ const sell_open = props => {
                 <tr key={value.product_type_id + index}>
                     <td className={`col-3 pl-0  ${index !== item.list_product_type.length - 1 ? "border-bottom-none" : null} `}></td>
                     <td className="col-3 pl-0">
-                        {ProductType(value.product_type_id)}
+                        <Trans>{ProductType(value.product_type_id)}</Trans>
                     </td>
                     <td className="col-3 text-center">
                         <div className="sales_number_selected">

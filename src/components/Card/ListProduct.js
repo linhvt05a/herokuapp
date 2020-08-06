@@ -1,6 +1,6 @@
 import React from 'react';
 import Pagination from "../common/Pagination"
-import { Link } from "react-router-dom";
+import { Trans } from 'react-i18next';
 import ListProductDetail from "./ListProductDetail"
 const body = props => {
     let { dataFilter, data, page, total_page, total_record } = props;
@@ -14,7 +14,7 @@ const body = props => {
                             return (
                                 <li key={index}>
                                     <i className={`las la-square ${item.color}`}></i>
-                                    <span><a href="#">{item.name}</a></span>
+                                    <span><a href="#"><Trans>{item.name}</Trans></a></span>
                                 </li>
                             )
                         }) : null}

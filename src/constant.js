@@ -649,15 +649,15 @@ const document_type = [
     }
 ]
 const product_type_id = [
-    { 'id': 1, "name": "APARTMENT" },
-    { 'id': 2, "name": "DUPLEX" },
-    { 'id': 3, "name": "OFFICETEL" },
-    { 'id': 4, "name": "STUDIO" },
-    { 'id': 5, "name": "PENTHOUSE" },
-    { 'id': 6, "name": "SHOPHOUSE" },
-    { 'id': 7, "name": "VILLA" },
-    { 'id': 8, "name": "SINGLE VILLA" },
-    { 'id': 9, "name": "DUPLEX VILLA" },
+    { 'id': 1, "name": "Type Apartment" },
+    { 'id': 2, "name": "Type Duplex" },
+    { 'id': 3, "name": "Type Offcetel" },
+    { 'id': 4, "name": "Type Studio" },
+    { 'id': 5, "name": "Type Penthouse" },
+    { 'id': 6, "name": "Type Shophouse" },
+    { 'id': 7, "name": "Type Villa" },
+    { 'id': 8, "name": "Type Single Villa" },
+    { 'id': 9, "name": "Type Duplex Villa" },
 ]
 const product_status = [
     { 'id': 1, 'name': "PROJECT_SALE_STATUS_NEW", 'className': "sales_status_cart_1" },// sales_status_cart_1
