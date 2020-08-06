@@ -14,13 +14,13 @@ const CartProductDetail = props => {
                         {item.setting_type_name}
                     </p>
                     <p className="name">
-                        <Link to={`/info/shipping/edit/${item.project_id}`} className="link_href_6d30ab" >{item.about}</Link>
-                        <Link className="small float-right" to={`/info/shipping/edit/${item.project_id}`} title="Thêm tin tức" >
+                        <Link to={`/cart/cart_list/detail/${item.project_id}`} className="link_href_6d30ab" >{item.about}</Link>
+                        <Link className="small float-right" to={`/cart/cart_list/detail/${item.project_id}`} title="Thêm tin tức" >
                             <i className="news icon las la-newspaper">
                                 <span className="badge badge-pill badge-danger badge-up badge-glow">14</span>
                             </i>
                         </Link>
-                        <Link className="small float-right mr-1" to={`/info/shipping/edit/${item.project_id}`} title="Cập Nhật" >
+                        <Link className="small float-right mr-1" to={`/cart/cart_list/detail/${item.project_id}`} title="Cập Nhật" >
                             {/* <i className="edit  icon las la-pen"></i> */}
                         </Link>
                         <span className="address">{item.address}</span>

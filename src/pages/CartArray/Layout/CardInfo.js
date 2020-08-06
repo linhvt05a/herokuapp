@@ -3,6 +3,7 @@ import {CardHeader} from '../../../components/common'
 import {CardChangeAvatar} from '../../../components/Card'
 import { InputText, InputSelect} from '../../../components/input';
 import { Input, Select } from 'antd';
+import { SettingOutlined } from '@ant-design/icons';
 
  const CardInfo = () => {
     const selectAfter = (
@@ -85,20 +86,17 @@ import { Input, Select } from 'antd';
                                     <div className="input-group-append select2_currency sdd">
                                         <InputSelect />
                                     </div> */}
-
                                     <Input className="form-control" disabled addonAfter={selectAfter} defaultValue="mysite" />
                                 </div>
                             </div>
                         </div>
                         <div className="col-12 col-sm-6 col-md-6 col-lg-4">
                             <div className="form-group">
-                            <div className="input-group mb-2">
-                                <InputText label="Hoa hồng mặc định hiện tại" disabled/>
-                                <div className="input-group-append">
-                                    <div className="input-group-text pl-4 pr-4">%</div>
+                                <label className="fw-medium">Giá bán</label>
+                                    <div className="input-group">
+                                    <Input addonAfter={<SettingOutlined />} disabled defaultValue="mysite" />
+                                    </div>
                                 </div>
-                            </div>
-                            </div>
                         </div>
                         <div className="col-12 col-sm-6 col-md-6 col-lg-4">
                             <div className="form-group">

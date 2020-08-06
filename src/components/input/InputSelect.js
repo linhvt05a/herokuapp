@@ -1,13 +1,12 @@
-/* eslint-disable react/jsx-no-undef */
+/* eslint-disable*/
 import React, { Component } from 'react';
 import { withTranslation, Trans } from 'react-i18next';
-import { Select, Option } from 'antd';
-
+import { Select } from 'antd';
+import "antd/dist/antd.css";
 
 const InputSelect = (props) => {
     const { className, optionClassName, label, datas, value, placeholder, onChange } = props;
-    console.log('props', props);
-
+    const { Option } = Select
     return (
         <div className={className ? className : ''}>
             <div className="form-group">
@@ -22,11 +21,11 @@ const InputSelect = (props) => {
                     showSearch
                     style={{ width: 200 }}
                     className="form-control"
-                    placeholder="Select a option"
+                    placeholder={placeholder ? placeholder : "Select a option"}
                     optionFilterProp="children"
                 >
                     {datas && datas.map((e, key) => {
-                        return <option key={key} value={e.value}>{e.label}</option>;
+                        return <Option key={key} value={e.value}>{e.label}</Option>;
                     })}
                 </Select>
 

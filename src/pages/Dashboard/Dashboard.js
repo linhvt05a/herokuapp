@@ -26,10 +26,10 @@ const Dashboard = (props) => {
     const onSearch = (region, province, type, status) => {
         dispatch(projectListRequest({
             token: token,
-            region_id: region ? region.value : null,
-            province_id: province ? province.value : null,
-            setting_type: type ? type.value : null,
-            status_id: status ? status.value : null}));
+            region_id: region ? region : null,
+            province_id: province ? province : null,
+            setting_type: type ? type : null,
+            status_id: status ? status : null}));
     }
 
     const onItemClick = (index) => {
