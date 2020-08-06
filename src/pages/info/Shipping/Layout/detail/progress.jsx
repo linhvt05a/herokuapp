@@ -29,9 +29,9 @@ const progress = props => {
                     </div>
 
                     <div className="statistical_list_href">
-                        <a className="statistical_list_href_01" href="javascript:void(0)" data-toggle="modal" data-target="#listAgencyChannel">List of participating agents
+                        <a className="statistical_list_href_01" href="#" data-toggle="modal" data-target="#listAgencyChannel">List of participating agents
                                         [5]</a>
-                        <a className="statistical_list_href_02" href="javascript:void(0)" data-toggle="modal" data-target="#listInternalChannel">List of internal sales
+                        <a className="statistical_list_href_02" href="#" data-toggle="modal" data-target="#listInternalChannel">List of internal sales
                                         [8]</a>
                     </div>
                 </div>

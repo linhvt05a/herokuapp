@@ -117,7 +117,7 @@ const InfoShipping = props => {
                             {props.data.floor_or_lot_list ? props.data.floor_or_lot_list.map((data, index) => {
                                 return (
                                     <>
-                                        <tr className="parent" data-parent={`row${index}`}>
+                                        <tr key={index + data.floor_or_lot_name} className="parent" data-parent={`row${index}`}>
                                             <td className="number pl-0">{index + 1}</td>
                                             <td colSpan={4}>
                                                 <div className="floor_selected">
@@ -140,7 +140,7 @@ const InfoShipping = props => {
                                         <tr className={`child child-row${index} ${click.length > 0 ? click[index].status : null}`} >
                                             {data.product_list.map((item) => {
                                                 return (<>
-                                                    <td className="border-bottom-none pl-0" colSpan={2}>
+                                                    <td key={item.product_name} className="border-bottom-none pl-0" colSpan={2}>
                                                         <a href="#" className="uni_text_e94c4c m_border_e94c4c fw-medium number_circle_top pl-3 pr-3 pt-2 pb-2" data-toggle="modal" data-target="#listProfile">
                                                             <u>Hồ sơ bị từ chối</u>
                                                             <small>1</small>

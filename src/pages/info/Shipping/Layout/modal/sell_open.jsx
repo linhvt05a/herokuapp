@@ -10,6 +10,29 @@ const sell_open = props => {
 
         }
     }
+    const renderProductType = (value, index, item) => {
+        return (
+            <tr key={value.product_type_id + index}>
+                <td className={`col-3 pl-0  ${index !== item.list_product_type.length - 1 ? "border-bottom-none" : null} `}></td>
+                <td className="col-3 pl-0">
+                    {ProductType(value.product_type_id)}
+                </td>
+                <td className="col-3 text-center">
+                    <div className="sales_number_selected">
+                        <span className="selected selected_01">{value.agent_expected_number}</span>
+                        <span className="selected selected_02">{value.agent_actual_number ? value.agent_actual_number : "-"}</span>
+                    </div>
+                </td>
+                <td className="col-3 text-center">
+                    <div className="sales_number_selected">
+                        <span className="selected selected_01">{value.internal_expected_number}</span>
+                        <span className="selected selected_02">{value.internal_actual_number ? value.internal_actual_number : "-"}</span>
+                    </div>
+                </td>
+            </tr>
+        )
+    }
+
     return (
         <table style={{ minWidth: `735px` }}>
             <thead>
@@ -24,9 +47,9 @@ const sell_open = props => {
 
                 {props.data.open_sell_detail != null && props.data.open_sell_detail.map((item, index) => {
                     return (
-                        <>
-                            <tr>
-                                <td key={index} className="col-3 pl-0" style={{ width: 33 + "%" }}>
+                        < >
+                            <tr key={item.sell_open_name + index}>
+                                <td className="col-3 pl-0" style={{ width: 33 + "%" }}>
                                     <button readOnly="" type="button" className="border-0 bg_color_6d30ab text-white pl-2 pr-2 min-height-40 d-inline-block">
                                         {item.sell_open_name}
                                     </button>
@@ -49,26 +72,7 @@ const sell_open = props => {
                                 </td>
                             </tr>
                             {item.list_product_type != null && item.list_product_type.map((value, index) => {
-                                return (
-                                    <tr>
-                                        <td className={`col-3 pl-0  ${index != item.list_product_type.length - 1 ? "border-bottom-none" : null} `}></td>
-                                        <td className="col-3 pl-0">
-                                            {ProductType(value.product_type_id)}
-                                        </td>
-                                        <td className="col-3 text-center">
-                                            <div className="sales_number_selected">
-                                                <span className="selected selected_01">{value.agent_expected_number}</span>
-                                                <span className="selected selected_02">{value.agent_actual_number ? value.agent_actual_number : "-"}</span>
-                                            </div>
-                                        </td>
-                                        <td className="col-3 text-center">
-                                            <div className="sales_number_selected">
-                                                <span className="selected selected_01">{value.internal_expected_number}</span>
-                                                <span className="selected selected_02">{value.internal_actual_number ? value.internal_actual_number : "-"}</span>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                )
+                                return renderProductType(value, index, item)
                             })}
                         </>
                     )

@@ -17,10 +17,10 @@ const Content = props => {
                             <span class="label">Theo tầng</span>
                             <div class="form-group mb-0">
                                 <select name="" id="" class="form-control m_select_change js-select2" data-placeholder="-">
-                                    <option value="">-</option>
+                                    <option value="1">-</option>
                                     <option value="2" selected>B6</option>
-                                    <option value="2">Căn hộ</option>
-                                    <option value="2">Shop house</option>
+                                    <option value="3">Căn hộ</option>
+                                    <option value="4">Shop house</option>
                                 </select>
                             </div>
                         </div>
@@ -61,7 +61,7 @@ const Content = props => {
                                 </figure>
                                 <div class="form-group">
                                     <select name="" data-placeholder="-" class="form-control m_select_change js-select2" data-chosen="1">
-                                        <option value=""></option>
+                                        <option value="1"></option>
                                         <option value="2" selected>Tầng B6 đến tầng B1</option>
                                         <option value="2">Tầng B6 đến tầng B2</option>
                                         <option value="2">Tầng B6 đến tầng B3</option>
@@ -81,10 +81,10 @@ const Content = props => {
                             <div class="zone--left border-0">
                                 <div class="form-group">
                                     <select name="" data-placeholder="-" class="form-control m_select_change js-select2" data-chosen="1">
-                                        <option value=""></option>
+                                        <option value="1"></option>
                                         <option value="2">Biệt thự</option>
-                                        <option value="2">Căn hộ</option>
-                                        <option value="2">Shop house</option>
+                                        <option value="3">Căn hộ</option>
+                                        <option value="4">Shop house</option>
                                     </select>
                                 </div>
                                 <figure class="compass"><img src="../../../../../components/images/all/compass.png" alt="" /></figure>
@@ -101,10 +101,10 @@ const Content = props => {
                             <div class="zone--left border-0">
                                 <div class="form-group">
                                     <select name="" data-placeholder="-" class="form-control m_select_change js-select2" data-chosen="1">
-                                        <option value=""></option>
+                                        <option value="1"></option>
                                         <option value="2">Biệt thự</option>
-                                        <option value="2">Căn hộ</option>
-                                        <option value="2">Shop house</option>
+                                        <option value="3">Căn hộ</option>
+                                        <option value="4">Shop house</option>
                                     </select>
                                 </div>
                                 <figure class="compass"><img src="../../../../../components/images/all/compass.png" alt="" /></figure>
@@ -121,10 +121,10 @@ const Content = props => {
                             <div class="zone--left border-0">
                                 <div class="form-group">
                                     <select name="" data-placeholder="-" class="form-control m_select_change js-select2" data-chosen="1">
-                                        <option value=""></option>
+                                        <option value="1"></option>
                                         <option value="2">Biệt thự</option>
-                                        <option value="2">Căn hộ</option>
-                                        <option value="2">Shop house</option>
+                                        <option value="3">Căn hộ</option>
+                                        <option value="4">Shop house</option>
                                     </select>
                                 </div>
                                 <figure class="compass"><img src="../../../../../components/images/all/compass.png" alt="" /></figure>
@@ -141,10 +141,10 @@ const Content = props => {
                             <div class="zone--left border-0">
                                 <div class="form-group">
                                     <select name="" data-placeholder="-" class="form-control m_select_change js-select2" data-chosen="1">
-                                        <option value=""></option>
+                                        <option value="1"></option>
                                         <option value="2">Biệt thự</option>
-                                        <option value="2">Căn hộ</option>
-                                        <option value="2">Shop house</option>
+                                        <option value="3">Căn hộ</option>
+                                        <option value="4">Shop house</option>
                                     </select>
                                 </div>
                                 <figure class="compass"><img src="../../../../../components/images/all/compass.png" alt="" /></figure>
@@ -161,10 +161,10 @@ const Content = props => {
                             <div class="zone--left border-0">
                                 <div class="form-group">
                                     <select name="" data-placeholder="-" class="form-control m_select_change js-select2" data-chosen="1">
-                                        <option value=""></option>
+                                        <option value="1"></option>
                                         <option value="2">Biệt thự</option>
-                                        <option value="2">Căn hộ</option>
-                                        <option value="2">Shop house</option>
+                                        <option value="3">Căn hộ</option>
+                                        <option value="4">Shop house</option>
                                     </select>
                                 </div>
                                 <figure class="compass"><img src="../../../../../components/images/all/compass.png" alt="" /></figure>
