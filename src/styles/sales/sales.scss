@@ -2711,10 +2711,10 @@ input[type="number"] {
 			content: "";
 			width: 35px;
 			height: 35px;
-			// background-image: url(../static/images/circle_white.png);
+			background-image: url('background-image: url(http://superapp.minerva.vn:9210/static/img/circle_white.png)');
 			background-repeat: no-repeat;
 			background-position: top left;
-			z-index: 3; 
+			z-index: 3;
 		}
 		&::before{
 			left: 0;
@@ -3358,7 +3358,7 @@ input[type="number"] {
 		width: 200px;
 		padding: 15px;
 		margin:0 5px 5px 5px;
-		box-shadow: 0 0 5px 0 rgba(206, 206, 206, 0.5);
+		// box-shadow: 0 0 5px 0 rgba(206, 206, 206, 0.5);
 		background-color: #ffffff;
 		transition: all 0.3s ease;
 		cursor: pointer;

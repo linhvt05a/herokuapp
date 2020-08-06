@@ -155,17 +155,26 @@
 .sales_status_style02_02_bg {
   background-color: #f06464 !important;
 }
+.sales_status_style02_03_bg {
+  background-color: #67a0f5 !important;
+}
 .sales_status_style02_01_text {
   color: #9155ce;
 }
 .sales_status_style02_02_text {
   color: #f06464;
 }
+.sales_status_style02_03_text {
+  color: #67a0f5;
+}
 .sales_status_style02_01_border {
   border: 2px solid #9155ce;
 }
 .sales_status_style02_02_border {
   border: 2px solid #f06464;
+}
+.sales_status_style02_03_border {
+  border: 2px solid #67a0f5;
 }
 
 .sales_color_bg_01 {
@@ -6726,7 +6735,7 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
   content: "";
   width: 35px;
   height: 35px;
-  /* background-image: url(../../images/all/circle_white.png); */
+  background-image: url(../../images/all/circle_white.png);
   background-repeat: no-repeat;
   background-position: top left;
   z-index: 3;

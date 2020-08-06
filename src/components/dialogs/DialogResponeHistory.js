@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { CardHeader } from "../common";
-
+import {Modal} from 'react-bootstrap'
 const data = [
   {
     id: 1,
@@ -54,10 +54,10 @@ const data = [
 
 const DialogResponeHistory = (props) => {
     const[showReplyForm, setshowReplyForm] = useState(false)
-  if (props.showPopUp === true) {
+  
     return (
-      <div className="popup">
-        <div
+     <Modal show ={props.showPopUp} onHide = {props.close}>
+      <div
           className="modal fade show"
           style={{ display: "block", paddingRight: 15 }}
         >
@@ -104,12 +104,11 @@ const DialogResponeHistory = (props) => {
             </div>
           </div>
         </div>
-      </div>
+
+     </Modal>
+
     );
-  } else {
-    return <></>;
   }
-};
 
 function ShowFormReply (props){
     if(props.showReplyForm === true){

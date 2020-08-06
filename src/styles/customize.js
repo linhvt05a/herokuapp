@@ -1,9 +1,12 @@
 //css
-import './css/main.css';
-import './css/login.css';
-import './css/map.css';
-import './css/PageNotify.css';
+import './main/main.css';
 
 //scss
-import './scss/sales.scss';
+import './sales/sales.scss';
+import './distribution/distribution.scss';
+import './distribution/login.scss';
+import './distribution/map.scss';
+
+//antd customize
+import './antd/select.scss';
 
