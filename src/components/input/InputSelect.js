@@ -123,36 +123,30 @@ class InputSelect extends Component {
     render() {
         const { t } = this.props;
         return (
-            <div className={this.props.className ? this.props.className : ''} style={this.props.style}>
+            <div className={className ? className : ''}>
                 <div className="form-group">
                     {
-                        this.props.label &&
-                        <label className={this.props.classLabel ? this.props.classLabel : "fw-medium"} >
-                            {t(this.props.label)}
-                            {
-                                this.props.required &&
-                                <span className="uni_star_e94c4c"> *</span>
-                            }
+                        label &&
+                        <label className="fw-medium">
+                            <Trans>{label}</Trans>
                         </label>
                     }
                     <Select
-                        isDisabled={this.props.disabled ? this.props.disabled : false}
-                        onChange={this.handleChange}
-                        value={this.props.value}
-                        options={this.props.options}
-                        styles={this.props.style ? this.props.style : customStyles}
-                        placeholder={t(this.props.placeholder)}
-                        isMulti={this.props.isMulti}
-                    />
-                    {(!this.props.disabled && this.props.submitted && this.props.required && this.props.value.value === "") &&
-                        <ul className="parsley-errors-list filled">
-                            <li className="parsley-required"><Trans i18nKey="Missing">{{ value: t(this.props.label) }}</Trans></li>
-                        </ul>}
+                        showSearch
+                        value={value}
+                        className="form-control"
+                        placeholder={placeholder}
+                        onChange={onChange}>
+                        {
+                            datas && datas.map((item, key) => {
+                                <Option className="abc" value={item.value} key={key}>{item.label}</Option>
+                            })
+                        }
+                    </Select>
                 </div>
             </div>
         )
     }
-}
 
-export default withTranslation()(InputSelect);
+    export default InputSelect;
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import ProductInfo from '../../Layout/ProductInfo';
 import CardWrapper from './Layout/CardWrapper';
-// import ContractFinish from './Layout/Finish/ContractFinish';
+import ContractFinish from './Layout/Finish/ContractFinish';
 
 const Finish = () => {
     return (
