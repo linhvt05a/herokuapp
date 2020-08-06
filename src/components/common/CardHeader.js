@@ -4,6 +4,7 @@ import { Select } from 'antd';
 
 
 const CardHeader = props => {
+    console.log("props", props);
     return (
         <div className={props.classHeading ? props.classHeading : "m_heading"}>
             <button className="m_button no-event">

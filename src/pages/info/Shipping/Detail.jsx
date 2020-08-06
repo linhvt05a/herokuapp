@@ -49,6 +49,7 @@ const Edit = props => {
                     <Item.Detail_info data={data.Detail} />
                 </div>
                 <div style={{ paddingRight: 0 }} className="col-xl-6 col-lg-6 col-md-12 col-sm-12 d-flex flex-column">
+                    <Title label="THỐNG KÊ CÁC ĐỢT MỞ BÁN" />
                     <Item.Detail_progress data={data.Detail} dataSellOpen={data.Sell_Open} />
                 </div>
             </div>
