@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Pagination } from '../../../components/common';
 
 const CardProjectList = (props) => {
-    const { updateLocation, projectListSuccess, projectListRes, page, totalPage, totalRecord } = props;
+    const { updateLocation, projectListSuccess, projectListRes, page, totalPage, totalRecord, onItemClick } = props;
 
     const changePage = (value) => {
         var params = page
@@ -33,7 +33,7 @@ const CardProjectList = (props) => {
                                 <tbody style={{maxHeight: "250px"}}>
                                 {
                                     projectListRes && projectListRes.map((item, index) => (
-                                        <RowProject key={index} data={item} serial={index + 1} />
+                                        <RowProject key={index} data={item} serial={index + 1} onItemClick={onItemClick} index={index} />
                                     ))
                                 }
                                 </tbody>
@@ -50,8 +50,14 @@ const CardProjectList = (props) => {
 }
 
 const RowProject = (props) => {
+    const { index, onItemClick } = props
+
+    const onClick = () => {
+        onItemClick(index)
+    }
+
     return (
-        <tr>
+        <tr onClick={onClick}>
             <td style={{width: "30%"}} className="col-1 pl-0">{props.serial}</td>
             <td className="col-2"><span className="fw-medium" style={{color: "#6d30ab"}}><a><u>{props.data.project_name}</u></a></span></td>
             <td className="col-2">
