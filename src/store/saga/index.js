@@ -7,6 +7,7 @@ import {
   currencyAddWatcher
 } from './currencySaga';
 
+import {approveListHistory} from './approveList'
 import {
   shippingDetailWatcher,
   shippingListlWatcher,
@@ -42,6 +43,7 @@ function* allSaga() {
     statusListWatcher(),
     projectListWatcher(),
     projectDetailWatcher(),
+    approveListHistory()
   ]);
 }
 

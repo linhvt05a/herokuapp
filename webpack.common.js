@@ -4,7 +4,11 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-    entry: './src/index.js',
+    // entry: './src/index.js',
+    entry: {
+        libs: './src/index.js',
+        m_customize: './src/styles/customize.js'
+    },
     module: {
         rules: [
             {
@@ -37,9 +41,9 @@ module.exports = {
                 use: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
                     use: [
-                        { loader: 'css-loader'},
+                        {loader: 'css-loader'},
                     ],
-                    
+
                 })
             },
             {
@@ -47,7 +51,7 @@ module.exports = {
                 use: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
                     use: [
-                        { loader: 'css-loader'},
+                        {loader: 'css-loader'},
                         'sass-loader'
                     ],
                 })
@@ -64,7 +68,7 @@ module.exports = {
     },
     plugins: [
         new ExtractTextPlugin({
-            filename: 'all.css',
+            filename: '[name].css',
         }),
         new webpack.HotModuleReplacementPlugin(),
         new HtmlWebpackPlugin(

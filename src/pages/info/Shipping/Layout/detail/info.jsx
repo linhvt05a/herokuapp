@@ -1,6 +1,7 @@
 import React from 'react';
 import Title from "../../../../../components/common/CardHeader"
-import moment from "moment"
+import moment from "moment";
+import { SliderImage } from '../../../../../components/common';
 
 const info = props => {
     let { data } = props;
@@ -9,22 +10,13 @@ const info = props => {
             <div className="card-body">
                 <div className="row h-100">
                     <div className="col-12 col-sm-12 col-md-12 col-xl-5">
-                        <div className="m_slider w-100">
-                            <div className="slider slider-single">
-                                {data.image_list && data.image_list.length > 0 ?
-                                    data.image_list.map((image, index) => {
-                                        return (
-                                            <figure key={index}><img src={image.project_image_url} alt="" /></figure>
-                                        )
-                                    })
-                                    :
-                                    <figure><img src="https://via.placeholder.com/280x270" alt="" /></figure>
-                                }
-                                <figure><img src={data.project_avatar_url} alt="" /></figure>
-
-                            </div>
-
-                        </div>
+                        {data.image_list && data.image_list.length > 0 ?
+                            <SliderImage className="m_slider w-100" datas={data.image_list} />
+                            :
+                            <figure className="image default_image_minerva">
+                                <img src='http://superapp.minerva.vn:9210/static/img/default_image_minerva.png' alt="Minerva"/>
+                            </figure>
+                        }
                     </div>
                     <div className="col-12 col-sm-12 col-md-12 col-xl-7 content-right-info-project">
                         <div className="row m_grid--list_project">

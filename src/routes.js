@@ -29,7 +29,7 @@ const MAINS = [
     { "path": "/system/currency", "value": System.PageCurrency, "menu": "menu_system_currency", "title": "menu_system_currency" },
     { "path": "/system/currency/add", "value": System.PageCurrencyAdd, "menu": "menu_system_currency", "title": "Add" },
     { "path": "/system/currency/edit/:id", "value": System.PageCurrencyEdit, "menu": "menu_system_currency", "title": "Update" },
-    
+
     { "path": "/product_card/new_contract/customer_info", "value": ProductCart.CustomerInfo, "menu": "menu_product_cart_customer_info", "title": "" },
     { "path": "/product_card/new_contract/discount_option", "value": ProductCart.DiscountOption, "menu": "menu_product_cart_customer_info", "title": "" },
     { "path": "/product_card/new_contract/payment", "value": ProductCart.Payment, "menu": "menu_product_cart_customer_info", "title": "" },
@@ -48,7 +48,7 @@ const MAINS = [
     { "path": "/perm/internal/detail/:id", "value": Perm.PagePermInternalDetail, "menu": "menu_perm_task_by_departments", "title": "Update" },
     //shipping
     { "path": "/info/shipping", "value": Info.Home, "menu": "menu_shipping_cart_list_title", "title": "menu_shipping_cart_list_title" },
-    { "path": "/info/shipping/edit/:id", "value": Info.Edit, "menu": "menu_perm_task_by_projects", "title": "Add" },
+    { "path": "/info/shipping/edit/:id", "value": Info.Edit, "menu": "menu_shipping_cart_list_title", "title": "Detail" },
 ]
 
 var PATHS = {};

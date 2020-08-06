@@ -32,7 +32,6 @@ export default (state = initialState, action) => {
                 success: false
             };
         case actions.LOAD_LIST_SUCCESS:
-            console.log(action);
             return {
                 ...state,
                 List: action.response.detail,
@@ -57,7 +56,6 @@ export default (state = initialState, action) => {
                 success: false
             }
         case actions.LOAD_SELL_OPEN_LIST_SUCCESS:
-            console.log("chay", action)
             return {
                 ...state,
                 Sell_Open_Floor: action.response.detail,
@@ -82,7 +80,7 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 isFetching: false,
-                error: action.response.err,
+                // error: action.response.err,
                 success: false
             }
         default:

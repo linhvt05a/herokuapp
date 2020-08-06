@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Trans } from 'react-i18next';
 
 import { projectListRequest } from '../../../store/action/dashboard';
@@ -6,20 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Pagination } from '../../../components/common';
 
 const CardProjectList = (props) => {
-    const { token, updateLocation, region, province, type, status } = props;
-    const dispatch = useDispatch();
-    const res = useSelector(state => state.dashboard);
-    console.log("data", res)
-
-    useEffect(() => {
-        dispatch(projectListRequest({ token }));
-    }, []);
-
-    const projectListSuccess = res.projectList.success;
-    const projectListRes = projectListSuccess ? res.projectList.detail : null;
-    const page = projectListSuccess ? res.projectList.page : null;
-    const totalPage = projectListSuccess ? res.projectList.total_page : null;
-    const totalRecord = projectListSuccess ? res.projectList.total_record : null;
+    const { updateLocation, projectListSuccess, projectListRes, page, totalPage, totalRecord, onItemClick } = props;
 
     const changePage = (value) => {
         var params = page
@@ -46,7 +33,7 @@ const CardProjectList = (props) => {
                                 <tbody style={{maxHeight: "250px"}}>
                                 {
                                     projectListRes && projectListRes.map((item, index) => (
-                                        <RowProject key={index} data={item} serial={index + 1} />
+                                        <RowProject key={index} data={item} serial={index + 1} onItemClick={onItemClick} index={index} />
                                     ))
                                 }
                                 </tbody>
@@ -63,8 +50,14 @@ const CardProjectList = (props) => {
 }
 
 const RowProject = (props) => {
+    const { index, onItemClick } = props
+
+    const onClick = () => {
+        onItemClick(index)
+    }
+
     return (
-        <tr>
+        <tr onClick={onClick}>
             <td style={{width: "30%"}} className="col-1 pl-0">{props.serial}</td>
             <td className="col-2"><span className="fw-medium" style={{color: "#6d30ab"}}><a><u>{props.data.project_name}</u></a></span></td>
             <td className="col-2">

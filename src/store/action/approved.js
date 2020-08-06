@@ -5,17 +5,18 @@ import {
     APPROVED_LIST_REQUEST
 } from '../actionType/approved'
 
-export const approvedListFailure = (approve) => ({
-    type: APPROVED_LIST_FAILURE,
-    approve,
-  });
+export const approvedListRequest = (approveList) => ({
+  type: APPROVED_LIST_REQUEST,
+  approveList,
+});
 
-  export const approvedListSuccess = (approve) => ({
+export const approvedListSuccess = (approveList) => ({
     type: APPROVED_LIST_SUCCESS,
-    approve,
+    approveList,
   });
 
-  export const approvedListRequest = (approve) => ({
-    type: APPROVED_LIST_REQUEST,
-    approve,
+  
+export const approvedListFailure = (approveList) => ({
+    type: APPROVED_LIST_FAILURE,
+    approveList,
   });

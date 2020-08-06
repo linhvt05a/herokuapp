@@ -18,7 +18,7 @@ const TabInvestor = (props) => {
                         <div className="col-4">
                             {/* <a href="javascript:void(0)" class="float-right link_href_6d30ab" style="font-style: italic;" ref="view_project_investor_history" data-href="/backend/project/list_project_history_investor/">
                             </a> */}
-                            <a href="javascript:void(0)" className="float-right link_href_6d30ab">
+                            <a href="#" className="float-right link_href_6d30ab">
                             </a>
                         </div>
                     </div>

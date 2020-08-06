@@ -16,7 +16,7 @@ import {
     projectDetailRequest,  
     projectEditRequest,
 } from './project';
-
+import {approvedListRequest} from './approved'
 export { 
     currentcyAddRequest, 
     currentcyDetailRequest, 
@@ -32,4 +32,6 @@ export {
     projectAddRequest, 
     projectDetailRequest, 
     projectEditRequest,
+    
+    approvedListRequest
 };
