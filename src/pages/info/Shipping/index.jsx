@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Item from "./Layout";
 import { useDispatch, useSelector } from "react-redux";
 import actions from "../../../store/action/shipping";
-import CardProduct from "../../../components/Card/CardProduct"
+import ListProduct from "../../../components/Card/ListProduct"
 
 const Shipping = props => {
     const dispatch = useDispatch();
@@ -43,7 +43,7 @@ const Shipping = props => {
                         datas={dataSelect}
                         label={"Trạng Thái Dự Án"}
                         SEARCH={value => SEARCH(value)} />
-                    <CardProduct
+                    <ListProduct
                         dataFilter={dataType}
                         data={dataShipping}
                     />

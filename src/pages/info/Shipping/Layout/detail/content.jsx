@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import _ from "lodash"
+import _ from "lodash";
+import Map from "../modal/Map";
+import { Select } from "antd"
 
 const Content = props => {
-
+    const { Option } = Select
+    const [state, setState] = useState([])
     useEffect(() => {
         let arr = _.groupBy(props.data.floor_or_lot_list, (item) => (item.floor_or_lot_name))
-        console.log(arr);
+        setState(arr)
     }, [props.data.floor_or_lot_list])
     return (
         <div class="card square h-100">
@@ -16,12 +19,21 @@ const Content = props => {
                         <div class="area">
                             <span class="label">Theo tầng</span>
                             <div class="form-group mb-0">
-                                <select name="" id="" class="form-control m_select_change js-select2" data-placeholder="-">
+                                <Select
+                                    defaultValue={{ value: '2' }}
+                                    labelInValue
+                                >
+                                    <Select.Option value="1">-</Select.Option>
+                                    <Select.Option value="2">B6</Select.Option>
+                                    <Select.Option value="3">Căn hộ</Select.Option>
+                                    <Select.Option value="4">Shop house</Select.Option>
+                                </Select>
+                                {/* <select name="" id="" class="form-control m_select_change js-select2" data-placeholder="-">
                                     <option value="1">-</option>
                                     <option value="2" selected>B6</option>
                                     <option value="3">Căn hộ</option>
                                     <option value="4">Shop house</option>
-                                </select>
+                                </select> */}
                             </div>
                         </div>
                         <button type="submit" class="min-width-button min-height-40 btn-uni-purple ml-md-auto ml-0 mr-5">Cập nhật</button>
@@ -57,15 +69,28 @@ const Content = props => {
                         <div class="zone--wrap">
                             <div class="zone--left border-0">
                                 <figure class="map">
-                                    <img src="../components/images/all/block-f-tang-15-tret.png" alt="" />
+                                    <Map data={state} />
                                 </figure>
                                 <div class="form-group">
-                                    <select name="" data-placeholder="-" class="form-control m_select_change js-select2" data-chosen="1">
+                                    <Select
+                                        style={{ backgroundColor: "red", borderWidth: `1px`, padding: 0 }}
+                                        defaultActiveFirstOption
+                                        defaultValue={{ value: '1' }}
+                                        labelInValue
+                                        showArrow={false}
+                                    >
+                                        <Select.Option value="1">Tầng B6 đến tầng B4</Select.Option>
+                                        <Select.Option value="2">Tầng B6 đến tầng B1</Select.Option>
+                                        <Select.Option value="3">Tầng B6 đến tầng B2</Select.Option>
+                                        <Select.Option value="4">Tầng B6 đến tầng B3</Select.Option>
+                                    </Select>
+
+                                    {/* <select name="" data-placeholder="-" class="form-control m_select_change js-select2" data-chosen="1">
                                         <option value="1"></option>
                                         <option value="2" selected>Tầng B6 đến tầng B1</option>
                                         <option value="2">Tầng B6 đến tầng B2</option>
                                         <option value="2">Tầng B6 đến tầng B3</option>
-                                    </select>
+                                    </select> */}
                                 </div>
                                 <figure class="compass"><img src="../../../../../components/images/all/compass.png" alt="" /></figure>
                                 <div class="actions">
@@ -76,106 +101,7 @@ const Content = props => {
                             </div>
                         </div>
                     </div>
-                    <div class="tab-pane fade" id="zone_02">
-                        <div class="zone--wrap">
-                            <div class="zone--left border-0">
-                                <div class="form-group">
-                                    <select name="" data-placeholder="-" class="form-control m_select_change js-select2" data-chosen="1">
-                                        <option value="1"></option>
-                                        <option value="2">Biệt thự</option>
-                                        <option value="3">Căn hộ</option>
-                                        <option value="4">Shop house</option>
-                                    </select>
-                                </div>
-                                <figure class="compass"><img src="../../../../../components/images/all/compass.png" alt="" /></figure>
-                                <div class="actions">
-                                    <a href="#"><i class="icon las la-arrows-alt"></i></a>
-                                    <a href="#"><i class="icon las la-plus"></i></a>
-                                    <a href="#"><i class="icon las la-minus"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="zone_03">
-                        <div class="zone--wrap">
-                            <div class="zone--left border-0">
-                                <div class="form-group">
-                                    <select name="" data-placeholder="-" class="form-control m_select_change js-select2" data-chosen="1">
-                                        <option value="1"></option>
-                                        <option value="2">Biệt thự</option>
-                                        <option value="3">Căn hộ</option>
-                                        <option value="4">Shop house</option>
-                                    </select>
-                                </div>
-                                <figure class="compass"><img src="../../../../../components/images/all/compass.png" alt="" /></figure>
-                                <div class="actions">
-                                    <a href="#"><i class="icon las la-arrows-alt"></i></a>
-                                    <a href="#"><i class="icon las la-plus"></i></a>
-                                    <a href="#"><i class="icon las la-minus"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="zone_04">
-                        <div class="zone--wrap">
-                            <div class="zone--left border-0">
-                                <div class="form-group">
-                                    <select name="" data-placeholder="-" class="form-control m_select_change js-select2" data-chosen="1">
-                                        <option value="1"></option>
-                                        <option value="2">Biệt thự</option>
-                                        <option value="3">Căn hộ</option>
-                                        <option value="4">Shop house</option>
-                                    </select>
-                                </div>
-                                <figure class="compass"><img src="../../../../../components/images/all/compass.png" alt="" /></figure>
-                                <div class="actions">
-                                    <a href="#"><i class="icon las la-arrows-alt"></i></a>
-                                    <a href="#"><i class="icon las la-plus"></i></a>
-                                    <a href="#"><i class="icon las la-minus"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="zone_05">
-                        <div class="zone--wrap">
-                            <div class="zone--left border-0">
-                                <div class="form-group">
-                                    <select name="" data-placeholder="-" class="form-control m_select_change js-select2" data-chosen="1">
-                                        <option value="1"></option>
-                                        <option value="2">Biệt thự</option>
-                                        <option value="3">Căn hộ</option>
-                                        <option value="4">Shop house</option>
-                                    </select>
-                                </div>
-                                <figure class="compass"><img src="../../../../../components/images/all/compass.png" alt="" /></figure>
-                                <div class="actions">
-                                    <a href="#"><i class="icon las la-arrows-alt"></i></a>
-                                    <a href="#"><i class="icon las la-plus"></i></a>
-                                    <a href="#"><i class="icon las la-minus"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="zone_06">
-                        <div class="zone--wrap">
-                            <div class="zone--left border-0">
-                                <div class="form-group">
-                                    <select name="" data-placeholder="-" class="form-control m_select_change js-select2" data-chosen="1">
-                                        <option value="1"></option>
-                                        <option value="2">Biệt thự</option>
-                                        <option value="3">Căn hộ</option>
-                                        <option value="4">Shop house</option>
-                                    </select>
-                                </div>
-                                <figure class="compass"><img src="../../../../../components/images/all/compass.png" alt="" /></figure>
-                                <div class="actions">
-                                    <a href="#"><i class="icon las la-arrows-alt"></i></a>
-                                    <a href="#"><i class="icon las la-plus"></i></a>
-                                    <a href="#"><i class="icon las la-minus"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
 
             </div>

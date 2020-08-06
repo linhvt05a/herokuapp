@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withTranslation, Trans } from 'react-i18next';
 import Select from 'react-select';
-
+import Validate from "validator"
 const customStyles = {
     control: (base, state) => ({
         ...base,
@@ -111,7 +111,7 @@ class InputSelect extends Component {
         const { t } = this.props;
         var options = this.props.options
         var result = []
-        for (var i = 0; i < options.length; i++) {
+        for (var i = 0;i < options.length;i++) {
             var label = t(options[i].label)
             result.push({
                 value: options[i].value,

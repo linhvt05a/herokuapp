@@ -1,7 +1,7 @@
 import React from 'react';
 import Pagination from "../common/Pagination"
 import { Link } from "react-router-dom";
-import CardProductDetail from "./CardProductDetail"
+import ListProductDetail from "./ListProductDetail"
 const body = props => {
     let { dataFilter, data } = props;
     return (
@@ -35,7 +35,7 @@ const body = props => {
             <div className="m_grid m_grid--list_project">
                 <div className="row">
                     {data.List.length > 0 ? data.List.map((item, index) => {
-                        return <CardProductDetail item={item} index={index} key={index} />
+                        return <ListProductDetail item={item} index={index} key={index} />
                     }) : null}
                 </div >
             </div >
