@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Trans } from "react-i18next";
 import Modal from "react-bootstrap/Modal";
 import { CardHeader } from "../common";
-import { permissions } from "../../constant";
 import { InputSelect, InputText, InputCheckBox } from "../../components/input";
 import PropTypes from 'prop-types';
 const data = [
@@ -53,10 +52,17 @@ const data = [
     },
 ];
 const DialogSalePromotion = (props) => {
+    const request = [
+        { value: 1, label: "Yêu cầu thay đổi chiết khấu hoa hồng cho kênh phân phối " },
+        { value: 2, label: "Yêu cầu quy đổi khuyến mãi cho khách hàng" },
+        { value: 3, label: "Khác" }
+    ]
+
+    console.log(props);
     return (
         <Modal
             show={props.active}
-            onHide={() => props.onClick()}
+            onHide={() => props.close()}
         >
             <div className="modal fade show" style={{ paddingRight: 15, display: "block" }}  >
                 <div className="modal-dialog center" role="document" style={{ maxWidth: 1175 }} >
@@ -68,14 +74,12 @@ const DialogSalePromotion = (props) => {
                         </i>
                             <div className="uni_text_6d30ab fw-medium fs-18 mt-2 mb-2">YÊU CẦU </div>
                             <div className="row">
-                                <div className="col-12 col-md-8">
-                                    <div className="form-group">
-                                        <InputSelect label="Loại yêu cầu" required />
-                                    </div>
-                                </div>
+                                {/* <div className="col-12 col-md-8"> */}
+                                <InputSelect className="col-12 col-md-8" label="Loại yêu cầu" datas={request} placeholder="Danh sách yêu cầu" />
+                                {/* </div> */}
                                 <div className="col-12 col-md-4">
                                     <div className="form-group">
-                                        <InputText type="text" label="Sản phẩm" disabled />
+                                        <InputText type="text" label={props.value.product_name} disabled />
                                     </div>
                                 </div>
                             </div>
@@ -143,7 +147,7 @@ const DialogSalePromotion = (props) => {
                                 <textarea name="" placeholder="Nhập lý do " className="form-control" id="" cols="30" rows="4"></textarea>
                             </div>
                             <div className=" pt-0 pb-4 border-0 mt-4 text-right" >
-                                <button type="button" className="min-width-button min-height-40 btn-uni-exit btn-uni-exit-modal" data-dismiss="modal" aria-label="Close" onClick={props.onClick} style={{ marginRight: 20 }} >
+                                <button type="button" className="min-width-button min-height-40 btn-uni-exit btn-uni-exit-modal" data-dismiss="modal" aria-label="Close" onClick={props.close} style={{ marginRight: 20 }} >
                                     Close
                             </button>
                                 <button type="submit" className="min-width-button min-height-40 btn-uni-purple">

@@ -16,10 +16,13 @@ const Cart = props => {
 
     useEffect(() => {
         dispatch(actions.LoadList({ token: token }))
-        // dispatch(actions.LoadProjectStatus({ token: token }))
+        dispatch(actions.LoadProjectStatus({ token: token }))
     }, [])
     const dataCart = useSelector(state => state.cart)
-
+    const create_Filter_Project_Status = (value, label) => {
+        return { value, label }
+    }
+    console.log(dataCart.Filter_Project_Area);
     let dataSelect = [
         { href: "#", value: "1", label: "Mới" },
         { href: "#", value: "2", label: "Đang chờ" },
