@@ -22,7 +22,7 @@ const CustomerInfoForm = (props) => {
                     <div className="d-flex align-items-center flex-wrap mb-2 mt-4">
                         <div className="text-uppercase uni_text_6d30ab fw-medium fs-18 mr-5">
                             Thông tin khách hàng
-                    </div>
+                        </div>
                         <div className="d-flex flex-wrap mt-2 mt-md-0 mb-2 mb-md-0">
                             <Radio.Group onChange={onChangeTypeCustomer} value={typeCustomer}>
                                 <Radio className="checkbox-custom-dummy" value={0}>Khách hàng mới</Radio>
