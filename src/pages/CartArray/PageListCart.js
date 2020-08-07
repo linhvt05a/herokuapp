@@ -38,7 +38,6 @@ const PageListCart = (props) =>{
     return (
        <> 
         <CardInfo />
-<<<<<<< HEAD
          <CardApprovedHistory 
             approveSuccess={approveSuccess} 
             isFetching={isFetching} 
@@ -46,10 +45,6 @@ const PageListCart = (props) =>{
             handleClick ={handleClick}
         />
         <DialogResponeHistory showPopUp={showPopUp} close ={()=>setShowPopUp(false)} list_comment ={list_comment}/>
-=======
-        <CardApprovedHistory data={data} handleClick ={handleClick}/>
-        <DialogResponeHistory showPopUp={showPopUp} close ={()=>setShowPopUp(false)}/>
->>>>>>> develop
        </>
     )
 }

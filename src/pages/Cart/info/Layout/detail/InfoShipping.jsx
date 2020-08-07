@@ -4,6 +4,7 @@ import { product_type_id, product_status } from "../../../../../constant";
 import { Trans } from 'react-i18next';
 import { InputSelect } from "../../../../../components/input";
 import DialogSalePromotion from "../../../../../components/dialogs/DialogSalePromotion"
+import { Link } from 'react-router-dom';
 
 const InfoShipping = props => {
     const [click, setClick] = useState([]);
@@ -71,7 +72,8 @@ const InfoShipping = props => {
                 <a className="dropdown-item" data-toggle="modal" data-target="#createRequest" onClick={() => setShow({ ...show, Show_request: true })}>
                     <i className="icon-dropdown las la-question-circle" /><Trans>Create a request</Trans></a>
                 <a className="dropdown-item" onClick={() => setShow({ ...show, Show_requirements: true })} >
-                    <i className="icon-dropdown las la-list-alt" /><Trans>See requirements</Trans></a>
+                    <i className="icon-dropdown las la-list-alt" />
+                    <Link to= "/perm/project"><Trans>See requirements</Trans></Link></a>
                 <a className="dropdown-item" onClick={() => setShow({ ...show, Show_contract: true })}>
                     <i className="icon-dropdown las la-plus-square" /><Trans>Create a contract</Trans></a>
                 <a className="dropdown-item" onClick={() => setShow({ ...show, Show_return: true })} >
