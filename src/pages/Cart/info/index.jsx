@@ -22,7 +22,6 @@ const Cart = props => {
     const create_Filter_Project_Status = (value, label) => {
         return { value, label }
     }
-    console.log(dataCart.Filter_Project_Area);
     let dataSelect = [
         { href: "#", value: "1", label: "Mới" },
         { href: "#", value: "2", label: "Đang chờ" },
