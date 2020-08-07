@@ -627,5 +627,11 @@
     "Create a request": "Tạo yêu cầu",
     "See requirements": "Xem các yêu cầu",
     "Create a contract": "Tạo hợp đồng",
-    "Request a return": "Yêu cầu trả lại"
+    "Request a return": "Yêu cầu trả lại",
+    "Choose block": "Chọn Khối",
+    "Choose area": "Chọn Khu",
+    "Choose floor or lot": "Chọn Tầng / Lô",
+    "Basket details": "Chi Tiết Rổ Hàng",
+    "LIST OF AREAS": "Danh sách khu vực",
+    "STATISTICS OF OPEN SALE": "THỐNG KÊ CÁC ĐỢT MỞ BÁN"
 }

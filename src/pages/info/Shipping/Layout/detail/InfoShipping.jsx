@@ -181,7 +181,7 @@ const InfoShipping = props => {
                         <div className="form-group">
                             <label className="invisible d-md-block d-none">button</label>
                             <button type="submit" className="min-width-button btn-uni-purple min-height-40 ">
-                                Search
+                                <Trans>Search</Trans>
                             </button>
                         </div>
                     </div>

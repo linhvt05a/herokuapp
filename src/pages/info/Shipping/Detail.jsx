@@ -45,20 +45,20 @@ const Edit = props => {
         <div className="container-fluid">
             <div className="row mt-3">
                 <div className="col-xl-6 col-lg-6 col-md-12 col-sm-12 d-flex flex-column">
-                    <Title label="Thông tin dự án" />
+                    <Title label="PROJECT INFORMATION" />
                     <Item.Detail_info data={data.Detail} />
                 </div>
                 <div className="col-xl-6 col-lg-6 col-md-12 col-sm-12 d-flex flex-column">
-                    <Title label="THỐNG KÊ CÁC ĐỢT MỞ BÁN" />
+                    <Title label="STATISTICS OF OPEN SALE" />
                     <Item.Detail_progress data={data.Detail} dataSellOpen={data.Sell_Open} />
                 </div>
             </div>
             <div>
-                <Title label="DANH SÁCH CÁC KHU" dropdown={{ title: "Tất cả khu", data: contentDropdown }} />
+                <Title label="LIST OF AREAS" dropdown={{ title: "Tất cả khu", data: contentDropdown }} />
                 <Item.Detail_content data={data.Sell_Open_Floor} />
             </div>
             <div>
-                <Title label="CHI TIẾT RỔ HÀNG" dropdown={{ title: "Đợt 1", data: contentDropdown }} />
+                <Title label="Basket details" dropdown={{ title: "Đợt 1", data: contentDropdown }} />
                 <Item.Detail_InfoShipping data={data.Sell_Open_Floor} dropdown={{ title: "Đợt 1", data: contentDropdown }} />
             </div>
         </div>
