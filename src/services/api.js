@@ -14,8 +14,8 @@ export default {
     EDIT_USER_INFO: '/api/v1/user/info/edit',
     PASSWORD_CHANGE: '/api/v1/user/info/password/change',
 
-    HISTORY_APPROVED : '/api/be/v1/approval/',
-    LIST_COMMENT :'/api/be/v1/approval/comment/',
+    HISTORY_APPROVED: '/api/be/v1/approval/',
+    LIST_COMMENT: '/api/be/v1/approval/comment/',
 
     DASHBOARD_REGION_LIST: '/api/fe/v1/region',
     DASHBOARD_PROVINCE_LIST: '/api/fe/v1/province',
@@ -73,12 +73,18 @@ export default {
     PERMISSION_PROJECT_EDIT: '/api/v1/permission_task/project_task/edit/',
     PERMISSION_PROJECT_LAYOUT: '/api/v1/permission_task/project_task/layout/',
 
-    //Shipping
-    SHIPPING_LIST: "/api/be/v1/project/",
-    SHIPPING_DETAIL: "/api/be/v1/project/detail/",
-    SHIPPING_SELL_OPEN: "/api/be/v1/sell_open/",
-    SHIPPING_SELL_OPEN_LIST: "/api/be/v1/sell_open/product_list/",
-    SHIPPING_CART: "/api/be/v1/distribution/add_request/shopping_cart/",
+    //CART
+    CART_LIST: "/api/be/v1/project/",
+    CART_DETAIL: "/api/be/v1/project/detail/",
+    CART_SELL_OPEN: "/api/be/v1/sell_open/",
+    CART_SELL_OPEN_LIST: "/api/be/v1/sell_open/product_list/",
+    CART_CART: "/api/be/v1/distribution/add_request/shopping_cart/",
+
+    //filter dropdown
+    FILTER_AREA: "/api/be/v1/infrastructure/area/list_short/",
+    FILTER_BLOCK: "/api/be/v1/infrastructure/block/list_short/",
+    FILTER_FLOOR: "/api/be/v1/infrastructure/floor_or_lot/list_short/",
+    FILTER_PROJECT_STATUS: "/api/be/v1/common/project/status",
 
     //Product
     PRODUCT_DETAIL: "/api/be/v1/infrastructure/product/detail/",

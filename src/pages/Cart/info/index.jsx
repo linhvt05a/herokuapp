@@ -2,10 +2,10 @@
 import React, { useState, useEffect } from 'react';
 import Item from "./Layout";
 import { useDispatch, useSelector } from "react-redux";
-import actions from "../../../store/action/shipping";
+import actions from "../../../store/action/cart";
 import ListProduct from "../../../components/Card/ListProduct"
 
-const Shipping = props => {
+const Cart = props => {
     const dispatch = useDispatch();
     const SEARCH = value => {
         alert(`text ${value}`)
@@ -16,8 +16,9 @@ const Shipping = props => {
 
     useEffect(() => {
         dispatch(actions.LoadList({ token: token }))
+        // dispatch(actions.LoadProjectStatus({ token: token }))
     }, [])
-    const dataShipping = useSelector(state => state.shipping)
+    const dataCart = useSelector(state => state.cart)
 
     let dataSelect = [
         { href: "#", value: "1", label: "Mới" },
@@ -36,22 +37,21 @@ const Shipping = props => {
     ]
     return (
         <div >
-            {
-                <div>
-                    <Item.title
-                        datas={dataSelect}
-                        label={"Trạng Thái Dự Án"}
-                        SEARCH={value => SEARCH(value)} />
-                    <ListProduct
-                        dataFilter={dataType}
-                        data={dataShipping.List}
-                        page={dataShipping.page}
-                        total_page={6}
-                        total_record={dataShipping.total_record}
-                    />
-                </div>}
-
+            <div>
+                <Item.title
+                    datas={dataSelect}
+                    label={"Trạng Thái Dự Án"}
+                    SEARCH={value => SEARCH(value)} />
+                <ListProduct
+                    dataFilter={dataType}
+                    data={dataCart.List}
+                    page={dataCart.page}
+                    total_page={dataCart.total_page}
+                    total_record={dataCart.total_record}
+                    link_to={`/cart/cart_list/detail/`}
+                />
+            </div>
         </div>
     )
 }
-export default Shipping;
+export default Cart;

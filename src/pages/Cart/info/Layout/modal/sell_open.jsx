@@ -47,13 +47,13 @@ const sell_open = props => {
                 <td colSpan="3" className="col-9 pl-0">
                     <div className="d-flex">
                         <div className="input_date mr-4">
-                            <div className="text_date">From</div>
+                            <div className="text_date"><Trans>from</Trans></div>
                             <div className="m_datepicker form-group mb-0">
                                 <input style={{ backgroundColor: "#ebebeb" }} type="text" className="form-control js-datepicker" placeholder="-" defaultValue={item.sell_open_date} disabled="" />
                             </div>
                         </div>
                         <div className="input_date">
-                            <div className="text_date">To</div>
+                            <div className="text_date"><Trans>to</Trans></div>
                             <div className="m_datepicker form-group mb-0">
                                 <input style={{ backgroundColor: "#ebebeb" }} type="text" className="form-control js-datepicker" placeholder="-" defaultValue={item.sell_end_date} disabled="" />
                             </div>
@@ -67,10 +67,10 @@ const sell_open = props => {
         <table style={{ minWidth: `735px` }}>
             <thead>
                 <tr>
-                    <th className="col-3 pl-0">Sell open</th>
-                    <th className="col-3 pl-0">Project type</th>
-                    <th className="col-3 text-center">Total agent </th>
-                    <th className="col-3 text-center">Total internal</th>
+                    <th className="col-3 pl-0"><Trans>Sell open</Trans></th>
+                    <th className="col-3 pl-0"><Trans>Product</Trans></th>
+                    <th className="col-3 text-center"><Trans>Total agent</Trans></th>
+                    <th className="col-3 text-center" ><Trans>Total internal</Trans></th>
                 </tr>
             </thead>
             <tbody style={{ maxHeight: `300px` }}>
