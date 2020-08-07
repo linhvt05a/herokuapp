@@ -25,7 +25,7 @@ const PageListCart = (props) =>{
     const isErrorComment = product_request.commentList.error
 
     const data = approveSuccess ? product_request.approveList.detail.approvals: null
-    const list_comment = isSuccess ? product_request.commentList.detail : null
+    const list_comment = commentSuccess ? product_request.commentList.detail : null
     
     console.log('----list comment-----' , list_comment)
     console.log('-----list approve----' , data)
@@ -37,7 +37,6 @@ const PageListCart = (props) =>{
     return (
        <>   
         <CardInfo />
-        {isError && props.showToast('error', isError)}
         <CardApprovedHistory data={data} handleClick ={handleClick}/>
         <DialogResponeHistory showPopUp={showPopUp} close ={()=>setShowPopUp(false)}/>
        </>
