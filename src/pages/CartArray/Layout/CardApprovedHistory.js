@@ -1,7 +1,7 @@
 import React, { useState } from "react"
-import { CardHeader, CardNodata } from '../../../components/common'
-import { InputSelect, InputText, InputDate } from '../../../components/input'
-import { DatePicker, Input, Space } from 'antd'
+import {CardHeader, CardNodata} from '../../../components/common'
+import {InputText, InputDate, InputSelect} from '../../../components/input'
+import {DatePicker, Input, Space} from 'antd'
 import moment from 'moment';
 import {request_type, request_status, priority_request} from '../../../constant'
 const dateFormat = 'YYYY/MM/DD';
@@ -21,23 +21,26 @@ const CardApprovedHistory = (props) => {
 const CardFilterApproved = () => {
     return (
         <div className="col-xl-3 col-lg-3 col-md-12 col-sm-12">
-             <CardHeader label="LỌC LỊCH SỬ PHÊ DUYỆT"/>
-        <div className="card square">
-          <div className="card-body">
-            <div className="form-group">
-                <InputSelect value="" label="LOẠI YÊU CẦU" placeholder="RegionHintText" datas={request_type}/>
+            <CardHeader label="LỌC LỊCH SỬ PHÊ DUYỆT" />
+            <div className="card square">
+                <div className="card-body">
+                    <div className="form-group">
+                        <InputSelect label="LOẠI YÊU CẦU" />
+                    </div>
+                    <div className="form-group">
+                        <label className="fw-medium">Choose Date</label>
+                        <DatePicker defaultValue={moment('01/01/2015', dateFormat)} format={dateFormat} />
+                    </div>
+
+                    <div className="form-group">
+                        <label className="fw-medium">Choose Date</label>
+                        <DatePicker defaultValue={moment('2015/01/01', dateFormat)} format={dateFormat} />
+                    </div>
+                    <InputSelect className="form-group" label="TRẠNG THÁI" />
+                    <InputSelect className="form-group" label="ĐỘ ƯU TIÊN" />
+                    <FilterButton />
+                </div>
             </div>
-            <div className="form-group">
-               
-            </div>
-            <div className="form-group">
-                <InputSelect  label="TRẠNG THÁI" datas={request_status}/>
-            </div>
-            <div className="form-group">
-              <InputSelect  label ="ĐỘ ƯU TIÊN" datas={priority_request}/>
-            </div>
-        </div>
-        </div>
         </div>
 
     )
@@ -114,20 +117,20 @@ const NewestMessage = (props) => {
                     <p className="child">
                         <i className="icon uni_text_6d30ab las la-user" /> Ngày gửi yêu cầu:
                                 <span className="fw-medium">Trưởng phòng sales Công ty Bất Động Sản Thành Công</span>
-                    </p>
-                    <p className="child">
-                        <i className="icon uni_text_6d30ab las la-calendar-check" />Thời gian gửi yêu cầu:
-                                            <span className="fw-medium">17/06/2020 9:30AM</span>
-                    </p>
-                    <p className="child">
-                        <i className="icon uni_text_6d30ab las la-flag" /> Độ ưu tiên:
-                            <span className="fw-medium">Cao (1 - 3 ngày)</span>
-                    </p>
-                    <a href="#" className="uni_text_6d30ab fs-12" onClick={props.handleClick}>
-                        <u> Xem lịch sử phản hồi</u>
-                    </a>
+                        </p>
+                        <p className="child">
+                            <i className="icon uni_text_6d30ab las la-calendar-check" />Thời gian gửi yêu cầu:
+                            <span className="fw-medium">17/06/2020 9:30AM</span>
+                        </p>
+                        <p className="child">
+                            <i className="icon uni_text_6d30ab las la-flag" /> Độ ưu tiên:
+                            <Priority data ={props.data}/>
+                        </p>
+                        <a href="#" className="uni_text_6d30ab fs-12" onClick={props.handleClick}>
+                          {props.data && props.data.request_status === 1 ?  <u> Phản hồi</u> : <u> Xem lịch sử phản hồi</u>}
+                        </a>
+                        </div>
                 </div>
-            </div>
             <ApprovedStatus data={props.data} />
         </>
     )
@@ -148,21 +151,31 @@ const OldestMessage = (props) => {
                     <p className="child">
                         <i className="icon uni_text_6d30ab las la-calendar-check" />Thời gian gửi yêu cầu:
                             <span className="fw-medium">17/06/2020 9:30AM</span>
-                    </p>
-                    <p className="child">
-                        <i className="icon uni_text_6d30ab las la-flag" /> Độ ưu tiên:
-                            <span className="fw-medium">Cao (1 - 3 ngày)</span>
-                    </p>
-                    <a href="#" className="uni_text_6d30ab fs-12" onClick={props.handleClick}>
-                        <u>Xem lịch sử phản hồi</u>
-                    </a>
+                        </p>
+                        <p className="child">
+                            <i className="icon uni_text_6d30ab las la-flag" /> Độ ưu tiên:
+                            <Priority data={props.data}/>
+                        </p>
+                        <a href="#" className="uni_text_6d30ab fs-12" onClick={props.handleClick}>
+                            {<u>Xem lịch sử phản hồi</u>}
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <ApprovedStatus data={props.data} />
-        </>
-    )
+                <ApprovedStatus data = {props.data}/>
+            </>
+        )
+    }
+const Priority = (props) =>{
+    if(props.data.priority === 1){
+        return <span className="fw-medium">Cao (1 - 3 ngày)</span>  
+    }
+    if(props.data.priority === 2){
+        return <span className="fw-medium">Trung bình (1 - 5 ngày)</span>  
+    }else {
+        return <span className="fw-medium">Thấp (1 - 7 ngày)</span>
+    }
+    
 }
-
 const ApprovedStatus = (props) => {
     if (props.data.request_status === 1) {
         return (
