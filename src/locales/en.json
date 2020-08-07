@@ -625,5 +625,13 @@
     "ActualRevenue": "Actual Revenue",
     "Cost": "Cost",
     "Map": "Map",
-    "LandArea": "Land Area"
+    "LandArea": "Land Area",
+    "Sell Open": "Sell Open",
+    "Product": "Product",
+    "Total agent": "Total agent",
+    "Total internal": "Total internal",
+    "Create a request": "Create a request",
+    "See requirements": "See requirements",
+    "Create a contract": "Create a contract",
+    "Request a return": "Request a return"
 }

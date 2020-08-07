@@ -619,5 +619,13 @@
     "ActualRevenue": "Doanh thu thực tế",
     "Cost": "Chi phí",
     "Map": "Bản đồ",
-    "LandArea": "Diện tích đất"
+    "LandArea": "Diện tích đất",
+    "Sell Open": "Đợt",
+    "Product": "Sản Phẩm",
+    "Total agent": "Số Lượng Đại Lý",
+    "Total internal": "Số Lượng Nội Bộ",
+    "Create a request": "Tạo yêu cầu",
+    "See requirements": "Xem các yêu cầu",
+    "Create a contract": "Tạo hợp đồng",
+    "Request a return": "Yêu cầu trả lại"
 }

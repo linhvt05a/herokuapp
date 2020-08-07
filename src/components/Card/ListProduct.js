@@ -20,7 +20,7 @@ const body = props => {
                         }) : null}
                     </ul>
                     <ul className="m_filter--show mt-xl-0 mt-2">
-                        <li className="first"><span>Display</span></li>
+                        <li className="first"><span><Trans>Displayed by</Trans></span></li>
                         <li className=" active "><a><i className="la la-th"></i></a></li>
                         <li className=""><a><i className="la la-th-list"></i></a></li>
                     </ul>

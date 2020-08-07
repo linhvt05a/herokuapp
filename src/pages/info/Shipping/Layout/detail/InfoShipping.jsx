@@ -8,9 +8,13 @@ const InfoShipping = props => {
     const [click, setClick] = useState([]);
     useEffect(() => {
         if (props.data.floor_or_lot_list) {
-            let arr = []
+            let arr = [];
             for (let i in props.data.floor_or_lot_list) {
-                arr.push({ id: i, status: "" })
+                let arrPopup = []
+                for (let j in props.data.floor_or_lot_list[i].product_list) {
+                    arrPopup.push({ popup_status: false })
+                }
+                arr.push({ id: i, status: "", popup: arrPopup })
             }
             setClick(arr)
         }
@@ -19,10 +23,23 @@ const InfoShipping = props => {
     const ONCLICK = (target, index) => {
         let newData = [].concat(click);
         if (target.className.indexOf('la-plus-circle') > -1) {
-            newData[index] = { id: index, status: "active" }
+            newData[index] = { id: index, status: "active", popup: newData[index].popup }
             target.className = "icon icon_collapse las la-minus-circle"
         }
-        else { target.className = "icon icon_collapse las la-plus-circle"; newData[index] = { id: index, status: "" } }
+        else { target.className = "icon icon_collapse las la-plus-circle"; newData[index] = { id: index, status: "", popup: newData[index].popup } }
+        setClick(newData)
+    }
+
+    const showPopUP = (index, i) => {
+        let newData = [].concat(click);
+        for (let j in newData[index].popup) {
+            if (i == j) {
+                newData[index].popup[j].popup_status = !newData[index].popup[j].popup_status
+            }
+            else {
+                newData[index].popup[j].popup_status = false
+            }
+        }
         setClick(newData)
     }
 
@@ -38,8 +55,22 @@ const InfoShipping = props => {
         for (let i in product_type_id) {
             if (product_type_id[i].id == value)
                 return product_type_id[i].name;
-
         }
+    }
+    //will-change: transform; position: absolute; transform: translate3d(-137px, -145px, 0px); top: 0px; left: 0px;
+    const renderPopUp = (value) => {
+        return (
+            <div className="dropdown-menu show" x-placement="top-start" style={{ position: 'absolute', transform: 'translate3d(-183px, 0px, 0px)', top: 0, left: 0, willChange: 'transform' }}>
+                <a className="dropdown-item" data-toggle="modal" data-target="#createRequest" href="#">
+                    <i className="icon-dropdown las la-question-circle" /><Trans>Create a request</Trans></a>
+                <a className="dropdown-item" href="#">
+                    <i className="icon-dropdown las la-list-alt" /><Trans>See requirements</Trans></a>
+                <a className="dropdown-item" href="#">
+                    <i className="icon-dropdown las la-plus-square" /><Trans>Create a contract</Trans></a>
+                <a className="dropdown-item" href="#">
+                    <i className="icon-dropdown las la-undo" /><Trans>Request a return</Trans></a>
+            </div>
+        )
     }
     const trParent = (data, index) => {
 
@@ -114,9 +145,12 @@ const InfoShipping = props => {
                             <i className="icon icon_noti las la-comments"><small>1</small></i>
                             <div className="dropdown">
                                 <a type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                    <i className="icon-dots las la-ellipsis-h" />
+                                    <i className="icon-dots las la-ellipsis-h" onClick={() => showPopUP(index, i)} />
                                 </a>
-                                <div className="dropdown-menu" x-placement="top-start" style={{ position: 'absolute', transform: 'translate3d(-183px, -43px, 0px)', top: 0, left: 0, willChange: 'transform' }}>
+                                {click[index] ? click[index].popup[index] ? click[index].popup[i].popup_status === true ?
+                                    renderPopUp(value)
+                                    : null : null : null}
+                                {/* <div className="dropdown-menu" x-placement="top-start" style={{ position: 'absolute', transform: 'translate3d(-183px, -43px, 0px)', top: 0, left: 0, willChange: 'transform' }}>
                                     <a className="dropdown-item" data-toggle="modal" data-target="#createRequest" href="#">
                                         <i className="icon-dropdown las la-question-circle" />Tạo yêu cầu</a>
                                     <a className="dropdown-item" href="#">
@@ -125,7 +159,7 @@ const InfoShipping = props => {
                                         <i className="icon-dropdown las la-plus-square" />Tạo hợp đồng</a>
                                     <a className="dropdown-item" href="#">
                                         <i className="icon-dropdown las la-undo" />Yêu cầu trả lại</a>
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                     </td>
