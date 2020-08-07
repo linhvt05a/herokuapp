@@ -16,7 +16,9 @@ import {
     productDetailRequest
 } from './product';
 
-import { approvedListRequest } from './approved'
+import { approvedListRequest } from './approved';
+
+import { customerListRequest } from './customer'
 export { 
     currentcyAddRequest, 
     currentcyDetailRequest, 
@@ -29,5 +31,6 @@ export {
     statusListRequest,
     projectListRequest,
     productDetailRequest,
-    approvedListRequest
+    approvedListRequest,
+    customerListRequest
 };

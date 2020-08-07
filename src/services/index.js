@@ -11,6 +11,8 @@ import { projectService } from './Project/services_project';
 
 import { productService } from './Product/service_product';
 
+import { customerService } from './NewContract/services_customer';
+
 
 // SYSTEM
 import { sysCurrencyService } from './System/services_system_currency';
@@ -31,6 +33,7 @@ export {
     permissionProjectService, 
     projectService, 
     sysShippingService,
-    productService
+    productService,
+    customerService
 
 }

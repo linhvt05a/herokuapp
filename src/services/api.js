@@ -82,6 +82,9 @@ export default {
     //Product
     PRODUCT_DETAIL: "/api/be/v1/infrastructure/product/detail/",
 
+    //Customer
+    CUSTOMER_LIST: "/api/be/v1/customer/list/",
+
     getHeader,
     getUrl,
     authHeader,

@@ -6,6 +6,7 @@ import DiscountWrapper from './Layout/DiscountOption/DiscountWrapper';
 const DiscountOption = () => {
     return (
         <div class="container-fluid">
+            <ProductDetail />
             <CardWrapper currentStep={2}
                          children={<DiscountWrapper />}
              />

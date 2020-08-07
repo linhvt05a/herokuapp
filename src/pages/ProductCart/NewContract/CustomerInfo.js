@@ -1,14 +1,14 @@
 import React from 'react';
 import ProductDetail from '../../Layout/ProductDetail';
 import CardWrapper from './Layout/CardWrapper';
-import CustomerInfoForm from './Layout/CustomerInfo/CustomerInfoForm';
-import { useHistory } from "react-router-dom";
+import CustomerInFoWrapper from './Layout/CustomerInfo/CustomerInFoWrapper';
 
 const CustomerInfo = () => {
     return (
         <div className="container-fluid">
+            <ProductDetail />
             <CardWrapper currentStep={1}
-                         children={<CustomerInfoForm />}
+                         children={<CustomerInFoWrapper />}
              />
         </div>
     )
