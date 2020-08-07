@@ -10,6 +10,7 @@ import TabBanking from './Tabs/TabBanking';
 import NavTaps from './Tabs/NavTabs';
 
 const ProjectTab = (props) => {
+    let {detail} = props;
     var tab = [
         {id : '#block_project_investor',
          tabTitle: "Investor",
@@ -37,6 +38,7 @@ const ProjectTab = (props) => {
     const onItemClickTab = (index, title) => {
         setActive(index)
     }
+    console.log('+++++', detail);
     return (
         <div>
             <CardHeader label="Thông tin"/>
@@ -52,13 +54,13 @@ const ProjectTab = (props) => {
                     <div class="tab-content mb-2">
                         <div role="tabpanel" className={`tab-pane show fade pt-2 pb-3 ${active != 0 ? '' : 'active'}`}>
                         {
-                            props.tabdata && props.tabdata.map((item, index) => (
+                            detail.investor && detail.investor.map((item, index) => (
                                 <TabInvestor key={index} data={item} duration={props.detail} />
                             ))
                         }
                         </div>
                         <div role="tabpanel" className={`tab-pane show fade pt-2 pb-3 ${active != 1 ? '' : 'active'}`}>
-                            <TabParameters />
+                            <TabParameters data={detail.meta_data_groups} lat={detail.lat} long={detail.lon}/>
                         </div>
                         <div role="tabpanel" className={`tab-pane show fade pt-2 pb-3 ${active != 2 ? '' : 'active'}`}>
                             <TabProgress />
