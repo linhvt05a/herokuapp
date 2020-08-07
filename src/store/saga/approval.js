@@ -12,8 +12,9 @@ import {
 } from '../actionType/approval'
 
 export function* approveList(payload) {
-    const token = payload.product_request.token;
-    const product_id = payload.product_request.product_id
+    console.log('payload------', payload);
+    const token = payload.payload.token;
+    const product_id = payload.payload.product_id;
     try {
         const response = yield approve_system_services.approveList(token, product_id);
         response.success ? yield put({ type: APPROVAL_LIST_SUCCESS, response }) : yield put({ type: APPROVAL_LIST_FAILURE, response });
@@ -21,14 +22,14 @@ export function* approveList(payload) {
         yield put({ type: APPROVAL_LIST_FAILURE, err });
     }
 }
-export function* approveListHistory(){
+export function* approveListWatcher(){
     yield takeLatest(APPROVAL_LIST_REQUEST, approveList);
 }
 
 
 export function* commentList(payload) {
-    const token = payload.product_request.token;
-    const request_id = payload.product_request.request_id
+    const token = payload.payload.token;
+    const request_id = payload.payload.request_id
     try {
         const response = yield approve_system_services.commentList(token, request_id);
         response.success ? yield put({ type: COMMENT_LIST_SUCCESS, response }) : yield put({ type: COMMENT_LIST_FAILURE, response });
@@ -36,6 +37,6 @@ export function* commentList(payload) {
         yield put({ type: COMMENT_LIST_FAILURE, err });
     }
 }
-export function* listComment(){
+export function* commentListWatcher(){
     yield takeLatest(COMMENT_LIST_REQUEST, commentList);
 }

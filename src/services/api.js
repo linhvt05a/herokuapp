@@ -15,7 +15,7 @@ export default {
     PASSWORD_CHANGE: '/api/v1/user/info/password/change',
 
     HISTORY_APPROVED: '/api/be/v1/approval/',
-    LIST_COMMENT: '/api/be/v1/approval/comment/',
+    LIST_COMMENT: '/api/be/v1/request/comment/',
 
     DASHBOARD_REGION_LIST: '/api/fe/v1/region',
     DASHBOARD_PROVINCE_LIST: '/api/fe/v1/province',

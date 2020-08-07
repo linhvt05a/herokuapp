@@ -16,18 +16,18 @@ const initialState = {
   export default (state = initialState, action) => {
     switch (action.type) {
       case APPROVAL_LIST_FAILURE:
-        return { ...state, isFetching: true, approveList: { success: false } };
+        return { ...state, isFetching: false, approveList: { success: false } };
       case APPROVAL_LIST_SUCCESS:
         return { ...state, isFetching: false, approveList: action.response };
       case APPROVAL_LIST_REQUEST:
-        return { ...state, isFetching: false, approveList: { success: false, error: action.err } };
+        return { ...state, isFetching: true, approveList: { success: false, error: action.err } };
 
         case COMMENT_LIST_FAILURE:
-          return { ...state, isFetching: true, commentList: { success: false } };
+          return { ...state, isFetching: false, commentList: { success: false } };
         case COMMENT_LIST_SUCCESS:
           return { ...state, isFetching: false, commentList: action.response };
         case COMMENT_LIST_REQUEST:
-          return { ...state, isFetching: false, commentList: { success: false, error: action.err } };
+          return { ...state, isFetching: true, commentList: { success: false, error: action.err } };
   
       default:
         return state;
