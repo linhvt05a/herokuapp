@@ -1,11 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
 
 const TabInvestor = (props) => {
     let { data } = props;
     return (
         data != null ?
-        <div role="tabpanel" class="tab-pane show fade pt-2 pb-3 active" id="block_project_investor">
-            {/* <div className="row mt-2" ref="project_tab"> */}
             <div className="row mt-2">
                 {/* <div className="col-xl-6 col-lg-6 col-md-12 col-sm-12" style="border-right: 1px solid #999999;"> */}
                 <div className="col-xl-6 col-lg-6 col-md-12 col-sm-12">
@@ -133,7 +131,6 @@ const TabInvestor = (props) => {
                     </div>
                 </div>
             </div>
-        </div>
         : ""
     )
 }

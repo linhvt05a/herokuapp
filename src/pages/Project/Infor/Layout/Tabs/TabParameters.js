@@ -2,8 +2,7 @@ import React from 'react';
 
 const TabParameters = () => {
     return (
-        <div role="tabpanel" className="tab-pane show fade pt-2 pb-3" id="block_project_parameters">
-            {/* <div className="row mt-3" ref="project_tab"> */}
+        <div>
             <div className="row mt-3">
                 <div className="col-xl-6 col-lg-6 col-md-12 col-sm-12">
                     <div className="row">

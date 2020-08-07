@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 const PageProjectDetail = (props) => {
     const token = 'MjoxMzliMDZiZmI4OTJhOGYxYmQ2MzVhZmFmODEyZmM5M2RhNDFkM2Yx';
-    const tab_include = "['investor']";
+    const tab_include = "['statistical','investor','metadata']";
     const dispatch = useDispatch();
     const projectStore = useSelector(state => state.project);
     useEffect(() => {
@@ -16,6 +16,7 @@ const PageProjectDetail = (props) => {
 
     const isProjectDetailSuccess = projectStore.projectDetail.success;
     const projectDetailRes = isProjectDetailSuccess ? projectStore.projectDetail.detail : null;
+    console.log('dataa', projectDetailRes);
 
     return (
         projectDetailRes != null ?
