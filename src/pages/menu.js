@@ -167,7 +167,7 @@ let menu_data = [
         href: "/distribution"
     },
     {
-        label: "menu_distribution_channel",
+        label: "menu_cart",
         icon: "las la-building",
         children: menu_infor_manager
     },
