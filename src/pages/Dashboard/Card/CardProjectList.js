@@ -57,7 +57,7 @@ const RowProject = (props) => {
     }
 
     return (
-        <tr onClick={onClick}>
+        <tr style={{cursor: "pointer"}} onClick={onClick}>
             <td style={{width: "30%"}} className="col-1 pl-0">{props.serial}</td>
             <td className="col-2"><span className="fw-medium" style={{color: "#6d30ab"}}><a><u>{props.data.project_name}</u></a></span></td>
             <td className="col-2">
