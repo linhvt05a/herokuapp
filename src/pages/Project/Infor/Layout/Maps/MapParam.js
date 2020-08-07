@@ -47,7 +47,7 @@ const MapParam = (props) => {
                 center={[long, lat]}
                 zoom={[13]}
                 containerStyle={{
-                    minHeight: '715px',
+                    minHeight: '575px',
                     width: '100%',
                 }}>
                 <Layer type="fill" paint={polygonPaint}>
