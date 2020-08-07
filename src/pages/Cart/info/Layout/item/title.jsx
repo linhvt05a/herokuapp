@@ -21,14 +21,6 @@ const header = props => {
                     </button>
                 </div>
             </div>
-            <div className="dropdown m-action">
-                <button style={{ height: `40px`, color: "#367be3", borderColor: "#367be3", borderWidth: `0.5px`, paddingLeft: `17px`, backgroundColor: "#FFFFFF" }} type="button" className="btn_dropdown_outline dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Hành động
-                </button>
-                <div className="dropdown-menu" aria-labelledby="dropdownMenuButton" style={{ borderColor: "#367be3", borderWidth: `0.5px`, borderRadius: 0 }}>
-                    <a className="dropdown-item" href="#" style={{ color: "#367be3" }}>Thêm dự án</a>
-                </div>
-            </div>
         </div>
     )
 }
