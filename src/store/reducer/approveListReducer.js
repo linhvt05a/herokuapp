@@ -9,11 +9,9 @@ import {
 } from '../actionType/approval'
 
 const initialState = {
-    approveList: [],
-    commentList: [],
-    isFetching: false,
-    success : false,
-    error : []
+    approveList: {},
+    commentList: {},
+    isFetching: false
   };
   export default (state = initialState, action) => {
     switch (action.type) {

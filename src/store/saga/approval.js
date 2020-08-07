@@ -8,14 +8,12 @@ import {
     COMMENT_LIST_REQUEST,
     COMMENT_LIST_FAILURE,
     COMMENT_LIST_SUCCESS,
-    APPROVED_LIST_REQUEST,
-    APPROVED_LIST_SUCCESS
 
 } from '../actionType/approval'
 
 export function* approveList(payload) {
-    const token = payload.approveList.token;
-    const product_id = payload.approveList.product_id
+    const token = payload.product_request.token;
+    const product_id = payload.product_request.product_id
     try {
         const response = yield approve_system_services.approveList(token, product_id);
         response.success ? yield put({ type: APPROVAL_LIST_SUCCESS, response }) : yield put({ type: APPROVAL_LIST_FAILURE, response });
@@ -24,15 +22,15 @@ export function* approveList(payload) {
     }
 }
 export function* approveListHistory(){
-    yield takeLatest(APPROVED_LIST_REQUEST, approveList);
+    yield takeLatest(APPROVAL_LIST_REQUEST, approveList);
 }
 
 
 export function* commentList(payload) {
-    const token = payload.commentList.token;
-    const product_id = payload.commentList.request_id
+    const token = payload.product_request.token;
+    const request_id = payload.product_request.request_id
     try {
-        const response = yield approve_system_services.commentList(token, product_id);
+        const response = yield approve_system_services.commentList(token, request_id);
         response.success ? yield put({ type: COMMENT_LIST_SUCCESS, response }) : yield put({ type: COMMENT_LIST_FAILURE, response });
     } catch (err) {
         yield put({ type: COMMENT_LIST_FAILURE, err });

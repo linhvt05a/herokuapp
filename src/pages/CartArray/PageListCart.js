@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {useDispatch, useSelector} from 'react-redux'
-import {approvedListRequest} from '../../store/action/approval'
+import {approvedListRequest, commentListRequest} from '../../store/action/approval'
 import {CardInfo, CardApprovedHistory} from './Layout/index'
 import {DialogResponeHistory} from '../../components/dialogs'
 import { Spinner } from '../../components/common';
@@ -11,26 +11,32 @@ const PageListCart = (props) =>{
     const dispatch = useDispatch()
     const {token} = props.user
     const {product_id} = 63
+    const {request_id} = 2
     useEffect(()=>{
         dispatch(approvedListRequest({token, product_id}))
+        dispatch(commentListRequest({token, request_id}))
+        
     },[])
 
-    const isFetching = product_request.isFetching;
-    const isSuccess = product_request.success
-    const isError = product_request.error
+    // const isFetching = product_request.isFetching;
+    const approveSuccess = product_request.approveList.success
+    const commentSuccess = product_request.commentList.success
+    const isErrorApprove = product_request.approveList.error
+    const isErrorComment = product_request.commentList.error
 
-    const data = isSuccess ? product_request.detail: null
-
+    const data = approveSuccess ? product_request.approveList.detail.approvals: null
+    const list_comment = commentSuccess ? product_request.commentList.detail : null
     
+    console.log('----list comment-----' , list_comment)
+    console.log('-----list approve----' , data)
     const handleClick = (e) => {
         e.preventDefault()
         setShowPopUp(!showPopUp)
     }
-    console.log('product_request---------', data)
+
     return (
        <>   
         <CardInfo />
-        {isError && props.showToast('error', isError)}
         <CardApprovedHistory data={data} handleClick ={handleClick}/>
         <DialogResponeHistory showPopUp={showPopUp} close ={()=>setShowPopUp(false)}/>
        </>
