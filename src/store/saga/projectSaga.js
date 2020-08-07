@@ -1,5 +1,5 @@
 import { put, takeLatest } from "redux-saga/effects";
-import {sysProjectService} from "../../services";
+import { projectService } from "../../services/Project/services_project";
 import {
     PROJECT_LIST_REQUEST,
     PROJECT_LIST_SUCCESS,
@@ -24,7 +24,7 @@ export function* projectList(payload) {
     const page = payload.project.page;
     const search = payload.project.search;
     try {
-        const response = yield sysProjectService.project(token, search, page);
+        const response = yield projectService.project(token, search, page);
         response.success ? yield put({ type: PROJECT_LIST_SUCCESS, response }) : yield put({ type: PROJECT_LIST_FAILURE, response });
     } catch (err) {
         yield put({ type: PROJECT_LIST_FAILURE, err });
@@ -38,9 +38,10 @@ export function* projectListWatcher() {
 export function* projectDetail(payload) {
     console.log('Detail Load', payload);
     const token = payload.project.token;
-    const id = payload.project.id;
+    const id = payload.project.project_id;
+    const tab_include = payload.project.tab_include;
     try {
-        const response = yield sysProjectService.projectDetail(token, id);
+        const response = yield projectService.projectDetail(token, id, tab_include);
         response.success ? yield put({ type: PROJECT_DETAIL_SUCCESS, response }) : yield put({ type: PROJECT_DETAIL_FAILURE, response });
     } catch (err) {
         yield put({ type: PROJECT_DETAIL_FAILURE, err });
@@ -57,7 +58,7 @@ export function* projectEdit(payload) {
     const name = payload.project.name;
     const code = payload.project.code;
     try {
-        const response = yield(sysProjectService.projectEdit(token, id, name, code));
+        const response = yield(projectService.projectEdit(token, id, name, code));
         if(response.success){
             yield put({ type: PROJECT_EDIT_SUCCESS, response })
             yield put({ type: PROJECT_DETAIL_REQUEST, project: { token, id } })
@@ -78,7 +79,7 @@ export function* projectAdd(payload) {
     const name = payload.project.name;
     const code = payload.project.code;
     try {
-        const response = yield sysProjectService.projectAdd(token, name, code);
+        const response = yield projectService.projectAdd(token, name, code);
         if(response.success){
             yield put({ type: PROJECT_ADD_SUCCESS, response })
         } else {

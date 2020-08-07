@@ -12,7 +12,7 @@ import * as Project from "./pages/Project";
 
 import * as Perm from "./pages/Permission"
 
-import * as Info from "./pages/info"
+import * as Cart from "./pages/info"
 
 const LOGINS = [
     { "path": "/login", "value": Login.PageLogin, "main_title": "login_main_title", "sub_title": "login_sub_title" },
@@ -35,6 +35,7 @@ const MAINS = [
     { "path": "/product_card/new_contract/payment", "value": ProductCart.Payment, "menu": "menu_product_cart_customer_info", "title": "" },
     { "path": "/product_card/new_contract/order_info", "value": ProductCart.OrderInfo, "menu": "menu_product_cart_customer_info", "title": "" },
     { "path": "/product_card/new_contract/finish", "value": ProductCart.Finish, "menu": "menu_product_cart_customer_info", "title": "" },
+    
     { "path": "/info/project", "value": Project.PageProject, "menu": "menu_list_task_by_projects", "title": "Dự án" },
     { "path": "/info/project/detail/:id", "value": Project.PageProjectDetail, "menu": "menu_project_detail_customer_info", "title": "Thông tin dự án" },
 
@@ -46,8 +47,10 @@ const MAINS = [
     { "path": "/perm/internal/add", "value": Perm.PagePermInternalAdd, "menu": "menu_perm_task_by_departments", "title": "Add" },
     { "path": "/perm/internal/detail/:id", "value": Perm.PagePermInternalDetail, "menu": "menu_perm_task_by_departments", "title": "Update" },
     //shipping
-    { "path": "/info/shipping", "value": Info.Home, "menu": "menu_shipping_cart_list_title", "title": "menu_shipping_cart_list_title" },
-    { "path": "/info/shipping/edit/:id", "value": Info.Edit, "menu": "menu_shipping_cart_list_title", "title": "Detail" },
+    /*{ "path": "/cart/cart_list", "value": Info.Home, "menu": "menu_shipping_cart_list_title", "title": "menu_shipping_cart_list_title" },
+    { "path": "/cart/cart_list/detail/:id", "value": Info.Edit, "menu": "menu_shipping_cart_list_title", "title": "Detail" },*/
+    { "path": "/cart/cart_list", "value": Cart.Home, "menu": "menu_shipping_cart_list_title", "title": "menu_shipping_cart_list_title" },
+    { "path": "/cart/cart_list/detail/:id", "value": Cart.Edit, "menu": "menu_shipping_cart_list_title", "title": "Detail" },
 ]
 
 var PATHS = {};

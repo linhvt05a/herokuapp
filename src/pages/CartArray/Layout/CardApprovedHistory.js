@@ -1,9 +1,8 @@
 import React, { useState } from "react"
 import {CardHeader, CardNodata} from '../../../components/common'
-import {InputText, InputDate} from '../../../components/input'
+import {InputText, InputDate, InputSelect} from '../../../components/input'
 import {DatePicker, Input, Space} from 'antd'
 import moment from 'moment';
-import {InputSelect} from '../../../components/input'
 import {request_type, request_status, priority_request} from '../../../constant'
 const dateFormat = 'YYYY/MM/DD';
 

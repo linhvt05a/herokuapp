@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 const CardFilter = (props) => {
     const [region, setRegion] = useState(null);
     const [province, setProvince] = useState(null);
+    const [isClear, setClear] = useState(false);
     const [type, setType] = useState(null);
     const [status, setStatus] = useState(null);
     const { token, onSearch } = props;
@@ -33,20 +34,22 @@ const CardFilter = (props) => {
     const provinceRes = provinceSuccess ? res.provinceList.detail : null;
     var provinceData = provinceRes ? mappingListToSelectList(provinceRes, 'province_id', 'name') : []
 
-    const onChange = (name, value) => {
-        if (name === 'region') {
+    const onChange = (value, option) => {
+        if (option.name === 'region') {
             setRegion(value)
-            if (region && (region.value != value.value)) {
+            if (region && (region.value != value)) {
                 setProvince(null)
+                setClear(true)
+                setClear(false)
             }
-            dispatch(provinceListRequest({ token, regionId: value.value }));
-        } else if (name === 'province') {
+            dispatch(provinceListRequest({ token, regionId: value }));
+        } else if (option.name === 'province') {
             setProvince(value)
         }
-        else if (name === 'type') {
+        else if (option.name === 'type') {
             setType(value)
         }
-        else if (name === 'status') {
+        else if (option.name === 'status') {
             setStatus(value)
         } else {
             return
@@ -61,10 +64,10 @@ const CardFilter = (props) => {
         <div className="card square">
             <div className="card-body">
                 <div className="row">
-                    <InputSelect className="col-xl-3 col-lg-6 col-md-12 col-sm-12" value={region === null ? '' : region} label="ByRegionTitle" placeholder="RegionHintText" datas={regionData} onChange={onChange} />
-                    <InputSelect className="col-xl-3 col-lg-6 col-md-12 col-sm-12" value={province === null ? '' : province} label="ByProvinceTitle" placeholder="ProvinceHintText" datas={provinceData} onChange={onChange} />
-                    <InputSelect className="col-xl-3 col-lg-6 col-md-12 col-sm-12" value={type === null ? '' : type} label="ByProjectTypeTitle" placeholder="ProjectTypeHintText" datas={typeData} onChange={onChange} />
-                    <InputSelect className="col-xl-3 col-lg-6 col-md-12 col-sm-12" value={status === null ? '' : status} label="ByProjectStatusTitle" placeholder="ProjectStatusHintText" datas={statusData} onChange={onChange} />
+                    <InputSelect className="col-xl-3 col-lg-6 col-md-12 col-sm-12" value={region ? region : null} name="region" label="ByRegionTitle" placeholder="RegionHintText" datas={regionData} onChange={onChange} />
+                    <InputSelect className="col-xl-3 col-lg-6 col-md-12 col-sm-12" value={province ? province : null} name="province" label="ByProvinceTitle" placeholder="ProvinceHintText" datas={provinceData} onChange={onChange} isClear={isClear} />
+                    <InputSelect className="col-xl-3 col-lg-6 col-md-12 col-sm-12" value={type ? type : null} name="type" label="ByProjectTypeTitle" placeholder="ProjectTypeHintText" datas={typeData} onChange={onChange} />
+                    <InputSelect className="col-xl-3 col-lg-6 col-md-12 col-sm-12" value={status ? status : null} name="status" label="ByProjectStatusTitle" placeholder="ProjectStatusHintText" datas={statusData} onChange={onChange} />
                 </div>
                 <div className="text-right mt-2">
                     <button type="submit" className="btn-uni-purple" onClick={onFilterClick} ><Trans>Search</Trans></button>

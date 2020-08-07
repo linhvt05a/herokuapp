@@ -27,7 +27,7 @@ export default {
     PROJECT_INVESTOR: '/api/v1/information/investor/list_shorten/',
     PROJECT_MODEL: '/api/v1/project/model/list/',
     PROJECT_LIST_WORK_FLOW: '/api/v1/system/workflow/list_shorten/',
-    PROJECT_DETAIL: '/api/v1/project/detail/',
+    PROJECT_DETAIL: '/api/be/v1/project/detail/',
     PROJECT_LIST_SHORTEN: '/api/v1/project/list_shorten/',
     PROJECT_TIMELINE_DEPARMENTS: '/api/v1/project/timeline/department/list/',
     PROJECT_TIMELINE_GROUPS: '/api/v1/project/timeline/group/list/',

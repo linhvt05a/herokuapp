@@ -15,7 +15,14 @@ const Content = props => {
     useEffect(() => {
         let arr = _.groupBy(props.data.floor_or_lot_list, (item) => (item.floor_or_lot_name))
         setState({ ...state, floor: Object.keys(arr), Maps: Object.values(arr) })
-    }, [props.data.floor_or_lot_list])
+    }, [props.data.floor_or_lot_list]);
+    const contentDropdown = [
+        { href: "#", value: "1", label: "-" },
+        { href: "#", value: "2", label: "B6" },
+        { href: "#", value: "3", label: "Đang triển khai" },
+        { href: "#", value: "4", label: "Căn hộ" },
+        { href: "#", value: "5", label: "Shop house" },
+    ]
     return (
         <div class="card square h-100">
             <div class="card-body sales_list-zone">
@@ -28,11 +35,12 @@ const Content = props => {
                                 <Select
                                     defaultValue={{ value: '2' }}
                                     labelInValue
+                                    className="form-control"
                                 >
-                                    <Select.Option value="1">-</Select.Option>
-                                    <Select.Option value="2">B6</Select.Option>
-                                    <Select.Option value="3">Căn hộ</Select.Option>
-                                    <Select.Option value="4">Shop house</Select.Option>
+                                    <Option value="1">-</Option>
+                                    <Option value="2">B6</Option>
+                                    <Option value="3">Căn hộ</Option>
+                                    <Option value="4">Shop house</Option>
                                 </Select>
                                 {/* <select name="" id="" class="form-control m_select_change js-select2" data-placeholder="-">
                                     <option value="1">-</option>
@@ -53,27 +61,9 @@ const Content = props => {
                 <ul class="nav nav-tabs" role="tablist">
                     {state.floor ? state.floor.map((item, index) => (
                         <li class="nav-item" key={item + index} onClick={() => setState({ ...state, index: index })}>
-                            <a class={`nav-link ${index == state.index ? 'active' : null}`} data-toggle="tab" href="#zone_01">{item}</a>
+                            <a class={`nav-link ${index == state.index ? 'active' : null}`} data-toggle="tab" >{item}</a>
                         </li>
                     )) : null}
-                    {/* <li class="nav-item">
-                        <a class="nav-link active" data-toggle="tab" href="#zone_01">Khu F</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="tab" href="#zone_02">Khu E</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="tab" href="#zone_03">Khu D</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="tab" href="#zone_04">Khu C</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="tab" href="#zone_05">Khu B</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="tab" href="#zone_06">Khu A</a>
-                    </li> */}
                 </ul>
                 <div class="tab-content">
                     <div class="tab-pane fade show active" id="zone_01">
@@ -85,22 +75,21 @@ const Content = props => {
                                 {/* </figure> */}
                                 <div class="form-group">
                                     <Select
-                                        style={{ backgroundColor: "red", borderWidth: `1px`, padding: 0 }}
                                         defaultActiveFirstOption
                                         defaultValue={{ value: '1' }}
                                         labelInValue
-                                        showArrow={false}
+                                        className="form-control"
                                     >
-                                        <Select.Option value="1">Tầng B6 đến tầng B4</Select.Option>
-                                        <Select.Option value="2">Tầng B6 đến tầng B1</Select.Option>
-                                        <Select.Option value="3">Tầng B6 đến tầng B2</Select.Option>
-                                        <Select.Option value="4">Tầng B6 đến tầng B3</Select.Option>
+                                        <Option value="1">Tầng B6 đến tầng B4</Option>
+                                        <Option value="2">Tầng B6 đến tầng B1</Option>
+                                        <Option value="3">Tầng B6 đến tầng B2</Option>
+                                        <Option value="4">Tầng B6 đến tầng B3</Option>
                                     </Select>
 
                                 </div>
                                 <figure class="compass"><img src="../../../../../components/images/all/compass.png" alt="" /></figure>
                                 <div class="actions">
-                                    <a href="#"><i class="icon las la-arrows-alt"></i></a>
+                                    <a ><i class="icon las la-arrows-alt"></i></a>
                                     <a ><i class="icon las la-plus" onClick={() => setState({ ...state, width: state.width == 100 ? 100 : state.width + 10 })}></i></a>
                                     <a ><i class="icon las la-minus" onClick={() => setState({ ...state, width: state.width == 50 ? 50 : state.width - 10 })}></i></a>
                                 </div>

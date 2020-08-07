@@ -6,7 +6,7 @@ import { withTranslation, Trans } from 'react-i18next';
 //import format from "date-fns/format"
 
 import moment from 'moment'
-import DatePicker from "react-datepicker";
+import {DatePicker} from "antd";
 
 const DATE_FORMAT = 'dd-MM-yyyy';
 
@@ -70,7 +70,7 @@ class InputDate extends Component {
         return (
             <div className={this.props.className ? this.props.className : ''}>
                 <div className="form-group">
-                    {
+                {
                         this.props.label &&
                         <label className={this.props.classLabel ? this.props.classLabel : "fw-medium"} >
                             <Trans>{this.props.label}</Trans>
@@ -80,22 +80,16 @@ class InputDate extends Component {
                             }
                         </label>
                     }
-                    <div className="m_datepicker">
-                        <DatePicker
-                            className={this.props.classValue ? this.props.classValue : "form-control js-datepicker"}
-                            dateFormat= {DATE_FORMAT}
-                            placeholderText={this.props.label}
-                            selected={this.state.values}
-                            onChange={this.handleChange}
-                            disabled={this.props.disabled}
-                            popperClassName="date-custom-class"
-                            popperPlacement="top-end"
-                        />
-                    </div>
-                    {(!this.props.disabled && this.props.submitted && this.props.required && (this.state.values === "")) &&
-                        <ul className="parsley-errors-list filled">
-                            <li className="parsley-required"><Trans i18nKey="Missing">{{ value: t(this.props.label) }}</Trans></li>
-                        </ul>}
+                    <DatePicker
+                        className={this.props.classValue ? this.props.classValue : "form-control js-datepicker"}
+                        dateFormat= {DATE_FORMAT}
+                        placeholderText={this.props.label}
+                        selected={this.state.values}
+                        onChange={this.handleChange}
+                        disabled={this.props.disabled}
+                        popperClassName="date-custom-class"
+                        popperPlacement="top-end"
+                    />
                 </div>
             </div>
         )
