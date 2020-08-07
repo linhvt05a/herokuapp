@@ -158,7 +158,7 @@ let menu_data = [
         label: "menu_project",
         icon: "las la-cog",
         // children: menu_system_manager
-        href: "/project"
+        href: "/info/project"
     },
     {
         label: "menu_distribution_channel",

@@ -36,21 +36,19 @@ const Shipping = props => {
     ]
     return (
         <div >
-            {
-                <div>
-                    <Item.title
-                        datas={dataSelect}
-                        label={"Trạng Thái Dự Án"}
-                        SEARCH={value => SEARCH(value)} />
-                    <ListProduct
-                        dataFilter={dataType}
-                        data={dataShipping.List}
-                        page={dataShipping.page}
-                        total_page={6}
-                        total_record={dataShipping.total_record}
-                    />
-                </div>}
-
+            <div>
+                <Item.title
+                    datas={dataSelect}
+                    label={"Trạng Thái Dự Án"}
+                    SEARCH={value => SEARCH(value)} />
+                <ListProduct
+                    dataFilter={dataType}
+                    data={dataShipping.List}
+                    page={dataShipping.page}
+                    total_page={dataShipping.total_page}
+                    total_record={dataShipping.total_record}
+                />
+            </div>
         </div>
     )
 }
