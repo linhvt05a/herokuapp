@@ -668,6 +668,23 @@ const product_status = [
     { 'id': 6, 'name': "PROJECT_SALE_STATUS_RENT", 'className': "" },
 ]
 
+const request_type = [
+    {value:1, label:'Commission'},
+    {value:2, label:'Promotion'},
+    {value:3, label:'Other'}
+]
+const request_status =[
+    {value:1, label:'New'},
+    {value:2, label:'Agree'},
+    {value:3, label:'Deny'}
+]
+
+const priority_request = [
+    {value:1, label:'High'},
+    {value:2, label:'Average'},
+    {value:3, label:'Low'},
+]
+
 module.exports = {
     gender, activates, status, statusActive,
     persons, employees, periods,
@@ -681,5 +698,6 @@ module.exports = {
     rank_type, project_period, worktimes,
     participants, role, investorProject, projectType, investorsDiaglog, select_rating, selectprovince, select_district, ward, currency_unit,
     suppliers, group_investor, presenter, document_type,
-    product_type_id, product_status
+    product_type_id, product_status,
+    request_type, request_status, priority_request
 }

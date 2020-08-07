@@ -97,16 +97,12 @@ const DialogResponeHistory = (props) => {
                   ))}
                 <ShowFormReply showReplyForm={showReplyForm} closeForm={() => setshowReplyForm(false)} />
               </div>
-
             </div>
-
             <CreateBtn close={props.close} />
           </div>
         </div>
       </div>
-
     </Modal>
-
   );
 }
 

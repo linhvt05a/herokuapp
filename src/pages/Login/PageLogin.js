@@ -59,6 +59,9 @@ class PageLogin extends Component {
                     <Trans>login_title</Trans>
                 </p>
                 <div className="m_login--form">
+                    <div className="form-group">
+                        { error && <div className={'alert alert-danger'}>{error}</div> }
+                    </div>
 
                     <TextField submitted={submitted} value={username} label="username" icon="la la-user" name="username" type="text" handleChange={this.handleChange}/>
                     <TextField submitted={submitted} value={password} label="password" icon="la la-lock" name="password" type="password" handleChange={this.handleChange}/>
@@ -68,8 +71,7 @@ class PageLogin extends Component {
                         ( <center><ClipLoader size={32} color={"#6d30ab"} /></center> ):
                         ( <button className="btn btn-login" disabled={loading}><Trans>login</Trans></button> )
                     }
-                    <br/><br/>
-                    { error && <div className={'alert alert-danger'}>{error}</div> }
+                    
 
                 </div>
             </form>

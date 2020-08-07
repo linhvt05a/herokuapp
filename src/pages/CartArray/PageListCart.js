@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import {useDispatch, useSelector} from 'react-redux'
-import {approvedListRequest} from '../../store/action/approved'
+import {approvedListRequest} from '../../store/action/approval'
 import {CardInfo, CardApprovedHistory} from './Layout/index'
 import {DialogResponeHistory} from '../../components/dialogs'
 import { Spinner } from '../../components/common';
 
 const PageListCart = (props) =>{
     const [showPopUp, setShowPopUp] = useState(false)
-    const approveList = useSelector(state => state.approveList)
+    const product_request = useSelector(state => state.product_request)
     const dispatch = useDispatch()
     const {token} = props.user
     const {product_id} = 63
@@ -15,16 +15,18 @@ const PageListCart = (props) =>{
         dispatch(approvedListRequest({token, product_id}))
     },[])
 
-    const isFetching = approveList.isFetching;
-    const isSuccess = approveList.approveList.success
-    const isError = approveList.approveList.error
+    const isFetching = product_request.isFetching;
+    const isSuccess = product_request.success
+    const isError = product_request.error
 
-    const data = isSuccess ? approveList.approveList.detail.approvals: null
+    const data = isSuccess ? product_request.detail: null
 
+    
     const handleClick = (e) => {
         e.preventDefault()
         setShowPopUp(!showPopUp)
     }
+    console.log('product_request---------', data)
     return (
        <>   
         <CardInfo />

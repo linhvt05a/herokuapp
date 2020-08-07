@@ -100,12 +100,12 @@ const InfoShipping = props => {
                         </div>
                     </td>
                     <td>
-                        <div className="form-group max-width-200">
+                        <div className="form-group max-width-200 mb-0">
                             <input type="text" defaultValue={value.project_sale_policy_name} placeholder="-" disabled className="form-control" />
                         </div>
                     </td>
                     <td>
-                        <div className="form-group max-width-200">
+                        <div className="form-group max-width-200 mb-0">
                             <input type="text" defaultValue={value.product_price} placeholder="-" disabled className="form-control text-right uni_text_000 " />
                         </div>
                     </td>
@@ -139,14 +139,17 @@ const InfoShipping = props => {
             <div className="card-body m_table--collapse">
                 <p className="mb-4 mt-4 fs-18 uni_text_6d30ab text-uppercase text-center font-weight-bold">TÌM KIẾM </p>
                 <div className="row mb-4 d-flex justify-content-center">
-                    <InputSelect className="col-lg-3 col-md-3 col-sm-12" label="Choose area" placeholder="Choose area" name="status" value={props.dropdown.title} datas={props.dropdown.data} />
-                    <InputSelect className="col-lg-3 col-md-3 col-sm-12" label="Choose block" placeholder="Choose block" name="status" value={props.dropdown.title} datas={props.dropdown.data} />
-                    <InputSelect className="col-lg-3 col-md-3 col-sm-12" label="Choose floor or lot" placeholder="Choose floor or lot" name="status" value={props.dropdown.title} datas={props.dropdown.data} />
+                    <InputSelect className="col-lg-3 col-md-6 col-sm-12" label="Choose area" placeholder="Choose area" name="status" value={props.dropdown.title} datas={props.dropdown.data} />
+                    <InputSelect className="col-lg-3 col-md-6 col-sm-12" label="Choose block" placeholder="Choose block" name="status" value={props.dropdown.title} datas={props.dropdown.data} />
+                    <InputSelect className="col-lg-3 col-md-6 col-sm-12" label="Choose floor or lot" placeholder="Choose floor or lot" name="status" value={props.dropdown.title} datas={props.dropdown.data} />
 
-                    <div className="col-lg-6 col-xl-2 align-items-end d-flex mt-3 mt-xl-0  mb-2">
-                        <button type="submit" className="min-width-button btn-uni-purple min-height-40 ">
-                            Search
-        </button>
+                    <div className="col-lg-3 col-md-6 col-sm-12">
+                        <div className="form-group">
+                            <label className="invisible d-md-block d-none">button</label>
+                            <button type="submit" className="min-width-button btn-uni-purple min-height-40 ">
+                                Search
+                            </button>
+                        </div>
                     </div>
                 </div>
                 <div className="m_table m_table--sales min-width-100-pc">

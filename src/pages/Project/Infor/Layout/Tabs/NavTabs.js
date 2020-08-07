@@ -1,6 +1,8 @@
 import React from 'react';
 
-const NavTabs = () => {
+const NavTabs = (props) => {
+    let { tab } = props;
+    console.log('tab is', tab);
     return (
         <ul className="nav square nav-tabs nav-top-border no-hover-bg" id="curentTab" role="tablist">
             <li className="nav-item">
