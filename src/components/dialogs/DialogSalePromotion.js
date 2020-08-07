@@ -52,6 +52,7 @@ const data = [
         isCheck: false,
     },
 ];
+
 const DialogSalePromotion = (props) => {
     return (
         <Modal
@@ -162,6 +163,4 @@ const DialogSalePromotion = (props) => {
 
 export default DialogSalePromotion;
 
-DialogSalePromotion.propTypes = {
-    visible: PropTypes.bool,
-}
+

@@ -1,56 +1,6 @@
 import React, { useState } from "react";
 import { CardHeader } from "../common";
 import { Modal } from 'react-bootstrap'
-const data = [
-  {
-    id: 1,
-    title: "Trưởng phòng sales Công ty Bất Động Sản Thành Công",
-    descriptiom:
-      " Sản phẩm này không nằm ở vị thế tiện lợi và đã không bán được trong suốt 2 tháng qua ",
-    avatar: "../images/all/chat_avatar.jpeg",
-    time: "00:00 - Th 7 - 04/07/2020",
-  },
-  {
-    id: 2,
-    title: "Trưởng phòng sales Công ty Bất Động Sản Thành Công",
-    descriptiom:
-      "Sản phẩm này không nằm ở vị thế tiện lợi và đã không bánđược trong suốt 2 tháng qua ",
-    avatar: "../images/all/chat_avatar.jpeg",
-    time: "00:00 - Th 7 - 04/07/2020",
-  },
-  {
-    id: 3,
-    title: "Trưởng phòng sales Công ty Bất Động Sản Thành Công",
-    descriptiom:
-      "Sản phẩm này không nằm ở vị thế tiện lợi và đã không bánđược trong suốt 2 tháng qua ",
-    avatar: "../images/all/chat_avatar.jpeg",
-    time: "00:00 - Th 7 - 04/07/2020",
-  },
-  {
-    id: 4,
-    title: "Trưởng phòng sales Công ty Bất Động Sản Thành Công",
-    descriptiom:
-      "Sản phẩm này không nằm ở vị thế tiện lợi và đã không bánđược trong suốt 2 tháng qua ",
-    avatar: "../images/all/chat_avatar.jpeg",
-    time: "00:00 - Th 7 - 04/07/2020",
-  },
-  {
-    id: 5,
-    title: "Trưởng phòng sales Công ty Bất Động Sản Thành Công",
-    descriptiom:
-      "Sản phẩm này không nằm ở vị thế tiện lợi và đã không bánđược trong suốt 2 tháng qua ",
-    avatar: "../images/all/chat_avatar.jpeg",
-    time: "00:00 - Th 7 - 04/07/2020",
-  },
-  {
-    id: 6,
-    title: "Trưởng phòng sales Công ty Bất Động Sản Thành Công",
-    descriptiom:
-      " Sản phẩm này không nằm ở vị thế tiện lợi và đã không bánđược trong suốt 2 tháng qua",
-    avatar: "../images/all/chat_avatar.jpeg",
-    time: "00:00 - Th 7 - 04/07/2020",
-  },
-];
 
 const DialogResponeHistory = (props) => {
   const [showReplyForm, setshowReplyForm] = useState(false)
@@ -69,15 +19,13 @@ const DialogResponeHistory = (props) => {
           <CardHeader label="LỊCH SỬ PHẢN HỒI" />
           <div className="modal-content square">
             <div className="modal-body pb-0 pr-3">
-              <div className="uni_text_6d30ab fw-medium fs-18 mb-2">
-                PHẢN HỒI
-                </div>
+              <div className="uni_text_6d30ab fw-medium fs-18 mb-2">PHẢN HỒI</div>
               <div className="approval_history--modal">
                 {list_comment &&
                   list_comment.map((item) => (
                     <div className="item">
                       <figure className="avatar">
-                        <img src={item.avatar} />
+                        <img src={item.customer_avatar} />
                       </figure>
                       <div className="content">
                         <div className="head">

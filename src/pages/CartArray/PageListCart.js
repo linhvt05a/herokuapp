@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import {useDispatch, useSelector} from 'react-redux'
 import {approvedListRequest, commentListRequest} from '../../store/action/approval'
 import {CardInfo, CardApprovedHistory} from './Layout/index'
-import {DialogResponeHistory} from '../../components/dialogs'
+import {DialogResponeHistory, DialogPromotion} from '../../components/dialogs'
 
 
 const PageListCart = (props) =>{
@@ -43,6 +43,7 @@ const PageListCart = (props) =>{
             isFetching={isFetching} 
             data={data} 
             handleClick ={handleClick}
+            list_comment ={list_comment}
         />
         <DialogResponeHistory showPopUp={showPopUp} close ={()=>setShowPopUp(false)} list_comment ={list_comment}/>
        </>
