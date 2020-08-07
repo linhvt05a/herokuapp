@@ -13,7 +13,7 @@ function commentList() {
     };
 
     const params = {request_id: 2};
-    const url = api.getUrl(api.HISTORY_APPROVED, params)
+    const url = api.getUrl(api.LIST_COMMENT, params)
     return api.handleRequest(url, requestOptions);
 }
 
