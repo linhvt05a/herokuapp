@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import actions from "../../../store/action/shipping"
+import actions from "../../../store/action/cart"
 import Item from "./Layout";
 import Title from "../../../components/common/CardHeader"
 const Edit = props => {
@@ -17,7 +17,7 @@ const Edit = props => {
         dispatch(actions.LoadSellOpenCart({ token: token, id: props.params.id }));
 
     }, [])
-    const data = useSelector(state => state.shipping);
+    const data = useSelector(state => state.cart);
     // console.log(data);
     // const newData = [
     //     createData("Sell open 1", "10/06/2020", "31/10/2020", 16, 15),

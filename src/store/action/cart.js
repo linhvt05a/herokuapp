@@ -1,4 +1,4 @@
-const name = 'SHIPPING_';
+const name = 'CART_';
 const actions = {
 
     LOAD_LIST: name + 'LOAD_LIST',
@@ -24,6 +24,26 @@ const actions = {
     LOAD_SELL_OPEN_CART_FAILURE: name + 'LOAD_SELL_OPEN_CART_FAILURE',
     LOAD_SELL_OPEN_CART_SUCCESS: name + 'LOAD_SELL_OPEN_CART_SUCCESS',
 
+    // FILTER_AREA
+    LOAD_FILTER_AREA: name + "LOAD_FILTER_AREA",
+    LOAD_FILTER_AREA_SUCCESS: name + "LOAD_FILTER_AREA_SUCCESS",
+    LOAD_FILTER_AREA_FAILURE: name + "LOAD_FILTER_AREA",
+
+    // FILTER_AREA
+    LOAD_FILTER_BLOCK: name + "LOAD_FILTER_BLOCK",
+    LOAD_FILTER_BLOCK_SUCCESS: name + "LOAD_FILTER_BLOCK_SUCCESS",
+    LOAD_FILTER_BLOCK_FAILURE: name + "LOAD_FILTER_BLOCK",
+
+    // FILTER_AREA
+    LOAD_FILTER_PROJECT_STATUS: name + "LOAD_FILTER_PROJECT_STATUS",
+    LOAD_FILTER_PROJECT_STATUS_SUCCESS: name + "LOAD_FILTER_PROJECT_STATUS_SUCCESS",
+    LOAD_FILTER_PROJECT_STATUS_FAILURE: name + "LOAD_FILTER_PROJECT_STATUS",
+
+    // FILTER_AREA
+    LOAD_FILTER_FLOOR: name + "LOAD_FILTER_FLOOR",
+    LOAD_FILTER_FLOOR_SUCCESS: name + "LOAD_FILTER_FLOOR_SUCCESS",
+    LOAD_FILTER_FLOOR_FAILURE: name + "LOAD_FILTER_FLOOR",
+
 
     LoadList: (params) => ({
         type: actions.LOAD_LIST,
@@ -43,6 +63,22 @@ const actions = {
     }),
     LoadSellOpenCart: (params) => ({
         type: actions.LOAD_SELL_OPEN_CART,
+        params: params
+    }),
+    LoadFilterArea: (params) => ({
+        type: actions.LOAD_FILTER_AREA,
+        params: params
+    }),
+    LoadFilterBlock: (params) => ({
+        type: actions.LOAD_FILTER_BLOCK,
+        params: params
+    }),
+    LoadProjectStatus: (params) => ({
+        type: actions.LOAD_FILTER_PROJECT_STATUS,
+        params: params
+    }),
+    LoadFilterFloor: (params) => ({
+        type: actions.LOAD_FILTER_FLOOR,
         params: params
     }),
 };

@@ -1,9 +1,9 @@
 
 import React, { useState, useEffect } from 'react';
 import CardHeader from '../../../components/common/CardHeader';
-import Item from "../../info/Shipping/Layout";
+import Item from "../../Cart/info/Layout";
 import { useDispatch, useSelector } from "react-redux";
-import actions from "../../../store/action/shipping";
+import actions from "../../../store/action/cart";
 import ListProduct from "../../../components/Card/ListProduct"
 
 const PageProject = () => {
@@ -17,7 +17,7 @@ const PageProject = () => {
     useEffect(() => {
         dispatch(actions.LoadList({ token: token }))
     }, [])
-    const dataShipping = useSelector(state => state.shipping)
+    const datacart = useSelector(state => state.cart)
     let dataSelect = [
         { href: "#", value: "1", label: "Mới" },
         { href: "#", value: "2", label: "Đang chờ" },
@@ -42,10 +42,10 @@ const PageProject = () => {
                     SEARCH={value => SEARCH(value)} />
                 <ListProduct
                     dataFilter={dataType}
-                    data={dataShipping.List}
-                    page={dataShipping.page}
-                    total_page={dataShipping.total_page}
-                    total_record={dataShipping.total_record}
+                    data={datacart.List}
+                    page={datacart.page}
+                    total_page={datacart.total_page}
+                    total_record={datacart.total_record}
                     link_to={`/info/project/detail/`}
                 />
             </div>
