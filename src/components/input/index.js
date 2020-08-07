@@ -63,6 +63,20 @@ function mappingListToSelectList(list, key, label) {
     return null;
 }
 
+function mappingSelectListHaveDefault(list, key, label, defaultValue) {
+    if (list) {
+        let result = [defaultValue];
+        for (var i = 0; i < list.length; i++) {
+            result.push({
+                'value': list[i][key],
+                'label': label ? list[i][label] : list[i].name
+            })
+        }
+        return result;
+    }
+    return null;
+}
+
 function getValueSelect(list, id) {
     if (list) {
         for (var i = 0; i < list.length; i++) {
@@ -86,5 +100,6 @@ export {
     mappingWithList,
     getValueSelect,
     convertMutilSelectedToList,
-    mapping
+    mapping,
+    mappingSelectListHaveDefault
 }

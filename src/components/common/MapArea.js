@@ -1,7 +1,7 @@
-import React, { useEffect, memo } from 'react';
+import React, { memo } from 'react';
 import { Trans } from 'react-i18next';
 
-import ReactMapboxGl, { Marker, Popup, Source, Feature, Layer } from "react-mapbox-gl";
+import ReactMapboxGl, { Popup, Feature, Layer } from "react-mapbox-gl";
 
 const Map = ReactMapboxGl({
     accessToken:
@@ -44,7 +44,7 @@ const MapArea = (props) => {
             <div className="card-body p-0">
                 {
                     (projectListSuccess && markerData) &&
-                    <Map 
+                    <Map
                         className="map"
                         style={MAP_STYLE}
                         center={[markerData.lon, markerData.lat]}
