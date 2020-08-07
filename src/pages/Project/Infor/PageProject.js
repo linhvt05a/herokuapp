@@ -46,6 +46,7 @@ const PageProject = () => {
                     page={dataShipping.page}
                     total_page={dataShipping.total_page}
                     total_record={dataShipping.total_record}
+                    link_to={`/info/project/detail/`}
                 />
             </div>
         </div>

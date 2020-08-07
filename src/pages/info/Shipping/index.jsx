@@ -47,6 +47,7 @@ const Shipping = props => {
                     page={dataShipping.page}
                     total_page={dataShipping.total_page}
                     total_record={dataShipping.total_record}
+                    link_to={`/cart/cart_list/detail/`}
                 />
             </div>
         </div>

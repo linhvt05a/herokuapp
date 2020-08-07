@@ -8,7 +8,7 @@ const ListProductTable = props => {
             <tr key={data.about + index}>
                 <td className="text-left align-middle">{index}</td>
                 <td className="text-left fw-medium align-middle">
-                    <Link to={`/cart/cart_list/detail/${data.project_id}`} className="link_href_6d30ab" >{data.about}</Link>
+                    <Link to={`${props.link_to}${data.project_id}`} className="link_href_6d30ab" >{data.about}</Link>
                 </td>
                 <td className="text-left align-middle" style={{ color: '#a8c200' }}>{data.setting_type_name}</td>
                 <td className="text-left align-middle">{data.investor_name}</td>

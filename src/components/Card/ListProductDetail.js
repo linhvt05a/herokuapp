@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from "react-router-dom"
 
 const CartProductDetail = props => {
-    let { item, index } = props;
+    let { item, index, link_to } = props;
     return (
         <div className="col-12 col-sm-6 col-lg-6 col-xl-4 mb-4">
             <div className="item">
@@ -14,7 +14,7 @@ const CartProductDetail = props => {
                         {item.setting_type_name}
                     </p>
                     <p className="name">
-                        <Link to={`/cart/cart_list/detail/${item.project_id}`} className="link_href_6d30ab" >{item.about}</Link>
+                        <Link to={`${link_to}${item.project_id}`} className="link_href_6d30ab" >{item.about}</Link>
                         <Link className="small float-right" to={`/cart/cart_list/detail/${item.project_id}`} title="Thêm tin tức" >
                             <i className="news icon las la-newspaper">
                                 <span className="badge badge-pill badge-danger badge-up badge-glow">14</span>
