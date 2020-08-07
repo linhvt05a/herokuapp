@@ -2,10 +2,17 @@
 import React, { useState, useEffect } from 'react';
 import { product_type_id, product_status } from "../../../../../constant";
 import { Trans } from 'react-i18next';
-import { InputSelect } from "../../../../../components/input"
+import { InputSelect } from "../../../../../components/input";
+import DialogSalePromotion from "../../../../../components/dialogs/DialogSalePromotion"
 
 const InfoShipping = props => {
     const [click, setClick] = useState([]);
+    const [show, setShow] = useState({
+        Show_request: false,
+        Show_requirements: false,
+        Show_contract: false,
+        Show_return: false,
+    })
     useEffect(() => {
         if (props.data.floor_or_lot_list) {
             let arr = [];
@@ -61,19 +68,18 @@ const InfoShipping = props => {
     const renderPopUp = (value) => {
         return (
             <div className="dropdown-menu show" x-placement="top-start" style={{ position: 'absolute', transform: 'translate3d(-183px, 0px, 0px)', top: 0, left: 0, willChange: 'transform' }}>
-                <a className="dropdown-item" data-toggle="modal" data-target="#createRequest" href="#">
+                <a className="dropdown-item" data-toggle="modal" data-target="#createRequest" onClick={() => setShow({ ...show, Show_request: true })}>
                     <i className="icon-dropdown las la-question-circle" /><Trans>Create a request</Trans></a>
-                <a className="dropdown-item" href="#">
+                <a className="dropdown-item" onClick={() => setShow({ ...show, Show_requirements: true })} >
                     <i className="icon-dropdown las la-list-alt" /><Trans>See requirements</Trans></a>
-                <a className="dropdown-item" href="#">
+                <a className="dropdown-item" onClick={() => setShow({ ...show, Show_contract: true })}>
                     <i className="icon-dropdown las la-plus-square" /><Trans>Create a contract</Trans></a>
-                <a className="dropdown-item" href="#">
+                <a className="dropdown-item" onClick={() => setShow({ ...show, Show_return: true })} >
                     <i className="icon-dropdown las la-undo" /><Trans>Request a return</Trans></a>
             </div>
         )
     }
     const trParent = (data, index) => {
-
         return (
             <tr key={index + data.floor_or_lot_name + 1} className="parent" data-parent={`row${index}`}>
                 <td className="number pl-0">{index + 1}</td>
@@ -206,11 +212,13 @@ const InfoShipping = props => {
                             {props.data.floor_or_lot_list ? props.data.floor_or_lot_list.map((data, index) => {
                                 return [trParent(data, index), trChild(data.product_list, index)]
                             }) : null}
-
-
                         </tbody></table>
                 </div>
             </div>
+            {show.Show_request && <DialogSalePromotion active={show.Show_request} onClick={() => setShow({ ...show, Show_request: false })} />}
+            {show.Show_contract && <div></div>}
+            {show.Show_requirements && <div></div>}
+            {show.Show_return && <div></div>}
         </div>
 
     )

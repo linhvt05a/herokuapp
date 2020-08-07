@@ -22,7 +22,7 @@ const ListProductTable = props => {
                     <a className="uni_text_6d30ab" href="/backend/management/category/project/13/" title="Edit project">
                         {/* <i className="edit fs-20 icon las la-pen" /> */}
                     </a>
-                    <Link to={`/cart/cart_list/detail/${data.project_id}`} className="uni_text_6d30ab" title="News project">
+                    <Link to={`${props.link_to}${data.project_id}`} className="uni_text_6d30ab" title="News project">
                         <i className="news fs-20 icon las la-newspaper" />
                     </Link>
                 </td>
