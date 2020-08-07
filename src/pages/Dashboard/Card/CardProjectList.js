@@ -23,9 +23,9 @@ const CardProjectList = (props) => {
                                     <th style={{width: "30%"}} className="col-1 pl-0"><Trans>No.</Trans></th>
                                     <th className="col-2"><Trans>ProjectName</Trans></th>
                                     <th className="col-2"><Trans>ProjectStatus</Trans></th>
-                                    <th className="col-2 text-right"><Trans>ExpectedRevenue</Trans><span className="current_currency_name">(VND)</span></th>
-                                    <th className="col-2 text-right"><Trans>ActualRevenue</Trans><span className="current_currency_name">(VND)</span></th>
-                                    <th className="col-2 text-right"><Trans>Cost</Trans><span className="current_currency_name">(VND)</span></th>
+                                    <th className="col-2"><Trans>ExpectedRevenue</Trans><span className="current_currency_name">(VND)</span></th>
+                                    <th className="col-2"><Trans>ActualRevenue</Trans><span className="current_currency_name">(VND)</span></th>
+                                    <th className="col-2"><Trans>Cost</Trans><span className="current_currency_name">(VND)</span></th>
                                 </tr>
                             </thead>
                             {

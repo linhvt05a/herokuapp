@@ -5,7 +5,7 @@ import { Trans } from 'react-i18next';
 import ListProductDetail from "./ListProductDetail";
 import ListProductTable from "./ListProductTable";
 const body = props => {
-    let { dataFilter, data, page, total_page, total_record } = props;
+    let { dataFilter, data, page, total_page, total_record, link_to } = props;
     const [state, setState] = useState(true);
 
     return (
@@ -34,19 +34,19 @@ const body = props => {
             {state ? <div className="m_grid m_grid--list_project">
                 <div className="row">
                     {data.length > 0 ? data.map((item, index) => {
-                        return <ListProductDetail item={item} index={index} key={index} />
+                        return <ListProductDetail item={item} index={index} key={index} link_to={link_to} />
                     }) : null}
                 </div >
             </div > :
                 <div className="m_table m_table--sales" style={{ maxHeight: '100%' }}>
-                    <ListProductTable data={data} />
+                    <ListProductTable data={data} link_to={link_to} />
                 </div>}
 
             <Pagination
                 total_page={total_page}
                 total_record={total_record}
                 page={page}
-                change={() => console.log("chay")}
+                change={() => console.log("run!!!")}
             />
         </div >
 
