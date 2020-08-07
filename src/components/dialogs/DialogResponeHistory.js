@@ -54,7 +54,7 @@ const data = [
 
 const DialogResponeHistory = (props) => {
   const [showReplyForm, setshowReplyForm] = useState(false)
-
+  const {list_comment} = props
   return (
     <Modal show={props.showPopUp} onHide={props.close}>
       <div
@@ -73,8 +73,8 @@ const DialogResponeHistory = (props) => {
                 PHẢN HỒI
                 </div>
               <div className="approval_history--modal">
-                {data &&
-                  data.map((item) => (
+                {list_comment &&
+                  list_comment.map((item) => (
                     <div className="item">
                       <figure className="avatar">
                         <img src={item.avatar} />
@@ -83,15 +83,11 @@ const DialogResponeHistory = (props) => {
                         <div className="head">
                           <b className="name">{item.title}</b>
                           <span className="d-flex align-items-center">
-                            <i className="time">{item.time}</i>
-                            {item.id === 6 ? (
+                            <i className="time">{item.created_at}</i>
                               <i className="reply las la-undo" onClick={() => setshowReplyForm(true)}></i>
-                            ) : (
-                                <></>
-                              )}
                           </span>
                         </div>
-                        <div className="detail">{item.descriptiom}</div>
+                        <div className="detail">{item.content}</div>
                       </div>
                     </div>
                   ))}

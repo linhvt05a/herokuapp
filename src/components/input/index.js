@@ -4,6 +4,8 @@ import InputText from './InputText';
 import InputTextArea from './InputTextArea';
 import InputCheckBox from './InputCheckBox';
 import InputFile from './InputFile';
+import InputTextImage from './InputTextImage'
+import InputTextSelect from './InputTextSelect'
 
 function mapping(list, value) {
     if (list && list.length > 0) {
@@ -76,6 +78,8 @@ function getValueSelect(list, id) {
 
 export {
     InputSelect,
+    InputTextImage,
+    InputTextSelect,
     InputDate,
     InputText,
     InputTextArea,

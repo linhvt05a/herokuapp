@@ -5,6 +5,7 @@ import {DatePicker, Input, Space} from 'antd'
 import moment from 'moment';
 import {request_type, request_status, priority_request} from '../../../constant'
 const dateFormat = 'YYYY/MM/DD';
+import { Spinner } from '../../../components/common';
 
 const CardApprovedHistory = (props) => {
     const [selected, setSelected] = useState(true)
@@ -14,7 +15,14 @@ const CardApprovedHistory = (props) => {
     return (
         <div className="row ">
             <CardFilterApproved />
-            <CardReview selected={selected} data={props.data} changeTab={changeTab} handleClick={props.handleClick} />
+           <CardReview 
+                    selected={selected} 
+                    data={props.data} 
+                    isFetching={props.isFetching} 
+                    approveSuccess ={props.approveSuccess} 
+                    changeTab={changeTab} 
+                    handleClick={props.handleClick} 
+            />
         </div>
     );
 };
@@ -25,19 +33,19 @@ const CardFilterApproved = () => {
             <div className="card square">
                 <div className="card-body">
                     <div className="form-group">
-                        <InputSelect label="LOẠI YÊU CẦU" />
+                        <InputSelect label="LOẠI YÊU CẦU" placeholder ="--Select--" datas ={request_type}/>
                     </div>
                     <div className="form-group">
                         <label className="fw-medium">Choose Date</label>
-                        <DatePicker defaultValue={moment('01/01/2015', dateFormat)} format={dateFormat} />
+                        <DatePicker className="form-control"  defaultValue={moment('01/01/2015', dateFormat)} format={dateFormat} />
                     </div>
 
                     <div className="form-group">
                         <label className="fw-medium">Choose Date</label>
-                        <DatePicker defaultValue={moment('2015/01/01', dateFormat)} format={dateFormat} />
+                        <DatePicker className="form-control" defaultValue={moment('2015/01/01', dateFormat)} format={dateFormat} />
                     </div>
-                    <InputSelect className="form-group" label="TRẠNG THÁI" />
-                    <InputSelect className="form-group" label="ĐỘ ƯU TIÊN" />
+                    <InputSelect className="form-group" label="TRẠNG THÁI" placeholder ="--Select--" datas={request_status}/>
+                    <InputSelect className="form-group" label="ĐỘ ƯU TIÊN" placeholder ="--Select--" datas ={priority_request}/>
                     <FilterButton />
                 </div>
             </div>
@@ -88,11 +96,12 @@ const CardReview = (props) => {
                                         <div className="approval_history--detail">
                                             {
                                                 props.selected === true ?
-                                                    (<NewestMessage handleClick={props.handleClick} data={item} />)
+                                                    (
+                                                        <NewestMessage handleClick={props.handleClick} data={item} />
+                                                    )
                                                     :
-                                                    (<OldestMessage data={item} />)
+                                                    ( <OldestMessage data={item}  handleClick={props.handleClick}/>)
                                             }
-
                                         </div>
                                     </div>
                                 </div>
@@ -127,7 +136,7 @@ const NewestMessage = (props) => {
                             <Priority data ={props.data}/>
                         </p>
                         <a href="#" className="uni_text_6d30ab fs-12" onClick={props.handleClick}>
-                          {props.data && props.data.request_status === 1 ?  <u> Phản hồi</u> : <u> Xem lịch sử phản hồi</u>}
+                           <u> Xem lịch sử phản hồi</u>
                         </a>
                         </div>
                 </div>
@@ -157,7 +166,7 @@ const OldestMessage = (props) => {
                             <Priority data={props.data}/>
                         </p>
                         <a href="#" className="uni_text_6d30ab fs-12" onClick={props.handleClick}>
-                            {<u>Xem lịch sử phản hồi</u>}
+                            <u>Xem lịch sử phản hồi</u>
                         </a>
                     </div>
                 </div>
