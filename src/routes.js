@@ -10,9 +10,11 @@ import * as ProductCart from "./pages/ProductCart";
 
 import * as Project from "./pages/Project";
 
-import * as Perm from "./pages/Permission"
+// import * as Perm from "./pages/Permission";
 
-import * as Cart from "./pages/Cart"
+import * as Cart from "./pages/Cart";
+
+import storyBook from "./components/storybook"
 
 const LOGINS = [
     { "path": "/login", "value": Login.PageLogin, "main_title": "login_main_title", "sub_title": "login_sub_title" },
@@ -20,6 +22,7 @@ const LOGINS = [
 ];
 
 const MAINS = [
+    { "path": "/storybook", "value": storyBook, "menu": "menu_home", "title": "home_dashboard" },
     { "path": "/", "value": Dashboard.Dashboard, "menu": "menu_home", "title": "home_dashboard" },
     { "path": "/changepass", "value": Account.PageChangePass, "menu": "menu_home", "title": "changepassword_title" },
     { "path": "/profile", "value": Account.PageProfile, "menu": "menu_home", "title": "Profile" },
@@ -40,12 +43,12 @@ const MAINS = [
     { "path": "/info/project/detail/:id", "value": Project.PageProjectDetail, "menu": "menu_project_detail_customer_info", "title": "Thông tin dự án" },
 
     { "path": "/perm/project", "value": System.PageListCart, "menu": "menu_perm_task_by_projects", "title": "" },
-    { "path": "/perm/project/add", "value": Perm.PagePermProjectAdd, "menu": "menu_perm_task_by_projects", "title": "Add" },
-    { "path": "/perm/project/detail/:id", "value": Perm.PagePermProjectDetail, "menu": "menu_perm_task_by_projects", "title": "Update" },
+    // { "path": "/perm/project/add", "value": Perm.PagePermProjectAdd, "menu": "menu_perm_task_by_projects", "title": "Add" },
+    // { "path": "/perm/project/detail/:id", "value": Perm.PagePermProjectDetail, "menu": "menu_perm_task_by_projects", "title": "Update" },
 
-    { "path": "/perm/internal", "value": Perm.PagePermInternal, "menu": "menu_perm_task_by_departments", "title": "menu_perm_task_by_departments" },
-    { "path": "/perm/internal/add", "value": Perm.PagePermInternalAdd, "menu": "menu_perm_task_by_departments", "title": "Add" },
-    { "path": "/perm/internal/detail/:id", "value": Perm.PagePermInternalDetail, "menu": "menu_perm_task_by_departments", "title": "Update" },
+    // { "path": "/perm/internal", "value": Perm.PagePermInternal, "menu": "menu_perm_task_by_departments", "title": "menu_perm_task_by_departments" },
+    // { "path": "/perm/internal/add", "value": Perm.PagePermInternalAdd, "menu": "menu_perm_task_by_departments", "title": "Add" },
+    // { "path": "/perm/internal/detail/:id", "value": Perm.PagePermInternalDetail, "menu": "menu_perm_task_by_departments", "title": "Update" },
     //shipping
     /*{ "path": "/cart/cart_list", "value": Info.Home, "menu": "menu_shipping_cart_list_title", "title": "menu_shipping_cart_list_title" },
     { "path": "/cart/cart_list/detail/:id", "value": Info.Edit, "menu": "menu_shipping_cart_list_title", "title": "Detail" },*/
@@ -54,7 +57,7 @@ const MAINS = [
 ]
 
 var PATHS = {};
-for (var i = 0;i < MAINS.length;i++) {
+for (var i = 0; i < MAINS.length; i++) {
     var data = MAINS[i];
     var path = data.path.replace("/:id", "");
     PATHS[path] = data.title;
