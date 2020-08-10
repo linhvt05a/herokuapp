@@ -1,7 +1,6 @@
 import React from 'react';
 import { Input, Select } from 'antd';
 import { Trans } from 'react-i18next';
-import { SettingOutlined } from '@ant-design/icons';
 
 const { Option } = Select;
 
@@ -36,3 +35,4 @@ const GroupInputSelect = (props) => {
 }
 
 export default GroupInputSelect;
+

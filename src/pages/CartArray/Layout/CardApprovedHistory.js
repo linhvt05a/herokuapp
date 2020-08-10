@@ -32,21 +32,14 @@ const CardFilterApproved = () => {
             <CardHeader label="LỌC LỊCH SỬ PHÊ DUYỆT" />
             <div className="card square">
                 <div className="card-body">
-                    <div className="form-group">
-                        <InputSelect label="LOẠI YÊU CẦU" placeholder ="--Select--" datas ={request_type}/>
-                    </div>
-                    <div className="form-group">
-                        <label className="fw-medium">Choose Date</label>
-                        <DatePicker className="form-control"  defaultValue={moment('01/01/2015', dateFormat)} format={dateFormat} />
-                    </div>
 
-                    <div className="form-group">
-                        <label className="fw-medium">Choose Date</label>
-                        <DatePicker className="form-control" defaultValue={moment('2015/01/01', dateFormat)} format={dateFormat} />
-                    </div>
+                    <InputSelect className="form-group" label="LOẠI YÊU CẦU" placeholder ="--Select--" datas ={request_type}/>
+                    <InputDate label="CHOOSE DATE" defaultValue={moment('01/01/2015', dateFormat)} format={dateFormat} />
+                    <InputDate  label="CHOOSE DATE" defaultValue={moment('2015/01/01', dateFormat)} format={dateFormat} />
                     <InputSelect className="form-group" label="TRẠNG THÁI" placeholder ="--Select--" datas={request_status}/>
                     <InputSelect className="form-group" label="ĐỘ ƯU TIÊN" placeholder ="--Select--" datas ={priority_request}/>
                     <FilterButton />
+
                 </div>
             </div>
         </div>
