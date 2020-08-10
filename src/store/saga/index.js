@@ -27,7 +27,9 @@ import {
   projectListWatcher
 } from './dashboardSaga';
 import {
-  projectDetailWatcher
+  projectDetailWatcher,
+  sellopenListWatcher,
+  bankingListWatcher
 } from './projectSaga';
 import {
   commentListWatcher, 
@@ -58,8 +60,12 @@ function* allSaga() {
     provinceListWatcher(),
     typeListWatcher(),
     statusListWatcher(),
+    //project
     projectListWatcher(),
     projectDetailWatcher(),
+    sellopenListWatcher(),
+    bankingListWatcher(),
+
     commentListWatcher(),
     approveListWatcher(),
     addCommentWatcher()

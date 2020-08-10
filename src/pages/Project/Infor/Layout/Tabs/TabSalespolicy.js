@@ -4,18 +4,25 @@ import { Trans } from 'react-i18next';
 const TabSalespolicy = () => {
     return (
         <div className="m_table m_table--sales min-width-100-pc sales_house-selected">
+            <div className="row">
+                <div className="col-12" style={{marginTop: "15px"}}>
+                    <h6 className=" mb-1 uni_text_6d30ab text-uppercase">
+                        <Trans>DANH SÁCH CÁC CHÍNH SÁCH BÁN HÀNG</Trans>
+                    </h6>
+                </div>
+            </div>
             <table>
                 <thead>
                     <tr>
-                        <th className="pl-0"><Trans>No.</Trans></th>
-                        <th className="pl-0"><Trans>Sell open</Trans></th>
-                        <th className="pl-0"><Trans>Distribution channel</Trans></th>
-                        <th><Trans>Applicable policy</Trans></th>
-                        <th><Trans>Status policy</Trans></th>
-                        <th><Trans>From date</Trans></th>
-                        <th><Trans>To date</Trans></th>
-                        <th><Trans>Status sell open</Trans></th>
-                        <th><Trans>Note</Trans></th>
+                        <th className="pl-0"><Trans>STT</Trans></th>
+                        <th className="pl-0"><Trans>ĐỢT</Trans></th>
+                        <th className="pl-0"><Trans>KÊNH PHÂN PHỐI</Trans></th>
+                        <th><Trans>CHÍNH SÁCH ÁP DỤNG</Trans></th>
+                        <th><Trans>TRẠNG THÁI CS</Trans></th>
+                        <th><Trans>TỪ NGÀY</Trans></th>
+                        <th><Trans>ĐẾN NGÀY</Trans></th>
+                        <th><Trans>TRẠNG THÁI ĐỢT</Trans></th>
+                        <th><Trans>GHI CHÚ</Trans></th>
                         <th></th>
                     </tr>
                 </thead>

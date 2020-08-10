@@ -8,6 +8,7 @@ const initialState = {
     Sell_Open_Cart: [],
     Filter_Project_Area: [],
     Filter_Floor: [],
+    Filter_Block: [],
     Filter_Project_Status: [],
     Filter_Open_Sale: [],
     page: 0,
@@ -140,6 +141,20 @@ export default (state = initialState, action) => {
                 success: action.response.success
             };
         case actions.LOAD_FILTER_FLOOR_FAILURE:
+            return {
+                ...state,
+                isFetching: false,
+                // error: action.response.err,
+                success: false
+            }
+        case actions.LOAD_FILTER_BLOCK_SUCCESS:
+            return {
+                ...state,
+                Filter_Block: action.response.detail,
+                isFetching: true,
+                success: action.response.success
+            };
+        case actions.LOAD_FILTER_BLOCK_FAILURE:
             return {
                 ...state,
                 isFetching: false,

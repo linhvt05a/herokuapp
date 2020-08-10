@@ -3,7 +3,7 @@ import React from 'react';
 const TabProgress = () => {
     return (
         <div>
-            Tab Progress
+            null
         </div>
     )
 }

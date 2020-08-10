@@ -26,7 +26,10 @@ export const projectService = {
     projectWorkFlow,
     projectPeriod,
     projectModel,
-    projectInvestor
+    projectInvestor, 
+
+    sellopenList,
+    bankingList,
 
 }
 function projectInvestor(token){
@@ -295,3 +298,24 @@ function projectCurrencyList(token, page, limit) {
     return api.handleRequest(url, requestOptions);
 }
 
+// sell open list project
+function sellopenList(token, project_id) {
+    const requestOptions = {
+        method: 'GET',
+        headers: api.getHeader(token)
+    };
+    const params = { project_id };
+    const url = api.getUrl(api.PROJECT_SELLOPEN_LIST, params)
+    return api.handleRequest(url, requestOptions);
+}
+
+// sell open list project
+function bankingList(token, project_id) {
+    const requestOptions = {
+        method: 'GET',
+        headers: api.getHeader(token)
+    };
+    const params = { project_id };
+    const url = api.getUrl(api.PROJECT_BANKING_LIST, params)
+    return api.handleRequest(url, requestOptions);
+}
