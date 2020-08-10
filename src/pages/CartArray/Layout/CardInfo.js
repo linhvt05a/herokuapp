@@ -47,9 +47,9 @@ import { GroupInputIcon } from '../../../components/base/Select/GroupInputIcon';
 
                                 <InputText className="col-12 col-sm-6 col-md-6 col-lg-4" label="Tên đại lý" disabled/>  
 
-                                {/* <GroupInputSelect className="col-12 col-sm-6 col-md-6 col-lg-4"  addonAfter={selectAfter} value = "21423423423423423" />
+                                <GroupInputSelect className="col-12 col-sm-6 col-md-6 col-lg-4"  addonAfter={selectAfter} value = "21423423423423423" /> 
 
-                                <GroupInputIcon className="col-12 col-sm-6 col-md-6 col-lg-4" des = "0.1" disabled symbol="%"/> */}
+                                <GroupInputIcon className="col-12 col-sm-6 col-md-6 col-lg-4" des = "0.1" disabled symbol="%"/> 
 
                                 <InputText className="col-12 col-sm-6 col-md-6 col-lg-4" label="Số chính sách khuyến mãi đang có  " disabled/>
                                 
