@@ -1,6 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { Trans } from 'react-i18next';
+import { bankingListRequest } from '../../../../../store/action/project';
+import { useDispatch, useSelector } from "react-redux";
 
-const TabBanking = () => {
+const TabBanking = (props) => {
+    const token = 'MTAwNjpNVEF3Tmpwa05ESmlPVGc1WldVM05HWmhNMlZrWXpWaFlqQXhOalV4T1RReFl6QmtOVFUyTW1Oa1pUVTQ=';
+    let { project_id } = props;
+    const dispatch = useDispatch();
+    const bankingStore = useSelector(state => state.project);
+    useEffect(() => {
+        dispatch(bankingListRequest({ token: token, project_id: project_id }));
+    }, []);
+
+    const bankingListSuccess = bankingStore.bankingList.success;
+    const bankingListRes = bankingListSuccess ? bankingStore.bankingList.detail : null;
+
+    console.log("--------", bankingListRes);
+
     return (
         <div>
             {/* <div class="row mt-2 mb-2 pl-3">
@@ -42,14 +58,21 @@ const TabBanking = () => {
                 </div>
             </div> */}
             <div class="m_table m_table--sales min-width-100-pc table-height mb-0">
+                <div className="row">
+                    <div className="col-12" style={{marginTop: "15px"}}>
+                        <h6 className=" mb-1 uni_text_6d30ab text-uppercase">
+                            <Trans>DANH SÁCH NGÂN HÀNG</Trans>
+                        </h6>
+                    </div>
+                </div>
                 <table class="table table-sticky-01">
                     <thead>
                         <tr>
-                            <th class="pl-0 col-1" style={{width: "5%"}}>No.</th>
-                            <th class="col-3" style={{width: "25%"}}>Banking</th>
-                            <th class="col-2" style={{width: "20%"}}>Short name</th>
-                            <th class="col-2" style={{width: "20%"}}>Sell open</th>
-                            <th class="col-3" style={{width: "25%"}}>Office</th>
+                            <th class="pl-0 col-1" style={{width: "5%"}}><Trans>STT</Trans></th>
+                            <th class="col-3" style={{width: "25%"}}><Trans>NGÂN HÀNG</Trans></th>
+                            <th class="col-2" style={{width: "20%"}}><Trans>TÊN VIẾT TẮT</Trans></th>
+                            <th class="col-2" style={{width: "20%"}}><Trans>ĐỢT MỞ BÁN</Trans></th>
+                            <th class="col-3" style={{width: "25%"}}><Trans>TRỤ SỞ</Trans></th>
                             <th class="col-1 text-center" style={{width: "5%"}}>
                                 <i class="icon las la-cog"></i>
                             </th>

@@ -10,35 +10,32 @@ import TabBanking from './Tabs/TabBanking';
 import NavTaps from './Tabs/NavTabs';
 
 const ProjectTab = (props) => {
-    let {detail} = props;
+    let {detail, project_id, token } = props;
     var tab = [
         {id : '#block_project_investor',
-         tabTitle: "Investor",
+         tabTitle: "Chủ đầu tư",
         },
         {id : '#block_project_parameters',
-         tabTitle: "Project parameters",
+         tabTitle: "Thông số dự án",
         },
         {id : '#block_construction_progress',
-         tabTitle: "Construction progress",
+         tabTitle: "Tiến độ xây dựng",
         },
         {id : '#sales_policy',
-         tabTitle: "Sales policy",
+         tabTitle: "Chính sách bán hàng",
         },
         {id : '#on_open_sale',
-         tabTitle: "Sell open list",
-        },
-        {id : '#distribution_channel',
-         tabTitle: "Distribution channel",
+         tabTitle: "Các đợt mở bán",
         },
         {id : '#bank',
-         tabTitle: "Banking",
+         tabTitle: "Ngân hàng",
         }
     ]
     const [active, setActive] = useState(0);
     const onItemClickTab = (index, title) => {
         setActive(index)
     }
-    console.log('+++++', detail);
+    console.log('+++++', project_id, detail);
     return (
         <div>
             <CardHeader label="Thông tin"/>
@@ -66,16 +63,13 @@ const ProjectTab = (props) => {
                             <TabProgress />
                         </div>
                         <div role="tabpanel" className={`tab-pane show fade pt-2 pb-3 ${active != 3 ? '' : 'active'}`}>
-                            <TabSalespolicy />
+                            <TabSalespolicy project_id={project_id} />
                         </div>
                         <div role="tabpanel" className={`tab-pane show fade pt-2 pb-3 ${active != 4 ? '' : 'active'}`}>
-                            <TabSellopenlist />
+                            <TabSellopenlist project_id={project_id} />
                         </div>
                         <div role="tabpanel" className={`tab-pane show fade pt-2 pb-3 ${active != 5 ? '' : 'active'}`}>
-                            <TabDistributionchannel />
-                        </div>
-                        <div role="tabpanel" className={`tab-pane show fade pt-2 pb-3 ${active != 6 ? '' : 'active'}`}>
-                            <TabBanking /> 
+                            <TabBanking project_id={project_id} /> 
                         </div>
                     </div>
                 </div>

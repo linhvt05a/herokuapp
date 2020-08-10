@@ -1,9 +1,9 @@
 import React from 'react';
-import MapParam from '../Maps/MapParam'
+import MapParam from '../Maps/MapParam';
+import { Trans } from 'react-i18next';
 
 const TabParameters = (props) => {
     let { data, lat, long } = props;
-    console.log('param', data.map, lat, long);
     return (
         <div>
             <div className="row mt-3">
@@ -11,7 +11,7 @@ const TabParameters = (props) => {
                     <div className="row">
                         <div className="col-12">
                             <h6 className=" mb-1 uni_text_6d30ab text-uppercase">
-                                Functionality
+                                <Trans>Functionality</Trans>
                             </h6>
                         </div>
                     </div>
@@ -25,21 +25,21 @@ const TabParameters = (props) => {
                     <div className="row">
                         <div className="col-12">
                             <h6 className=" mb-1 uni_text_6d30ab text-uppercase">
-                                Project information
+                            <Trans>TransProject information</Trans>
                             </h6>
                         </div>
                     </div>
                     <div className="row mt-2">
                         <div className="col-12">
                             <div className="form-group">
-                                <label className="fw-medium" for="ranking_project">Project rating</label>
+                                <label className="fw-medium" for="ranking_project"><Trans>Project rating</Trans></label>
                                 <input type="text" disabled="" className="form-control" value={data.project_info.rank_type} />
                             </div>
                         </div>
                     </div>
                     <div className="row">
                         <div className="col-12">
-                            <label className="fw-medium" for="ranking_project">Building density</label>
+                            <label className="fw-medium" for="ranking_project"><Trans>Building density</Trans></label>
                             <div className="form-group">
                                 <div className="input-group">
                                     <input type="text" name="building_density" disabled="" className="form-control" value={data.project_info.building_density} />
@@ -53,23 +53,23 @@ const TabParameters = (props) => {
                     </div>
                     <div className="row">
                         <div className="col-md-6 col-lg-6 col-md-12 col-sm-12">
-                            <label className="fw-medium" for="ranking_project">Number of basements</label>
+                            <label className="fw-medium" for="ranking_project"><Trans>Number of basements</Trans></label>
                             <div className="form-group">
                                 <div className="input-group">
                                     <input type="text" name="number_of_basement" value={data.project_info.number_of_basement} className="form-control" disabled="" />
                                     <div className="input-group-append">
-                                        <span className="input-group-text">Floor</span>
+                                        <span className="input-group-text"><Trans>Floor</Trans></span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div className="col-md-6 col-lg-6 col-md-12 col-sm-12">
-                            <label className="fw-medium" for="ranking_project">Number of floors</label>
+                            <label className="fw-medium" for="ranking_project"><Trans>Number of floors</Trans></label>
                             <div className="form-group">
                                 <div className="input-group">
                                     <input type="text" name="number_of_floor" value={data.project_info.number_of_floor} className="form-control " disabled="" />
                                     <div className="input-group-append">
-                                        <span className="input-group-text">Floor</span>
+                                        <span className="input-group-text"><Trans>Floor</Trans></span>
                                     </div>
                                 </div>
                             </div>
@@ -78,7 +78,7 @@ const TabParameters = (props) => {
                     <div className="row">
                         <div className="col-12">
                             <div className="form-group">
-                                <label className="fw-medium" for="ranking_project">Land use factor</label>
+                                <label className="fw-medium" for="ranking_project"><Trans>Land use factor</Trans></label>
                                 <input type="text" className="form-control" disabled="" value={data.project_info.year_remaining} />
                             </div>
                         </div>
@@ -88,7 +88,7 @@ const TabParameters = (props) => {
             <div className="row mt-4">
                 <div className="col-12">
                     <h6 className=" uni_text_6d30ab text-uppercase">
-                        Project Description
+                    <Trans>Project Description</Trans>
                     </h6>
                 </div>
                 <div className="summernoteOnHead col-12"></div>
@@ -96,7 +96,7 @@ const TabParameters = (props) => {
             <div className="row mt-4">
                 <div className="col-12">
                     <h6 className=" mb-1 uni_text_6d30ab text-uppercase">
-                        Project location
+                    <Trans>Project location</Trans>
                     </h6>
                 </div>
                 <div className="col-12">

@@ -16,6 +16,14 @@ import {
     PROJECT_ADD_REQUEST,
     PROJECT_ADD_SUCCESS,
     PROJECT_ADD_FAILURE,
+
+    SELLOPEN_LIST_REQUEST,
+    SELLOPEN_LIST_SUCCESS,
+    SELLOPEN_LIST_FAILURE,
+
+    BANKING_LIST_REQUEST,
+    BANKING_LIST_SUCCESS,
+    BANKING_LIST_FAILURE,
 } from '../actionType/project';
 
 // project list
@@ -91,4 +99,34 @@ export function* projectAdd(payload) {
 }
 export function* projectAddWatcher() {
     yield takeLatest(PROJECT_ADD_REQUEST, projectAdd);
+}
+
+// sell open list
+export function* sellopenList(payload) {
+    const token = payload.SellOpen.token;
+    const id = payload.SellOpen.project_id;
+    try {
+        const response = yield projectService.sellopenList(token, id);
+        response.success ? yield put({ type: SELLOPEN_LIST_SUCCESS, response }) : yield put({ type: SELLOPEN_LIST_FAILURE, response });
+    } catch (err) {
+        yield put({ type: SELLOPEN_LIST_FAILURE, err });
+    }
+}
+export function* sellopenListWatcher() {
+    yield takeLatest(SELLOPEN_LIST_REQUEST, sellopenList);
+}
+
+// sell open list
+export function* bankingList(payload) {
+    const token = payload.banking.token;
+    const id = payload.banking.project_id;
+    try {
+        const response = yield projectService.bankingList(token, id);
+        response.success ? yield put({ type: BANKING_LIST_SUCCESS, response }) : yield put({ type: BANKING_LIST_FAILURE, response });
+    } catch (err) {
+        yield put({ type: BANKING_LIST_FAILURE, err });
+    }
+}
+export function* bankingListWatcher() {
+    yield takeLatest(BANKING_LIST_REQUEST, bankingList);
 }

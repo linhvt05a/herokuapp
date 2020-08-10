@@ -45,6 +45,8 @@ export default {
     PROJECT_NEWS_EDIT: '/api/v1/project/news/edit/',
     PROJECT_NEWS_DELETE: '/api/v1/project/news/delete/',
     PROJECT_CURRENCY_LIST: '/api/v1/project/currency/list/',
+    PROJECT_SELLOPEN_LIST: '/api/be/v1/shopping_cart/sell_open/',
+    PROJECT_BANKING_LIST: '/api/be/v1/shopping_cart/banking/',
 
     SYS_CURRENCY_LIST: '/api/v1/system/currency/list/',
     SYS_CURRENCY_ADD: '/api/v1/system/currency/add/',

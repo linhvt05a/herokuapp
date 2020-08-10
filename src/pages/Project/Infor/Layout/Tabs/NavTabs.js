@@ -1,4 +1,5 @@
 import React from 'react';
+import { Trans } from 'react-i18next';
 
 const NavTabs = (props) => {
     let { data, index, onItemClickTab, active} = props;
@@ -8,7 +9,7 @@ const NavTabs = (props) => {
     return (
         <li className="nav-item">
             <a className={`nav-link ${active != index ? "" : 'active'}`} onClick={onClickTab} >
-            {data.tabTitle}</a>
+            <Trans>{data.tabTitle}</Trans></a>
         </li>
     )
 }
