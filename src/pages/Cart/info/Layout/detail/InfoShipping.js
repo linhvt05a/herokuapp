@@ -79,7 +79,7 @@ const InfoShipping = props => {
             <div className="dropdown-menu show" x-placement="top-start" style={{ position: 'absolute', transform: 'translate3d(-183px, -150px, 0px)', top: 0, left: 0, willChange: 'transform' }}>
                 <a className="dropdown-item" data-toggle="modal" data-target="#createRequest" onClick={() => setShow({ ...show, Show_request: true, value: value })}>
                     <i className="icon-dropdown las la-question-circle" /><Trans>Create a request</Trans></a>
-                <Link to="/perm/project" className="dropdown-item" onClick={() => setShow({ ...show, Show_requirements: true })} >
+                <Link to={{ pathname: "/perm/project", state: { text: 123 } }} className="dropdown-item" >
                     <i className="icon-dropdown las la-list-alt" />
                     <Trans>See requirements</Trans></Link>
                 <a className="dropdown-item" onClick={() => setShow({ ...show, Show_contract: true })}>

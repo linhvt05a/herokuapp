@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import actions from "../../../store/action/cart";
 import ListProduct from "../../../components/Card/ListProduct"
 
-const PageProject = () => {
+const PageProject = props => {
     const dispatch = useDispatch();
 
     const [state, setState] = useState({
@@ -29,7 +29,6 @@ const PageProject = () => {
         let data = dataCart.Filter_Project_Status;
         let dataSelect = [];
         if (data.length > 0) {
-            dataSelect.push(create_Filter_Project_Status("", "All"))
             data.map((item, index) => {
                 dataSelect.push(create_Filter_Project_Status(item.id, item.name))
             })
@@ -57,22 +56,21 @@ const PageProject = () => {
     }
     return (
         <div >
-            <div>
-                <CardHeader
-                    dropdown={{ title: state.projectStatus.value == "" ? "Product Status" : state.projectStatus.label, data: state.dataProjectStatus }}
-                    label={"Project"}
-                    searchBox={{ title: "home_map_search" }}
-                    onSearch={value => SEARCH(value)}
-                    onClick={value => onFilter(value)} />
-                <ListProduct
-                    dataFilter={dataType}
-                    data={dataCart.List}
-                    page={dataCart.page}
-                    total_page={dataCart.total_page}
-                    total_record={dataCart.total_record}
-                    link_to={`/info/project/detail/`}
-                />
-            </div>
+            {console.log(state.projectStatus)}
+            <CardHeader
+                dropdown={{ title: state.projectStatus && state.projectStatus.value == "" ? "Product Status" : state.projectStatus.label, data: state.dataProjectStatus }}
+                label={"Project"}
+                searchBox={{ title: "home_map_search" }}
+                onSearch={value => SEARCH(value)}
+                onClick={value => onFilter(value)} />
+            <ListProduct
+                dataFilter={dataType}
+                data={dataCart.List}
+                page={dataCart.page}
+                total_page={dataCart.total_page}
+                total_record={dataCart.total_record}
+                link_to={`/info/project/detail/`}
+            />
         </div>
     )
 }

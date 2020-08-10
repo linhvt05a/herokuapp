@@ -26,7 +26,7 @@ const Edit = props => {
     useEffect(() => {
         dispatch(actions.LoadDetail({ token: token, id: props.params.id }));
         dispatch(actions.LoadSellOpen({ token: token, id: props.params.id }));
-        dispatch(actions.LoadSellOpenList({ token: token, id: props.params.id, area_id: state.areaStatus.value }));
+        // dispatch(actions.LoadSellOpenList({ token: token, id: props.params.id, area_id: state.areaStatus.value }));
         dispatch(actions.LoadFilterArea({ token: token, id: props.params.id }));
         dispatch(actions.LoadFilterListOpenSale({ token: token, id: props.params.id }))
 
@@ -55,6 +55,7 @@ const Edit = props => {
             dispatch(actions.LoadSellOpenCart({ token: token, id: props.params.id, sell_open_id: newData[0].value, block_id: state.FilterBlockStatus.value, floor_or_lot_id: state.floorStatus.value }));
             dispatch(actions.LoadFilterFloor({ token: token, id: props.params.id, sell_open_id: newData[0].value }));
             dispatch(actions.LoadFilterBlock({ token: token, id: props.params.id, sell_open_id: newData[0].value }));
+            dispatch(actions.LoadSellOpenList({ token: token, id: props.params.id, area_id: state.areaStatus.value, sell_open_id: newData[0].value }));
         }
 
     }, [dataCart.Filter_Open_Sale])
@@ -63,7 +64,6 @@ const Edit = props => {
         let data = dataCart.Filter_Floor;
         let newData = []
         if (data.length > 0) {
-            newData.push(createData("", "Clear"))
             data.map((item) => newData.push(createData(item.floor_or_lot_id, item.floor_or_lot_name)))
             setState({ ...state, dataFilterFloor: newData })
         }
@@ -73,7 +73,6 @@ const Edit = props => {
         let data = dataCart.Filter_Block;
         let newData = []
         if (data.length > 0) {
-            newData.push(createData("", "Clear"))
             data.map((item) => {
                 newData.push(createData(item.block_id, item.block_name))
             })
@@ -128,37 +127,36 @@ const Edit = props => {
         }));
 
     }
+
     return (
-        <div className="container-fluid">
-            <div className="row mt-3">
-                <div className="col-xl-6 col-lg-6 col-md-12 col-sm-12 d-flex flex-column">
-                    <CardHeader label="PROJECT INFORMATION" />
-                    <Item.Detail_info data={dataCart.Detail} />
-                </div>
-                <div className="col-xl-6 col-lg-6 col-md-12 col-sm-12 d-flex flex-column">
-                    <CardHeader label="STATISTICS OF OPEN SALE" />
-                    <Item.Detail_progress data={dataCart.Detail} dataSellOpen={dataCart.Sell_Open} />
-                </div>
+        [<div className="row mt-3">
+            <div className="col-xl-6 col-lg-6 col-md-12 col-sm-12 d-flex flex-column">
+                <CardHeader label="PROJECT INFORMATION" />
+                <Item.Detail_info data={dataCart.Detail} />
             </div>
-            <div>
-                <CardHeader label="LIST OF AREAS" dropdown={{ title: state.areaStatus.value == "" ? "Tất cả khu" : state.areaStatus.label, data: state.dataArea }} onClick={(value) => onFilterArea(value)} />
-                <Item.Detail_content data={dataCart.Sell_Open_Floor} />
+            <div className="col-xl-6 col-lg-6 col-md-12 col-sm-12 d-flex flex-column">
+                <CardHeader label="STATISTICS OF OPEN SALE" />
+                <Item.Detail_progress data={dataCart.Detail} dataSellOpen={dataCart.Sell_Open} />
             </div>
-            <div>
-                <CardHeader label="Basket details" dropdown={{ title: state.saleOpenStatus.value == "" ? "Tất cả" : state.saleOpenStatus.label, data: state.dataSaleOpen }} onClick={(value) => onFilteSaleOpen(value)} />
-                <Item.Detail_InfoShipping
-                    STATE={{ state, setState }}
-                    onChangeArea={(value) => onChangeArea(value)}
-                    onChangeFloor={(value) => onChangeFloor(value)}
-                    onChangeBlock={(value) => onChangeBlock(value)}
-                    onSearch={() => ONSEARCH()}
-                    {...props}
-                // data={dataCart.Sell_Open_Cart}
-                // dropdownFloor={{ value: "", data: state.dataSaleOpen }}
-                // onFilterFloor={(value) => console.log(value)}
-                />
-            </div>
-        </div>
+        </div>,
+        <div>
+            <CardHeader label="LIST OF AREAS" dropdown={{ title: state.areaStatus.value == "" ? "Tất cả khu" : state.areaStatus.label, data: state.dataArea }} onClick={(value) => onFilterArea(value)} />
+            <Item.Detail_content data={dataCart.Sell_Open_Floor} />
+        </div>,
+        <div>
+            <CardHeader label="Basket details" dropdown={{ title: state.saleOpenStatus.value == "" ? "Tất cả" : state.saleOpenStatus.label, data: state.dataSaleOpen }} onClick={(value) => onFilteSaleOpen(value)} />
+            <Item.Detail_InfoShipping
+                STATE={{ state, setState }}
+                onChangeArea={(value) => onChangeArea(value)}
+                onChangeFloor={(value) => onChangeFloor(value)}
+                onChangeBlock={(value) => onChangeBlock(value)}
+                onSearch={() => ONSEARCH()}
+                {...props}
+            // data={dataCart.Sell_Open_Cart}
+            // dropdownFloor={{ value: "", data: state.dataSaleOpen }}
+            // onFilterFloor={(value) => console.log(value)}
+            />
+        </div>]
     )
 }
 export default Edit;
