@@ -4,6 +4,7 @@ import Pagination from "../common/Pagination"
 import { Trans } from 'react-i18next';
 import ListProductDetail from "./ListProductDetail";
 import ListProductTable from "./ListProductTable";
+import CardNodata from "../common/CardNodata"
 const body = props => {
     let { dataFilter, data, page, total_page, total_record, link_to } = props;
     const [state, setState] = useState(true);
@@ -21,7 +22,7 @@ const body = props => {
                                     <span><a href="#"><Trans>{item.name}</Trans></a></span>
                                 </li>
                             )
-                        }) : null}
+                        }) : <CardNodata />}
                     </ul>
                     <ul className="m_filter--show mt-xl-0 mt-2">
                         <li className="first"><span><Trans>Displayed by</Trans></span></li>
@@ -35,7 +36,7 @@ const body = props => {
                 <div className="row">
                     {data.length > 0 ? data.map((item, index) => {
                         return <ListProductDetail item={item} index={index} key={index} link_to={link_to} />
-                    }) : null}
+                    }) : <CardNodata />}
                 </div >
             </div > :
                 <div className="m_table m_table--sales" style={{ maxHeight: '100%' }}>

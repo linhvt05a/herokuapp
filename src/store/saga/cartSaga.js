@@ -59,9 +59,9 @@ export function* cartSellOpenListlWatcher() {
 }
 
 export function* cartSellOpenCart(payload) {
-    let { token, id, sell_open_id } = payload.params;
+    let { token, id, sell_open_id, block_id, floor_or_lot_id } = payload.params;
     try {
-        const response = yield sysCartService.cart(token, id, sell_open_id);
+        const response = yield sysCartService.cart(token, id, sell_open_id, block_id, floor_or_lot_id);
         response.success ? yield put({ type: actions.LOAD_SELL_OPEN_CART_SUCCESS, response }) : yield put({ type: actions.LOAD_SELL_OPEN_CART_FAILURE, response });
     } catch (err) {
         yield put({ type: actions.LOAD_SELL_OPEN_CART_FAILURE, err });
@@ -88,11 +88,10 @@ export function* filterAreaWatcher() {
 }
 
 export function* FilterBlock(payload) {
+    let { token, id, sell_open_id } = payload.params;
 
-    const token = payload.params.token;
-    const id = payload.params.id;
     try {
-        const response = yield sysCartService.filterBlock(token, id);
+        const response = yield sysCartService.filterBlock(token, id, sell_open_id);
         response.success ? yield put({ type: actions.LOAD_FILTER_BLOCK_SUCCESS, response }) : yield put({ type: actions.LOAD_FILTER_BLOCK_FAILURE, response });
     } catch (err) {
         yield put({ type: actions.LOAD_FILTER_BLOCK_FAILURE, err });
