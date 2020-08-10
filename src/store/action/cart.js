@@ -4,7 +4,7 @@ const actions = {
     LOAD_LIST: name + 'LOAD_LIST',
     LOAD_LIST_FAILURE: name + 'LOAD_LIST_FAILURE',
     LOAD_LIST_SUCCESS: name + 'LOAD_LIST_SUCCESS',
-    //** detail */
+    //** Detail */
     LOAD_DETAIL: name + 'LOAD_DETAIL',
     LOAD_DETAIL_FAILURE: name + 'LOAD_DETAIL_FAILURE',
     LOAD_DETAIL_SUCCESS: name + 'LOAD_DETAIL_SUCCESS',

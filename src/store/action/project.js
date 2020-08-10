@@ -38,7 +38,7 @@ export const projectListFailure = (project) => ({
   project,
 });
 
-//project detail
+//project Detail
 export const projectDetailRequest = (project) => ({
   type: PROJECT_DETAIL_REQUEST,
   project,

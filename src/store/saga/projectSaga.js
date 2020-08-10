@@ -42,7 +42,7 @@ export function* projectListWatcher() {
     yield takeLatest(PROJECT_LIST_REQUEST, projectList);
 }
 
-// project detail
+// project Detail
 export function* projectDetail(payload) {
     console.log('Detail Load', payload);
     const token = payload.project.token;

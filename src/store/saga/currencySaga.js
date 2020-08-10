@@ -31,7 +31,7 @@ export function* currencyListWatcher() {
     yield takeLatest(CURRENTCY_LIST_REQUEST, currencyList);
 }
 
-// currency detail
+// currency Detail
 export function* currencyDetail(payload) {
     console.log('Detail Load', payload);
     const token = payload.currency.token;

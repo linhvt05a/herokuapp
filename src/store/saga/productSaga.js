@@ -6,7 +6,7 @@ import {
     PRODUCT_DETAIL_FAILURE,
 } from '../actionType/product';
 
-// product detail
+// product Detail
 export function* productDetail(payload) {
     console.log('payload', payload);
     const token = payload.product.token;
