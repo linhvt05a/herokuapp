@@ -22,6 +22,7 @@ const CardApprovedHistory = (props) => {
                     approveSuccess ={props.approveSuccess} 
                     changeTab={changeTab} 
                     handleClick={props.handleClick} 
+                    list_comment ={props.list_comment}
             />
         </div>
     );
@@ -90,7 +91,7 @@ const CardReview = (props) => {
                                             {
                                                 props.selected === true ?
                                                     (
-                                                        <NewestMessage handleClick={props.handleClick} data={item} />
+                                                        <NewestMessage list_comment ={props.list_comment} handleClick={props.handleClick} data={item} />
                                                     )
                                                     :
                                                     ( <OldestMessage data={item}  handleClick={props.handleClick}/>)
@@ -113,7 +114,11 @@ const NewestMessage = (props) => {
         <>
             <div className="approval_history--detail-content">
                 <a href="#" className="approval_history--title fs-16 font-weight-bold">
-                    Yêu cầu thay đổi chiết khấu hoa hồng cho kênh phân phối
+                        <label className="fw-medium">Loại yêu cầu 
+                                <span class="uni_star_e94c4c" style={{color:'red', fontSize: 14, marginLeft:3}}>
+                                    ({props.list_comment && props.list_comment.length} phản hồi mới)
+                                </span>
+                        </label>
                         </a>
                 <div className="approval_history--list">
                     <p className="child">
@@ -129,7 +134,7 @@ const NewestMessage = (props) => {
                             <Priority data ={props.data}/>
                         </p>
                         <a href="#" className="uni_text_6d30ab fs-12" onClick={props.handleClick}>
-                           <u> Xem lịch sử phản hồi</u>
+                           {props.data.request_status === 1 || props.data.request_status === 3 ?  <u> Phản hồi</u> :<u> Xem lịch sử phản hồi</u>}
                         </a>
                         </div>
                 </div>

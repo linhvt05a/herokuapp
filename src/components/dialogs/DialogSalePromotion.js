@@ -51,16 +51,6 @@ const data = [
         isCheck: false,
     },
 ];
-const request = [
-    { value: 1, label: "Yêu cầu thay đổi chiết khấu hoa hồng cho kênh phân phối " },
-    { value: 2, label: "Yêu cầu quy đổi khuyến mãi cho khách hàng" },
-    { value: 3, label: "Khác" }
-]
-const discount = [
-    { value: 1, label: "Cao (1-3 ngày)" },
-    { value: 2, label: "Trung Bình (1-5 ngày)" },
-    { value: 3, label: "Thấp (1-7 ngày)" }
-]
 const DialogSalePromotion = (props) => {
     const [state, setState] = useState({
         request_select: 0
