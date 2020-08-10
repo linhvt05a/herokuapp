@@ -54,7 +54,7 @@ const data = [
 
 const DialogResponeHistory = (props) => {
   const [showReplyForm, setshowReplyForm] = useState(false)
-  const {list_comment} = props
+  const { list_comment } = props
   return (
     <Modal show={props.showPopUp} onHide={props.close}>
       <div
@@ -84,7 +84,7 @@ const DialogResponeHistory = (props) => {
                           <b className="name">{item.title}</b>
                           <span className="d-flex align-items-center">
                             <i className="time">{item.created_at}</i>
-                              <i className="reply las la-undo" onClick={() => setshowReplyForm(true)}></i>
+                            <i className="reply las la-undo" onClick={() => setshowReplyForm(true)}></i>
                           </span>
                         </div>
                         <div className="detail">{item.content}</div>

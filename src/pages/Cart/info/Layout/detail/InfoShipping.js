@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { product_type_id, product_status } from "../../../../../constant";
 import { Trans } from 'react-i18next';
 import { InputSelect } from "../../../../../components/input";
-import DialogSalePromotion from "../../../../../components/dialogs/DialogSalePromotion"
+import ModalRequest from "../modal/ModalRequest"
 import { Link } from 'react-router-dom';
 
 const InfoShipping = props => {
@@ -208,7 +208,7 @@ const InfoShipping = props => {
                         </tbody></table>
                 </div>
             </div>
-            {show.Show_request && <DialogSalePromotion active={show.Show_request} close={() => setShow({ ...show, Show_request: false })} value={show.value} />}
+            {show.Show_request && <ModalRequest active={show.Show_request} close={() => setShow({ ...show, Show_request: false })} value={show.value} />}
             {show.Show_contract && <div></div>}
             {show.Show_requirements && <div></div>}
             {show.Show_return && <div></div>}

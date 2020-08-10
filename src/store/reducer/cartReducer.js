@@ -7,6 +7,7 @@ const initialState = {
     Sell_Open_Floor: [],
     Sell_Open_Cart: [],
     Filter_Project_Area: [],
+    Filter_floor: [],
     page: 0,
     total_page: 0,
     total_record: 0,

@@ -16,7 +16,8 @@ import {
   filterAreaWatcher,
   filterBlockWatcher,
   filterFloorWatcher,
-  filterProjectStatusWatcher
+  filterProjectStatusWatcher,
+  filterListOpenSaleWatcher
 } from "./cartSaga"
 import {
   regionListWatcher,
@@ -29,9 +30,10 @@ import {
   projectDetailWatcher
 } from './projectSaga';
 import {
-  commentListWatcher, 
-  approveListWatcher} from './approval'
-  
+  commentListWatcher,
+  approveListWatcher
+} from './approval'
+
 function* allSaga() {
   yield all([
     currencyListWatcher(),
@@ -44,6 +46,12 @@ function* allSaga() {
     cartSellOpenlWatcher(),
     cartSellOpenListlWatcher(),
     cartSellOpenCartWatcher(),
+    //filter
+    filterAreaWatcher(),
+    filterBlockWatcher(),
+    filterFloorWatcher(),
+    filterProjectStatusWatcher(),
+    filterListOpenSaleWatcher(),
 
     regionListWatcher(),
     provinceListWatcher(),

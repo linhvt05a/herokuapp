@@ -15,7 +15,8 @@ const Edit = props => {
         dispatch(actions.LoadSellOpen({ token: token, id: props.params.id }));
         dispatch(actions.LoadSellOpenList({ token: token, id: props.params.id }));
         dispatch(actions.LoadSellOpenCart({ token: token, id: props.params.id }));
-
+        dispatch(actions.LoadFilterFloor({ token: token, id: props.params.id }));
+        dispatch(actions.LoadProjectStatus({ token: token }))
     }, [])
     const data = useSelector(state => state.cart);
     console.log(data);

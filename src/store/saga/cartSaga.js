@@ -17,9 +17,9 @@ export function* cartDetailWatcher() {
 }
 
 export function* cartList(payload) {
-    const token = payload.params.token;
+    let { token, search_name, status_id } = payload.params
     try {
-        const response = yield sysCartService.list(token);
+        const response = yield sysCartService.list(token, search_name, status_id);
         response.success ? yield put({ type: actions.LOAD_LIST_SUCCESS, response }) : yield put({ type: actions.LOAD_LIST_FAILURE, response });
     } catch (err) {
         yield put({ type: actions.LOAD_LIST_FAILURE, err });
@@ -122,7 +122,7 @@ export function* filterFloorWatcher() {
 export function* FilterProjectStatus(payload) {
     const token = payload.params.token;
     try {
-        const response = yield sysCartService.filterProjectStatus(token);
+        const response = yield sysCartService.filterProjectStatus(token); console.log(response);
         response.success ? yield put({ type: actions.LOAD_FILTER_PROJECT_STATUS_SUCCESS, response }) : yield put({ type: actions.LOAD_FILTER_PROJECT_STATUS_FAILURE, response });
     } catch (err) {
         yield put({ type: actions.LOAD_FILTER_PROJECT_STATUS_FAILURE, err });
@@ -130,4 +130,18 @@ export function* FilterProjectStatus(payload) {
 }
 export function* filterProjectStatusWatcher() {
     yield takeLatest(actions.LOAD_FILTER_PROJECT_STATUS, FilterProjectStatus);
+}
+
+export function* FilterListOpenSale(payload) {
+    const token = payload.params.token;
+    const id = payload.params.id;
+    try {
+        const response = yield sysCartService.filterListOpenSale(token, id);
+        response.success ? yield put({ type: actions.LOAD_FILTER_LIST_OPEN_SALE_SUCCESS, response }) : yield put({ type: actions.LOAD_FILTER_LIST_OPEN_SALE_FAILURE, response });
+    } catch (err) {
+        yield put({ type: actions.LOAD_FILTER_LIST_OPEN_SALE_FAILURE, err });
+    }
+}
+export function* filterListOpenSaleWatcher() {
+    yield takeLatest(actions.LOAD_FILTER_LIST_OPEN_SALE, FilterListOpenSale);
 }

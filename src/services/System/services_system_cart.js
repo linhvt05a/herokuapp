@@ -22,14 +22,14 @@ function detail(token, productId) {
     return api.handleRequest(url, requestOptions);
 }
 
-function list(token) {
+function list(token, search_name = "", status_id = "") {
     const requestOptions = {
         method: 'GET',
         headers: api.getHeader(token)
     };
 
-    const params = {};
-    const url = api.getUrl(api.CART_LIST, params);
+    const params = { "search_name": search_name, "status_id": status_id };
+    const url = api.getUrl(api.CART_LIST, params); console.log(url);
     return api.handleRequest(url, requestOptions);
 }
 
@@ -67,7 +67,7 @@ function sellopenList(token, productId) {
 }
 
 
-
+///filter
 function filterArea(token, productId) {
     const requestOptions = {
         method: 'GET',
@@ -101,7 +101,16 @@ function filterProjectStatus(token) {
     return api.handleRequest(url, requestOptions);
 }
 
+function filterListOpenSale(token, productId) {
+    const requestOptions = {
+        method: 'GET',
+        headers: api.getHeader(token)
+    };
 
+    const params = { 'project_id': productId };
+    const url = api.getUrl(api.FILTER_LIST_OPEN_SALE, params);
+    return api.handleRequest(url, requestOptions);
+}
 // POST
 function filterFloor(token, project_id, block_id) {
     const body = {

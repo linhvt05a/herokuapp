@@ -7,28 +7,37 @@ import ListProduct from "../../../components/Card/ListProduct"
 
 const Cart = props => {
     const dispatch = useDispatch();
-    const SEARCH = value => {
-        alert(`text ${value}`)
-    }
 
+    const [state, setState] = useState({
+        projectStatus: "",
+        dataProjectStatus: [],
+        valueSearch: ""
+    })
     const token = 'MTAwNjpNVEF3Tmpwa05ESmlPVGc1WldVM05HWmhNMlZrWXpWaFlqQXhOalV4T1RReFl6QmtOVFUyTW1Oa1pUVTQ=';
     // const { token } = props.user;
 
     useEffect(() => {
-        dispatch(actions.LoadList({ token: token }))
+        dispatch(actions.LoadList({ token: token, value: state.valueSearch, status_id: state.projectStatus }))
         dispatch(actions.LoadProjectStatus({ token: token }))
     }, [])
     const dataCart = useSelector(state => state.cart)
+
     const create_Filter_Project_Status = (value, label) => {
         return { value, label }
     }
-    let dataSelect = [
-        { href: "#", value: "1", label: "Mới" },
-        { href: "#", value: "2", label: "Đang chờ" },
-        { href: "#", value: "3", label: "Đang triển khai" },
-        { href: "#", value: "4", label: "Dừng" },
-        { href: "#", value: "5", label: "Hoàn thành" },
-    ];
+    useEffect(() => {
+        let data = dataCart.Filter_Project_Area;
+        let dataSelect = [];
+        dataSelect.push(create_Filter_Project_Status("", "All"))
+        if (data.length > 0) {
+            data.map((item, index) => {
+                dataSelect.push(create_Filter_Project_Status(item.id, item.name))
+            })
+        }
+        setState({ ...state, dataProjectStatus: dataSelect })
+    }, [dataCart.Filter_Project_Area])
+
+
     let dataType = [
         { id: `1`, color: "m_text_000000", name: "All" },
         { id: `2`, color: "m_text_a8c200", name: "Type Apartment" },
@@ -37,13 +46,23 @@ const Cart = props => {
         { id: `5`, color: "m_text_fb9334", name: "Type Villa" },
         { id: `5`, color: "m_text_212529", name: "Type Supermarket" },
     ]
+
+    const SEARCH = value => {
+        setState({ ...state, valueSearch: value })
+        dispatch(actions.LoadList({ token: token, search_name: value, status_id: state.projectStatus }))
+    };
+    const onFilter = (value) => {
+        setState({ ...state, projectStatus: value })
+        dispatch(actions.LoadList({ token: token, search_name: state.valueSearch, status_id: value }))
+    }
     return (
         <div >
             <div>
                 <Item.title
-                    datas={dataSelect}
-                    label={"Trạng Thái Dự Án"}
-                    SEARCH={value => SEARCH(value)} />
+                    datas={state.dataProjectStatus}
+                    label={"Product Status"}
+                    SEARCH={value => SEARCH(value)}
+                    onClick={value => onFilter(value)} />
                 <ListProduct
                     dataFilter={dataType}
                     data={dataCart.List}
