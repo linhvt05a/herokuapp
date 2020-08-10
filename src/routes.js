@@ -57,7 +57,7 @@ const MAINS = [
 ]
 
 var PATHS = {};
-for (var i = 0; i < MAINS.length; i++) {
+for (var i = 0;i < MAINS.length;i++) {
     var data = MAINS[i];
     var path = data.path.replace("/:id", "");
     PATHS[path] = data.title;

@@ -85,6 +85,7 @@ export default {
     FILTER_BLOCK: "/api/be/v1/infrastructure/block/list_short/",
     FILTER_FLOOR: "/api/be/v1/infrastructure/floor_or_lot/list_short/",
     FILTER_PROJECT_STATUS: "/api/be/v1/common/project/status",
+    FILTER_LIST_OPEN_SALE: "/api/be/v1/project/list_open_sale/",
 
     //Product
     PRODUCT_DETAIL: "/api/be/v1/infrastructure/product/detail/",

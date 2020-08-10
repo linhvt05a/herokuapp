@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import actions from "../../../store/action/cart"
 import Item from "./Layout";
-import Title from "../../../components/common/CardHeader"
+import CardHeader from "../../../components/common/CardHeader"
 const Edit = props => {
 
     const dispatch = useDispatch();
@@ -15,7 +15,8 @@ const Edit = props => {
         dispatch(actions.LoadSellOpen({ token: token, id: props.params.id }));
         dispatch(actions.LoadSellOpenList({ token: token, id: props.params.id }));
         dispatch(actions.LoadSellOpenCart({ token: token, id: props.params.id }));
-
+        dispatch(actions.LoadFilterFloor({ token: token, id: props.params.id }));
+        dispatch(actions.LoadProjectStatus({ token: token }))
     }, [])
     const data = useSelector(state => state.cart);
     console.log(data);
@@ -45,20 +46,20 @@ const Edit = props => {
         <div className="container-fluid">
             <div className="row mt-3">
                 <div className="col-xl-6 col-lg-6 col-md-12 col-sm-12 d-flex flex-column">
-                    <Title label="PROJECT INFORMATION" />
+                    <CardHeader label="PROJECT INFORMATION" />
                     <Item.Detail_info data={data.Detail} />
                 </div>
                 <div className="col-xl-6 col-lg-6 col-md-12 col-sm-12 d-flex flex-column">
-                    <Title label="STATISTICS OF OPEN SALE" />
+                    <CardHeader label="STATISTICS OF OPEN SALE" />
                     <Item.Detail_progress data={data.Detail} dataSellOpen={data.Sell_Open} />
                 </div>
             </div>
             <div>
-                <Title label="LIST OF AREAS" dropdown={{ title: "Tất cả khu", data: contentDropdown }} />
+                <CardHeader label="LIST OF AREAS" dropdown={{ title: "Tất cả khu", data: contentDropdown }} />
                 <Item.Detail_content data={data.Sell_Open_Floor} />
             </div>
             <div>
-                <Title label="Basket details" dropdown={{ title: "Đợt 1", data: contentDropdown }} />
+                <CardHeader label="Basket details" dropdown={{ title: "Đợt 1", data: contentDropdown }} />
                 <Item.Detail_InfoShipping data={data.Sell_Open_Cart} dropdown={{ title: "Đợt 1", data: contentDropdown }} />
             </div>
         </div>

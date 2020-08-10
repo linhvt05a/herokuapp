@@ -25,25 +25,26 @@ import $ from 'jquery';
 
 //[this.active]
 
-function contain(menus, label){
+function contain(menus, label) {
+
     var data = {
         'ret': false,
         'lst': menus
     }
-    if( !menus ){
+    if (!menus) {
         return [];
     }
-    for( var i = 0 ; i < menus.length ; i ++ ){
+    for (var i = 0;i < menus.length;i++) {
         let menu = menus[i];
-        if( menu.label == label ){
+        if (menu.label == label) {
             menu.active = !menu.active;
             data['ret'] = true;
         }
-        else{
+        else {
             var o = contain(menu.children, label);
             menu.active = o['ret'];
             menu.children = o['lst'];
-            if( menu.active == true ){
+            if (menu.active == true) {
                 data['ret'] = true;
             }
         }
@@ -52,14 +53,14 @@ function contain(menus, label){
 }
 
 class Menu extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
             menudata: [],
         };
     }
 
-    componentDidMount(){
+    componentDidMount() {
         this.updateActive(this.props.active);
     }
 
@@ -67,10 +68,10 @@ class Menu extends Component {
         this.updateActive(value);
     }
 
-    updateActive(label){
+    updateActive(label) {
         let o = contain(this.props.menudata, label);
-        if( o != null ){
-            this.setState( { menudata: o['lst']} );
+        if (o != null) {
+            this.setState({ menudata: o['lst'] });
         }
     }
 
@@ -79,7 +80,7 @@ class Menu extends Component {
             <div className="scroll-sidebar">
                 <nav className="sidebar-nav">
                     <ul>
-                        { this.props.menudata.map( (item, index) => (
+                        {this.props.menudata.map((item, index) => (
                             <MenuItem key={index} data={item} click={this.handleClick} />
                         ))}
                     </ul>
