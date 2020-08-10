@@ -22,15 +22,14 @@ const PageProject = () => {
         dispatch(actions.LoadProjectStatus({ token: token }))
     }, [])
     const dataCart = useSelector(state => state.cart)
-
     const create_Filter_Project_Status = (value, label) => {
         return { value, label }
     }
     useEffect(() => {
         let data = dataCart.Filter_Project_Area;
         let dataSelect = [];
-        dataSelect.push(create_Filter_Project_Status("", "All"))
         if (data.length > 0) {
+            dataSelect.push(create_Filter_Project_Status("", "All"))
             data.map((item, index) => {
                 dataSelect.push(create_Filter_Project_Status(item.id, item.name))
             })
@@ -59,10 +58,11 @@ const PageProject = () => {
     return (
         <div >
             <div>
-                <Item.title
-                    datas={state.dataProjectStatus}
-                    label={"Product Status"}
-                    SEARCH={value => SEARCH(value)}
+                <CardHeader
+                    dropdown={{ title: "Product Status", data: state.dataProjectStatus }}
+                    label={"Project"}
+                    searchBox={{ title: "home_map_search" }}
+                    onSearch={value => SEARCH(value)}
                     onClick={value => onFilter(value)} />
                 <ListProduct
                     dataFilter={dataType}

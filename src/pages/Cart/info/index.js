@@ -3,7 +3,8 @@ import React, { useState, useEffect } from 'react';
 import Item from "./Layout";
 import { useDispatch, useSelector } from "react-redux";
 import actions from "../../../store/action/cart";
-import ListProduct from "../../../components/Card/ListProduct"
+import ListProduct from "../../../components/Card/ListProduct";
+import CardHeader from "../../..//components/common/CardHeader"
 
 const Cart = props => {
     const dispatch = useDispatch();
@@ -30,7 +31,7 @@ const Cart = props => {
         let dataSelect = [];
         dataSelect.push(create_Filter_Project_Status("", "All"))
         if (data.length > 0) {
-            data.map((item, index) => {
+            data.map((item) => {
                 dataSelect.push(create_Filter_Project_Status(item.id, item.name))
             })
         }
@@ -58,10 +59,11 @@ const Cart = props => {
     return (
         <div >
             <div>
-                <Item.title
-                    datas={state.dataProjectStatus}
-                    label={"Product Status"}
-                    SEARCH={value => SEARCH(value)}
+                <CardHeader
+                    dropdown={{ title: "Product Status", data: state.dataProjectStatus }}
+                    label={"Project"}
+                    searchBox={{ title: "home_map_search" }}
+                    onSearch={value => SEARCH(value)}
                     onClick={value => onFilter(value)} />
                 <ListProduct
                     dataFilter={dataType}
