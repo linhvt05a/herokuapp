@@ -16,7 +16,7 @@ const TabSellopenlist = (props) => {
     const isSellOpenListRes = isSellOpenListSuccess ? sellopenStore.sellopenList.detail : null;
 
     return (
-        <div className="m_table m_table--sales min-width-100-pc table-height mb-0">
+        <div>
             <div className="row">
                 <div className="col-12" style={{marginTop: "15px"}}>
                     <h6 className=" mb-1 uni_text_6d30ab text-uppercase">
@@ -24,26 +24,29 @@ const TabSellopenlist = (props) => {
                     </h6>
                 </div>
             </div>
-            <table className="table table-sticky-01">
-                <thead>
-                <tr>
-                    <th className="pl-0 col-1" style={{width: "5%"}}><Trans>STT</Trans></th>
-                    <th className="col-2" style={{width: "25%"}}><Trans>ĐỢT</Trans></th>
-                    <th className="col-2" style={{width: "15%"}}><Trans>TỪ NGÀY</Trans></th>
-                    <th className="col-2" style={{width: "15%"}}><Trans>ĐẾN NGÀY</Trans></th>
-                    <th className="col-2" style={{width: "15%"}}><Trans>TỔNG SỐ KÊNH ĐẠI LÝ</Trans></th>
-                    <th className="col-2" style={{width: "15%"}}><Trans>TỔNG SỐ KÊNH NỘI BỘ</Trans></th>
-                </tr>
-                </thead>
-                <tbody style={{maxHeight: "400px"}}>
-                        <RowListOpenSell data={isSellOpenListRes}/>
-                </tbody>
-            </table>
+            <div className="m_table m_table--sales min-width-100-pc table-height mb-0">
+                <table className="table table-sticky-01">
+                    <thead>
+                    <tr>
+                        <th className="pl-0 col-1" style={{width: "5%"}}><Trans>STT</Trans></th>
+                        <th className="col-2" style={{width: "25%"}}><Trans>ĐỢT</Trans></th>
+                        <th className="col-2" style={{width: "15%"}}><Trans>TỪ NGÀY</Trans></th>
+                        <th className="col-2" style={{width: "15%"}}><Trans>ĐẾN NGÀY</Trans></th>
+                        <th className="col-2" style={{width: "15%"}}><Trans>TỔNG SỐ KÊNH ĐẠI LÝ</Trans></th>
+                        <th className="col-2" style={{width: "15%"}}><Trans>TỔNG SỐ KÊNH NỘI BỘ</Trans></th>
+                    </tr>
+                    </thead>
+                    <tbody style={{maxHeight: "400px"}}>
+                            <RowListOpenSell data={isSellOpenListRes}/>
+                    </tbody>
+                </table>
+            </div>
         </div>
     )
 }
 const RowListOpenSell = (props) => {
     const { data } = props;
+    console.log('yyyyyyy', data);
     return (
         data && data.map((item, index) => (
         <tr key={index}>
@@ -56,10 +59,22 @@ const RowListOpenSell = (props) => {
             <td className="col-2" style={{width: "15%"}}>{item.sell_open_date}</td>
             <td className="col-2" style={{width: "15%"}}>{item.sell_end_date}</td>
             <td className="col-2" style={{width: "15%"}}>
-                <span className="uni_text_6d30ab">-</span>
+                { 
+                    item.total_agent_distribute > 0 ?
+                    <a href="#" class="link_href_6d30ab fw-medium">
+                        Channel agent list [{item.total_agent_distribute}]
+                    </a>
+                    : <span className="uni_text_6d30ab">-</span>
+                }
             </td>
             <td className="col-2" style={{width: "15%"}}>
-                <span className="uni_text_6d30ab">-</span>
+                { 
+                    item.total_internal_distribute > 0 ?
+                    <a href="#" class="link_href_6d30ab fw-medium">
+                        Channel internal list [{item.total_internal_distribute}]
+                    </a>
+                    : <span className="uni_text_6d30ab">-</span>
+                }
             </td>
         </tr>
         ))

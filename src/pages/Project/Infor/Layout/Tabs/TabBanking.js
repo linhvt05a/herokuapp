@@ -48,23 +48,16 @@ const TabBanking = (props) => {
                 <div class="col-xl-2 col-lg-2 col-md-12 col-sm-12  align-items-end">
                     <button type="button" id="btn-add-bank" class="btn-uni-purple min-height-40" data-href="/backend/project/add_project_bank/" style={{marginTop: "27px"}}>Add</button>
                 </div>
-            </div>
+            </div> */}
 
-            <div class="row">
-                <div class="col-12 mt-3">
-                    <h6 class="text-uppercase uni_text_6d30ab">
-                        Bank list
+            <div className="row">
+                <div className="col-12" style={{marginTop: "15px"}}>
+                    <h6 className=" mb-1 uni_text_6d30ab text-uppercase">
+                        <Trans>DANH SÁCH NGÂN HÀNG</Trans>
                     </h6>
                 </div>
-            </div> */}
+            </div>
             <div class="m_table m_table--sales min-width-100-pc table-height mb-0">
-                <div className="row">
-                    <div className="col-12" style={{marginTop: "15px"}}>
-                        <h6 className=" mb-1 uni_text_6d30ab text-uppercase">
-                            <Trans>DANH SÁCH NGÂN HÀNG</Trans>
-                        </h6>
-                    </div>
-                </div>
                 <table class="table table-sticky-01">
                     <thead>
                         <tr>
@@ -79,25 +72,37 @@ const TabBanking = (props) => {
                         </tr>
                     </thead>
                     <tbody style={{maxHeight: "400px"}}>
-                        <tr>
-                            <td class="pl-0 col-1" style={{width: "5%"}}>1</td>
-                            <td class="col-3" style={{width: "25%"}}>
-                                <span class="fw-medium">Ngân hàng phát triển nông thôn
-                                </span>
-                            </td>
-                            <td class="col-2" style={{width: "20%"}}>Agribank</td>
-                            <td class="col-2" style={{width: "20%"}}>
-                                <a href="#" class="link_href_6d30ab fw-medium">
-                                    Sell open list [5]
-                                </a>
-                            </td>
-                            <td class="col-3" style={{width: "25%"}}>Số 2 Láng Hạ, phường Thành Công, quận Ba Đình, Hà Nội</td>
-                            <td class="text-center col-1" style={{width: "5%"}}></td>
-                        </tr>
+                        {
+                            bankingListRes != null ?
+                            <RowListBanking data={bankingListRes.banking_project} />
+                            : ""
+                        }
                     </tbody>
                 </table>
             </div>
         </div>
+    )
+}
+const RowListBanking = (props) => {
+    const { data } = props;
+    return (
+        data && data.map((item, index) => (
+        <tr key={index}>
+            <td class="pl-0 col-1" style={{width: "5%"}}>{index + 1}</td>
+            <td class="col-3" style={{width: "25%"}}>
+                <span class="fw-medium">{item.banking_project_name}
+                </span>
+            </td>
+            <td class="col-2" style={{width: "20%"}}>{item.short_name}</td>
+            <td class="col-2" style={{width: "20%"}}>
+                <a href="#" class="link_href_6d30ab fw-medium">
+                    Sell open list [{item.sell_opens.length}]
+                </a>
+            </td>
+            <td class="col-3" style={{width: "25%"}}>{item.bank_full_address}</td>
+            <td class="text-center col-1" style={{width: "5%"}}></td>
+        </tr>
+        ))
     )
 }
 
