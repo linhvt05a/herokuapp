@@ -36,7 +36,7 @@ class InputDate extends Component {
         if (prevProps.value !== this.props.value) {
             if (this.props.value) {
                 this.setState({
-                    values: moment(this.props.value, 'yyyy-MM-dd').toDate() // Convert to date object
+                    values: moment(this.props.value, 'dd-MM-yyyy').toDate() // Convert to date object
                 })
             } else {
                 this.setState({
@@ -63,6 +63,7 @@ class InputDate extends Component {
 
     handleChange = date => {
         return new Date(date) && this.updateInputDate(date);
+        
     };
 
     render() {
