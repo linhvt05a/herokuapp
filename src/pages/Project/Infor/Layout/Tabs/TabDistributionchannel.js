@@ -1,9 +1,10 @@
 import React from 'react';
+import { Trans } from 'react-i18next';
 
 const TabDistributionchannel = () => {
     return (
         <div>
-            <div class="row mt-2 mb-2 pl-3">
+            {/* <div class="row mt-2 mb-2 pl-3">
                 <div class="col-12 col-sm-12 col-md-4 col-lg-3">
                     <div class="form-group mb-2 mb-md-0">
                         <label class="fw-medium">Distribution channel type
@@ -28,14 +29,14 @@ const TabDistributionchannel = () => {
                     </div>
                 </div>
                 <div class="col-12 col-sm-3  align-items-end">
-                    <button type="button" id="btn-add-distribution-channel" class="btn-uni-purple min-height-40">Add</button>
+                    <button type="button" id="btn-add-distribution-channel" data-href="/backend/project/add_distribution_channel_project/" class="btn-uni-purple min-height-40" style={{marginTop: "27px"}}>Add</button>
                 </div>
-            </div>
+            </div> */}
 
             <div class="row">
                 <div class="col-12 mt-4">
                     <h6 class="text-uppercase uni_text_6d30ab">
-                        Distribution channel list
+                        <Trans>Distribution channel list</Trans>
                     </h6>
                 </div>
             </div>
@@ -43,42 +44,42 @@ const TabDistributionchannel = () => {
                 <table class="table table-sticky-01">
                     <thead>
                         <tr>
-                            <th class="pl-0 col-1">No.</th>
-                            <th class="col-3">Type</th>
-                            <th class="col-4">Name</th>
-                            <th class="col-3">Email</th>
-                            <th class="col-1 text-center">
+                            <th class="pl-0 col-1" style={{width: "5%"}}><Trans>No.</Trans></th>
+                            <th class="col-3" style={{width: "30%"}}><Trans>Type</Trans></th>
+                            <th class="col-4" style={{width: "30%"}}><Trans>Name</Trans></th>
+                            <th class="col-3" style={{width: "30%"}}><Trans>Email</Trans></th>
+                            <th class="col-1 text-center" style={{width: "5%"}}>
                                 <i class="icon las la-cog"></i>
                             </th>
                         </tr>
                     </thead>
-                </table>
-                <tbody>
-                    <tr>
-                        <td class="pl-0 col-1">1</td>
-                        <td class="col-3">
-                            <span class="fw-medium">Channel Agent</span>
-                        </td>
-                        <td class="col-4">Kênh phân phối thử nghiệm 123</td>
-                        <td class="col-3">phuongnd@minerva.vn</td>
-                        <td class="col-1 text-center">
-                            <div class="dropdown">
-                                <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="icon-dots las la-ellipsis-h"></i>
-                                </a>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" target="_blank">
-                                        <i class="icon-dropdown las la-edit uni_text_6d30ab fs-22"></i>
-                                        Edit</a>
+                    <tbody style={{maxHeight: "400px"}}>
+                        <tr>
+                            <td class="pl-0 col-1" style={{width: "5%"}}>1</td>
+                            <td class="col-3" style={{width: "30%"}}>
+                                <span class="fw-medium">Channel Agent</span>
+                            </td>
+                            <td class="col-4" style={{width: "30%"}}>Kênh phân phối thử nghiệm 123</td>
+                            <td class="col-3" style={{width: "30%"}}>phuongnd@minerva.vn</td>
+                            <td class="col-1 text-center" style={{width: "5%"}}>
+                                <div class="dropdown">
+                                    <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="icon-dots las la-ellipsis-h"></i>
+                                    </a>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" target="_blank">
+                                            <i class="icon-dropdown las la-edit uni_text_6d30ab fs-22"></i>
+                                            Edit</a>
 
-                                    <a class="dropdown-item">
-                                        <i class="icon-dropdown las la-trash uni_text_6d30ab fs-22"></i>
-                                        Delete</a>
+                                        <a class="dropdown-item">
+                                            <i class="icon-dropdown las la-trash uni_text_6d30ab fs-22"></i>
+                                            Delete</a>
+                                    </div>
                                 </div>
-                            </div>
-                        </td>
-                    </tr>
-                </tbody>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     )

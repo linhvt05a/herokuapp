@@ -1,37 +1,38 @@
 import React from 'react';
+import { Trans } from 'react-i18next';
 
 const TabSellopenlist = () => {
     return (
         <div className="m_table m_table--sales min-width-100-pc table-height mb-0">
             <table className="table table-sticky-01">
                 <thead>
-                    <tr>
-                        <th className="pl-0 col-1">No.</th>
-                        <th className="col-2">Sell open</th>
-                        <th className="col-2">From date</th>
-                        <th className="col-2">To date</th>
-                        <th className="col-2">Total channel agent</th>
-                        <th className="col-2">Total channel internal</th>
-                        <th className="col-1 text-center">Detail</th>
-                    </tr>
+                <tr>
+                    <th className="pl-0 col-1" style={{width: "5%"}}><Trans>No.</Trans></th>
+                    <th className="col-2" style={{width: "25%"}}><Trans>Sell open</Trans></th>
+                    <th className="col-2" style={{width: "15%"}}><Trans>From date</Trans></th>
+                    <th className="col-2" style={{width: "15%"}}><Trans>To date</Trans></th>
+                    <th className="col-2" style={{width: "15%"}}><Trans>Total channel agent</Trans></th>
+                    <th className="col-2" style={{width: "15%"}}><Trans>Total channel internal</Trans></th>
+                    <th className="col-1 text-center" style={{width: "10%"}}><Trans>Detail</Trans></th>
+                </tr>
                 </thead>
-                <tbody>
+                <tbody style={{maxHeight: "400px"}}>
                     <tr>
-                        <td className="pl-0 col-1">1</td>
-                        <td className="col-2">
-                            <div className="form-group mb-0 input_open_sale">
+                        <td className="pl-0 col-1" style={{width: "5%"}}>1</td>
+                        <td className="col-2" style={{width: "25%"}}>
+                            <div className="form-group mb-0 input_open_sale" style={{width: "80%"}}>
                                 <input type="text" className="form-control text-uppercase" value="Sell open 1" readonly=""/>
                             </div>
                         </td>
-                        <td className="col-2">20/07/2020</td>
-                        <td className="col-2">30/07/2020</td>
-                        <td className="col-2">
+                        <td className="col-2" style={{width: "15%"}}>20/07/2020</td>
+                        <td className="col-2" style={{width: "15%"}}>30/07/2020</td>
+                        <td className="col-2" style={{width: "15%"}}>
                             <span className="uni_text_6d30ab">-</span>
                         </td>
-                        <td className="col-2">
+                        <td className="col-2" style={{width: "15%"}}>
                             <span className="uni_text_6d30ab">-</span>
                         </td>
-                        <td className="col-1 text-center">
+                        <td className="col-1 text-center" style={{width: "10%"}}>
                             <a className="uni_text_6d30ab fw-medium" href="/backend/sell-open/13/">
                                 <u>See details</u>
                             </a>
