@@ -11,10 +11,9 @@ import DialogAddTaskList from './DialogAddTaskList'
 import DialogSaleProject from './DialogSaleProject';
 import DialogSalePromotion from './DialogSalePromotion';
 import DialogResponeHistory from './DialogResponeHistory'
-import DialogPromotion from './DialogPromotion'
 export {
     DialogAvatar, DialogEdit, DialogTemplateEdit, DialogFS,
     DialogTrash,
-    DialogPermision,DialogSaleProject, DialogSalePromotion,DialogResponeHistory,DialogPromotion,
+    DialogPermision,DialogSaleProject, DialogSalePromotion,DialogResponeHistory,
     DialogList, DialogEditCompetitive , DialogProjectDashBoardDetail,DialogAddTaskList
 }
