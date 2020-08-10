@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from 'react-redux'
 import {approvedListRequest, commentListRequest} from '../../store/action/approval'
 import {CardInfo, CardApprovedHistory} from './Layout/index'
 import {DialogResponeHistory} from '../../components/dialogs'
+import { Link, useLocation } from 'react-router-dom';
 
 
 const PageListCart = (props) =>{
@@ -52,6 +53,8 @@ const PageListCart = (props) =>{
 const onSearch= () => {
     dispatch(approvedListRequest({token, product_id, request_type, request_status, priority}))
 }
+const location = useLocation();
+console.log('----fdsfdsfdsf---',location)
 return (
        <> 
         <CardInfo />

@@ -72,9 +72,15 @@ const InfoShipping = props => {
             <div className="dropdown-menu show" x-placement="top-start" style={{ position: 'absolute', transform: 'translate3d(-183px, -150px, 0px)', top: 0, left: 0, willChange: 'transform' }}>
                 <a className="dropdown-item" data-toggle="modal" data-target="#createRequest" onClick={() => setShow({ ...show, Show_request: true, value: value })}>
                     <i className="icon-dropdown las la-question-circle" /><Trans>Create a request</Trans></a>
-                <Link to="/perm/project" className="dropdown-item" onClick={() => setShow({ ...show, Show_requirements: true })} >
+                <Link to={
+                    {
+                        pathname: '/perm/project',
+                        params: {'linh': 'aaa'}
+                    }
+                } className="dropdown-item" onClick={() => setShow({ ...show, Show_requirements: true})} params ={'fkdshfdksfhds'} >
                     <i className="icon-dropdown las la-list-alt" />
-                    <Trans>See requirements</Trans></Link>
+                    <Trans>See requirements</Trans>
+                </Link>
                 <a className="dropdown-item" onClick={() => setShow({ ...show, Show_contract: true })}>
                     <i className="icon-dropdown las la-plus-square" /><Trans>Create a contract</Trans></a>
                 <a className="dropdown-item" onClick={() => setShow({ ...show, Show_return: true })} >
@@ -175,7 +181,6 @@ const InfoShipping = props => {
                     <InputSelect className="col-lg-3 col-md-6 col-sm-12" label="Choose area" placeholder="Choose area" name="status" value={props.dropdown.title} datas={props.dropdown.data} />
                     <InputSelect className="col-lg-3 col-md-6 col-sm-12" label="Choose block" placeholder="Choose block" name="status" value={props.dropdown.title} datas={props.dropdown.data} />
                     <InputSelect className="col-lg-3 col-md-6 col-sm-12" label="Choose floor or lot" placeholder="Choose floor or lot" name="status" value={props.dropdown.title} datas={props.dropdown.data} />
-
                     <div className="col-lg-3 col-md-6 col-sm-12">
                         <div className="form-group">
                             <label className="invisible d-md-block d-none">button</label>
