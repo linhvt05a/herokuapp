@@ -7,14 +7,18 @@ import {
   currencyAddWatcher
 } from './currencySaga';
 
-import {approveListHistory} from './approveList'
 import {
-  shippingDetailWatcher,
-  shippingListlWatcher,
-  shippingSellOpenlWatcher,
-  shippingSellOpenListlWatcher,
-  shippingSellOpenCartWatcher
-} from "./shippingSaga"
+  cartDetailWatcher,
+  cartListlWatcher,
+  cartSellOpenlWatcher,
+  cartSellOpenListlWatcher,
+  cartSellOpenCartWatcher,
+  filterAreaWatcher,
+  filterBlockWatcher,
+  filterFloorWatcher,
+  filterProjectStatusWatcher,
+  filterListOpenSaleWatcher
+} from "./cartSaga"
 import {
   regionListWatcher,
   provinceListWatcher,
@@ -23,11 +27,12 @@ import {
   projectListWatcher
 } from './dashboardSaga';
 import {
-  productDetaillWatcher
-} from './productSaga';
+  projectDetailWatcher
+} from './projectSaga';
 import {
-  customerListWatcher
-} from './customerSaga';
+  commentListWatcher,
+  approveListWatcher
+} from './approval'
 
 function* allSaga() {
   yield all([
@@ -35,19 +40,27 @@ function* allSaga() {
     currencyDetailWatcher(),
     currencyEditWatcher(),
     currencyAddWatcher(),
-    shippingDetailWatcher(),
-    shippingListlWatcher(),
-    shippingSellOpenlWatcher(),
-    shippingSellOpenListlWatcher(),
-    shippingSellOpenCartWatcher(),
+    //cart
+    cartDetailWatcher(),
+    cartListlWatcher(),
+    cartSellOpenlWatcher(),
+    cartSellOpenListlWatcher(),
+    cartSellOpenCartWatcher(),
+    //filter
+    filterAreaWatcher(),
+    filterBlockWatcher(),
+    filterFloorWatcher(),
+    filterProjectStatusWatcher(),
+    filterListOpenSaleWatcher(),
+
     regionListWatcher(),
     provinceListWatcher(),
     typeListWatcher(),
     statusListWatcher(),
     projectListWatcher(),
-    productDetaillWatcher(),
-    approveListHistory(),
-    customerListWatcher()
+    projectDetailWatcher(),
+    commentListWatcher(),
+    approveListWatcher()
   ]);
 }
 

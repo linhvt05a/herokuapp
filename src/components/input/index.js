@@ -4,6 +4,8 @@ import InputText from './InputText';
 import InputTextArea from './InputTextArea';
 import InputCheckBox from './InputCheckBox';
 import InputFile from './InputFile';
+import InputTextImage from './InputTextImage'
+import InputTextSelect from './InputTextSelect'
 
 function mapping(list, value) {
     if (list && list.length > 0) {
@@ -63,6 +65,20 @@ function mappingListToSelectList(list, key, label) {
     return null;
 }
 
+function mappingSelectListHaveDefault(list, key, label, defaultValue) {
+    if (list) {
+        let result = [defaultValue];
+        for (var i = 0; i < list.length; i++) {
+            result.push({
+                'value': list[i][key],
+                'label': label ? list[i][label] : list[i].name
+            })
+        }
+        return result;
+    }
+    return null;
+}
+
 function getValueSelect(list, id) {
     if (list) {
         for (var i = 0; i < list.length; i++) {
@@ -76,6 +92,8 @@ function getValueSelect(list, id) {
 
 export {
     InputSelect,
+    InputTextImage,
+    InputTextSelect,
     InputDate,
     InputText,
     InputTextArea,
@@ -86,5 +104,6 @@ export {
     mappingWithList,
     getValueSelect,
     convertMutilSelectedToList,
-    mapping
+    mapping,
+    mappingSelectListHaveDefault
 }

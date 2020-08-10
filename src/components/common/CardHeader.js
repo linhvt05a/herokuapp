@@ -1,52 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Trans } from 'react-i18next';
-import { Select } from 'antd';
-
+import { DropdownPurple } from "../dropdown"
 
 const CardHeader = props => {
+    const [state, setState] = useState({
+        valueSearch: ""
+    });
     return (
         <div className={props.classHeading ? props.classHeading : "m_heading"}>
+
+            {/* heading */}
             <button className="m_button no-event">
                 <span><Trans>{props.label}</Trans>{props.labelEnd}</span>
             </button>
+            {/* end heading */}
+
+            {/*dropdown purple */}
             {
                 props.dropdown ?
-                    <div className="dropdown m_select m_dropdown">
-                        <button className=" m_select--label m_dropdown--label square  dropdown-toggle" type="button">
-                            {props.dropdown.title}
-                        </button>
-                        <div className="dropdown-menu">
-                            {
-                                props.dropdown.data.map((value, index) => {
-                                    return <a key={index} className="dropdown-item" href={`${value.href}`}>{value.label.toUpperCase()}</a>
-                                })
-                            }
-                        </div>
-                    </div> : null
+                    <DropdownPurple datas={props.dropdown.data} label={props.dropdown.title} onClick={props.onClick} />
+                    : null
             }
-        </div>
+            {/*end dropdown purple */}
 
-        // {
-        //     this.props.actionData &&
-        //     <div className="col-xl-3 col-lg-3 col-md-12 col-sm-12">
-        //         <DropdownAction datas={this.props.actionData} label={this.props.actionLabel ? this.props.actionLabel : "Action"} onClickAction={this.props.onClickAction} />
-        //     </div>
-        // }
-        // {
-        //     this.props.classbtn &&
-        //     <div className="col-xl-3 col-lg-3 col-md-12 col-sm-12">
-        //         {
-        //             this.props.classbtn &&
-        //             <button type="button" className={this.props.classbtn} onClick={this.props.handleClick}>
-        //                 <Trans>{this.props.titleAction}</Trans>
-        //                 {
-        //                     this.props.classIcon &&
-        //                     <i className={this.props.classIcon} />
-        //                 }
-        //             </button>
-        //         }
-        //     </div>
-        // }
+
+            {props.searchBox ?
+                <div className="m_search">
+                    <label className="m_search--label d-none  d-md-block"><Trans>{props.searchBox.title}</Trans></label>
+                    <input name="project_name" id="filter-by-project-name" value={state.valueSearch} className="m_search--input" type="text" onChange={item => setState({ ...state, valueSearch: item.target.value })} />
+                    <button className="m_search--button" type="button" id="search_by_name"><i className="fa fa-search" aria-hidden="true" onClick={() => props.SEARCH(state.valueSearch)}></i>
+                    </button>
+                </div> : null}
+        </div>
     );
 }
 

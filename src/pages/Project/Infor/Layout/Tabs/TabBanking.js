@@ -2,7 +2,7 @@ import React from 'react';
 
 const TabBanking = () => {
     return (
-        <div role="tabpanel" class="tab-pane show fade pt-2 pb-3" id="bank">
+        <div>
             <div class="row mt-2 mb-2 pl-3">
                 <div class="col-xl-10 col-lg-10 col-md-12 col-sm-12">
                     <div class="form-group mb-0">

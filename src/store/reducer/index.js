@@ -1,15 +1,12 @@
 import currency from './currencyReducer';
 import dashboard from './dashboardReducer';
-import shipping from "./shippingReducer";
-import product from "./productReducer"
-import approveList from './approveListReducer'
-import customer from './customerReducer'
+import cart from "./cartReducer";
+import project from "./projectReducer";
+import product_request from './approveListReducer';
 import { combineReducers } from 'redux';
 const allReducers = combineReducers({
     currency, dashboard,
-    shipping,
-    product,
-    approveList,
-    customer
+    cart, project,
+    product_request
 });
 export default allReducers; 

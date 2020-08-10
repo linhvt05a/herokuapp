@@ -1,36 +1,40 @@
 import {
-    currentcyAddRequest, 
-    currentcyDetailRequest, 
-    currentcyListRequest, 
-    currentcyEditRequest,
-} from './currency';
+  currentcyAddRequest,
+  currentcyDetailRequest,
+  currentcyListRequest,
+  currentcyEditRequest,
+} from "./currency";
 import {
-    regionListRequest,
-    provinceListRequest,
-    typeListRequest,
-    statusListRequest,
-    projectListRequest
-} from './dashboard';
+  regionListRequest,
+  provinceListRequest,
+  typeListRequest,
+  statusListRequest,
+  projectListRequest,
+} from "./dashboard";
+import {
+  projectAddRequest,
+  projectDetailRequest,
+  projectEditRequest,
+} from "./project";
 
 import {
-    productDetailRequest
-} from './product';
+  approvedListRequest,
+  commentListRequest
+} from "./approval";
 
-import { approvedListRequest } from './approved';
-
-import { customerListRequest } from './customer'
-export { 
-    currentcyAddRequest, 
-    currentcyDetailRequest, 
-    currentcyListRequest, 
-    currentcyEditRequest,
-    
-    regionListRequest,
-    provinceListRequest,
-    typeListRequest,
-    statusListRequest,
-    projectListRequest,
-    productDetailRequest,
-    approvedListRequest,
-    customerListRequest
+export {
+  currentcyAddRequest,
+  currentcyDetailRequest,
+  currentcyListRequest,
+  currentcyEditRequest,
+  regionListRequest,
+  provinceListRequest,
+  typeListRequest,
+  statusListRequest,
+  projectListRequest,
+  projectAddRequest,
+  projectDetailRequest,
+  projectEditRequest,
+  approvedListRequest,
+  commentListRequest
 };

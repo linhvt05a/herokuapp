@@ -23,17 +23,16 @@ import { permissionDepartmentService } from './Permission/services_permission_de
 import { permissionProjectService } from './Permission/services_permission_projects';
 
 //shipping
-import { sysShippingService } from "./System/services_system_shipping"
+import { sysCartService } from "./System/services_system_cart"
 
 export {
     userService, dashboardService,
     locationService, imageService,
     sysCurrencyService,
-    permissionDepartmentService, 
-    permissionProjectService, 
-    projectService, 
-    sysShippingService,
-    productService,
-    customerService
+    permissionDepartmentService,
+    permissionProjectService,
+    projectService,
+    sysCartService,
+    productService
 
 }

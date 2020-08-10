@@ -14,7 +14,8 @@ export default {
     EDIT_USER_INFO: '/api/v1/user/info/edit',
     PASSWORD_CHANGE: '/api/v1/user/info/password/change',
 
-    HISTORY_APPROVED : '/api/be/v1/approval/',
+    HISTORY_APPROVED: '/api/be/v1/approval/',
+    LIST_COMMENT: '/api/be/v1/request/comment/',
 
     DASHBOARD_REGION_LIST: '/api/fe/v1/region',
     DASHBOARD_PROVINCE_LIST: '/api/fe/v1/province',
@@ -26,7 +27,7 @@ export default {
     PROJECT_INVESTOR: '/api/v1/information/investor/list_shorten/',
     PROJECT_MODEL: '/api/v1/project/model/list/',
     PROJECT_LIST_WORK_FLOW: '/api/v1/system/workflow/list_shorten/',
-    PROJECT_DETAIL: '/api/v1/project/detail/',
+    PROJECT_DETAIL: '/api/be/v1/project/detail/',
     PROJECT_LIST_SHORTEN: '/api/v1/project/list_shorten/',
     PROJECT_TIMELINE_DEPARMENTS: '/api/v1/project/timeline/department/list/',
     PROJECT_TIMELINE_GROUPS: '/api/v1/project/timeline/group/list/',
@@ -58,10 +59,10 @@ export default {
     SYS_STATE_EDIT: '/api/v1/system/workflow/template/state/edit/',
     SYS_STATE_PARENT_LIST: '/api/v1/system/workflow/template/state/parent/list/',
 
-    LOCATION_REGION: '/api/v1/location/regions/',
-    LOCATION_PROVINCE: '/api/v1/location/provinces/',
-    LOCATION_DISTRICT: '/api/v1/location/districts/',
-    LOCATION_WARD: '/api/v1/location/wards/',
+    // LOCATION_REGION: '/api/v1/location/regions/',
+    // LOCATION_PROVINCE: '/api/v1/location/provinces/',
+    // LOCATION_DISTRICT: '/api/v1/location/districts/',
+    // LOCATION_WARD: '/api/v1/location/wards/',
 
     LANGUAGE_LIST: '/api/v1/user/language/list/',
     LANGUAGE_CHANGE: '/api/v1/user/language/change/',
@@ -72,12 +73,19 @@ export default {
     PERMISSION_PROJECT_EDIT: '/api/v1/permission_task/project_task/edit/',
     PERMISSION_PROJECT_LAYOUT: '/api/v1/permission_task/project_task/layout/',
 
-    //Shipping
-    SHIPPING_LIST: "/api/be/v1/project/",
-    SHIPPING_DETAIL: "/api/be/v1/project/detail/",
-    SHIPPING_SELL_OPEN: "/api/be/v1/sell_open/",
-    SHIPPING_SELL_OPEN_LIST: "/api/be/v1/sell_open/product_list/",
-    SHIPPING_CART: "/api/be/v1/distribution/add_request/shopping_cart/",
+    //CART
+    CART_LIST: "/api/be/v1/project/",
+    CART_DETAIL: "/api/be/v1/project/detail/",
+    CART_SELL_OPEN: "/api/be/v1/sell_open/",
+    CART_SELL_OPEN_LIST: "/api/be/v1/sell_open/product_list/",
+    CART_CART: "/api/be/v1/distribution/add_request/shopping_cart/",
+
+    //filter dropdown
+    FILTER_AREA: "/api/be/v1/infrastructure/area/list_short/",
+    FILTER_BLOCK: "/api/be/v1/infrastructure/block/list_short/",
+    FILTER_FLOOR: "/api/be/v1/infrastructure/floor_or_lot/list_short/",
+    FILTER_PROJECT_STATUS: "/api/be/v1/common/project/status",
+    FILTER_LIST_OPEN_SALE: "/api/be/v1/project/list_open_sale/",
 
     //Product
     PRODUCT_DETAIL: "/api/be/v1/infrastructure/product/detail/",
