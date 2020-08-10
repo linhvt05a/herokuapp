@@ -1,3 +1,5 @@
+/* eslint-disable eqeqeq */
+/* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState, useEffect } from 'react';
 import { product_type_id, product_status } from "../../../../../constant";
@@ -5,8 +7,12 @@ import { Trans } from 'react-i18next';
 import { InputSelect } from "../../../../../components/input";
 import ModalRequest from "../modal/ModalRequest"
 import { Link } from 'react-router-dom';
+import { useSelector } from "react-redux";
 
 const InfoShipping = props => {
+    const token = 'MTAwNjpNVEF3Tmpwa05ESmlPVGc1WldVM05HWmhNMlZrWXpWaFlqQXhOalV4T1RReFl6QmtOVFUyTW1Oa1pUVTQ=';
+    let { STATE } = props;
+    let { state, setState } = STATE
     const [click, setClick] = useState([]);
     const [show, setShow] = useState({
         Show_request: false,
@@ -15,19 +21,20 @@ const InfoShipping = props => {
         Show_return: false,
         value: null
     })
+    const dataCart = useSelector(state => state.cart);
     useEffect(() => {
-        if (props.data) {
+        if (dataCart.Sell_Open_Cart.length > 0) {
             let arr = [];
-            for (let i in props.data) {
+            for (let i in dataCart.Sell_Open_Cart) {
                 let arrPopup = []
-                for (let j in props.data[i].product_list) {
+                for (let j in dataCart.Sell_Open_Cart[i].product_list) {
                     arrPopup.push({ popup_status: false })
                 }
                 arr.push({ id: i, status: "", popup: arrPopup })
             }
             setClick(arr)
         }
-    }, [props.data])
+    }, [dataCart.Sell_Open_Cart])
 
     const ONCLICK = (target, index) => {
         let newData = [].concat(click);
@@ -111,7 +118,7 @@ const InfoShipping = props => {
         let arr = [];
         if (item) {
             arr = item.map((value, i) => {
-                return <tr key={`${value.product_name} - ${i}`} className={`child child-row${index} ${click.length > 0 ? click[index].status : null}`} >
+                return <tr key={`${value.product_name} - ${i}`} className={`child child-row${index} ${click.length > 0 ? click[index] && click[index].status : null}`} >
                     <td className={i == item.length - 1 ? "pl-0" : "border-bottom-none pl-0"} colSpan={2}>
                         <a href="#" className="uni_text_e94c4c m_border_e94c4c fw-medium number_circle_top pl-3 pr-3 pt-2 pb-2" data-toggle="modal" data-target="#listProfile">
                             <u>Hồ sơ bị từ chối</u>
@@ -156,7 +163,7 @@ const InfoShipping = props => {
                                 <a type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                                     <i className="icon-dots las la-ellipsis-h" onClick={() => showPopUP(index, i)} />
                                 </a>
-                                {click[index] ? click[index].popup[index] ? click[index].popup[i].popup_status === true ?
+                                {click[index] ? click[index].popup[i] ? click[index].popup[i].popup_status === true ?
                                     renderPopUp(value)
                                     : null : null : null}
                             </div>
@@ -172,14 +179,34 @@ const InfoShipping = props => {
             <div className="card-body m_table--collapse">
                 <p className="mb-4 mt-4 fs-18 uni_text_6d30ab text-uppercase text-center font-weight-bold">TÌM KIẾM </p>
                 <div className="row mb-4 d-flex justify-content-center">
-                    <InputSelect className="col-lg-3 col-md-6 col-sm-12" label="Choose area" placeholder="Choose area" name="status" value={props.dropdownFloor.value} datas={props.dropdownFloor.data} />
-                    {/* <InputSelect className="col-lg-3 col-md-6 col-sm-12" label="Choose block" placeholder="Choose block" name="status" value={props.dropdown.value} datas={props.dropdown.data} />
-                    <InputSelect className="col-lg-3 col-md-6 col-sm-12" label="Choose floor or lot" placeholder="Choose floor or lot" name="status" value={props.dropdown.value} datas={props.dropdown.data} /> */}
+                    <InputSelect
+                        className="col-lg-3 col-md-6 col-sm-12"
+                        label="Choose area"
+                        placeholder="Choose area"
+                        name="status"
+                        isClear={state.FilterAreaStatus.value == "" ? true : false}
+                        value={state.FilterAreaStatus.value} datas={state.dataArea}
+                        onChange={(value) => props.onChangeArea(value)} />
+                    <InputSelect
+                        className="col-lg-3 col-md-6 col-sm-12"
+                        label="Choose block"
+                        placeholder="Choose block"
+                        name="status"
+                        isClear={state.FilterBlockStatus.value == "" ? true : false}
+                        value={state.FilterBlockStatus.value} datas={state.dataFilterBlock}
+                        onChange={(value) => props.onChangeBlock(value)} />
+                    <InputSelect
+                        className="col-lg-3 col-md-6 col-sm-12"
+                        label="Choose floor or lot"
+                        placeholder="Choose floor or lot"
+                        name="status" isClear={state.floorStatus.value == "" ? true : false}
+                        value={state.floorStatus.value} datas={state.dataFilterFloor}
+                        onChange={(value) => props.onChangeFloor(value)} />
 
                     <div className="col-lg-3 col-md-6 col-sm-12">
                         <div className="form-group">
                             <label className="invisible d-md-block d-none">button</label>
-                            <button type="submit" className="min-width-button btn-uni-purple min-height-40 ">
+                            <button type="submit" className="min-width-button btn-uni-purple min-height-40 " onClick={() => props.onSearch()}>
                                 <Trans>Search</Trans>
                             </button>
                         </div>
@@ -202,7 +229,7 @@ const InfoShipping = props => {
                         </thead>
                         {/* heading  */}
                         <tbody>
-                            {props.data ? props.data.map((data, index) => {
+                            {dataCart.Sell_Open_Cart ? dataCart.Sell_Open_Cart.map((data, index) => {
                                 return [trParent(data, index), trChild(data.product_list, index)]
                             }) : null}
                         </tbody></table>
