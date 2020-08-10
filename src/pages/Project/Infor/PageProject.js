@@ -32,8 +32,9 @@ const PageProject = props => {
             data.map((item, index) => {
                 dataSelect.push(create_Filter_Project_Status(item.id, item.name))
             })
+            setState({ ...state, dataProjectStatus: dataSelect, projectStatus: dataSelect[0] })
         }
-        setState({ ...state, dataProjectStatus: dataSelect, projectStatus: dataSelect[0] })
+
     }, [dataCart.Filter_Project_Status])
 
 
@@ -56,7 +57,6 @@ const PageProject = props => {
     }
     return (
         <div >
-            {console.log(state.projectStatus)}
             <CardHeader
                 dropdown={{ title: state.projectStatus && state.projectStatus.value == "" ? "Product Status" : state.projectStatus.label, data: state.dataProjectStatus }}
                 label={"Project"}

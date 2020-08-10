@@ -34,8 +34,8 @@ const Cart = props => {
             data.map((item) => {
                 dataSelect.push(create_Filter_Project_Status(item.id, item.name))
             })
+            setState({ ...state, dataProjectStatus: dataSelect, projectStatus: dataSelect[0] })
         }
-        setState({ ...state, dataProjectStatus: dataSelect, projectStatus: dataSelect[0] })
     }, [dataCart.Filter_Project_Status])
 
 
