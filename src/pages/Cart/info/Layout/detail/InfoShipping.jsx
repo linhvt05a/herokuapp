@@ -13,20 +13,21 @@ const InfoShipping = props => {
         Show_requirements: false,
         Show_contract: false,
         Show_return: false,
+        value: null
     })
     useEffect(() => {
-        if (props.data.floor_or_lot_list) {
+        if (props.data) {
             let arr = [];
-            for (let i in props.data.floor_or_lot_list) {
+            for (let i in props.data) {
                 let arrPopup = []
-                for (let j in props.data.floor_or_lot_list[i].product_list) {
+                for (let j in props.data[i].product_list) {
                     arrPopup.push({ popup_status: false })
                 }
                 arr.push({ id: i, status: "", popup: arrPopup })
             }
             setClick(arr)
         }
-    }, [props.data.floor_or_lot_list])
+    }, [props.data])
 
     const ONCLICK = (target, index) => {
         let newData = [].concat(click);
@@ -68,12 +69,12 @@ const InfoShipping = props => {
     //will-change: transform; position: absolute; transform: translate3d(-137px, -145px, 0px); top: 0px; left: 0px;
     const renderPopUp = (value) => {
         return (
-            <div className="dropdown-menu show" x-placement="top-start" style={{ position: 'absolute', transform: 'translate3d(-183px, 0px, 0px)', top: 0, left: 0, willChange: 'transform' }}>
-                <a className="dropdown-item" data-toggle="modal" data-target="#createRequest" onClick={() => setShow({ ...show, Show_request: true })}>
+            <div className="dropdown-menu show" x-placement="top-start" style={{ position: 'absolute', transform: 'translate3d(-183px, -150px, 0px)', top: 0, left: 0, willChange: 'transform' }}>
+                <a className="dropdown-item" data-toggle="modal" data-target="#createRequest" onClick={() => setShow({ ...show, Show_request: true, value: value })}>
                     <i className="icon-dropdown las la-question-circle" /><Trans>Create a request</Trans></a>
-                <a className="dropdown-item" onClick={() => setShow({ ...show, Show_requirements: true })} >
+                <Link to="/perm/project" className="dropdown-item" onClick={() => setShow({ ...show, Show_requirements: true })} >
                     <i className="icon-dropdown las la-list-alt" />
-                    <Link to= "/perm/project"><Trans>See requirements</Trans></Link></a>
+                    <Trans>See requirements</Trans></Link>
                 <a className="dropdown-item" onClick={() => setShow({ ...show, Show_contract: true })}>
                     <i className="icon-dropdown las la-plus-square" /><Trans>Create a contract</Trans></a>
                 <a className="dropdown-item" onClick={() => setShow({ ...show, Show_return: true })} >
@@ -158,16 +159,6 @@ const InfoShipping = props => {
                                 {click[index] ? click[index].popup[index] ? click[index].popup[i].popup_status === true ?
                                     renderPopUp(value)
                                     : null : null : null}
-                                {/* <div className="dropdown-menu" x-placement="top-start" style={{ position: 'absolute', transform: 'translate3d(-183px, -43px, 0px)', top: 0, left: 0, willChange: 'transform' }}>
-                                    <a className="dropdown-item" data-toggle="modal" data-target="#createRequest" href="#">
-                                        <i className="icon-dropdown las la-question-circle" />Tạo yêu cầu</a>
-                                    <a className="dropdown-item" href="#">
-                                        <i className="icon-dropdown las la-list-alt" />Xem các yêu cầu</a>
-                                    <a className="dropdown-item" href="#">
-                                        <i className="icon-dropdown las la-plus-square" />Tạo hợp đồng</a>
-                                    <a className="dropdown-item" href="#">
-                                        <i className="icon-dropdown las la-undo" />Yêu cầu trả lại</a>
-                                </div> */}
                             </div>
                         </div>
                     </td>
@@ -211,13 +202,13 @@ const InfoShipping = props => {
                         </thead>
                         {/* heading  */}
                         <tbody>
-                            {props.data.floor_or_lot_list ? props.data.floor_or_lot_list.map((data, index) => {
+                            {props.data ? props.data.map((data, index) => {
                                 return [trParent(data, index), trChild(data.product_list, index)]
                             }) : null}
                         </tbody></table>
                 </div>
             </div>
-            {show.Show_request && <DialogSalePromotion active={show.Show_request} onClick={() => setShow({ ...show, Show_request: false })} />}
+            {show.Show_request && <DialogSalePromotion active={show.Show_request} close={() => setShow({ ...show, Show_request: false })} value={show.value} />}
             {show.Show_contract && <div></div>}
             {show.Show_requirements && <div></div>}
             {show.Show_return && <div></div>}

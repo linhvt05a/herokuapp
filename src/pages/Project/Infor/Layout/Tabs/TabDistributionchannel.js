@@ -2,7 +2,7 @@ import React from 'react';
 
 const TabDistributionchannel = () => {
     return (
-        <div role="tabpanel" class="tab-pane show fade pt-2 pb-3" id="distribution_channel">
+        <div>
             <div class="row mt-2 mb-2 pl-3">
                 <div class="col-12 col-sm-12 col-md-4 col-lg-3">
                     <div class="form-group mb-2 mb-md-0">

@@ -5,6 +5,7 @@ import { Select } from 'antd';
 const InputSelect = (props) => {
     const { className, name, value, label, datas, placeholder, onChange, isClear } = props;
     const { Option } = Select;
+
     return (
         <div className={className ? className : ''}>
             <div className="form-group">
@@ -22,9 +23,8 @@ const InputSelect = (props) => {
                     onChange={onChange}
                     value={isClear ? null : value}
                     placeholder={<Trans>{placeholder}</Trans>}
-
                     children={datas && datas.map((e, key) => {
-                        return <Option className="ahihi" name={name} key={key} value={e.value}>{e.label}</Option>;
+                        return <Option name={name} key={key} value={e.value}>{e.label}</Option>;
                     })} />
 
             </div>

@@ -6,6 +6,7 @@ const initialState = {
     Sell_Open: [],
     Sell_Open_Floor: [],
     Sell_Open_Cart: [],
+    Filter_Project_Area: [],
     page: 0,
     total_page: 0,
     total_record: 0,
@@ -77,6 +78,20 @@ export default (state = initialState, action) => {
                 success: action.response.success
             };
         case actions.LOAD_SELL_OPEN_CART_FAILURE:
+            return {
+                ...state,
+                isFetching: false,
+                // error: action.response.err,
+                success: false
+            }
+        case actions.LOAD_FILTER_PROJECT_STATUS_SUCCESS:
+            return {
+                ...state,
+                Filter_Project_Area: action.response.detail,
+                isFetching: true,
+                success: action.response.success
+            };
+        case actions.LOAD_FILTER_PROJECT_STATUS_FAILURE:
             return {
                 ...state,
                 isFetching: false,

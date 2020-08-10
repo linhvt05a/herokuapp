@@ -122,7 +122,7 @@ export function* filterFloorWatcher() {
 export function* FilterProjectStatus(payload) {
     const token = payload.params.token;
     try {
-        const response = yield sysCartService.cart(token);
+        const response = yield sysCartService.filterProjectStatus(token);
         response.success ? yield put({ type: actions.LOAD_FILTER_PROJECT_STATUS_SUCCESS, response }) : yield put({ type: actions.LOAD_FILTER_PROJECT_STATUS_FAILURE, response });
     } catch (err) {
         yield put({ type: actions.LOAD_FILTER_PROJECT_STATUS_FAILURE, err });

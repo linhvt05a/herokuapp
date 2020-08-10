@@ -11,15 +11,17 @@ const Cart = props => {
         alert(`text ${value}`)
     }
 
-    const token = 'MjoxMzliMDZiZmI4OTJhOGYxYmQ2MzVhZmFmODEyZmM5M2RhNDFkM2Yx';
+    const token = 'MTAwNjpNVEF3Tmpwa05ESmlPVGc1WldVM05HWmhNMlZrWXpWaFlqQXhOalV4T1RReFl6QmtOVFUyTW1Oa1pUVTQ=';
     // const { token } = props.user;
 
     useEffect(() => {
         dispatch(actions.LoadList({ token: token }))
-        // dispatch(actions.LoadProjectStatus({ token: token }))
+        dispatch(actions.LoadProjectStatus({ token: token }))
     }, [])
     const dataCart = useSelector(state => state.cart)
-
+    const create_Filter_Project_Status = (value, label) => {
+        return { value, label }
+    }
     let dataSelect = [
         { href: "#", value: "1", label: "Mới" },
         { href: "#", value: "2", label: "Đang chờ" },

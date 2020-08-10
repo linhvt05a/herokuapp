@@ -6,7 +6,7 @@ import Title from "../../../components/common/CardHeader"
 const Edit = props => {
 
     const dispatch = useDispatch();
-    const token = 'MjoxMzliMDZiZmI4OTJhOGYxYmQ2MzVhZmFmODEyZmM5M2RhNDFkM2Yx';
+    const token = 'MTAwNjpNVEF3Tmpwa05ESmlPVGc1WldVM05HWmhNMlZrWXpWaFlqQXhOalV4T1RReFl6QmtOVFUyTW1Oa1pUVTQ=';
     // const createData = (buttomName, date_from, date_to, Apartment_from = 0, Apartment_to = 0, Studio_from = 0, Studio_to = 0) => {
     //     return { buttomName, date_from, date_to, Apartment_from, Apartment_to, Studio_from, Studio_to }
     // }
@@ -18,7 +18,7 @@ const Edit = props => {
 
     }, [])
     const data = useSelector(state => state.cart);
-    // console.log(data);
+    console.log(data);
     // const newData = [
     //     createData("Sell open 1", "10/06/2020", "31/10/2020", 16, 15),
     //     createData("Sell open 2", "01/07/2020", "30/08/2020", 10, 10),
@@ -59,7 +59,7 @@ const Edit = props => {
             </div>
             <div>
                 <Title label="Basket details" dropdown={{ title: "Đợt 1", data: contentDropdown }} />
-                <Item.Detail_InfoShipping data={data.Sell_Open_Floor} dropdown={{ title: "Đợt 1", data: contentDropdown }} />
+                <Item.Detail_InfoShipping data={data.Sell_Open_Cart} dropdown={{ title: "Đợt 1", data: contentDropdown }} />
             </div>
         </div>
     )
