@@ -9,7 +9,8 @@ export const sysCartService = {
     filterFloor,
     filterArea,
     filterBlock,
-    filterProjectStatus
+    filterProjectStatus,
+    filterListOpenSale
 };
 //  GET
 function detail(token, productId) {
@@ -55,13 +56,13 @@ function cart(token, project_id, sell_open_id = '262') {
     return api.handleRequest(url, requestOptions);
 }
 
-function sellopenList(token, productId) {
+function sellopenList(token, productId, area_id) {
     const requestOptions = {
         method: 'GET',
         headers: api.getHeader(token)
     };
 
-    const params = { 'project_id': productId };
+    const params = { 'project_id': productId, "area_id": area_id };
     const url = api.getUrl(api.CART_SELL_OPEN_LIST, params);
     return api.handleRequest(url, requestOptions);
 }
@@ -111,18 +112,13 @@ function filterListOpenSale(token, productId) {
     const url = api.getUrl(api.FILTER_LIST_OPEN_SALE, params);
     return api.handleRequest(url, requestOptions);
 }
-// POST
-function filterFloor(token, project_id, block_id) {
-    const body = {
-        "block_id": block_id
-    }
+function filterFloor(token, project_id, sell_open_id) {
     const requestOptions = {
         method: 'GET',
         headers: api.getHeader(token),
-        body: body
     };
 
-    const params = { 'project_id': project_id };
-    const url = api.getUrl(api.FILTER_FLOOR, params);
+    const params = { 'project_id': project_id, "sell_open_id": sell_open_id };
+    const url = api.getUrl(api.FILTER_FLOOR, params); console.log(url);
     return api.handleRequest(url, requestOptions);
 }

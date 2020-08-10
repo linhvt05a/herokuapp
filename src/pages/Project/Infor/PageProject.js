@@ -10,7 +10,7 @@ const PageProject = () => {
     const dispatch = useDispatch();
 
     const [state, setState] = useState({
-        projectStatus: "",
+        projectStatus: { value: "", label: "" },
         dataProjectStatus: [],
         valueSearch: ""
     })
@@ -18,7 +18,7 @@ const PageProject = () => {
     // const { token } = props.user;
 
     useEffect(() => {
-        dispatch(actions.LoadList({ token: token, value: state.valueSearch, status_id: state.projectStatus }))
+        dispatch(actions.LoadList({ token: token, value: state.valueSearch, status_id: state.projectStatus.value }))
         dispatch(actions.LoadProjectStatus({ token: token }))
     }, [])
     const dataCart = useSelector(state => state.cart)
@@ -26,7 +26,7 @@ const PageProject = () => {
         return { value, label }
     }
     useEffect(() => {
-        let data = dataCart.Filter_Project_Area;
+        let data = dataCart.Filter_Project_Status;
         let dataSelect = [];
         if (data.length > 0) {
             dataSelect.push(create_Filter_Project_Status("", "All"))
@@ -34,8 +34,8 @@ const PageProject = () => {
                 dataSelect.push(create_Filter_Project_Status(item.id, item.name))
             })
         }
-        setState({ ...state, dataProjectStatus: dataSelect })
-    }, [dataCart.Filter_Project_Area])
+        setState({ ...state, dataProjectStatus: dataSelect, projectStatus: dataSelect[0] })
+    }, [dataCart.Filter_Project_Status])
 
 
     let dataType = [
@@ -51,15 +51,15 @@ const PageProject = () => {
         setState({ ...state, valueSearch: value })
         dispatch(actions.LoadList({ token: token, search_name: value, status_id: state.projectStatus }))
     };
-    const onFilter = (value) => {
-        setState({ ...state, projectStatus: value })
-        dispatch(actions.LoadList({ token: token, search_name: state.valueSearch, status_id: value }))
+    const onFilter = (item) => {
+        setState({ ...state, projectStatus: item })
+        dispatch(actions.LoadList({ token: token, search_name: state.valueSearch, status_id: item.value }))
     }
     return (
         <div >
             <div>
                 <CardHeader
-                    dropdown={{ title: "Product Status", data: state.dataProjectStatus }}
+                    dropdown={{ title: state.projectStatus.value == "" ? "Product Status" : state.projectStatus.label, data: state.dataProjectStatus }}
                     label={"Project"}
                     searchBox={{ title: "home_map_search" }}
                     onSearch={value => SEARCH(value)}
@@ -70,7 +70,7 @@ const PageProject = () => {
                     page={dataCart.page}
                     total_page={dataCart.total_page}
                     total_record={dataCart.total_record}
-                    link_to={`/cart/cart_list/detail/`}
+                    link_to={`/info/project/detail/`}
                 />
             </div>
         </div>

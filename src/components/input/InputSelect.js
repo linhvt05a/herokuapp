@@ -24,7 +24,7 @@ const InputSelect = (props) => {
                     placeholder={<Trans>{placeholder}</Trans>}
 
                     children={datas && datas.map((e, key) => {
-                        return <Option className="ahihi" name={name} key={key} value={e.value}>{e.label}</Option>;
+                        return <Option name={name} key={key} value={e.value}>{e.label}</Option>;
                     })} />
 
             </div>

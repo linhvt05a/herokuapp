@@ -172,9 +172,9 @@ const InfoShipping = props => {
             <div className="card-body m_table--collapse">
                 <p className="mb-4 mt-4 fs-18 uni_text_6d30ab text-uppercase text-center font-weight-bold">TÌM KIẾM </p>
                 <div className="row mb-4 d-flex justify-content-center">
-                    <InputSelect className="col-lg-3 col-md-6 col-sm-12" label="Choose area" placeholder="Choose area" name="status" value={props.dropdown.title} datas={props.dropdown.data} />
-                    <InputSelect className="col-lg-3 col-md-6 col-sm-12" label="Choose block" placeholder="Choose block" name="status" value={props.dropdown.title} datas={props.dropdown.data} />
-                    <InputSelect className="col-lg-3 col-md-6 col-sm-12" label="Choose floor or lot" placeholder="Choose floor or lot" name="status" value={props.dropdown.title} datas={props.dropdown.data} />
+                    <InputSelect className="col-lg-3 col-md-6 col-sm-12" label="Choose area" placeholder="Choose area" name="status" value={props.dropdownFloor.value} datas={props.dropdownFloor.data} />
+                    {/* <InputSelect className="col-lg-3 col-md-6 col-sm-12" label="Choose block" placeholder="Choose block" name="status" value={props.dropdown.value} datas={props.dropdown.data} />
+                    <InputSelect className="col-lg-3 col-md-6 col-sm-12" label="Choose floor or lot" placeholder="Choose floor or lot" name="status" value={props.dropdown.value} datas={props.dropdown.data} /> */}
 
                     <div className="col-lg-3 col-md-6 col-sm-12">
                         <div className="form-group">

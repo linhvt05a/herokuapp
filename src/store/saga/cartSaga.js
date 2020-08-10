@@ -45,11 +45,10 @@ export function* cartSellOpenlWatcher() {
 }
 
 export function* cartSellOpenList(payload) {
+    let { token, id, area_id } = payload.params
 
-    const token = payload.params.token;
-    const id = payload.params.id;
     try {
-        const response = yield sysCartService.sellopenList(token, id);
+        const response = yield sysCartService.sellopenList(token, id, area_id);
         response.success ? yield put({ type: actions.LOAD_SELL_OPEN_LIST_SUCCESS, response }) : yield put({ type: actions.LOAD_SELL_OPEN_LIST_FAILURE, response });
     } catch (err) {
         yield put({ type: actions.LOAD_SELL_OPEN_LIST_FAILURE, err });
@@ -60,11 +59,9 @@ export function* cartSellOpenListlWatcher() {
 }
 
 export function* cartSellOpenCart(payload) {
-
-    const token = payload.params.token;
-    const id = payload.params.id;
+    let { token, id, sell_open_id } = payload.params;
     try {
-        const response = yield sysCartService.cart(token, id);
+        const response = yield sysCartService.cart(token, id, sell_open_id);
         response.success ? yield put({ type: actions.LOAD_SELL_OPEN_CART_SUCCESS, response }) : yield put({ type: actions.LOAD_SELL_OPEN_CART_FAILURE, response });
     } catch (err) {
         yield put({ type: actions.LOAD_SELL_OPEN_CART_FAILURE, err });
@@ -74,12 +71,13 @@ export function* cartSellOpenCartWatcher() {
     yield takeLatest(actions.LOAD_SELL_OPEN_CART, cartSellOpenCart);
 }
 
-export function* FilterArea(payload) {
 
+///filter
+export function* FilterArea(payload) {
     const token = payload.params.token;
     const id = payload.params.id;
     try {
-        const response = yield sysCartService.cart(token, id);
+        const response = yield sysCartService.filterArea(token, id);
         response.success ? yield put({ type: actions.LOAD_FILTER_AREA_SUCCESS, response }) : yield put({ type: actions.LOAD_FILTER_AREA_FAILURE, response });
     } catch (err) {
         yield put({ type: actions.LOAD_FILTER_AREA_FAILURE, err });
@@ -94,7 +92,7 @@ export function* FilterBlock(payload) {
     const token = payload.params.token;
     const id = payload.params.id;
     try {
-        const response = yield sysCartService.cart(token, id);
+        const response = yield sysCartService.filterBlock(token, id);
         response.success ? yield put({ type: actions.LOAD_FILTER_BLOCK_SUCCESS, response }) : yield put({ type: actions.LOAD_FILTER_BLOCK_FAILURE, response });
     } catch (err) {
         yield put({ type: actions.LOAD_FILTER_BLOCK_FAILURE, err });
@@ -105,11 +103,9 @@ export function* filterBlockWatcher() {
 }
 
 export function* FilterFloor(payload) {
-
-    const token = payload.params.token;
-    const id = payload.params.id;
+    let { token, id, sell_open_id } = payload.params;
     try {
-        const response = yield sysCartService.cart(token, id);
+        const response = yield sysCartService.filterFloor(token, id, sell_open_id);
         response.success ? yield put({ type: actions.LOAD_FILTER_FLOOR_SUCCESS, response }) : yield put({ type: actions.LOAD_FILTER_FLOOR_FAILURE, response });
     } catch (err) {
         yield put({ type: actions.LOAD_FILTER_FLOOR_FAILURE, err });
@@ -122,7 +118,7 @@ export function* filterFloorWatcher() {
 export function* FilterProjectStatus(payload) {
     const token = payload.params.token;
     try {
-        const response = yield sysCartService.filterProjectStatus(token); console.log(response);
+        const response = yield sysCartService.filterProjectStatus(token);
         response.success ? yield put({ type: actions.LOAD_FILTER_PROJECT_STATUS_SUCCESS, response }) : yield put({ type: actions.LOAD_FILTER_PROJECT_STATUS_FAILURE, response });
     } catch (err) {
         yield put({ type: actions.LOAD_FILTER_PROJECT_STATUS_FAILURE, err });
