@@ -19,7 +19,8 @@ import {
 
 import { 
     approvedListRequest, 
-    commentListRequest 
+    commentListRequest ,
+    addCommentRequest
 } from "./approval";
 
 export {
@@ -36,5 +37,7 @@ export {
   projectDetailRequest,
   projectEditRequest,
   approvedListRequest,
-  commentListRequest
+  commentListRequest,
+  addCommentRequest
+  
 };
