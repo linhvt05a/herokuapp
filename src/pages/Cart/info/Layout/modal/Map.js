@@ -14,7 +14,7 @@ const MAP_STYLE = {
         'raster-tiles': {
             'type': 'raster',
             'tiles': [
-                'https://images.minerva.vn/Images/superapp_p_13_f_style_1/{z}/{x}/{y}'
+                'https://api.tiles.mapbox.com/v4/mapbox.streets/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoidG10cnVuZyIsImEiOiJjanJhejVyZ3EwazVkM3lub2R6MTNmeWU2In0.jHp5mgZPDlHUGIgca9h3vw'
             ],
             'tileSize': 256,
         }
@@ -27,7 +27,6 @@ const MAP_STYLE = {
             'minzoom': 0,
             'maxzoom': 19
         }
-
     ]
 };
 
@@ -46,31 +45,27 @@ const MapArea = (props) => {
     const [viewport, setViewport] = React.useState({
         width: 400,
         height: 400,
-        latitude: 40.7135,
-        longitude: -74.0066,
+        latitude: 0,
+        longitude: 0,
         zoom: 8
     });
     const MAPBOX_TOKEN = 'pk.eyJ1IjoiZmFrZXVzZXJnaXRodWIiLCJhIjoiY2pwOGlneGI4MDNnaDN1c2J0eW5zb2ZiNyJ9.mALv0tCpbYUPtzT7YysA2g';
     console.log(props);
     return (
-        <Modal
-            visible={true}
-            width={1200}
-        ><div style={{ height: 1200 }}>
-                <Map
-                    className="map"
-                    style={props.data ? props.data[0].floor_or_lot_map_style : MAP_STYLE}
-                    center={[viewport.longitude, viewport.latitude]}
-                    zoom={[14]}
-                    containerStyle={{
-                        minHeight: '715px',
-                        width: '100%',
-                    }} >
+        // <figure class="map">
+        <Map
 
-                </Map>
-            </div>
+            style={props.data[0].floor_or_lot_map_style}
+            center={[viewport.longitude, viewport.latitude]}
+            zoom={[1]}
+            containerStyle={{
+                minHeight: '715px',
+                width: '100%',
+            }} >
 
-        </Modal>
+        </Map>
+        // </figure>
+
     )
 }
 

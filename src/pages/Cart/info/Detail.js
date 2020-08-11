@@ -21,7 +21,7 @@ const Edit = props => {
         dataFilterBlock: []
     })
     const dispatch = useDispatch();
-    const token = 'MTAwNjpNVEF3Tmpwa05ESmlPVGc1WldVM05HWmhNMlZrWXpWaFlqQXhOalV4T1RReFl6QmtOVFUyTW1Oa1pUVTQ=';
+    const token = 'MjoxMzliMDZiZmI4OTJhOGYxYmQ2MzVhZmFmODEyZmM5M2RhNDFkM2Yx';
 
     useEffect(() => {
         dispatch(actions.LoadDetail({ token: token, id: props.params.id }));
@@ -38,7 +38,8 @@ const Edit = props => {
 
     useEffect(() => {
         let newData = [];
-        let data = dataCart.Filter_Project_Area
+        let data = dataCart.Filter_Project_Area;
+        console.log("Filter_Project_Area", data);
         if (data.length > 0) {
             data.map((item) => newData.push(createData(item.area_id, item.area_name)))
             setState({ ...state, dataArea: newData, areaStatus: newData[0] })
@@ -47,7 +48,7 @@ const Edit = props => {
 
     useEffect(() => {
         let newData = [];
-        let data = dataCart.Filter_Open_Sale
+        let data = dataCart.Filter_Open_Sale;
         if (data.length > 0) {
             data.map((item) => newData.push(createData(item.id, item.name)))
             setState({ ...state, dataSaleOpen: newData, saleOpenStatus: newData[0] })
@@ -90,6 +91,7 @@ const Edit = props => {
         dispatch(actions.LoadSellOpenCart({ token: token, id: props.params.id, sell_open_id: value.value, block_id: state.FilterBlockStatus.value, floor_or_lot_id: state.floorStatus.value }));
         dispatch(actions.LoadFilterBlock({ token: token, id: props.params.id, sell_open_id: value.value, area_id: state.FilterAreaStatus.value }));
         dispatch(actions.LoadFilterFloor({ token: token, id: props.params.id, sell_open_id: value.value, area_id: state.FilterAreaStatus.value }));
+        dispatch(actions.LoadFilterArea({ token: token, id: props.params.id, sell_open_id: value.value }));
     }
 
     const onChangeArea = (value) => {

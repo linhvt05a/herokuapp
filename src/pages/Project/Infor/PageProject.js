@@ -56,22 +56,22 @@ const PageProject = props => {
         dispatch(actions.LoadList({ token: token, search_name: state.valueSearch, status_id: item.value }))
     }
     return (
-        <div >
-            <CardHeader
-                dropdown={{ title: state.projectStatus && state.projectStatus.value == "" ? "Product Status" : state.projectStatus.label, data: state.dataProjectStatus }}
-                label={"Project"}
-                searchBox={{ title: "home_map_search" }}
-                onSearch={value => SEARCH(value)}
-                onClick={value => onFilter(value)} />
-            <ListProduct
-                dataFilter={dataType}
-                data={dataCart.List}
-                page={dataCart.page}
-                total_page={dataCart.total_page}
-                total_record={dataCart.total_record}
-                link_to={`/info/project/detail/`}
-            />
-        </div>
+
+        [<CardHeader
+            dropdown={{ title: state.projectStatus && state.projectStatus.value == "" ? "Product Status" : state.projectStatus.label, data: state.dataProjectStatus }}
+            label={"Project"}
+            searchBox={{ title: "home_map_search" }}
+            onSearch={value => SEARCH(value)}
+            onClick={value => onFilter(value)} />
+            , <ListProduct
+            dataFilter={dataType}
+            data={dataCart.List}
+            page={dataCart.page}
+            total_page={dataCart.total_page}
+            total_record={dataCart.total_record}
+            link_to={`/info/project/detail/`}
+        />]
+
     )
 }
 

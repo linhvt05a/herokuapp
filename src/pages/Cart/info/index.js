@@ -14,7 +14,7 @@ const Cart = props => {
         dataProjectStatus: [],
         valueSearch: ""
     })
-    const token = 'MTAwNjpNVEF3Tmpwa05ESmlPVGc1WldVM05HWmhNMlZrWXpWaFlqQXhOalV4T1RReFl6QmtOVFUyTW1Oa1pUVTQ=';
+    const token = 'MjoxMzliMDZiZmI4OTJhOGYxYmQ2MzVhZmFmODEyZmM5M2RhNDFkM2Yx';
     // const { token } = props.user;
 
     useEffect(() => {
@@ -57,22 +57,21 @@ const Cart = props => {
         dispatch(actions.LoadList({ token: token, search_name: state.valueSearch, status_id: item.value }))
     }
     return (
-        <div >
-            <CardHeader
-                dropdown={{ title: state.projectStatus && state.projectStatus.value == "" ? "Product Status" : state.projectStatus.label, data: state.dataProjectStatus }}
-                label={"Project"}
-                searchBox={{ title: "home_map_search" }}
-                onSearch={value => SEARCH(value)}
-                onClick={value => onFilter(value)} />
-            <ListProduct
-                dataFilter={dataType}
-                data={dataCart.List}
-                page={dataCart.page}
-                total_page={dataCart.total_page}
-                total_record={dataCart.total_record}
-                link_to={`/cart/cart_list/detail/`}
-            />
-        </div>
+
+        [<CardHeader
+            dropdown={{ title: state.projectStatus && state.projectStatus.value == "" ? "Product Status" : state.projectStatus.label, data: state.dataProjectStatus }}
+            label={"Project"}
+            searchBox={{ title: "home_map_search" }}
+            onSearch={value => SEARCH(value)}
+            onClick={value => onFilter(value)} />
+            , <ListProduct
+            dataFilter={dataType}
+            data={dataCart.List}
+            page={dataCart.page}
+            total_page={dataCart.total_page}
+            total_record={dataCart.total_record}
+            link_to={`/cart/cart_list/detail/`}
+        />]
     )
 }
 export default Cart;

@@ -73,8 +73,8 @@ const Content = props => {
                         <div class="zone--wrap">
                             <div class="zone--left border-0">
                                 {/* <figure class="map"> */}
-                                {/* <Map data={state.Maps[state.index]} visiable={state.visiable} /> */}
-                                <Image data={state.Maps[state.index]} width={`${state.width}%`} />
+                                {state.Maps[state.index] && <Map data={state.Maps[state.index]} visiable={state.visiable} />}
+                                {/* <Image data={state.Maps[state.index]} width={`${state.width}%`} /> */}
                                 {/* </figure> */}
 
                                 <figure class="compass"><img src="../../../../../components/images/all/compass.png" alt="" /></figure>

@@ -14,7 +14,7 @@ const info = props => {
                             <SliderImage className="m_slider w-100" datas={data.image_list} />
                             :
                             <figure className="image default_image_minerva">
-                                <img src='http://superapp.minerva.vn:9210/static/img/default_image_minerva.png' alt="Minerva"/>
+                                <img src='http://superapp.minerva.vn:9210/static/img/default_image_minerva.png' alt="Minerva" />
                             </figure>
                         }
                     </div>
