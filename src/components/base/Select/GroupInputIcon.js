@@ -3,20 +3,19 @@ import { Input, Select } from 'antd';
 import { Trans } from 'react-i18next';
 
 const GroupInputIcon = (props) => {
-    const { className, name, value, label, datas, placeholder, onChange, isClear } = props;
+    const { className, titleClassName, disabled, label  } = props;
     return (
         <div className={className ? className : ''}>
             <div className="form-group">
                 {
                     label &&
-                    <label className="fw-medium">
+                    <label className={titleClassName ? titleClassName : "fw-medium"}>
                         <Trans>{label}</Trans>
                     </label>
                 }
                 <div className="input-group">
-                    <Input addonAfter= {props.symbol} defaultValue= {props.des} />
+                    <Input addonAfter= {props.symbol} defaultValue= {props.des} disabled={disabled ? disabled : undefined} />
                 </div>
-                
             </div>
         </div>
     )
