@@ -16,6 +16,13 @@ const priority_request = [
     { value: 3, label: 'Low' },
 ]
 
+const DISTRIBUTION_CHANNEL_TYPE = [
+    {value: 1, label:'Kênh đại lý'}, 
+    {value: 2, label:'Kênh nội bộ, cộng tác viên'}
+]
+    
+
+
 module.exports = {
-    request_type, request_status, priority_request
+    request_type, request_status, priority_request, DISTRIBUTION_CHANNEL_TYPE
 }

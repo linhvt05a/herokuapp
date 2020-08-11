@@ -4,28 +4,30 @@ import {
     APPROVAL_LIST_SUCCESS,
     APPROVAL_LIST_REQUEST,
 
+
+    COMMENT_LIST_FAILURE,
     COMMENT_LIST_REQUEST,
     COMMENT_LIST_SUCCESS,
-    COMMENT_LIST_FAILURE,
-
+    
+    ADD_COMMENT_FAILURE,
     ADD_COMMENT_REQUEST,
     ADD_COMMENT_SUCCESS,
-    ADD_COMMENT_FAILURE
+    
     
 } from '../actionType/approval'
 
 export const addCommentRequest = (payload) =>({
-  type :COMMENT_LIST_REQUEST,
+  type :ADD_COMMENT_REQUEST,
   payload
 })
 
 export const addCommentSuccess= (payload) =>({
-  type :COMMENT_LIST_SUCCESS,
+  type :ADD_COMMENT_SUCCESS,
   payload
 })
 
 export const addCommentFailure = (payload) =>({
-  type :COMMENT_LIST_FAILURE,
+  type :ADD_COMMENT_FAILURE,
   payload
 })
 

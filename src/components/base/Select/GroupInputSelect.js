@@ -27,7 +27,7 @@ const GroupInputSelect = (props) => {
                     </label>
                 }
 				<div className="input-group input-group-select">
-					<Input addonAfter={props.addonAfter} placeholder={props.placeholder} value={props.value} />
+					<Input addonAfter={props.addonAfter} placeholder={props.placeholder} value={props.value} disabled/>
 				</div>
 			</div>
 		</div>

@@ -35,12 +35,12 @@ const initialState = {
         case COMMENT_LIST_REQUEST:
           return { ...state, isFetching: true, commentList: { success: false, error: action.err } };
 
-    case ADD_COMMENT_REQUEST:
-      return { ...state, isFetching: true, commentAdd: { success: false } };
+    case ADD_COMMENT_FAILURE:
+      return { ...state, isFetching: false, commentAdd: { success: false } };
     case ADD_COMMENT_SUCCESS:
       return { ...state, isFetching: false, commentAdd: action.response };
-    case ADD_COMMENT_FAILURE:
-      return { ...state, isFetching: false, commentAdd: { success: false, error: action.err } };
+    case ADD_COMMENT_REQUEST:
+      return { ...state, isFetching: true, commentAdd: { success: false, error: action.err } };
       
       default:
         return state;
