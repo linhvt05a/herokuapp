@@ -43,7 +43,7 @@ const RASTER_SOURCE_OPTIONS = {
     'data':
         'https://docs.mapbox.com/mapbox-gl-js/assets/indoor-3d-map.geojson'
 }
-const MapArea = (props) => {
+const MapCart = (props) => {
     const [viewport, setViewport] = React.useState({
         latitude: 89.5285582,
         longitude: -50.2416815,
@@ -72,6 +72,7 @@ const MapArea = (props) => {
                 // </Popup> : null
                 return marker.product_marker.length > 0 ?
                     <Marker
+                        key={index}
                         coordinates={marker.product_marker}
                         offset={{}}
                         anchor="center"
@@ -87,4 +88,4 @@ const MapArea = (props) => {
     )
 }
 
-export default React.memo(MapArea);
+export default React.memo(MapCart);

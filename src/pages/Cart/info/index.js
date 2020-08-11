@@ -1,8 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react';
-import Item from "./Layout";
 import { useDispatch, useSelector } from "react-redux";
-import actions from "../../../store/action/cart";
+import actionsCart from "../../../store/action/cart";
+import { typeListRequest } from "../../../store/action/dashboard"
 import ListProduct from "../../../components/Card/ListProduct";
 import CardHeader from "../../..//components/common/CardHeader"
 
@@ -12,17 +12,20 @@ const Cart = props => {
     const [state, setState] = useState({
         projectStatus: { value: "", label: "" },
         dataProjectStatus: [],
-        valueSearch: ""
+        valueSearch: "",
+        dataType: []
     })
     const token = 'MjoxMzliMDZiZmI4OTJhOGYxYmQ2MzVhZmFmODEyZmM5M2RhNDFkM2Yx';
     // const { token } = props.user;
 
     useEffect(() => {
-        dispatch(actions.LoadList({ token: token, value: state.valueSearch, status_id: state.projectStatus.value }))
-        dispatch(actions.LoadProjectStatus({ token: token }))
+        dispatch(actionsCart.LoadList({ token: token, value: state.valueSearch, status_id: state.projectStatus.value }))
+        dispatch(typeListRequest({ token: token }))
+        dispatch(actionsCart.LoadProjectStatus({ token: token }))
     }, [])
     const dataCart = useSelector(state => state.cart)
-    console.log(dataCart);
+    const dataDashBoard = useSelector(state => state.dashboard)
+    // console.log(dataCart);
     const create_Filter_Project_Status = (value, label) => {
         return { value, label }
     }
@@ -37,24 +40,30 @@ const Cart = props => {
             setState({ ...state, dataProjectStatus: dataSelect, projectStatus: dataSelect[0] })
         }
     }, [dataCart.Filter_Project_Status])
+    const createData = (id, color, name) => {
+        return { id, color, name }
+    }
+    useEffect(() => {
+        let data = dataDashBoard.typeList.detail ? dataDashBoard.typeList.detail : [];
+        let newData = []
+        if (data.length > 0) {
+            data.map((item, index) => {
+                newData.push(createData(item.type_id, `m_text_${item.type_color}`, item.type_name))
+            })
+            setState({ ...state, dataType: newData })
+        }
+    }, [dataDashBoard.typeList])
 
-
-    let dataType = [
-        { id: `1`, color: "m_text_000000", name: "All" },
-        { id: `2`, color: "m_text_a8c200", name: "Type Apartment" },
-        { id: `3`, color: "m_text_f35e5e", name: "Type Office" },
-        { id: `4`, color: "m_text_e9c301", name: "Type Shopping Mall" },
-        { id: `5`, color: "m_text_fb9334", name: "Type Villa" },
-        { id: `5`, color: "m_text_212529", name: "Type Supermarket" },
-    ]
-
+    const onClickType = value => {
+        dispatch(actionsCart.LoadList({ token: token, search_name: value, status_id: state.projectStatus.value, setting_type: value.id }))
+    }
     const SEARCH = value => {
         setState({ ...state, valueSearch: value })
-        dispatch(actions.LoadList({ token: token, search_name: value, status_id: state.projectStatus.value }))
+        dispatch(actionsCart.LoadList({ token: token, search_name: value, status_id: state.projectStatus.value }))
     };
     const onFilter = (item) => {
         setState({ ...state, projectStatus: item })
-        dispatch(actions.LoadList({ token: token, search_name: state.valueSearch, status_id: item.value }))
+        dispatch(actionsCart.LoadList({ token: token, search_name: state.valueSearch, status_id: item.value }))
     }
     return (
 
@@ -65,12 +74,13 @@ const Cart = props => {
             onSearch={value => SEARCH(value)}
             onClick={value => onFilter(value)} />
             , <ListProduct
-            dataFilter={dataType}
+            dataFilter={state.dataType}
             data={dataCart.List}
             page={dataCart.page}
             total_page={dataCart.total_page}
             total_record={dataCart.total_record}
             link_to={`/cart/cart_list/detail/`}
+            onClickType={(value) => onClickType(value)}
         />]
     )
 }
