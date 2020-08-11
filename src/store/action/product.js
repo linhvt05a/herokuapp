@@ -4,7 +4,7 @@ import {
   PRODUCT_DETAIL_FAILURE,
 } from '../actionType/project';
 
-//currentcy detail
+//currentcy Detail
 export const productDetailRequest = (product) => ({
   type: PRODUCT_DETAIL_REQUEST,
   product,

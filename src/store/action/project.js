@@ -14,6 +14,14 @@ import {
   PROJECT_ADD_REQUEST,
   PROJECT_ADD_SUCCESS,
   PROJECT_ADD_FAILURE,
+
+  SELLOPEN_LIST_REQUEST,
+  SELLOPEN_LIST_SUCCESS,
+  SELLOPEN_LIST_FAILURE,
+
+  BANKING_LIST_REQUEST,
+  BANKING_LIST_SUCCESS,
+  BANKING_LIST_FAILURE,
 } from '../actionType/project';
 
 //project list
@@ -30,7 +38,7 @@ export const projectListFailure = (project) => ({
   project,
 });
 
-//project detail
+//project Detail
 export const projectDetailRequest = (project) => ({
   type: PROJECT_DETAIL_REQUEST,
   project,
@@ -70,4 +78,32 @@ export const projectAddSuccess = (project) => ({
 export const projectAddFailure = (project) => ({
   type: PROJECT_ADD_FAILURE,
   project,
+});
+
+//Sell open list project
+export const SellOpenListRequest = (SellOpen) => ({
+  type: SELLOPEN_LIST_REQUEST,
+  SellOpen,
+});
+export const SellOpenListSuccess = (SellOpen) => ({
+  type: SELLOPEN_LIST_SUCCESS,
+  SellOpen,
+});
+export const SellOpenListFailure = (SellOpen) => ({
+  type: SELLOPEN_LIST_FAILURE,
+  SellOpen,
+});
+
+//banking list project
+export const bankingListRequest = (banking) => ({
+  type: BANKING_LIST_REQUEST,
+  banking,
+});
+export const bankingListSuccess = (banking) => ({
+  type: BANKING_LIST_SUCCESS,
+  banking,
+});
+export const bankingListFailure = (banking) => ({
+  type: BANKING_LIST_FAILURE,
+  banking,
 });

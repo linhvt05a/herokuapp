@@ -162,7 +162,7 @@ const OldestMessage = (props) => {
                             <Priority data={props.data}/>
                         </p>
                         <a href="#" className="uni_text_6d30ab fs-12" onClick={props.handleClick}>
-                            <u>Xem lịch sử phản hồi</u>
+                        {props.data.request_status === 1 || props.data.request_status === 3 ?  <u> Phản hồi</u> :<u> Xem lịch sử phản hồi</u>}
                         </a>
                     </div>
                 </div>
