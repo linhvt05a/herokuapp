@@ -16,7 +16,8 @@ import {
   projectDetailRequest,
   projectEditRequest,
   SellOpenListRequest,
-  bankingListRequest
+  bankingListRequest,
+  salepolicyListRequest,
 } from "./project";
 
 import { 
@@ -40,6 +41,7 @@ export {
   projectEditRequest,
   SellOpenListRequest,
   bankingListRequest,
+  salepolicyListRequest,
 
   approvedListRequest,
   commentListRequest,

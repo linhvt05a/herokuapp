@@ -35,7 +35,6 @@ const ProjectTab = (props) => {
     const onItemClickTab = (index, title) => {
         setActive(index)
     }
-    console.log('+++++', project_id, detail);
     return (
         <div>
             <CardHeader label="Thông tin"/>

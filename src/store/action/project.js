@@ -22,6 +22,10 @@ import {
   BANKING_LIST_REQUEST,
   BANKING_LIST_SUCCESS,
   BANKING_LIST_FAILURE,
+
+  POLICY_SALE_LIST_REQUEST,
+  POLICY_SALE_LIST_SUCCESS,
+  POLICY_SALE_LIST_FAILURE,
 } from '../actionType/project';
 
 //project list
@@ -106,4 +110,18 @@ export const bankingListSuccess = (banking) => ({
 export const bankingListFailure = (banking) => ({
   type: BANKING_LIST_FAILURE,
   banking,
+});
+
+//sale policy list project
+export const salepolicyListRequest = (salepolicy) => ({
+  type: POLICY_SALE_LIST_REQUEST,
+  salepolicy,
+});
+export const salepolicyListSuccess = (salepolicy) => ({
+  type: POLICY_SALE_LIST_SUCCESS,
+  salepolicy,
+});
+export const salepolicyListFailure = (salepolicy) => ({
+  type: POLICY_SALE_LIST_FAILURE,
+  salepolicy,
 });

@@ -29,7 +29,8 @@ import {
 import {
   projectDetailWatcher,
   sellopenListWatcher,
-  bankingListWatcher
+  bankingListWatcher,
+  salepolicyListWatcher
 } from './projectSaga';
 import {
   commentListWatcher, 
@@ -65,6 +66,7 @@ function* allSaga() {
     projectDetailWatcher(),
     sellopenListWatcher(),
     bankingListWatcher(),
+    salepolicyListWatcher(),
 
     commentListWatcher(),
     approveListWatcher(),

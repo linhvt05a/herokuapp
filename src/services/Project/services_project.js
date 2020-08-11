@@ -30,6 +30,7 @@ export const projectService = {
 
     sellopenList,
     bankingList,
+    salepolicyList,
 
 }
 function projectInvestor(token){
@@ -317,5 +318,16 @@ function bankingList(token, project_id) {
     };
     const params = { project_id };
     const url = api.getUrl(api.PROJECT_BANKING_LIST, params)
+    return api.handleRequest(url, requestOptions);
+}
+
+// sale policy list project
+function salepolicyList(token, project_id) {
+    const requestOptions = {
+        method: 'GET',
+        headers: api.getHeader(token)
+    };
+    const params = { project_id };
+    const url = api.getUrl(api.PROJECT_SALE_POLICY_LIST, params)
     return api.handleRequest(url, requestOptions);
 }

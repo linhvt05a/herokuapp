@@ -1,7 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Trans } from 'react-i18next';
+import { salepolicyListRequest } from '../../../../../store/action/project';
+import { useDispatch, useSelector } from "react-redux";
 
-const TabSalespolicy = () => {
+const TabSalespolicy = (props) => {
+    const token = 'MTAwNjpNVEF3Tmpwa05ESmlPVGc1WldVM05HWmhNMlZrWXpWaFlqQXhOalV4T1RReFl6QmtOVFUyTW1Oa1pUVTQ=';
+    let { project_id } = props;
+    const dispatch = useDispatch();
+    const salepolicyStore = useSelector(state => state.project);
+    useEffect(() => {
+        dispatch(salepolicyListRequest({ token: token, project_id: project_id }));
+    }, []);
+
+    const salepolicyListSuccess = salepolicyStore.salepolicyList.success;
+    const salepolicyListRes = salepolicyListSuccess ? salepolicyStore.salepolicyList.detail : null;
+
+    console.log('uuuuuu', salepolicyListRes);
     return (
         <div>
             <div className="row">
@@ -28,34 +42,11 @@ const TabSalespolicy = () => {
                         </tr>
                     </thead>
                     <tbody style={{maxHeight: "400px"}}>
-                        <tr class="parent" data-parent="row-262">
-                            <td class="number pl-0">1</td>
-                            <td colspan="2" class="pl-0">
-                                <div class="floor_selected">
-                                    <div class="floor text-uppercase min-width-110">Sell open 1</div>
-                                    <a class="agency channel min-width-230 uni_text_6d30ab text-underline border-right-0">
-                                        Total number of distribution units: 1
-                                    </a>
-                                </div>
-                            </td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                20/07/2020
-                            </td>
-                            <td>
-                                30/07/2020
-                            </td>
-                            <td>
-                                <span class="d-inline-flex align-items-center justify-content-center m_text_status_2 m_border_status_2 min-height-40 pl-3 pr-3 width-110">
-                                    Opening
-                                </span>
-                            </td>
-                            <td></td>
-                            <td class="text-center">
-                                <i class="icon icon_collapse las la-plus-circle"></i>
-                            </td>
-                        </tr>
+                        {
+                            salepolicyListRes != null ?
+                            <RowListSalePolicy data={salepolicyListRes} />
+                            : ""
+                        }
                     {/* <tr class="parent child child-row-262" data-child="row-262" data-parent-two="row-262-1871" data-parent="row-262-1871">
                         <td class="border-bottom-none"></td>
                         <td colspan="2" class="pl-0">
@@ -166,6 +157,49 @@ const TabSalespolicy = () => {
                 </table>
             </div>
         </div>
+    )
+}
+
+const RowListSalePolicy = (props) => {
+    const { data } = props;
+    return (
+        data && data.map((item, index) => (
+        <tr class="parent" data-parent="row-262" key={index}>
+            <td class="number pl-0">{index + 1}</td>
+            <td colspan="2" class="pl-0">
+                <div class="floor_selected">
+                    <div class="floor text-uppercase min-width-110">{item.name}</div>
+                    <a class="agency channel min-width-230 uni_text_6d30ab text-underline border-right-0">
+                        Total number of distribution units: {item.total_agent_distribute + item.total_internal_distribute}
+                    </a>
+                </div>
+            </td>
+            <td></td>
+            <td></td>
+            <td>{item.sell_open_date}</td>
+            <td>{item.sell_end_date}</td>
+            <td>
+                {   item.status == 1 ? 
+                    <span class="d-inline-flex align-items-center justify-content-center m_text_status_1 m_border_status_1 min-height-40 pl-3 pr-3 width-110">
+                        <Trans>Expect</Trans>
+                    </span>
+                    : item.status == 2 ?
+                    <span class="d-inline-flex align-items-center justify-content-center m_text_status_2 m_border_status_2 min-height-40 pl-3 pr-3 width-110">
+                        <Trans>Opening</Trans>
+                    </span>
+                    : item.status == 3 ?
+                    <span class="d-inline-flex align-items-center justify-content-center m_text_status_3 m_border_status_3 min-height-40 pl-3 pr-3 width-110">
+                        <Trans>Finished</Trans>
+                    </span>
+                    : ""
+                }
+            </td>
+            <td></td>
+            <td class="text-center">
+                <i class="icon icon_collapse las la-plus-circle"></i>
+            </td>
+        </tr>
+        ))
     )
 }
 

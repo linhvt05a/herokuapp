@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Trans } from 'react-i18next';
+import { Modal, Button } from 'antd';
 import { bankingListRequest } from '../../../../../store/action/project';
 import { useDispatch, useSelector } from "react-redux";
 
@@ -14,8 +15,6 @@ const TabBanking = (props) => {
 
     const bankingListSuccess = bankingStore.bankingList.success;
     const bankingListRes = bankingListSuccess ? bankingStore.bankingList.detail : null;
-
-    console.log("--------", bankingListRes);
 
     return (
         <div>
@@ -94,15 +93,72 @@ const RowListBanking = (props) => {
                 </span>
             </td>
             <td class="col-2" style={{width: "20%"}}>{item.short_name}</td>
-            <td class="col-2" style={{width: "20%"}}>
-                <a href="#" class="link_href_6d30ab fw-medium">
-                    Sell open list [{item.sell_opens.length}]
-                </a>
-            </td>
+            <ModalListSellOpen data={item.sell_opens} />
             <td class="col-3" style={{width: "25%"}}>{item.bank_full_address}</td>
             <td class="text-center col-1" style={{width: "5%"}}></td>
         </tr>
         ))
+    )
+}
+
+const ModalListSellOpen = (props) => {
+    const { data } = props;
+    const [state, setState] = useState({
+        visible: false
+    });
+    const onClickShowModel = () => {
+        setState({ ...state, visible: true })
+    }
+    const closePopup = () => {
+        setState({ ...state, visible: false })
+    }
+    console.log('......', state.visible, data);
+    return (
+        <td class="col-2" style={{width: "20%"}}>
+            <a class="link_href_6d30ab fw-medium" onClick={onClickShowModel}>
+                Sell open list [{data.length}]
+            </a>
+            <Modal 
+                visible={state.visible}
+                width={700}
+                footer={null}
+                >
+                <div className="m_heading">
+                    <button className="m_button no-event"><span><Trans>DANH SÁCH ĐỢT MỞ BÁN</Trans></span></button>
+                </div>
+                <div className="modal-content square">
+                    <div class="modal-body">
+                        <div class="m_table m_table--sales min-width-100-pc table_fixed mb-0">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th style={{ width: '10%' }} className="col-1 pl-0"><Trans>STT</Trans></th>
+                                        <th style={{ width: '35%' }} className="col-3 pl-0"><Trans>ĐỢT MỞ BÁN</Trans></th>
+                                        <th style={{ width: '30%' }} className="col-3"><Trans>TỪ NGÀY</Trans></th>
+                                        <th style={{ width: '30%' }} className="col-3"><Trans>ĐẾN NGÀY</Trans></th>
+                                    </tr>
+                                </thead>
+                                <tbody id="listInternal" style={{ maxHeight: '400px' }}>
+                                    {
+                                        data && data.map((item, index) => (
+                                            <tr key={index}>
+                                                <td style={{ width: '10%' }} className="pl-0 col-1">{index + 1}</td>
+                                                <td style={{ width: '35%' }} className="col-3">{item.sell_open_name}</td>
+                                                <td style={{ width: '30%' }} className="col-3">{item.sell_open_from_date}</td>
+                                                <td style={{ width: '30%' }} className="col-3">{item.sell_open_to_date}</td>
+                                            </tr>
+                                        ))
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="modal-footer pt-0 pb-4 border-0 mr-3">
+                        <button type="button" class="min-width-button min-height-40 btn-uni-exit btn-uni-exit-modal" data-dismiss="modal" aria-label="Close" onClick={closePopup}>Close</button>
+                    </div>
+                </div>
+            </Modal>
+        </td>
     )
 }
 

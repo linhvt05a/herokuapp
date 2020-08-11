@@ -20,8 +20,6 @@ const PageProjectDetail = (props) => {
     const isProjectDetailSuccess = projectStore.projectDetail.success;
     const projectDetailRes = isProjectDetailSuccess ? projectStore.projectDetail.detail : null;
 
-    console.log(projectDetailRes);
-
     return (
         projectDetailRes != null ?
             <div class="container-fluid">

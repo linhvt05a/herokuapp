@@ -46,7 +46,6 @@ const TabSellopenlist = (props) => {
 }
 const RowListOpenSell = (props) => {
     const { data } = props;
-    console.log('yyyyyyy', data);
     return (
         data && data.map((item, index) => (
         <tr key={index}>
@@ -59,22 +58,10 @@ const RowListOpenSell = (props) => {
             <td className="col-2" style={{width: "15%"}}>{item.sell_open_date}</td>
             <td className="col-2" style={{width: "15%"}}>{item.sell_end_date}</td>
             <td className="col-2" style={{width: "15%"}}>
-                { 
-                    item.total_agent_distribute > 0 ?
-                    <a href="#" class="link_href_6d30ab fw-medium">
-                        Channel agent list [{item.total_agent_distribute}]
-                    </a>
-                    : <span className="uni_text_6d30ab">-</span>
-                }
+                <span className="uni_text_6d30ab">{item.total_agent_distribute}</span>
             </td>
             <td className="col-2" style={{width: "15%"}}>
-                { 
-                    item.total_internal_distribute > 0 ?
-                    <a href="#" class="link_href_6d30ab fw-medium">
-                        Channel internal list [{item.total_internal_distribute}]
-                    </a>
-                    : <span className="uni_text_6d30ab">-</span>
-                }
+                <span className="uni_text_6d30ab">{item.total_internal_distribute}</span>
             </td>
         </tr>
         ))
