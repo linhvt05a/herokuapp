@@ -1,12 +1,14 @@
 import React, { useEffect } from 'react';
 import { Trans } from 'react-i18next';
 import ClipLoader from "react-spinners/ClipLoader";
-import ReactMapGL, { Marker, Popup, Source, Feature, Layer } from "react-mapbox-gl";
+import ReactMapGL, { Marker, Popup, Source, FeatMure, Layer, } from "react-mapbox-gl";
 import { Modal } from "antd"
+import Item from 'antd/lib/list/Item';
 
 const Map = ReactMapGL({
     accessToken:
         "pk.eyJ1IjoiZmFrZXVzZXJnaXRodWIiLCJhIjoiY2pwOGlneGI4MDNnaDN1c2J0eW5zb2ZiNyJ9.mALv0tCpbYUPtzT7YysA2g",
+    interactive: false
 });
 const MAP_STYLE = {
     'version': 8,
@@ -43,29 +45,45 @@ const RASTER_SOURCE_OPTIONS = {
 }
 const MapArea = (props) => {
     const [viewport, setViewport] = React.useState({
-        width: 400,
-        height: 400,
-        latitude: 0,
-        longitude: 0,
-        zoom: 8
+        latitude: 89.5285582,
+        longitude: -50.2416815,
     });
     const MAPBOX_TOKEN = 'pk.eyJ1IjoiZmFrZXVzZXJnaXRodWIiLCJhIjoiY2pwOGlneGI4MDNnaDN1c2J0eW5zb2ZiNyJ9.mALv0tCpbYUPtzT7YysA2g';
-    console.log(props);
+    let dataMap = props.data[0];
     return (
-        // <figure class="map">
         <Map
-
-            style={props.data[0].floor_or_lot_map_style}
+            style={dataMap.floor_or_lot_map_style}
             center={[viewport.longitude, viewport.latitude]}
-            zoom={[1]}
+            zoom={[props.zoom]}
+            movingMethod="jumpTo"
+            interactive={false}
             containerStyle={{
                 minHeight: '715px',
                 width: '100%',
             }} >
+            {dataMap.product_list.length > 0 && dataMap.product_list.map((marker, index) => {
+                // return marker.product_marker.length > 0 ? <Popup
+                //     tabIndex={index}
+                //     coordinates={marker.product_marker}
+                //     offset={{ 'bottom-left': [12, -38], 'bottom': [0, -25], 'bottom-right': [-12, -38] }}
+                //     style={{ maxWidth: `200px` }}
+                //     anchor="right">
+                //     <div>{marker.product_name}</div>
+                // </Popup> : null
+                return marker.product_marker.length > 0 ?
+                    <Marker
+                        coordinates={marker.product_marker}
+                        offset={{}}
+                        anchor="center"
+                    >
+                        <div className="flag_purple middle-left mapboxgl-marker mapboxgl-marker-anchor-center" style={{ marginRight: `100px` }} >
+                            <span className="text">{marker.product_name}</span>
+                            <span className="line" ></span>
+                        </div>
+                    </Marker> : null
+            })}
 
         </Map>
-        // </figure>
-
     )
 }
 

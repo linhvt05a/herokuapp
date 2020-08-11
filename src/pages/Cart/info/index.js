@@ -22,7 +22,7 @@ const Cart = props => {
         dispatch(actions.LoadProjectStatus({ token: token }))
     }, [])
     const dataCart = useSelector(state => state.cart)
-
+    console.log(dataCart);
     const create_Filter_Project_Status = (value, label) => {
         return { value, label }
     }

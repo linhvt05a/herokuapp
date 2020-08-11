@@ -39,10 +39,10 @@ const Edit = props => {
     useEffect(() => {
         let newData = [];
         let data = dataCart.Filter_Project_Area;
-        console.log("Filter_Project_Area", data);
         if (data.length > 0) {
             data.map((item) => newData.push(createData(item.area_id, item.area_name)))
             setState({ ...state, dataArea: newData, areaStatus: newData[0] })
+            dispatch(actions.LoadSellOpenList({ token: token, id: props.params.id, area_id: newData[0].value }));
         }
     }, [dataCart.Filter_Project_Area])
 
@@ -143,7 +143,7 @@ const Edit = props => {
         </div>,
         <div>
             <CardHeader label="LIST OF AREAS" dropdown={{ title: state.areaStatus.label, data: state.dataArea }} onClick={(value) => onFilterArea(value)} />
-            <Item.Detail_content data={dataCart.Sell_Open_Floor} />
+            <Item.Detail_content data={dataCart.Sell_Open_Floor} floorData={state.dataFilterFloor} />
         </div>,
         <div>
             <CardHeader label="Basket details" dropdown={{ title: state.saleOpenStatus.value == "" ? "Tất cả" : state.saleOpenStatus.label, data: state.dataSaleOpen }} onClick={(value) => onFilteSaleOpen(value)} />
