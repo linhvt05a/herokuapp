@@ -13,7 +13,7 @@ const Edit = props => {
         dataArea: [],
         saleOpenStatus: { value: "", label: "" },
         dataSaleOpen: [],
-        floorStatus: { value: "", label: "" },
+        FilterFloorStatus: { value: "", label: "" },
         dataFilterFloor: [],
         FilterAreaStatus: { value: "", label: "" },
         dataFilterArea: [],
@@ -42,7 +42,7 @@ const Edit = props => {
         if (data.length > 0) {
             data.map((item) => newData.push(createData(item.area_id, item.area_name)))
             setState({ ...state, dataArea: newData, areaStatus: newData[0] })
-            dispatch(actions.LoadSellOpenList({ token: token, id: props.params.id, area_id: newData[0].value }));
+            dispatch(actions.LoadSellOpenList({ token: token, id: props.params.id, area_id: newData[0].value, sell_open_id: state.saleOpenStatus.value }));
         }
     }, [dataCart.Filter_Project_Area])
 
@@ -52,7 +52,7 @@ const Edit = props => {
         if (data.length > 0) {
             data.map((item) => newData.push(createData(item.id, item.name)))
             setState({ ...state, dataSaleOpen: newData, saleOpenStatus: newData[0] })
-            dispatch(actions.LoadSellOpenCart({ token: token, id: props.params.id, sell_open_id: newData[0].value, block_id: state.FilterBlockStatus.value, floor_or_lot_id: state.floorStatus.value }));
+            dispatch(actions.LoadSellOpenCart({ token: token, id: props.params.id, sell_open_id: newData[0].value, block_id: state.FilterBlockStatus.value, floor_or_lot_id: state.FilterFloorStatus.value }));
             dispatch(actions.LoadFilterFloor({ token: token, id: props.params.id, sell_open_id: newData[0].value }));
             dispatch(actions.LoadFilterBlock({ token: token, id: props.params.id, sell_open_id: newData[0].value }));
             dispatch(actions.LoadSellOpenList({ token: token, id: props.params.id, area_id: state.areaStatus.value, sell_open_id: newData[0].value }));
@@ -88,7 +88,7 @@ const Edit = props => {
 
     const onFilteSaleOpen = (value) => {
         setState({ ...state, saleOpenStatus: value })
-        dispatch(actions.LoadSellOpenCart({ token: token, id: props.params.id, sell_open_id: value.value, block_id: state.FilterBlockStatus.value, floor_or_lot_id: state.floorStatus.value }));
+        dispatch(actions.LoadSellOpenCart({ token: token, id: props.params.id, sell_open_id: value.value, block_id: state.FilterBlockStatus.value, floor_or_lot_id: state.FilterFloorStatus.value }));
         dispatch(actions.LoadFilterBlock({ token: token, id: props.params.id, sell_open_id: value.value, area_id: state.FilterAreaStatus.value }));
         dispatch(actions.LoadFilterFloor({ token: token, id: props.params.id, sell_open_id: value.value, area_id: state.FilterAreaStatus.value }));
         dispatch(actions.LoadFilterArea({ token: token, id: props.params.id, sell_open_id: value.value }));
@@ -115,7 +115,7 @@ const Edit = props => {
     const onChangeFloor = (value) => {
         for (let i in state.dataFilterFloor) {
             if (state.dataFilterFloor[i].value == value) {
-                setState({ ...state, floorStatus: state.dataFilterFloor[i] })
+                setState({ ...state, FilterFloorStatus: state.dataFilterFloor[i] })
             }
         }
     }
@@ -125,7 +125,7 @@ const Edit = props => {
             id: props.params.id,
             sell_open_id: state.saleOpenStatus.value,
             block_id: state.FilterBlockStatus.value,
-            floor_or_lot_id: state.floorStatus.value
+            floor_or_lot_id: state.FilterFloorStatus.value
         }));
 
     }

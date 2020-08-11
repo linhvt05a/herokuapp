@@ -1,7 +1,7 @@
 import React from 'react';
-import Title from "../../../../../components/common/CardHeader"
 import moment from "moment";
 import { SliderImage } from '../../../../../components/common';
+import { convertAcreagetoInt } from "../../../../../utils/Utils"
 
 const info = props => {
     let { data } = props;
@@ -34,43 +34,47 @@ const info = props => {
                                         <li>
                                             <i className="las la-calendar-check"></i>
                                             <span className="title">Thời hạn sử dụng đất: </span>
-                                            <span className="text">{data.project_duration_type}</span>
+                                            <span className="text">{data.project_duration_type > 0 ? `${data.project_duration_type} (Y)` : 0}</span>
+                                            {/* <span className="text">{data.project_duration_type}</span> */}
                                         </li>
 
                                         <li>
                                             <i className="las la-money-bill-wave-alt"></i>
                                             <span className="title">Tiền thuê đất hàng năm:</span>
-                                            <span className="text">{data.rent_cost} {data.rent_cost_unit_name}</span>
+                                            <span className="text" style={{ textTransform: "uppercase" }}>{data.rent_cost} ({data.rent_cost_unit_name})</span>
                                         </li>
 
                                         <li>
                                             <i className="las la-arrows-alt"></i>
                                             <span className="title">Tổng diện tích đất: </span>
-                                            <span className="text">{data.project_acreage} </span>
+                                            <span className="text">{convertAcreagetoInt(data.project_acreage)}(M²) </span>
                                         </li>
 
                                         <li>
                                             <i className="las la-sort-amount-up"></i>
                                             <span className="title">Số tầng: </span>
-                                            <span className="text">{data.number_of_floor} (T)</span>
+                                            <span className="text">{data.number_of_floor > 0 ? `${data.number_of_floor} (T)` : 0}</span>
+                                            {/* <span className="text">{data.number_of_floor} (T)</span> */}
                                         </li>
 
                                         <li>
                                             <i className="las la-sort-amount-up"></i>
                                             <span className="title">Chiều cao tối đa: </span>
-                                            <span className="text">{data.maximum_height_met} (M) </span>
+                                            <span className="text">{data.maximum_height_met > 0 ? `${data.maximum_height_met} (M)` : 0}</span>
+                                            {/* <span className="text">{data.maximum_height_met} (M) </span> */}
                                         </li>
 
                                         <li>
                                             <i className="las la-sort-amount-down"></i>
                                             <span className="title">Số tầng hầm tối đa: </span>
-                                            <span className="text">{data.number_of_basement} (T)</span>
+                                            <span className="text">{data.number_of_basement > 0 ? `${data.number_of_basement} (T)` : 0}</span>
                                         </li>
 
                                         <li>
                                             <i className="las la-brush"></i>
                                             <span className="title">Mật độ xây dựng:</span>
-                                            <span className="text">{data.building_density} % </span>
+                                            <span className="text">{data.building_density > 0 ? `${data.building_density} (%)` : 0}</span>
+                                            {/* <span className="text">{data.building_density} % </span> */}
                                         </li>
                                     </ul>
                                 </div>
@@ -86,4 +90,4 @@ const info = props => {
 
     )
 }
-export default info
+export default React.memo(info)

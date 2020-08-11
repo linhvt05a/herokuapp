@@ -3,12 +3,12 @@ import { Trans } from 'react-i18next';
 import { Select } from 'antd';
 
 const InputSelect = (props) => {
-    const { className, name, value, label, datas, placeholder, onChange, isClear } = props;
+    const { className, name, value, label, datas, placeholder, onChange, isClear, classNameGroup } = props;
     const { Option } = Select;
 
     return (
         <div className={className ? className : ''}>
-            <div className="form-group">
+            <div className={classNameGroup ? classNameGroup : "form-group"}>
                 {
                     label &&
                     <label className="fw-medium">

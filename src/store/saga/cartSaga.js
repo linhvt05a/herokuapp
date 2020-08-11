@@ -17,9 +17,9 @@ export function* cartDetailWatcher() {
 }
 
 export function* cartList(payload) {
-    let { token, search_name, status_id } = payload.params
+    let { token, search_name, status_id, setting_type } = payload.params
     try {
-        const response = yield sysCartService.list(token, search_name, status_id);
+        const response = yield sysCartService.list(token, search_name, status_id, setting_type);
         response.success ? yield put({ type: actions.LOAD_LIST_SUCCESS, response }) : yield put({ type: actions.LOAD_LIST_FAILURE, response });
     } catch (err) {
         yield put({ type: actions.LOAD_LIST_FAILURE, err });
