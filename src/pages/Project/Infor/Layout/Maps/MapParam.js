@@ -39,39 +39,35 @@ const polygonPaint = {
 const MapParam = (props) => {
     const { data, lat, long } = props;
     return (
-        <div className="card h-100">
-            <div className="card-body p-0">
-            <Map 
-                className="map"
-                style={MAP_STYLE}
-                center={[long, lat]}
-                zoom={[13]}
-                containerStyle={{
-                    minHeight: '575px',
-                    width: '100%',
+        <Map 
+            className="map"
+            style={MAP_STYLE}
+            center={[long, lat]}
+            zoom={[13]}
+            containerStyle={{
+                minHeight: '80vh',
+                width: '100%',
+            }}>
+            <Layer type="fill" paint={polygonPaint}>
+                {
+                    data.location &&
+                    <Feature coordinates={data.location.coordinates} />
+                }
+            </Layer>
+            <Popup
+                coordinates={[long, lat]}
+                offset={{
+                    'bottom-left': [12, -38], 'bottom': [0, -38], 'bottom-right': [-12, -38]
                 }}>
-                <Layer type="fill" paint={polygonPaint}>
-                    {
-                        data.location &&
-                        <Feature coordinates={data.location.coordinates} />
-                    }
-                </Layer>
-                <Popup
-                    coordinates={[long, lat]}
-                    offset={{
-                        'bottom-left': [12, -38], 'bottom': [0, -38], 'bottom-right': [-12, -38]
-                    }}>
-                    <div className='m_map'>
-                        <h1 className='top' style={{ borderBottom: "1px solid #f3f3f3" }}>{data.project_name}<i class='address'>{data.address}</i></h1>
-                        <ul className='bottom'>
-                            <li><Trans>LandArea</Trans>: <span className='value'>{data.project_acreage}</span></li>
-                            <li className='investor'><Trans>Investor</Trans>: <span className='value'>{data.investor_name}</span></li>
-                        </ul>
-                    </div>
-                </Popup>
-            </Map>
-            </div>
-        </div>
+                <div className='m_map'>
+                    <h1 className='top' style={{ borderBottom: "1px solid #f3f3f3" }}>{data.project_name}<i class='address'>{data.address}</i></h1>
+                    <ul className='bottom'>
+                        <li><Trans>LandArea</Trans>: <span className='value'>{data.project_acreage}</span></li>
+                        <li className='investor'><Trans>Investor</Trans>: <span className='value'>{data.investor_name}</span></li>
+                    </ul>
+                </div>
+            </Popup>
+        </Map>
     )
 }
 

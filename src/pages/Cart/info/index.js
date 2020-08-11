@@ -1,12 +1,12 @@
-
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react';
-import CardHeader from '../../../components/common/CardHeader';
-import Item from "../../Cart/info/Layout";
+import Item from "./Layout";
 import { useDispatch, useSelector } from "react-redux";
 import actions from "../../../store/action/cart";
-import ListProduct from "../../../components/Card/ListProduct"
+import ListProduct from "../../../components/Card/ListProduct";
+import CardHeader from "../../..//components/common/CardHeader"
 
-const PageProject = props => {
+const Cart = props => {
     const dispatch = useDispatch();
 
     const [state, setState] = useState({
@@ -14,7 +14,7 @@ const PageProject = props => {
         dataProjectStatus: [],
         valueSearch: ""
     })
-    const token = 'MTAwNjpNVEF3Tmpwa05ESmlPVGc1WldVM05HWmhNMlZrWXpWaFlqQXhOalV4T1RReFl6QmtOVFUyTW1Oa1pUVTQ=';
+    const token = 'MjoxMzliMDZiZmI4OTJhOGYxYmQ2MzVhZmFmODEyZmM5M2RhNDFkM2Yx';
     // const { token } = props.user;
 
     useEffect(() => {
@@ -22,19 +22,20 @@ const PageProject = props => {
         dispatch(actions.LoadProjectStatus({ token: token }))
     }, [])
     const dataCart = useSelector(state => state.cart)
+
     const create_Filter_Project_Status = (value, label) => {
         return { value, label }
     }
     useEffect(() => {
         let data = dataCart.Filter_Project_Status;
         let dataSelect = [];
+        dataSelect.push(create_Filter_Project_Status("", "All"))
         if (data.length > 0) {
-            data.map((item, index) => {
+            data.map((item) => {
                 dataSelect.push(create_Filter_Project_Status(item.id, item.name))
             })
             setState({ ...state, dataProjectStatus: dataSelect, projectStatus: dataSelect[0] })
         }
-
     }, [dataCart.Filter_Project_Status])
 
 
@@ -49,7 +50,7 @@ const PageProject = props => {
 
     const SEARCH = value => {
         setState({ ...state, valueSearch: value })
-        dispatch(actions.LoadList({ token: token, search_name: value, status_id: state.projectStatus }))
+        dispatch(actions.LoadList({ token: token, search_name: value, status_id: state.projectStatus.value }))
     };
     const onFilter = (item) => {
         setState({ ...state, projectStatus: item })
@@ -69,10 +70,8 @@ const PageProject = props => {
             page={dataCart.page}
             total_page={dataCart.total_page}
             total_record={dataCart.total_record}
-            link_to={`/info/project/detail/`}
+            link_to={`/cart/cart_list/detail/`}
         />]
-
     )
 }
-
-export default PageProject;
+export default Cart;

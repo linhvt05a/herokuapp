@@ -45,7 +45,6 @@ function getUrl(url, data = {}) {
             first = false;
         }
     }
-    console.log(strUrl);
     return strUrl;
 }
 

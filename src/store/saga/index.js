@@ -16,7 +16,8 @@ import {
   filterAreaWatcher,
   filterBlockWatcher,
   filterFloorWatcher,
-  filterProjectStatusWatcher
+  filterProjectStatusWatcher,
+  filterListOpenSaleWatcher
 } from "./cartSaga"
 import {
   regionListWatcher,
@@ -26,7 +27,9 @@ import {
   projectListWatcher
 } from './dashboardSaga';
 import {
-  projectDetailWatcher
+  projectDetailWatcher,
+  sellopenListWatcher,
+  bankingListWatcher
 } from './projectSaga';
 import {
   commentListWatcher, 
@@ -46,13 +49,23 @@ function* allSaga() {
     cartSellOpenlWatcher(),
     cartSellOpenListlWatcher(),
     cartSellOpenCartWatcher(),
+    //filter
+    filterAreaWatcher(),
+    filterBlockWatcher(),
+    filterFloorWatcher(),
+    filterProjectStatusWatcher(),
+    filterListOpenSaleWatcher(),
 
     regionListWatcher(),
     provinceListWatcher(),
     typeListWatcher(),
     statusListWatcher(),
+    //project
     projectListWatcher(),
     projectDetailWatcher(),
+    sellopenListWatcher(),
+    bankingListWatcher(),
+
     commentListWatcher(),
     approveListWatcher(),
     addCommentWatcher()

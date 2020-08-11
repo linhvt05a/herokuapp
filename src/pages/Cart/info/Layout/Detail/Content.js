@@ -2,15 +2,17 @@ import React, { useEffect, useState } from 'react';
 import _ from "lodash";
 import Map from "../modal/Map";
 import Image from "../modal/Image"
-import { Select } from "antd"
+import Select from "../../../../../components/base/Select/Select"
+import { Trans } from 'react-i18next';
 
 const Content = props => {
-    const { Option } = Select
+
     const [state, setState] = useState({
         floor: [],
         Maps: [],
         index: 0,
-        width: 50
+        width: 50,
+        visiable: true
     })
     useEffect(() => {
         let arr = _.groupBy(props.data.floor_or_lot_list, (item) => (item.floor_or_lot_name))
@@ -31,7 +33,7 @@ const Content = props => {
                         <div class="name">Tìm kiếm</div>
                         <div class="area">
                             <span class="label">Theo tầng</span>
-                            <div class="form-group mb-0">
+                            {/*  <div class="form-group mb-0">
                                 <Select
                                     defaultValue={{ value: '2' }}
                                     labelInValue
@@ -41,16 +43,17 @@ const Content = props => {
                                     <Option value="2">B6</Option>
                                     <Option value="3">Căn hộ</Option>
                                     <Option value="4">Shop house</Option>
-                                </Select>
-                                {/* <select name="" id="" class="form-control m_select_change js-select2" data-placeholder="-">
+                                </Select> */}
+                            <Select datas={contentDropdown} />
+                            {/* <select name="" id="" class="form-control m_select_change js-select2" data-placeholder="-">
                                     <option value="1">-</option>
                                     <option value="2" selected>B6</option>
                                     <option value="3">Căn hộ</option>
                                     <option value="4">Shop house</option>
                                 </select> */}
-                            </div>
+                            {/* </div> */}
                         </div>
-                        <button type="submit" class="min-width-button min-height-40 btn-uni-purple ml-md-auto ml-0 mr-5">Cập nhật</button>
+                        <button type="submit" class="min-width-button min-height-40 btn-uni-purple ml-md-auto ml-0 mr-5"><Trans>Search</Trans></button>
                     </div>
                 </div>
 
@@ -70,23 +73,10 @@ const Content = props => {
                         <div class="zone--wrap">
                             <div class="zone--left border-0">
                                 {/* <figure class="map"> */}
-                                {/* <Map data={state.Maps[state.index]} /> */}
-                                <Image data={state.Maps[state.index]} width={`${state.width}%`} />
+                                {state.Maps[state.index] && <Map data={state.Maps[state.index]} visiable={state.visiable} />}
+                                {/* <Image data={state.Maps[state.index]} width={`${state.width}%`} /> */}
                                 {/* </figure> */}
-                                <div class="form-group">
-                                    <Select
-                                        defaultActiveFirstOption
-                                        defaultValue={{ value: '1' }}
-                                        labelInValue
-                                        className="form-control"
-                                    >
-                                        <Option value="1">Tầng B6 đến tầng B4</Option>
-                                        <Option value="2">Tầng B6 đến tầng B1</Option>
-                                        <Option value="3">Tầng B6 đến tầng B2</Option>
-                                        <Option value="4">Tầng B6 đến tầng B3</Option>
-                                    </Select>
 
-                                </div>
                                 <figure class="compass"><img src="../../../../../components/images/all/compass.png" alt="" /></figure>
                                 <div class="actions">
                                     <a ><i class="icon las la-arrows-alt"></i></a>
@@ -101,7 +91,7 @@ const Content = props => {
 
             </div>
 
-        </div>
+        </div >
     )
 }
 
