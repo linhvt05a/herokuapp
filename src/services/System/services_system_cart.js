@@ -56,26 +56,26 @@ function cart(token, project_id, sell_open_id = '0', block_id = "", floor_or_lot
     return api.handleRequest(url, requestOptions);
 }
 
-function sellopenList(token, productId, area_id) {
+function sellopenList(token, productId, area_id, sell_open_id) {
     const requestOptions = {
         method: 'GET',
         headers: api.getHeader(token)
     };
 
-    const params = { 'project_id': productId, area_id, sell_open_id: 162 };
-    const url = api.getUrl(api.CART_SELL_OPEN_LIST, params);
+    const params = { 'project_id': productId, area_id, sell_open_id };
+    const url = api.getUrl(api.CART_SELL_OPEN_LIST, params); console.log(url);
     return api.handleRequest(url, requestOptions);
 }
 
 
 ///filter
-function filterArea(token, productId) {
+function filterArea(token, productId, sell_open_id) {
     const requestOptions = {
         method: 'GET',
         headers: api.getHeader(token)
     };
 
-    const params = { 'project_id': productId };
+    const params = { 'project_id': productId, sell_open_id };
     const url = api.getUrl(api.FILTER_AREA, params);
     return api.handleRequest(url, requestOptions);
 }

@@ -27,7 +27,7 @@ const Edit = props => {
         dispatch(actions.LoadDetail({ token: token, id: props.params.id }));
         dispatch(actions.LoadSellOpen({ token: token, id: props.params.id }));
         // dispatch(actions.LoadSellOpenList({ token: token, id: props.params.id, area_id: state.areaStatus.value }));
-        dispatch(actions.LoadFilterArea({ token: token, id: props.params.id }));
+
         dispatch(actions.LoadFilterListOpenSale({ token: token, id: props.params.id }))
 
     }, [])
@@ -40,7 +40,6 @@ const Edit = props => {
         let newData = [];
         let data = dataCart.Filter_Project_Area
         if (data.length > 0) {
-            newData.push(createData("", "Clear"))
             data.map((item) => newData.push(createData(item.area_id, item.area_name)))
             setState({ ...state, dataArea: newData, areaStatus: newData[0] })
         }
@@ -56,6 +55,7 @@ const Edit = props => {
             dispatch(actions.LoadFilterFloor({ token: token, id: props.params.id, sell_open_id: newData[0].value }));
             dispatch(actions.LoadFilterBlock({ token: token, id: props.params.id, sell_open_id: newData[0].value }));
             dispatch(actions.LoadSellOpenList({ token: token, id: props.params.id, area_id: state.areaStatus.value, sell_open_id: newData[0].value }));
+            dispatch(actions.LoadFilterArea({ token: token, id: props.params.id, sell_open_id: newData[0].value }));
         }
 
     }, [dataCart.Filter_Open_Sale])
@@ -140,7 +140,7 @@ const Edit = props => {
             </div>
         </div>,
         <div>
-            <CardHeader label="LIST OF AREAS" dropdown={{ title: state.areaStatus.value == "" ? "Tất cả khu" : state.areaStatus.label, data: state.dataArea }} onClick={(value) => onFilterArea(value)} />
+            <CardHeader label="LIST OF AREAS" dropdown={{ title: state.areaStatus.label, data: state.dataArea }} onClick={(value) => onFilterArea(value)} />
             <Item.Detail_content data={dataCart.Sell_Open_Floor} />
         </div>,
         <div>
