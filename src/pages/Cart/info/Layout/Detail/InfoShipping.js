@@ -161,6 +161,7 @@ const InfoShipping = props => {
         }
         return arr
     }
+
     return (
         <div className="card square">
             <div className="card-body m_table--collapse">
