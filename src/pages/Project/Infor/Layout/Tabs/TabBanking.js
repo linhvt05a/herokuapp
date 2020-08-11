@@ -112,7 +112,6 @@ const ModalListSellOpen = (props) => {
     const closePopup = () => {
         setState({ ...state, visible: false })
     }
-    console.log('......', state.visible, data);
     return (
         <td class="col-2" style={{width: "20%"}}>
             <a class="link_href_6d30ab fw-medium" onClick={onClickShowModel}>
