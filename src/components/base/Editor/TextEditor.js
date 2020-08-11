@@ -14,6 +14,7 @@ const TextEditor = (props) => {
                 config={config}
 		        tabIndex={1} 
                 onChange={props.handleChange}
+				
             />
         );
 }

@@ -6,9 +6,10 @@ export const approve_system_services = {
     addComment
 };
 
-function addComment(token, request_id){
-    const body = {}
-    console.log(body)
+function addComment(payload){
+    const {request_id, content, token} = payload.payload
+    const body = {request_id: request_id,content: content}
+
     const requestOptions = {
         method: 'POST',
         headers: api.getHeader(token),
@@ -30,14 +31,14 @@ function commentList() {
     return api.handleRequest(url, requestOptions);
 }
 
-function approveList(token, product_id, request_type, request_status, priority) {
+function approveList(token, product_id, request_type, request_status, priority,order_by_oldest) {
    
     const requestOptions = {
         method: 'GET',
         headers: api.getHeader(token)
     };
 
-    const params = {product_id: product_id, request_type: request_type, request_status: request_status, priority: priority};
+    const params = {product_id, request_type, request_status, priority, order_by_oldest};
     const url = api.getUrl(api.HISTORY_APPROVED, params)
     return api.handleRequest(url, requestOptions);
 }
