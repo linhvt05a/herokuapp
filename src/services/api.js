@@ -93,6 +93,11 @@ export default {
     //Product
     PRODUCT_DETAIL: "/api/be/v1/infrastructure/product/detail/",
 
+    //Request Cart
+    CART_REQUEST_DATA: "/api/be/v1/distribution/add_request/",
+    CART_PROMOTION_LIST: "/api/be/v1/policy_promotion/list_promotion_short/",
+    
+
     getHeader,
     getUrl,
     authHeader,

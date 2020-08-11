@@ -36,6 +36,10 @@ import {
   approveListWatcher,
   addCommentWatcher
 } from './approval'
+import {
+  requestDataWatcher,
+  promotionListWatcher
+} from './requestCartSaga'
   
 function* allSaga() {
   yield all([
@@ -68,7 +72,10 @@ function* allSaga() {
 
     commentListWatcher(),
     approveListWatcher(),
-    addCommentWatcher()
+    addCommentWatcher(),
+
+    requestDataWatcher(),
+    promotionListWatcher()
   ]);
 }
 

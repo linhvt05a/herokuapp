@@ -2,20 +2,9 @@ import React from 'react';
 import { Input, Select } from 'antd';
 import { Trans } from 'react-i18next';
 
-const { Option } = Select;
-
-const selectBefore = (
-	<Select defaultValue="http://" className="select-before">
-		<Option value="http://">http://</Option>
-		<Option value="https://">https://</Option>
-	</Select>
-);
-
-
 const GroupInputSelect = (props) => {
 
-	const { className, name, value, label, datas, placeholder, onChange, isClear } = props;
-	const { Option } = Select;
+	const { className, disabled, label } = props;
 	
 	return (
 		<div className={className ? className : ''}>
@@ -27,7 +16,7 @@ const GroupInputSelect = (props) => {
                     </label>
                 }
 				<div className="input-group input-group-select">
-					<Input addonAfter={props.addonAfter} placeholder={props.placeholder} value={props.value} />
+					<Input addonAfter={props.addonAfter} placeholder={props.placeholder} value={props.value} disabled={disabled ? disabled : undefined} />
 				</div>
 			</div>
 		</div>
