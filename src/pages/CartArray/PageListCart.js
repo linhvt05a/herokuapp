@@ -29,6 +29,7 @@ const PageListCart = (props) =>{
     const data = approveSuccess ? product_request.approveList.detail.approvals: null
     const list_comment = commentSuccess ? product_request.commentList.detail : null
     
+    
     console.log('----list comment-----' , list_comment)
     console.log('-----list approve----' , data)
     

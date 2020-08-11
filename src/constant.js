@@ -17,6 +17,5 @@ const priority_request = [
 ]
 
 module.exports = {
-    
     request_type, request_status, priority_request
 }
