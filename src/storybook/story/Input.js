@@ -1,11 +1,10 @@
 /* eslint-disable react/react-in-jsx-scope */
 import React from 'react';
-import { Input, Select } from 'antd';
+import { Select } from 'antd';
 
-import InputSelect from '../base/Select/Select';
-import InputDate from '../base/DatePicker/DatePicker';
-import GroupInputSelect from '../base/Select/GroupInputSelect';
-import GroupInputIcon from '../base/Select/GroupInputIcon';
+import InputSelect from '../../components/base/Select/Select';
+import InputDate from '../../components/base/DatePicker/DatePicker';
+import GroupInputAddOn from '../../components/base/Input/GroupInputAddOn';
 
 const selectAfter = (
     <Select defaultValue="vnd" className="select-after">
@@ -14,44 +13,41 @@ const selectAfter = (
     </Select>
 );
 
-const storyBook = props => {
+const Input = props => {
 
     return (
         <div className="card">
             <div className="card-body">
                 <div className="row">
-
-                    
                     <InputSelect
                         className="col-4"
                         placeholder="This is placeholder!!"
-                        label="Label"
+                        label="Input"
                     />
                     <InputDate
                         className="col-4"
-                        label="Label"
+                        label="Date Picker"
                         name="birthday"
                         value='10/10/100'
                     />
-                    <GroupInputSelect
+                </div>
+                <div className="row">
+                    <GroupInputAddOn
                         className="col-4"
-                        label="Label"
+                        label="Input AddOn"
                         value="000.000.000"
                         addonAfter={selectAfter}
                     />
-                    <GroupInputIcon
+                    <GroupInputAddOn
                         className="col-4"
-                        label="Label"
+                        label="Input AddOn"
                         value="000.000.000"
-                        des = "0.1" symbol="%"
+                        addonAfter = "0.1" symbol="%"
                     />
-
-
-
                 </div>
             </div>
         </div>
     )
 }
 
-export default storyBook;
+export default Input;

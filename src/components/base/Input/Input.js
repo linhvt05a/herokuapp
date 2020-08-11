@@ -2,8 +2,8 @@ import React from 'react'
 import { Input, Select } from 'antd';
 import { Trans } from 'react-i18next';
 
-const GroupInputIcon = (props) => {
-    const { className, name, value, label, datas, placeholder, onChange, isClear } = props;
+const GroupInputAddOn = (props) => {
+    const { className, name, value, label, addonAfter, addonBefore, placeholder, onChange, ...attr } = props;
     return (
         <div className={className ? className : ''}>
             <div className="form-group">
@@ -14,7 +14,15 @@ const GroupInputIcon = (props) => {
                     </label>
                 }
                 <div className="input-group">
-                    <Input addonAfter= {props.symbol} defaultValue= {props.des} />
+                    <Input
+                        addonAfter= {addonAfter}
+                        addonBefore
+                        onChange={onChange}
+                        placeholder={placeholder}
+                        value={value}
+                        name={name}
+                        {...attr}
+                    />
                 </div>
                 
             </div>
@@ -23,4 +31,4 @@ const GroupInputIcon = (props) => {
 
 }
 
-export default GroupInputIcon;
+export default GroupInputAddOn;
