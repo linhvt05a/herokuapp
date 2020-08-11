@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Trans } from "react-i18next";
 import { Modal } from "antd";
 import { CardHeader } from "../../../../../components/common";
-import { InputSelect, InputText, InputCheckBox } from "../../../../../components/input";
+import { Select, InputText, InputCheckBox } from "../../../../../components/input";
 const data = [
     {
         id: 1,
@@ -134,7 +134,7 @@ const DialogSalePromotion = (props) => {
                             </div>
                         </div>
                     </div>
-                    <InputSelect className="col-12 col-sm-6 col-lg-4" datas={ranger} value={state.ranger_status} label="Độ ưu tiên*" onChange={(value) => setState({ ...state, ranger_status: value })} />
+                    <Select className="col-12 col-sm-6 col-lg-4" datas={ranger} value={state.ranger_status} label="Độ ưu tiên*" onChange={(value) => setState({ ...state, ranger_status: value })} />
                     <div className="form-group w-100">
                         <label className="fw-medium">Lý do  <span className="uni_star_e94c4c">*</span></label>
                         <textarea placeholder="Nhập lý do " className="form-control" id cols={30} rows={4} defaultValue={""} />
@@ -159,8 +159,8 @@ const DialogSalePromotion = (props) => {
         return (
             <div>
                 <div className="row">
-                    <InputSelect className="fw-medium col-12 col-md-8" datas={discountInfo} value={1} label="Chương trình khuyến mãi*" />
-                    <InputSelect className="col-12 col-md-4" datas={ranger} value={1} label="Độ ưu tiên*" onChange={(value) => setState({ ...state, ranger_status: value })} />
+                    <Select className="fw-medium col-12 col-md-8" datas={discountInfo} value={1} label="Chương trình khuyến mãi*" />
+                    <Select className="col-12 col-md-4" datas={ranger} value={1} label="Độ ưu tiên*" onChange={(value) => setState({ ...state, ranger_status: value })} />
                 </div>
                 <div className="mb-4 m_table m_table--sales table_fixed max-height-100">
                     <table style={{ minWidth: 1035 }}>
@@ -290,7 +290,7 @@ const DialogSalePromotion = (props) => {
                             <input type="text" className="form-control" placeholder defaultValue="Đề nghị thay đổi chính sách" />
                         </div>
                     </div>
-                    <InputSelect className="col-12 col-sm-6 col-lg-4" datas={ranger} value={1} label="Độ ưu tiên*" onChange={(value) => setState({ ...state, ranger_status: value })} />
+                    <Select className="col-12 col-sm-6 col-lg-4" datas={ranger} value={1} label="Độ ưu tiên*" onChange={(value) => setState({ ...state, ranger_status: value })} />
                 </div>
                 <div className="form-group">
                     <label className="fw-medium">Lý do  <span className="uni_star_e94c4c">*</span></label>
@@ -322,7 +322,7 @@ const DialogSalePromotion = (props) => {
             <CardHeader label="YÊU CẦU HỖ TRỢ" />
             <div className="uni_text_6d30ab fw-medium fs-18 mt-2 mb-2">YÊU CẦU </div>
             <div className="row">
-                <InputSelect value={state.request_select} isClear={state.request_select != 0 ? false : true} className="col-12 col-md-8" label="Loại yêu cầu" datas={request} placeholder="Danh sách yêu cầu" onChange={(value) => setState({ ...state, request_select: value })} />
+                <Select value={state.request_select} isClear={state.request_select != 0 ? false : true} className="col-12 col-md-8" label="Loại yêu cầu" datas={request} placeholder="Danh sách yêu cầu" onChange={(value) => setState({ ...state, request_select: value })} />
                 <InputText className="col-12 col-md-4" type="text" label={props.value.product_name} disabled />
             </div>
             {renderRequest()}

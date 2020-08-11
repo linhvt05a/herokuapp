@@ -3,54 +3,31 @@ import { Trans } from 'react-i18next';
 
 import queryString from 'query-string';
 
-import { PageHeader, PageFooter, PageTitle } from '../../components/common'
+import { PageHeader, PageFooter, PageTitle } from '../../../components/common'
 
-import SideBar from '../../components/SideBar/SideBar.js'
+import SideBar from '../../../components/SideBar/SideBar.js'
 
 import menu from './menu.js';
 
-import { NotificationContainer, NotificationManager } from 'react-notifications';
-
-
-function showToast(type, message) {
-    switch (type) {
-        case 'info':
-            NotificationManager.info(message, 'Minerva');
-            break;
-        case 'success':
-            NotificationManager.success(message, 'Minerva');
-            break;
-        case 'warning':
-            NotificationManager.warning(message, 'Minerva', 3000);
-            break;
-        case 'error':
-            NotificationManager.error(message, 'Minerva', 5000);
-            break;
-        default: break;
-    }
-}
-
-//NotificationContainer
-//this.props.showToast('error', err);
 function isEmpty(obj) {
-    if( obj && Object.keys(obj).length > 0){
+    if (obj && Object.keys(obj).length > 0) {
         return false;
     }
     return true;
 }
 
-function updateLocation(new_params){
+function updateLocation(new_params) {
     var cur_params = queryString.parse(window.location.search);
-    for( var key in new_params ){
-        if( new_params[key] != null ){
+    for (var key in new_params) {
+        if (new_params[key] != null) {
             cur_params[key] = new_params[key]
         }
-        else{
+        else {
             delete cur_params[key]
         }
     }
     var url = window.location.pathname;
-    if( !isEmpty(cur_params) ){
+    if (!isEmpty(cur_params)) {
         url = url + "?" + new URLSearchParams(cur_params).toString();
     }
     window.location = url;
@@ -61,7 +38,7 @@ class StoryBook extends Component {
         super();
 
         const data = localStorage.getItem('user');
-        if( !data ){
+        if (!data) {
             window.location = "/login";
         }
 
@@ -78,11 +55,11 @@ class StoryBook extends Component {
         this.forceUpdate();
     }
 
-    componentWillMount(){
+    componentWillMount() {
         let search = queryString.parse(this.props.location.search);
         this.setState(
             {
-                search: search ,
+                search: search,
                 title: this.props.data.title,
                 menu: this.props.data.menu,
                 page: this.props.data.value,
@@ -109,36 +86,35 @@ class StoryBook extends Component {
     }
 
     render() {
-        if( this.state.page == null ){
+        if (this.state.page == null) {
             return <div></div>
         }
         const { user, search } = this.state;
         const { params } = this.props.match;
         return (
             <div className="main-wrapper">
-                <NotificationContainer />
                 <div className="header__bg purple"></div>
-                <PageHeader user={user} update={this.update}/>
+                <PageHeader user={user} update={this.update} />
                 <SideBar user={user}
-                         menudata={menu.datas}
-                         active={this.state.menu}
-                         setItemActive={this.setActiveItemMenu}
+                    menudata={menu.datas}
+                    active={this.state.menu}
+                    setItemActive={this.setActiveItemMenu}
                 />
                 <div className="page-wrapper">
                     <div className="container-fluid">
                         <PageTitle label={this.state.title} location={this.props.location} PATHS={this.props.PATHS} />
                         {
                             <this.state.page user={user}
-                                             search={search}
-                                             params={params}
-                                             updateTitle={this.updateTitle}
-                                             updateLocation={updateLocation}
-                                             showToast={showToast}
-                                             setActiveItemMenu={this.setActiveItemMenu}
+                                search={search}
+                                params={params}
+                                updateTitle={this.updateTitle}
+                                updateLocation={updateLocation}
+                                setActiveItemMenu={this.setActiveItemMenu}
+                                active={this.state.menu}
                             />
                         }
                     </div>
-                    <PageFooter/>
+                    <PageFooter />
                 </div>
             </div>
         )

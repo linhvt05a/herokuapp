@@ -1,8 +1,8 @@
 import React from 'react'
-import { Input, Select } from 'antd';
+import { Input } from 'antd';
 import { Trans } from 'react-i18next';
 
-const GroupInputAddOn = (props) => {
+const InputBase = (props) => {
     const { className, name, value, label, addonAfter, addonBefore, placeholder, onChange, ...attr } = props;
     return (
         <div className={className ? className : ''}>
@@ -16,7 +16,7 @@ const GroupInputAddOn = (props) => {
                 <div className="input-group">
                     <Input
                         addonAfter= {addonAfter}
-                        addonBefore
+                        addonBefore= {addonBefore}
                         onChange={onChange}
                         placeholder={placeholder}
                         value={value}
@@ -31,4 +31,4 @@ const GroupInputAddOn = (props) => {
 
 }
 
-export default GroupInputAddOn;
+export default InputBase;

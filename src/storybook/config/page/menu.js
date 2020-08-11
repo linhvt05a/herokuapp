@@ -1,30 +1,41 @@
-let menu_perm_tasks = [
+let menu_base = [
     {
-        label: "menu_synthetic",
-        icon: "las la-copy",
-        href: "#"
+        label: "Input",
+        icon: "las children1",
+        href: "/storybook/input"
     },
     {
-        label: "menu_approved",
-        icon: "las la-pencil-ruler",
-        href: "#"
-    }
+        label: "DatePicker",
+        icon: "las children2",
+        href: "/storybook/datePicker"
+    },
+    {
+        label: "Dropdown",
+        icon: "las children3",
+        href: "/storybook/dropdown"
+    },
+    {
+        label: "Select",
+        icon: "las children5",
+        href: "/storybook/select"
+    },
+    {
+        label: "Button",
+        icon: "las children5",
+        href: "/storybook/button"
+    },
 ];
 
 let menu_data = [
     {
-        label: "Input",
-        icon: "las "
-    },
-    {
-        label: "menu_sales_manager",
-        icon: "las la-user-lock",
-        children: menu_perm_tasks
+        label: "base",
+        icon: "las parent",
+        children: menu_base
     },
 ]
 
 function contain(datas, label) {
-    for (var i = 0;i < datas.length;i++) {
+    for (var i = 0; i < datas.length; i++) {
         var o = datas[i];
         if (o['label'] === label) {
             return true;

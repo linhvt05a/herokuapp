@@ -2,9 +2,7 @@
 import React from 'react';
 import { Select } from 'antd';
 
-import InputSelect from '../../components/base/Select/Select';
-import InputDate from '../../components/base/DatePicker/DatePicker';
-import GroupInputAddOn from '../../components/base/Input/GroupInputAddOn';
+import Input from '../../components/base/Input/Input';
 
 const selectAfter = (
     <Select defaultValue="vnd" className="select-after">
@@ -13,36 +11,29 @@ const selectAfter = (
     </Select>
 );
 
-const Input = props => {
+const InputStory = props => {
 
     return (
         <div className="card">
             <div className="card-body">
                 <div className="row">
-                    <InputSelect
+                    <Input
                         className="col-4"
-                        placeholder="This is placeholder!!"
-                        label="Input"
-                    />
-                    <InputDate
-                        className="col-4"
-                        label="Date Picker"
-                        name="birthday"
-                        value='10/10/100'
+                        value="000.000.000"
                     />
                 </div>
                 <div className="row">
-                    <GroupInputAddOn
+                    <Input
                         className="col-4"
-                        label="Input AddOn"
+                        label="Input AddOn After"
                         value="000.000.000"
                         addonAfter={selectAfter}
                     />
-                    <GroupInputAddOn
+                    <Input
                         className="col-4"
-                        label="Input AddOn"
+                        label="Input AddOn Before"
                         value="000.000.000"
-                        addonAfter = "0.1" symbol="%"
+                        addonBefore = "0.1%"
                     />
                 </div>
             </div>
@@ -50,4 +41,4 @@ const Input = props => {
     )
 }
 
-export default Input;
+export default InputStory;

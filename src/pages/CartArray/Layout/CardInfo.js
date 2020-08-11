@@ -3,9 +3,9 @@ import {CardHeader} from '../../../components/common'
 import {CardChangeAvatar} from '../../../components/Card'
 import { InputText} from '../../../components/input';
 import {Select } from 'antd';
-import GroupInputSelect from '../../../components/base/Select/GroupInputSelect';
-import GroupInputIcon from '../../../components/base//Select/GroupInputIcon'
+import Input from '../../../components/base/Input/Input'
 
+const { Option } = {Select};
 const selectAfter = (
     <Select defaultValue="vnd" className="select-after">
         <Option value="vnd">vnd</Option>
@@ -33,8 +33,8 @@ const selectAfter = (
                         <InputText className="col-12 col-sm-6 col-md-6 col-lg-4" label="Sản phẩm" disabled/>
                         <InputText className="col-12 col-sm-6 col-md-6 col-lg-4" label="Kênh phân phối" disabled/>
                         <InputText className="col-12 col-sm-6 col-md-6 col-lg-4" label="Tên đại lý" disabled/>  
-                        <GroupInputSelect className="col-12 col-sm-6 col-md-6 col-lg-4"  addonAfter={selectAfter} value = "21423423423423423" label="Giá bán"/> 
-                        <GroupInputIcon className="col-12 col-sm-6 col-md-6 col-lg-4" des = "0.1" disabled symbol="%" label="Hoa hồng mặc định"/> 
+                        <Input className="col-12 col-sm-6 col-md-6 col-lg-4" addonAfter={selectAfter} value = "21423423423423423" label="Giá bán"/>
+                        <Input className="col-12 col-sm-6 col-md-6 col-lg-4" des = "0.1" disabled symbol="%" label="Hoa hồng mặc định"/>
                         <InputText className="col-12 col-sm-6 col-md-6 col-lg-4" label="Số chính sách khuyến mãi đang có" disabled /> 
                     </div>
                 </div>
