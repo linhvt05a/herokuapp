@@ -6,7 +6,7 @@ import { withTranslation, Trans } from 'react-i18next';
 //import format from "date-fns/format"
 
 import moment from 'moment'
-import {DatePicker} from "antd";
+import { DatePicker } from "antd";
 
 const DATE_FORMAT = 'DD-MM-YYYY';
 
@@ -19,9 +19,9 @@ class InputDate extends Component {
         };
     }
 
-    componentDidMount (){
-        if(this.props.value){
-           const date = moment(this.props.value)._d
+    componentDidMount() {
+        if (this.props.value) {
+            const date = moment(this.props.value).format(DATE_FORMAT)
             this.setState({
                 values: date
             })
@@ -70,7 +70,7 @@ class InputDate extends Component {
         return (
             <div className={this.props.className ? this.props.className : ''}>
                 <div className="form-group">
-                {
+                    {
                         this.props.label &&
                         <label className={this.props.classLabel ? this.props.classLabel : "fw-medium"} >
                             <Trans>{this.props.label}</Trans>
@@ -81,10 +81,10 @@ class InputDate extends Component {
                         </label>
                     }
                     <DatePicker
-                        className={this.props.classValue ? this.props.classValue : "form-control js-datepicker"}
-                        dateFormat= {dateFormat ? dateFormat : DATE_FORMAT}
+                        // className={this.props.classValue ? this.props.classValue : "form-control js-datepicker"}
+                        dateFormat={dateFormat ? dateFormat : DATE_FORMAT}
                         placeholderText={this.props.label}
-                        selected={this.state.values}
+                        defaultValue={this.state.values}
                         onChange={this.handleChange}
                         disabled={this.props.disabled}
                         popperClassName="date-custom-class"

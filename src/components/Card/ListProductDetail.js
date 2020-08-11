@@ -14,7 +14,7 @@ const CartProductDetail = props => {
                         {item.setting_type_name}
                     </p>
                     <p className="name">
-                        <Link to={`${link_to}${item.project_id}`} className="link_href_6d30ab" >{item.about}</Link>
+                        <Link to={`${link_to}${item.project_id}`} className="link_href_6d30ab" >{item.project_name}</Link>
                         <Link className="small float-right" to={`${props.link_to}${item.project_id}`} title="Thêm tin tức" >
                             <i className="news icon las la-newspaper">
                                 <span className="badge badge-pill badge-danger badge-up badge-glow">14</span>

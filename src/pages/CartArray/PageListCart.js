@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { approvedListRequest, commentListRequest } from '../../store/action/approval'
 import { CardInfo, CardApprovedHistory } from './Layout/index'
 import { DialogResponeHistory } from '../../components/dialogs'
-
+import {Link, useLocation} from "react-router-dom";
 
 const PageListCart = (props) => {
     const [showPopUp, setShowPopUp] = useState(false)
@@ -27,7 +27,8 @@ const PageListCart = (props) => {
 
     const data = approveSuccess ? product_request.approveList.detail.approvals : null
     const list_comment = commentSuccess ? product_request.commentList.detail : null
-
+    const location = useLocation();
+    console.log('----------data-----', location)
     console.log('----list comment-----', list_comment)
     console.log('-----list approve----', data)
 

@@ -26,6 +26,11 @@ import {
     addCommentRequest
 } from "./approval";
 
+import { 
+  requestDataRequest,
+  promotionListRequest
+} from "./requestCart";
+
 export {
   currentcyAddRequest,
   currentcyDetailRequest,
@@ -45,6 +50,8 @@ export {
 
   approvedListRequest,
   commentListRequest,
-  addCommentRequest
+  addCommentRequest,
   
+  requestDataRequest,
+  promotionListRequest
 };
