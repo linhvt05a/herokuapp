@@ -1,5 +1,5 @@
 import React from 'react';
-import CardHeader from '../../../../components/common/CardHeader';
+import CardHeader from '../../../../components/Card/CardHeader';
 import PropTypes from 'prop-types';
 import Steps from '../../../../components/common/Steps'
 

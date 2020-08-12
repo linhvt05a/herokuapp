@@ -26,11 +26,24 @@ let menu_base = [
     },
 ];
 
+let menu_cards = [
+    {
+        label: "CardHeader",
+        icon: "las children1",
+        href: "/storybook/card/cardHeader"
+    },
+]
+
 let menu_data = [
     {
         label: "base",
         icon: "las parent",
         children: menu_base
+    },
+    {
+        label: "Cards",
+        icon: "las parent",
+        children: menu_cards
     },
 ]
 

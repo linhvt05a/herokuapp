@@ -61,6 +61,7 @@ export const STORYBOOKS = [
     { "path": "/storybook/dropdown", "value": StoryBook.Dropdown, "menu": "menu_item_input", "title": "Dropdown" },
     { "path": "/storybook/select", "value": StoryBook.Select, "menu": "menu_item_input", "title": "Select" },
     { "path": "/storybook/button", "value": StoryBook.Button, "menu": "menu_item_input", "title": "Select" },
+    { "path": "/storybook/card/cardHeader", "value": StoryBook.Cards.CardHeader, "menu": "menu_item_card_header", "title": "Card Header" },
 ]
 
 var PATHS = {};

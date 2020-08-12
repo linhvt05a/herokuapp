@@ -4,7 +4,7 @@ import Pagination from "../common/Pagination"
 import { Trans } from 'react-i18next';
 import ListProductGird from "./ListProductGird";
 import ListProductTable from "./ListProductTable";
-import CardNodata from "../common/CardNodata"
+import CardNodata from "./CardNodata"
 const body = props => {
     let { dataFilter, data, page, total_page, total_record, link_to } = props;
     const [state, setState] = useState(true);

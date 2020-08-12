@@ -4,7 +4,11 @@ import { useDispatch, useSelector } from "react-redux";
 import actionsCart from "../../../store/action/cart";
 import { typeListRequest } from "../../../store/action/dashboard"
 import ListProduct from "../../../components/Card/ListProduct";
+<<<<<<< HEAD
 import { CardHeader, Loading } from "../../..//components/common"
+=======
+import CardHeader from "../../../components/Card/CardHeader"
+>>>>>>> b49c12230dec732efc4003481f89396cfec3b2fa
 
 const Cart = props => {
     const dispatch = useDispatch();
