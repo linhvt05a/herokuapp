@@ -1,15 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Trans } from 'react-i18next';
+import { formatCurrency } from "../../../../../utils/Utils"
+import Moment from 'moment';
 
 const TabInvestor = (props) => {
     let { data } = props;
-    const priceSplitter = (number) => (number && number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.'));
-    const convertDate = dateRange =>
-    dateRange.split(" - ")
-        .map(date => new Intl.DateTimeFormat('en-GB', {day: '2-digit', month: '2-digit', year: 'numeric'})
-        .format(new Date(date)))
-
-    console.log(convertDate("2020-04-01"));
     return (
         data != null ?
             <div className="row mt-2">
@@ -47,7 +42,7 @@ const TabInvestor = (props) => {
                             <div className="form-group">
                                 <label className="fw-medium" for="date_from"><Trans>Từ ngày</Trans></label>
                                 <div className="m_datepicker">
-                                    <input type="text" className="form-control js-datepicker" disabled="" value={convertDate(data.investment_certificate_date_from)}/>
+                                    <input type="text" className="form-control js-datepicker" disabled="" value={Moment(data.investment_certificate_date_from).format("DD-MM-YYYY")} />
                                 </div>
                             </div>
                         </div>
@@ -81,7 +76,7 @@ const TabInvestor = (props) => {
                             <div className="form-group">
                                 <label className="fw-medium" for="total_investment_master_currency_unit"><Trans>Tổng mức đầu tư</Trans></label>
                                 <div className="input-group">
-                                    <input type="text" className="form-control" disabled="" value={priceSplitter(data.total_investment)}/>
+                                    <input type="text" className="form-control" disabled="" value={formatCurrency(data.total_investment)}/>
                                     <input type="text" disabled="" className="form-control col-2" value="vnd"/>
                                 </div>
                             </div>
@@ -92,7 +87,7 @@ const TabInvestor = (props) => {
                             <div className="form-group">
                                 <label className="fw-medium" for="customer_name"><Trans>Vốn chủ sở hữu</Trans></label>
                                 <div className="input-group">
-                                    <input type="text" disabled="" className="form-control" value={priceSplitter(data.total_capital)}/>
+                                    <input type="text" disabled="" className="form-control" value={formatCurrency(data.total_capital)}/>
                                     <input type="text" disabled="" className="form-control col-3" value="vnd"/>
                                 </div>
                             </div>
@@ -132,7 +127,7 @@ const TabInvestor = (props) => {
                             <div className="form-group">
                                 <label className="fw-medium" for="date_from"><Trans>Từ</Trans></label>
                                 <div className="m_datepicker">
-                                    <input type="text" className="form-control square js-datepicker" disabled="" value={convertDate(data.date_from)} />
+                                    <input type="text" className="form-control square js-datepicker" disabled="" value={Moment(data.date_from).format("DD-MM-YYYY")} />
                                 </div>
                             </div>
                         </div>
