@@ -10,10 +10,11 @@ import CardProjectEmpty from './CardProjectEmpty';
 import CardProjectInforProgress from './CardProjectInforProgress';
 import CardTabFilter from './CardTabFilter';
 import CardColumnChart from './CardColumnChart';
+import CardAvatar from './CardAvatar'
 export {
     CardMap, CardProject, CardTask,
     CardFilterPosition, CardFilterTask, CardTaskTree,
     CardChangeAvatar, CardTabFilter,
     CardProjectInfor,CardProjectEmpty,CardProjectInforProgress,
-    CardColumnChart,
+    CardColumnChart,CardAvatar
 };

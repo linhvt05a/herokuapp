@@ -20,7 +20,7 @@ const PageListCart = (props) => {
     const [file, setFile] = useState(null)
     const[request_id, setRequestId] = useState(0)
     const token = "MjoxMzliMDZiZmI4OTJhOGYxYmQ2MzVhZmFmODEyZmM5M2RhNDFkM2Yx"
-    const product_id = parseInt(props.params.id)
+    const product_id = 63
     const tab_include = []
     useEffect(() => {
         dispatch(productDetailRequest({token, product_id, tab_include}))
@@ -66,6 +66,9 @@ const PageListCart = (props) => {
     const changeComment = (value) =>{
         setContent(value)
     }
+    const cancelSearch = () =>{
+        setType(null)
+    }
     return (
        
         <>
@@ -78,6 +81,7 @@ const PageListCart = (props) => {
                 list_comment={list_comment}
                 onChange={onChange}
                 onSearch={onSearch}
+                cancelSearch = {cancelSearch}
                 
             />
 

@@ -5,21 +5,12 @@ import {CUSTOMER_REQUEST_TYPE, CUSTOMER_REQUEST_STATUS, CUSTOMER_REQUEST_PRIORIT
 
 const CardApprovedHistory = (props) => {
     const [selected, setSelected] = useState(true)
-    const [defaultValue, setDefault] = useState([])
     const changeTab = () => {
         setSelected(!selected)
     }
-
-
-    const CancelSearch = () =>{
-       setDefault(
-        CUSTOMER_REQUEST_TYPE , 
-        CUSTOMER_REQUEST_PRIORITY, 
-        CUSTOMER_REQUEST_STATUS)
-    }
     return (
         <div className="row ">
-            <CardFilterApproved onChange ={props.onChange}  onSearch={props.onSearch} onCancel={CancelSearch} defaultValue={defaultValue}/>
+            <CardFilterApproved onChange ={props.onChange}  onSearch={props.onSearch} onCancel={props.cancelSearch} />
             <CardReview 
                     selected={selected} 
                     data={props.data} 
@@ -39,7 +30,7 @@ const CardFilterApproved = (props) => {
             <CardHeader label="LỌC LỊCH SỬ PHÊ DUYỆT" />
             <div className="card square">
                 <div className="card-body">
-                    <InputSelect className="form-group" label="LOẠI YÊU CẦU" placeholder ="--Select--"  datas ={props.defaultValue === null ? [] : CUSTOMER_REQUEST_TYPE } name="request_type" onChange ={props.onChange}/>
+                    <InputSelect className="form-group" label="LOẠI YÊU CẦU" placeholder ="--Select--"  datas ={CUSTOMER_REQUEST_TYPE } name="request_type" onChange ={props.onChange}/>
                     <InputDate label="CHOOSE DATE" name="from_date" />
                     <InputDate  label="CHOOSE DATE" name="to_date" />
                     <InputSelect className="form-group" label="TRẠNG THÁI" placeholder ="--Select--" datas={CUSTOMER_REQUEST_STATUS} name="request_status" onChange ={props.onChange}/>
