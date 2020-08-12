@@ -4,7 +4,7 @@ import { approvedListRequest, commentListRequest, addCommentRequest } from '../.
 import {productDetailRequest} from '../../store/action/product'
 import { CardInfo, CardApprovedHistory } from './Layout/index'
 import { DialogResponeHistory } from '../../components/dialogs'
-
+import {ModalHistoryAprroval} from './Layout'
 
 const PageListCart = (props) => {
     const [showPopUp, setShowPopUp] = useState(false)
@@ -27,15 +27,16 @@ const PageListCart = (props) => {
     }, [])
     
     const isFetching = product_request.isFetching;
+    const isFetchingComment = product_request.isFetching
     const approveSuccess = product_request.approveList.success
     const commentSuccess = product_request.commentList.success
     const isCommentSuccess = product_request.commentAdd.success
     const productSuccess = product_detail.productDetail.success
-
     const dataApprove = approveSuccess ? product_request.approveList.detail.approvals : null
     const list_comment = commentSuccess ? product_request.commentList.detail : null
     const productsDetail =  productSuccess ? product_detail.productDetail.detail : []
-  
+
+       
     const handleClick = (request_id) => {
         setShowPopUp(!showPopUp)
         setRequestId(request_id)
@@ -79,12 +80,11 @@ const PageListCart = (props) => {
                 list_comment={list_comment}
                 onChange={onChange}
                 onSearch={onSearch}
-               
-                
-            />
 
+            />
+        
             <DialogResponeHistory 
-                    isCommentSuccess ={isCommentSuccess} 
+                    isLoading ={isFetchingComment} 
                     changeComment={changeComment} sendMessage={sendMessage} 
                     image={props.user.avatar_url} showPopUp={showPopUp} 
                     close={() => setShowPopUp(false)} 

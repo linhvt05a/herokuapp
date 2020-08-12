@@ -4,10 +4,8 @@ import {Select} from '../../../components/base/Select'
 import {CUSTOMER_REQUEST_TYPE, CUSTOMER_REQUEST_STATUS, CUSTOMER_REQUEST_PRIORITY} from '../../../constant'
 import InputDate from '../../../components/base/DatePicker/DatePicker'
 const CardApprovedHistory = (props) => {
-    const [selected, setSelected] = useState(true)
-    const changeTab = () => {
-        setSelected(!selected)
-    }
+    const [selected, setSelected] = useState(false)
+   
     return (
         <div className="row ">
             <CardFilterApproved onChange ={props.onChange}  onSearch={props.onSearch}/>
@@ -16,7 +14,7 @@ const CardApprovedHistory = (props) => {
                     data={props.data} 
                     isFetching={props.isFetching} 
                     approveSuccess ={props.approveSuccess} 
-                    changeTab={changeTab} 
+                    changeTab={()=> setSelected(!selected)} 
                     handleClick={props.handleClick} 
                     list_comment ={props.list_comment}
                     
@@ -31,8 +29,8 @@ const CardFilterApproved = (props) => {
             <div className="card square">
                 <div className="card-body">
                     <Select className="form-group" label="LOẠI YÊU CẦU" placeholder ="--Select--" datas ={CUSTOMER_REQUEST_TYPE } name="request_type" onChange ={props.onChange}/>
-                    <InputDate label="CHOOSE DATE" name="from_date" />
-                    <InputDate  label="CHOOSE DATE" name="to_date" />
+                    <InputDate label="FROM DATE" name="from_date" />
+                    <InputDate  label="TO DATE" name="to_date" />
                     <Select className="form-group" label="TRẠNG THÁI" placeholder ="--Select--" datas={CUSTOMER_REQUEST_STATUS} name="request_status" onChange ={props.onChange}/>
                     <Select className="form-group" label="ĐỘ ƯU TIÊN" placeholder ="--Select--" datas ={CUSTOMER_REQUEST_PRIORITY} name="priority" onChange ={props.onChange}/> 
                     <FilterButton onSearch={props.onSearch} />
@@ -84,9 +82,11 @@ const CardReview = (props) => {
                                         <RequestTypeIcon request_type = {item.request_type}/>
                                         <div className="approval_history--detail">
                                             {
-                                                props.selected === true || props.isFetching === true ?
+                                                props.selected === true ?
+                                                
                                                     (
-                                                    <NewestMessage list_comment ={props.list_comment} handleClick={()=>props.handleClick(item.request_id)} data={item} />
+                                                        <NewestMessage list_comment ={props.list_comment} handleClick={()=>props.handleClick(item.request_id)} data={item} />
+                                                        
                                                     )
                                                     :
                                                     ( <OldestMessage data={item}  handleClick={props.handleClick} list_comment={props.list_comment} handleClick={()=>props.handleClick(item.request_id)}/>)
@@ -96,8 +96,7 @@ const CardReview = (props) => {
                                 </div>
                             </div>
                         )}
-                    </div>:
-                        <CardNodata />
+                    </div>: props.approveSuccess === false ? <Spinner /> :<CardNodata />
                     }
                 </div>
             </div>
@@ -109,7 +108,7 @@ const CardReview = (props) => {
 const NewestMessage = (props) => {
     return (
         <>
-            <div className="approval_history--detail-content">
+                     <div className="approval_history--detail-content">
                 <a href="#" className="approval_history--title fs-16 font-weight-bold">
                         <label className="fw-medium">
                                 <RequestType data = {props.data}/>

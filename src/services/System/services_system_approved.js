@@ -30,8 +30,8 @@ function commentList(token, request_id) {
     return api.handleRequest(url, requestOptions);
 }
 
-function approveList(token, product_id, request_type, request_status, priority,order_by_oldest) {
-   
+function approveList(payload) {
+    const{token, product_id, request_type, request_status, priority,order_by_oldest} = payload.payload
     const requestOptions = {
         method: 'GET',
         headers: api.getHeader(token)
