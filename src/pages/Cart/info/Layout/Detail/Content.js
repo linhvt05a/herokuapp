@@ -17,7 +17,7 @@ const Content = props => {
         index: "0",
         zoom: 1.2,
         visiable: true,
-        valueFilter: {}
+        valueFilter: "0"
     })
     const createData = (value, label) => {
         return { value, label }
@@ -44,7 +44,7 @@ const Content = props => {
                         <div className="name">Tìm kiếm</div>
                         <div className="area">
                             <span className="label">Theo tầng</span>
-                            <Select classNameGroup="form-group mb-0" datas={state.floor} value={state.index} onChange={(value) => setState({ ...state, valueFilter: value })} />
+                            <Select classNameGroup="form-group mb-0" datas={state.floor} value={state.valueFilter} onChange={(value) => setState({ ...state, valueFilter: value })} />
                         </div>
                         <button type="submit" className="min-width-button min-height-40 btn-uni-purple ml-md-auto ml-0 mr-5" onClick={() => onFloorChange(state.valueFilter)}><Trans>Search</Trans></button>
                     </div>
