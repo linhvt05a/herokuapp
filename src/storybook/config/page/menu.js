@@ -31,6 +31,13 @@ let menu_cards = [
         label: "CardHeader",
         icon: "las children1",
         href: "/storybook/card/cardHeader"
+
+    },
+    {
+        label: "CardProductDetail",
+        icon: "las children1",
+        href: "/storybook/card/cardProductDetail"
+
     },
 ]
 
