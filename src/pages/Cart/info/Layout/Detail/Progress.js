@@ -8,10 +8,10 @@ import ModalInternal from "../modal/ModalInternal"
 import { Trans } from 'react-i18next';
 
 const progress = props => {
-    const [state, setState] = useState({
-        AgentsStatus: false,
-        InternalStatus: false
-    });
+    // const [state, setState] = useState({
+    //     AgentsStatus: false,
+    //     InternalStatus: false
+    // });
     return (
 
         <div className="card square h-100">

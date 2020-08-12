@@ -11,8 +11,8 @@ import PageTitle from './PageTitle';
 
 import Pagination from './Pagination';
 import SearchField from './SearchField';
-import CardHeader from './CardHeader';
-import CardNodata from './CardNodata';
+import CardHeader from '../Card/CardHeader';
+import CardNodata from '../Card/CardNodata';
 import SliderImage from './SliderImage';
 
 export {

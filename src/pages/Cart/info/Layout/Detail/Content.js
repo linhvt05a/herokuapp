@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useState } from 'react';
 import _ from "lodash";
@@ -5,6 +6,7 @@ import Map from "../modal/Map";
 import Image from "../modal/Image"
 import Select from "../../../../../components/base/Select/Select"
 import { Trans } from 'react-i18next';
+import { CardNodata } from "../../../../../components/common"
 
 const Content = props => {
 
@@ -14,7 +16,8 @@ const Content = props => {
         Marker: 0,
         index: "0",
         zoom: 1.2,
-        visiable: true
+        visiable: true,
+        valueFilter: {}
     })
     const createData = (value, label) => {
         return { value, label }
@@ -41,9 +44,9 @@ const Content = props => {
                         <div className="name">Tìm kiếm</div>
                         <div className="area">
                             <span className="label">Theo tầng</span>
-                            <Select classNameGroup="form-group mb-0" datas={state.floor} value={state.index} onChange={(value) => onFloorChange(value)} />
+                            <Select classNameGroup="form-group mb-0" datas={state.floor} value={state.index} onChange={(value) => setState({ ...state, valueFilter: value })} />
                         </div>
-                        <button type="submit" className="min-width-button min-height-40 btn-uni-purple ml-md-auto ml-0 mr-5"><Trans>Search</Trans></button>
+                        <button type="submit" className="min-width-button min-height-40 btn-uni-purple ml-md-auto ml-0 mr-5" onClick={() => onFloorChange(state.valueFilter)}><Trans>Search</Trans></button>
                     </div>
                 </div>
 
@@ -64,25 +67,18 @@ const Content = props => {
                     <div className="tab-pane fade show active" id="zone_01">
                         <div className="zone--wrap">
                             <div className="zone--left border-0">
-                                {/* <figure className="map"> */}
-                                {/* {console.log(state.Maps)} */}
-                                {state.Maps[state.index] && <Map data={state.Maps[state.index]} visiable={state.visiable} zoom={state.zoom} />}
-                                {/* </figure> */}
-
+                                {state.Maps[state.index] ? <Map data={state.Maps[state.index]} visiable={state.visiable} zoom={state.zoom} /> : <CardNodata />}
                                 <figure className="compass"><img src="../../../../../components/images/all/compass.png" alt="" /></figure>
                                 <div className="actions">
                                     <a ><i className="icon las la-arrows-alt"></i></a>
-                                    <a ><i className="icon las la-plus" onClick={() => setState({ ...state, zoom: state.zoom == 5 ? 5 : state.zoom + 0.2 })}></i></a>
+                                    <a ><i className="icon las la-plus" onClick={() => setState({ ...state, zoom: state.zoom == 4 ? 4 : state.zoom + 0.2 })}></i></a>
                                     <a ><i className="icon las la-minus" onClick={() => setState({ ...state, zoom: state.zoom == 1.2 ? 1.2 : state.zoom - 0.2 })}></i></a>
                                 </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
-
             </div>
-
         </div >
     )
 }

@@ -66,9 +66,7 @@ const PageListCart = (props) => {
     const changeComment = (value) =>{
         setContent(value)
     }
-    const cancelSearch = () =>{
-        setType(null)
-    }
+  
     return (
        
         <>
@@ -81,7 +79,7 @@ const PageListCart = (props) => {
                 list_comment={list_comment}
                 onChange={onChange}
                 onSearch={onSearch}
-                cancelSearch = {cancelSearch}
+               
                 
             />
 

@@ -3,7 +3,7 @@ import { Trans } from 'react-i18next';
 import i18n from '../../i18n';
 import $ from "jquery";
 
-import { DropItem } from "../dropdown"
+import { DropItem } from "../base/Dropdown"
 
 import { userService } from '../../services';
 

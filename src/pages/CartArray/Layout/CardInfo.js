@@ -7,7 +7,6 @@ import {GroupInputIcon, GroupInputSelect} from '../../../components/base/Select'
 import{DISTRIBUTION_CHANNEL_AGENT, DISTRIBUTION_CHANNEL_INTERNAL} from '../../../constant'
 import {formatCurrency} from '../../../utils/Utils'
 const { Option } = Select;
-
 const selectAfter = (
     <Select defaultValue="vnd" className="select-after">
         <Option value="vnd">vnd</Option>

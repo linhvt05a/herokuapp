@@ -8,8 +8,7 @@ import { CUSTOMER_REQUEST_TYPE_COMMISSION, CUSTOMER_REQUEST_TYPE_PROMOTION, CUST
     CUSTOMER_REQUEST_PRIORITY_MID, CUSTOMER_REQUEST_PRIORITY_LOW } from '../../../../../constant';
 import { requestDataRequest, promotionListRequest } from '../../../../../store/action/requestCart';
 import { useDispatch, useSelector } from "react-redux";
-import GroupInputSelect from '../../../../../components/base/Select/GroupInputSelect';
-import GroupInputIcon from '../../../../../components/base/Select/GroupInputIcon';
+import Input from '../../../../../components/base/Input/Input';
 
 const discountInfo = [
     { value: 1, label: "Giảm trực tiếp từ 100 triệu ngay cho khách hàng mới trong mùa xuân 2021 dành cho loại hình biệt thự" },
@@ -52,39 +51,39 @@ const DialogSalePromotion = (props) => {
     useEffect(() => {
         dispatch(promotionListRequest({ token, product_id: value.product_id }));
     }, []);
-    
+
     console.log("data", promotionListRes)
     const renderDiscount = () => {
         return (
             <div>
                 <div className="uni_text_6d30ab fw-medium fs-18 mt-2 mb-2">YÊU CẦU</div>
                 <div className="row">
-                    <GroupInputSelect
+                    <Input
                         disabled
                         className="col-12 col-sm-6 col-lg-4"
                         label="Giá bán"
                         value={value.product_price}
                         addonAfter={selectOption} />
-                    <GroupInputIcon
+                    <Input
                         disabled
                         className="col-12 col-sm-6 col-lg-4"
                         label="Hoa hồng thấp nhất"
-                        des = {value.min_value_percent} symbol="%" />
-                    <GroupInputIcon
+                        addonBefore = {`${value.min_value_percent}%`} />
+                    <Input
                         disabled
                         className="col-12 col-sm-6 col-lg-4"
                         label="Hoa hồng cao nhất"
-                        des = {value.max_value_percent} symbol="%" />
-                    <GroupInputIcon
+                        addonBefore = {`${value.max_value_percent}%`} />
+                    <Input
                         disabled
                         className="col-12 col-sm-6 col-lg-4"
                         label="Hoa hồng mặc định hiện tại"
-                        des = {value.default_value_percent} symbol="%" />
-                    <GroupInputIcon
+                        addonBefore = {`${value.default_value_percent}%`} />
+                    <Input
                         className="col-12 col-sm-6 col-lg-4"
                         titleClassName="fw-medium m_text_e94c4c"
                         label="Hoa hồng đề nghị*"
-                        symbol="%" />
+                        addonBefore = {`%`} />
                     <InputSelect
                         className="col-12 col-sm-6 col-lg-4" titleClassName="fw-medium m_text_e94c4c"
                         datas={priority} value={state.ranger_status}
@@ -97,7 +96,7 @@ const DialogSalePromotion = (props) => {
             </div>
         )
     }
-    
+
     const renderExchange = () => {
         return (
             <div>

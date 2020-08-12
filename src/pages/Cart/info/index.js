@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import actionsCart from "../../../store/action/cart";
 import { typeListRequest } from "../../../store/action/dashboard"
 import ListProduct from "../../../components/Card/ListProduct";
-import CardHeader from "../../..//components/common/CardHeader"
+import { CardHeader, Loading } from "../../..//components/common"
 
 const Cart = props => {
     const dispatch = useDispatch();
@@ -15,7 +15,7 @@ const Cart = props => {
         valueSearch: "",
         dataType: []
     })
-    const token = 'MjoxMzliMDZiZmI4OTJhOGYxYmQ2MzVhZmFmODEyZmM5M2RhNDFkM2Yx';
+    const token = 'MTAwNjpNVEF3Tmpwa05ESmlPVGc1WldVM05HWmhNMlZrWXpWaFlqQXhOalV4T1RReFl6QmtOVFUyTW1Oa1pUVTQ=';
     // const { token } = props.user;
 
     useEffect(() => {
@@ -32,7 +32,7 @@ const Cart = props => {
     useEffect(() => {
         let data = dataCart.Filter_Project_Status;
         let dataSelect = [];
-        dataSelect.push(create_Filter_Project_Status("", "All"))
+        // dataSelect.push(create_Filter_Project_Status("", "All"))
         if (data.length > 0) {
             data.map((item) => {
                 dataSelect.push(create_Filter_Project_Status(item.id, item.name))
@@ -55,7 +55,7 @@ const Cart = props => {
     }, [dataDashBoard.typeList])
 
     const onClickType = value => {
-        dispatch(actionsCart.LoadList({ token: token, search_name: value, status_id: state.projectStatus.value, setting_type: value.id }))
+        dispatch(actionsCart.LoadList({ token: token, search_name: state.valueSearch, status_id: state.projectStatus.value, setting_type: value.id }))
     }
     const SEARCH = value => {
         setState({ ...state, valueSearch: value })
@@ -64,24 +64,23 @@ const Cart = props => {
     const onFilter = (item) => {
         setState({ ...state, projectStatus: item })
         dispatch(actionsCart.LoadList({ token: token, search_name: state.valueSearch, status_id: item.value }))
-    }
+    };
     return (
-
         [<CardHeader
             dropdown={{ title: state.projectStatus && state.projectStatus.value == "" ? "Product Status" : state.projectStatus.label, data: state.dataProjectStatus }}
             label={"Project"}
             searchBox={{ title: "home_map_search" }}
             onSearch={value => SEARCH(value)}
             onClick={value => onFilter(value)} />
-            , <ListProduct
-            dataFilter={state.dataType}
-            data={dataCart.List}
-            page={dataCart.page}
-            total_page={dataCart.total_page}
-            total_record={dataCart.total_record}
-            link_to={`/cart/cart_list/detail/`}
-            onClickType={(value) => onClickType(value)}
-        />]
+            , dataCart.isLoadingList ? <Loading /> : <ListProduct
+                dataFilter={state.dataType}
+                data={dataCart.List}
+                page={dataCart.page}
+                total_page={dataCart.total_page}
+                total_record={dataCart.total_record}
+                link_to={`/cart/cart_list/detail/`}
+                onClickType={(value) => onClickType(value)}
+            />]
     )
 }
 export default Cart;

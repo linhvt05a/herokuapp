@@ -1,8 +1,8 @@
 import React, { useState } from "react"
 import {CardHeader, CardNodata, Spinner} from '../../../components/common'
-import {InputDate, InputSelect} from '../../../components/input'
+import {Select} from '../../../components/base/Select'
 import {CUSTOMER_REQUEST_TYPE, CUSTOMER_REQUEST_STATUS, CUSTOMER_REQUEST_PRIORITY} from '../../../constant'
-
+import InputDate from '../../../components/base/DatePicker/DatePicker'
 const CardApprovedHistory = (props) => {
     const [selected, setSelected] = useState(true)
     const changeTab = () => {
@@ -10,7 +10,7 @@ const CardApprovedHistory = (props) => {
     }
     return (
         <div className="row ">
-            <CardFilterApproved onChange ={props.onChange}  onSearch={props.onSearch} onCancel={props.cancelSearch} />
+            <CardFilterApproved onChange ={props.onChange}  onSearch={props.onSearch}/>
             <CardReview 
                     selected={selected} 
                     data={props.data} 
@@ -27,15 +27,15 @@ const CardApprovedHistory = (props) => {
 const CardFilterApproved = (props) => {
     return (
         <div className="col-xl-3 col-lg-3 col-md-12 col-sm-12">
-            <CardHeader label="LỌC LỊCH SỬ PHÊ DUYỆT" />
+                    <CardHeader label="LỌC LỊCH SỬ PHÊ DUYỆT" />
             <div className="card square">
                 <div className="card-body">
-                    <InputSelect className="form-group" label="LOẠI YÊU CẦU" placeholder ="--Select--"  datas ={CUSTOMER_REQUEST_TYPE } name="request_type" onChange ={props.onChange}/>
+                    <Select className="form-group" label="LOẠI YÊU CẦU" placeholder ="--Select--" datas ={CUSTOMER_REQUEST_TYPE } name="request_type" onChange ={props.onChange}/>
                     <InputDate label="CHOOSE DATE" name="from_date" />
                     <InputDate  label="CHOOSE DATE" name="to_date" />
-                    <InputSelect className="form-group" label="TRẠNG THÁI" placeholder ="--Select--" datas={CUSTOMER_REQUEST_STATUS} name="request_status" onChange ={props.onChange}/>
-                    <InputSelect className="form-group" label="ĐỘ ƯU TIÊN" placeholder ="--Select--" datas ={CUSTOMER_REQUEST_PRIORITY} name="priority" onChange ={props.onChange}/>
-                    <FilterButton onSearch={props.onSearch} onCancel ={props.onCancel}/>
+                    <Select className="form-group" label="TRẠNG THÁI" placeholder ="--Select--" datas={CUSTOMER_REQUEST_STATUS} name="request_status" onChange ={props.onChange}/>
+                    <Select className="form-group" label="ĐỘ ƯU TIÊN" placeholder ="--Select--" datas ={CUSTOMER_REQUEST_PRIORITY} name="priority" onChange ={props.onChange}/> 
+                    <FilterButton onSearch={props.onSearch} />
                 </div>
             </div>
         </div>
@@ -51,7 +51,7 @@ const Mode = (props) => {
 const FilterButton = (props) => {
     return (
         <div className="text-center d-flex justify-space-between mt-4">
-            <button type="button" className="btn-uni-purple-outline min-height-40 w-50 mr-2" onClick={props.onCancel}>
+            <button type="button" className="btn-uni-purple-outline min-height-40 w-50 mr-2" >
                 Cancel search
             </button>
             <button type="button" className="btn-uni-purple min-height-40 w-50" onClick={props.onSearch}>

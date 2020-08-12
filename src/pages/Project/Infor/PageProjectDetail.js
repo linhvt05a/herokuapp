@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ProjectInfo from './Layout/ProjectInfo';
 import ProjectTab from './Layout/ProjectTab';
-import CardHeader from '../../../components/common/CardHeader';
+import CardHeader from '../../../components/Card/CardHeader';
 import { projectDetailRequest } from '../../../store/action/project';
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";

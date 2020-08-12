@@ -4,7 +4,9 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-d
 
 import { Page403, Page404, Page500 } from "./pages/Error"
 import { MainLogin, MainPage } from "./pages"
-import { LOGINS, MAINS, PATHS } from "./routes"
+import { LOGINS, MAINS, PATHS, STORYBOOKS } from "./routes"
+
+import StoryBook from "./storybook/config/page/StoryBook";
 
 
 // store 
@@ -28,7 +30,9 @@ class App extends React.Component {
                         {MAINS.map((data, idx) => (
                             <Route exact key={idx} path={data.path} render={(props) => <MainPage data={data} PATHS={PATHS} {...props} />} />
                         ))}
-
+                        {STORYBOOKS.map((data, idx) => (
+                            <Route exact key={idx} path={data.path} render={(props) => <StoryBook data={data} PATHS={PATHS} {...props} />} />
+                        ))}
                         <Route exact path="/403" component={Page403} />
                         <Route exact path="/404" component={Page404} />
                         <Route exact path="/500" component={Page500} />

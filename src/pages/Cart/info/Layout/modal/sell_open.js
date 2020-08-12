@@ -4,6 +4,7 @@ import { isProductType } from "../../../../../utils/Utils"
 import DatePicker from "../../../../../components/base/DatePicker/DatePicker"
 import { Trans } from 'react-i18next';
 import moment from "moment"
+import { CardNodata } from '../../../../../components/common';
 
 
 const sell_open = props => {
@@ -80,9 +81,9 @@ const sell_open = props => {
             </thead>
             <tbody style={{ maxHeight: `300px` }}>
 
-                {props.data.open_sell_detail != null && props.data.open_sell_detail.map((item, index) => {
+                {props.data.open_sell_detail != null ? props.data.open_sell_detail.map((item, index) => {
                     return [trParent(item, index), trChild(item)]
-                })}
+                }) : <CardNodata />}
             </tbody>
         </table>
     )

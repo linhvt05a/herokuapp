@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Trans } from 'react-i18next';
 import DropItem from "./DropItem.js"
+import { Link } from 'react-router-dom'
 
 class DropdownEnd extends DropItem {
 
@@ -25,7 +26,7 @@ class DropdownEnd extends DropItem {
                         </button>
                         <div class={this.state.show ? "dropdown-menu show" : "dropdown-menu"} style={{willChange: "transform", position: "absolute", transform: "translate3d(0px, 41px, 0px)", top: "0px", left: "0px"}}>
                             {
-                                this.props.datas && this.props.datas.map((item, index) => <a className="text-uppercase dropdown-item product_type" href={item.href} key={index} name={item.value} onClick={this.onClick}><Trans>{item.label}</Trans></a>)
+                                this.props.datas && this.props.datas.map((item, index) => <Link className="text-uppercase dropdown-item product_type" to={item.href} key={index} name={item.value} onClick={this.onClick}><Trans>{item.label}</Trans></Link>)
                             }
                         </div>
                     </div>

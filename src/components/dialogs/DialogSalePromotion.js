@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Trans } from "react-i18next";
 import { Modal } from "antd";
 import { CardHeader } from "../common";
-import { InputSelect, InputText, InputCheckBox } from "../../components/input";
+import { Select, InputText, InputCheckBox } from "../../components/input";
 import PropTypes from 'prop-types';
 const data = [
     {
@@ -120,7 +120,7 @@ const DialogSalePromotion = (props) => {
                             </div>
                         </div>
                     </div>
-                    <InputSelect className="col-12 col-sm-6 col-lg-4" datas={discount} value={1} label="Độ ưu tiên*" />
+                    <Select className="col-12 col-sm-6 col-lg-4" datas={discount} value={1} label="Độ ưu tiên*" />
                     <div className="form-group w-100">
                         <label className="fw-medium">Lý do  <span className="uni_star_e94c4c">*</span></label>
                         <textarea placeholder="Nhập lý do " className="form-control" id cols={30} rows={4} defaultValue={""} />
@@ -303,7 +303,7 @@ const DialogSalePromotion = (props) => {
             <CardHeader label="YÊU CẦU HỖ TRỢ" />
             <div className="uni_text_6d30ab fw-medium fs-18 mt-2 mb-2">YÊU CẦU </div>
             <div className="row">
-                <InputSelect value={state.request_select} isClear={state.request_select != 0 ? false : true} className="col-12 col-md-8" label="Loại yêu cầu" datas={request} placeholder="Danh sách yêu cầu" onChange={(value) => setState({ ...state, request_select: value })} />
+                <Select value={state.request_select} isClear={state.request_select != 0 ? false : true} className="col-12 col-md-8" label="Loại yêu cầu" datas={request} placeholder="Danh sách yêu cầu" onChange={(value) => setState({ ...state, request_select: value })} />
                 <InputText className="col-12 col-md-4" type="text" label={props.value.product_name} disabled />
             </div>
             {renderRequest()}
