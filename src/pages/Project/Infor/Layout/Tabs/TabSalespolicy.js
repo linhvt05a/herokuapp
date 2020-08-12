@@ -26,6 +26,7 @@ const TabSalespolicy = (props) => {
         setClick(newData)
     }
     const trParent = (data, index) => {
+        console.log('parent', data);
         return (
             <tr class="parent" data-parent={`row${index}`} key={index}>
                 <td class="number pl-0">{index + 1}</td>
@@ -59,6 +60,7 @@ const TabSalespolicy = (props) => {
                 </td>
                 <td></td>
                 <td class="text-center">
+                    {  }
                     <i class="icon icon_collapse las la-plus-circle" onClick={event => showTapsParent(event.target, index)}></i>
                 </td>
             </tr>
@@ -67,7 +69,7 @@ const TabSalespolicy = (props) => {
     
     const trChild = (data, index, status) => {
         let arr = [];
-        console.log('child ===', index, data);
+        console.log('child', data);
         if (data) {
             arr = data.map((item, i) => {
             return <tr className={`child child-row${index} ${click.length > 0 ? click[index] && click[index].status : null}`} key={i}>
@@ -99,16 +101,118 @@ const TabSalespolicy = (props) => {
                     }
                 </td>
                 <td></td>
-                <td class="text-center"><i class="icon icon_collapse las la-plus-circle"></i></td>
+                <td class="text-center"><i class="icon icon_collapse las la-plus-circle" onClick={event => showTapsChild(event.target, i, item.list_policy_agent, item.list_policy_internal)}></i></td>
             </tr>
             })
         }
         return arr;
     }
 
-    // const trChildArr = (data, index, status) => { 
-        
-    // }
+    const showTapsChild = (target, index, list_policy_agent, list_policy_internal) => {
+        let newData = [].concat(click);
+        if (target.className.indexOf('la-plus-circle') > -1) {
+            newData[index] = { id: index, status: "active" }
+            target.className = "icon icon_collapse las la-minus-circle"
+        }
+        else { target.className = "icon icon_collapse las la-plus-circle"; newData[index] = { id: index, status: "" } }
+        const ttt = target.parentElement.parentElement.className;
+        setClick(newData)
+        console.log('eeeeeeeee', list_policy_agent, list_policy_internal, ttt);
+        // push(<div>A</div>)
+        return (
+        <tr class="child child-row-262-2 active" data-child="row-262" data-parent="row-262-2-2">
+            <td class="border-bottom-none"></td>
+            <td class="border-bottom-none"></td>
+            <td colspan="1" class="pl-0">
+                <div class="floor_selected sales_internal_border">
+                    <div class="floor text-uppercase min-width-110 sales_internal_bg">
+                        Internal
+                    </div>
+                    <a class="agency channel min-width-230 sales_internal_text text-underline border-right-0">
+                        Total internal units: 0
+                    </a>
+                </div>
+            </td>
+            <td>
+                <a href="/backend/policy/business/project/13/block/2/edit/196?stage=262&amp;channel=2" target="_blank" class="link_href_6d30ab  font-weight-bold">
+                    <u> Giang giang</u>
+                </a>
+            </td>
+            <td>   
+                <span class="text-green-399b54 font-weight-bold">Active</span>
+            </td>
+            <td>
+                20/07/2020
+            </td>
+            <td>
+                30/07/2020
+            </td>
+            <td>
+            <span class="d-inline-flex align-items-center justify-content-center m_text_status_3 m_border_status_3 min-height-40 pl-3 pr-3 width-110">
+                Finished
+            </span>
+            </td>
+            <td>
+                <div class="list_icons">
+                    <a ref="comment" title="Note">
+                        <i class="icon icon_noti las la-comments"><small></small></i>
+                    </a>
+                </div>
+            </td>
+            <td class="text-center">
+            </td>
+        </tr>
+        )
+    }
+
+    const trChildPath = (data, index) => { 
+        console.log('child two', data);
+
+        // return (
+        // <tr class="child child-row-262-2 active" data-child="row-262" data-parent="row-262-2-2">
+        //     <td class="border-bottom-none"></td>
+        //     <td class="border-bottom-none"></td>
+        //     <td colspan="1" class="pl-0">
+        //         <div class="floor_selected sales_internal_border">
+        //             <div class="floor text-uppercase min-width-110 sales_internal_bg">
+        //                 Internal
+        //             </div>
+        //             <a class="agency channel min-width-230 sales_internal_text text-underline border-right-0">
+        //                 Total internal units: 0
+        //             </a>
+        //         </div>
+        //     </td>
+        //     <td>
+        //         <a href="/backend/policy/business/project/13/block/2/edit/196?stage=262&amp;channel=2" target="_blank" class="link_href_6d30ab  font-weight-bold">
+        //             <u> Giang giang</u>
+        //         </a>
+        //     </td>
+        //     <td>   
+        //         <span class="text-green-399b54 font-weight-bold">Active</span>
+        //     </td>
+        //     <td>
+        //         20/07/2020
+        //     </td>
+        //     <td>
+        //         30/07/2020
+        //     </td>
+        //     <td>
+        //     <span class="d-inline-flex align-items-center justify-content-center m_text_status_3 m_border_status_3 min-height-40 pl-3 pr-3 width-110">
+        //         Finished
+        //     </span>
+        //     </td>
+        //     <td>
+        //         <div class="list_icons">
+        //             <a ref="comment" title="Note">
+        //                 <i class="icon icon_noti las la-comments"><small></small></i>
+        //             </a>
+        //         </div>
+        //     </td>
+        //     <td class="text-center">
+        //     </td>
+        // </tr>
+        // )
+    }
 
     return (
         <div>
@@ -139,7 +243,7 @@ const TabSalespolicy = (props) => {
                         {salepolicyListRes ? salepolicyListRes.map((data, index) => {
                             return [trParent(data, index), trChild(data.list_block, index, data.status)]
                             // data.list_block ? data.list_block.map((childdata, childindex) => {
-                            //     return [trChildPath(childdata.list_policy_agent, childindex)]
+                            //     return [trParent(data, index), trChild(data.list_block, index, data.status), trChildPath(childdata.list_policy_agent, childindex)]
                             // }) : null
                         }) : null}
                     </tbody>
@@ -148,167 +252,5 @@ const TabSalespolicy = (props) => {
         </div>
     )
 }
-
-// const trParent = (data, index) => {
-//     return (
-//         <tr class="parent" data-parent={`row${index}`} key={index}>
-//             <td class="number pl-0">{index + 1}</td>
-//             <td colspan="2" class="pl-0">
-//                 <div class="floor_selected">
-//                     <div class="floor text-uppercase min-width-110">{data.name}</div>
-//                     <a class="agency channel min-width-230 uni_text_6d30ab text-underline border-right-0">
-//                         <Trans>Total number of distribution units:</Trans> {data.total_agent_distribute + data.total_internal_distribute}
-//                     </a>
-//                 </div>
-//             </td>
-//             <td></td>
-//             <td></td>
-//             <td>{data.sell_open_date}</td>
-//             <td>{data.sell_end_date}</td>
-//             <td>
-//                 {   data.status == 1 ? 
-//                     <span class="d-inline-flex align-items-center justify-content-center m_text_status_1 m_border_status_1 min-height-40 pl-3 pr-3 width-110">
-//                         <Trans>Expect</Trans>
-//                     </span>
-//                     : data.status == 2 ?
-//                     <span class="d-inline-flex align-items-center justify-content-center m_text_status_2 m_border_status_2 min-height-40 pl-3 pr-3 width-110">
-//                         <Trans>Opening</Trans>
-//                     </span>
-//                     : data.status == 3 ?
-//                     <span class="d-inline-flex align-items-center justify-content-center m_text_status_3 m_border_status_3 min-height-40 pl-3 pr-3 width-110">
-//                         <Trans>Finished</Trans>
-//                     </span>
-//                     : ""
-//                 }
-//             </td>
-//             <td></td>
-//             <td class="text-center">
-//                 <i class="icon icon_collapse las la-plus-circle" onClick={event => showTapsParent(event.target, index)}></i>
-//             </td>
-//         </tr>
-//     )
-// }
-const trChildPath = (data, index) => {
-    console.log('Child path', index, data);
-}
-const RowListSalePolicy = (props) => {
-    const { data, index } = props;
-    const [state, setActive] = useState({
-        activetab1 : false,
-        activetab2 : false,
-    });
-    // const showTaps = () => {
-    //     setActive({ ...state, activetab1: true })
-    // }
-    console.log('ggggggg', state.activetab1);
-    return (
-        <tr class="parent" data-parent="row-262">
-            <td class="number pl-0">{index + 1}</td>
-            <td colspan="2" class="pl-0">
-                <div class="floor_selected">
-                    <div class="floor text-uppercase min-width-110">{data.name}</div>
-                    <a class="agency channel min-width-230 uni_text_6d30ab text-underline border-right-0">
-                        <Trans>Total number of distribution units:</Trans> {data.total_agent_distribute + data.total_internal_distribute}
-                    </a>
-                </div>
-            </td>
-            <td></td>
-            <td></td>
-            <td>{data.sell_open_date}</td>
-            <td>{data.sell_end_date}</td>
-            <td>
-                {   data.status == 1 ? 
-                    <span class="d-inline-flex align-items-center justify-content-center m_text_status_1 m_border_status_1 min-height-40 pl-3 pr-3 width-110">
-                        <Trans>Expect</Trans>
-                    </span>
-                    : data.status == 2 ?
-                    <span class="d-inline-flex align-items-center justify-content-center m_text_status_2 m_border_status_2 min-height-40 pl-3 pr-3 width-110">
-                        <Trans>Opening</Trans>
-                    </span>
-                    : data.status == 3 ?
-                    <span class="d-inline-flex align-items-center justify-content-center m_text_status_3 m_border_status_3 min-height-40 pl-3 pr-3 width-110">
-                        <Trans>Finished</Trans>
-                    </span>
-                    : ""
-                }
-            </td>
-            <td></td>
-            <td class="text-center">
-                <i class="icon icon_collapse las la-plus-circle"></i>
-            </td>
-        </tr>
-        // <tr class="child child-row-262-1871" data-child="row-262" data-parent="row-262-1871-1">
-        //     <td class="border-bottom-none"></td>
-        //     <td class="border-bottom-none"></td>
-        //     <td colspan="1" class="pl-0">
-        //         <div class="floor_selected sales_agency_border">
-        //             <div class="floor text-uppercase min-width-110 sales_agency_bg">
-        //                 Agent
-        //             </div>
-        //             <a class="agency channel min-width-230 sales_agency_text text-underline border-right-0">
-        //                 Total internal units: 0
-        //             </a>
-        //         </div>
-        //     </td>
-        //     <td>
-        //         <span class="uni_text_6d30ab">-</span>
-        //     </td>
-        //     <td></td>
-        //     <td>
-        //         20/07/2020
-        //     </td>
-        //     <td>
-        //         30/07/2020
-        //     </td>
-        //     <td>
-        //         <span class="d-inline-flex align-items-center justify-content-center m_text_status_2 m_border_status_2 min-height-40 pl-3 pr-3 width-110">
-        //             Opening
-        //         </span>
-        //     </td>
-        //     <td>
-        //         <div class="list_icons">
-        //             <a ref="comment" title="Note">
-        //                 <i class="icon icon_noti las la-comments">
-        //                     <small></small>
-        //                 </i>
-        //             </a>
-        //         </div>
-        //     </td>
-        //     <td class="text-center"></td>
-        // </tr>
-    )
-}
-
-// const RowListSalePolicyChild = (props) => {
-//     const { data } = props;
-//     const [state, setActive] = useState({
-//         activetab : false,
-//     });
-//     console.log('ggggggg', state.activetab, data);
-//     return (
-//         data && data.map((item, index) => (
-//         <tr class="parent child child-row-262 active" data-child="row-262" data-parent-two="row-262-2" data-parent="row-262-2" key={index}>
-//             <td class="border-bottom-none"></td>
-//             <td colspan="2" class="pl-0">
-//                 <div class="min-height-40 block-name">
-//                     {item.block_name}
-//                 </div>
-//             </td>
-//             <td>
-//             </td>
-//             <td></td>
-//             <td>{item.sell_open_date}</td>
-//             <td>{item.sell_end_date}</td>
-//             <td>
-//                 <span class="d-inline-flex align-items-center justify-content-center m_text_status_3 m_border_status_3 min-height-40 pl-3 pr-3 width-110">
-//                     Finished
-//                 </span>
-//             </td>
-//             <td></td>
-//             <td class="text-center"><i class="icon icon_collapse las la-plus-circle active"></i></td>
-//         </tr>
-//         ))
-//     )
-// }
 
 export default TabSalespolicy;
