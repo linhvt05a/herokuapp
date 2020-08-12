@@ -30,7 +30,7 @@ function list(token, search_name = "", status_id = "", setting_type) {
     };
 
     const params = { search_name, status_id, setting_type };
-    const url = api.getUrl(api.CART_LIST, params); console.log(url);
+    const url = api.getUrl(api.CART_LIST, params);
     return api.handleRequest(url, requestOptions);
 }
 

@@ -7,7 +7,7 @@ const CartProductDetail = props => {
         <div className="col-12 col-sm-6 col-lg-6 col-xl-4 mb-4">
             <div className="item">
                 <figure className="image">
-                    <img src={data.avatar_url} />
+                    <img src={data.avatar_url ? data.avatar_url : "/static/images/logo_full_name.svg"} />
                 </figure>
                 <div className="content">
                     <p className={`type m_text_${data.setting_type_bg_color}`}>
