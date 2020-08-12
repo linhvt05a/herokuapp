@@ -12,7 +12,8 @@ import CardTabFilter from './CardTabFilter';
 import CardColumnChart from './CardColumnChart';
 import CardHeader from './CardHeader';
 import CardNodata from "./CardNodata";
-import CardProductFilter from "./CardProductFilter"
+import CardProductFilter from "./CardProductFilter";
+import CardProduct from "./CardProduct"
 export {
     CardMap, CardProject, CardTask,
     CardFilterPosition, CardFilterTask, CardTaskTree,
@@ -20,5 +21,6 @@ export {
     CardProjectInfor, CardProjectEmpty, CardProjectInforProgress,
     CardColumnChart, CardNodata,
     CardHeader,
-    CardProductFilter
+    CardProductFilter,
+    CardProduct
 };

@@ -5,6 +5,7 @@ import { Trans } from 'react-i18next';
 
 const CardProductFilter = props => {
     let { dataFilter, label, onFilter } = props;
+    console.log(dataFilter);
     return (
         <ul className="m_filter--type">
             <li className="first"><span><Trans>{label}</Trans></span></li>

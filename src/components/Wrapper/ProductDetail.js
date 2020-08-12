@@ -13,17 +13,6 @@ const body = props => {
             <div className="m_filter pb-4">
                 <div className="d-flex align-items-center justify-content-xl-between flex-xl-nowrap flex-wrap justify-content-start">
                     <CardProductFilter onFilter={props.onClickType} dataFilter={dataFilter} label="Lọc bởi:" />
-                    {/* <ul className="m_filter--type">
-                        <li className="first"><span>Lọc bởi: </span></li>
-                        {dataFilter ? dataFilter.map((item, index) => {
-                            return (
-                                <li key={index}>
-                                    <i className={`las la-square ${item.color}`}></i>
-                                    <span><a onClick={() => props.onClickType(item)} style={{ textDecorationLine: "underline" }}><Trans>{item.name}</Trans></a></span>
-                                </li>
-                            )
-                        }) : <CardNodata />}
-                    </ul> */}
                     <ul className="m_filter--show mt-xl-0 mt-2">
                         <li className="first"><span><Trans>Displayed by</Trans></span></li>
                         <li className={state ? "active" : ""} onClick={() => setState(true)}><a><i className="la la-th"></i></a></li>
