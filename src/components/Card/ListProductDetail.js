@@ -6,7 +6,7 @@ const CartProductDetail = props => {
     return (
         <div className="col-12 col-sm-6 col-lg-6 col-xl-4 mb-4">
             <div className="item">
-                <figure className="image">
+                <figure className="image" style={{minHeight: '200px'}}>
                     <img src={item.avatar_url} />
                 </figure>
                 <div className="content">
