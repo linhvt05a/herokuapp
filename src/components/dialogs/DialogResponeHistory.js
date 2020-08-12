@@ -3,7 +3,6 @@ import { CardHeader } from "../common";
 import { Modal } from 'react-bootstrap'
 import TextEditor from '../base/Editor/TextEditor'
 
-
 const DialogResponeHistory = (props) => {
   const [showReplyForm, setshowReplyForm] = useState(false)
   const { list_comment } = props
@@ -41,7 +40,7 @@ const DialogResponeHistory = (props) => {
                       </div>
                     </div>
                   ))}
-                <ShowFormReply showReplyForm={showReplyForm}  closeForm={() => setshowReplyForm(false)} />
+                <ShowFormReply image={props.image} changeComment ={props.changeComment} showReplyForm={showReplyForm} sendMessage ={props.sendMessage} closeForm={() => setshowReplyForm(false)} />
               </div>
             </div>
             <CloseButton close={props.close} />
@@ -53,17 +52,23 @@ const DialogResponeHistory = (props) => {
 }
 
 function ShowFormReply(props) {
-  if (props.showReplyForm === true) {
-    return (
+  if(props.showReplyForm === true){
+    return(
       <>
-        <TextEditor value = "" handleChange = {props.handleChange}/>
+      <figure className="avatar">
+          <img src= {props.image} />
+      </figure>
+      <TextEditor value = "" handleChange = {props.changeComment} />
+           <div className="modal-footer pt-0 border-top-0" style={{ marginTop: 25}}>
+             <button className=" square btn-uni-exit min-width-button" style={{backgroundColor:'#6d30ab', color:'#fff'}} onClick={props.sendMessage}>SEND</button>
+          </div>
       </>
     )
-}else{
-  return <></>
-}
-}
-
+  }else {
+    return<></>
+  }
+  
+ }
 function CloseButton(props) {
   return (
     <div className="modal-footer pt-0 border-top-0">

@@ -16,7 +16,8 @@ import {
   projectDetailRequest,
   projectEditRequest,
   SellOpenListRequest,
-  bankingListRequest
+  bankingListRequest,
+  salepolicyListRequest,
 } from "./project";
 
 import { 
@@ -25,6 +26,7 @@ import {
     addCommentRequest
 } from "./approval";
 
+import {productDetailRequest} from './product'
 export {
   currentcyAddRequest,
   currentcyDetailRequest,
@@ -40,9 +42,10 @@ export {
   projectEditRequest,
   SellOpenListRequest,
   bankingListRequest,
+  salepolicyListRequest,
 
   approvedListRequest,
   commentListRequest,
-  addCommentRequest
-  
+  addCommentRequest,
+  productDetailRequest
 };

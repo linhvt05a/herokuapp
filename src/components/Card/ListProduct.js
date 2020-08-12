@@ -8,7 +8,6 @@ import CardNodata from "../common/CardNodata"
 const body = props => {
     let { dataFilter, data, page, total_page, total_record, link_to } = props;
     const [state, setState] = useState(true);
-
     return (
         <div className="m_table--wrapper">
             <div className="m_filter pb-4">
@@ -19,7 +18,7 @@ const body = props => {
                             return (
                                 <li key={index}>
                                     <i className={`las la-square ${item.color}`}></i>
-                                    <span><a href="#"><Trans>{item.name}</Trans></a></span>
+                                    <span><a onClick={() => props.onClickType(item)} style={{ textDecorationLine: "underline" }}><Trans>{item.name}</Trans></a></span>
                                 </li>
                             )
                         }) : <CardNodata />}
@@ -54,4 +53,4 @@ const body = props => {
 
     )
 }
-export default body
+export default body;

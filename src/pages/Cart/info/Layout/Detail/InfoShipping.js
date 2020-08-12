@@ -2,12 +2,12 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState, useEffect } from 'react';
-import { product_type_id, product_status } from "../../../../../constant";
 import { Trans } from 'react-i18next';
 import { Select } from "../../../../../components/input";
 import ModalRequest from "../modal/ModalRequest"
 import { Link } from 'react-router-dom';
 import { useSelector } from "react-redux";
+import { isProductStatus, isProductType, isProductColor, formatCurrency } from "../../../../../utils/Utils"
 
 const InfoShipping = props => {
     const token = 'MTAwNjpNVEF3Tmpwa05ESmlPVGc1WldVM05HWmhNMlZrWXpWaFlqQXhOalV4T1RReFl6QmtOVFUyTW1Oa1pUVTQ=';
@@ -59,29 +59,21 @@ const InfoShipping = props => {
         setClick(newData)
     }
 
-    const ProductStatus = (value) => {
-        for (let i in product_status) {
-            if (product_status[i].id == value) {
-                return product_status[i].name
-            }
-        }
-    }
-
-    const ProductType = (value) => {
-        for (let i in product_type_id) {
-            if (product_type_id[i].id == value)
-                return product_type_id[i].name;
-        }
-    }
     //will-change: transform; position: absolute; transform: translate3d(-137px, -145px, 0px); top: 0px; left: 0px;
     const renderPopUp = (value) => {
+       
         return (
             <div className="dropdown-menu show" x-placement="top-start" style={{ position: 'absolute', transform: 'translate3d(-183px, -150px, 0px)', top: 0, left: 0, willChange: 'transform' }}>
                 <a className="dropdown-item" data-toggle="modal" data-target="#createRequest" onClick={() => setShow({ ...show, Show_request: true, value: value })}>
                     <i className="icon-dropdown las la-question-circle" /><Trans>Create a request</Trans></a>
-                <Link to={{ pathname: "/perm/project", state: { text: 123 } }} className="dropdown-item" >
+
+                <Link to={'/perm/project/' + value.product_id}
+                    className="dropdown-item" 
+                    >
                     <i className="icon-dropdown las la-list-alt" />
-                    <Trans>See requirements</Trans></Link>
+                    <Trans>See requirements</Trans>
+                </Link>
+
                 <a className="dropdown-item" onClick={() => setShow({ ...show, Show_contract: true })}>
                     <i className="icon-dropdown las la-plus-square" /><Trans>Create a contract</Trans></a>
                 <a className="dropdown-item" onClick={() => setShow({ ...show, Show_return: true })} >
@@ -128,15 +120,16 @@ const InfoShipping = props => {
                     <td>
                         <i className="icon las la-sticky-note uni_text_e94c4c icon_total_request"><small>{value.total_request}</small></i>
                         <div className="fw-medium uni_text_6d30ab name_apart">{value.product_name}</div>
-                        <span className="fw-medium uni_text_000 ">[ - | 120.0 m2 ]</span>
+                        <span className="fw-medium uni_text_000 ">{`[ ${value.architecture_type_name}  | ${value.area_m2_total} m2 ]`}</span>
                     </td>
                     <td>
                         <div
-                            className={`sales_status_cart${value.product_status} sales_status_cart_2 min-height-40`}
-                        ><Trans>{ProductStatus(value.product_status)}</Trans></div>
+                            className={`sales_status_cart sales_status_cart_2 min-height-40 `}
+                            style={{ borderColor: isProductColor(value.product_status), color: isProductColor(value.product_status) }}
+                        ><Trans>{isProductStatus(value.product_status)}</Trans></div>
                     </td>
                     <td>
-                        <Trans>   {ProductType(value.product_type_id)}</Trans>
+                        <Trans>{isProductType(value.product_type_id)}</Trans>
                     </td>
                     <td>
                         <div className="input-group min-max">
@@ -153,7 +146,7 @@ const InfoShipping = props => {
                     </td>
                     <td>
                         <div className="form-group max-width-200 mb-0">
-                            <input type="text" defaultValue={value.product_price} placeholder="-" disabled className="form-control text-right uni_text_000 " />
+                            <input type="text" defaultValue={formatCurrency(value.product_price) + value.product_price_unit_name} placeholder="-" disabled className="form-control text-right uni_text_000 " />
                         </div>
                     </td>
                     <td className="text-center">
@@ -174,6 +167,7 @@ const InfoShipping = props => {
         }
         return arr
     }
+
     return (
         <div className="card square">
             <div className="card-body m_table--collapse">
@@ -199,8 +193,8 @@ const InfoShipping = props => {
                         className="col-lg-3 col-md-6 col-sm-12"
                         label="Choose floor or lot"
                         placeholder="Choose floor or lot"
-                        name="status" isClear={state.floorStatus.value == "" ? true : false}
-                        value={state.floorStatus.value} datas={state.dataFilterFloor}
+                        name="status" isClear={state.FilterFloorStatus.value == "" ? true : false}
+                        value={state.FilterFloorStatus.value} datas={state.dataFilterFloor}
                         onChange={(value) => props.onChangeFloor(value)} />
 
                     <div className="col-lg-3 col-md-6 col-sm-12">

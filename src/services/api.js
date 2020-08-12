@@ -16,8 +16,8 @@ export default {
 
     HISTORY_APPROVED: '/api/be/v1/approval/',
     LIST_COMMENT: '/api/be/v1/request/comment/',
-    ADD_COMMENT:'/api/be/v1/request/add/comment/',
-    
+    ADD_COMMENT: '/api/be/v1/request/add/comment/',
+
     DASHBOARD_REGION_LIST: '/api/fe/v1/region',
     DASHBOARD_PROVINCE_LIST: '/api/fe/v1/province',
     DASHBOARD_TYPE_LIST: '/api/be/v1/common/project/setting_type',
@@ -46,8 +46,10 @@ export default {
     PROJECT_NEWS_EDIT: '/api/v1/project/news/edit/',
     PROJECT_NEWS_DELETE: '/api/v1/project/news/delete/',
     PROJECT_CURRENCY_LIST: '/api/v1/project/currency/list/',
+    
     PROJECT_SELLOPEN_LIST: '/api/be/v1/shopping_cart/sell_open/',
     PROJECT_BANKING_LIST: '/api/be/v1/shopping_cart/banking/',
+    PROJECT_SALE_POLICY_LIST: '/api/be/v1/policy_sale/',
 
     SYS_CURRENCY_LIST: '/api/v1/system/currency/list/',
     SYS_CURRENCY_ADD: '/api/v1/system/currency/add/',
@@ -92,6 +94,11 @@ export default {
 
     //Product
     PRODUCT_DETAIL: "/api/be/v1/infrastructure/product/detail/",
+
+    //Request Cart
+    CART_REQUEST_DATA: "/api/be/v1/distribution/add_request/",
+    CART_PROMOTION_LIST: "/api/be/v1/policy_promotion/list_promotion_short/",
+    
 
     getHeader,
     getUrl,

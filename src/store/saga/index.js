@@ -29,13 +29,18 @@ import {
 import {
   projectDetailWatcher,
   sellopenListWatcher,
-  bankingListWatcher
+  bankingListWatcher,
+  salepolicyListWatcher
 } from './projectSaga';
 import {
   commentListWatcher, 
   approveListWatcher,
   addCommentWatcher
 } from './approval'
+import {
+  requestDataWatcher,
+  promotionListWatcher
+} from './requestCartSaga'
   
 function* allSaga() {
   yield all([
@@ -65,10 +70,14 @@ function* allSaga() {
     projectDetailWatcher(),
     sellopenListWatcher(),
     bankingListWatcher(),
+    salepolicyListWatcher(),
 
     commentListWatcher(),
     approveListWatcher(),
-    addCommentWatcher()
+    addCommentWatcher(),
+
+    requestDataWatcher(),
+    promotionListWatcher()
   ]);
 }
 

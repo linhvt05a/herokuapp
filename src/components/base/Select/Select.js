@@ -2,16 +2,17 @@ import React from 'react';
 import { Trans } from 'react-i18next';
 import { Select } from 'antd';
 
-const SelectCustom = (props) => {
-    const { className, name, value, label, datas, placeholder, onChange, isClear } = props;
+const InputSelect = (props) => {
+    const { className, name, value, label, datas, placeholder, onChange, isClear, classNameGroup } = props;
     const { Option } = Select;
+
     return (
         <div className={className ? className : ''}>
-            <div className="form-group">
+            <div className={classNameGroup ? classNameGroup : "form-group"}>
                 {
                     label &&
                     <label className="fw-medium">
-                        {label}
+                        <Trans>{label}</Trans>
                     </label>
                 }
 
@@ -21,8 +22,7 @@ const SelectCustom = (props) => {
                     className="form-control"
                     onChange={onChange}
                     value={isClear ? null : value}
-                    placeholder={placeholder}
-
+                    placeholder={<Trans>{placeholder}</Trans>}
                     children={datas && datas.map((e, key) => {
                         return <Option name={name} key={key} value={e.value}>{e.label}</Option>;
                     })} />
@@ -32,4 +32,5 @@ const SelectCustom = (props) => {
     )
 }
 
-export default SelectCustom;
+export default InputSelect;
+

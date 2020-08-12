@@ -1,15 +1,13 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import React from 'react';
-import { product_type_id } from "../../../../../constant"
+import { isProductType } from "../../../../../utils/Utils"
+import DatePicker from "../../../../../components/base/DatePicker/DatePicker"
 import { Trans } from 'react-i18next';
-const sell_open = props => {
-    const ProductType = (value) => {
-        for (let i in product_type_id) {
-            if (product_type_id[i].id == value)
-                return product_type_id[i].name;
+import moment from "moment"
 
-        }
-    }
+
+const sell_open = props => {
+
     const trChild = (item) => {
         let arr = [];
         arr = item.list_product_type.map((value, index) => {
@@ -17,7 +15,7 @@ const sell_open = props => {
                 <tr key={value.product_type_id + index}>
                     <td className={`col-3 pl-0  ${index !== item.list_product_type.length - 1 ? "border-bottom-none" : null} `}></td>
                     <td className="col-3 pl-0">
-                        <Trans>{ProductType(value.product_type_id)}</Trans>
+                        <Trans>{isProductType(value.product_type_id)}</Trans>
                     </td>
                     <td className="col-3 text-center">
                         <div className="sales_number_selected">
@@ -48,14 +46,21 @@ const sell_open = props => {
                     <div className="d-flex">
                         <div className="input_date mr-4">
                             <div className="text_date"><Trans>from</Trans></div>
+                            {/* <DatePicker
+                                value={item.sell_open_date}
+                                className="m_datepicker form-group mb-0"
+                                classValue="form-control js-datepicker"
+                                disabled={true}
+                                dateFormat="DD-MM-YYYY"
+                            /> */}
                             <div className="m_datepicker form-group mb-0">
-                                <input style={{ backgroundColor: "#ebebeb" }} type="text" className="form-control js-datepicker" placeholder="-" defaultValue={item.sell_open_date} disabled="" />
+                                <input style={{ backgroundColor: "#ebebeb" }} type="text" className="form-control js-datepicker" placeholder="-" defaultValue={moment(item.sell_open_date).format("DD-MM-YYYY")} disabled="" />
                             </div>
                         </div>
                         <div className="input_date">
                             <div className="text_date"><Trans>to</Trans></div>
                             <div className="m_datepicker form-group mb-0">
-                                <input style={{ backgroundColor: "#ebebeb" }} type="text" className="form-control js-datepicker" placeholder="-" defaultValue={item.sell_end_date} disabled="" />
+                                <input style={{ backgroundColor: "#ebebeb" }} type="text" className="form-control js-datepicker" placeholder="-" defaultValue={moment(item.sell_end_date).format("DD-MM-YYYY")} disabled="" />
                             </div>
                         </div>
                     </div>
@@ -82,4 +87,4 @@ const sell_open = props => {
         </table>
     )
 }
-export default sell_open;
+export default React.memo(sell_open);

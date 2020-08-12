@@ -40,7 +40,7 @@ const MAINS = [
     { "path": "/info/project", "value": Project.PageProject, "menu": "menu_list_task_by_projects", "title": "Dự án" },
     { "path": "/info/project/detail/:id", "value": Project.PageProjectDetail, "menu": "menu_project_detail_customer_info", "title": "Thông tin dự án" },
 
-    { "path": "/perm/project", "value": System.PageListCart, "menu": "menu_perm_task_by_projects", "title": "" },
+    { "path": "/perm/project/:id", "value": System.PageListCart, "menu": "menu_perm_task_by_projects", "title": "" },
     // { "path": "/perm/project/add", "value": Perm.PagePermProjectAdd, "menu": "menu_perm_task_by_projects", "title": "Add" },
     // { "path": "/perm/project/detail/:id", "value": Perm.PagePermProjectDetail, "menu": "menu_perm_task_by_projects", "title": "Update" },
 

@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 import Sell_Open from "../modal/sell_open";
 import ModalAgent from "../modal/ModalAgent";
 import ModalInternal from "../modal/ModalInternal"
+import { Trans } from 'react-i18next';
 
 const progress = props => {
     const [state, setState] = useState({
@@ -17,14 +18,14 @@ const progress = props => {
             <div className="card-body p-0 d-flex flex-column justify-content-between">
                 <div className="top pt-3 pl-3 pr-3">
                     <div className="sales_status mb-2">
-                        <p className="title">Note</p>
+                        <p className="title"><Trans>Note</Trans></p>
                         <p className="item">
                             <span className="square sales_status_style02_01_bg"></span>
-                            <span className="text sales_status_style02_01_text">Expected</span>
+                            <span className="text sales_status_style02_01_text"><Trans>Expected</Trans></span>
                         </p>
                         <p className="item">
                             <span className="square sales_status_style02_02_bg"></span>
-                            <span className="text sales_status_style02_02_text">Reality</span>
+                            <span className="text sales_status_style02_02_text"><Trans>Reality</Trans></span>
                         </p>
                     </div>
 
@@ -33,14 +34,6 @@ const progress = props => {
                     </div>
                 </div>
 
-                {/* <div className="statistical_list_href">
-                        <a className="statistical_list_href_01" data-toggle="modal" data-target="#listAgencyChannel" onClick={() => setState({ ...state, AgentsStatus: true })}>List of participating agents
-                                        [5]</a>
-                        <a className="statistical_list_href_02" data-toggle="modal" data-target="#listInternalChannel" onClick={() => setState({ ...state, InternalStatus: true })}>List of internal sales
-                                        [8]</a>
-                    </div>
-                    <ModalAgent active={state.AgentsStatus} onClick={() => setState({ ...state, AgentsStatus: false })} />
-                    <ModalInternal active={state.InternalStatus} onClick={() => setState({ ...state, InternalStatus: false })} /> */}
             </div>
         </div>
 

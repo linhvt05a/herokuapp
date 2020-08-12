@@ -24,6 +24,10 @@ import {
     BANKING_LIST_REQUEST,
     BANKING_LIST_SUCCESS,
     BANKING_LIST_FAILURE,
+
+    POLICY_SALE_LIST_REQUEST,
+    POLICY_SALE_LIST_SUCCESS,
+    POLICY_SALE_LIST_FAILURE,
 } from '../actionType/project';
 
 // project list
@@ -129,4 +133,19 @@ export function* bankingList(payload) {
 }
 export function* bankingListWatcher() {
     yield takeLatest(BANKING_LIST_REQUEST, bankingList);
+}
+
+// sale policy list
+export function* salepolicyList(payload) {
+    const token = payload.salepolicy.token;
+    const id = payload.salepolicy.project_id;
+    try {
+        const response = yield projectService.salepolicyList(token, id);
+        response.success ? yield put({ type: POLICY_SALE_LIST_SUCCESS, response }) : yield put({ type: POLICY_SALE_LIST_FAILURE, response });
+    } catch (err) {
+        yield put({ type: POLICY_SALE_LIST_FAILURE, err });
+    }
+}
+export function* salepolicyListWatcher() {
+    yield takeLatest(POLICY_SALE_LIST_REQUEST, salepolicyList);
 }

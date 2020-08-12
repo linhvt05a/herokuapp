@@ -19,6 +19,10 @@ import {
   BANKING_LIST_REQUEST,
   BANKING_LIST_SUCCESS,
   BANKING_LIST_FAILURE,
+
+  POLICY_SALE_LIST_REQUEST,
+  POLICY_SALE_LIST_SUCCESS,
+  POLICY_SALE_LIST_FAILURE,
 } from '../actionType/project';
 
 const initialState = {
@@ -28,6 +32,7 @@ const initialState = {
   projectAdd: {},
   sellopenList: {},
   bankingList: {},
+  salepolicyList: {},
   isFetching: false,
 };
 
@@ -74,6 +79,13 @@ export default (state = initialState, action) => {
       return { ...state, isFetching: false, bankingList: action.response };
     case BANKING_LIST_FAILURE:
       return { ...state, isFetching: false, bankingList: { success: false, error: action.err } };
+
+    case POLICY_SALE_LIST_REQUEST:
+      return { ...state, isFetching: true, salepolicyList: { success: false } };
+    case POLICY_SALE_LIST_SUCCESS:
+      return { ...state, isFetching: false, salepolicyList: action.response };
+    case POLICY_SALE_LIST_FAILURE:
+      return { ...state, isFetching: false, salepolicyList: { success: false, error: action.err } };
     default:
       return state;
   }
