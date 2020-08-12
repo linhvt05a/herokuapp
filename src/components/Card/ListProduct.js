@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import Pagination from "../common/Pagination"
 import { Trans } from 'react-i18next';
-import ListProductDetail from "./ListProductDetail";
+import ListProductDetail from "./ListProductGird";
 import ListProductTable from "./ListProductTable";
 import CardNodata from "../common/CardNodata"
 const body = props => {
@@ -34,7 +34,7 @@ const body = props => {
             {state ? <div className="m_grid m_grid--list_project">
                 <div className="row">
                     {data.length > 0 ? data.map((item, index) => {
-                        return <ListProductDetail item={item} index={index} key={index} link_to={link_to} />
+                        return <ListProductDetail data={item} index={index} key={index} link_to={link_to} />
                     }) : <CardNodata />}
                 </div >
             </div > :

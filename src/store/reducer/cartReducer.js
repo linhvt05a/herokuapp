@@ -15,6 +15,11 @@ const initialState = {
     total_page: 0,
     total_record: 0,
     isFetching: false,
+    isLoadingDetail: true,
+    isLoadingList: true,
+    isLoadingSaleOpen: true,
+    isLoadingSaleOpenList: true,
+    isLoadingSaleOpenCart: true,
     error: [],
     success: false
 };
@@ -26,6 +31,7 @@ export default (state = initialState, action) => {
                 ...state,
                 Detail: action.response.detail,
                 isFetching: true,
+                isLoadingDetail: false,
                 success: action.response.success
 
             };
@@ -34,6 +40,7 @@ export default (state = initialState, action) => {
                 ...state,
                 isFetching: false,
                 error: action.response.err,
+                isLoadingDetail: false,
                 success: false
             };
         case actions.LOAD_LIST_SUCCESS:
@@ -44,13 +51,15 @@ export default (state = initialState, action) => {
                 page: action.response.page,
                 total_page: action.response.total_page,
                 total_record: action.response.total_record,
-                success: action.response.success
+                success: action.response.success,
+                isLoadingList: false,
             };
         case actions.LOAD_SELL_OPEN_SUCCESS:
             return {
                 ...state,
                 Sell_Open: action.response.detail,
                 isFetching: true,
+                isLoadingSaleOpen: false,
                 success: action.response.success
             };
         case actions.LOAD_SELL_OPEN_FAILURE:
@@ -58,6 +67,7 @@ export default (state = initialState, action) => {
                 ...state,
                 isFetching: false,
                 error: action.response.err,
+                isLoadingSaleOpen: false,
                 success: false
             }
         case actions.LOAD_SELL_OPEN_LIST_SUCCESS:
@@ -65,6 +75,7 @@ export default (state = initialState, action) => {
                 ...state,
                 Sell_Open_Floor: action.response.detail,
                 isFetching: true,
+                isLoadingSaleOpenList: false,
                 success: action.response.success
             };
         case actions.LOAD_SELL_OPEN_LIST_FAILURE:
@@ -72,21 +83,24 @@ export default (state = initialState, action) => {
                 ...state,
                 isFetching: false,
                 error: action.response.err,
-                success: false
+                success: false,
+                isLoadingSaleOpenList: false
             }
         case actions.LOAD_SELL_OPEN_CART_SUCCESS:
             return {
                 ...state,
                 Sell_Open_Cart: action.response.detail,
                 isFetching: true,
-                success: action.response.success
+                success: action.response.success,
+                isLoadingSaleOpenCart: false
             };
         case actions.LOAD_SELL_OPEN_CART_FAILURE:
             return {
                 ...state,
                 isFetching: false,
                 // error: action.response.err,
-                success: false
+                success: false,
+                isLoadingSaleOpenCart: false
             }
 
 

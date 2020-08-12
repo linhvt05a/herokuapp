@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import actions from "../../../store/action/cart"
 import Item from "./Layout";
-import CardHeader from "../../../components/common/CardHeader";
+import { CardHeader, Loading } from "../../../components/common";
 
 const Edit = props => {
     const [state, setState] = useState({
@@ -87,8 +87,8 @@ const Edit = props => {
     }
 
     const onFilteSaleOpen = (value) => {
-        setState({ ...state, saleOpenStatus: value })
-        dispatch(actions.LoadSellOpenCart({ token: token, id: props.params.id, sell_open_id: value.value, block_id: state.FilterBlockStatus.value, floor_or_lot_id: state.FilterFloorStatus.value }));
+        setState({ ...state, saleOpenStatus: value, FilterFloorStatus: { value: "", label: "" }, FilterAreaStatus: { value: "", label: "" }, FilterBlockStatus: { value: "", label: "" } })
+        dispatch(actions.LoadSellOpenCart({ token: token, id: props.params.id, sell_open_id: value.value }));
         dispatch(actions.LoadFilterBlock({ token: token, id: props.params.id, sell_open_id: value.value, area_id: state.FilterAreaStatus.value }));
         dispatch(actions.LoadFilterFloor({ token: token, id: props.params.id, sell_open_id: value.value, area_id: state.FilterAreaStatus.value }));
         dispatch(actions.LoadFilterArea({ token: token, id: props.params.id, sell_open_id: value.value }));
@@ -134,20 +134,21 @@ const Edit = props => {
         [<div className="row mt-3">
             <div className="col-xl-6 col-lg-6 col-md-12 col-sm-12 d-flex flex-column">
                 <CardHeader label="PROJECT INFORMATION" />
-                <Item.Detail_info data={dataCart.Detail} />
+                {dataCart.isLoadingDetail ? <Loading /> : <Item.Detail_info data={dataCart.Detail} />}
             </div>
             <div className="col-xl-6 col-lg-6 col-md-12 col-sm-12 d-flex flex-column">
                 <CardHeader label="STATISTICS OF OPEN SALE" />
-                <Item.Detail_progress data={dataCart.Detail} dataSellOpen={dataCart.Sell_Open} />
+                {dataCart.isLoadingSaleOpen ? <Loading /> : <Item.Detail_progress dataSellOpen={dataCart.Sell_Open} />}
             </div>
         </div>,
         <div>
             <CardHeader label="LIST OF AREAS" dropdown={{ title: state.areaStatus.label, data: state.dataArea }} onClick={(value) => onFilterArea(value)} />
-            <Item.Detail_content data={dataCart.Sell_Open_Floor} floorData={state.dataFilterFloor} />
+            {dataCart.isLoadingSaleOpenList ? <Loading /> : <Item.Detail_content data={dataCart.Sell_Open_Floor} floorData={state.dataFilterFloor} />}
         </div>,
         <div>
+
             <CardHeader label="Basket details" dropdown={{ title: state.saleOpenStatus.value == "" ? "Tất cả" : state.saleOpenStatus.label, data: state.dataSaleOpen }} onClick={(value) => onFilteSaleOpen(value)} />
-            <Item.Detail_InfoShipping
+            {dataCart.isLoadingSaleOpenCart ? <Loading /> : <Item.Detail_InfoShipping
                 STATE={{ state, setState }}
                 onChangeArea={(value) => onChangeArea(value)}
                 onChangeFloor={(value) => onChangeFloor(value)}
@@ -157,7 +158,8 @@ const Edit = props => {
             // data={dataCart.Sell_Open_Cart}
             // dropdownFloor={{ value: "", data: state.dataSaleOpen }}
             // onFilterFloor={(value) => console.log(value)}
-            />
+            />}
+
         </div>]
     )
 }

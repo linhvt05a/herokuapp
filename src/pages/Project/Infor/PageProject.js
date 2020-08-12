@@ -3,8 +3,9 @@ import React, { useState, useEffect } from 'react';
 import CardHeader from '../../../components/common/CardHeader';
 import Item from "../../Cart/info/Layout";
 import { useDispatch, useSelector } from "react-redux";
-import actions from "../../../store/action/cart";
-import ListProduct from "../../../components/Card/ListProduct"
+import actionsCart from "../../../store/action/cart";
+import ListProduct from "../../../components/Card/ListProduct";
+import { typeListRequest } from "../../../store/action/dashboard"
 
 const PageProject = props => {
     const dispatch = useDispatch();
@@ -12,16 +13,20 @@ const PageProject = props => {
     const [state, setState] = useState({
         projectStatus: { value: "", label: "" },
         dataProjectStatus: [],
-        valueSearch: ""
+        valueSearch: "",
+        dataType: []
     })
     const token = 'MTAwNjpNVEF3Tmpwa05ESmlPVGc1WldVM05HWmhNMlZrWXpWaFlqQXhOalV4T1RReFl6QmtOVFUyTW1Oa1pUVTQ=';
     // const { token } = props.user;
 
+    //load data
     useEffect(() => {
-        dispatch(actions.LoadList({ token: token, value: state.valueSearch, status_id: state.projectStatus.value }))
-        dispatch(actions.LoadProjectStatus({ token: token }))
+        dispatch(actionsCart.LoadList({ token: token, value: state.valueSearch, status_id: state.projectStatus.value }));
+        dispatch(typeListRequest({ token: token }));
+        dispatch(actionsCart.LoadProjectStatus({ token: token }))
     }, [])
-    const dataCart = useSelector(state => state.cart)
+    const dataCart = useSelector(state => state.cart);
+    const dataDashBoard = useSelector(state => state.dashboard)
     const create_Filter_Project_Status = (value, label) => {
         return { value, label }
     }
@@ -37,26 +42,34 @@ const PageProject = props => {
 
     }, [dataCart.Filter_Project_Status])
 
+    const createData = (id, color, name) => {
+        return { id, color, name }
+    }
+    useEffect(() => {
+        let data = dataDashBoard.typeList.detail ? dataDashBoard.typeList.detail : [];
+        let newData = []
+        if (data.length > 0) {
+            data.map((item, index) => {
+                newData.push(createData(item.type_id, `m_text_${item.type_color}`, item.type_name))
+            })
+            setState({ ...state, dataType: newData })
+        }
+    }, [dataDashBoard.typeList])
 
-    let dataType = [
-        { id: `1`, color: "m_text_000000", name: "All" },
-        { id: `2`, color: "m_text_a8c200", name: "Type Apartment" },
-        { id: `3`, color: "m_text_f35e5e", name: "Type Office" },
-        { id: `4`, color: "m_text_e9c301", name: "Type Shopping Mall" },
-        { id: `5`, color: "m_text_fb9334", name: "Type Villa" },
-        { id: `5`, color: "m_text_212529", name: "Type Supermarket" },
-    ]
-
+    //action
+    const onClickType = value => {
+        dispatch(actionsCart.LoadList({ token: token, search_name: state.valueSearch, status_id: state.projectStatus.value, setting_type: value.id }))
+    }
     const SEARCH = value => {
         setState({ ...state, valueSearch: value })
-        dispatch(actions.LoadList({ token: token, search_name: value, status_id: state.projectStatus }))
+        dispatch(actionsCart.LoadList({ token: token, search_name: value, status_id: state.projectStatus }))
     };
     const onFilter = (item) => {
         setState({ ...state, projectStatus: item })
-        dispatch(actions.LoadList({ token: token, search_name: state.valueSearch, status_id: item.value }))
+        dispatch(actionsCart.LoadList({ token: token, search_name: state.valueSearch, status_id: item.value }))
     }
+    //render
     return (
-
         [<CardHeader
             dropdown={{ title: state.projectStatus && state.projectStatus.value == "" ? "Product Status" : state.projectStatus.label, data: state.dataProjectStatus }}
             label={"Project"}
@@ -64,11 +77,12 @@ const PageProject = props => {
             onSearch={value => SEARCH(value)}
             onClick={value => onFilter(value)} />
             , <ListProduct
-            dataFilter={dataType}
+            dataFilter={state.dataType}
             data={dataCart.List}
             page={dataCart.page}
             total_page={dataCart.total_page}
             total_record={dataCart.total_record}
+            onClickType={(value) => onClickType(value)}
             link_to={`/info/project/detail/`}
         />]
 
