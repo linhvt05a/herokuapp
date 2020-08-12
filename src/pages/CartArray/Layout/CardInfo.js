@@ -3,10 +3,9 @@ import {CardHeader} from '../../../components/common'
 import {CardAvatar} from '../../../components/Card'
 import { InputText} from '../../../components/input';
 import { Select } from 'antd';
-import GroupInputIcon from '../../../components/base/Select/GroupInputIcon'
-import GroupInputSelect from '../../../components/base/Select/GroupInputSelect'
+import {GroupInputIcon, GroupInputSelect} from '../../../components/base/Select'
 import{DISTRIBUTION_CHANNEL_AGENT, DISTRIBUTION_CHANNEL_INTERNAL} from '../../../constant'
-
+import {formatCurrency} from '../../../utils/Utils'
 const { Option } = Select;
 
 const selectAfter = (
@@ -18,9 +17,10 @@ const selectAfter = (
 
  const CardInfo = (props) => {
      const {productDetail} = props
+     const productPrice = formatCurrency(productDetail.product_estimate_price ? productDetail.product_estimate_price : 0)
      return (
         <div className="row">
-            <CardAvatar />
+            <CardAvatar className="col-xl-3 col-lg-3 col-md-12 col-sm-12 d-flex flex-column" label="IMAGE" avatarUrl={productDetail.product_avatar_url}/>
         <div className="col-xl-9 col-lg-9 col-md-12 col-sm-12 d-flex flex-column">
             <CardHeader label="THÔNG TIN SẢN PHẨM" />
             <div className="card h-100 square">
@@ -36,8 +36,8 @@ const selectAfter = (
                         <InputText className="col-12 col-sm-6 col-md-6 col-lg-4" label="Sản phẩm" value={productDetail.product_name} disabled/>
                         <DistributionChanel distribute ={props.productDetail?.distribution_channel_type_id}/>
                         <InputText className="col-12 col-sm-6 col-md-6 col-lg-4" label="Tên đại lý" value={productDetail.distribution_channel_name} disabled/>
-                        <GroupInputIcon className="col-12 col-sm-6 col-md-6 col-lg-4"  addonAfter={selectAfter} value = {productDetail.product_estimate_price} label="Giá bán"  />
-                        <GroupInputSelect className="col-12 col-sm-6 col-md-6 col-lg-4" addonBefore = {`0.1%`} label="Hoa hồng mặc định" value={productDetail.pin_commission_percent}/>
+                        <GroupInputSelect className="col-12 col-sm-6 col-md-6 col-lg-4" label="Giá bán" addonAfter = {selectAfter}  value={productPrice}/>
+                        <GroupInputIcon className="col-12 col-sm-6 col-md-6 col-lg-4" label="Hoa hồng mặc định" symbol="%" des={0.1} addonAfter={selectAfter} value = {productDetail.pin_commission_percent} />
                         <InputText className="col-12 col-sm-6 col-md-6 col-lg-4" label="Số chính sách khuyến mãi đang có" value={productDetail.total_promotion} disabled />
                     </div>
                 </div>
