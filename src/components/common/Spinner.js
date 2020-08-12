@@ -11,6 +11,7 @@ const override = css`
     left: 50%;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
+    
 `;
 
 class Spinner extends Component {

@@ -2,8 +2,8 @@ import React from 'react'
 import { Input } from 'antd';
 import { Trans } from 'react-i18next';
 
-const InputBase = (props) => {
-    const { className, titleClassName, name, value, label, addonAfter, addonBefore, placeholder, onChange, require, disabled, ...attr } = props;
+const GroupInputIcon = (props) => {
+    const { className, titleClassName, disabled, label, require, placeholder } = props;
     return (
         <div className={className ? className : ''}>
             <div className="form-group">
@@ -17,22 +17,12 @@ const InputBase = (props) => {
                     </label>
                 }
                 <div className="input-group">
-                    <Input
-                        addonAfter= {addonAfter}
-                        addonBefore= {addonBefore}
-                        onChange={onChange}
-                        placeholder={placeholder}
-                        value={value}
-                        name={name}
-                        {...attr}
-                        disabled={disabled ? disabled : undefined}
-                    />
+                    <Input addonAfter= {props.symbol} placeholder={placeholder} disabled={disabled ? disabled : undefined} />
                 </div>
-                
             </div>
         </div>
     )
 
 }
 
-export default InputBase;
+export default GroupInputIcon;

@@ -7,7 +7,11 @@ import {
 
     PROMOTION_LIST_REQUEST,
     PROMOTION_LIST_SUCCESS,
-    PROMOTION_LIST_FAILURE
+    PROMOTION_LIST_FAILURE,
+
+    PROMOTION_PRODUCT_REQUEST,
+    PROMOTION_PRODUCT_SUCCESS,
+    PROMOTION_PRODUCT_FAILURE,
 } from '../actionType/requestCart';
 
 // request data
@@ -43,4 +47,20 @@ export function* promotionList(payload) {
 }
 export function* promotionListWatcher() {
     yield takeLatest(PROMOTION_LIST_REQUEST, promotionList);
+}
+
+// promotion product
+export function* promotionProduct(payload) {
+    const token = payload.payload.token;
+    const product_id = payload.payload.product_id;
+    const promotion_id = payload.payload.promotion_id;
+    try {
+        const response = yield requestCartService.getPromotionProduct(token, product_id, promotion_id);
+        response.success ? yield put({ type: PROMOTION_PRODUCT_SUCCESS, response }) : yield put({ type: PROMOTION_PRODUCT_FAILURE, response });
+    } catch (err) {
+        yield put({ type: PROMOTION_PRODUCT_FAILURE, err });
+    }
+}
+export function* promotionProductWatcher() {
+    yield takeLatest(PROMOTION_PRODUCT_REQUEST, promotionProduct);
 }

@@ -79,8 +79,7 @@ class CardChangeAvatar extends Component {
           </div>
         </div>
       );
-    }
-     else {
+    } else {
       return (
         <div className={this.props.className}>
           <CardHeader label="image" />

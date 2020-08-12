@@ -1,12 +1,10 @@
 import { all } from "redux-saga/effects";
-
 import {
   currencyListWatcher,
   currencyDetailWatcher,
   currencyEditWatcher,
   currencyAddWatcher
 } from './currencySaga';
-
 import {
   cartDetailWatcher,
   cartListlWatcher,
@@ -39,12 +37,12 @@ import {
 } from './approval'
 import {
   requestDataWatcher,
-  promotionListWatcher
+  promotionListWatcher,
+  promotionProductWatcher,
 } from './requestCartSaga'
 import {
-  customerListWatcher,
-} from './customerSaga';
-  
+    productDetaillWatcher
+} from './productSaga'
 function* allSaga() {
   yield all([
     currencyListWatcher(),
@@ -80,6 +78,11 @@ function* allSaga() {
     approveListWatcher(),
     addCommentWatcher(),
     requestDataWatcher(),
+    promotionListWatcher(),
+    promotionProductWatcher(),
+    promotionListWatcher(),
+
+    productDetaillWatcher(),
     promotionListWatcher(),
 
     //customer

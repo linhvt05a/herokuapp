@@ -2,7 +2,8 @@ import api from '../api';
 
 export const requestCartService = {
     getRequestData,
-    getPromotionList
+    getPromotionList,
+    getPromotionProduct
 }
 
 function getRequestData(token, request_type, product_id, value_change, priority, reason, list_promotion_detail) {
@@ -23,5 +24,15 @@ function getPromotionList(token, product_id) {
     };
     const params = {'product_id': product_id}
     const url = api.getUrl(api.CART_PROMOTION_LIST, params)
+    return api.handleRequest(url, requestOptions);
+}
+
+function getPromotionProduct(token, product_id, promotion_id) {
+    const requestOptions = {
+        method: 'GET',
+        headers: api.getHeader(token)
+    };
+    const params = {'product_id': product_id, 'promotion_id': promotion_id}
+    const url = api.getUrl(api.CART_PROMOTION_PRODUCT, params)
     return api.handleRequest(url, requestOptions);
 }

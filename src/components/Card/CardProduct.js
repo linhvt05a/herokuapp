@@ -51,4 +51,4 @@ const CartProductDetail = props => {
 
     )
 }
-export default CartProductDetail;
+export default React.memo(CartProductDetail);

@@ -238,4 +238,4 @@ const InfoShipping = props => {
 
     )
 }
-export default InfoShipping;
+export default React.memo(InfoShipping);
