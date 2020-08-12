@@ -2,15 +2,14 @@ import React from 'react';
 import {CardHeader} from '../../../components/common'
 import {CardChangeAvatar} from '../../../components/Card'
 import { InputText} from '../../../components/input';
-import {Select } from 'antd';
+import { Select } from 'antd';
 import Input from '../../../components/base/Input/Input'
 import{DISTRIBUTION_CHANNEL_AGENT, DISTRIBUTION_CHANNEL_INTERNAL} from '../../../constant'
-const { Option } = {Select};
+const { Option } = Select;
 const selectAfter = (
     <Select defaultValue="vnd" className="select-after">
         <Option value="vnd">vnd</Option>
         <Option value="usd">usd</Option>
-
     </Select>
 );
 
@@ -33,8 +32,8 @@ const selectAfter = (
                         <InputText className="col-12 col-sm-6 col-md-6 col-lg-4" label="Sản phẩm" value={props.productDetail?.product_name} disabled/>
                         <DistributionChanel distribute ={props.productDetail?.distribution_channel_type_id}/>
                         <InputText className="col-12 col-sm-6 col-md-6 col-lg-4" label="Tên đại lý" value={props.productDetail?.distribution_channel_name} disabled/>
-                        <GroupInputSelect className="col-12 col-sm-6 col-md-6 col-lg-4"  addonAfter={selectAfter} value = {props.productDetail?.product_origin_price} label="Giá bán"  />
-                        <GroupInputIcon className="col-12 col-sm-6 col-md-6 col-lg-4" des = "0.1"  symbol="%" label="Hoa hồng mặc định" value={props.productDetail?.pin_commission_percent}/>
+                        <Input className="col-12 col-sm-6 col-md-6 col-lg-4"  addonAfter={selectAfter} value = {props.productDetail?.product_origin_price} label="Giá bán"  />
+                        <Input className="col-12 col-sm-6 col-md-6 col-lg-4" addonBefore = {`0.1%`} label="Hoa hồng mặc định" value={props.productDetail?.pin_commission_percent}/>
                         <InputText className="col-12 col-sm-6 col-md-6 col-lg-4" label="Số chính sách khuyến mãi đang có" value={props.productDetail?.total_promotion} disabled />
                     </div>
                 </div>
