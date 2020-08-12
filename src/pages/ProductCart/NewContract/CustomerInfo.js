@@ -7,9 +7,9 @@ const CustomerInfo = () => {
     return (
         <div className="container-fluid">
             <ProductDetail />
-            <CardWrapper currentStep={1}
-                         children={<CustomerInFoWrapper />}
-             />
+            <CardWrapper currentStep={1}>
+                <CustomerInFoWrapper />
+            </CardWrapper>
         </div>
     )
 }

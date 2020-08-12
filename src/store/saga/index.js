@@ -41,6 +41,9 @@ import {
   requestDataWatcher,
   promotionListWatcher
 } from './requestCartSaga'
+import {
+  customerListWatcher,
+} from './customerSaga';
   
 function* allSaga() {
   yield all([
@@ -72,12 +75,15 @@ function* allSaga() {
     bankingListWatcher(),
     salepolicyListWatcher(),
 
+    // approval
     commentListWatcher(),
     approveListWatcher(),
     addCommentWatcher(),
-
     requestDataWatcher(),
-    promotionListWatcher()
+    promotionListWatcher(),
+
+    //customer
+    customerListWatcher(),
   ]);
 }
 

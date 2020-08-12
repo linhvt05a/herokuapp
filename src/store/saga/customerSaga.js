@@ -11,6 +11,7 @@ export function* customerList(payload) {
     const search = payload.payload.search;
     try {
         const response = yield customerService.customer(token, search);
+        console.log('customerSaga', payload);
         response.success ? yield put({ type: CUSTOMER_LIST_SUCCESS, response }) : yield put({ type: CUSTOMER_LIST_FAILURE, response });
     } catch (err) {
         yield put({ type: CUSTOMER_LIST_FAILURE, err });

@@ -5,7 +5,7 @@ import {
 } from '../actionType/customer'
   
   const initialState = {
-    customerList: { },
+    customerList: { success:false },
     isFetching: false,
   };
   

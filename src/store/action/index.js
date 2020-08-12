@@ -26,6 +26,10 @@ import {
     addCommentRequest
 } from "./approval";
 
+import {
+  customerListRequest
+} from "./customer";
+
 import {productDetailRequest} from './product'
 export {
   currentcyAddRequest,
@@ -47,5 +51,6 @@ export {
   approvedListRequest,
   commentListRequest,
   addCommentRequest,
-  productDetailRequest
+  productDetailRequest,
+  customerListRequest,
 };

@@ -1,19 +1,21 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Input, Radio, DatePicker } from 'antd';
-import { useDispatch, useSelector } from "react-redux";
-import Select from '../../../../../components/input/InputSelect';
+import { Radio } from 'antd';
+import Input from '../../../../../components/base/Input/Input';
+import DatePicker from '../../../../../components/base/DatePicker/DatePicker';
+import Select from '../../../../../components/base/Select/Select';
+import { useDispatch } from "react-redux";
 import { customerListRequest } from '../../../../../store/action';
 
 const CustomerInfoForm = (props) => {
-    const {typeCustomer, changeTypeCustomer, token, customerList } = props;
+    const {typeCustomer, changeTypeCustomer, customerList } = props;
     const dispatch = useDispatch();
     const onChangeTypeCustomer = (e) => {
         changeTypeCustomer(e.target.value);
         e.preventDefault();
     }
     const onSearchCustomer = (search) => {
-        dispatch(customerListRequest({token, search}));
+        // dispatch(customerListRequest({token, search}));
     }
     return (
         <div>
@@ -37,7 +39,7 @@ const CustomerInfoForm = (props) => {
                                     <label class="fw-medium mb-0 mr-5 w-auto">Tìm kiếm khách hàng </label>
                                 </div>
                                 <div class="col-12 col-md-10" data-select2-id="335">
-                                    <div class="form-group select2-highlight mb-0" data-select2-id="334">
+                                    <div class="form-group select2-highlight mb-0">
                                         <Select onSearch={ onSearchCustomer } data={customerList} />
                                     </div>
                                 </div>
@@ -50,14 +52,13 @@ const CustomerInfoForm = (props) => {
                             <div className="col-12 col-6 col-md-6 col-lg-3">
                                 <div className="form-group">
                                     <label className="fw-medium">Danh xưng <span className="uni_star_e94c4c">*</span></label>
-                                    <Select></Select>
+                                    <Select datas={[{label: 'Ông', value: 0}, {label: 'Bà', value: 1}]}
+                                            placeholder='Chọn danh xưng'
+                                    />
                                 </div>
                             </div>
                             <div className="col-12 col-6 col-md-6 col-lg-3">
-                                <div className="form-group">
-                                    <label className="fw-medium">Họ tên <span className="uni_star_e94c4c">*</span></label>
-                                    <Input type="text" placeholder="Nhập họ tên  " className="form-control" />
-                                </div>
+                            <Input label='Họ tên' type="text" placeholder="Nhập họ tên" />
                             </div>
                             <div className="col-12 col-6 col-md-6 col-lg-3">
                                 <div className="form-group">
@@ -66,10 +67,10 @@ const CustomerInfoForm = (props) => {
                                 </div>
                             </div>
                             <div className="col-12 col-6 col-md-6 col-lg-3">
-                                <div className="form-group">
-                                    <label className="fw-medium">Số CMND/CCCD/Hộ chiếu <span className="uni_star_e94c4c">*</span></label>
-                                    <Input type="text" placeholder="Nhập số" className="form-control" />
-                                </div>
+                                <Input type="text"
+                                       placeholder="Nhập số"
+                                       label={<><span>Số CMND/CCCD/Hộ chiếu</span> <span className="uni_star_e94c4c">*</span></>}
+                                />
                             </div>
                             <div className="col-12 col-6 col-md-6 col-lg-3">
                                 <div className="form-group">
@@ -98,26 +99,26 @@ const CustomerInfoForm = (props) => {
                             <div className="col-12 col-6 col-md-6 col-lg-3">
                                 <div className="form-group">
                                     <label className="fw-medium">Số nhà <span className="uni_star_e94c4c">*</span></label>
-                                    <Input type="text" placeholder="Nhập số nhà" className="form-control" />
+                                    <Input type="text" placeholder="Nhập số nhà" />
                                 </div>
                             </div>
                             <div className="col-12 col-6 col-md-6 col-lg-3">
                                 <div className="form-group">
                                     <label className="fw-medium">Email <span className="uni_star_e94c4c">*</span></label>
-                                    <Input type="text" placeholder="Email " className="form-control" />
+                                    <Input type="text" placeholder="Email " />
                                 </div>
                             </div>
                             <div className="col-12 col-6 col-md-6 col-lg-3">
                                 <div className="form-group">
                                     <label className="fw-medium">Điện thoại <span className="uni_star_e94c4c">*</span></label>
-                                    <Input type="text" placeholder="Nhập số " className="form-control" />
+                                    <Input type="text" placeholder="Nhập số " />
                                 </div>
                             </div>
                             <div className="col-12 col-6 col-md-6 col-lg-3">
                                 <div className="form-group">
                                     <label className="fw-medium">Ngày sinh</label>
+                                    <DatePicker style={{width: "100%"}}/>
                                 </div>
-                                <DatePicker className="form-control" style={{width: "100%"}}/>
                             </div>
                         </div>
                     </div>
