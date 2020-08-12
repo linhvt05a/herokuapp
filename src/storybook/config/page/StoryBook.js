@@ -9,6 +9,8 @@ import SideBar from '../../../components/SideBar/SideBar.js'
 
 import menu from './menu.js';
 
+import { useLocation } from "react-router-dom"
+
 function isEmpty(obj) {
     if (obj && Object.keys(obj).length > 0) {
         return false;
@@ -36,7 +38,6 @@ function updateLocation(new_params) {
 class StoryBook extends Component {
     constructor() {
         super();
-
         const data = localStorage.getItem('user');
         if (!data) {
             window.location = "/login";
@@ -89,6 +90,7 @@ class StoryBook extends Component {
         if (this.state.page == null) {
             return <div></div>
         }
+        // let location = useLocation()
         const { user, search } = this.state;
         const { params } = this.props.match;
         return (
@@ -119,6 +121,8 @@ class StoryBook extends Component {
             </div>
         )
     }
+
 }
+
 
 export default StoryBook;

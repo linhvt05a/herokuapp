@@ -8,6 +8,7 @@ import ModalRequest from "../modal/ModalRequest"
 import { Link } from 'react-router-dom';
 import { useSelector } from "react-redux";
 import { isProductStatus, isProductType, isProductColor, formatCurrency } from "../../../../../utils/Utils"
+import { CardNodata } from "../../../../../components/common"
 
 const InfoShipping = props => {
     const token = 'MTAwNjpNVEF3Tmpwa05ESmlPVGc1WldVM05HWmhNMlZrWXpWaFlqQXhOalV4T1RReFl6QmtOVFUyTW1Oa1pUVTQ=';
@@ -61,15 +62,15 @@ const InfoShipping = props => {
 
     //will-change: transform; position: absolute; transform: translate3d(-137px, -145px, 0px); top: 0px; left: 0px;
     const renderPopUp = (value) => {
-       
+
         return (
             <div className="dropdown-menu show" x-placement="top-start" style={{ position: 'absolute', transform: 'translate3d(-183px, -150px, 0px)', top: 0, left: 0, willChange: 'transform' }}>
                 <a className="dropdown-item" data-toggle="modal" data-target="#createRequest" onClick={() => setShow({ ...show, Show_request: true, value: value })}>
                     <i className="icon-dropdown las la-question-circle" /><Trans>Create a request</Trans></a>
 
                 <Link to={'/perm/project/' + value.product_id}
-                    className="dropdown-item" 
-                    >
+                    className="dropdown-item"
+                >
                     <i className="icon-dropdown las la-list-alt" />
                     <Trans>See requirements</Trans>
                 </Link>
@@ -225,7 +226,7 @@ const InfoShipping = props => {
                         <tbody>
                             {dataCart.Sell_Open_Cart ? dataCart.Sell_Open_Cart.map((data, index) => {
                                 return [trParent(data, index), trChild(data.product_list, index)]
-                            }) : null}
+                            }) : <CardNodata />}
                         </tbody></table>
                 </div>
             </div>
