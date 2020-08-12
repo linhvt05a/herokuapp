@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import CardHeader from '../../../components/Card/CardHeader';
 import { useDispatch, useSelector } from "react-redux";
 import actionsCart from "../../../store/action/cart";
-import ListProduct from "../../../components/Card/ListProduct";
+import ListProduct from "../../../components/Wrapper/ProductDetail";
 import { typeListRequest } from "../../../store/action/dashboard"
 
 const PageProject = props => {
@@ -61,7 +61,7 @@ const PageProject = props => {
     }
     const SEARCH = value => {
         setState({ ...state, valueSearch: value })
-        dispatch(actionsCart.LoadList({ token: token, search_name: value, status_id: state.projectStatus }))
+        dispatch(actionsCart.LoadList({ token: token, search_name: value, status_id: state.projectStatus.value }))
     };
     const onFilter = (item) => {
         setState({ ...state, projectStatus: item })

@@ -12,28 +12,25 @@ class Loading extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            visible : this.props.visible
+            visible: this.props.visible
         }
     }
 
     openModal() {
         this.setState({
-            visible : true
+            visible: true
         });
     }
 
     closeModal() {
         this.setState({
-            visible : false
+            visible: false
         });
     }
 
     render() {
         return (
-            <Modal visible={this.state.visible} effect="fadeInUp" width="200" height="200">
-                <br/><br/>
-                <ClipLoader css={override} size={100} color={"#6d30ab"} />
-            </Modal>
+            <ClipLoader css={override} size={100} color={"#6d30ab"} />
         )
     }
 }

@@ -83,7 +83,7 @@ const Edit = props => {
 
     const onFilterArea = (value) => {
         setState({ ...state, areaStatus: value })
-        dispatch(actions.LoadSellOpenList({ token: token, id: props.params.id, area_id: value.value }));
+        dispatch(actions.LoadSellOpenList({ token: token, id: props.params.id, area_id: value.value, sell_open_id: state.saleOpenStatus.value }));
     }
 
     const onFilteSaleOpen = (value) => {

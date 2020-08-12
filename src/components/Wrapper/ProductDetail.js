@@ -2,9 +2,9 @@
 import React, { useState } from 'react';
 import Pagination from "../common/Pagination"
 import { Trans } from 'react-i18next';
-import ListProductGird from "./ListProductGird";
-import ListProductTable from "./ListProductTable";
-import CardNodata from "./CardNodata"
+import CardProduct from "../Card/CardProduct";
+import ListProduct from "../Table/ListProduct";
+import CardNodata from "../Card/CardNodata"
 const body = props => {
     let { dataFilter, data, page, total_page, total_record, link_to } = props;
     const [state, setState] = useState(true);
@@ -34,12 +34,12 @@ const body = props => {
             {state ? <div className="m_grid m_grid--list_project">
                 <div className="row">
                     {data.length > 0 ? data.map((item, index) => {
-                        return <ListProductGird data={item} index={index} key={index} link_to={link_to} />
+                        return <CardProduct data={item} index={index} key={index} link_to={link_to} />
                     }) : <CardNodata />}
                 </div >
             </div > :
                 <div className="m_table m_table--sales" style={{ maxHeight: '100%' }}>
-                    <ListProductTable data={data} link_to={link_to} />
+                    <ListProduct data={data} link_to={link_to} />
                 </div>}
 
             <Pagination

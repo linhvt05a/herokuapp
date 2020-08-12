@@ -30,7 +30,7 @@ function list(token, search_name = "", status_id = "", setting_type) {
     };
 
     const params = { search_name, status_id, setting_type };
-    const url = api.getUrl(api.CART_LIST, params); console.log(url);
+    const url = api.getUrl(api.CART_LIST, params);
     return api.handleRequest(url, requestOptions);
 }
 
@@ -52,7 +52,7 @@ function cart(token, project_id, sell_open_id = '0', block_id = "", floor_or_lot
     };
 
     const params = { sell_open_id, project_id, block_id, floor_or_lot_id };
-    const url = api.getUrl(api.CART_CART, params); console.log("url", url);
+    const url = api.getUrl(api.CART_CART, params);
     return api.handleRequest(url, requestOptions);
 }
 
