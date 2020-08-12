@@ -17,8 +17,8 @@ const priority_request = [
     { value: 3, label: 'Low' },
 ]
 
-const CUSTOMER_REQUEST_TYPE_COMMISSION = { value: 1, label: 'Commission' }
-const CUSTOMER_REQUEST_TYPE_PROMOTION = { value: 2, label: 'Promotion' }
+const CUSTOMER_REQUEST_TYPE_COMMISSION = { value: 1, label: 'commission_change_request' }
+const CUSTOMER_REQUEST_TYPE_PROMOTION = { value: 2, label: 'promotion_change_request' }
 
 const CUSTOMER_REQUEST_PRIORITY_HIGH = { value: 1, label: 'High' }
 const CUSTOMER_REQUEST_PRIORITY_MID = { value: 2, label: 'Average' }

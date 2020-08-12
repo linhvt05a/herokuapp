@@ -1,23 +1,19 @@
 /* eslint-disable default-case */
 import React, { useState, useEffect } from "react";
-import { Trans } from "react-i18next";
+import { withTranslation, Trans } from "react-i18next";
 import { Modal, Select } from "antd";
-import { CardHeader } from "../../../../../components/common";
-import { InputSelect, InputText, InputCheckBox } from "../../../../../components/input";
+import { CardHeader, CardNodata } from "../../../../../components/common";
+import { mappingListToSelectList, InputSelect, InputText } from "../../../../../components/input";
 import { CUSTOMER_REQUEST_TYPE_COMMISSION, CUSTOMER_REQUEST_TYPE_PROMOTION, CUSTOMER_REQUEST_PRIORITY_HIGH,
     CUSTOMER_REQUEST_PRIORITY_MID, CUSTOMER_REQUEST_PRIORITY_LOW } from '../../../../../constant';
-import { requestDataRequest, promotionListRequest } from '../../../../../store/action/requestCart';
+import { promotionListRequest, promotionProductRequest } from '../../../../../store/action/requestCart';
 import { useDispatch, useSelector } from "react-redux";
 import GroupInputSelect from '../../../../../components/base/Select/GroupInputSelect';
 import GroupInputIcon from '../../../../../components/base/Select/GroupInputIcon';
 
-const discountInfo = [
-    { value: 1, label: "Giảm trực tiếp từ 100 triệu ngay cho khách hàng mới trong mùa xuân 2021 dành cho loại hình biệt thự" },
-]
-
 const { Option } = Select;
 const selectOption = (
-    <Select defaultValue="vnd" className="select-before">
+    <Select defaultValue={1} className="select-before">
         <Option value={1}>vnd</Option>
         <Option value={2}>usd</Option>
     </Select>
@@ -39,7 +35,7 @@ const DialogSalePromotion = (props) => {
         request_select: 0,
         ranger_status: 1
     })
-    const { value } = props
+    const { value, t } = props
     const dispatch = useDispatch();
     const token = "MTAwNjpNVEF3Tmpwa05ESmlPVGc1WldVM05HWmhNMlZrWXpWaFlqQXhOalV4T1RReFl6QmtOVFUyTW1Oa1pUVTQ="
 
@@ -47,53 +43,61 @@ const DialogSalePromotion = (props) => {
     const isGetRequestDataSuccess = res.requestData.success;
     const requestDataRes = isGetRequestDataSuccess ? res.requestData.detail : null;
     const isGetPromotionListSuccess = res.promotionList.success;
-    const promotionListRes = isGetPromotionListSuccess ? res.promotionList.detail : null;
+    const promotionListRes = isGetPromotionListSuccess ? mappingListToSelectList(res.promotionList.detail, 'promotion_id', 'promotion_name') : null;
+    const isGetPromotionProductSuccess = res.promotionProduct.success;
+    const promotionProductRes = isGetPromotionProductSuccess ? res.promotionProduct.detail : null;
 
     useEffect(() => {
         dispatch(promotionListRequest({ token, product_id: value.product_id }));
     }, []);
-    
-    console.log("data", promotionListRes)
+
+    const onChangePromotion = (promotion_id) => {
+        dispatch(promotionProductRequest({ token, product_id: value.product_id, promotion_id }));
+    }
+
     const renderDiscount = () => {
         return (
             <div>
-                <div className="uni_text_6d30ab fw-medium fs-18 mt-2 mb-2">YÊU CẦU</div>
-                <div className="row">
-                    <GroupInputSelect
-                        disabled
-                        className="col-12 col-sm-6 col-lg-4"
-                        label="Giá bán"
-                        value={value.product_price}
-                        addonAfter={selectOption} />
-                    <GroupInputIcon
-                        disabled
-                        className="col-12 col-sm-6 col-lg-4"
-                        label="Hoa hồng thấp nhất"
-                        des = {value.min_value_percent} symbol="%" />
-                    <GroupInputIcon
-                        disabled
-                        className="col-12 col-sm-6 col-lg-4"
-                        label="Hoa hồng cao nhất"
-                        des = {value.max_value_percent} symbol="%" />
-                    <GroupInputIcon
-                        disabled
-                        className="col-12 col-sm-6 col-lg-4"
-                        label="Hoa hồng mặc định hiện tại"
-                        des = {value.default_value_percent} symbol="%" />
-                    <GroupInputIcon
-                        className="col-12 col-sm-6 col-lg-4"
-                        titleClassName="fw-medium m_text_e94c4c"
-                        label="Hoa hồng đề nghị*"
-                        symbol="%" />
-                    <InputSelect
-                        className="col-12 col-sm-6 col-lg-4" titleClassName="fw-medium m_text_e94c4c"
-                        datas={priority} value={state.ranger_status}
-                        label="Độ ưu tiên*" onChange={(value) => setState({ ...state, ranger_status: value })} />
-                    <div className="form-group w-100">
-                        <label className="fw-medium">Lý do<span className="uni_star_e94c4c">*</span></label>
-                        <textarea placeholder="Nhập lý do" className="form-control" cols={30} rows={4} defaultValue={""} />
+                <div className="uni_text_6d30ab fw-medium fs-18 mt-2 mb-2 text-uppercase"><Trans>content</Trans></div>
+                    <div className="row">
+                        <GroupInputSelect
+                            disabled
+                            className="col-12 col-sm-6 col-lg-4"
+                            label="price"
+                            value={value.product_price}
+                            addonAfter={selectOption} />
+                        <GroupInputIcon
+                            disabled
+                            className="col-12 col-sm-6 col-lg-4"
+                            label="lowest_commission"
+                            des = {value.min_value_percent} symbol="%" />
+                        <GroupInputIcon
+                            disabled
+                            className="col-12 col-sm-6 col-lg-4"
+                            label="highest_commission"
+                            des = {value.max_value_percent} symbol="%" />
+                        <GroupInputIcon
+                            disabled
+                            className="col-12 col-sm-6 col-lg-4"
+                            label="defautl_commission"
+                            des = {value.default_value_percent} symbol="%" />
+                        <GroupInputIcon
+                            require
+                            placeholder={t("enter")}
+                            className="col-12 col-sm-6 col-lg-4"
+                            titleClassName="fw-medium m_text_e94c4c"
+                            label="request_commission"
+                            symbol="%" />
+                        <InputSelect
+                            require
+                            className="col-12 col-sm-6 col-lg-4" titleClassName="fw-medium m_text_e94c4c"
+                            datas={priority} value={state.ranger_status}
+                            label="priority" onChange={(value) => setState({ ...state, ranger_status: value })} />
                     </div>
-                </div>
+                    <div className="form-group">
+                        <label className="fw-medium"><Trans>reason</Trans><span className="uni_star_e94c4c"> *</span></label>
+                        <textarea placeholder={t("enter_the_reason")} className="form-control" cols={30} rows={4} />
+                    </div>
             </div>
         )
     }
@@ -102,120 +106,69 @@ const DialogSalePromotion = (props) => {
         return (
             <div>
                 <div className="row">
-                    <InputSelect className="fw-medium col-12 col-md-8" datas={discountInfo} value={1} label="Chương trình khuyến mãi*" />
-                    <InputSelect className="col-12 col-md-4" datas={priority} value={1} label="Độ ưu tiên*" onChange={(value) => setState({ ...state, ranger_status: value })} />
+                    <InputSelect require className="fw-medium col-12 col-md-8" datas={promotionListRes} label="promotion" onChange={(value) => onChangePromotion(value)} />
+                    <InputSelect require className="col-12 col-md-4" titleClassName="fw-medium m_text_e94c4c" datas={priority} value={state.ranger_status} label="priority" onChange={(value) => setState({ ...state, ranger_status: value })} />
                 </div>
+                <div className="uni_text_6d30ab fw-medium fs-18 mt-2 mb-2 text-uppercase"><Trans>promotion_gift</Trans></div>
                 <div className="mb-4 m_table m_table--sales table_fixed max-height-100">
                     <table style={{ minWidth: 1035 }}>
                         <thead>
                             <tr>
-                                <th style={{ width: '28%' }} className="col-1 pl-0">STT</th>
-                                <th style={{ width: '52%' }} className="col-1">LOẠI </th>
-                                <th className="col-3 pl-0">NỘI DUNG</th>
-                                <th className="col-1">MÃ</th>
-                                <th className="col-2">CHI PHÍ(VND)</th>
-                                <th className="col-2">QUY ĐỔI TỐI ĐA(VND)</th>
-                                <th style={{ width: '50%' }} className="col-1">YÊU CẦU </th>
+                                <th style={{ width: '28%' }} className="col-1 pl-0 text-uppercase"><Trans>no.</Trans></th>
+                                <th className="col-3 pl-0 text-uppercase"><Trans>content</Trans></th>
+                                <th className="col-1 text-uppercase"><Trans>code</Trans></th>
+                                <th className="col-2 text-uppercase"><Trans>cost</Trans></th>
+                                <th className="col-2 text-uppercase"><Trans>max_conversion</Trans></th>
+                                <th style={{ width: '50%' }} className="col-1 text-uppercase"><Trans>request</Trans></th>
                             </tr>
                         </thead>
                         <tbody style={{ maxHeight: 300 }}>
+                            {
+                                promotionProductRes ? promotionProductRes.map((item, index) => (
+                                    <tr key={index}>
+                                        <td class="number pl-0">{index + 1}</td>
+                                        <td className="pl-0">
+                                            <span className="uni_text_6d30ab fw-medium">{item.promotion_detail_name}</span>
+                                        </td>
+                                        <td>
+                                            <span className="m_text_367be3 fw-medium">{item.promotion_detail_code}</span>
+                                        </td>
+                                        <td>
+                                            <div className="form-group mb-0">
+                                                <GroupInputSelect
+                                                    disabled
+                                                    className="text-right"
+                                                    value={item.value}
+                                                    addonAfter={selectOption} />
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div className="form-group mb-0">
+                                                <GroupInputSelect
+                                                    disabled
+                                                    className="text-right"
+                                                    value={item.redemption_value}
+                                                    addonAfter={selectOption} />
+                                            </div>
+                                        </td>
+                                        <td className="text-center" style={{ width: '8%' }}>
+                                            <label className="checkbox-inline">
+                                                <input name="checkbox-2" type="checkbox" className="checkbox-custom" />
+                                                <span className="checkbox-custom-dummy" />
+                                            </label>
+                                        </td>
+                                    </tr>
+                                )) :
                             <tr>
-                                <td width="5%" className="pl-0">1</td>
-                                <td colSpan={6}>
-                                    <span className="bg_color_6d30ab fw-medium text-uppercase min-height-40 d-inline-flex align-items-center text-white pl-3 pr-3 pt-2 pb-2">
-                                        Khuyến mãi tặng voucher
-                                    </span>
-                                </td>
+                                <td colspan="7" align="center"><Trans>no_data</Trans></td>
                             </tr>
-                            <tr>
-                                <td style={{ width: '15.5%' }} colSpan={2} className="pl-0 border-bottom-none">
-                                    <span className="voucher_type">NGHỈ DƯỠNG</span>
-                                </td>
-                                <td className="pl-0">
-                                    <span className="uni_text_6d30ab fw-medium">1 đêm ở khách sạn 5 sao ở TPHCM </span>
-                                </td>
-                                <td>
-                                    <span className="m_text_367be3 fw-medium">VOUCHER456</span>
-                                </td>
-                                <td>
-                                    <div className="form-group mb-0">
-                                        <input disabled type="text" defaultValue="999.999.999" className="form-control text-right" />
-                                    </div>
-                                </td>
-                                <td>
-                                    <div className="form-group mb-0">
-                                        <input disabled type="text" defaultValue="999.999.999" className="form-control text-right" />
-                                    </div>
-                                </td>
-                                <td className="text-center" style={{ width: '8%' }}>
-                                    <label className="checkbox-inline">
-                                        <input name="checkbox-2" type="checkbox" className="checkbox-custom" defaultValue={1} />
-                                        <span className="checkbox-custom-dummy" />
-                                    </label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style={{ width: '15.5%' }} colSpan={2} className="pl-0" />
-                                <td className="pl-0">
-                                    <span className="uni_text_6d30ab fw-medium">1 đêm ở khách sạn 5 sao ở TPHCM </span>
-                                </td>
-                                <td>
-                                    <span className="m_text_367be3 fw-medium">VOUCHER456</span>
-                                </td>
-                                <td>
-                                    <div className="form-group mb-0">
-                                        <input disabled type="text" defaultValue="999.999.999" className="form-control text-right" />
-                                    </div>
-                                </td>
-                                <td>
-                                    <div className="form-group mb-0">
-                                        <input disabled type="text" defaultValue="999.999.999" className="form-control text-right" />
-                                    </div>
-                                </td>
-                                <td className="text-center" style={{ width: '8%' }}>
-                                    <label className="checkbox-inline">
-                                        <input name="checkbox-2" type="checkbox" className="checkbox-custom" defaultValue={1} />
-                                        <span className="checkbox-custom-dummy" />
-                                    </label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td width="5%" className="pl-0">1</td>
-                                <td colSpan={6}>
-                                    <span className="bg_color_6d30ab fw-medium text-uppercase min-height-40 d-inline-flex align-items-center text-white pl-3 pr-3 pt-2 pb-2">
-                                        Khuyến mãi tặng hiện vật
-                                    </span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style={{ width: '15.5%' }} colSpan={2} className="pl-0 border-bottom-none">
-                                    <span className="voucher_type">NGHỈ DƯỠNG</span>
-                                </td>
-                                <td className="pl-0">
-                                    <span className="uni_text_6d30ab fw-medium">1 đêm ở khách sạn 5 sao ở TPHCM </span>
-                                </td>
-                                <td>
-                                    <span className="m_text_367be3 fw-medium">VOUCHER456</span>
-                                </td>
-                                <td>
-                                    <div className="form-group mb-0">
-                                        <input disabled type="text" defaultValue="999.999.999" className="form-control text-right" />
-                                    </div>
-                                </td>
-                                <td>
-                                    <div className="form-group mb-0">
-                                        <input disabled type="text" defaultValue="999.999.999" className="form-control text-right" />
-                                    </div>
-                                </td>
-                                <td className="text-center" style={{ width: '8%' }}>
-                                    <label className="checkbox-inline">
-                                        <input name="checkbox-2" type="checkbox" className="checkbox-custom" defaultValue={1} />
-                                        <span className="checkbox-custom-dummy" />
-                                    </label>
-                                </td>
-                            </tr>
+                            }
                         </tbody>
                     </table>
+                </div>
+                <div className="form-group">
+                    <label className="fw-medium"><Trans>reason</Trans><span className="uni_star_e94c4c"> *</span></label>
+                    <textarea placeholder={t("enter_the_reason")} className="form-control" cols={30} rows={4} />
                 </div>
             </div>
         )
@@ -224,18 +177,18 @@ const DialogSalePromotion = (props) => {
     const renderOther = () => {
         return (
             <div>
-                <div className="uni_text_6d30ab fw-medium fs-18 mt-2 mb-2">NỘI DUNG </div>
+                <div className="uni_text_6d30ab fw-medium fs-18 mt-2 mb-2">NỘI DUNG</div>
                 <div className="row">
                     <div className="col-12 col-sm-6 col-lg-8">
                         <div className="form-group">
-                            <label className="fw-medium">Nội dung <span className="uni_star_e94c4c">*</span> </label>
+                            <label className="fw-medium">Nội dung<span className="uni_star_e94c4c">*</span> </label>
                             <input type="text" className="form-control" defaultValue="Đề nghị thay đổi chính sách" />
                         </div>
                     </div>
                     <InputSelect className="col-12 col-sm-6 col-lg-4" datas={priority} value={1} label="Độ ưu tiên*" onChange={(value) => setState({ ...state, ranger_status: value })} />
                 </div>
                 <div className="form-group">
-                    <label className="fw-medium">Lý do  <span className="uni_star_e94c4c">*</span></label>
+                    <label className="fw-medium">Lý do<span className="uni_star_e94c4c">*</span></label>
                     <textarea placeholder="Nhập lý do " className="form-control" cols={30} rows={4} defaultValue={""} />
                 </div>
             </div>
@@ -255,29 +208,31 @@ const DialogSalePromotion = (props) => {
 
     return (
         <Modal
+            closable={false}
             visible={props.active}
             footer={null}
             width={1200}
             onCancel={() => props.close()}>
-            <CardHeader label="YÊU CẦU HỖ TRỢ" />
-            <div className="uni_text_6d30ab fw-medium fs-18 mt-2 mb-2">YÊU CẦU</div>
-            <div className="row">
-                <InputSelect value={state.request_select} isClear={state.request_select != 0 ? false : true} className="col-12 col-md-8" label="Loại yêu cầu" datas={request} placeholder="Danh sách yêu cầu" onChange={(value) => setState({ ...state, request_select: value })} />
-                <InputText className="col-12 col-md-4" type="text" label={props.value.product_name} disabled />
-            </div>
-            {renderRequest()}
-            <div className=" pt-0 pb-4 border-0 mt-4 text-right" >
-                <button type="button" className="min-width-button min-height-40 btn-uni-exit btn-uni-exit-modal" data-dismiss="modal" aria-label="Close" onClick={props.close} style={{ marginRight: 20 }} >
-                    Close
-                </button>
-                <button type="submit" className="min-width-button min-height-40 btn-uni-purple">
-                    Cập nhật
-                </button>
+            <CardHeader label="support_request" />
+            <div className="modal-content square">
+                <div className="modal-body">
+                    <i className="text-note mb-3 mt-3 mt-lg-0"><Trans>note</Trans><span class="uni_star_e94c4c"> (*) </span>: <Trans>request_info</Trans></i>
+                    <div className="uni_text_6d30ab fw-medium fs-18 mt-2 mb-2 text-uppercase"><Trans>request</Trans></div>
+                    <div className="row">
+                        <InputSelect require trans value={state.request_select} isClear={state.request_select != 0 ? false : true} className="col-12 col-md-8" label="request_type" datas={request} placeholder="choose_request_type" onChange={(value) => setState({ ...state, request_select: value })} />
+                        <InputText className="col-12 col-md-4" type="text" label={props.value.product_name} disabled />
+                    </div>
+                    {renderRequest()}
+                    <div className=" pt-0 pb-4 border-0 mt-4 text-right" >
+                        <button type="button" className="min-width-button min-height-40 btn-uni-exit btn-uni-exit-modal" onClick={props.close} style={{ marginRight: 20 }} ><Trans>close</Trans></button>
+                        <button type="submit" className="min-width-button min-height-40 btn-uni-purple"><Trans>update</Trans></button>
+                    </div>
+                </div>
             </div>
         </Modal>
     )
 }
 
-export default DialogSalePromotion;
+export default withTranslation()(DialogSalePromotion);
 
 

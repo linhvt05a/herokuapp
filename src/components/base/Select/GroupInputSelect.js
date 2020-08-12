@@ -1,5 +1,5 @@
 import React from 'react';
-import { Input, Select } from 'antd';
+import { Input } from 'antd';
 import { Trans } from 'react-i18next';
 
 const GroupInputSelect = (props) => {

@@ -98,6 +98,7 @@ export default {
     //Request Cart
     CART_REQUEST_DATA: "/api/be/v1/distribution/add_request/",
     CART_PROMOTION_LIST: "/api/be/v1/policy_promotion/list_promotion_short/",
+    CART_PROMOTION_PRODUCT: "/api/be/v1/policy_promotion/detail_add_request/",
     
 
     getHeader,

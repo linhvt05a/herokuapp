@@ -5,7 +5,11 @@ import {
 
   PROMOTION_LIST_REQUEST,
   PROMOTION_LIST_SUCCESS,
-  PROMOTION_LIST_FAILURE
+  PROMOTION_LIST_FAILURE,
+
+  PROMOTION_PRODUCT_REQUEST,
+  PROMOTION_PRODUCT_SUCCESS,
+  PROMOTION_PRODUCT_FAILURE,
 } from '../actionType/requestCart';
   
 // request data
@@ -33,5 +37,19 @@ export const promotionListSuccess = (payload) => ({
 });
 export const promotionListFailure = (payload) => ({
   type: PROMOTION_LIST_FAILURE,
+  payload,
+});
+
+// promotion product
+export const promotionProductRequest = (payload) => ({
+  type: PROMOTION_PRODUCT_REQUEST,
+  payload,
+});
+export const promotionProductSuccess = (payload) => ({
+  type: PROMOTION_PRODUCT_SUCCESS,
+  payload,
+});
+export const promotionProductFailure = (payload) => ({
+  type: PROMOTION_PRODUCT_FAILURE,
   payload,
 });

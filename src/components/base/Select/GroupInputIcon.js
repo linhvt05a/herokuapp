@@ -1,9 +1,9 @@
 import React from 'react'
-import { Input, Select } from 'antd';
+import { Input } from 'antd';
 import { Trans } from 'react-i18next';
 
 const GroupInputIcon = (props) => {
-    const { className, titleClassName, disabled, label  } = props;
+    const { className, titleClassName, disabled, label, require, placeholder } = props;
     return (
         <div className={className ? className : ''}>
             <div className="form-group">
@@ -11,10 +11,13 @@ const GroupInputIcon = (props) => {
                     label &&
                     <label className={titleClassName ? titleClassName : "fw-medium"}>
                         <Trans>{label}</Trans>
+                        {
+                            require ? <span class="uni_star_e94c4c"> *</span> : ""
+                        }
                     </label>
                 }
                 <div className="input-group">
-                    <Input addonAfter= {props.symbol} defaultValue= {props.des} disabled={disabled ? disabled : undefined} />
+                    <Input addonAfter= {props.symbol} placeholder={placeholder} disabled={disabled ? disabled : undefined} />
                 </div>
             </div>
         </div>

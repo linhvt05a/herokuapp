@@ -10,7 +10,7 @@ class CardNodata extends Component {
                     <figure className="image">
                         <img src="/static/images/no_data.png" alt="No Data"/>
                     </figure>
-                    <span className="text"><Trans>No Data</Trans></span>
+                    <span className="text"><Trans>no_data</Trans></span>
                 </div>
             </div>
         )

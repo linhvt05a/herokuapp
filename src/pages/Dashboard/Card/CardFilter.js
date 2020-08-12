@@ -65,13 +65,13 @@ const CardFilter = (props) => {
         <div className="card square">
             <div className="card-body">
                 <div className="row">
-                    <InputSelect className="col-xl-3 col-lg-6 col-md-12 col-sm-12" value={(region && region != 0) ? region : null} name="region" label="ByRegionTitle" placeholder="RegionHintText" datas={regionData} onChange={onChange} />
-                    <InputSelect className="col-xl-3 col-lg-6 col-md-12 col-sm-12" value={(province && province != 0) ? province : null} name="province" label="ByProvinceTitle" placeholder="ProvinceHintText" datas={(region && region != 0) ? provinceData : []} onChange={onChange} isClear={isClear} />
-                    <InputSelect className="col-xl-3 col-lg-6 col-md-12 col-sm-12" value={(type && type != 0) ? type : null} name="type" label="ByProjectTypeTitle" placeholder="ProjectTypeHintText" datas={typeData} onChange={onChange} />
-                    <InputSelect className="col-xl-3 col-lg-6 col-md-12 col-sm-12" value={(status && status != 0) ? status : null} name="status" label="ByProjectStatusTitle" placeholder="ProjectStatusHintText" datas={statusData} onChange={onChange} />
+                    <InputSelect className="col-xl-3 col-lg-6 col-md-12 col-sm-12" value={(region && region != 0) ? region : null} name="region" label="by_region" placeholder="choose_the_region" datas={regionData} onChange={onChange} />
+                    <InputSelect className="col-xl-3 col-lg-6 col-md-12 col-sm-12" value={(province && province != 0) ? province : null} name="province" label="by_province" placeholder="choose_the_province" datas={(region && region != 0) ? provinceData : []} onChange={onChange} isClear={isClear} />
+                    <InputSelect className="col-xl-3 col-lg-6 col-md-12 col-sm-12" value={(type && type != 0) ? type : null} name="type" label="by_project_type" placeholder="choose_the_project_type" datas={typeData} onChange={onChange} />
+                    <InputSelect className="col-xl-3 col-lg-6 col-md-12 col-sm-12" value={(status && status != 0) ? status : null} name="status" label="by_project_status" placeholder="choose_the_project_status" datas={statusData} onChange={onChange} />
                 </div>
                 <div className="text-right mt-2">
-                    <button type="submit" className="btn-uni-purple" onClick={onFilterClick} ><Trans>Search</Trans></button>
+                    <button type="submit" className="btn-uni-purple" onClick={onFilterClick} ><Trans>search</Trans></button>
                 </div>
             </div>
         </div>

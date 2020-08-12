@@ -3,7 +3,7 @@ import { Trans } from 'react-i18next';
 
 import { projectListRequest } from '../../../store/action/dashboard';
 import { useDispatch, useSelector } from "react-redux";
-import { Pagination } from '../../../components/common';
+import { Pagination, CardNodata } from '../../../components/common';
 
 const CardProjectList = (props) => {
     const { updateLocation, projectListSuccess, projectListRes, page, totalPage, totalRecord, onItemClick } = props;
@@ -20,21 +20,24 @@ const CardProjectList = (props) => {
                         <table style={{minWidth: "1050px !important"}}>
                             <thead>
                                 <tr>
-                                    <th style={{width: "30%"}} className="col-1 pl-0"><Trans>No.</Trans></th>
-                                    <th className="col-2"><Trans>ProjectName</Trans></th>
-                                    <th className="col-2"><Trans>ProjectStatus</Trans></th>
-                                    <th className="col-2"><Trans>ExpectedRevenue</Trans><span className="current_currency_name">(VND)</span></th>
-                                    <th className="col-2"><Trans>ActualRevenue</Trans><span className="current_currency_name">(VND)</span></th>
-                                    <th className="col-2"><Trans>Cost</Trans><span className="current_currency_name">(VND)</span></th>
+                                    <th style={{width: "30%"}} className="col-1 pl-0"><Trans>no.</Trans></th>
+                                    <th className="col-2 text-uppercase"><Trans>project_name</Trans></th>
+                                    <th className="col-2 text-uppercase"><Trans>project_status</Trans></th>
+                                    <th className="col-2 text-uppercase"><Trans>expected_revenue</Trans><span className="current_currency_name"> (VND)</span></th>
+                                    <th className="col-2 text-uppercase"><Trans>actual_revenue</Trans><span className="current_currency_name"> (VND)</span></th>
+                                    <th className="col-2 text-uppercase"><Trans>cost</Trans><span className="current_currency_name"> (VND)</span></th>
                                 </tr>
                             </thead>
                             {
                                 projectListSuccess &&
                                 <tbody style={{maxHeight: "250px"}}>
                                 {
-                                    projectListRes && projectListRes.map((item, index) => (
+                                    (projectListRes && projectListRes.length > 0) ? projectListRes.map((item, index) => (
                                         <RowProject key={index} data={item} serial={index + 1} onItemClick={onItemClick} index={index} />
-                                    ))
+                                    )) :
+                                    <tr>
+                                        <td colspan="7" align="center"><Trans>no_data</Trans></td>
+                                    </tr>
                                 }
                                 </tbody>
                             }
