@@ -1,16 +1,25 @@
 import React, { useState } from "react"
 import {CardHeader, CardNodata, Spinner} from '../../../components/common'
 import {InputDate, InputSelect} from '../../../components/input'
-import {request_type, request_status, priority_request} from '../../../constant'
+import {CUSTOMER_REQUEST_TYPE, CUSTOMER_REQUEST_STATUS, CUSTOMER_REQUEST_PRIORITY} from '../../../constant'
 
 const CardApprovedHistory = (props) => {
     const [selected, setSelected] = useState(true)
+    const [defaultValue, setDefault] = useState([])
     const changeTab = () => {
         setSelected(!selected)
     }
+
+
+    const CancelSearch = () =>{
+       setDefault(
+        CUSTOMER_REQUEST_TYPE , 
+        CUSTOMER_REQUEST_PRIORITY, 
+        CUSTOMER_REQUEST_STATUS)
+    }
     return (
         <div className="row ">
-            <CardFilterApproved onChange ={props.onChange}  onSearch={props.onSearch}/>
+            <CardFilterApproved onChange ={props.onChange}  onSearch={props.onSearch} onCancel={CancelSearch} defaultValue={defaultValue}/>
             <CardReview 
                     selected={selected} 
                     data={props.data} 
@@ -30,12 +39,12 @@ const CardFilterApproved = (props) => {
             <CardHeader label="LỌC LỊCH SỬ PHÊ DUYỆT" />
             <div className="card square">
                 <div className="card-body">
-                    <InputSelect className="form-group" label="LOẠI YÊU CẦU" placeholder ="--Select--" datas ={request_type} name="request_type" onChange ={props.onChange}/>
+                    <InputSelect className="form-group" label="LOẠI YÊU CẦU" placeholder ="--Select--"  datas ={props.defaultValue === null ? [] : CUSTOMER_REQUEST_TYPE } name="request_type" onChange ={props.onChange}/>
                     <InputDate label="CHOOSE DATE" name="from_date" />
                     <InputDate  label="CHOOSE DATE" name="to_date" />
-                    <InputSelect className="form-group" label="TRẠNG THÁI" placeholder ="--Select--" datas={request_status} name="request_status" onChange ={props.onChange}/>
-                    <InputSelect className="form-group" label="ĐỘ ƯU TIÊN" placeholder ="--Select--" datas ={priority_request} name="priority" onChange ={props.onChange}/>
-                    <FilterButton onSearch={props.onSearch}/>
+                    <InputSelect className="form-group" label="TRẠNG THÁI" placeholder ="--Select--" datas={CUSTOMER_REQUEST_STATUS} name="request_status" onChange ={props.onChange}/>
+                    <InputSelect className="form-group" label="ĐỘ ƯU TIÊN" placeholder ="--Select--" datas ={CUSTOMER_REQUEST_PRIORITY} name="priority" onChange ={props.onChange}/>
+                    <FilterButton onSearch={props.onSearch} onCancel ={props.onCancel}/>
                 </div>
             </div>
         </div>
@@ -51,7 +60,7 @@ const Mode = (props) => {
 const FilterButton = (props) => {
     return (
         <div className="text-center d-flex justify-space-between mt-4">
-            <button type="button" className="btn-uni-purple-outline min-height-40 w-50 mr-2" >
+            <button type="button" className="btn-uni-purple-outline min-height-40 w-50 mr-2" onClick={props.onCancel}>
                 Cancel search
             </button>
             <button type="button" className="btn-uni-purple min-height-40 w-50" onClick={props.onSearch}>
@@ -79,17 +88,17 @@ const CardReview = (props) => {
                         </div>
                         {props.data && props.data.map((item) =>
                             <div className="tab-content">
-                                <div className="tab-pane fade show active" id="newest">
+                                <div className="tab-pane fade show active">
                                     <div className="approval_history--item">
                                         <RequestTypeIcon request_type = {item.request_type}/>
                                         <div className="approval_history--detail">
                                             {
                                                 props.selected === true || props.isFetching === true ?
                                                     (
-                                                    <NewestMessage list_comment ={props.list_comment} handleClick={props.handleClick} data={item} />
+                                                    <NewestMessage list_comment ={props.list_comment} handleClick={()=>props.handleClick(item.request_id)} data={item} />
                                                     )
                                                     :
-                                                    ( <OldestMessage data={item}  handleClick={props.handleClick} list_comment={props.list_comment}/>)
+                                                    ( <OldestMessage data={item}  handleClick={props.handleClick} list_comment={props.list_comment} handleClick={()=>props.handleClick(item.request_id)}/>)
                                             }
                                         </div>
                                     </div>
@@ -114,7 +123,7 @@ const NewestMessage = (props) => {
                         <label className="fw-medium">
                                 <RequestType data = {props.data}/>
                                 <span class="uni_star_e94c4c" style={{color:'red', fontSize: 14, marginLeft:3}}>
-                                    ({props.list_comment && props.list_comment.length} phản hồi mới)
+                                    ({props.data.comment_count ? props.data.comment_count : 0} phản hồi mới)
                                 </span>
                         </label>
                         </a>
@@ -148,7 +157,7 @@ const OldestMessage = (props) => {
                 <a href="#" className="approval_history--title fs-16 font-weight-bold">
                         <RequestType data ={props.data}/>
                 <span class="uni_star_e94c4c" style={{color:'red', fontSize: 14, marginLeft:3}}>
-                    ({props.list_comment && props.list_comment.length} phản hồi mới)
+                ({props.data.comment_count ? props.data.comment_count : 0} phản hồi mới)
                 </span>
                     </a>
                 <div className="approval_history--list">

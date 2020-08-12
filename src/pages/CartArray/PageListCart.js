@@ -18,13 +18,11 @@ const PageListCart = (props) => {
     const [order_by_oldest, setOldest] = useState(false)
     const [content, setContent] = useState('')
     const [file, setFile] = useState(null)
-
+    const[request_id, setRequestId] = useState(0)
     const token = "MjoxMzliMDZiZmI4OTJhOGYxYmQ2MzVhZmFmODEyZmM5M2RhNDFkM2Yx"
-    const request_id = 2
-    const product_id = 63
+    const product_id = parseInt(props.params.id)
     const tab_include = []
     useEffect(() => {
-        dispatch(commentListRequest({ token, request_id }))
         dispatch(productDetailRequest({token, product_id, tab_include}))
     }, [])
     
@@ -32,14 +30,16 @@ const PageListCart = (props) => {
     const approveSuccess = product_request.approveList.success
     const commentSuccess = product_request.commentList.success
     const isCommentSuccess = product_request.commentAdd.success
+    const productSuccess = product_detail.productDetail.success
 
-    const data = approveSuccess ? product_request.approveList.detail.approvals : null
+    const dataApprove = approveSuccess ? product_request.approveList.detail.approvals : null
     const list_comment = commentSuccess ? product_request.commentList.detail : null
-    const productsDetail =  product_detail.productDetail.detail
+    const productsDetail =  productSuccess ? product_detail.productDetail.detail : []
   
-    const handleClick = (e) => {
-        e.preventDefault()
+    const handleClick = (request_id) => {
         setShowPopUp(!showPopUp)
+        setRequestId(request_id)
+        dispatch(commentListRequest({ token, request_id }))
     }
     const onChange = (value, option) => {
         if (option.name === "request_type") {
@@ -58,8 +58,8 @@ const PageListCart = (props) => {
     const onSearch = () => {
         dispatch(approvedListRequest({ token, product_id, request_type, request_status, priority, order_by_oldest}))
     }
-
-    const sendMessage = () =>{
+  
+    const sendMessage = (request_id) =>{
         dispatch(addCommentRequest({token, request_id, content, file}))
     } 
 
@@ -69,11 +69,11 @@ const PageListCart = (props) => {
     return (
        
         <>
-            <CardInfo productDetail={productsDetail} project_detail = {project_detail}/>
+            <CardInfo productDetail={productsDetail} project_detail = {project_detail} />
             <CardApprovedHistory
                 approveSuccess={approveSuccess}
                 isFetching={isFetching}
-                data={data}
+                data={dataApprove}
                 handleClick={handleClick}
                 list_comment={list_comment}
                 onChange={onChange}
@@ -87,6 +87,8 @@ const PageListCart = (props) => {
                     image={props.user.avatar_url} showPopUp={showPopUp} 
                     close={() => setShowPopUp(false)} 
                     list_comment={list_comment}
+                    data = {dataApprove}
+                    request_id={request_id}
             />
         </>
     )

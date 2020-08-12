@@ -80,7 +80,7 @@ class InputText extends Component {
                         min={this.props.min}
                         max={this.props.max}
                         onBlur={this.handleInputValidation}
-                        onChange={this.onChange}
+                        onChange={this.props.onChange}
                     />
                     {this.props.endLabel && <span className="input-group-text square p-0 pl-1 pr-1 h-100">{this.props.endLabel}</span>}
                     {this.state.isInputValid === false && <ul className="parsley-errors-list filled">

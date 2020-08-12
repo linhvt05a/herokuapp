@@ -5,7 +5,7 @@ import TextEditor from '../base/Editor/TextEditor'
 
 const DialogResponeHistory = (props) => {
   const [showReplyForm, setshowReplyForm] = useState(false)
-  const { list_comment } = props
+  const { list_comment ,data} = props
   return (
     <Modal show={props.showPopUp} onHide={props.close}>
       <div
@@ -38,9 +38,16 @@ const DialogResponeHistory = (props) => {
                         </div>
                         <div className="detail">{item.content}</div>
                       </div>
+                      
                     </div>
                   ))}
-                <ShowFormReply image={props.image} changeComment ={props.changeComment} showReplyForm={showReplyForm} sendMessage ={props.sendMessage} closeForm={() => setshowReplyForm(false)} />
+                  <ShowFormReply 
+                    image={props.image} 
+                    changeComment ={props.changeComment} 
+                    showReplyForm={showReplyForm} 
+                    sendMessage ={()=>props.sendMessage(props.request_id)} 
+                    closeForm={() => setshowReplyForm(false)} 
+                    />
               </div>
             </div>
             <CloseButton close={props.close} />
@@ -59,8 +66,8 @@ function ShowFormReply(props) {
           <img src= {props.image} />
       </figure>
       <TextEditor value = "" handleChange = {props.changeComment} />
-           <div className="modal-footer pt-0 border-top-0" style={{ marginTop: 25}}>
-             <button className=" square btn-uni-exit min-width-button" style={{backgroundColor:'#6d30ab', color:'#fff'}} onClick={props.sendMessage}>SEND</button>
+          <div className="modal-footer pt-0 border-top-0" style={{ marginTop: 25}}>
+            <button className=" square btn-uni-exit min-width-button" style={{backgroundColor:'#6d30ab', color:'#fff'}} onClick={props.sendMessage}>SEND</button>
           </div>
       </>
     )

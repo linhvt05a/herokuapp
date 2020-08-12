@@ -39,10 +39,12 @@ export function* approveListWatcher(){
 
 
 export function* commentList(payload) {
+    console.log('payload------', payload)
     const token = payload.payload.token;
     const request_id = payload.payload.request_id
     try {
         const response = yield approve_system_services.commentList(token, request_id);
+        console.log(response)
         response.success ? yield put({ type: COMMENT_LIST_SUCCESS, response }) : yield put({ type: COMMENT_LIST_FAILURE, response });
     } catch (err) {
         yield put({ type: COMMENT_LIST_FAILURE, err });
