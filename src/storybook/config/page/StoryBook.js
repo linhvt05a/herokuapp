@@ -9,6 +9,8 @@ import SideBar from '../../../components/SideBar/SideBar.js'
 
 import menu from './menu.js';
 
+import { useLocation } from "react-router-dom"
+
 function isEmpty(obj) {
     if (obj && Object.keys(obj).length > 0) {
         return false;
@@ -36,7 +38,6 @@ function updateLocation(new_params) {
 class StoryBook extends Component {
     constructor() {
         super();
-
         const data = localStorage.getItem('user');
         if (!data) {
             window.location = "/login";
@@ -89,35 +90,42 @@ class StoryBook extends Component {
         if (this.state.page == null) {
             return <div></div>
         }
+        // let location = useLocation()
+        console.log("useLocation", this.props.data.path.indexOf("storybook"));
+
         const { user, search } = this.state;
         const { params } = this.props.match;
-        return (
-            <div className="main-wrapper">
-                <div className="header__bg purple"></div>
-                <PageHeader user={user} update={this.update} />
-                <SideBar user={user}
-                    menudata={menu.datas}
-                    active={this.state.menu}
-                    setItemActive={this.setActiveItemMenu}
-                />
-                <div className="page-wrapper">
-                    <div className="container-fluid">
-                        <PageTitle label={this.state.title} location={this.props.location} PATHS={this.props.PATHS} />
-                        {
-                            <this.state.page user={user}
-                                search={search}
-                                params={params}
-                                updateTitle={this.updateTitle}
-                                updateLocation={updateLocation}
-                                setActiveItemMenu={this.setActiveItemMenu}
-                                active={this.state.menu}
-                            />
-                        }
+        if (this.props.data.path.indexOf("storybook") !== -1) {
+            return (
+                <div className="main-wrapper">
+                    <div className="header__bg purple"></div>
+                    <PageHeader user={user} update={this.update} />
+                    <SideBar user={user}
+                        menudata={menu.datas}
+                        active={this.state.menu}
+                        setItemActive={this.setActiveItemMenu}
+                    />
+                    <div className="page-wrapper">
+                        <div className="container-fluid">
+                            <PageTitle label={this.state.title} location={this.props.location} PATHS={this.props.PATHS} />
+                            {
+                                <this.state.page user={user}
+                                    search={search}
+                                    params={params}
+                                    updateTitle={this.updateTitle}
+                                    updateLocation={updateLocation}
+                                    setActiveItemMenu={this.setActiveItemMenu}
+                                    active={this.state.menu}
+                                />
+                            }
+                        </div>
+                        <PageFooter />
                     </div>
-                    <PageFooter />
                 </div>
-            </div>
-        )
+            )
+        }
+        else return <div></div>
+
     }
 }
 

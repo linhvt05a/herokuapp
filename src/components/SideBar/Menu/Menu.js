@@ -34,7 +34,7 @@ function contain(menus, label) {
     if (!menus) {
         return [];
     }
-    for (var i = 0; i < menus.length; i++) {
+    for (var i = 0;i < menus.length;i++) {
         let menu = menus[i];
         if (menu.label == label) {
             menu.active = !menu.active;
@@ -73,7 +73,6 @@ class Menu extends Component {
         if (o != null) {
             this.setState({ menudata: o['lst'] });
         }
-        console.log('menudata', this.state.menudata);
     }
 
     render() {

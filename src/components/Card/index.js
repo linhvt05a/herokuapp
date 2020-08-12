@@ -11,12 +11,12 @@ import CardProjectInforProgress from './CardProjectInforProgress';
 import CardTabFilter from './CardTabFilter';
 import CardColumnChart from './CardColumnChart';
 import ListProduct from './ListProduct';
-import ListProductDetail from './ListProductDetail';
+import ListProductGird from './ListProductGird';
 import ListProductTable from './ListProductTable';
 export {
     CardMap, CardProject, CardTask,
     CardFilterPosition, CardFilterTask, CardTaskTree,
     CardChangeAvatar, CardTabFilter,
-    CardProjectInfor,CardProjectEmpty,CardProjectInforProgress,
-    CardColumnChart,ListProduct, ListProductDetail, ListProductTable
+    CardProjectInfor, CardProjectEmpty, CardProjectInforProgress,
+    CardColumnChart, ListProduct, ListProductGird, ListProductTable
 };

@@ -20,21 +20,21 @@ const Story = () => {
                     <div className='col-4'>
                         <label>Dropdown Purple</label>
                         <DropdownPurple label='Dropdown Purple'
-                                        datas={[{href:'', value: '0', label:'item dropdown'}]}
+                            datas={[{ href: '', value: '0', label: 'item dropdown' }]}
                         />
                     </div>
                     <div className='col-4'>
                         <label>Dropdown Blue</label>
                         <DropdownBlue label='Dropdown Blue'
-                                      datas={[{href:'', value: '0', label:'item dropdown'}]}
+                            datas={[{ href: '', value: '0', label: 'item dropdown' }]}
                         />
                     </div>
                     <div className='col-3'>
                         <label>Dropdown Dot</label>
                         <div>
                             <DropdownDot label='Dropdown Dot'
-                                          datas={[{href:'', value: '0', label:'item dropdown'},
-                                                  {href:'', value: '1', label:'item dropdown'}]}
+                                datas={[{ href: '', value: '0', label: 'item dropdown' },
+                                { href: '', value: '1', label: 'item dropdown' }]}
                             />
                         </div>
                     </div>
@@ -44,9 +44,9 @@ const Story = () => {
                     <div className='col-4'>
                         <label>Dropdown End</label>
                         <DropdownEnd label='Dropdown End'
-                                     title='DROPDOWN END'
-                                     datas={[{href:'', value: '0', label:'item dropdown'}]}
-                                     onClick={onClick}
+                            title='DROPDOWN END'
+                            datas={[{ href: '', value: '0', label: 'item dropdown' }]}
+                            onClick={onClick}
                         />
                     </div>
                 </div>

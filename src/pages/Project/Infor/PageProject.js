@@ -1,7 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
 import CardHeader from '../../../components/common/CardHeader';
-import Item from "../../Cart/info/Layout";
 import { useDispatch, useSelector } from "react-redux";
 import actionsCart from "../../../store/action/cart";
 import ListProduct from "../../../components/Card/ListProduct";

@@ -65,7 +65,6 @@ const Cart = props => {
         setState({ ...state, projectStatus: item })
         dispatch(actionsCart.LoadList({ token: token, search_name: state.valueSearch, status_id: item.value }))
     }
-    console.log(dataCart);
     return (
         [<CardHeader
             dropdown={{ title: state.projectStatus && state.projectStatus.value == "" ? "Product Status" : state.projectStatus.label, data: state.dataProjectStatus }}
