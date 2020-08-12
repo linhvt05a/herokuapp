@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
+import { Trans } from "react-i18next"
 
 const CartProductDetail = props => {
     let { data, index, link_to } = props;
@@ -35,6 +36,7 @@ const CartProductDetail = props => {
                         <li>
                             <i className="las la-arrows-alt"></i>
                             <span className="title">Tổng Diện Tích: </span>
+                            {/* <Trans>{'Total Area:'}</Trans> */}
                             <span className="text">{data.project_acreage}</span>
                         </li>
                         <li>

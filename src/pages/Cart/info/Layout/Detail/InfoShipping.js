@@ -3,7 +3,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState, useEffect } from 'react';
 import { Trans } from 'react-i18next';
-import { Select } from "../../../../../components/input";
+import { Select } from "../../../../../components/base";
 import ModalRequest from "../modal/ModalRequest"
 import { Link } from 'react-router-dom';
 import { useSelector } from "react-redux";

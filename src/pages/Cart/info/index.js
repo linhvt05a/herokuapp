@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import actionsCart from "../../../store/action/cart";
 import { typeListRequest } from "../../../store/action/dashboard"
 import ListProduct from "../../../components/Card/ListProduct";
-import { CardHeader, Loading } from "../../..//components/common"
+import { CardHeader, Loading } from "../../../components/common"
 
 const Cart = props => {
     const dispatch = useDispatch();
@@ -58,6 +58,7 @@ const Cart = props => {
         dispatch(actionsCart.LoadList({ token: token, search_name: state.valueSearch, status_id: state.projectStatus.value, setting_type: value.id }))
     }
     const SEARCH = value => {
+        console.log("value", state.projectStatus);
         setState({ ...state, valueSearch: value })
         dispatch(actionsCart.LoadList({ token: token, search_name: value, status_id: state.projectStatus.value }))
     };
