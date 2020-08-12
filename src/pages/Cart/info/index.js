@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import actionsCart from "../../../store/action/cart";
 import { typeListRequest } from "../../../store/action/dashboard"
 import ListProduct from "../../../components/Card/ListProduct";
-import CardHeader from "../../..//components/common/CardHeader"
+import CardHeader from "../../../components/Card/CardHeader"
 
 const Cart = props => {
     const dispatch = useDispatch();

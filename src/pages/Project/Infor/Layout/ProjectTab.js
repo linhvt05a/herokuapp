@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import CardHeader from '../../../../components/common/CardHeader';
+import CardHeader from '../../../../components/Card/CardHeader';
 import TabInvestor from './Tabs/TabInvestor';
 import TabParameters from './Tabs/TabParameters';
 import TabProgress from './Tabs/TabProgress';

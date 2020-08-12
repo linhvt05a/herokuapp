@@ -17,9 +17,15 @@ const ButtonStory = props => {
                         />
                     </div>
                     <div className='col-4'>
-                        <Button className="border-0 bg_color_6d30ab text-white pl-2 pr-2 min-height-40 d-inline-block"
-                            label="Purple Button"
+                        <Button className="min-width-button min-height-40 btn-uni-delete"
+                            label="Red Button"
                             onClick={onClick}
+                        />
+                    </div>
+                    <div className='col-4'>
+                        <Button className="min-width-button min-height-40 btn-uni-purple-outline"
+                                label="Prev Button"
+                                onClick={onClick}
                         />
                     </div>
                 </div>

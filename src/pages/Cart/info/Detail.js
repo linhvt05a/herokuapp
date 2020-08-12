@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import actions from "../../../store/action/cart"
 import Item from "./Layout";
-import CardHeader from "../../../components/common/CardHeader";
+import CardHeader from "../../../components/Card/CardHeader";
 
 const Edit = props => {
     const [state, setState] = useState({
