@@ -35,6 +35,7 @@ const ProjectTab = (props) => {
     const onItemClickTab = (index, title) => {
         setActive(index)
     }
+    console.log('detail', detail);
     return (
         <div>
             <CardHeader label="Thông tin"/>
@@ -56,7 +57,7 @@ const ProjectTab = (props) => {
                         }
                         </div>
                         <div role="tabpanel" className={`tab-pane show fade pt-2 pb-3 ${active != 1 ? '' : 'active'}`}>
-                            <TabParameters data={detail.meta_data_groups} lat={detail.lat} long={detail.lon}/>
+                            <TabParameters data={detail.meta_data_groups} lat={detail.lat} long={detail.lon} name={detail.name} durationtype={detail.project_duration_type}/>
                         </div>
                         <div role="tabpanel" className={`tab-pane show fade pt-2 pb-3 ${active != 2 ? '' : 'active'}`}>
                             <TabProgress />

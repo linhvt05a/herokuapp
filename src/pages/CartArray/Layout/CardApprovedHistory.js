@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import {CardHeader, CardNodata, Spinner} from '../../../components/common'
-import {InputDate, InputSelect} from '../../../components/input'
+import {InputDate, Select} from '../../../components/input'
 import {request_type, request_status, priority_request} from '../../../constant'
 
 const CardApprovedHistory = (props) => {
@@ -30,11 +30,11 @@ const CardFilterApproved = (props) => {
             <CardHeader label="LỌC LỊCH SỬ PHÊ DUYỆT" />
             <div className="card square">
                 <div className="card-body">
-                    <InputSelect className="form-group" label="LOẠI YÊU CẦU" placeholder ="--Select--" datas ={request_type} name="request_type" onChange ={props.onChange}/>
+                    <Select className="form-group" label="LOẠI YÊU CẦU" placeholder ="--Select--" datas ={request_type} name="request_type" onChange ={props.onChange}/>
                     <InputDate label="CHOOSE DATE" name="from_date" />
                     <InputDate  label="CHOOSE DATE" name="to_date" />
-                    <InputSelect className="form-group" label="TRẠNG THÁI" placeholder ="--Select--" datas={request_status} name="request_status" onChange ={props.onChange}/>
-                    <InputSelect className="form-group" label="ĐỘ ƯU TIÊN" placeholder ="--Select--" datas ={priority_request} name="priority" onChange ={props.onChange}/>
+                    <Select className="form-group" label="TRẠNG THÁI" placeholder ="--Select--" datas={request_status} name="request_status" onChange ={props.onChange}/>
+                    <Select className="form-group" label="ĐỘ ƯU TIÊN" placeholder ="--Select--" datas ={priority_request} name="priority" onChange ={props.onChange}/>
                     <FilterButton onSearch={props.onSearch}/>
                 </div>
             </div>

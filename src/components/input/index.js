@@ -1,4 +1,4 @@
-import InputSelect from './InputSelect';
+import Select from '../base/Select/Select';
 import InputDate from './InputDate';
 import InputText from './InputText';
 import InputTextArea from './InputTextArea';
@@ -91,7 +91,7 @@ function getValueSelect(list, id) {
 }
 
 export {
-    InputSelect,
+    Select,
     InputTextImage,
     InputTextSelect,
     InputDate,
