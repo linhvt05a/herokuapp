@@ -91,42 +91,38 @@ class StoryBook extends Component {
             return <div></div>
         }
         // let location = useLocation()
-        console.log("useLocation", this.props.data.path.indexOf("storybook"));
-
         const { user, search } = this.state;
         const { params } = this.props.match;
-        if (this.props.data.path.indexOf("storybook") !== -1) {
-            return (
-                <div className="main-wrapper">
-                    <div className="header__bg purple"></div>
-                    <PageHeader user={user} update={this.update} />
-                    <SideBar user={user}
-                        menudata={menu.datas}
-                        active={this.state.menu}
-                        setItemActive={this.setActiveItemMenu}
-                    />
-                    <div className="page-wrapper">
-                        <div className="container-fluid">
-                            <PageTitle label={this.state.title} location={this.props.location} PATHS={this.props.PATHS} />
-                            {
-                                <this.state.page user={user}
-                                    search={search}
-                                    params={params}
-                                    updateTitle={this.updateTitle}
-                                    updateLocation={updateLocation}
-                                    setActiveItemMenu={this.setActiveItemMenu}
-                                    active={this.state.menu}
-                                />
-                            }
-                        </div>
-                        <PageFooter />
+        return (
+            <div className="main-wrapper">
+                <div className="header__bg purple"></div>
+                <PageHeader user={user} update={this.update} />
+                <SideBar user={user}
+                    menudata={menu.datas}
+                    active={this.state.menu}
+                    setItemActive={this.setActiveItemMenu}
+                />
+                <div className="page-wrapper">
+                    <div className="container-fluid">
+                        <PageTitle label={this.state.title} location={this.props.location} PATHS={this.props.PATHS} />
+                        {
+                            <this.state.page user={user}
+                                search={search}
+                                params={params}
+                                updateTitle={this.updateTitle}
+                                updateLocation={updateLocation}
+                                setActiveItemMenu={this.setActiveItemMenu}
+                                active={this.state.menu}
+                            />
+                        }
                     </div>
+                    <PageFooter />
                 </div>
-            )
-        }
-        else return <div></div>
-
+            </div>
+        )
     }
+
 }
+
 
 export default StoryBook;

@@ -19,7 +19,7 @@ class DropdownPurple extends DropItem {
                 </button>
                 <div className={this.state.show ? "dropdown-menu show" : "dropdown-menu"} aria-labelledby="dropdownMenuButton">
                     {
-                        this.props.datas && this.props.datas.map((item, index) => <Link className="dropdown-item " href={item.href} key={index} name={item.value} onClick={() => this.onClick(item)}><Trans>{item.label}</Trans> </Link>)
+                        this.props.datas && this.props.datas.map((item, index) => <a className="dropdown-item " key={index} name={item.value} onClick={() => this.onClick(item)}><Trans>{item.label}</Trans> </a>)
                     }
                 </div>
             </div>

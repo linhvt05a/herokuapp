@@ -4,11 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import actionsCart from "../../../store/action/cart";
 import { typeListRequest } from "../../../store/action/dashboard"
 import ListProduct from "../../../components/Card/ListProduct";
-<<<<<<< HEAD
 import { CardHeader, Loading } from "../../..//components/common"
-=======
-import CardHeader from "../../../components/Card/CardHeader"
->>>>>>> b49c12230dec732efc4003481f89396cfec3b2fa
 
 const Cart = props => {
     const dispatch = useDispatch();
@@ -36,7 +32,7 @@ const Cart = props => {
     useEffect(() => {
         let data = dataCart.Filter_Project_Status;
         let dataSelect = [];
-        dataSelect.push(create_Filter_Project_Status("", "All"))
+        // dataSelect.push(create_Filter_Project_Status("", "All"))
         if (data.length > 0) {
             data.map((item) => {
                 dataSelect.push(create_Filter_Project_Status(item.id, item.name))
@@ -68,7 +64,7 @@ const Cart = props => {
     const onFilter = (item) => {
         setState({ ...state, projectStatus: item })
         dispatch(actionsCart.LoadList({ token: token, search_name: state.valueSearch, status_id: item.value }))
-    }
+    };
     return (
         [<CardHeader
             dropdown={{ title: state.projectStatus && state.projectStatus.value == "" ? "Product Status" : state.projectStatus.label, data: state.dataProjectStatus }}
