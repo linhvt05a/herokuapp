@@ -64,10 +64,10 @@ export default {
     SYS_STATE_EDIT: '/api/v1/system/workflow/template/state/edit/',
     SYS_STATE_PARENT_LIST: '/api/v1/system/workflow/template/state/parent/list/',
 
-    // LOCATION_REGION: '/api/v1/location/regions/',
-    // LOCATION_PROVINCE: '/api/v1/location/provinces/',
-    // LOCATION_DISTRICT: '/api/v1/location/districts/',
-    // LOCATION_WARD: '/api/v1/location/wards/',
+    LOCATION_REGION: '/api/fe/v1/regions/',
+    LOCATION_PROVINCE: '/api/fe/v1//provinces/',
+    LOCATION_DISTRICT: '/api/fe/v1/districts/',
+    LOCATION_WARD: '/api/fe/v1/wards/',
 
     LANGUAGE_LIST: '/api/v1/user/language/list/',
     LANGUAGE_CHANGE: '/api/v1/user/language/change/',
