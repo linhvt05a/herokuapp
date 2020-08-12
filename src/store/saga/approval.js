@@ -18,16 +18,8 @@ import {
 } from '../actionType/approval'
 
 export function* approveList(payload) {
-    console.log('payload------', payload)
-    const token = payload.payload.token
-    const product_id = payload.payload.product_id
-    const request_type = payload.payload.request_type
-    const request_status = payload.payload.request_status
-    const priority = payload.payload.priority
-    const order_by_oldest = payload.payload.order_by_oldest
     try {
-        const response = yield approve_system_services.approveList(token, product_id, request_type, request_status, priority, order_by_oldest);
-        console.log(response)
+        const response = yield approve_system_services.approveList(payload);
         response.success ? yield put({ type: APPROVAL_LIST_SUCCESS, response }) : yield put({ type: APPROVAL_LIST_FAILURE, response });
     } catch (err) {
         yield put({ type: APPROVAL_LIST_FAILURE, err });

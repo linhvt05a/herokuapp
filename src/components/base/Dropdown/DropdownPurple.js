@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 class DropdownPurple extends DropItem {
 
     onClick = (item) => {
-        if (this.props.onFilter) {
+        if (this.props.onClick) {
             this.props.onFilter(item)
         }
     }

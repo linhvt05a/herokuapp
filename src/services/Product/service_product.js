@@ -9,7 +9,7 @@ function productDetail(token, product_id, tab_include){
         headers: api.getHeader(token)
     };
 
-    const params = {product_id: product_id, tab_include: tab_include};
+    const params = {product_id, tab_include};
     const url = api.getUrl(api.PRODUCT_DETAIL, params)
     return api.handleRequest(url, requestOptions);
 }

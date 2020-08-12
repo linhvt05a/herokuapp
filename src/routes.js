@@ -63,6 +63,8 @@ export const STORYBOOKS = [
     { "path": "/storybook/button", "value": StoryBook.Button, "menu": "menu_item_input", "title": "Select" },
     { "path": "/storybook/card/cardHeader", "value": StoryBook.Cards.CardHeader, "menu": "menu_item_card_header", "title": "Card Header" },
     { "path": "/storybook/card/cardProductDetail", "value": StoryBook.Cards.CartProductDetail, "menu": "menu_item_card_product_detail", "title": "Card Product Detail" },
+    { "path": "/storybook/card/CardFilterPosition", "value": StoryBook.Cards.CardFilterPosition, "menu": "menu_item_card_product_detail", "title": "CardFilterPosition" },
+    { "path": "/storybook/card/CardGrid", "value": StoryBook.Cards.CardGrid, "menu": "menu_item_card_product_detail", "title": "CardGrid" },
 ]
 
 var PATHS = {};

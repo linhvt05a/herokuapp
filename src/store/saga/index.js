@@ -40,7 +40,9 @@ import {
   promotionListWatcher,
   promotionProductWatcher
 } from './requestCartSaga'
-  
+import {
+    productDetaillWatcher
+} from './productSaga'
 function* allSaga() {
   yield all([
     currencyListWatcher(),
@@ -78,6 +80,9 @@ function* allSaga() {
     requestDataWatcher(),
     promotionListWatcher(),
     promotionProductWatcher()
+    promotionListWatcher(),
+
+    productDetaillWatcher()
   ]);
 }
 

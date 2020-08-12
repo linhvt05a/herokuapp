@@ -4,7 +4,7 @@ import { approvedListRequest, commentListRequest, addCommentRequest } from '../.
 import {productDetailRequest} from '../../store/action/product'
 import { CardInfo, CardApprovedHistory } from './Layout/index'
 import { DialogResponeHistory } from '../../components/dialogs'
-
+import {ModalHistoryAprroval} from './Layout'
 
 const PageListCart = (props) => {
     const [showPopUp, setShowPopUp] = useState(false)
@@ -18,28 +18,29 @@ const PageListCart = (props) => {
     const [order_by_oldest, setOldest] = useState(false)
     const [content, setContent] = useState('')
     const [file, setFile] = useState(null)
-
+    const[request_id, setRequestId] = useState(0)
     const token = "MjoxMzliMDZiZmI4OTJhOGYxYmQ2MzVhZmFmODEyZmM5M2RhNDFkM2Yx"
-    const request_id = 2
     const product_id = 63
     const tab_include = []
     useEffect(() => {
-        dispatch(commentListRequest({ token, request_id }))
         dispatch(productDetailRequest({token, product_id, tab_include}))
     }, [])
     
     const isFetching = product_request.isFetching;
+    const isFetchingComment = product_request.isFetching
     const approveSuccess = product_request.approveList.success
     const commentSuccess = product_request.commentList.success
     const isCommentSuccess = product_request.commentAdd.success
-
-    const data = approveSuccess ? product_request.approveList.detail.approvals : null
+    const productSuccess = product_detail.productDetail.success
+    const dataApprove = approveSuccess ? product_request.approveList.detail.approvals : null
     const list_comment = commentSuccess ? product_request.commentList.detail : null
-    const productsDetail =  product_detail.productDetail.detail
-  
-    const handleClick = (e) => {
-        e.preventDefault()
+    const productsDetail =  productSuccess ? product_detail.productDetail.detail : []
+
+       
+    const handleClick = (request_id) => {
         setShowPopUp(!showPopUp)
+        setRequestId(request_id)
+        dispatch(commentListRequest({ token, request_id }))
     }
     const onChange = (value, option) => {
         if (option.name === "request_type") {
@@ -58,35 +59,38 @@ const PageListCart = (props) => {
     const onSearch = () => {
         dispatch(approvedListRequest({ token, product_id, request_type, request_status, priority, order_by_oldest}))
     }
-
-    const sendMessage = () =>{
+  
+    const sendMessage = (request_id) =>{
         dispatch(addCommentRequest({token, request_id, content, file}))
     } 
 
     const changeComment = (value) =>{
         setContent(value)
     }
+  
     return (
        
         <>
-            <CardInfo productDetail={productsDetail} project_detail = {project_detail}/>
+            <CardInfo productDetail={productsDetail} project_detail = {project_detail} />
             <CardApprovedHistory
                 approveSuccess={approveSuccess}
                 isFetching={isFetching}
-                data={data}
+                data={dataApprove}
                 handleClick={handleClick}
                 list_comment={list_comment}
                 onChange={onChange}
                 onSearch={onSearch}
-                
-            />
 
+            />
+        
             <DialogResponeHistory 
-                    isCommentSuccess ={isCommentSuccess} 
+                    isLoading ={isFetchingComment} 
                     changeComment={changeComment} sendMessage={sendMessage} 
                     image={props.user.avatar_url} showPopUp={showPopUp} 
                     close={() => setShowPopUp(false)} 
                     list_comment={list_comment}
+                    data = {dataApprove}
+                    request_id={request_id}
             />
         </>
     )

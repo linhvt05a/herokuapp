@@ -119,6 +119,6 @@ function filterFloor(token, project_id, sell_open_id) {
     };
 
     const params = { project_id, sell_open_id, "sell_open_filter": "True" };
-    const url = api.getUrl(api.FILTER_FLOOR, params); console.log(url);
+    const url = api.getUrl(api.FILTER_FLOOR, params);
     return api.handleRequest(url, requestOptions);
 }
