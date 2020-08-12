@@ -75,7 +75,7 @@ const MapCart = (props) => {
                 //     anchor="right">
                 //     <div>{marker.product_name}</div>
                 // </Popup> : null
-                return marker.product_marker.length > 0 ?
+                return marker.product_marker.length > 0 &&
                     <Marker
                         key={index}
                         coordinates={marker.product_marker}
@@ -86,7 +86,7 @@ const MapCart = (props) => {
                             <span className="text">{marker.product_name}</span>
                             <span className="line" ></span>
                         </div>
-                    </Marker> : null
+                    </Marker>
             })}
 
         </Map>
