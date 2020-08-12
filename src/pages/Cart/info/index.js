@@ -72,7 +72,7 @@ const Cart = props => {
             label={"Project"}
             searchBox={{ title: "home_map_search" }}
             onSearch={SEARCH}
-            onClick={onFilter} />
+            onFilter={onFilter} />
             , dataCart.isLoadingList ? <Loading /> : <ListProduct
                 dataFilter={state.dataType}
                 data={dataCart.List}

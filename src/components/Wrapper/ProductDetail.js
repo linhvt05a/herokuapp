@@ -4,7 +4,7 @@ import Pagination from "../common/Pagination"
 import { Trans } from 'react-i18next';
 import CardProduct from "../Card/CardProduct";
 import ListProduct from "../Table/ListProduct";
-import CardNodata from "../Card/CardNodata"
+import { CardProductFilter, CardNodata } from "../Card"
 const body = props => {
     let { dataFilter, data, page, total_page, total_record, link_to } = props;
     const [state, setState] = useState(true);
@@ -12,7 +12,8 @@ const body = props => {
         <div className="m_table--wrapper">
             <div className="m_filter pb-4">
                 <div className="d-flex align-items-center justify-content-xl-between flex-xl-nowrap flex-wrap justify-content-start">
-                    <ul className="m_filter--type">
+                    <CardProductFilter onFilter={props.onClickType} dataFilter={dataFilter} label="Lọc bởi:" />
+                    {/* <ul className="m_filter--type">
                         <li className="first"><span>Lọc bởi: </span></li>
                         {dataFilter ? dataFilter.map((item, index) => {
                             return (
@@ -22,7 +23,7 @@ const body = props => {
                                 </li>
                             )
                         }) : <CardNodata />}
-                    </ul>
+                    </ul> */}
                     <ul className="m_filter--show mt-xl-0 mt-2">
                         <li className="first"><span><Trans>Displayed by</Trans></span></li>
                         <li className={state ? "active" : ""} onClick={() => setState(true)}><a><i className="la la-th"></i></a></li>

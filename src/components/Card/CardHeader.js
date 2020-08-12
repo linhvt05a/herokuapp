@@ -7,7 +7,7 @@ const CardHeader = props => {
         valueSearch: ""
     });
 
-    let { onSearch, classHeading, label, labelEnd, dropdown, searchBox, onClick } = props;
+    let { onSearch, classHeading, label, labelEnd, dropdown, searchBox, onFilter } = props;
 
     return (
         <div className={classHeading ? classHeading : "m_heading"}>
@@ -21,7 +21,7 @@ const CardHeader = props => {
             {/*dropdown purple */}
             {
                 dropdown ?
-                    <DropdownPurple datas={dropdown.data} label={dropdown.title} onClick={onClick} />
+                    <DropdownPurple datas={dropdown.data} label={dropdown.title} onFilter={onFilter} />
                     : null
             }
             {/*end dropdown purple */}

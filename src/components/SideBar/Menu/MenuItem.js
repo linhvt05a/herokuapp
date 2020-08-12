@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Trans } from "react-i18next";
 import { Link } from "react-router-dom";
+import { Label } from "reactstrap";
 
 function strcmp(a, b) {
     if (a.toString() < b.toString()) return -1;
@@ -9,7 +10,10 @@ function strcmp(a, b) {
 }
 
 const MenuItem = props => {
-
+    const [state, setState] = React.useState({
+        labelParent: "",
+        LabelChirld: ""
+    })
 
     const handleClick = (e) => {
         props.click(props.data.label);
@@ -28,17 +32,19 @@ const MenuItem = props => {
     return (
         <li
             className={data.active == true ? "sidebar-item active" : "sidebar-item"}
-            onClick={handleClick}
+            onClick={data.active == true ? null : handleClick}
         >
+            {console.log(1, data)}
             {props.data.href ?
-                <Link to={props.data.href}>
-                    <ul className={clsname} style={{ color: data.active ? "#6d30ab" : null }}>
-                        <i className={data.icon ? data.icon : "las la-home"}></i>
-                        <span className="hide-menu" >
-                            <Trans>{data.label}</Trans>
-                        </span>
-                    </ul>
-                </Link> :
+                // <Link to={props.data.href}>
+                <Link to={props.data.href} className={clsname} style={{ color: props.active == data.label ? "#6d30ab" : null }}>
+                    <i className={data.icon ? data.icon : "las la-home"}></i>
+                    <span className="hide-menu" >
+                        <Trans>{data.label}</Trans>
+                    </span>
+                </Link>
+                // {/* </Link> */}
+                :
                 <div>
                     <ul className={clsname} style={{ color: data.active ? "#6d30ab" : null }}>
                         <i className={data.icon ? data.icon : "las la-home"}></i>
@@ -50,7 +56,7 @@ const MenuItem = props => {
                     <ul className="collapse first-level base-level-line">
                         {data.children &&
                             data.children.map((item, index) => (
-                                <MenuItem key={index} data={item} click={click} />
+                                <MenuItem key={index} data={item} click={click} active={props.active} />
                             ))}
                     </ul>
                 </div>
