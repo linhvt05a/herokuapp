@@ -3,8 +3,9 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import actionsCart from "../../../store/action/cart";
 import { typeListRequest } from "../../../store/action/dashboard"
-import ListProduct from "../../../components/Card/ListProduct";
-import { CardHeader, Loading } from "../../..//components/common"
+import ListProduct from "../../../components/Wrapper/ProductDetail";
+import { Loading } from "../../../components/common";
+import { CardHeader } from "../../../components/Card"
 
 const Cart = props => {
     const dispatch = useDispatch();
@@ -70,8 +71,8 @@ const Cart = props => {
             dropdown={{ title: state.projectStatus && state.projectStatus.value == "" ? "Product Status" : state.projectStatus.label, data: state.dataProjectStatus }}
             label={"Project"}
             searchBox={{ title: "home_map_search" }}
-            onSearch={value => SEARCH(value)}
-            onClick={value => onFilter(value)} />
+            onSearch={SEARCH}
+            onFilter={onFilter} />
             , dataCart.isLoadingList ? <Loading /> : <ListProduct
                 dataFilter={state.dataType}
                 data={dataCart.List}
@@ -79,7 +80,7 @@ const Cart = props => {
                 total_page={dataCart.total_page}
                 total_record={dataCart.total_record}
                 link_to={`/cart/cart_list/detail/`}
-                onClickType={(value) => onClickType(value)}
+                onClickType={onClickType}
             />]
     )
 }

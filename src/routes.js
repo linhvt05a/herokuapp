@@ -37,7 +37,7 @@ const MAINS = [
     { "path": "/product_card/new_contract/order_info", "value": ProductCart.OrderInfo, "menu": "menu_product_cart_customer_info", "title": "" },
     { "path": "/product_card/new_contract/finish", "value": ProductCart.Finish, "menu": "menu_product_cart_customer_info", "title": "" },
 
-    { "path": "/info/project", "value": Project.PageProject, "menu": "menu_list_task_by_projects", "title": "Dự án" },
+    { "path": "/info/project", "value": Project.PageProject, "menu": "menu_project", "title": "Dự án" },
     { "path": "/info/project/detail/:id", "value": Project.PageProjectDetail, "menu": "menu_project_detail_customer_info", "title": "Thông tin dự án" },
 
     { "path": "/perm/project/:id", "value": System.PageListCart, "menu": "menu_perm_task_by_projects", "title": "" },
@@ -66,7 +66,7 @@ export const STORYBOOKS = [
 ]
 
 var PATHS = {};
-for (var i = 0; i < MAINS.length; i++) {
+for (var i = 0;i < MAINS.length;i++) {
     var data = MAINS[i];
     var path = data.path.replace("/:id", "");
     PATHS[path] = data.title;

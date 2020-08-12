@@ -6,15 +6,16 @@ import { Link } from 'react-router-dom';
 class DropdownPurple extends DropItem {
 
     onClick = (item) => {
-        if (this.props.onClick) {
-            this.props.onClick(item)
+        if (this.props.onFilter) {
+            this.props.onFilter(item)
         }
     }
 
     render() {
+        let { backgroundColor, color } = this.props;
         return (
             <div className="m_select m_dropdown" ref={node => this.node = node} >
-                <button className="m_select--label m_dropdown--label square  dropdown-toggle" type="button" >
+                <button className="m_select--label m_dropdown--label square  dropdown-toggle" type="button" style={{ backgroundColor: backgroundColor, color: color }} >
                     <Trans>{this.props.label}</Trans>
                 </button>
                 <div className={this.state.show ? "dropdown-menu show" : "dropdown-menu"} aria-labelledby="dropdownMenuButton">
