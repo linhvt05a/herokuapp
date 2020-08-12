@@ -37,7 +37,6 @@ import {
   customerListRequest
 } from "./customer";
 
-import {productDetailRequest} from './product'
 export {
   currentcyAddRequest,
   currentcyDetailRequest,
@@ -61,6 +60,5 @@ export {
   requestDataRequest,
   promotionListRequest,
   promotionProductRequest,
-  productDetailRequest,
   customerListRequest,
 };
