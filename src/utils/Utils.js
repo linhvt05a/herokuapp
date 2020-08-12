@@ -234,17 +234,19 @@ function isProductColor(number) {
     }
 }
 function formatCurrency(number) {
+    console.log(number)
     if (number !== null) {
         var n = null;
         if (Number.isInteger(number)) {
             n = JSON.stringify(number).split('').reverse().join("");
         }
         else {
-            n = number.split('').reverse().join("");
+            n = number.split(' ').reverse().join("");
         }
         var n2 = n.replace(/\d\d\d(?!$)/g, "$&.");
         return n2.split('').reverse().join('') + ",00 ";
     } else {
         return 0;
+        
     }
 }

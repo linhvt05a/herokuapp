@@ -4,8 +4,10 @@ import { Trans } from "react-i18next";
 import { Modal, Select } from "antd";
 import { CardHeader } from "../../../../../components/common";
 import { InputSelect, InputText, InputCheckBox } from "../../../../../components/input";
-import { CUSTOMER_REQUEST_TYPE_COMMISSION, CUSTOMER_REQUEST_TYPE_PROMOTION, CUSTOMER_REQUEST_PRIORITY_HIGH,
-    CUSTOMER_REQUEST_PRIORITY_MID, CUSTOMER_REQUEST_PRIORITY_LOW } from '../../../../../constant';
+import {
+    CUSTOMER_REQUEST_TYPE_COMMISSION, CUSTOMER_REQUEST_TYPE_PROMOTION, CUSTOMER_REQUEST_PRIORITY_HIGH,
+    CUSTOMER_REQUEST_PRIORITY_MID, CUSTOMER_REQUEST_PRIORITY_LOW
+} from '../../../../../constant';
 import { requestDataRequest, promotionListRequest } from '../../../../../store/action/requestCart';
 import { useDispatch, useSelector } from "react-redux";
 import Input from '../../../../../components/base/Input/Input';
@@ -33,7 +35,7 @@ const request = [
     CUSTOMER_REQUEST_TYPE_PROMOTION
 ]
 
-const DialogSalePromotion = (props) => {
+const ModalRequest = (props) => {
     const [state, setState] = useState({
         request_select: 0,
         ranger_status: 1
@@ -68,22 +70,22 @@ const DialogSalePromotion = (props) => {
                         disabled
                         className="col-12 col-sm-6 col-lg-4"
                         label="Hoa hồng thấp nhất"
-                        addonBefore = {`${value.min_value_percent}%`} />
+                        addonBefore={`${value.min_value_percent}%`} />
                     <Input
                         disabled
                         className="col-12 col-sm-6 col-lg-4"
                         label="Hoa hồng cao nhất"
-                        addonBefore = {`${value.max_value_percent}%`} />
+                        addonBefore={`${value.max_value_percent}%`} />
                     <Input
                         disabled
                         className="col-12 col-sm-6 col-lg-4"
                         label="Hoa hồng mặc định hiện tại"
-                        addonBefore = {`${value.default_value_percent}%`} />
+                        addonBefore={`${value.default_value_percent}%`} />
                     <Input
                         className="col-12 col-sm-6 col-lg-4"
                         titleClassName="fw-medium m_text_e94c4c"
                         label="Hoa hồng đề nghị*"
-                        addonBefore = {`%`} />
+                        addonBefore={`%`} />
                     <InputSelect
                         className="col-12 col-sm-6 col-lg-4" titleClassName="fw-medium m_text_e94c4c"
                         datas={priority} value={state.ranger_status}
@@ -277,6 +279,6 @@ const DialogSalePromotion = (props) => {
     )
 }
 
-export default DialogSalePromotion;
+export default ModalRequest;
 
 

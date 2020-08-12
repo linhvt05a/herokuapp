@@ -37,7 +37,7 @@ const MAINS = [
     { "path": "/product_card/new_contract/order_info", "value": ProductCart.OrderInfo, "menu": "menu_product_cart_customer_info", "title": "" },
     { "path": "/product_card/new_contract/finish", "value": ProductCart.Finish, "menu": "menu_product_cart_customer_info", "title": "" },
 
-    { "path": "/info/project", "value": Project.PageProject, "menu": "menu_list_task_by_projects", "title": "Dự án" },
+    { "path": "/info/project", "value": Project.PageProject, "menu": "menu_project", "title": "Dự án" },
     { "path": "/info/project/detail/:id", "value": Project.PageProjectDetail, "menu": "menu_project_detail_customer_info", "title": "Thông tin dự án" },
 
     { "path": "/perm/project/:id", "value": System.PageListCart, "menu": "menu_perm_task_by_projects", "title": "" },
@@ -62,10 +62,13 @@ export const STORYBOOKS = [
     { "path": "/storybook/select", "value": StoryBook.Select, "menu": "menu_item_input", "title": "Select" },
     { "path": "/storybook/button", "value": StoryBook.Button, "menu": "menu_item_input", "title": "Select" },
     { "path": "/storybook/card/cardHeader", "value": StoryBook.Cards.CardHeader, "menu": "menu_item_card_header", "title": "Card Header" },
+    { "path": "/storybook/card/cardProductDetail", "value": StoryBook.Cards.CartProductDetail, "menu": "menu_item_card_product_detail", "title": "Card Product Detail" },
+    { "path": "/storybook/card/CardFilterPosition", "value": StoryBook.Cards.CardFilterPosition, "menu": "menu_item_card_product_detail", "title": "CardFilterPosition" },
+    { "path": "/storybook/card/CardGrid", "value": StoryBook.Cards.CardGrid, "menu": "menu_item_card_product_detail", "title": "CardGrid" },
 ]
 
 var PATHS = {};
-for (var i = 0; i < MAINS.length; i++) {
+for (var i = 0;i < MAINS.length;i++) {
     var data = MAINS[i];
     var path = data.path.replace("/:id", "");
     PATHS[path] = data.title;

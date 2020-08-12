@@ -3,12 +3,12 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState, useEffect } from 'react';
 import { Trans } from 'react-i18next';
-import { Select } from "../../../../../components/input";
+import { Select } from "../../../../../components/base"
 import ModalRequest from "../modal/ModalRequest"
 import { Link } from 'react-router-dom';
 import { useSelector } from "react-redux";
 import { isProductStatus, isProductType, isProductColor, formatCurrency } from "../../../../../utils/Utils"
-import { CardNodata } from "../../../../../components/common"
+import { CardNodata } from "../../../../../components/common";
 
 const InfoShipping = props => {
     const token = 'MTAwNjpNVEF3Tmpwa05ESmlPVGc1WldVM05HWmhNMlZrWXpWaFlqQXhOalV4T1RReFl6QmtOVFUyTW1Oa1pUVTQ=';
@@ -238,4 +238,4 @@ const InfoShipping = props => {
 
     )
 }
-export default InfoShipping;
+export default React.memo(InfoShipping);

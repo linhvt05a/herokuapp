@@ -21,6 +21,9 @@ const InputSelect = (props) => {
                     style={{ width: 200 }}
                     className="form-control"
                     onChange={onChange}
+                    filterOption={(input, option) =>
+                        option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
+                    }
                     value={isClear ? null : value}
                     placeholder={<Trans>{placeholder}</Trans>}
                     children={datas && datas.map((e, key) => {

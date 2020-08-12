@@ -31,6 +31,25 @@ let menu_cards = [
         label: "CardHeader",
         icon: "las children1",
         href: "/storybook/card/cardHeader"
+
+    },
+    {
+        label: "CardProductDetail",
+        icon: "las children1",
+        href: "/storybook/card/cardProductDetail"
+
+    },
+    {
+        label: "CardFilterPosition",
+        icon: "las children1",
+        href: "/storybook/card/CardFilterPosition"
+
+    },
+    {
+        label: "CardGrid",
+        icon: "las children1",
+        href: "/storybook/card/CardGrid"
+
     },
 ]
 
@@ -48,7 +67,7 @@ let menu_data = [
 ]
 
 function contain(datas, label) {
-    for (var i = 0; i < datas.length; i++) {
+    for (var i = 0;i < datas.length;i++) {
         var o = datas[i];
         if (o['label'] === label) {
             return true;

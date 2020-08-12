@@ -81,7 +81,7 @@ class Menu extends Component {
                 <nav className="sidebar-nav">
                     <ul>
                         {this.props.menudata.map((item, index) => (
-                            <MenuItem key={index} data={item} click={this.handleClick} />
+                            <MenuItem key={index} data={item} click={this.handleClick} active={this.props.active} />
                         ))}
                     </ul>
                 </nav>

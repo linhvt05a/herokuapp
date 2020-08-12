@@ -1,7 +1,7 @@
 import React from 'react';
 import moment from "moment";
 import { SliderImage } from '../../../../../components/common';
-import { convertAcreagetoInt } from "../../../../../utils/Utils"
+import { convertAcreagetoInt, formatCurrency } from "../../../../../utils/Utils"
 
 const info = props => {
     let { data } = props;
@@ -41,7 +41,9 @@ const info = props => {
                                         <li>
                                             <i className="las la-money-bill-wave-alt"></i>
                                             <span className="title">Tiền thuê đất hàng năm:</span>
-                                            <span className="text" style={{ textTransform: "uppercase" }}>{data.rent_cost} ({data.rent_cost_unit_name})</span>
+                                            {data.rent_cost > 0 ?
+                                                <span className="text" style={{ textTransform: "uppercase" }}>{formatCurrency(data.rent_cost)} ({data.rent_cost_unit_name})</span> :
+                                                <span className="text" style={{ textTransform: "uppercase" }}>0</span>}
                                         </li>
 
                                         <li>

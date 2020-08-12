@@ -1,6 +1,7 @@
 import React from 'react';
 import { Trans } from 'react-i18next';
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
+import { CardNodata } from "../Card"
 
 const ListProductTable = props => {
     const trPerant = (data, index) => {
@@ -48,9 +49,9 @@ const ListProductTable = props => {
                 </tr>
             </thead>
             <tbody>
-                {props.data ? props.data.map((item, index) => (
+                {props.data.length > 0 ? props.data.map((item, index) => (
                     trPerant(item, index)
-                )) : null}
+                )) : <CardNodata />}
 
             </tbody>
         </table>

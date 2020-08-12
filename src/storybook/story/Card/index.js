@@ -1,6 +1,11 @@
-import React from 'react';
 import CardHeader from './CardHeader';
+import CartProductDetail from './CartProductDetail';
+import CardFilterPosition from './CardFilterPosition';
+import CardGrid from "./CardGrid"
 
 export {
-    CardHeader
+    CardHeader,
+    CartProductDetail,
+    CardFilterPosition,
+    CardGrid
 };
