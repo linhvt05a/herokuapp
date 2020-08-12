@@ -34,7 +34,7 @@ const MenuItem = props => {
             className={data.active == true ? "sidebar-item active" : "sidebar-item"}
             onClick={data.active == true ? null : handleClick}
         >
-            {console.log(1, data)}
+            {/* {console.log(1, data)} */}
             {props.data.href ?
                 // <Link to={props.data.href}>
                 <Link to={props.data.href} className={clsname} style={{ color: props.active == data.label ? "#6d30ab" : null }}>
