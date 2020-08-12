@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Trans } from 'react-i18next';
-import { DropdownPurple } from "../dropdown"
+import { DropdownPurple } from "../base/Dropdown"
 
 const CardHeader = props => {
     const [state, setState] = useState({

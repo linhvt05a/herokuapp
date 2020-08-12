@@ -3,7 +3,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState, useEffect } from 'react';
 import { Trans } from 'react-i18next';
-import { InputSelect } from "../../../../../components/input";
+import { Select } from "../../../../../components/input";
 import ModalRequest from "../modal/ModalRequest"
 import { Link } from 'react-router-dom';
 import { useSelector } from "react-redux";
@@ -173,7 +173,7 @@ const InfoShipping = props => {
             <div className="card-body m_table--collapse">
                 <p className="mb-4 mt-4 fs-18 uni_text_6d30ab text-uppercase text-center font-weight-bold">TÌM KIẾM </p>
                 <div className="row mb-4 d-flex justify-content-center">
-                    <InputSelect
+                    <Select
                         className="col-lg-3 col-md-6 col-sm-12"
                         label="Choose area"
                         placeholder="Choose area"
@@ -181,7 +181,7 @@ const InfoShipping = props => {
                         isClear={state.FilterAreaStatus.value == "" ? true : false}
                         value={state.FilterAreaStatus.value} datas={state.dataArea}
                         onChange={(value) => props.onChangeArea(value)} />
-                    <InputSelect
+                    <Select
                         className="col-lg-3 col-md-6 col-sm-12"
                         label="Choose block"
                         placeholder="Choose block"
@@ -189,7 +189,7 @@ const InfoShipping = props => {
                         isClear={state.FilterBlockStatus.value == "" ? true : false}
                         value={state.FilterBlockStatus.value} datas={state.dataFilterBlock}
                         onChange={(value) => props.onChangeBlock(value)} />
-                    <InputSelect
+                    <Select
                         className="col-lg-3 col-md-6 col-sm-12"
                         label="Choose floor or lot"
                         placeholder="Choose floor or lot"

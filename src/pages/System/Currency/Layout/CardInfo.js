@@ -3,7 +3,6 @@ import { Trans } from 'react-i18next';
 import { InputText } from '../../../../components/input';
 
 const CardInfo = (props) => {
-    console.log('aaaaa000')
     return (
         <div className="card square">
             <div className="card-body">

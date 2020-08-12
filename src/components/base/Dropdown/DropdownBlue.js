@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import React  from 'react';
 import { Trans } from 'react-i18next';
-import DropItem from "./DropItem.js"
+import DropItem from "./DropItem.js";
+import {Link} from 'react-router-dom';
 
 class DropdownBlue extends DropItem {
     onClick=(e)=>{
@@ -16,7 +17,7 @@ class DropdownBlue extends DropItem {
                 </button>
                 <div className={this.state.show ? "dropdown-menu show" : "dropdown-menu"} aria-labelledby="dropdownMenuButton">
                 {
-                    this.props.datas && this.props.datas.map((item, index) => <a className="dropdown-item " href={item.href} key={index} name={item.value} onClick={this.onClick}>  <Trans>{item.label}</Trans> </a> )
+                    this.props.datas && this.props.datas.map((item, index) => <Link className="dropdown-item " to={item.href} key={index} name={item.value} onClick={this.onClick}>  <Trans>{item.label}</Trans> </Link> )
                 }
                 </div>
             </div>
