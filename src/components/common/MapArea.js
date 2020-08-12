@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 import { Trans } from 'react-i18next';
 
 import ReactMapboxGl, { Popup, Feature, Layer, Marker } from "react-mapbox-gl";
-import CardNodata from './CardNodata';
+import CardNodata from '../Card/CardNodata';
 
 const Map = ReactMapboxGl({
     accessToken:

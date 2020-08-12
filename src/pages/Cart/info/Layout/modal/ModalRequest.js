@@ -1,9 +1,9 @@
-/* eslint-disable default-case */
 import React, { useState, useEffect } from "react";
 import { withTranslation, Trans } from "react-i18next";
 import { Modal, Select } from "antd";
-import { CardHeader, CardNodata } from "../../../../../components/common";
-import { mappingListToSelectList, InputSelect, InputText, InputCheckBox } from "../../../../../components/input";
+import { CardHeader } from "../../../../../components/common";
+import { mappingListToSelectList, InputText } from "../../../../../components/input";
+import InputSelect from "../../../../../components/base/Select/Select";
 import { CUSTOMER_REQUEST_TYPE_COMMISSION, CUSTOMER_REQUEST_TYPE_PROMOTION, CUSTOMER_REQUEST_PRIORITY_HIGH,
     CUSTOMER_REQUEST_PRIORITY_MID, CUSTOMER_REQUEST_PRIORITY_LOW } from '../../../../../constant';
 import { promotionListRequest, promotionProductRequest } from '../../../../../store/action/requestCart';
@@ -29,7 +29,7 @@ const request = [
     CUSTOMER_REQUEST_TYPE_PROMOTION
 ]
 
-const DialogSalePromotion = (props) => {
+const ModalRequest = (props) => {
     const [state, setState] = useState({
         request_select: 0,
         ranger_status: 1
@@ -69,24 +69,24 @@ const DialogSalePromotion = (props) => {
                             disabled
                             className="col-12 col-sm-6 col-lg-4"
                             label="lowest_commission"
-                            des = {value.min_value_percent} symbol="%" />
+                            addonAfter="%" />
                         <Input
                             disabled
                             className="col-12 col-sm-6 col-lg-4"
                             label="highest_commission"
-                            des = {value.max_value_percent} symbol="%" />
+                            addonAfter="%" />
                         <Input
                             disabled
                             className="col-12 col-sm-6 col-lg-4"
                             label="defautl_commission"
-                            des = {value.default_value_percent} symbol="%" />
+                            addonAfter="%" />
                         <Input
                             require
                             placeholder={t("enter")}
                             className="col-12 col-sm-6 col-lg-4"
                             titleClassName="fw-medium m_text_e94c4c"
                             label="request_commission"
-                            symbol="%" />
+                            addonAfter={'%'} />
                         <InputSelect
                             require
                             className="col-12 col-sm-6 col-lg-4" titleClassName="fw-medium m_text_e94c4c"
@@ -134,7 +134,7 @@ const DialogSalePromotion = (props) => {
                                         </td>
                                         <td>
                                             <div className="form-group mb-0">
-                                                <GroupInputSelect
+                                                <Input
                                                     disabled
                                                     className="text-right"
                                                     value={item.value}
@@ -143,7 +143,7 @@ const DialogSalePromotion = (props) => {
                                         </td>
                                         <td>
                                             <div className="form-group mb-0">
-                                                <GroupInputSelect
+                                                <Input
                                                     disabled
                                                     className="text-right"
                                                     value={item.redemption_value}
@@ -232,6 +232,6 @@ const DialogSalePromotion = (props) => {
     )
 }
 
-export default withTranslation()(DialogSalePromotion);
+export default withTranslation()(ModalRequest);
 
 
