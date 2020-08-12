@@ -1,19 +1,20 @@
 import {
-  PRODUCT_DETAIL_REQUEST,
-  PRODUCT_DETAIL_SUCCESS,
   PRODUCT_DETAIL_FAILURE,
-} from '../actionType/project';
+  PRODUCT_DETAIL_SUCCESS,
+  PRODUCT_DETAIL_REQUEST
+  
+  
+} from '../actionType/product';
 
-//currentcy detail
-export const productDetailRequest = (product) => ({
+export const productDetailRequest = (payload) => ({
   type: PRODUCT_DETAIL_REQUEST,
-  product,
+  payload,
 });
-export const productDetailSuccess = (product) => ({
+export const productDetailSuccess = (payload) => ({
   type: PRODUCT_DETAIL_SUCCESS,
-  product,
+  payload,
 });
-export const productDetailFailure = (product) => ({
+export const productDetailFailure = (payload) => ({
   type: PRODUCT_DETAIL_FAILURE,
-  product,
+  payload,
 });

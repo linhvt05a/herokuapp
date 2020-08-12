@@ -27,7 +27,7 @@ export const currentcyListFailure = (currency) => ({
   currency,
 });
 
-//currentcy detail
+//currentcy Detail
 export const currentcyDetailRequest = (currency) => ({
   type: CURRENTCY_DETAIL_REQUEST,
   currency,

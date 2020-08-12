@@ -1,18 +1,17 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import Profile from './Profile/Profile.js'
-import Menu from './Menu/Menu.js'
+import Menu from './Menu/Menu.js';
+import MenuTest from "./test";
 
-class SideBar extends Component {
-    render() {
-        console.log('sidebar render');
-        return (
-            <aside className='left-sidebar'>
-                <Profile user={this.props.user} />
-                <Menu menudata={this.props.menudata} active={this.props.active} setItemActive={this.props.setItemActive} />
-            </aside>
-        )
-    }
+const SideBar = (props) => {
+    const { user, menudata, active, setActiveItemMenu } = props;
+    return (
+        <aside className='left-sidebar' >
+            <Profile user={user} />
+            <Menu menudata={menudata} active={active} setItemActive={setActiveItemMenu} />
+        </aside >
+    )
 }
 
-export default SideBar;
+export default React.memo(SideBar);

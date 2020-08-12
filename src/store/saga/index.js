@@ -27,13 +27,21 @@ import {
   projectListWatcher
 } from './dashboardSaga';
 import {
-  projectDetailWatcher
+  projectDetailWatcher,
+  sellopenListWatcher,
+  bankingListWatcher,
+  salepolicyListWatcher
 } from './projectSaga';
 import {
-  commentListWatcher,
-  approveListWatcher
+  commentListWatcher, 
+  approveListWatcher,
+  addCommentWatcher
 } from './approval'
-
+import {
+  requestDataWatcher,
+  promotionListWatcher
+} from './requestCartSaga'
+  
 function* allSaga() {
   yield all([
     currencyListWatcher(),
@@ -57,10 +65,19 @@ function* allSaga() {
     provinceListWatcher(),
     typeListWatcher(),
     statusListWatcher(),
+    //project
     projectListWatcher(),
     projectDetailWatcher(),
+    sellopenListWatcher(),
+    bankingListWatcher(),
+    salepolicyListWatcher(),
+
     commentListWatcher(),
-    approveListWatcher()
+    approveListWatcher(),
+    addCommentWatcher(),
+
+    requestDataWatcher(),
+    promotionListWatcher()
   ]);
 }
 

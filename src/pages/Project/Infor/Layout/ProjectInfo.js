@@ -1,4 +1,6 @@
 import React from 'react';
+import { formatCurrency } from "../../../../utils/Utils"
+import Moment from 'moment';
 
 const ProjectInfo = (props) => {
     let { detail } = props;
@@ -48,7 +50,7 @@ const ProjectInfo = (props) => {
                             <div className="col-12 col-sm-6 col-md-6 col-lg-4">
                                 <div className="form-group">
                                     <label className="fw-medium">Ngày bắt đầu dự án</label>
-                                    <input value={detail.date_opened} readOnly type="text" className="form-control" />
+                                    <input value={Moment(detail.date_opened).format("DD-MM-YYYY")} readOnly type="text" className="form-control" />
                                 </div>
                             </div>
                             <div className="col-12 col-sm-6 col-md-6 col-lg-4">

@@ -5,14 +5,20 @@ import {
 
     COMMENT_LIST_REQUEST,
     COMMENT_LIST_SUCCESS,
-    COMMENT_LIST_FAILURE
+    COMMENT_LIST_FAILURE,
+
+    ADD_COMMENT_REQUEST,
+    ADD_COMMENT_SUCCESS,
+    ADD_COMMENT_FAILURE
 } from '../actionType/approval'
 
 const initialState = {
     approveList: {},
     commentList: {},
+    commentAdd:{},
     isFetching: false
   };
+
   export default (state = initialState, action) => {
     switch (action.type) {
       case APPROVAL_LIST_FAILURE:
@@ -28,7 +34,14 @@ const initialState = {
           return { ...state, isFetching: false, commentList: action.response };
         case COMMENT_LIST_REQUEST:
           return { ...state, isFetching: true, commentList: { success: false, error: action.err } };
-  
+
+    case ADD_COMMENT_FAILURE:
+      return { ...state, isFetching: false, commentAdd: { success: false } };
+    case ADD_COMMENT_SUCCESS:
+      return { ...state, isFetching: false, commentAdd: action.response };
+    case ADD_COMMENT_REQUEST:
+      return { ...state, isFetching: true, commentAdd: { success: false, error: action.err } };
+      
       default:
         return state;
     }

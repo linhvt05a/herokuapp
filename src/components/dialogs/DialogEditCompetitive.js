@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Modal from "react-bootstrap/Modal";
-import { InputSelect, InputText } from "../input";
+import { Select, InputText } from "../input";
 import {
   projectType,
   investorsDiaglog,
@@ -150,7 +150,7 @@ class DialogEditCompetitive extends Component {
                         <div id="project-nearby-error" />
                       </div>
                     </div>
-                    <InputSelect
+                    <Select
                       className="col-xl-4 col-lg-4 col-md-12 col-sm-12"
                       label="Chủ Đầu Tư"
                       name="investorsDiaglog"
@@ -158,7 +158,7 @@ class DialogEditCompetitive extends Component {
                       options={this.state.investorsDiaglog}
                       onChange={this.onChange}
                     />
-                    <InputSelect
+                    <Select
                       className="col-xl-4 col-lg-4 col-md-12 col-sm-12"
                       label="Xếp Loại"
                       name="select_rating"
@@ -168,7 +168,7 @@ class DialogEditCompetitive extends Component {
                     />
                   </div>
                   <div className="row">
-                    <InputSelect
+                    <Select
                       className="col-xl-8 col-lg-8 col-md-12 col-sm-12"
                       label="Loại Dự Án"
                       name="regions"
@@ -233,7 +233,7 @@ class DialogEditCompetitive extends Component {
                     </div>
                   </div>
                   <div className="row">
-                    <InputSelect
+                    <Select
                       className="col-xl-4 col-lg-4 col-md-12 col-sm-12"
                       label="Chọn Tỉnh/TP"
                       name="selectprovince"
@@ -241,7 +241,7 @@ class DialogEditCompetitive extends Component {
                       options={this.state.selectprovince}
                       onChange={this.onChange}
                     />
-                    <InputSelect
+                    <Select
                       className="col-xl-4 col-lg-4 col-md-12 col-sm-12"
                       label="Quận/Huyện"
                       name="select_district"
@@ -249,7 +249,7 @@ class DialogEditCompetitive extends Component {
                       options={this.state.select_district}
                       onChange={this.onChange}
                     />
-                    <InputSelect
+                    <Select
                       className="col-xl-4 col-lg-4 col-md-12 col-sm-12"
                       label="Chọn Phường/Xã"
                       name="ward"
@@ -351,7 +351,7 @@ class DialogEditCompetitive extends Component {
                       className="col-xl-8 col-lg-8 col-md-12 col-sm-12 pr-0"
                       label="Chi Phí Thuê"
                     />
-                    <InputSelect
+                    <Select
                       className="col-xl-4 col-lg-4 col-md-12 col-sm-12 mt-4 pt-2 pl-0"
                       name="currency_unit"
                       value={this.state.select_currency_unit}
@@ -366,7 +366,7 @@ class DialogEditCompetitive extends Component {
                       className="col-xl-8 col-lg-8 col-md-12 col-sm-12 pr-0"
                       label="Chi phí dịch vụ *"
                     />
-                    <InputSelect
+                    <Select
                       className="col-xl-4 col-lg-4 col-md-12 col-sm-12 mt-4 pt-2 pl-0"
                       name="currency_unit2"
                       value={this.state.select_currency_unit2}
@@ -381,7 +381,7 @@ class DialogEditCompetitive extends Component {
                       className="col-xl-8 col-lg-8 col-md-12 col-sm-12 pr-0"
                       label="Chi phí đậu xe oto *"
                     />
-                    <InputSelect
+                    <Select
                       className="col-xl-4 col-lg-4 col-md-12 col-sm-12 mt-4 pt-2 pl-0"
                       name="currency_unit3"
                       value={this.state.select_currency_unit3}
@@ -396,7 +396,7 @@ class DialogEditCompetitive extends Component {
                       className="col-xl-8 col-lg-8 col-md-12 col-sm-12 pr-0"
                       label="Phí đậu xe máy *"
                     />
-                    <InputSelect
+                    <Select
                       className="col-xl-4 col-lg-4 col-md-12 col-sm-12 mt-4 pt-2 pl-0"
                       name="currency_unit4"
                       value={this.state.select_currency_unit4}

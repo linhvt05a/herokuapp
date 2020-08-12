@@ -6,13 +6,14 @@ import {
     PRODUCT_DETAIL_FAILURE,
 } from '../actionType/product';
 
-// product detail
+// product Detail
 export function* productDetail(payload) {
-    console.log('payload', payload);
-    const token = payload.product.token;
-    const id = payload.product.id;
+    const token = payload.payload.token
+    const product_id = payload.payload.product_id
+    const tab_include = []
+
     try {
-        const response = yield productServive.productDetail(token, id);
+        const response = yield productServive.productDetail(token, product_id, tab_include);
         response.success ? yield put({ type: PRODUCT_DETAIL_SUCCESS, response }) : yield put({ type: PRODUCT_DETAIL_FAILURE, response });
     } catch (err) {
         yield put({ type: PRODUCT_DETAIL_FAILURE, err });

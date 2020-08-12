@@ -13,6 +13,8 @@ import { productService } from './Product/service_product';
 
 import { customerService } from './NewContract/services_customer';
 
+import { requestCartService } from './RequestCart/services_request_cart'
+
 
 // SYSTEM
 import { sysCurrencyService } from './System/services_system_currency';
@@ -33,6 +35,7 @@ export {
     permissionProjectService,
     projectService,
     sysCartService,
-    productService
+    productService,
+    requestCartService
 
 }

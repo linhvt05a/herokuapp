@@ -2,12 +2,12 @@
 import React, { useState } from 'react';
 import Pagination from "../common/Pagination"
 import { Trans } from 'react-i18next';
-import ListProductDetail from "./ListProductDetail";
+import ListProductGird from "./ListProductGird";
 import ListProductTable from "./ListProductTable";
+import CardNodata from "./CardNodata"
 const body = props => {
     let { dataFilter, data, page, total_page, total_record, link_to } = props;
     const [state, setState] = useState(true);
-
     return (
         <div className="m_table--wrapper">
             <div className="m_filter pb-4">
@@ -18,10 +18,10 @@ const body = props => {
                             return (
                                 <li key={index}>
                                     <i className={`las la-square ${item.color}`}></i>
-                                    <span><a href="#"><Trans>{item.name}</Trans></a></span>
+                                    <span><a onClick={() => props.onClickType(item)} style={{ textDecorationLine: "underline" }}><Trans>{item.name}</Trans></a></span>
                                 </li>
                             )
-                        }) : null}
+                        }) : <CardNodata />}
                     </ul>
                     <ul className="m_filter--show mt-xl-0 mt-2">
                         <li className="first"><span><Trans>Displayed by</Trans></span></li>
@@ -34,8 +34,8 @@ const body = props => {
             {state ? <div className="m_grid m_grid--list_project">
                 <div className="row">
                     {data.length > 0 ? data.map((item, index) => {
-                        return <ListProductDetail item={item} index={index} key={index} link_to={link_to} />
-                    }) : null}
+                        return <ListProductGird data={item} index={index} key={index} link_to={link_to} />
+                    }) : <CardNodata />}
                 </div >
             </div > :
                 <div className="m_table m_table--sales" style={{ maxHeight: '100%' }}>
@@ -53,4 +53,4 @@ const body = props => {
 
     )
 }
-export default body
+export default body;

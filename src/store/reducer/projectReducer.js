@@ -11,6 +11,18 @@ import {
   PROJECT_ADD_REQUEST,
   PROJECT_ADD_SUCCESS,
   PROJECT_ADD_FAILURE,
+
+  SELLOPEN_LIST_REQUEST,
+  SELLOPEN_LIST_SUCCESS,
+  SELLOPEN_LIST_FAILURE,
+
+  BANKING_LIST_REQUEST,
+  BANKING_LIST_SUCCESS,
+  BANKING_LIST_FAILURE,
+
+  POLICY_SALE_LIST_REQUEST,
+  POLICY_SALE_LIST_SUCCESS,
+  POLICY_SALE_LIST_FAILURE,
 } from '../actionType/project';
 
 const initialState = {
@@ -18,6 +30,9 @@ const initialState = {
   projectDetail: {},
   projectEdit: {},
   projectAdd: {},
+  sellopenList: {},
+  bankingList: {},
+  salepolicyList: {},
   isFetching: false,
 };
 
@@ -50,6 +65,27 @@ export default (state = initialState, action) => {
       return { ...state, isFetching: false, projectAdd: action.response };
     case PROJECT_ADD_FAILURE:
       return { ...state, isFetching: false, projectAdd: { success: false, error: action.err } };
+
+    case SELLOPEN_LIST_REQUEST:
+      return { ...state, isFetching: true, sellopenList: { success: false } };
+    case SELLOPEN_LIST_SUCCESS:
+      return { ...state, isFetching: false, sellopenList: action.response };
+    case SELLOPEN_LIST_FAILURE:
+      return { ...state, isFetching: false, sellopenList: { success: false, error: action.err } };
+
+    case BANKING_LIST_REQUEST:
+      return { ...state, isFetching: true, bankingList: { success: false } };
+    case BANKING_LIST_SUCCESS:
+      return { ...state, isFetching: false, bankingList: action.response };
+    case BANKING_LIST_FAILURE:
+      return { ...state, isFetching: false, bankingList: { success: false, error: action.err } };
+
+    case POLICY_SALE_LIST_REQUEST:
+      return { ...state, isFetching: true, salepolicyList: { success: false } };
+    case POLICY_SALE_LIST_SUCCESS:
+      return { ...state, isFetching: false, salepolicyList: action.response };
+    case POLICY_SALE_LIST_FAILURE:
+      return { ...state, isFetching: false, salepolicyList: { success: false, error: action.err } };
     default:
       return state;
   }

@@ -7,11 +7,19 @@ const initialState = {
     Sell_Open_Floor: [],
     Sell_Open_Cart: [],
     Filter_Project_Area: [],
-    Filter_floor: [],
+    Filter_Floor: [],
+    Filter_Block: [],
+    Filter_Project_Status: [],
+    Filter_Open_Sale: [],
     page: 0,
     total_page: 0,
     total_record: 0,
     isFetching: false,
+    isLoadingDetail: true,
+    isLoadingList: true,
+    isLoadingSaleOpen: true,
+    isLoadingSaleOpenList: true,
+    isLoadingSaleOpenCart: true,
     error: [],
     success: false
 };
@@ -23,6 +31,7 @@ export default (state = initialState, action) => {
                 ...state,
                 Detail: action.response.detail,
                 isFetching: true,
+                isLoadingDetail: false,
                 success: action.response.success
 
             };
@@ -31,6 +40,7 @@ export default (state = initialState, action) => {
                 ...state,
                 isFetching: false,
                 error: action.response.err,
+                isLoadingDetail: false,
                 success: false
             };
         case actions.LOAD_LIST_SUCCESS:
@@ -41,13 +51,15 @@ export default (state = initialState, action) => {
                 page: action.response.page,
                 total_page: action.response.total_page,
                 total_record: action.response.total_record,
-                success: action.response.success
+                success: action.response.success,
+                isLoadingList: false,
             };
         case actions.LOAD_SELL_OPEN_SUCCESS:
             return {
                 ...state,
                 Sell_Open: action.response.detail,
                 isFetching: true,
+                isLoadingSaleOpen: false,
                 success: action.response.success
             };
         case actions.LOAD_SELL_OPEN_FAILURE:
@@ -55,6 +67,7 @@ export default (state = initialState, action) => {
                 ...state,
                 isFetching: false,
                 error: action.response.err,
+                isLoadingSaleOpen: false,
                 success: false
             }
         case actions.LOAD_SELL_OPEN_LIST_SUCCESS:
@@ -62,6 +75,7 @@ export default (state = initialState, action) => {
                 ...state,
                 Sell_Open_Floor: action.response.detail,
                 isFetching: true,
+                isLoadingSaleOpenList: false,
                 success: action.response.success
             };
         case actions.LOAD_SELL_OPEN_LIST_FAILURE:
@@ -69,30 +83,92 @@ export default (state = initialState, action) => {
                 ...state,
                 isFetching: false,
                 error: action.response.err,
-                success: false
+                success: false,
+                isLoadingSaleOpenList: false
             }
         case actions.LOAD_SELL_OPEN_CART_SUCCESS:
             return {
                 ...state,
                 Sell_Open_Cart: action.response.detail,
                 isFetching: true,
-                success: action.response.success
+                success: action.response.success,
+                isLoadingSaleOpenCart: false
             };
         case actions.LOAD_SELL_OPEN_CART_FAILURE:
             return {
                 ...state,
                 isFetching: false,
                 // error: action.response.err,
+                success: false,
+                isLoadingSaleOpenCart: false
+            }
+
+
+        //filter
+        case actions.LOAD_FILTER_PROJECT_STATUS_SUCCESS:
+            return {
+                ...state,
+                Filter_Project_Status: action.response.detail,
+                isFetching: true,
+                success: action.response.success
+            };
+        case actions.LOAD_FILTER_PROJECT_STATUS_FAILURE:
+            return {
+                ...state,
+                isFetching: false,
+                // error: action.response.err,
                 success: false
             }
-        case actions.LOAD_FILTER_PROJECT_STATUS_SUCCESS:
+        case actions.LOAD_FILTER_AREA_SUCCESS:
             return {
                 ...state,
                 Filter_Project_Area: action.response.detail,
                 isFetching: true,
                 success: action.response.success
             };
-        case actions.LOAD_FILTER_PROJECT_STATUS_FAILURE:
+        case actions.LOAD_FILTER_AREA_FAILURE:
+            return {
+                ...state,
+                isFetching: false,
+                // error: action.response.err,
+                success: false
+            }
+        case actions.LOAD_FILTER_LIST_OPEN_SALE_SUCCESS:
+            return {
+                ...state,
+                Filter_Open_Sale: action.response.detail,
+                isFetching: true,
+                success: action.response.success
+            };
+        case actions.LOAD_FILTER_LIST_OPEN_SALE_FAILURE:
+            return {
+                ...state,
+                isFetching: false,
+                // error: action.response.err,
+                success: false
+            }
+        case actions.LOAD_FILTER_FLOOR_SUCCESS:
+            return {
+                ...state,
+                Filter_Floor: action.response.detail,
+                isFetching: true,
+                success: action.response.success
+            };
+        case actions.LOAD_FILTER_FLOOR_FAILURE:
+            return {
+                ...state,
+                isFetching: false,
+                // error: action.response.err,
+                success: false
+            }
+        case actions.LOAD_FILTER_BLOCK_SUCCESS:
+            return {
+                ...state,
+                Filter_Block: action.response.detail,
+                isFetching: true,
+                success: action.response.success
+            };
+        case actions.LOAD_FILTER_BLOCK_FAILURE:
             return {
                 ...state,
                 isFetching: false,

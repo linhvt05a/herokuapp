@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import Modal from 'react-bootstrap/Modal'
 import { CardHeader } from "../common"
-import {InputText, InputSelect,mapping} from '../input'
+import {InputText, Select,mapping} from '../input'
 import { Trans } from 'react-i18next'
 
 const FSList= [
@@ -21,7 +21,7 @@ class DialogAddTaskList extends Component{
                         <div className="row">
                             <InputText className="col-12" label="FS Name" name="name" value onChange={this.props.onChange}/>
                             <InputText className="col-12" label="New version number" name="name" value onChange={this.props.onChange}/>
-                            <InputSelect className="col-12" label="Choose FS" options={FSList} name="name" value onChange={this.props.onChange}/>
+                            <Select className="col-12" label="Choose FS" options={FSList} name="name" value onChange={this.props.onChange}/>
                         </div>
                         <div className="row mt-2">
                             <div className="col-12">

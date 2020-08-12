@@ -3,7 +3,7 @@ import { Trans } from 'react-i18next';
 import Modal from 'react-bootstrap/Modal'
 import { CardHeader } from "../common";
 import { permissions } from '../../constant';
-import {InputSelect, InputText} from '../../components/input'
+import {Select, InputText} from '../../components/input'
 
 const DialogPermision = (props)=> {
         return (
@@ -24,7 +24,7 @@ const DialogPermision = (props)=> {
                         <div className="row">
                             <div className="col-lg-4 col-md-4 col-sm-12" style={{marginLeft: 20}}>
                                 <div className="form-group">
-                                    <InputSelect className="input-popup-select-require" label="Loại yêu cầu" options={[{label:'--Chọn loại yêu cầu--', value:''}]} required/>
+                                    <Select className="input-popup-select-require" label="Loại yêu cầu" options={[{label:'--Chọn loại yêu cầu--', value:''}]} required/>
                                 </div>
                             </div>
                             <div className="col-lg-4 col-md-4 col-sm-12" style={{marginLeft: 160}}>

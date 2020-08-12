@@ -31,7 +31,7 @@ class DropdownDot extends Component {
                 <DropdownMenu>
                     {
                         this.props.datas && this.props.datas.map((item, index) =>
-                            <DropdownItem onClick={this.select} href={item.href} key={index}>{item.icon && item.icon}  <Trans>{item.value}</Trans></DropdownItem>
+                            <DropdownItem onClick={this.select} href={item.href} key={index}>{item.icon && item.icon}  <Trans>{item.label}</Trans></DropdownItem>
                         )
                     }
                 </DropdownMenu>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Trans } from 'react-i18next';
 
-import { mappingListToSelectList, InputSelect, mapping } from '../input';
+import { mappingListToSelectList, Select, mapping } from '../input';
 import { CardHeader } from '../common';
 
 import { locationService, projectService } from '../../services';
@@ -187,10 +187,10 @@ class CardFilterPosition extends Component {
                 <div className="card square">
                     <div className="card-body">
                         <div className="row">
-                            <InputSelect className="col-xl-3 col-lg-6 col-md-12 col-sm-12" label="Select region" name="region" value={this.state.region} options={this.state.regions} onChange={this.onChange} />
-                            <InputSelect className="col-xl-3 col-lg-6 col-md-12 col-sm-12" label="Select provinces" name="province" value={this.state.province} options={this.state.provinces} onChange={this.onChange} />
-                            <InputSelect className="col-xl-3 col-lg-6 col-md-12 col-sm-12" label="Select type projects" name="type_project" value={this.state.type_project} options={this.state.typeProjectList} onChange={this.onChange} />
-                            <InputSelect className="col-xl-3 col-lg-6 col-md-12 col-sm-12" label="Select status project" name="status" value={this.state.status} options={this.state.statusList} onChange={this.onChange} />
+                            <Select className="col-xl-3 col-lg-6 col-md-12 col-sm-12" label="Select region" name="region" value={this.state.region} options={this.state.regions} onChange={this.onChange} />
+                            <Select className="col-xl-3 col-lg-6 col-md-12 col-sm-12" label="Select provinces" name="province" value={this.state.province} options={this.state.provinces} onChange={this.onChange} />
+                            <Select className="col-xl-3 col-lg-6 col-md-12 col-sm-12" label="Select type projects" name="type_project" value={this.state.type_project} options={this.state.typeProjectList} onChange={this.onChange} />
+                            <Select className="col-xl-3 col-lg-6 col-md-12 col-sm-12" label="Select status project" name="status" value={this.state.status} options={this.state.statusList} onChange={this.onChange} />
                         </div>
 
                         <div className="row mt-4">

@@ -35,43 +35,52 @@ const polygonPaint = {
     'fill-outline-color': 'red',
     'fill-opacity': 0.2
 };
+const markerUrl = 'http://maps.google.com/mapfiles/ms/icons/red-dot.png';
 
 const MapParam = (props) => {
-    const { data, lat, long } = props;
+    const { data, lat, long, name } = props;
+    console.log('tttttt', data);
     return (
-        <div className="card h-100">
-            <div className="card-body p-0">
-            <Map 
-                className="map"
-                style={MAP_STYLE}
-                center={[long, lat]}
-                zoom={[13]}
-                containerStyle={{
-                    minHeight: '575px',
-                    width: '100%',
+        <Map 
+            className="map"
+            style={MAP_STYLE}
+            center={[long, lat]}
+            zoom={[13]}
+            containerStyle={{
+                minHeight: '80vh',
+                width: '100%',
+            }}>
+            <Layer type="fill" paint={polygonPaint}>
+                {
+                    data.location &&
+                    <Feature coordinates={data.location.coordinates} />
+                }
+            </Layer>
+            <Marker
+                coordinates={[long, lat]}
+                anchor="bottom">
+                <img src={markerUrl}/>
+            </Marker>
+            <Popup
+                coordinates={[long, lat]}
+                offset={{
+                    'bottom-left': [12, -38], 'bottom': [0, -38], 'bottom-right': [-12, -38]
                 }}>
-                <Layer type="fill" paint={polygonPaint}>
-                    {
-                        data.location &&
-                        <Feature coordinates={data.location.coordinates} />
-                    }
-                </Layer>
-                <Popup
-                    coordinates={[long, lat]}
-                    offset={{
-                        'bottom-left': [12, -38], 'bottom': [0, -38], 'bottom-right': [-12, -38]
-                    }}>
-                    <div className='m_map'>
-                        <h1 className='top' style={{ borderBottom: "1px solid #f3f3f3" }}>{data.project_name}<i class='address'>{data.address}</i></h1>
-                        <ul className='bottom'>
-                            <li><Trans>LandArea</Trans>: <span className='value'>{data.project_acreage}</span></li>
-                            <li className='investor'><Trans>Investor</Trans>: <span className='value'>{data.investor_name}</span></li>
-                        </ul>
+                <div class='m_map'>
+                    <h1 class='top'>{name}<i class='address'>{data.address}</i></h1>
+                    <div class='center'><p class='item'>
+                        <span class='irr_text'>Number <i>IRR</i></span>
+                        <span class='number'>%</span></p><p class='item'>
+                        <span class='npv_text'>Number <i>NPV</i></span>
+                        <span class='number'></span></p>
                     </div>
-                </Popup>
-            </Map>
-            </div>
-        </div>
+                    <ul class='bottom'>
+                        <li><Trans>Diện tích đất</Trans>: <span class='value'>{data.square}</span></li>
+                        <li class='investor'><Trans>Chủ đầu tư</Trans>: <span class='value'>{data.investor}</span></li>
+                    </ul>
+                </div>
+            </Popup>
+        </Map>
     )
 }
 

@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { Trans } from 'react-i18next';
-import DropItem from "./DropItem.js"
+import DropItem from "./DropItem.js";
+import { Link } from 'react-router-dom';
 
 class DropdownPurple extends DropItem {
 
-    onClick=(e)=>{
-        if( this.props.onClick ){
-            this.props.onClick(e.target.name)
+    onClick = (item) => {
+        if (this.props.onClick) {
+            this.props.onClick(item)
         }
     }
 
@@ -17,9 +18,9 @@ class DropdownPurple extends DropItem {
                     <Trans>{this.props.label}</Trans>
                 </button>
                 <div className={this.state.show ? "dropdown-menu show" : "dropdown-menu"} aria-labelledby="dropdownMenuButton">
-                {
-                    this.props.datas && this.props.datas.map((item, index) => <a className="dropdown-item " href={item.href} key={index} name={item.value} onClick={this.onClick}><Trans>{item.label}</Trans> </a> )
-                }
+                    {
+                        this.props.datas && this.props.datas.map((item, index) => <a className="dropdown-item " key={index} name={item.value} onClick={() => this.onClick(item)}><Trans>{item.label}</Trans> </a>)
+                    }
                 </div>
             </div>
         )

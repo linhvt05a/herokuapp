@@ -13,8 +13,7 @@ import * as Project from "./pages/Project";
 // import * as Perm from "./pages/Permission";
 
 import * as Cart from "./pages/Cart";
-
-import storyBook from "./components/storybook"
+import * as StoryBook from "./storybook/story";
 
 const LOGINS = [
     { "path": "/login", "value": Login.PageLogin, "main_title": "login_main_title", "sub_title": "login_sub_title" },
@@ -22,7 +21,6 @@ const LOGINS = [
 ];
 
 const MAINS = [
-    { "path": "/storybook", "value": storyBook, "menu": "menu_home", "title": "home_dashboard" },
     { "path": "/", "value": Dashboard.Dashboard, "menu": "menu_home", "title": "home_dashboard" },
     { "path": "/changepass", "value": Account.PageChangePass, "menu": "menu_home", "title": "changepassword_title" },
     { "path": "/profile", "value": Account.PageProfile, "menu": "menu_home", "title": "Profile" },
@@ -42,7 +40,7 @@ const MAINS = [
     { "path": "/info/project", "value": Project.PageProject, "menu": "menu_list_task_by_projects", "title": "Dự án" },
     { "path": "/info/project/detail/:id", "value": Project.PageProjectDetail, "menu": "menu_project_detail_customer_info", "title": "Thông tin dự án" },
 
-    { "path": "/perm/project", "value": System.PageListCart, "menu": "menu_perm_task_by_projects", "title": "" },
+    { "path": "/perm/project/:id", "value": System.PageListCart, "menu": "menu_perm_task_by_projects", "title": "" },
     // { "path": "/perm/project/add", "value": Perm.PagePermProjectAdd, "menu": "menu_perm_task_by_projects", "title": "Add" },
     // { "path": "/perm/project/detail/:id", "value": Perm.PagePermProjectDetail, "menu": "menu_perm_task_by_projects", "title": "Update" },
 
@@ -56,8 +54,19 @@ const MAINS = [
     { "path": "/cart/cart_list/detail/:id", "value": Cart.Edit, "menu": "menu_shipping_cart_list_title", "title": "Detail" },
 ]
 
+export const STORYBOOKS = [
+    { "path": "/storybook/input", "value": StoryBook.Input, "menu": "menu_item_input", "title": "Inputs" },
+    { "path": "/storybook", "value": StoryBook.Input, "menu": "menu_item_input", "title": "Inputs" },
+    { "path": "/storybook/datePicker", "value": StoryBook.DatePicker, "menu": "menu_item_input", "title": "DatePicker" },
+    { "path": "/storybook/dropdown", "value": StoryBook.Dropdown, "menu": "menu_item_input", "title": "Dropdown" },
+    { "path": "/storybook/select", "value": StoryBook.Select, "menu": "menu_item_input", "title": "Select" },
+    { "path": "/storybook/button", "value": StoryBook.Button, "menu": "menu_item_input", "title": "Select" },
+    { "path": "/storybook/card/cardHeader", "value": StoryBook.Cards.CardHeader, "menu": "menu_item_card_header", "title": "Card Header" },
+    { "path": "/storybook/card/cardProductDetail", "value": StoryBook.Cards.CartProductDetail, "menu": "menu_item_card_product_detail", "title": "Card Product Detail" },
+]
+
 var PATHS = {};
-for (var i = 0;i < MAINS.length;i++) {
+for (var i = 0; i < MAINS.length; i++) {
     var data = MAINS[i];
     var path = data.path.replace("/:id", "");
     PATHS[path] = data.title;
