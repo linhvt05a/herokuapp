@@ -81,7 +81,7 @@ const CardReview = (props) => {
                             <div className="tab-content">
                                 <div className="tab-pane fade show active" id="newest">
                                     <div className="approval_history--item">
-                                        <div className="approval_history--icon type_02 las la-ticket-alt"></div>
+                                        <RequestTypeIcon request_type = {item.request_type}/>
                                         <div className="approval_history--detail">
                                             {
                                                 props.selected === true || props.isFetching === true ?
@@ -89,7 +89,7 @@ const CardReview = (props) => {
                                                     <NewestMessage list_comment ={props.list_comment} handleClick={props.handleClick} data={item} />
                                                     )
                                                     :
-                                                    ( <OldestMessage data={item}  handleClick={props.handleClick}/>)
+                                                    ( <OldestMessage data={item}  handleClick={props.handleClick} list_comment={props.list_comment}/>)
                                             }
                                         </div>
                                     </div>
@@ -147,6 +147,9 @@ const OldestMessage = (props) => {
             <div className="approval_history--detail-content">
                 <a href="#" className="approval_history--title fs-16 font-weight-bold">
                         <RequestType data ={props.data}/>
+                <span class="uni_star_e94c4c" style={{color:'red', fontSize: 14, marginLeft:3}}>
+                    ({props.list_comment && props.list_comment.length} phản hồi mới)
+                </span>
                     </a>
                 <div className="approval_history--list">
                     <p className="child">
@@ -233,6 +236,22 @@ const ApprovedStatus = (props) => {
     }
 
 
+}
+
+const RequestTypeIcon = (props) =>{
+    if(props.request_type === 1){
+        return(
+            <div className="approval_history--icon type_03 las la-ticket-alt"></div>
+        )
+    }
+    if(props.request_type === 2){
+        return(
+            <div className="approval_history--icon type_02 las la-ticket-alt"></div>
+        )  
+    }
+    return(
+        <div className="approval_history--icon type_01 las la-ticket-alt"></div>
+    )
 }
 
 export default CardApprovedHistory;
