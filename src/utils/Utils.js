@@ -19,7 +19,8 @@ export {
     isProductType,
     isProductStatus,
     isProductColor,
-    formatCurrency
+    formatCurrency,
+    translate
 }
 
 const DATEFORMAT = {
@@ -248,4 +249,8 @@ function formatCurrency(number) {
         return 0;
 
     }
+}
+
+function translate(text) {
+    return <Trans>{text}</Trans>
 }

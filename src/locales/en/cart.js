@@ -1,4 +1,4 @@
-{
+export default {
     "support_request": "Require to be supported",
     "note": "Note",
     "request_info": "Information must be entered",
@@ -64,6 +64,10 @@
     "list_of_areas": "List Of Areas",
     "statictis_of_open_sale": "Statictis Of Open Sale",
     "project_information": "Project Information",
+    "create_request": "Create a request",
+    "see_requirements": "See requirements",
+    "create_contract": "Create a contract",
+    "request_return": "Request a return",
     "choose": "Choose",
     "block": "Block",
     "area": "Area",

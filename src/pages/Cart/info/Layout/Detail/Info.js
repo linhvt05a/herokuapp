@@ -1,16 +1,16 @@
 import React from 'react';
 import moment from "moment";
 import { SliderImage, Loading } from '../../../../../components/common';
-import { convertAcreagetoInt, formatCurrency } from "../../../../../utils/Utils";
+import { convertAcreagetoInt, formatCurrency } from "../../../../../utils/Utils"
 
 const info = props => {
     let { data, loading } = props;
     return (
         <div className="card square h-100">
             <div className="card-body">
-                <div className="row h-100">
-                    {!loading ? <Loading /> :
-                        [<div className="col-12 col-sm-12 col-md-12 col-xl-5">
+                {loading ? <Loading /> :
+                    <div className="row h-100">
+                        <div className="col-12 col-sm-12 col-md-12 col-xl-5">
                             {data.image_list && data.image_list.length > 0 ?
                                 <SliderImage className="m_slider w-100" datas={data.image_list} />
                                 :
@@ -18,7 +18,7 @@ const info = props => {
                                     <img src='http://superapp.minerva.vn:9210/static/img/default_image_minerva.png' alt="Minerva" />
                                 </figure>
                             }
-                        </div>,
+                        </div>
                         <div className="col-12 col-sm-12 col-md-12 col-xl-7 content-right-info-project">
                             <div className="row m_grid--list_project">
                                 <div className="item mb-0 border-0">
@@ -36,7 +36,6 @@ const info = props => {
                                                 <i className="las la-calendar-check"></i>
                                                 <span className="title">Thời hạn sử dụng đất: </span>
                                                 <span className="text">{data.project_duration_type > 0 ? `${data.project_duration_type} (Y)` : 0}</span>
-                                                {/* <span className="text">{data.project_duration_type}</span> */}
                                             </li>
 
                                             <li>
@@ -57,14 +56,12 @@ const info = props => {
                                                 <i className="las la-sort-amount-up"></i>
                                                 <span className="title">Số tầng: </span>
                                                 <span className="text">{data.number_of_floor > 0 ? `${data.number_of_floor} (T)` : 0}</span>
-                                                {/* <span className="text">{data.number_of_floor} (T)</span> */}
                                             </li>
 
                                             <li>
                                                 <i className="las la-sort-amount-up"></i>
                                                 <span className="title">Chiều cao tối đa: </span>
                                                 <span className="text">{data.maximum_height_met > 0 ? `${data.maximum_height_met} (M)` : 0}</span>
-                                                {/* <span className="text">{data.maximum_height_met} (M) </span> */}
                                             </li>
 
                                             <li>
@@ -77,7 +74,6 @@ const info = props => {
                                                 <i className="las la-brush"></i>
                                                 <span className="title">Mật độ xây dựng:</span>
                                                 <span className="text">{data.building_density > 0 ? `${data.building_density} (%)` : 0}</span>
-                                                {/* <span className="text">{data.building_density} % </span> */}
                                             </li>
                                         </ul>
                                     </div>
@@ -85,9 +81,8 @@ const info = props => {
 
                             </div>
 
-                        </div>]}
-                </div>
-
+                        </div>
+                    </div>}
             </div>
         </div>
 
