@@ -28,11 +28,9 @@ const InputBase = (props) => {
                         {...attr}
                         disabled={disabled ? disabled : undefined} />
                 </div>
-                
             </div>
         </div>
     )
-
 }
 
 export default InputBase;
