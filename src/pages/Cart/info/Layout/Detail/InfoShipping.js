@@ -176,24 +176,24 @@ const InfoShipping = props => {
                 <div className="row mb-4 d-flex justify-content-center">
                     <Select
                         className="col-lg-3 col-md-6 col-sm-12"
-                        label="Choose area"
-                        placeholder="Choose area"
+                        label="choose_area"
+                        placeholder="choose_area"
                         name="status"
                         isClear={state.FilterAreaStatus.value == "" ? true : false}
                         value={state.FilterAreaStatus.value} datas={state.dataArea}
                         onChange={(value) => props.onChangeArea(value)} />
                     <Select
                         className="col-lg-3 col-md-6 col-sm-12"
-                        label="Choose block"
-                        placeholder="Choose block"
+                        label="choose_block"
+                        placeholder="choose_block"
                         name="status"
                         isClear={state.FilterBlockStatus.value == "" ? true : false}
                         value={state.FilterBlockStatus.value} datas={state.dataFilterBlock}
                         onChange={(value) => props.onChangeBlock(value)} />
                     <Select
                         className="col-lg-3 col-md-6 col-sm-12"
-                        label="Choose floor or lot"
-                        placeholder="Choose floor or lot"
+                        label="choose_floor"
+                        placeholder="choose_floor"
                         name="status" isClear={state.FilterFloorStatus.value == "" ? true : false}
                         value={state.FilterFloorStatus.value} datas={state.dataFilterFloor}
                         onChange={(value) => props.onChangeFloor(value)} />

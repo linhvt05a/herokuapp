@@ -133,21 +133,21 @@ const Edit = props => {
     return (
         [<div className="row mt-3">
             <div className="col-xl-6 col-lg-6 col-md-12 col-sm-12 d-flex flex-column">
-                <CardHeader label="PROJECT INFORMATION" />
+                <CardHeader label="project_information" />
                 {dataCart.isLoadingDetail ? <Loading /> : <Item.Detail_info data={dataCart.Detail} />}
             </div>
             <div className="col-xl-6 col-lg-6 col-md-12 col-sm-12 d-flex flex-column">
-                <CardHeader label="STATISTICS OF OPEN SALE" />
+                <CardHeader label="statictis_of_open_sale" />
                 {dataCart.isLoadingSaleOpen ? <Loading /> : <Item.Detail_progress dataSellOpen={dataCart.Sell_Open} />}
             </div>
         </div>,
         <div>
-            <CardHeader label="LIST OF AREAS" dropdown={{ title: state.areaStatus.label, data: state.dataArea }} onClick={(value) => onFilterArea(value)} />
+            <CardHeader label="list_of_areas" dropdown={{ title: state.areaStatus.label, data: state.dataArea }} onClick={(value) => onFilterArea(value)} />
             {dataCart.isLoadingSaleOpenList ? <Loading /> : <Item.Detail_content data={dataCart.Sell_Open_Floor} floorData={state.dataFilterFloor} />}
         </div>,
         <div>
 
-            <CardHeader label="Basket details" dropdown={{ title: state.saleOpenStatus.value == "" ? "Tất cả" : state.saleOpenStatus.label, data: state.dataSaleOpen }} onClick={(value) => onFilteSaleOpen(value)} />
+            <CardHeader label="basket_details" dropdown={{ title: state.saleOpenStatus.value == "" ? "Tất cả" : state.saleOpenStatus.label, data: state.dataSaleOpen }} onClick={(value) => onFilteSaleOpen(value)} />
             {dataCart.isLoadingSaleOpenCart ? <Loading /> : <Item.Detail_InfoShipping
                 STATE={{ state, setState }}
                 onChangeArea={(value) => onChangeArea(value)}
