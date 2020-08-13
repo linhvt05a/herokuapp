@@ -43,9 +43,6 @@ import {
 import {
   productDetaillWatcher
 } from './productSaga'
-import {
-  customerListWatcher
-} from './customerSaga'
 function* allSaga() {
   yield all([
     currencyListWatcher(),
@@ -84,10 +81,7 @@ function* allSaga() {
     promotionListWatcher(),
     promotionProductWatcher(),
 
-    productDetaillWatcher(),
-
-    //customer
-    customerListWatcher()
+    productDetaillWatcher()
   ]);
 }
 
