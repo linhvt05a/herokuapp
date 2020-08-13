@@ -234,7 +234,6 @@ function isProductColor(number) {
     }
 }
 function formatCurrency(number) {
-    console.log(number)
     if (number !== null) {
         var n = null;
         if (Number.isInteger(number)) {
@@ -247,6 +246,6 @@ function formatCurrency(number) {
         return n2.split('').reverse().join('') + ",00 ";
     } else {
         return 0;
-        
+
     }
 }

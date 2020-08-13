@@ -46,7 +46,7 @@ const Content = props => {
                             <span className="label">Theo tầng</span>
                             <Select classNameGroup="form-group mb-0" datas={state.floor} value={state.valueFilter} onChange={(value) => setState({ ...state, valueFilter: value })} />
                         </div>
-                        <button type="submit" className="min-width-button min-height-40 btn-uni-purple ml-md-auto ml-0 mr-5" onClick={() => onFloorChange(state.valueFilter)}><Trans>Search</Trans></button>
+                        <button type="submit" className="min-width-button min-height-40 btn-uni-purple ml-md-auto ml-0 mr-5" onClick={() => onFloorChange(state.valueFilter)}><Trans>search</Trans></button>
                     </div>
                 </div>
 

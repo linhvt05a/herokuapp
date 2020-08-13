@@ -202,7 +202,7 @@ const InfoShipping = props => {
                         <div className="form-group">
                             <label className="invisible d-md-block d-none">button</label>
                             <button type="submit" className="min-width-button btn-uni-purple min-height-40 " onClick={() => props.onSearch()}>
-                                <Trans>Search</Trans>
+                                <Trans>search</Trans>
                             </button>
                         </div>
                     </div>
