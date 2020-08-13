@@ -31,7 +31,7 @@ import {
   salepolicyListWatcher
 } from './projectSaga';
 import {
-  commentListWatcher, 
+  commentListWatcher,
   approveListWatcher,
   addCommentWatcher
 } from './approval'
@@ -41,7 +41,7 @@ import {
   promotionProductWatcher
 } from './requestCartSaga'
 import {
-    productDetaillWatcher
+  productDetaillWatcher
 } from './productSaga'
 function* allSaga() {
   yield all([
@@ -79,8 +79,7 @@ function* allSaga() {
 
     requestDataWatcher(),
     promotionListWatcher(),
-    promotionProductWatcher()
-    promotionListWatcher(),
+    promotionProductWatcher(),
 
     productDetaillWatcher()
   ]);
