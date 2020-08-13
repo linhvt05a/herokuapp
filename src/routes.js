@@ -13,7 +13,6 @@ import * as Project from "./pages/Project";
 // import * as Perm from "./pages/Permission";
 
 import * as Cart from "./pages/Cart";
-import * as Uniprime from "./pages/Uniprime/Management01";
 
 import * as StoryBook from "./storybook/story";
 
@@ -46,8 +45,7 @@ const MAINS = [
 
     { "path": "/cart/cart_list", "value": Cart.Home, "menu": "menu_shipping_cart_list_title", "title": "menu_shipping_cart_list_title" },
     { "path": "/cart/cart_list/detail/:id", "value": Cart.Edit, "menu": "menu_shipping_cart_list_title", "title": "detail", "noTitle": true },
-    //uniprime
-    { "path": "/uniprime/step2", "value": Uniprime.Step2, "menu": "Uniprime", "title": "detail", },
+
 ]
 
 export const STORYBOOKS = [
