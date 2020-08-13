@@ -43,5 +43,9 @@
     "land_area": "Diện tích đất",
     "investor": "Chủ đầu tư",
     "code": "Mã",
-    "max_conversion": "Quy đổi tối đa"
+    "max_conversion": "Quy đổi tối đa",
+    "high": "Cao",
+    "average": "Trung bình",
+    "low": "Thấp",
+    "choose_the_priority": "Chọn độ ưu tiên"
 }

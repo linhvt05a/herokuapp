@@ -3,12 +3,13 @@ import { withTranslation, Trans } from "react-i18next";
 import { Modal, Select } from "antd";
 import { CardHeader } from "../../../../../components/common";
 import { mappingListToSelectList, InputText } from "../../../../../components/input";
-import InputSelect from "../../../../../components/base/Select/Select";
+import CustomSelect from "../../../../../components/base/Select/Select";
+import CustomInput from '../../../../../components/base/Input/Input';
+import CustomTextArea from '../../../../../components/base/TextArea/TextArea';
 import { CUSTOMER_REQUEST_TYPE_COMMISSION, CUSTOMER_REQUEST_TYPE_PROMOTION, CUSTOMER_REQUEST_PRIORITY_HIGH,
     CUSTOMER_REQUEST_PRIORITY_MID, CUSTOMER_REQUEST_PRIORITY_LOW } from '../../../../../constant';
-import { promotionListRequest, promotionProductRequest } from '../../../../../store/action/requestCart';
+import { promotionListRequest, promotionProductRequest, requestDataRequest } from '../../../../../store/action/requestCart';
 import { useDispatch, useSelector } from "react-redux";
-import Input from '../../../../../components/base/Input/Input';
 
 const { Option } = Select;
 const selectOption = (
@@ -31,8 +32,11 @@ const request = [
 
 const ModalRequest = (props) => {
     const [state, setState] = useState({
-        request_select: 0,
-        ranger_status: 1
+        request_type: 0,
+        value_change: null,
+        priority: null,
+        reason: "",
+        list_promotion_detail: []
     })
     const { value, t } = props
     const dispatch = useDispatch();
@@ -54,48 +58,70 @@ const ModalRequest = (props) => {
         dispatch(promotionProductRequest({ token, product_id: value.product_id, promotion_id }));
     }
 
+    const onUpdateData = () => {
+        if (state.request_type === 1) {
+            dispatch(requestDataRequest({ token, request_type: state.request_type, product_id: value.product_id,
+                value_change: state.value_change, priority: state.priority, reason: state.reason }));
+        } else if (state.request_type === 2) {
+            dispatch(requestDataRequest({ token, request_type: state.request_type, product_id: value.product_id,
+                list_promotion_detail: state.list_promotion_detail, priority: state.priority, reason: state.reason }));
+        } else {
+            return
+        }
+        console.log("update", isGetRequestDataSuccess)
+    }
+
     const renderDiscount = () => {
         return (
             <div>
                 <div className="uni_text_6d30ab fw-medium fs-18 mt-2 mb-2 text-uppercase"><Trans>content</Trans></div>
                     <div className="row">
-                        <Input
+                        <CustomInput
                             disabled
                             className="col-12 col-sm-6 col-lg-4"
                             label="price"
                             value={value.product_price}
                             addonAfter={selectOption} />
-                        <Input
+                        <CustomInput
                             disabled
                             className="col-12 col-sm-6 col-lg-4"
                             label="lowest_commission"
                             addonAfter="%" />
-                        <Input
+                        <CustomInput
                             disabled
                             className="col-12 col-sm-6 col-lg-4"
                             label="highest_commission"
                             addonAfter="%" />
-                        <Input
+                        <CustomInput
                             disabled
                             className="col-12 col-sm-6 col-lg-4"
                             label="defautl_commission"
                             addonAfter="%" />
-                        <Input
+                        <CustomInput
                             require
+                            onChange={(value) => setState({ ...state, value_change: value.target.value })}
+                            type="number"
                             placeholder={t("enter")}
                             className="col-12 col-sm-6 col-lg-4"
                             titleClassName="fw-medium m_text_e94c4c"
                             label="request_commission"
                             addonAfter={'%'} />
-                        <InputSelect
+                        <CustomSelect
                             require
+                            trans
+                            placeholder="choose_the_priority"
                             className="col-12 col-sm-6 col-lg-4" titleClassName="fw-medium m_text_e94c4c"
-                            datas={priority} value={state.ranger_status}
-                            label="priority" onChange={(value) => setState({ ...state, ranger_status: value })} />
+                            datas={priority}
+                            label="priority" onChange={(value) => setState({ ...state, priority: value })} />
                     </div>
                     <div className="form-group">
-                        <label className="fw-medium"><Trans>reason</Trans><span className="uni_star_e94c4c"> *</span></label>
-                        <textarea placeholder={t("enter_the_reason")} className="form-control" cols={30} rows={4} />
+                        <CustomTextArea
+                            require
+                            onChange={(value) => setState({ ...state, reason: value.target.value })}
+                            placeholder={t("enter_the_reason")}
+                            label="reason"
+                            cols={30}
+                            rows={4} />
                     </div>
             </div>
         )
@@ -105,8 +131,8 @@ const ModalRequest = (props) => {
         return (
             <div>
                 <div className="row">
-                    <InputSelect require className="fw-medium col-12 col-md-8" datas={promotionListRes} label="promotion" onChange={(value) => onChangePromotion(value)} />
-                    <InputSelect require className="col-12 col-md-4" titleClassName="fw-medium m_text_e94c4c" datas={priority} value={state.ranger_status} label="priority" onChange={(value) => setState({ ...state, ranger_status: value })} />
+                    <CustomSelect require className="fw-medium col-12 col-md-8" datas={promotionListRes} label="promotion" onChange={(value) => onChangePromotion(value)} />
+                    <CustomSelect require trans className="col-12 col-md-4" placeholder="choose_the_priority" titleClassName="fw-medium m_text_e94c4c" datas={priority} label="priority" onChange={(value) => setState({ ...state, priority: value })} />
                 </div>
                 <div className="uni_text_6d30ab fw-medium fs-18 mt-2 mb-2 text-uppercase"><Trans>promotion_gift</Trans></div>
                 <div className="mb-4 m_table m_table--sales table_fixed max-height-100">
@@ -134,7 +160,7 @@ const ModalRequest = (props) => {
                                         </td>
                                         <td>
                                             <div className="form-group mb-0">
-                                                <Input
+                                                <CustomInput
                                                     disabled
                                                     className="text-right"
                                                     value={item.value}
@@ -143,7 +169,7 @@ const ModalRequest = (props) => {
                                         </td>
                                         <td>
                                             <div className="form-group mb-0">
-                                                <Input
+                                                <CustomInput
                                                     disabled
                                                     className="text-right"
                                                     value={item.redemption_value}
@@ -166,8 +192,12 @@ const ModalRequest = (props) => {
                     </table>
                 </div>
                 <div className="form-group">
-                    <label className="fw-medium"><Trans>reason</Trans><span className="uni_star_e94c4c"> *</span></label>
-                    <textarea placeholder={t("enter_the_reason")} className="form-control" cols={30} rows={4} />
+                    <CustomTextArea
+                        require
+                        placeholder={t("enter_the_reason")}
+                        label="reason"
+                        cols={30}
+                        rows={4} />
                 </div>
             </div>
         )
@@ -184,7 +214,7 @@ const ModalRequest = (props) => {
                             <input type="text" className="form-control" defaultValue="Đề nghị thay đổi chính sách" />
                         </div>
                     </div>
-                    <InputSelect className="col-12 col-sm-6 col-lg-4" datas={priority} value={1} label="Độ ưu tiên*" onChange={(value) => setState({ ...state, ranger_status: value })} />
+                    <CustomSelect className="col-12 col-sm-6 col-lg-4" datas={priority} value={1} label="Độ ưu tiên*" onChange={(value) => setState({ ...state, priority: value })} />
                 </div>
                 <div className="form-group">
                     <label className="fw-medium">Lý do<span className="uni_star_e94c4c">*</span></label>
@@ -195,7 +225,7 @@ const ModalRequest = (props) => {
     }
 
     const renderRequest = () => {
-        switch (state.request_select) {
+        switch (state.request_type) {
             case 1:
                 return renderDiscount();
             case 2:
@@ -218,13 +248,13 @@ const ModalRequest = (props) => {
                     <i className="text-note mb-3 mt-3 mt-lg-0"><Trans>note</Trans><span class="uni_star_e94c4c"> (*) </span>: <Trans>request_info</Trans></i>
                     <div className="uni_text_6d30ab fw-medium fs-18 mt-2 mb-2 text-uppercase"><Trans>request</Trans></div>
                     <div className="row">
-                        <InputSelect require trans value={state.request_select} isClear={state.request_select != 0 ? false : true} className="col-12 col-md-8" label="request_type" datas={request} placeholder="choose_request_type" onChange={(value) => setState({ ...state, request_select: value })} />
+                        <CustomSelect require trans value={state.request_type} isClear={state.request_type != 0 ? false : true} className="col-12 col-md-8" label="request_type" datas={request} placeholder="choose_request_type" onChange={(value) => setState({ ...state, request_type: value })} />
                         <InputText className="col-12 col-md-4" type="text" label={props.value.product_name} disabled />
                     </div>
                     {renderRequest()}
                     <div className=" pt-0 pb-4 border-0 mt-4 text-right" >
                         <button type="button" className="min-width-button min-height-40 btn-uni-exit btn-uni-exit-modal" onClick={props.close} style={{ marginRight: 20 }} ><Trans>close</Trans></button>
-                        <button type="submit" className="min-width-button min-height-40 btn-uni-purple"><Trans>update</Trans></button>
+                        <button type="submit" className="min-width-button min-height-40 btn-uni-purple" onClick={onUpdateData}><Trans>update</Trans></button>
                     </div>
                 </div>
             </div>

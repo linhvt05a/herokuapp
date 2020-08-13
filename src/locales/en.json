@@ -43,5 +43,9 @@
     "land_area": "Land Area",
     "investor": "Investor",
     "code": "Code",
-    "max_conversion": "Maximum Conversion"
+    "max_conversion": "Maximum Conversion",
+    "high": "High",
+    "average": "Average",
+    "low": "Low",
+    "choose_the_priority": "Choose the priority"
 }
