@@ -6,7 +6,6 @@ import CustomerInfoForm from './CustomerInfoForm';
 const CustomerInFoWrapper = (props) => {
     const [typeCustomer, setTypeCustomer] = useState(0);
     const customerStore = useSelector(state => state.customer); // get data from reducer
-    console.log('customerStore', customerStore);
     const isSuccess = customerStore.customerList.success || false;
     const customerDetail = isSuccess ? customerStore.customerList.detail : null;
     const dispatch = useDispatch();
@@ -22,9 +21,9 @@ const CustomerInFoWrapper = (props) => {
 
     return (
         <CustomerInfoForm typeCustomer = {typeCustomer}
-                            changeTypeCustomer = {changeTypeCustomer}
-                            customerList={customerDetail}
-                            isSuccess={isSuccess}
+                          changeTypeCustomer = {changeTypeCustomer}
+                          customerList={customerDetail}
+                          isSuccess={isSuccess}
         />
     )
 }

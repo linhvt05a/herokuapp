@@ -2,11 +2,14 @@ import React, { useEffect } from 'react';
 import PaymentInfo from './PaymentInfo';
 import HeaderPayment from './Header';
 import { useDispatch, useSelector } from "react-redux";
-import { policyListRequest, policyProgressListRequest, paymentListRequest } from '../../../../../store/action/contract'
+import { policyListRequest, policyProgressListRequest, paymentListRequest } from '../../../../../store/action/contract';
+import { convertPaymentContract } from '../../../../../utils/ConvertData';
 import { Link } from 'react-router-dom';
 const PaymentWrapper = (props) => {
     const token = 'MjoxMzliMDZiZmI4OTJhOGYxYmQ2MzVhZmFmODEyZmM5M2RhNDFkM2Yx=';
     const contractStore = useSelector(state => state.contract); // get data from reducer
+    const isSuccess = contractStore.paymentList.success;
+    const paymentList = isSuccess ? convertPaymentContract(contractStore.paymentList.detail) : null;
     console.log('contractStore', contractStore);
     const dispatch = useDispatch();
 
@@ -20,7 +23,7 @@ const PaymentWrapper = (props) => {
             <div className='create-contract__wrap'>
                 <div className='create-contract__item collapse show'>
                     <HeaderPayment {...props} />
-                    <PaymentInfo {...props} />
+                    {isSuccess && <PaymentInfo {...props} datas={paymentList} />}
                 </div>
             </div>
             <div class="sales_list_button text-right">

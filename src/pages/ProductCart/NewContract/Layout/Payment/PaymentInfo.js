@@ -10,7 +10,7 @@ const PaymentInfo = (props) => {
                         <i class="deposits_number"> {datas[0].totalAmount}(vnđ)</i>
                     </span>
                 </div>
-                {datas.map((item, key) => {
+                {datas && datas.map((item, key) => {
                     let boxPositionClass = "";
                     if (key % 2 === 0) {
                         boxPositionClass = "boxRight"
