@@ -176,6 +176,7 @@ let menu_data = [
         icon: "las la-user-lock",
         children: menu_perm_tasks
     },
+
     // {
     //     label: "menu_project_manager",
     //     icon: "las la-copy",

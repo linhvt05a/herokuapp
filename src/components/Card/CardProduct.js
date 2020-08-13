@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import { Trans } from "react-i18next"
-
+import { translate } from "../../utils/Utils"
 const CartProductDetail = props => {
     let { data, index, link_to } = props;
     return (
@@ -21,7 +20,7 @@ const CartProductDetail = props => {
                                 <span className="badge badge-pill badge-danger badge-up badge-glow">14</span>
                             </i>
                         </Link>
-                        <Link className="small float-right mr-1" to={`${props.link_to}${data.project_id}`} title="Cập Nhật" >
+                        <Link className="small float-right mr-1" to={`${props.link_to}${data.project_id}`} title="update" >
                             {/* <i className="edit  icon las la-pen"></i> */}
                         </Link>
                         <span className="address">{data.address}</span>
@@ -29,13 +28,13 @@ const CartProductDetail = props => {
                     <ul className="details">
                         <li>
                             <i className="las la-user-tie"></i>
-                            <span className="title">Chủ Đầu Tư Dự Án:</span>
+                            <span className="title">{translate("project_investors")}:</span>
                             <span className="text">{data.investor_name}</span>
 
                         </li>
                         <li>
                             <i className="las la-arrows-alt"></i>
-                            <span className="title">Tổng Diện Tích: </span>
+                            <span className="title">{translate("total_area")}: </span>
                             {/* <Trans>{'Total Area:'}</Trans> */}
                             <span className="text">{data.project_acreage}</span>
                         </li>

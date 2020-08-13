@@ -26,7 +26,6 @@ const Cart = props => {
     }, [])
     const dataCart = useSelector(state => state.cart)
     const dataDashBoard = useSelector(state => state.dashboard)
-    // console.log(dataCart);
     const create_Filter_Project_Status = (value, label) => {
         return { value, label }
     }
@@ -69,8 +68,8 @@ const Cart = props => {
     return (
         [<CardHeader
             dropdown={{ title: state.projectStatus && state.projectStatus.value == "" ? "Product Status" : state.projectStatus.label, data: state.dataProjectStatus }}
-            label={"Project"}
-            searchBox={{ title: "home_map_search" }}
+            label={"project"}
+            searchBox={{ title: "project_name" }}
             onSearch={SEARCH}
             onFilter={onFilter} />
             , dataCart.isLoadingList ? <Loading /> : <ListProduct

@@ -13,6 +13,7 @@ import * as Project from "./pages/Project";
 // import * as Perm from "./pages/Permission";
 
 import * as Cart from "./pages/Cart";
+
 import * as StoryBook from "./storybook/story";
 
 const LOGINS = [
@@ -41,17 +42,10 @@ const MAINS = [
     { "path": "/info/project/detail/:id", "value": Project.PageProjectDetail, "menu": "menu_project_detail_customer_info", "title": "Thông tin dự án" },
 
     { "path": "/perm/project/:id", "value": System.PageListCart, "menu": "menu_perm_task_by_projects", "title": "" },
-    // { "path": "/perm/project/add", "value": Perm.PagePermProjectAdd, "menu": "menu_perm_task_by_projects", "title": "Add" },
-    // { "path": "/perm/project/detail/:id", "value": Perm.PagePermProjectDetail, "menu": "menu_perm_task_by_projects", "title": "Update" },
 
-    // { "path": "/perm/internal", "value": Perm.PagePermInternal, "menu": "menu_perm_task_by_departments", "title": "menu_perm_task_by_departments" },
-    // { "path": "/perm/internal/add", "value": Perm.PagePermInternalAdd, "menu": "menu_perm_task_by_departments", "title": "Add" },
-    // { "path": "/perm/internal/detail/:id", "value": Perm.PagePermInternalDetail, "menu": "menu_perm_task_by_departments", "title": "Update" },
-    //shipping
-    /*{ "path": "/cart/cart_list", "value": Info.Home, "menu": "menu_shipping_cart_list_title", "title": "menu_shipping_cart_list_title" },
-    { "path": "/cart/cart_list/detail/:id", "value": Info.Edit, "menu": "menu_shipping_cart_list_title", "title": "Detail" },*/
     { "path": "/cart/cart_list", "value": Cart.Home, "menu": "menu_shipping_cart_list_title", "title": "menu_shipping_cart_list_title" },
     { "path": "/cart/cart_list/detail/:id", "value": Cart.Edit, "menu": "menu_shipping_cart_list_title", "title": "detail", "noTitle": true },
+
 ]
 
 export const STORYBOOKS = [

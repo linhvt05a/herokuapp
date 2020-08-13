@@ -1,13 +1,9 @@
 import React from 'react';
+import CardNodata from '../../../../../components/Card/CardNodata';
 
 const TabProgress = () => {
     return (
-        <div className="data_null">
-            <figure class="data_null--image">
-                <img src={require('../../../../../../public/static/images/no_data.png')} alt=""/>
-                <span class="data_null--text text-uppercase">No data</span>
-            </figure>
-        </div>
+        <CardNodata />
     )
 }
 

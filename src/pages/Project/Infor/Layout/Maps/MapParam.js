@@ -41,13 +41,13 @@ const MapParam = (props) => {
     const { data, lat, long, name } = props;
     console.log('tttttt', data);
     return (
-        <Map
-            className="map w-100 "
+        <Map 
+            className="map"
             style={MAP_STYLE}
             center={[long, lat]}
             zoom={[13]}
             containerStyle={{
-                minHeight: '80vh',
+                minHeight: '500px',
                 width: '100%',
             }}>
             <Layer type="fill" paint={polygonPaint}>
@@ -59,7 +59,7 @@ const MapParam = (props) => {
             <Marker
                 coordinates={[long, lat]}
                 anchor="bottom">
-                <img src={markerUrl} />
+                <img src={markerUrl}/>
             </Marker>
             <Popup
                 coordinates={[long, lat]}
@@ -70,9 +70,9 @@ const MapParam = (props) => {
                     <h1 class='top'>{name}<i class='address'>{data.address}</i></h1>
                     <div class='center'><p class='item'>
                         <span class='irr_text'>Number <i>IRR</i></span>
-                        <span class='number'>%</span></p><p class='item'>
-                            <span class='npv_text'>Number <i>NPV</i></span>
-                            <span class='number'></span></p>
+                        <span class='number'>{data.IRR}</span></p><p class='item'>
+                        <span class='npv_text'>Number <i>NPV</i></span>
+                        <span class='number'>{data.NPV}</span></p>
                     </div>
                     <ul class='bottom'>
                         <li><Trans>Diện tích đất</Trans>: <span class='value'>{data.square}</span></li>
