@@ -98,7 +98,7 @@ const TabParameters = (props) => {
             </div>
             <div className="row mt-4">
                 <div className="col-12">
-                    <h6 className=" mb-1 uni_text_6d30ab text-uppercase">
+                    <h6 className="uni_text_6d30ab text-uppercase">
                         <Trans>VỊ TRÍ DỰ ÁN</Trans>
                     </h6>
                 </div>
