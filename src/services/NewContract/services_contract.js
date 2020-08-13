@@ -1,7 +1,9 @@
 import api from '../api';
 
 export const contractService = {
-    contractPayment
+    contractPayment,
+    policyPaymentForProduct,
+    policyPaymentProgressList
 };
 
 function contractPayment(token, product_id, payment_policy_id, chosen_discount_id, initial_amount) {

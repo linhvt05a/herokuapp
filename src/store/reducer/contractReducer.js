@@ -11,7 +11,9 @@ import {
 } from '../actionType/contract';
 
 const initialState = {
-    customerList: { success:false },
+    paymentList: {},
+    policyList : {},
+    policyProgressList: {},
     isFetching: false,
 };
 
@@ -23,6 +25,20 @@ export default (state = initialState, action) => {
             return { ...state, isFetching: false, customerList: action.response };
         case PAYMENT_LIST_FAILURE:
             return { ...state, isFetching: false, customerList: { success: false, error: action.error } };
+
+        case POLICY_LIST_REQUEST:
+            return { ...state, isFetching: true, policyList: { success: false } };
+        case POLICY_LIST_SUCCESS:
+            return { ...state, isFetching: false, policyList: action.response };
+        case POLICY_LIST_FAILURE:
+            return { ...state, isFetching: false, policyList: { success: false, error: action.error } };
+
+        case POLICY_PROGRESS_LIST_REQUEST:
+            return { ...state, isFetching: true, policyProgressList: { success: false } };
+        case POLICY_PROGRESS_LIST_SUCCESS:
+            return { ...state, isFetching: false, policyProgressList: action.response };
+        case POLICY_PROGRESS_LIST_FAILURE:
+            return { ...state, isFetching: false, policyProgressList: { success: false, error: action.error } };
 
         default:
             return state;
