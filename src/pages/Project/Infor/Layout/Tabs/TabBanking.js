@@ -114,47 +114,48 @@ const ModalListSellOpen = (props) => {
     }
     return (
         <td class="col-2" style={{width: "20%"}}>
-            <a class="link_href_6d30ab fw-medium" onClick={onClickShowModel}>
-                Sell open list [{data.length}]
-            </a>
+            {data.length != 0 ? 
+                <a class="link_href_6d30ab fw-medium" onClick={onClickShowModel}>
+                    Sell open list [{data.length}]
+                </a>:"-"
+            }
             <Modal 
                 visible={state.visible}
                 width={700}
                 footer={null}
+                closable={false}
                 >
-                <div className="m_heading">
+                <div className="m_heading" style={{position: 'relative', top: '-43px'}}>
                     <button className="m_button no-event"><span><Trans>DANH SÁCH ĐỢT MỞ BÁN</Trans></span></button>
                 </div>
-                <div className="modal-content square">
-                    <div class="modal-body">
-                        <div class="m_table m_table--sales min-width-100-pc table_fixed mb-0">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th style={{ width: '10%' }} className="col-1 pl-0"><Trans>STT</Trans></th>
-                                        <th style={{ width: '35%' }} className="col-3 pl-0"><Trans>ĐỢT MỞ BÁN</Trans></th>
-                                        <th style={{ width: '30%' }} className="col-3"><Trans>TỪ NGÀY</Trans></th>
-                                        <th style={{ width: '30%' }} className="col-3"><Trans>ĐẾN NGÀY</Trans></th>
-                                    </tr>
-                                </thead>
-                                <tbody id="listInternal" style={{ maxHeight: '400px' }}>
-                                    {
-                                        data && data.map((item, index) => (
-                                            <tr key={index}>
-                                                <td style={{ width: '10%' }} className="pl-0 col-1">{index + 1}</td>
-                                                <td style={{ width: '35%' }} className="col-3">{item.sell_open_name}</td>
-                                                <td style={{ width: '30%' }} className="col-3">{item.sell_open_from_date}</td>
-                                                <td style={{ width: '30%' }} className="col-3">{item.sell_open_to_date}</td>
-                                            </tr>
-                                        ))
-                                    }
-                                </tbody>
-                            </table>
-                        </div>
+                <div class="modal-body">
+                    <div class="m_table m_table--sales min-width-100-pc table_fixed mb-0">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th style={{ width: '10%' }} className="col-1 pl-0"><Trans>STT</Trans></th>
+                                    <th style={{ width: '35%' }} className="col-3 pl-0"><Trans>ĐỢT MỞ BÁN</Trans></th>
+                                    <th style={{ width: '30%' }} className="col-3"><Trans>TỪ NGÀY</Trans></th>
+                                    <th style={{ width: '30%' }} className="col-3"><Trans>ĐẾN NGÀY</Trans></th>
+                                </tr>
+                            </thead>
+                            <tbody id="listInternal" style={{ maxHeight: '400px' }}>
+                                {
+                                    data && data.map((item, index) => (
+                                        <tr key={index}>
+                                            <td style={{ width: '10%' }} className="pl-0 col-1">{index + 1}</td>
+                                            <td style={{ width: '35%' }} className="col-3">{item.sell_open_name}</td>
+                                            <td style={{ width: '30%' }} className="col-3">{item.sell_open_from_date}</td>
+                                            <td style={{ width: '30%' }} className="col-3">{item.sell_open_to_date}</td>
+                                        </tr>
+                                    ))
+                                }
+                            </tbody>
+                        </table>
                     </div>
-                    <div class="modal-footer pt-0 pb-4 border-0 mr-3">
-                        <button type="button" class="min-width-button min-height-40 btn-uni-exit btn-uni-exit-modal" data-dismiss="modal" aria-label="Close" onClick={closePopup}>Close</button>
-                    </div>
+                </div>
+                <div class="modal-footer pt-0 pb-4 border-0 mr-3">
+                    <button type="button" class="min-width-button min-height-40 btn-uni-exit btn-uni-exit-modal" data-dismiss="modal" aria-label="Close" onClick={closePopup}>Close</button>
                 </div>
             </Modal>
         </td>

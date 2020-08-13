@@ -1,6 +1,7 @@
 import React from 'react';
 import MapParam from '../Maps/MapParam';
 import { Trans } from 'react-i18next';
+import TextEditor from '../../../../../components/base/Editor/TextEditor'
 
 const TabParameters = (props) => {
     let { data, lat, long, name, durationtype } = props;
@@ -91,12 +92,14 @@ const TabParameters = (props) => {
                     <Trans>MÔ TẢ DỰ ÁN</Trans>
                     </h6>
                 </div>
-                <div className="summernoteOnHead col-12"></div>
+                <div className="summernoteOnHead col-12">
+                    <TextEditor value = "" handleChange = {props.changeComment} />
+                </div>
             </div>
             <div className="row mt-4">
                 <div className="col-12">
                     <h6 className=" mb-1 uni_text_6d30ab text-uppercase">
-                    <Trans>VỊ TRÍ DỰ ÁN</Trans>
+                        <Trans>VỊ TRÍ DỰ ÁN</Trans>
                     </h6>
                 </div>
                 <div className="col-12">
