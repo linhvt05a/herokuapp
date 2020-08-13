@@ -13,10 +13,14 @@ import {
 } from '../actionType/contract';
 
 export function* paymentList(payload) {
-    const token = payload.payload.token;
-    const search = payload.payload.search;
+    console.log('payloadPaymentList', payload);
+    const { token, productId, paymentPolicyId, chosenDiscountId, initialAmount } = payload.payload;
+    const product_id = productId;
+    const payment_policy_id = paymentPolicyId;
+    const chosen_discount_id = chosenDiscountId;
+    const initial_amount = initialAmount;
     try {
-        const response = yield contractService.contractPayment(token, search);
+        const response = yield contractService.contractPayment(token, product_id, payment_policy_id, chosen_discount_id, initial_amount);
         response.success ? yield put({ type: PAYMENT_LIST_SUCCESS, response }) : yield put({ type: PAYMENT_LIST_FAILURE, response });
     } catch (err) {
         yield put({ type: PAYMENT_LIST_FAILURE, err });

@@ -1,7 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Select, Input } from '../../../../../components/base';
-import { useDispatch, useSelector } from "react-redux";
-import { policyListRequest, policyProgressListRequest } from '../../../../../store/action/contract'
+
 
 const HeaderPayment = (props) => {
     return (

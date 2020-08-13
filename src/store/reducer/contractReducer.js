@@ -12,7 +12,7 @@ import {
 
 const initialState = {
     paymentList: {},
-    policyList : {},
+    policyList: {},
     policyProgressList: {},
     isFetching: false,
 };
@@ -20,11 +20,11 @@ const initialState = {
 export default (state = initialState, action) => {
     switch (action.type) {
         case PAYMENT_LIST_REQUEST:
-            return { ...state, isFetching: true, customerList: { success: false } };
+            return { ...state, isFetching: true, paymentList: { success: false } };
         case PAYMENT_LIST_SUCCESS:
-            return { ...state, isFetching: false, customerList: action.response };
+            return { ...state, isFetching: false, paymentList: action.response };
         case PAYMENT_LIST_FAILURE:
-            return { ...state, isFetching: false, customerList: { success: false, error: action.error } };
+            return { ...state, isFetching: false, paymentList: { success: false, error: action.error } };
 
         case POLICY_LIST_REQUEST:
             return { ...state, isFetching: true, policyList: { success: false } };
