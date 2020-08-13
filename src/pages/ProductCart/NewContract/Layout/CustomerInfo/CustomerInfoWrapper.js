@@ -16,17 +16,10 @@ const CustomerInFoWrapper = (props) => {
     const token = 'MjoxMzliMDZiZmI4OTJhOGYxYmQ2MzVhZmFmODEyZmM5M2RhNDFkM2Yx=';
 
     return (
-<<<<<<< HEAD
-        <CustomerInfoForm typeCustomer = {typeCustomer}
-                          changeTypeCustomer = {changeTypeCustomer}
-                          customerList={customerDetail}
-                          isSuccess={isSuccess}
-=======
         <CustomerInfoForm typeCustomer={state.typeCustomer}
             changeTypeCustomer={(value) => setState({ ...state, typeCustomer: value })}
             customerList={customerDetail ? customerDetail : []}
             isSuccess={isSuccess}
->>>>>>> a2d84cd0083dc88935d7e504faffe50997469241
         />
     )
 }
