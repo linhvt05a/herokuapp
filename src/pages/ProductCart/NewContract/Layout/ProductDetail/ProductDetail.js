@@ -1,17 +1,7 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { productDetailRequest } from "../../store/action";
+import React from "react";
 
-const ProductSection = (props) => {
-    const productStore = useSelector(state => state.product); // get data from reducer
-    console.log('productStore', productStore);
-    const dispatch = useDispatch();
-    const token = 'MjoxMzliMDZiZmI4OTJhOGYxYmQ2MzVhZmFmODEyZmM5M2RhNDFkM2Yx';
-    const product_id = 6;
-    const tab_include = '';
-    useEffect(() => {
-        dispatch(productDetailRequest({ token, product_id })); // call action to Sagas to get data from api
-      }, []);
+const ProductDetail = (props) => {
+
     return (
         <div className="row ">
             <div className="col-xl-3 col-lg-3 col-md-12 col-sm-12 d-flex flex-column">
@@ -131,4 +121,4 @@ const ProductSection = (props) => {
     )
 }
 
-export default ProductSection;
+export default ProductDetail;

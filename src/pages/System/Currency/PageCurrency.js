@@ -8,7 +8,7 @@ import CurrencyTable from './Layout/CurrencyTable';
 const PageCurrency = (props) => {
   const [page, setPage] = useState(1);
   const [search, setSearch] = useState("");
-  const currentcy = useSelector(state => state.currency); // get value currentcy from reducer
+  const currentcy = useSelector(state => state.currency); // get data from reducer
   const dispatch = useDispatch();
   const navigate = useHistory();
   const { token } = props.user;

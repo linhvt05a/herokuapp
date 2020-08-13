@@ -20,6 +20,7 @@ const InputStory = props => {
                     <Input
                         className="col-4"
                         value="000.000.000"
+                        label="Input AddOn After"
                     />
                 </div>
                 <div className="row">
