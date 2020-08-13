@@ -6,6 +6,7 @@ import ContractFinish from './Layout/Finish/ContractFinish';
 const Finish = () => {
     return (
         <div class="container-fluid">
+            <ProductDetail />
             <CardWrapper currentStep={5}
                          children={<ContractFinish />}
              />

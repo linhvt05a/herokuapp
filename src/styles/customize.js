@@ -10,6 +10,7 @@ import './distribution/map.scss';
 //antd 
 import './antd/select.scss';
 import './antd/input.scss';
+import './antd/modal.scss';
 
 //react-bootstrap 
 import './react-bootstrap/modal.scss';

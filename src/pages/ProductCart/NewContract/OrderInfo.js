@@ -6,6 +6,7 @@ import OrderInfoWrapper from './Layout/OrderInfo/OrderInfoWrapper';
 const OrderInfo = () => {
     return (
         <div class="container-fluid">
+            <ProductDetail />
             <CardWrapper currentStep={4}
                          children={<OrderInfoWrapper />}
              />

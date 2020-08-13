@@ -3,8 +3,7 @@ import CardHeader from '../../../../components/Card/CardHeader';
 import PropTypes from 'prop-types';
 import Steps from '../../../../components/common/Steps'
 
-const CardWrapper = ( props ) => {
-    const { currentStep, children} = props;
+const CardWrapper = ( {currentStep, children} ) => {
     const stepsData = [
         { label: "1", description: 'Thông tin BÊN MUA', active: 1 },
         { label: "2", description: 'LỰA CHỌN KHUYẾN MÃI', active: 2 },

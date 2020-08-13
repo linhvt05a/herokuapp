@@ -19,19 +19,23 @@ import {
   bankingListRequest,
   salepolicyListRequest,
 } from "./project";
-import { 
-  approvedListRequest, 
+import {
+  approvedListRequest,
   commentListRequest ,
   addCommentRequest,
 } from "./approval";
 import {
   productDetailRequest,
 } from './product'
-import { 
+import {
   requestDataRequest,
   promotionListRequest,
   promotionProductRequest,
 } from "./requestCart";
+
+import {
+  customerListRequest
+} from "./customer";
 
 export {
   currentcyAddRequest,
@@ -55,5 +59,6 @@ export {
   productDetailRequest,
   requestDataRequest,
   promotionListRequest,
-  promotionProductRequest
+  promotionProductRequest,
+  customerListRequest,
 };
