@@ -1,0 +1,14 @@
+.ant-modal-body {
+  border-radius: 0;
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.ant-modal-body {
+  padding: 0;
+  font-size: inherit;
+
+  .modal-content {
+    border: none;
+  }
+}
