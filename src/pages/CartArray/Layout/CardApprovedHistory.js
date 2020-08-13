@@ -135,7 +135,6 @@ const CardReview = (props) => {
                             )}
                         </div>:  <CardNodata />}
                     </div>:  <CardNodata />
-                   
                     
                 }
                 

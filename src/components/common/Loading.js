@@ -30,7 +30,9 @@ class Loading extends Component {
 
     render() {
         return (
-            <ClipLoader css={override} size={100} color={"#6d30ab"} />
+            <div className="h-100" style={{ justifyContent: "center", alignItems: "center" }}>
+                <ClipLoader css={override} size={50} color={"#6d30ab"} />
+            </div>
         )
     }
 }

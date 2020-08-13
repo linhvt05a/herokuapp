@@ -104,6 +104,11 @@ export default {
     //Customer
     CUSTOMER_LIST: "/api/be/v1/customer/list/",
 
+    //Contract Payment
+    CONTRACT_PAYMENT: "/api/be/v1/contract/accounting/",
+    POLICY_PAYMENT_FOR_PRODUCT: "/api/be/v1/policy_payment/list_for_product/",
+    POLICY_PAYMENT_PROGRESS_LIST: "/api/be/v1/policy_payment/progress/list/",
+
     getHeader,
     getUrl,
     authHeader,
