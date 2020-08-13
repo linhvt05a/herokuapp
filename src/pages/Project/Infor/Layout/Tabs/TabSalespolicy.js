@@ -8,6 +8,7 @@ const TabSalespolicy = (props) => {
     let { project_id } = props;
     const dispatch = useDispatch();
     const [click, setClick] = useState([]);
+    const [clickChild1, setClickChild1] = useState([]);
     const salepolicyStore = useSelector(state => state.project);
     useEffect(() => {
         dispatch(salepolicyListRequest({ token: token, project_id: project_id }));
@@ -19,15 +20,37 @@ const TabSalespolicy = (props) => {
     const showTapsParent = (target, index) => {
         let newData = [].concat(click);
         if (target.className.indexOf('la-plus-circle') > -1) {
-            newData[index] = { id: index, status: "active" }
+            newData[index] = { id: index, status: "active", child: { id: "", status: "" } }
             target.className = "icon icon_collapse las la-minus-circle"
         }
         else { target.className = "icon icon_collapse las la-plus-circle"; newData[index] = { id: index, status: "" } }
+        console.log(newData);
+        setClick(newData)
+    }
+    const showTapsChild = (target, index, indexParent) => {
+
+        let newData = [].concat(click);
+        if (target.className.indexOf('la-plus-circle') > -1) {
+            newData[indexParent] = { id: indexParent, status: "active", child: { id: index, status: "active" } }
+            target.className = "icon icon_collapse las la-minus-circle"
+        }
+        else { target.className = "icon icon_collapse las la-plus-circle"; newData[indexParent] = { id: indexParent, status: "", child: { id: index, status: "" } } }
+        setClick(newData)
+    }
+    const showTapsChildPath = (target, index, indexParent) => {
+
+        let newData = [].concat(click);
+        if (target.className.indexOf('la-plus-circle') > -1) {
+            newData[indexParent] = { id: indexParent, status: "active", child: { id: index, status: "active" } }
+            target.className = "icon icon_collapse las la-minus-circle"
+        }
+        else { target.className = "icon icon_collapse las la-plus-circle"; newData[indexParent] = { id: indexParent, status: "", child: { id: index, status: "" } } }
         setClick(newData)
     }
     const trParent = (data, index) => {
+        // console.log(`parent${index}`, data);
         return (
-            <tr class="parent" data-parent={`row${index}`} key={index}>
+            <tr class="parent" data-parent={`row-${data.id}`} key={index}>
                 <td class="number pl-0">{index + 1}</td>
                 <td colspan="2" class="pl-0">
                     <div class="floor_selected">
@@ -42,19 +65,19 @@ const TabSalespolicy = (props) => {
                 <td>{data.sell_open_date}</td>
                 <td>{data.sell_end_date}</td>
                 <td>
-                    {   data.status == 1 ? 
+                    {data.status == 1 ?
                         <span class="d-inline-flex align-items-center justify-content-center m_text_status_1 m_border_status_1 min-height-40 pl-3 pr-3 width-110">
                             <Trans>Expect</Trans>
                         </span>
                         : data.status == 2 ?
-                        <span class="d-inline-flex align-items-center justify-content-center m_text_status_2 m_border_status_2 min-height-40 pl-3 pr-3 width-110">
-                            <Trans>Opening</Trans>
-                        </span>
-                        : data.status == 3 ?
-                        <span class="d-inline-flex align-items-center justify-content-center m_text_status_3 m_border_status_3 min-height-40 pl-3 pr-3 width-110">
-                            <Trans>Finished</Trans>
-                        </span>
-                        : ""
+                            <span class="d-inline-flex align-items-center justify-content-center m_text_status_2 m_border_status_2 min-height-40 pl-3 pr-3 width-110">
+                                <Trans>Opening</Trans>
+                            </span>
+                            : data.status == 3 ?
+                                <span class="d-inline-flex align-items-center justify-content-center m_text_status_3 m_border_status_3 min-height-40 pl-3 pr-3 width-110">
+                                    <Trans>Finished</Trans>
+                                </span>
+                                : ""
                     }
                 </td>
                 <td></td>
@@ -64,56 +87,227 @@ const TabSalespolicy = (props) => {
             </tr>
         )
     }
-    
-    const trChild = (data, index, status) => {
+
+    const trChild = (data, parentId, index, status) => {
         let arr = [];
-        console.log('child ===', index, data);
+        console.log(`child${index}`, data);
         if (data) {
             arr = data.map((item, i) => {
-            return <tr className={`child child-row${index} ${click.length > 0 ? click[index] && click[index].status : null}`} key={i}>
-                <td class="border-bottom-none"></td>
-                <td colspan="2" class="pl-0">
-                    <div class="min-height-40 block-name">
-                        {item.block_name}
+                return [<tr className={`parent child child-row-${parentId} ${click.length > 0 ? click[index] && click[index].status : null}`} key={i}
+                    data-child={`row-${parentId}`} data-parent-two={`row-${parentId}-${item.block_id}`} data-parent={`row-${parentId}-${item.block_id}`}>
+                    <td class="border-bottom-none"></td>
+                    <td colspan="2" class="pl-0">
+                        <div class="min-height-40 block-name">
+                            {item.block_name}
+                        </div>
+                    </td>
+                    <td>
+                    </td>
+                    <td></td>
+                    <td>{item.sell_open_date}</td>
+                    <td>{item.sell_end_date}</td>
+                    <td>
+                        {status == 1 ?
+                            <span class="d-inline-flex align-items-center justify-content-center m_text_status_1 m_border_status_1 min-height-40 pl-3 pr-3 width-110">
+                                <Trans>Expect</Trans>
+                            </span>
+                            : status == 2 ?
+                                <span class="d-inline-flex align-items-center justify-content-center m_text_status_2 m_border_status_2 min-height-40 pl-3 pr-3 width-110">
+                                    <Trans>Opening</Trans>
+                                </span>
+                                : status == 3 ?
+                                    <span class="d-inline-flex align-items-center justify-content-center m_text_status_3 m_border_status_3 min-height-40 pl-3 pr-3 width-110">
+                                        <Trans>Finished</Trans>
+                                    </span>
+                                    : ""
+                        }
+                    </td>
+                    <td></td>
+                    <td class="text-center"><i class="icon icon_collapse las la-plus-circle" onClick={event => showTapsChild(event.target, i, index)}></i></td>
+                </tr>,
+                trChildPath1(item.list_policy_internal, parentId, item.block_id, item.distribution_type_internal_id, i, status, index, item.block_total_internal_distribute),
+                trChildPath2(item.list_policy_agent, parentId, item.block_id, item.distribution_type_agent_id, i, status, index, item.block_total_agent_distribute)
+                ]
+            })
+        }
+        return arr;
+    }
+
+    const trChildPath1 = (data, parentId, block_id, type_id, index, status, indexParent, totaldistribute) => {
+        let arr = [];
+        if (data) {
+            return [<tr className={`child child-row-${parentId}-${block_id} ${click[indexParent] && click[indexParent].child && click[indexParent].child.id == index ? click[indexParent].child.status : null}`}
+                data-child={`row-${parentId}`} data-parent={`row-${parentId}-${block_id}-${type_id}`}>
+                <td className="border-bottom-none"></td>
+                <td className="border-bottom-none"></td>
+                <td colspan="1" className="pl-0">
+                    <div className="floor_selected sales_internal_border">
+                        <div className="floor text-uppercase min-width-110 sales_internal_bg">
+                            Internal
+                        </div>
+                        <a className="agency channel min-width-230 sales_internal_text text-underline border-right-0">
+                            Total internal units: {totaldistribute}
+                        </a>
                     </div>
                 </td>
                 <td>
-                </td>
-                <td></td>
-                <td>{item.sell_open_date}</td>
-                <td>{item.sell_end_date}</td>
-                <td>
-                    {   status == 1 ? 
-                        <span class="d-inline-flex align-items-center justify-content-center m_text_status_1 m_border_status_1 min-height-40 pl-3 pr-3 width-110">
-                            <Trans>Expect</Trans>
-                        </span>
-                        : status == 2 ?
-                        <span class="d-inline-flex align-items-center justify-content-center m_text_status_2 m_border_status_2 min-height-40 pl-3 pr-3 width-110">
-                            <Trans>Opening</Trans>
-                        </span>
-                        : status == 3 ?
-                        <span class="d-inline-flex align-items-center justify-content-center m_text_status_3 m_border_status_3 min-height-40 pl-3 pr-3 width-110">
-                            <Trans>Finished</Trans>
-                        </span>
-                        : ""
+                    {data.policy_internal_active_flag != null ?
+                    <a href="#" className="link_href_6d30ab  font-weight-bold">
+                        <u>{data.policy_internal_name}</u>
+                    </a>: <span class="uni_text_6d30ab">-</span>
                     }
                 </td>
+                <td>
+                    {
+                        data.policy_internal_active_flag == true ?
+                        <span className="text-green-399b54 font-weight-bold">Active</span>
+                        : <span className="text-green-399b54 font-weight-bold"></span>
+                    }
+                </td>
+                <td>{data.sell_open_date}</td>
+                <td>{data.sell_end_date}</td>
+                <td>
+                {status == 1 ?
+                    <span class="d-inline-flex align-items-center justify-content-center m_text_status_1 m_border_status_1 min-height-40 pl-3 pr-3 width-110">
+                        <Trans>Expect</Trans>
+                    </span>
+                : status == 2 ?
+                    <span class="d-inline-flex align-items-center justify-content-center m_text_status_2 m_border_status_2 min-height-40 pl-3 pr-3 width-110">
+                        <Trans>Opening</Trans>
+                    </span>
+                : status == 3 ?
+                    <span class="d-inline-flex align-items-center justify-content-center m_text_status_3 m_border_status_3 min-height-40 pl-3 pr-3 width-110">
+                        <Trans>Finished</Trans>
+                    </span>
+                    : ""
+                }
+                </td>
+                <td>
+                    <div className="list_icons">
+                        <a><i className="icon icon_noti las la-comments"><small></small></i></a>
+                    </div>
+                </td>
+                <td className="text-center">
+                    {data.list_internal.length != 0 ?
+                        <i class="icon icon_collapse angle las la-angle-down" onClick={event => showTapsChildPath(event.target, i, index)}></i>
+                    : ''
+                    }
+                </td>
+            </tr>,
+            data.list_internal.length != 0 ?
+            trChildPathEnd(data.list_internal, parentId, block_id, type_id, index, status, indexParent, totaldistribute): ""]
+        }
+        return arr;
+    }
+
+    const trChildPath2 = (data, parentId, block_id, type_id, index, status, indexParent, totaldistribute) => {
+        let arr = [];
+        if (data) {
+            return [<tr className={`child child-row-${parentId}-${block_id} ${click[indexParent] && click[indexParent].child && click[indexParent].child.id == index ? click[indexParent].child.status : null}`}
+                    data-child={`row-${parentId}`} data-parent={`row-${parentId}-${block_id}-${type_id}`}>
+                <td className="border-bottom-none"></td>
+                <td className="border-bottom-none"></td>
+                <td colspan="1" className="pl-0">
+                    <div class="floor_selected sales_agency_border">
+                        <div class="floor text-uppercase min-width-110 sales_agency_bg">
+                            Agent
+                        </div>
+                        <a class="agency channel min-width-230 sales_agency_text text-underline border-right-0">
+                            Total agent units: {totaldistribute}
+                        </a>
+                    </div>
+                </td>
+                <td>
+                    {data.policy_agent_active_flag != null ?
+                    <a href="#" className="link_href_6d30ab  font-weight-bold">
+                        <u>{data.policy_agent_name}</u>
+                    </a>: <span class="uni_text_6d30ab">-</span>
+                    }
+                </td>
+                <td>
+                    {
+                        data.policy_agent_active_flag == true ?
+                        <span className="text-green-399b54 font-weight-bold">Active</span>
+                        : <span className="text-green-399b54 font-weight-bold"></span>
+                    }
+                </td>
+                <td>{data.sell_open_date}</td>
+                <td>{data.sell_end_date}</td>
+                <td>
+                {status == 1 ?
+                    <span class="d-inline-flex align-items-center justify-content-center m_text_status_1 m_border_status_1 min-height-40 pl-3 pr-3 width-110">
+                        <Trans>Expect</Trans>
+                    </span>
+                : status == 2 ?
+                    <span class="d-inline-flex align-items-center justify-content-center m_text_status_2 m_border_status_2 min-height-40 pl-3 pr-3 width-110">
+                        <Trans>Opening</Trans>
+                    </span>
+                : status == 3 ?
+                    <span class="d-inline-flex align-items-center justify-content-center m_text_status_3 m_border_status_3 min-height-40 pl-3 pr-3 width-110">
+                        <Trans>Finished</Trans>
+                    </span>
+                    : ""
+                }
+                </td>
+                <td>
+                    <div className="list_icons">
+                        <a><i className="icon icon_noti las la-comments"><small></small></i></a>
+                    </div>
+                </td>
+                <td className="text-center">
+                    {data.list_agent.length != 0 ?
+                        <i class="icon icon_collapse angle las la-angle-down" onClick={event => showTapsChildPath(event.target, i, index)}></i>
+                    : ''
+                    }
+                </td>
+            </tr>, 
+            data.list_agent.length != 0 ?
+            trChildPathEnd(data.list_agent, parentId, block_id, type_id, index, status, indexParent, totaldistribute): ""]
+        }
+        return arr;
+    }
+    const trChildPathEnd = (data, parentId, block_id, type_id, index, status, indexParent, totaldistribute) => {
+        let arr = [];
+        if (data) {
+            arr = data.map((item, i) => {
+            return <tr class="child child-row-262-2-1" data-child-two="row-262-2" data-child="row-262">
+                <td class="border-bottom-none"></td>
+                <td class="border-bottom-none"></td>
+                <td colspan="1" class="pl-0">
+                    {item.customer_name}
+                </td>
+                <td>
+                    
+                    {/* <a href="#" target="_blank" class="link_href_6d30ab font-weight-bold">
+                    <u>{item.policy_name}</u></a> */}
+                    {item.policy_active_flag != null ?
+                    <a href="#" target="_blank" class="link_href_6d30ab font-weight-bold">
+                        <u>{item.policy_name}</u>
+                    </a>: <span class="uni_text_6d30ab">-</span>
+                    }
+                </td>
+                <td>   
+                    <span class="text-green-399b54 font-weight-bold">Active</span>
+                </td>
+                <td>20/07/2020</td>
+                <td>30/07/2020</td>
+                <td>
+                    <span class="d-inline-flex align-items-center justify-content-center m_text_status_3 m_border_status_3 min-height-40 pl-3 pr-3 width-110">
+                        Finished
+                    </span>
+                </td>
                 <td></td>
-                <td class="text-center"><i class="icon icon_collapse las la-plus-circle"></i></td>
+                <td></td>
             </tr>
             })
         }
         return arr;
     }
 
-    // const trChildArr = (data, index, status) => { 
-        
-    // }
-
     return (
         <div>
             <div className="row">
-                <div className="col-12" style={{marginTop: "15px"}}>
+                <div className="col-12" style={{ marginTop: "15px" }}>
                     <h6 className=" mb-1 uni_text_6d30ab text-uppercase">
                         <Trans>DANH SÁCH CÁC CHÍNH SÁCH BÁN HÀNG</Trans>
                     </h6>
@@ -135,12 +329,9 @@ const TabSalespolicy = (props) => {
                             <th></th>
                         </tr>
                     </thead>
-                    <tbody style={{maxHeight: "400px"}}>
+                    <tbody style={{ maxHeight: "400px" }}>
                         {salepolicyListRes ? salepolicyListRes.map((data, index) => {
-                            return [trParent(data, index), trChild(data.list_block, index, data.status)]
-                            // data.list_block ? data.list_block.map((childdata, childindex) => {
-                            //     return [trChildPath(childdata.list_policy_agent, childindex)]
-                            // }) : null
+                            return [trParent(data, index), trChild(data.list_block, data.id, index, data.status)]
                         }) : null}
                     </tbody>
                 </table>
@@ -148,167 +339,5 @@ const TabSalespolicy = (props) => {
         </div>
     )
 }
-
-// const trParent = (data, index) => {
-//     return (
-//         <tr class="parent" data-parent={`row${index}`} key={index}>
-//             <td class="number pl-0">{index + 1}</td>
-//             <td colspan="2" class="pl-0">
-//                 <div class="floor_selected">
-//                     <div class="floor text-uppercase min-width-110">{data.name}</div>
-//                     <a class="agency channel min-width-230 uni_text_6d30ab text-underline border-right-0">
-//                         <Trans>Total number of distribution units:</Trans> {data.total_agent_distribute + data.total_internal_distribute}
-//                     </a>
-//                 </div>
-//             </td>
-//             <td></td>
-//             <td></td>
-//             <td>{data.sell_open_date}</td>
-//             <td>{data.sell_end_date}</td>
-//             <td>
-//                 {   data.status == 1 ? 
-//                     <span class="d-inline-flex align-items-center justify-content-center m_text_status_1 m_border_status_1 min-height-40 pl-3 pr-3 width-110">
-//                         <Trans>Expect</Trans>
-//                     </span>
-//                     : data.status == 2 ?
-//                     <span class="d-inline-flex align-items-center justify-content-center m_text_status_2 m_border_status_2 min-height-40 pl-3 pr-3 width-110">
-//                         <Trans>Opening</Trans>
-//                     </span>
-//                     : data.status == 3 ?
-//                     <span class="d-inline-flex align-items-center justify-content-center m_text_status_3 m_border_status_3 min-height-40 pl-3 pr-3 width-110">
-//                         <Trans>Finished</Trans>
-//                     </span>
-//                     : ""
-//                 }
-//             </td>
-//             <td></td>
-//             <td class="text-center">
-//                 <i class="icon icon_collapse las la-plus-circle" onClick={event => showTapsParent(event.target, index)}></i>
-//             </td>
-//         </tr>
-//     )
-// }
-const trChildPath = (data, index) => {
-    console.log('Child path', index, data);
-}
-const RowListSalePolicy = (props) => {
-    const { data, index } = props;
-    const [state, setActive] = useState({
-        activetab1 : false,
-        activetab2 : false,
-    });
-    // const showTaps = () => {
-    //     setActive({ ...state, activetab1: true })
-    // }
-    console.log('ggggggg', state.activetab1);
-    return (
-        <tr class="parent" data-parent="row-262">
-            <td class="number pl-0">{index + 1}</td>
-            <td colspan="2" class="pl-0">
-                <div class="floor_selected">
-                    <div class="floor text-uppercase min-width-110">{data.name}</div>
-                    <a class="agency channel min-width-230 uni_text_6d30ab text-underline border-right-0">
-                        <Trans>Total number of distribution units:</Trans> {data.total_agent_distribute + data.total_internal_distribute}
-                    </a>
-                </div>
-            </td>
-            <td></td>
-            <td></td>
-            <td>{data.sell_open_date}</td>
-            <td>{data.sell_end_date}</td>
-            <td>
-                {   data.status == 1 ? 
-                    <span class="d-inline-flex align-items-center justify-content-center m_text_status_1 m_border_status_1 min-height-40 pl-3 pr-3 width-110">
-                        <Trans>Expect</Trans>
-                    </span>
-                    : data.status == 2 ?
-                    <span class="d-inline-flex align-items-center justify-content-center m_text_status_2 m_border_status_2 min-height-40 pl-3 pr-3 width-110">
-                        <Trans>Opening</Trans>
-                    </span>
-                    : data.status == 3 ?
-                    <span class="d-inline-flex align-items-center justify-content-center m_text_status_3 m_border_status_3 min-height-40 pl-3 pr-3 width-110">
-                        <Trans>Finished</Trans>
-                    </span>
-                    : ""
-                }
-            </td>
-            <td></td>
-            <td class="text-center">
-                <i class="icon icon_collapse las la-plus-circle"></i>
-            </td>
-        </tr>
-        // <tr class="child child-row-262-1871" data-child="row-262" data-parent="row-262-1871-1">
-        //     <td class="border-bottom-none"></td>
-        //     <td class="border-bottom-none"></td>
-        //     <td colspan="1" class="pl-0">
-        //         <div class="floor_selected sales_agency_border">
-        //             <div class="floor text-uppercase min-width-110 sales_agency_bg">
-        //                 Agent
-        //             </div>
-        //             <a class="agency channel min-width-230 sales_agency_text text-underline border-right-0">
-        //                 Total internal units: 0
-        //             </a>
-        //         </div>
-        //     </td>
-        //     <td>
-        //         <span class="uni_text_6d30ab">-</span>
-        //     </td>
-        //     <td></td>
-        //     <td>
-        //         20/07/2020
-        //     </td>
-        //     <td>
-        //         30/07/2020
-        //     </td>
-        //     <td>
-        //         <span class="d-inline-flex align-items-center justify-content-center m_text_status_2 m_border_status_2 min-height-40 pl-3 pr-3 width-110">
-        //             Opening
-        //         </span>
-        //     </td>
-        //     <td>
-        //         <div class="list_icons">
-        //             <a ref="comment" title="Note">
-        //                 <i class="icon icon_noti las la-comments">
-        //                     <small></small>
-        //                 </i>
-        //             </a>
-        //         </div>
-        //     </td>
-        //     <td class="text-center"></td>
-        // </tr>
-    )
-}
-
-// const RowListSalePolicyChild = (props) => {
-//     const { data } = props;
-//     const [state, setActive] = useState({
-//         activetab : false,
-//     });
-//     console.log('ggggggg', state.activetab, data);
-//     return (
-//         data && data.map((item, index) => (
-//         <tr class="parent child child-row-262 active" data-child="row-262" data-parent-two="row-262-2" data-parent="row-262-2" key={index}>
-//             <td class="border-bottom-none"></td>
-//             <td colspan="2" class="pl-0">
-//                 <div class="min-height-40 block-name">
-//                     {item.block_name}
-//                 </div>
-//             </td>
-//             <td>
-//             </td>
-//             <td></td>
-//             <td>{item.sell_open_date}</td>
-//             <td>{item.sell_end_date}</td>
-//             <td>
-//                 <span class="d-inline-flex align-items-center justify-content-center m_text_status_3 m_border_status_3 min-height-40 pl-3 pr-3 width-110">
-//                     Finished
-//                 </span>
-//             </td>
-//             <td></td>
-//             <td class="text-center"><i class="icon icon_collapse las la-plus-circle active"></i></td>
-//         </tr>
-//         ))
-//     )
-// }
 
 export default TabSalespolicy;

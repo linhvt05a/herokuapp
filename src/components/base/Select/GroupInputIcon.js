@@ -17,7 +17,7 @@ const GroupInputIcon = (props) => {
                     </label>
                 }
                 <div className="input-group">
-                    <Input addonAfter= {props.symbol} placeholder={placeholder} disabled={disabled ? disabled : undefined} />
+                    <Input addonAfter= {props.symbol} placeholder={placeholder} disabled />
                 </div>
             </div>
         </div>
