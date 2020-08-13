@@ -8,6 +8,7 @@ const TabSalespolicy = (props) => {
     let { project_id } = props;
     const dispatch = useDispatch();
     const [click, setClick] = useState([]);
+    const [clickChild1, setClickChild1] = useState([]);
     const salepolicyStore = useSelector(state => state.project);
     useEffect(() => {
         dispatch(salepolicyListRequest({ token: token, project_id: project_id }));
@@ -26,18 +27,18 @@ const TabSalespolicy = (props) => {
         setClick(newData)
     }
     const showTapsChild = (target, index) => {
-        let newData = [].concat(click);
+        let newData = [].concat(clickChild1);
         if (target.className.indexOf('la-plus-circle') > -1) {
             newData[index] = { id: index, status: "active" }
             target.className = "icon icon_collapse las la-minus-circle"
         }
         else { target.className = "icon icon_collapse las la-plus-circle"; newData[index] = { id: index, status: "" } }
-        setClick(newData)
+        setClickChild1(newData)
     }
     const trParent = (data, index) => {
         console.log('parent', data);
         return (
-            <tr class="parent" data-parent={`row${index}`} key={index}>
+            <tr class="parent" data-parent={`row-${data.id}`} key={index}>
                 <td class="number pl-0">{index + 1}</td>
                 <td colspan="2" class="pl-0">
                     <div class="floor_selected">
@@ -75,12 +76,13 @@ const TabSalespolicy = (props) => {
         )
     }
 
-    const trChild = (data, index, status) => {
+    const trChild = (data, parentId, index, status) => {
         let arr = [];
         console.log('child', data);
         if (data) {
             arr = data.map((item, i) => {
-                return [<tr className={`child child-row${index} ${click.length > 0 ? click[index] && click[index].status : null}`} key={i}>
+                return [ <tr className={`parent child child-row-${parentId} ${click.length > 0 ? click[index] && click[index].status : null}`} key={i} 
+                        data-child={`row-${parentId}`} data-parent-two={`row-${parentId}-${item.block_id}`} data-parent={`row-${parentId}-${item.block_id}`}>
                 <td class="border-bottom-none"></td>
                 <td colspan="2" class="pl-0">
                     <div class="min-height-40 block-name">
@@ -110,17 +112,20 @@ const TabSalespolicy = (props) => {
                 </td>
                 <td></td>
                 <td class="text-center"><i class="icon icon_collapse las la-plus-circle" onClick={event => showTapsChild(event.target, i)}></i></td>
-            </tr>, trChildPath1(item.list_policy_agent, i, status), trChildPath2(item.list_policy_internal, i, status)]
+            </tr>, 
+            trChildPath1(item.list_policy_internal, parentId, item.block_id, item.distribution_type_internal_id, i, status),
+            trChildPath2(item.list_policy_agent, parentId, item.block_id, item.distribution_type_agent_id, i, status)]
             })
         }
         return arr;
     }
 
-    const trChildPath1 = (data, index, status) => {
+    const trChildPath1 = (data, parentId, block_id, type_id, index, status) => {
         let arr = [];
         console.log('path child 1', data);
         if (data) {
-            return <tr className="child active">
+            return <tr className={`child child-row-${parentId}-${block_id} ${clickChild1.length > 0 ? clickChild1[index] && clickChild1[index].status : null}`} 
+                data-child={`row-${parentId}`} data-parent={`row-${parentId}-${block_id}-${type_id}`}>
                 <td className="border-bottom-none"></td>
                 <td className="border-bottom-none"></td>
                 <td colspan="1" className="pl-0">
@@ -164,20 +169,21 @@ const TabSalespolicy = (props) => {
         return arr;
     }
 
-    const trChildPath2 = (data, index, status) => {
+    const trChildPath2 = (data, parentId, block_id, type_id, index, status) => {
         let arr = [];
         console.log('path child 2', data);
         if (data) {
-            return <tr className="child active">
+            return <tr className={`child child-row-${parentId}-${block_id} ${clickChild1.length > 0 ? clickChild1[index] && clickChild1[index].status : null}`} 
+            data-child={`row-${parentId}`} data-parent={`row-${parentId}-${block_id}-${type_id}`}>
                 <td className="border-bottom-none"></td>
                 <td className="border-bottom-none"></td>
                 <td colspan="1" className="pl-0">
-                    <div className="floor_selected sales_internal_border">
-                        <div className="floor text-uppercase min-width-110 sales_internal_bg">
-                            Internal
+                    <div class="floor_selected sales_agency_border">
+                        <div class="floor text-uppercase min-width-110 sales_agency_bg">
+                            Agent
                         </div>
-                        <a className="agency channel min-width-230 sales_internal_text text-underline border-right-0">
-                            Total internal units: 0
+                        <a class="agency channel min-width-230 sales_agency_text text-underline border-right-0">
+                            Total agent units: 0
                         </a>
                     </div>
                 </td>
@@ -239,7 +245,7 @@ const TabSalespolicy = (props) => {
                     </thead>
                     <tbody style={{maxHeight: "400px"}}>
                         {salepolicyListRes ? salepolicyListRes.map((data, index) => {
-                            return [trParent(data, index), trChild(data.list_block, index, data.status)]
+                            return [trParent(data, index), trChild(data.list_block, data.id, index, data.status)]
                             // return [trParent(data, index), trChild(data.list_block, index, data.status)]
                             // data.list_block ? data.list_block.map((childdata, childindex) => {
                             //     return [trParent(data, index), trChild(data.list_block, index, data.status), trChildPath(childdata.list_policy_agent, childindex)]
