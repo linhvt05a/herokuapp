@@ -17,7 +17,11 @@ import {
 
     PROJECT_LIST_REQUEST,
     PROJECT_LIST_SUCCESS,
-    PROJECT_LIST_FAILURE
+    PROJECT_LIST_FAILURE,
+
+    DATA_TOTAL_REQUEST,
+    DATA_TOTAL_SUCCESS,
+    DATA_TOTAL_FAILURE
   } from '../actionType/dashboard';
   
   const initialState = {
@@ -26,6 +30,7 @@ import {
     typeList: {},
     statusList: {},
     projectList: {success: false},
+    dataTotal: {},
     isFetching: false,
   };
   
@@ -65,6 +70,13 @@ import {
         return { ...state, isFetching: false, projectList: action.response };
       case PROJECT_LIST_FAILURE:
         return { ...state, isFetching: false, projectList: { success: false, error: action.err } };
+
+      case DATA_TOTAL_REQUEST:
+        return { ...state, isFetching: true, dataTotal: { success: false } };
+      case DATA_TOTAL_SUCCESS:
+        return { ...state, isFetching: false, dataTotal: action.response };
+      case DATA_TOTAL_FAILURE:
+        return { ...state, isFetching: false, dataTotal: { success: false, error: action.err } };
       default:
         return state;
     }
