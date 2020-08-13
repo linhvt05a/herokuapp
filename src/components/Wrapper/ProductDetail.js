@@ -25,7 +25,7 @@ const ProductDetail = props => {
             {state ? <div className="m_grid m_grid--list_project">
                 <div className="row">
                     {data.length > 0 ? data.map((item, index) => {
-                        return <CardProduct data={item} index={index} key={index} link_to={link_to} />
+                        return <CardProduct key={index} data={item} index={index} link_to={link_to} />
                     }) : <CardNodata />}
                 </div >
             </div > :

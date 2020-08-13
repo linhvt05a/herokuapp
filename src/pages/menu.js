@@ -176,6 +176,12 @@ let menu_data = [
         icon: "las la-user-lock",
         children: menu_perm_tasks
     },
+    {
+        label: "Uniprime",
+        icon: "las la-users-cog",
+        // children: menu_hr_manager
+        href: "/uniprime/step2"
+    },
     // {
     //     label: "menu_project_manager",
     //     icon: "las la-copy",

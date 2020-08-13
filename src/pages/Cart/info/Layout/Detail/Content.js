@@ -3,7 +3,8 @@
 import React, { useEffect, useState } from 'react';
 import _ from "lodash";
 import Map from "../modal/Map";
-import Select from "../../../../../components/base/Select/Select"
+import Select from "../../../../../components/base/Select/Select";
+import Image from "../modal/Image";
 import { Trans } from 'react-i18next';
 import { CardNodata, Loading } from "../../../../../components/common"
 
@@ -65,6 +66,7 @@ const Content = props => {
                             <div className="zone--wrap">
                                 <div className="zone--left border-0">
                                     {state.Maps[state.index] ? <Map data={state.Maps[state.index]} visiable={state.visiable} zoom={state.zoom} /> : <CardNodata />}
+                                    {/* <Image /> */}
                                     <figure className="compass"><img src="../../../../../components/images/all/compass.png" alt="" /></figure>
                                     <div className="actions">
                                         <a ><i className="icon las la-arrows-alt"></i></a>
