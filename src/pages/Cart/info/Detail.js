@@ -131,10 +131,11 @@ const Edit = props => {
     }
 
     return (
-        [<div className="row mt-3">
+        [<div className="page-title text-truncate m_text_000 font-weight-medium">{dataCart.Detail.name}</div>
+            , <div className="row mt-3" >
             <div className="col-xl-6 col-lg-6 col-md-12 col-sm-12 d-flex flex-column">
                 <CardHeader label="project_information" />
-                {dataCart.isLoadingDetail ? <Loading /> : <Item.Detail_info data={dataCart.Detail} />}
+                <Item.Detail_info data={dataCart.Detail} loading={dataCart.isLoadingDetail} />
             </div>
             <div className="col-xl-6 col-lg-6 col-md-12 col-sm-12 d-flex flex-column">
                 <CardHeader label="statictis_of_open_sale" />
@@ -146,7 +147,6 @@ const Edit = props => {
             {dataCart.isLoadingSaleOpenList ? <Loading /> : <Item.Detail_content data={dataCart.Sell_Open_Floor} floorData={state.dataFilterFloor} />}
         </div>,
         <div>
-
             <CardHeader label="basket_details" dropdown={{ title: state.saleOpenStatus.value == "" ? "Tất cả" : state.saleOpenStatus.label, data: state.dataSaleOpen }} onClick={(value) => onFilteSaleOpen(value)} />
             {dataCart.isLoadingSaleOpenCart ? <Loading /> : <Item.Detail_InfoShipping
                 STATE={{ state, setState }}
