@@ -20,9 +20,9 @@ const CUSTOMER_REQUEST_PRIORITY = [
 const CUSTOMER_REQUEST_TYPE_COMMISSION = { value: 1, label: 'commission_change_request' }
 const CUSTOMER_REQUEST_TYPE_PROMOTION = { value: 2, label: 'promotion_change_request' }
 
-const CUSTOMER_REQUEST_PRIORITY_HIGH = { value: 1, label: 'High' }
-const CUSTOMER_REQUEST_PRIORITY_MID = { value: 2, label: 'Average' }
-const CUSTOMER_REQUEST_PRIORITY_LOW = { value: 3, label: 'Low' }
+const CUSTOMER_REQUEST_PRIORITY_HIGH = { value: 1, label: 'high' }
+const CUSTOMER_REQUEST_PRIORITY_MID = { value: 2, label: 'average' }
+const CUSTOMER_REQUEST_PRIORITY_LOW = { value: 3, label: 'low' }
 const DISTRIBUTION_CHANNEL_AGENT = {value: 1, label:'Kênh đại lý'}
 const DISTRIBUTION_CHANNEL_INTERNAL = {value: 2, label:'Kênh nội bộ, cộng tác viên '}
 

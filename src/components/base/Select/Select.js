@@ -3,7 +3,7 @@ import { Trans } from 'react-i18next';
 import { Select } from 'antd';
 
 const InputSelect = (props) => {
-    const { className, name, value, label, datas, placeholder, onChange, isClear, classNameGroup, trans } = props;
+    const { className, name, value, label, datas, placeholder, onChange, isClear, classNameGroup, trans, require, titleClassName } = props;
     const { Option } = Select;
 
     return (
@@ -11,8 +11,11 @@ const InputSelect = (props) => {
             <div className={classNameGroup ? classNameGroup : "form-group"}>
                 {
                     label &&
-                    <label className="fw-medium">
+                    <label className={titleClassName ? titleClassName : "fw-medium"}>
                         <Trans>{label}</Trans>
+                        {
+                            require ? <span class="uni_star_e94c4c"> *</span> : ""
+                        }
                     </label>
                 }
 

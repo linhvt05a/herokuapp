@@ -1,4 +1,4 @@
-export default {
+{
     "support_request": "Require to be supported",
     "note": "Note",
     "request_info": "Information must be entered",
@@ -79,4 +79,9 @@ export default {
     "lang_en": "English",
     "detail": "Detail",
     "status": "Status"
+    "max_conversion": "Maximum Conversion",
+    "high": "High",
+    "average": "Average",
+    "low": "Low",
+    "choose_the_priority": "Choose the priority"
 }

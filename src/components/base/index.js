@@ -9,8 +9,7 @@ import DropdownBlue from "./Dropdown/DropdownBlue";
 import DropdownDot from "./Dropdown/DropdownDot";
 import DropdownEnd from "./Dropdown/DropdownEnd";
 import DropdownPurple from "./Dropdown/DropdownPurple";
-
-
+import TextArea from "./TextArea/TextArea";
 
 export {
     Select,
@@ -24,4 +23,5 @@ export {
     DropdownDot,
     DropdownEnd,
     DropdownPurple,
+    TextArea,
 }
