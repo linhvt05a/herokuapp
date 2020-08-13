@@ -20,23 +20,25 @@ const TabSalespolicy = (props) => {
     const showTapsParent = (target, index) => {
         let newData = [].concat(click);
         if (target.className.indexOf('la-plus-circle') > -1) {
-            newData[index] = { id: index, status: "active" }
+            newData[index] = { id: index, status: "active", child: { id: "", status: "" } }
             target.className = "icon icon_collapse las la-minus-circle"
         }
         else { target.className = "icon icon_collapse las la-plus-circle"; newData[index] = { id: index, status: "" } }
+        console.log(newData);
         setClick(newData)
     }
-    const showTapsChild = (target, index) => {
-        let newData = [].concat(clickChild1);
+    const showTapsChild = (target, index, indexParent) => {
+
+        let newData = [].concat(click);
         if (target.className.indexOf('la-plus-circle') > -1) {
-            newData[index] = { id: index, status: "active" }
+            newData[indexParent] = { id: indexParent, status: "active", child: { id: index, status: "active" } }
             target.className = "icon icon_collapse las la-minus-circle"
         }
-        else { target.className = "icon icon_collapse las la-plus-circle"; newData[index] = { id: index, status: "" } }
-        setClickChild1(newData)
+        else { target.className = "icon icon_collapse las la-plus-circle"; newData[indexParent] = { id: indexParent, status: "", child: { id: index, status: "" } } }
+        setClick(newData)
     }
     const trParent = (data, index) => {
-        console.log('parent', data);
+        // console.log(`parent${index}`, data);
         return (
             <tr class="parent" data-parent={`row-${data.id}`} key={index}>
                 <td class="number pl-0">{index + 1}</td>
@@ -53,19 +55,19 @@ const TabSalespolicy = (props) => {
                 <td>{data.sell_open_date}</td>
                 <td>{data.sell_end_date}</td>
                 <td>
-                    {   data.status == 1 ? 
+                    {data.status == 1 ?
                         <span class="d-inline-flex align-items-center justify-content-center m_text_status_1 m_border_status_1 min-height-40 pl-3 pr-3 width-110">
                             <Trans>Expect</Trans>
                         </span>
                         : data.status == 2 ?
-                        <span class="d-inline-flex align-items-center justify-content-center m_text_status_2 m_border_status_2 min-height-40 pl-3 pr-3 width-110">
-                            <Trans>Opening</Trans>
-                        </span>
-                        : data.status == 3 ?
-                        <span class="d-inline-flex align-items-center justify-content-center m_text_status_3 m_border_status_3 min-height-40 pl-3 pr-3 width-110">
-                            <Trans>Finished</Trans>
-                        </span>
-                        : ""
+                            <span class="d-inline-flex align-items-center justify-content-center m_text_status_2 m_border_status_2 min-height-40 pl-3 pr-3 width-110">
+                                <Trans>Opening</Trans>
+                            </span>
+                            : data.status == 3 ?
+                                <span class="d-inline-flex align-items-center justify-content-center m_text_status_3 m_border_status_3 min-height-40 pl-3 pr-3 width-110">
+                                    <Trans>Finished</Trans>
+                                </span>
+                                : ""
                     }
                 </td>
                 <td></td>
@@ -78,53 +80,53 @@ const TabSalespolicy = (props) => {
 
     const trChild = (data, parentId, index, status) => {
         let arr = [];
-        console.log('child', data);
+        // console.log(`child${index}`, data);
         if (data) {
             arr = data.map((item, i) => {
-                return [ <tr className={`parent child child-row-${parentId} ${click.length > 0 ? click[index] && click[index].status : null}`} key={i} 
-                        data-child={`row-${parentId}`} data-parent-two={`row-${parentId}-${item.block_id}`} data-parent={`row-${parentId}-${item.block_id}`}>
-                <td class="border-bottom-none"></td>
-                <td colspan="2" class="pl-0">
-                    <div class="min-height-40 block-name">
-                        {item.block_name}
-                    </div>
-                </td>
-                <td>
-                </td>
-                <td></td>
-                <td>{item.sell_open_date}</td>
-                <td>{item.sell_end_date}</td>
-                <td>
-                    {   status == 1 ? 
-                        <span class="d-inline-flex align-items-center justify-content-center m_text_status_1 m_border_status_1 min-height-40 pl-3 pr-3 width-110">
-                            <Trans>Expect</Trans>
-                        </span>
-                        : status == 2 ?
-                        <span class="d-inline-flex align-items-center justify-content-center m_text_status_2 m_border_status_2 min-height-40 pl-3 pr-3 width-110">
-                            <Trans>Opening</Trans>
-                        </span>
-                        : status == 3 ?
-                        <span class="d-inline-flex align-items-center justify-content-center m_text_status_3 m_border_status_3 min-height-40 pl-3 pr-3 width-110">
-                            <Trans>Finished</Trans>
-                        </span>
-                        : ""
-                    }
-                </td>
-                <td></td>
-                <td class="text-center"><i class="icon icon_collapse las la-plus-circle" onClick={event => showTapsChild(event.target, i)}></i></td>
-            </tr>, 
-            trChildPath1(item.list_policy_internal, parentId, item.block_id, item.distribution_type_internal_id, i, status),
-            trChildPath2(item.list_policy_agent, parentId, item.block_id, item.distribution_type_agent_id, i, status)]
+                return [<tr className={`parent child child-row-${parentId} ${click.length > 0 ? click[index] && click[index].status : null}`} key={i}
+                    data-child={`row-${parentId}`} data-parent-two={`row-${parentId}-${item.block_id}`} data-parent={`row-${parentId}-${item.block_id}`}>
+                    <td class="border-bottom-none"></td>
+                    <td colspan="2" class="pl-0">
+                        <div class="min-height-40 block-name">
+                            {item.block_name}
+                        </div>
+                    </td>
+                    <td>
+                    </td>
+                    <td></td>
+                    <td>{item.sell_open_date}</td>
+                    <td>{item.sell_end_date}</td>
+                    <td>
+                        {status == 1 ?
+                            <span class="d-inline-flex align-items-center justify-content-center m_text_status_1 m_border_status_1 min-height-40 pl-3 pr-3 width-110">
+                                <Trans>Expect</Trans>
+                            </span>
+                            : status == 2 ?
+                                <span class="d-inline-flex align-items-center justify-content-center m_text_status_2 m_border_status_2 min-height-40 pl-3 pr-3 width-110">
+                                    <Trans>Opening</Trans>
+                                </span>
+                                : status == 3 ?
+                                    <span class="d-inline-flex align-items-center justify-content-center m_text_status_3 m_border_status_3 min-height-40 pl-3 pr-3 width-110">
+                                        <Trans>Finished</Trans>
+                                    </span>
+                                    : ""
+                        }
+                    </td>
+                    <td></td>
+                    <td class="text-center"><i class="icon icon_collapse las la-plus-circle" onClick={event => showTapsChild(event.target, i, index)}></i></td>
+                </tr>,
+                trChildPath1(item.list_policy_internal, parentId, item.block_id, item.distribution_type_internal_id, i, status, index)
+                ]
             })
         }
         return arr;
     }
 
-    const trChildPath1 = (data, parentId, block_id, type_id, index, status) => {
+    const trChildPath1 = (data, parentId, block_id, type_id, index, status, indexParent) => {
         let arr = [];
-        console.log('path child 1', data);
+        console.log(`child 2 ${indexParent}`, click[indexParent]);
         if (data) {
-            return <tr className={`child child-row-${parentId}-${block_id} ${clickChild1.length > 0 ? clickChild1[index] && clickChild1[index].status : null}`} 
+            return <tr className={`child child-row-${parentId}-${block_id} ${click[indexParent] && click[indexParent].child && click[indexParent].child.id == index ? click[indexParent].child.status : null}`}
                 data-child={`row-${parentId}`} data-parent={`row-${parentId}-${block_id}-${type_id}`}>
                 <td className="border-bottom-none"></td>
                 <td className="border-bottom-none"></td>
@@ -140,10 +142,10 @@ const TabSalespolicy = (props) => {
                 </td>
                 <td>
                     <a href="#" className="link_href_6d30ab  font-weight-bold">
-                        <u> Giang giang</u>
+                        <u> Giang giang {parentId}</u>
                     </a>
                 </td>
-                <td>   
+                <td>
                     <span className="text-green-399b54 font-weight-bold">Active</span>
                 </td>
                 <td>
@@ -153,8 +155,8 @@ const TabSalespolicy = (props) => {
                     30/07/2020
                 </td>
                 <td>
-                <span className="d-inline-flex align-items-center justify-content-center m_text_status_3 m_border_status_3 min-height-40 pl-3 pr-3 width-110">
-                    Finished
+                    <span className="d-inline-flex align-items-center justify-content-center m_text_status_3 m_border_status_3 min-height-40 pl-3 pr-3 width-110">
+                        Finished
                 </span>
                 </td>
                 <td>
@@ -171,10 +173,10 @@ const TabSalespolicy = (props) => {
 
     const trChildPath2 = (data, parentId, block_id, type_id, index, status) => {
         let arr = [];
-        console.log('path child 2', data);
+        // console.log('path child 2', data);
         if (data) {
-            return <tr className={`child child-row-${parentId}-${block_id} ${clickChild1.length > 0 ? clickChild1[index] && clickChild1[index].status : null}`} 
-            data-child={`row-${parentId}`} data-parent={`row-${parentId}-${block_id}-${type_id}`}>
+            return <tr className={`child child-row-${parentId}-${block_id} ${clickChild1.length > 0 ? clickChild1[index] && clickChild1[index].status : null}`}
+                data-child={`row-${parentId}`} data-parent={`row-${parentId}-${block_id}-${type_id}`}>
                 <td className="border-bottom-none"></td>
                 <td className="border-bottom-none"></td>
                 <td colspan="1" className="pl-0">
@@ -189,10 +191,10 @@ const TabSalespolicy = (props) => {
                 </td>
                 <td>
                     <a href="#" className="link_href_6d30ab  font-weight-bold">
-                        <u>hahaha</u>
+                        <u>hahaha Giang giang {parentId}</u>
                     </a>
                 </td>
-                <td>   
+                <td>
                     <span className="text-green-399b54 font-weight-bold">Active</span>
                 </td>
                 <td>
@@ -202,8 +204,8 @@ const TabSalespolicy = (props) => {
                     30/07/2020
                 </td>
                 <td>
-                <span className="d-inline-flex align-items-center justify-content-center m_text_status_3 m_border_status_3 min-height-40 pl-3 pr-3 width-110">
-                    Finished
+                    <span className="d-inline-flex align-items-center justify-content-center m_text_status_3 m_border_status_3 min-height-40 pl-3 pr-3 width-110">
+                        Finished
                 </span>
                 </td>
                 <td>
@@ -221,7 +223,7 @@ const TabSalespolicy = (props) => {
     return (
         <div>
             <div className="row">
-                <div className="col-12" style={{marginTop: "15px"}}>
+                <div className="col-12" style={{ marginTop: "15px" }}>
                     <h6 className=" mb-1 uni_text_6d30ab text-uppercase">
                         <Trans>DANH SÁCH CÁC CHÍNH SÁCH BÁN HÀNG</Trans>
                     </h6>
@@ -243,7 +245,7 @@ const TabSalespolicy = (props) => {
                             <th></th>
                         </tr>
                     </thead>
-                    <tbody style={{maxHeight: "400px"}}>
+                    <tbody style={{ maxHeight: "400px" }}>
                         {salepolicyListRes ? salepolicyListRes.map((data, index) => {
                             return [trParent(data, index), trChild(data.list_block, data.id, index, data.status)]
                             // return [trParent(data, index), trChild(data.list_block, index, data.status)]
