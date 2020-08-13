@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { Trans } from 'react-i18next';
-import { data } from 'jquery';
 import * as moment from 'moment';
-import e from 'express';
 
 export {
     differentList,
