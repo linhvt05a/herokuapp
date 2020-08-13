@@ -5,7 +5,7 @@ import actions from "../action/customer"
 export function* customerList(payload) {
     let { token, name } = payload.params;
     try {
-        const response = yield customerService.customer(token, name); console.log(response);
+        const response = yield customerService.customer(token, name);
         response.success ? yield put({ type: actions.CUSTOMER_LIST_SUCCESS, response }) : yield put({ type: actions.CUSTOMER_LIST_FAILURE, response });
     } catch (err) {
         yield put({ type: actions.CUSTOMER_LIST_FAILURE, err });
