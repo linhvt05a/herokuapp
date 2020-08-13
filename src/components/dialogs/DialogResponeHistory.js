@@ -10,16 +10,6 @@ import {commentListRequest} from '../../store/action/approval'
 const DialogResponeHistory = (props) => {
   const [showReplyForm, setshowReplyForm] = useState(false)
   const { list_comment ,data, isLoading} = props
-  const [loadMore, setLoadMore] = useState([])
-  const dispatch = useDispatch()
-  const dataLoadMore =  useSelector(state => state.product_request)
-  const{token,request_id, page} = props
-
-
-  const handleLoadMore = (limit) =>{
-      // dispatch(commentListRequest(token, request_id, page, limit))
-  }
-
   return (
     <Modal show={props.showPopUp} onHide={props.close}>
       <div
@@ -38,13 +28,11 @@ const DialogResponeHistory = (props) => {
               <div className="approval_history--modal">
               <InfiniteScroll 
                     pageStart={props.page}
-                    loadMore={()=> handleLoadMore({limit: list_comment && list_comment.length + 10})}
+                    loadMore={()=>props.handleLoadMore({limit: list_comment && list_comment.length + 10})}
                     hasMore={true || false}
                     useWindow={false}
                       loader={
-                        <div key="loading" className="loader">
-                          Loading ...
-                        </div>
+                        <span>Loading....</span>
                       }
                     >
                 {

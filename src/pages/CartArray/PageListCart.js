@@ -84,7 +84,9 @@ const PageListCart = (props) => {
     const changeComment = (value) =>{
         setContent(value)
     }
-
+    const handleLoadMore = (limit) =>{
+        
+    }
   
     return (
        
@@ -115,6 +117,7 @@ const PageListCart = (props) => {
                     requestStatus={requestStatus}
                     validContent={validContent}
                     token={token}
+                    handleLoadMore = {handleLoadMore}
 
             />
         </>

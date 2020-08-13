@@ -20,13 +20,13 @@ function addComment(payload){
 }
 
 function commentList(payload) {
-    const{token, request_id, page} = payload.payload
+    const{token, request_id, page, limit} = payload.payload
     const requestOptions = {
         method: 'GET',
         headers: api.getHeader(token)
     };
 
-    const params = {request_id, page};
+    const params = {request_id, page, limit};
     const url = api.getUrl(api.LIST_COMMENT, params)
     return api.handleRequest(url, requestOptions);
 }
