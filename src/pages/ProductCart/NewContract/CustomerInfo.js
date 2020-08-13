@@ -1,5 +1,5 @@
 import React from 'react';
-import ProductDetail from '../../Layout/ProductDetail';
+import ProductDetail from './Layout/ProductDetail/ProductDetail';
 import CardWrapper from './Layout/CardWrapper';
 import CustomerInFoWrapper from './Layout/CustomerInfo/CustomerInFoWrapper';
 
