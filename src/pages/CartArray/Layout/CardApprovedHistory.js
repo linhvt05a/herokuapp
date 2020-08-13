@@ -60,15 +60,10 @@ const FilterButton = (props) => {
 }
 const CardReview = (props) => {
     return (
-        <></>
-    )
-}
-
-{/* <div className="col-lg-9 col-lg-9 col-md-12 col-sm-12">
+        <div className="col-lg-9 col-lg-9 col-md-12 col-sm-12">
             <CardHeader label="DANH SÁCH LỊCH SỬ PHÊ DUYỆT" />
             <div className="card square">
                 <div className="card-body approval_history">
-                    {props.data && props.data.length > 0 ?
                         <div className="approval_history">
                             <div className="d-flex flex-wrap">
                                 <div className="nav nav-tabs mb-2" role="tablist">
@@ -79,33 +74,528 @@ const CardReview = (props) => {
                                     Có <span className="uni_text_e94c4c">{props.data && props.data.length > 0 ? props.data.length : 0}</span> lịch sử phê duyệt
                             </div>
                             </div>
-                        </div>
-                        {props.data && props.data.map((item) =>
                             <div className="tab-content">
-                                <div className="tab-pane fade show active">
-                                    <div className="approval_history--item">
-                                        <RequestTypeIcon request_type = {item.request_type}/>
-                                        <div className="approval_history--detail">
-                                            {
-                                                props.selected === true ?
-                                                
-                                                    (
-                                                    <NewestMessage list_comment ={props.list_comment} handleClick={()=>props.handleClick(item.request_id)} data={item} />
-                                                        
-                                                    )
-                                                    :
-                                                    ( <OldestMessage data={item}  handleClick={props.handleClick} list_comment={props.list_comment} handleClick={()=>props.handleClick(item.request_id)}/>)
-                                            }
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        )}
-                    </div>: props.approveSuccess === false ? <Spinner /> :<CardNodata />
-                    }
+  <div className="tab-pane fade show active" id="newest">
+    <div className="approval_history--item">
+      <div className="approval_history--icon type_01 las la-percentage" />
+      <div className="approval_history--detail">
+        <div className="approval_history--detail-content">
+          <a
+            href="#"
+            className="approval_history--title fs-16 font-weight-bold"
+          >
+            Yêu cầu thay đổi chiết khấu hoa hồng cho kênh phân phối
+          </a>
+          <div className="approval_history--list">
+            <p className="child">
+              <i className="icon uni_text_6d30ab las la-user" />
+              Ngày gửi yêu cầu:
+              <span className="fw-medium">
+                Trưởng phòng sales Công ty Bất Động Sản Thành Công
+              </span>
+            </p>
+            <p className="child">
+              <i className="icon uni_text_6d30ab las la-calendar-check" />
+              Thời gian gửi yêu cầu:
+              <span className="fw-medium">17/06/2020 9:30AM</span>
+            </p>
+            <p className="child">
+              <i className="icon uni_text_6d30ab las la-flag" />
+              Độ ưu tiên:
+              <span className="fw-medium">Cao (1 - 3 ngày)</span>
+            </p>
+            <a
+              href="#"
+              className="uni_text_6d30ab fs-12"
+              data-toggle="modal"
+              data-target="#approvalHistory"
+            >
+              <u>Xem lịch sử phản hồi</u>
+            </a>
+          </div>
+        </div>
+        <div className="approval_history--status status_01">
+          <div className="status">
+            <i className="las fs-16 pr-1 la-check-circle" />
+            <span className="fw-medium">Phê duyệt</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div className="approval_history--item">
+      <div className="approval_history--icon type_02 las la-ticket-alt" />
+      <div className="approval_history--detail">
+        <div className="approval_history--detail-content">
+          <a
+            href="#"
+            className="approval_history--title fs-16 font-weight-bold"
+          >
+            Yêu cầu khác
+            <span className="uni_star_e94c4c fs-12">(có 2 phản hồi mới)</span>
+          </a>
+          <div className="approval_history--list">
+            <p className="child">
+              <i className="icon uni_text_6d30ab las la-user" />
+              Ngày gửi yêu cầu:
+              <span className="fw-medium">
+                Trưởng phòng sales Công ty Bất Động Sản Thành Công
+              </span>
+            </p>
+            <p className="child">
+              <i className="icon uni_text_6d30ab las la-calendar-check" />
+              Thời gian gửi yêu cầu:
+              <span className="fw-medium">17/06/2020 9:30AM</span>
+            </p>
+            <p className="child">
+              <i className="icon uni_text_6d30ab las la-flag" />
+              Độ ưu tiên:
+              <span className="fw-medium">Cao (1 - 3 ngày)</span>
+            </p>
+            <a
+              href="#"
+              className="uni_text_6d30ab fs-12"
+              data-toggle="modal"
+              data-target="#approvalHistory"
+            >
+              <u>Xem lịch sử phản hồi</u>
+            </a>
+          </div>
+        </div>
+        <div className="approval_history--status status_03">
+          <div className="status">
+            <i className="las fs-16 pr-1" />
+            <span className="fw-medium">TBA</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div className="approval_history--item">
+      <div className="approval_history--icon type_03 las la-paste" />
+      <div className="approval_history--detail">
+        <div className="approval_history--detail-content">
+          <a
+            href="#"
+            className="approval_history--title fs-16 font-weight-bold"
+          >
+            Yêu cầu thay đổi chiết khấu hoa hồng cho kênh phân phối
+          </a>
+          <div className="approval_history--list">
+            <p className="child">
+              <i className="icon uni_text_6d30ab las la-user" />
+              Ngày gửi yêu cầu:
+              <span className="fw-medium">
+                Trưởng phòng sales Công ty Bất Động Sản Thành Công
+              </span>
+            </p>
+            <p className="child">
+              <i className="icon uni_text_6d30ab las la-calendar-check" />
+              Thời gian gửi yêu cầu:
+              <span className="fw-medium">17/06/2020 9:30AM</span>
+            </p>
+            <p className="child">
+              <i className="icon uni_text_6d30ab las la-flag" />
+              Độ ưu tiên:
+              <span className="fw-medium">Cao (1 - 3 ngày)</span>
+            </p>
+            <a
+              href="#"
+              className="uni_text_6d30ab fs-12"
+              data-toggle="modal"
+              data-target="#approvalHistory"
+            >
+              <u>Xem lịch sử phản hồi</u>
+            </a>
+          </div>
+        </div>
+        <div className="approval_history--status status_02">
+          <div className="status">
+            <i className="las fs-16 pr-1" />
+            <span className="fw-medium">Phê duyệt</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div className="approval_history--item">
+      <div className="approval_history--icon type_03 las la-paste" />
+      <div className="approval_history--detail">
+        <div className="approval_history--detail-content">
+          <a
+            href="#"
+            className="approval_history--title fs-16 font-weight-bold"
+          >
+            Yêu cầu thay đổi chiết khấu hoa hồng cho kênh phân phối
+          </a>
+          <div className="approval_history--list">
+            <p className="child">
+              <i className="icon uni_text_6d30ab las la-user" />
+              Ngày gửi yêu cầu:
+              <span className="fw-medium">
+                Trưởng phòng sales Công ty Bất Động Sản Thành Công
+              </span>
+            </p>
+            <p className="child">
+              <i className="icon uni_text_6d30ab las la-calendar-check" />
+              Thời gian gửi yêu cầu:
+              <span className="fw-medium">17/06/2020 9:30AM</span>
+            </p>
+            <p className="child">
+              <i className="icon uni_text_6d30ab las la-flag" />
+              Độ ưu tiên:
+              <span className="fw-medium">Cao (1 - 3 ngày)</span>
+            </p>
+            <a
+              href="#"
+              className="uni_text_6d30ab fs-12"
+              data-toggle="modal"
+              data-target="#approvalHistory"
+            >
+              <u>Xem lịch sử phản hồi</u>
+            </a>
+          </div>
+        </div>
+        <div className="approval_history--status status_02">
+          <div className="status">
+            <i className="las fs-16 pr-1" />
+            <span className="fw-medium">Phê duyệt</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div className="approval_history--item">
+      <div className="approval_history--icon type_03 las la-paste" />
+      <div className="approval_history--detail">
+        <div className="approval_history--detail-content">
+          <a
+            href="#"
+            className="approval_history--title fs-16 font-weight-bold"
+          >
+            Yêu cầu thay đổi chiết khấu hoa hồng cho kênh phân phối
+          </a>
+          <div className="approval_history--list">
+            <p className="child">
+              <i className="icon uni_text_6d30ab las la-user" />
+              Ngày gửi yêu cầu:
+              <span className="fw-medium">
+                Trưởng phòng sales Công ty Bất Động Sản Thành Công
+              </span>
+            </p>
+            <p className="child">
+              <i className="icon uni_text_6d30ab las la-calendar-check" />
+              Thời gian gửi yêu cầu:
+              <span className="fw-medium">17/06/2020 9:30AM</span>
+            </p>
+            <p className="child">
+              <i className="icon uni_text_6d30ab las la-flag" />
+              Độ ưu tiên:
+              <span className="fw-medium">Cao (1 - 3 ngày)</span>
+            </p>
+            <a
+              href="#"
+              className="uni_text_6d30ab fs-12"
+              data-toggle="modal"
+              data-target="#approvalHistory"
+            >
+              <u>Xem lịch sử phản hồi</u>
+            </a>
+          </div>
+        </div>
+        <div className="approval_history--status status_02">
+          <div className="status">
+            <i className="las fs-16 pr-1" />
+            <span className="fw-medium">Phê duyệt</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div className="approval_history--item">
+      <div className="approval_history--icon type_03 las la-paste" />
+      <div className="approval_history--detail">
+        <div className="approval_history--detail-content">
+          <a
+            href="#"
+            className="approval_history--title fs-16 font-weight-bold"
+          >
+            Yêu cầu thay đổi chiết khấu hoa hồng cho kênh phân phối
+          </a>
+          <div className="approval_history--list">
+            <p className="child">
+              <i className="icon uni_text_6d30ab las la-user" />
+              Ngày gửi yêu cầu:
+              <span className="fw-medium">
+                Trưởng phòng sales Công ty Bất Động Sản Thành Công
+              </span>
+            </p>
+            <p className="child">
+              <i className="icon uni_text_6d30ab las la-calendar-check" />
+              Thời gian gửi yêu cầu:
+              <span className="fw-medium">17/06/2020 9:30AM</span>
+            </p>
+            <p className="child">
+              <i className="icon uni_text_6d30ab las la-flag" />
+              Độ ưu tiên:
+              <span className="fw-medium">Cao (1 - 3 ngày)</span>
+            </p>
+            <a
+              href="#"
+              className="uni_text_6d30ab fs-12"
+              data-toggle="modal"
+              data-target="#approvalHistory"
+            >
+              <u>Xem lịch sử phản hồi</u>
+            </a>
+          </div>
+        </div>
+        <div className="approval_history--status status_02">
+          <div className="status">
+            <i className="las fs-16 pr-1" />
+            <span className="fw-medium">Phê duyệt</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div className="approval_history--item">
+      <div className="approval_history--icon type_03 las la-paste" />
+      <div className="approval_history--detail">
+        <div className="approval_history--detail-content">
+          <a
+            href="#"
+            className="approval_history--title fs-16 font-weight-bold"
+          >
+            Yêu cầu thay đổi chiết khấu hoa hồng cho kênh phân phối
+          </a>
+          <div className="approval_history--list">
+            <p className="child">
+              <i className="icon uni_text_6d30ab las la-user" />
+              Ngày gửi yêu cầu:
+              <span className="fw-medium">
+                Trưởng phòng sales Công ty Bất Động Sản Thành Công
+              </span>
+            </p>
+            <p className="child">
+              <i className="icon uni_text_6d30ab las la-calendar-check" />
+              Thời gian gửi yêu cầu:
+              <span className="fw-medium">17/06/2020 9:30AM</span>
+            </p>
+            <p className="child">
+              <i className="icon uni_text_6d30ab las la-flag" />
+              Độ ưu tiên:
+              <span className="fw-medium">Cao (1 - 3 ngày)</span>
+            </p>
+            <a
+              href="#"
+              className="uni_text_6d30ab fs-12"
+              data-toggle="modal"
+              data-target="#approvalHistory"
+            >
+              <u>Xem lịch sử phản hồi</u>
+            </a>
+          </div>
+        </div>
+        <div className="approval_history--status status_02">
+          <div className="status">
+            <i className="las fs-16 pr-1" />
+            <span className="fw-medium">Phê duyệt</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div className="tab-pane fade" id="oldest">
+    <div className="approval_history--item">
+      <div className="approval_history--icon type_02 las la-ticket-alt" />
+      <div className="approval_history--detail">
+        <div className="approval_history--detail-content">
+          <a
+            href="#"
+            className="approval_history--title fs-16 font-weight-bold"
+          >
+            Yêu cầu thay đổi chiết khấu hoa hồng cho kênh phân phối
+          </a>
+          <div className="approval_history--list">
+            <p className="child">
+              <i className="icon uni_text_6d30ab las la-user" />
+              Ngày gửi yêu cầu:
+              <span className="fw-medium">
+                Trưởng phòng sales Công ty Bất Động Sản Thành Công
+              </span>
+            </p>
+            <p className="child">
+              <i className="icon uni_text_6d30ab las la-calendar-check" />
+              Thời gian gửi yêu cầu:
+              <span className="fw-medium">17/06/2020 9:30AM</span>
+            </p>
+            <p className="child">
+              <i className="icon uni_text_6d30ab las la-flag" />
+              Độ ưu tiên:
+              <span className="fw-medium">Cao (1 - 3 ngày)</span>
+            </p>
+            <a
+              href="#"
+              className="uni_text_6d30ab fs-12"
+              data-toggle="modal"
+              data-target="#approvalHistory"
+            >
+              <u>Xem lịch sử phản hồi</u>
+            </a>
+          </div>
+        </div>
+        <div className="approval_history--status status_01">
+          <div className="status">
+            <i className="las fs-16 pr-1" />
+            <span className="fw-medium">Phê duyệt</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div className="approval_history--item">
+      <div className="approval_history--icon type_03 las la-paste" />
+      <div className="approval_history--detail">
+        <div className="approval_history--detail-content">
+          <a
+            href="#"
+            className="approval_history--title fs-16 font-weight-bold"
+          >
+            Yêu cầu thay đổi chiết khấu hoa hồng cho kênh phân phối
+          </a>
+          <div className="approval_history--list">
+            <p className="child">
+              <i className="icon uni_text_6d30ab las la-user" />
+              Ngày gửi yêu cầu:
+              <span className="fw-medium">
+                Trưởng phòng sales Công ty Bất Động Sản Thành Công
+              </span>
+            </p>
+            <p className="child">
+              <i className="icon uni_text_6d30ab las la-calendar-check" />
+              Thời gian gửi yêu cầu:
+              <span className="fw-medium">17/06/2020 9:30AM</span>
+            </p>
+            <p className="child">
+              <i className="icon uni_text_6d30ab las la-flag" />
+              Độ ưu tiên:
+              <span className="fw-medium">Cao (1 - 3 ngày)</span>
+            </p>
+            <a
+              href="#"
+              className="uni_text_6d30ab fs-12"
+              data-toggle="modal"
+              data-target="#approvalHistory"
+            >
+              <u>Xem lịch sử phản hồi</u>
+            </a>
+          </div>
+        </div>
+        <div className="approval_history--status status_02">
+          <div className="status">
+            <i className="las fs-16 pr-1" />
+            <span className="fw-medium">Phê duyệt</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div className="approval_history--item">
+      <div className="approval_history--icon type_03 las la-paste" />
+      <div className="approval_history--detail">
+        <div className="approval_history--detail-content">
+          <a
+            href="#"
+            className="approval_history--title fs-16 font-weight-bold"
+          >
+            Yêu cầu thay đổi chiết khấu hoa hồng cho kênh phân phối
+          </a>
+          <div className="approval_history--list">
+            <p className="child">
+              <i className="icon uni_text_6d30ab las la-user" />
+              Ngày gửi yêu cầu:
+              <span className="fw-medium">
+                Trưởng phòng sales Công ty Bất Động Sản Thành Công
+              </span>
+            </p>
+            <p className="child">
+              <i className="icon uni_text_6d30ab las la-calendar-check" />
+              Thời gian gửi yêu cầu:
+              <span className="fw-medium">17/06/2020 9:30AM</span>
+            </p>
+            <p className="child">
+              <i className="icon uni_text_6d30ab las la-flag" />
+              Độ ưu tiên:
+              <span className="fw-medium">Cao (1 - 3 ngày)</span>
+            </p>
+            <a
+              href="#"
+              className="uni_text_6d30ab fs-12"
+              data-toggle="modal"
+              data-target="#approvalHistory"
+            >
+              <u>Xem lịch sử phản hồi</u>
+            </a>
+          </div>
+        </div>
+        <div className="approval_history--status status_02">
+          <div className="status">
+            <i className="las fs-16 pr-1" />
+            <span className="fw-medium">Phê duyệt</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div className="approval_history--item">
+      <div className="approval_history--icon type_03 las la-paste" />
+      <div className="approval_history--detail">
+        <div className="approval_history--detail-content">
+          <a
+            href="#"
+            className="approval_history--title fs-16 font-weight-bold"
+          >
+            Yêu cầu thay đổi chiết khấu hoa hồng cho kênh phân phối
+          </a>
+          <div className="approval_history--list">
+            <p className="child">
+              <i className="icon uni_text_6d30ab las la-user" />
+              Ngày gửi yêu cầu:
+              <span className="fw-medium">
+                Trưởng phòng sales Công ty Bất Động Sản Thành Công
+              </span>
+            </p>
+            <p className="child">
+              <i className="icon uni_text_6d30ab las la-calendar-check" />
+              Thời gian gửi yêu cầu:
+              <span className="fw-medium">17/06/2020 9:30AM</span>
+            </p>
+            <p className="child">
+              <i className="icon uni_text_6d30ab las la-flag" />
+              Độ ưu tiên:
+              <span className="fw-medium">Cao (1 - 3 ngày)</span>
+            </p>
+            <a
+              href="#"
+              className="uni_text_6d30ab fs-12"
+              data-toggle="modal"
+              data-target="#approvalHistory"
+            >
+              <u>Xem lịch sử phản hồi</u>
+            </a>
+          </div>
+        </div>
+        <div className="approval_history--status status_02">
+          <div className="status">
+            <i className="las fs-16 pr-1" />
+            <span className="fw-medium">Phê duyệt</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div> */}
+        </div>
+    
+    )
+}
+
 
 const NewestMessage = (props) => {
     return (
