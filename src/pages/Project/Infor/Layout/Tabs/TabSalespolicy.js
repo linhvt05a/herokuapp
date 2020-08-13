@@ -37,6 +37,16 @@ const TabSalespolicy = (props) => {
         else { target.className = "icon icon_collapse las la-plus-circle"; newData[indexParent] = { id: indexParent, status: "", child: { id: index, status: "" } } }
         setClick(newData)
     }
+    const showTapsChildPath = (target, index, indexParent) => {
+
+        let newData = [].concat(click);
+        if (target.className.indexOf('la-plus-circle') > -1) {
+            newData[indexParent] = { id: indexParent, status: "active", child: { id: index, status: "active" } }
+            target.className = "icon icon_collapse las la-minus-circle"
+        }
+        else { target.className = "icon icon_collapse las la-plus-circle"; newData[indexParent] = { id: indexParent, status: "", child: { id: index, status: "" } } }
+        setClick(newData)
+    }
     const trParent = (data, index) => {
         // console.log(`parent${index}`, data);
         return (
@@ -80,7 +90,7 @@ const TabSalespolicy = (props) => {
 
     const trChild = (data, parentId, index, status) => {
         let arr = [];
-        // console.log(`child${index}`, data);
+        console.log(`child${index}`, data);
         if (data) {
             arr = data.map((item, i) => {
                 return [<tr className={`parent child child-row-${parentId} ${click.length > 0 ? click[index] && click[index].status : null}`} key={i}
@@ -115,16 +125,16 @@ const TabSalespolicy = (props) => {
                     <td></td>
                     <td class="text-center"><i class="icon icon_collapse las la-plus-circle" onClick={event => showTapsChild(event.target, i, index)}></i></td>
                 </tr>,
-                trChildPath1(item.list_policy_internal, parentId, item.block_id, item.distribution_type_internal_id, i, status, index)
+                trChildPath1(item.list_policy_internal, parentId, item.block_id, item.distribution_type_internal_id, i, status, index, item.block_total_internal_distribute),
+                trChildPath2(item.list_policy_agent, parentId, item.block_id, item.distribution_type_agent_id, i, status, index, item.block_total_agent_distribute)
                 ]
             })
         }
         return arr;
     }
 
-    const trChildPath1 = (data, parentId, block_id, type_id, index, status, indexParent) => {
+    const trChildPath1 = (data, parentId, block_id, type_id, index, status, indexParent, totaldistribute) => {
         let arr = [];
-        console.log(`child 2 ${indexParent}`, click[indexParent]);
         if (data) {
             return <tr className={`child child-row-${parentId}-${block_id} ${click[indexParent] && click[indexParent].child && click[indexParent].child.id == index ? click[indexParent].child.status : null}`}
                 data-child={`row-${parentId}`} data-parent={`row-${parentId}-${block_id}-${type_id}`}>
@@ -136,28 +146,41 @@ const TabSalespolicy = (props) => {
                             Internal
                         </div>
                         <a className="agency channel min-width-230 sales_internal_text text-underline border-right-0">
-                            Total internal units: 0
+                            Total internal units: {totaldistribute}
                         </a>
                     </div>
                 </td>
                 <td>
+                    {data.policy_internal_active_flag != null ?
                     <a href="#" className="link_href_6d30ab  font-weight-bold">
-                        <u> Giang giang {parentId}</u>
-                    </a>
+                        <u>{data.policy_internal_name}</u>
+                    </a>: <span class="uni_text_6d30ab">-</span>
+                    }
                 </td>
                 <td>
-                    <span className="text-green-399b54 font-weight-bold">Active</span>
+                    {
+                        data.policy_internal_active_flag == true ?
+                        <span className="text-green-399b54 font-weight-bold">Active</span>
+                        : <span className="text-green-399b54 font-weight-bold"></span>
+                    }
                 </td>
+                <td>{data.sell_open_date}</td>
+                <td>{data.sell_end_date}</td>
                 <td>
-                    20/07/2020
-                </td>
-                <td>
-                    30/07/2020
-                </td>
-                <td>
-                    <span className="d-inline-flex align-items-center justify-content-center m_text_status_3 m_border_status_3 min-height-40 pl-3 pr-3 width-110">
-                        Finished
-                </span>
+                {status == 1 ?
+                    <span class="d-inline-flex align-items-center justify-content-center m_text_status_1 m_border_status_1 min-height-40 pl-3 pr-3 width-110">
+                        <Trans>Expect</Trans>
+                    </span>
+                : status == 2 ?
+                    <span class="d-inline-flex align-items-center justify-content-center m_text_status_2 m_border_status_2 min-height-40 pl-3 pr-3 width-110">
+                        <Trans>Opening</Trans>
+                    </span>
+                : status == 3 ?
+                    <span class="d-inline-flex align-items-center justify-content-center m_text_status_3 m_border_status_3 min-height-40 pl-3 pr-3 width-110">
+                        <Trans>Finished</Trans>
+                    </span>
+                    : ""
+                }
                 </td>
                 <td>
                     <div className="list_icons">
@@ -165,18 +188,21 @@ const TabSalespolicy = (props) => {
                     </div>
                 </td>
                 <td className="text-center">
+                    {data.list_internal.length != 0 ?
+                        <i class="icon icon_collapse angle las la-angle-down" onClick={event => showTapsChildPath(event.target, i, index)}></i>
+                    : ''
+                    }
                 </td>
             </tr>
         }
         return arr;
     }
 
-    const trChildPath2 = (data, parentId, block_id, type_id, index, status) => {
+    const trChildPath2 = (data, parentId, block_id, type_id, index, status, indexParent, totaldistribute) => {
         let arr = [];
-        // console.log('path child 2', data);
         if (data) {
-            return <tr className={`child child-row-${parentId}-${block_id} ${clickChild1.length > 0 ? clickChild1[index] && clickChild1[index].status : null}`}
-                data-child={`row-${parentId}`} data-parent={`row-${parentId}-${block_id}-${type_id}`}>
+            return <tr className={`child child-row-${parentId}-${block_id} ${click[indexParent] && click[indexParent].child && click[indexParent].child.id == index ? click[indexParent].child.status : null}`}
+                    data-child={`row-${parentId}`} data-parent={`row-${parentId}-${block_id}-${type_id}`}>
                 <td className="border-bottom-none"></td>
                 <td className="border-bottom-none"></td>
                 <td colspan="1" className="pl-0">
@@ -185,28 +211,41 @@ const TabSalespolicy = (props) => {
                             Agent
                         </div>
                         <a class="agency channel min-width-230 sales_agency_text text-underline border-right-0">
-                            Total agent units: 0
+                            Total agent units: {totaldistribute}
                         </a>
                     </div>
                 </td>
                 <td>
+                    {data.policy_agent_active_flag != null ?
                     <a href="#" className="link_href_6d30ab  font-weight-bold">
-                        <u>hahaha Giang giang {parentId}</u>
-                    </a>
+                        <u>{data.policy_agent_name}</u>
+                    </a>: <span class="uni_text_6d30ab">-</span>
+                    }
                 </td>
                 <td>
-                    <span className="text-green-399b54 font-weight-bold">Active</span>
+                    {
+                        data.policy_agent_active_flag == true ?
+                        <span className="text-green-399b54 font-weight-bold">Active</span>
+                        : <span className="text-green-399b54 font-weight-bold"></span>
+                    }
                 </td>
+                <td>{data.sell_open_date}</td>
+                <td>{data.sell_end_date}</td>
                 <td>
-                    20/07/2020
-                </td>
-                <td>
-                    30/07/2020
-                </td>
-                <td>
-                    <span className="d-inline-flex align-items-center justify-content-center m_text_status_3 m_border_status_3 min-height-40 pl-3 pr-3 width-110">
-                        Finished
-                </span>
+                {status == 1 ?
+                    <span class="d-inline-flex align-items-center justify-content-center m_text_status_1 m_border_status_1 min-height-40 pl-3 pr-3 width-110">
+                        <Trans>Expect</Trans>
+                    </span>
+                : status == 2 ?
+                    <span class="d-inline-flex align-items-center justify-content-center m_text_status_2 m_border_status_2 min-height-40 pl-3 pr-3 width-110">
+                        <Trans>Opening</Trans>
+                    </span>
+                : status == 3 ?
+                    <span class="d-inline-flex align-items-center justify-content-center m_text_status_3 m_border_status_3 min-height-40 pl-3 pr-3 width-110">
+                        <Trans>Finished</Trans>
+                    </span>
+                    : ""
+                }
                 </td>
                 <td>
                     <div className="list_icons">
@@ -214,6 +253,10 @@ const TabSalespolicy = (props) => {
                     </div>
                 </td>
                 <td className="text-center">
+                    {data.list_agent.length != 0 ?
+                        <i class="icon icon_collapse angle las la-angle-down" onClick={event => showTapsChildPath(event.target, i, index)}></i>
+                    : ''
+                    }
                 </td>
             </tr>
         }
