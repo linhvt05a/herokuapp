@@ -46,6 +46,7 @@ import {
 import {
   paymentListWatcher, policyListWatcher, policyProgressListWatcher
 } from './contract'
+import customerSaga from "./customerSaga"
 function* allSaga() {
   yield all([
     currencyListWatcher(),
@@ -89,6 +90,8 @@ function* allSaga() {
     paymentListWatcher(),
     policyListWatcher(),
     policyProgressListWatcher(),
+    //customer
+    customerSaga(),
 
   ]);
 }

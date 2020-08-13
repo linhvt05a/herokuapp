@@ -21,7 +21,7 @@ import {
 } from "./project";
 import {
   approvedListRequest,
-  commentListRequest ,
+  commentListRequest,
   addCommentRequest,
 } from "./approval";
 import {
@@ -33,10 +33,7 @@ import {
   promotionProductRequest,
 } from "./requestCart";
 
-import {
-  customerListRequest
-} from "./customer";
-
+import actionsCustomer from "./customer"
 export {
   currentcyAddRequest,
   currentcyDetailRequest,
@@ -60,5 +57,5 @@ export {
   requestDataRequest,
   promotionListRequest,
   promotionProductRequest,
-  customerListRequest,
+  actionsCustomer
 };

@@ -41,8 +41,8 @@ const MapParam = (props) => {
     const { data, lat, long, name } = props;
     console.log('tttttt', data);
     return (
-        <Map 
-            className="map"
+        <Map
+            className="map w-100 "
             style={MAP_STYLE}
             center={[long, lat]}
             zoom={[13]}
@@ -59,7 +59,7 @@ const MapParam = (props) => {
             <Marker
                 coordinates={[long, lat]}
                 anchor="bottom">
-                <img src={markerUrl}/>
+                <img src={markerUrl} />
             </Marker>
             <Popup
                 coordinates={[long, lat]}
@@ -71,8 +71,8 @@ const MapParam = (props) => {
                     <div class='center'><p class='item'>
                         <span class='irr_text'>Number <i>IRR</i></span>
                         <span class='number'>%</span></p><p class='item'>
-                        <span class='npv_text'>Number <i>NPV</i></span>
-                        <span class='number'></span></p>
+                            <span class='npv_text'>Number <i>NPV</i></span>
+                            <span class='number'></span></p>
                     </div>
                     <ul class='bottom'>
                         <li><Trans>Diện tích đất</Trans>: <span class='value'>{data.square}</span></li>

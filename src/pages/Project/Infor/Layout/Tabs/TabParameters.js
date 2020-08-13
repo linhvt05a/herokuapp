@@ -25,7 +25,7 @@ const TabParameters = (props) => {
                     <div className="row">
                         <div className="col-12">
                             <h6 className=" mb-1 uni_text_6d30ab text-uppercase">
-                            <Trans>THÔNG TIN DỰ ÁN</Trans>
+                                <Trans>THÔNG TIN DỰ ÁN</Trans>
                             </h6>
                         </div>
                     </div>
@@ -88,7 +88,7 @@ const TabParameters = (props) => {
             <div className="row mt-4">
                 <div className="col-12">
                     <h6 className=" uni_text_6d30ab text-uppercase">
-                    <Trans>MÔ TẢ DỰ ÁN</Trans>
+                        <Trans>MÔ TẢ DỰ ÁN</Trans>
                     </h6>
                 </div>
                 <div className="summernoteOnHead col-12"></div>
@@ -96,12 +96,10 @@ const TabParameters = (props) => {
             <div className="row mt-4">
                 <div className="col-12">
                     <h6 className=" mb-1 uni_text_6d30ab text-uppercase">
-                    <Trans>VỊ TRÍ DỰ ÁN</Trans>
+                        <Trans>VỊ TRÍ DỰ ÁN</Trans>
                     </h6>
                 </div>
-                <div className="col-12">
-                    <MapParam data={data.map} lat={lat} long={long} name={name}/>
-                </div>
+                <MapParam data={data.map} lat={lat} long={long} name={name} />
             </div>
         </div>
     )
@@ -118,13 +116,13 @@ const RowParam = (props) => {
                 data.list && data.list.map((item, index) => (
                     <div className="col-lg-6 col-md-6 col-sm-12 mb-3" key={index}>
                         <div className="custom-control custom-checkbox">
-                            <input class="custom-control-input checkbox-item square" checked={item.checked_flag == true} type="checkbox"/>&nbsp;
+                            <input class="custom-control-input checkbox-item square" checked={item.checked_flag == true} type="checkbox" />&nbsp;
                             <label className="custom-control-label">{item.meta_data_group_name}</label>
                         </div>
                     </div>
                 ))
             }
-        </div> 
+        </div>
     )
 }
 

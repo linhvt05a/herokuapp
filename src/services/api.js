@@ -103,6 +103,8 @@ export default {
 
     //Customer
     CUSTOMER_LIST: "/api/be/v1/customer/list/",
+    CUSTOMER_CREATE_CONTRACT: "/api/be/v1/contract/create/",
+    CUSTOMER_PROMOTION_CONTRACT: "/api/be/v1/contract/promotion/",
 
     //Contract Payment
     CONTRACT_PAYMENT: "/api/be/v1/contract/accounting/",
