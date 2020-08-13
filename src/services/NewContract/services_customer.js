@@ -1,17 +1,32 @@
 import api from '../api';
 
 export const customerService = {
-    customer
+    customer: (token, name) => {
+        const requestOptions = {
+            method: 'GET',
+            headers: api.getHeader(token)
+        };
+        const params = { name };
+        const url = api.getUrl(api.CUSTOMER_LIST, params); console.log(url);
+        return api.handleRequest(url, requestOptions);
+    },
+    createContract: (token) => {
+        const requestOptions = {
+            method: 'GET',
+            headers: api.getHeader(token)
+        };
+        const params = {};
+        const url = api.getUrl(api.CUSTOMER_CREATE_CONTRACT, params);
+        return api.handleRequest(url, requestOptions);
+    },
+    promotionContract: (token) => {
+        const requestOptions = {
+            method: 'GET',
+            headers: api.getHeader(token)
+        };
+        const params = {};
+        const url = api.getUrl(api.CUSTOMER_PROMOTION_CONTRACT, params);
+        return api.handleRequest(url, requestOptions);
+    }
 };
 
-function customer(token, search ) {
-
-    const requestOptions = {
-        method: 'GET',
-        headers: api.getHeader(token)
-    };
-
-    const params = {'search': search};
-    const url = api.getUrl(api.CUSTOMER_LIST, params)
-    return api.handleRequest(url, requestOptions);
-}

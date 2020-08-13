@@ -1,21 +1,48 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Radio } from 'antd';
 import Input from '../../../../../components/base/Input/Input';
 import DatePicker from '../../../../../components/base/DatePicker/DatePicker';
 import Select from '../../../../../components/base/Select/Select';
-import { useDispatch } from "react-redux";
-import { customerListRequest } from '../../../../../store/action';
+import { useDispatch, connectAdvanced } from "react-redux";
+import { actionsCustomer } from '../../../../../store/action';
 
 const CustomerInfoForm = (props) => {
-    const {typeCustomer, changeTypeCustomer, customerList } = props;
+    const { typeCustomer, changeTypeCustomer, customerList } = props;
     const dispatch = useDispatch();
+    const [state, setState] = useState({
+        dataCustomerName: [],
+        valueSeach: "",
+        dataCustomer: []
+    })
+    const token = 'MjoxMzliMDZiZmI4OTJhOGYxYmQ2MzVhZmFmODEyZmM5M2RhNDFkM2Yx=';
+
+    const createData = (value, label) => {
+        return { value, label }
+    }
+    // console.log(props);
+    useEffect(() => {
+        if (state.valueSeach !== "") {
+            let dataCustomer = customerList[0]
+            setState({ ...state, dataCustomer })
+        }
+        else
+            if (customerList.length > 0) {
+                let newData = [];
+                customerList.map((item, index) => {
+                    newData.push(createData(item.customer_name, item.customer_name))
+                })
+                setState({ ...state, dataCustomerName: newData })
+            }
+    }, [customerList])
+
     const onChangeTypeCustomer = (e) => {
         changeTypeCustomer(e.target.value);
         e.preventDefault();
     }
     const onSearchCustomer = (search) => {
-        // dispatch(customerListRequest({token, search}));
+        setState({ ...state, valueSeach: search })
+        dispatch(actionsCustomer.requestCustomerList({ token: token, name: search }))
     }
     return (
         <div>
@@ -32,7 +59,7 @@ const CustomerInfoForm = (props) => {
                             </Radio.Group>
                         </div>
                     </div>
-                    { typeCustomer===1 &&
+                    {typeCustomer === 1 &&
                         <div className="create-contract__customer collapse show">
                             <div class="row mb-4 mt-4" data-select2-id="336">
                                 <div class="col-12 col-md-2 d-flex align-items-center">
@@ -40,7 +67,7 @@ const CustomerInfoForm = (props) => {
                                 </div>
                                 <div class="col-12 col-md-10" data-select2-id="335">
                                     <div class="form-group select2-highlight mb-0">
-                                        <Select onSearch={ onSearchCustomer } data={customerList} />
+                                        <Select onChange={onSearchCustomer} datas={state.dataCustomerName} />
                                     </div>
                                 </div>
                             </div>
@@ -52,13 +79,13 @@ const CustomerInfoForm = (props) => {
                             <div className="col-12 col-6 col-md-6 col-lg-3">
                                 <div className="form-group">
                                     <label className="fw-medium">Danh xưng <span className="uni_star_e94c4c">*</span></label>
-                                    <Select datas={[{label: 'Ông', value: 0}, {label: 'Bà', value: 1}]}
-                                            placeholder='Chọn danh xưng'
+                                    <Select datas={[{ label: 'Ông', value: 0 }, { label: 'Bà', value: 1 }]}
+                                        placeholder='Chọn danh xưng' value={""}
                                     />
                                 </div>
                             </div>
                             <div className="col-12 col-6 col-md-6 col-lg-3">
-                            <Input label='Họ tên' type="text" placeholder="Nhập họ tên" />
+                                <Input label='Họ tên' type="text" placeholder="Nhập họ tên" />
                             </div>
                             <div className="col-12 col-6 col-md-6 col-lg-3">
                                 <div className="form-group">
@@ -68,8 +95,8 @@ const CustomerInfoForm = (props) => {
                             </div>
                             <div className="col-12 col-6 col-md-6 col-lg-3">
                                 <Input type="text"
-                                       placeholder="Nhập số"
-                                       label={<><span>Số CMND/CCCD/Hộ chiếu</span> <span className="uni_star_e94c4c">*</span></>}
+                                    placeholder="Nhập số"
+                                    label={<><span>Số CMND/CCCD/Hộ chiếu</span> <span className="uni_star_e94c4c">*</span></>}
                                 />
                             </div>
                             <div className="col-12 col-6 col-md-6 col-lg-3">
@@ -117,7 +144,7 @@ const CustomerInfoForm = (props) => {
                             <div className="col-12 col-6 col-md-6 col-lg-3">
                                 <div className="form-group">
                                     <label className="fw-medium">Ngày sinh</label>
-                                    <DatePicker style={{width: "100%"}}/>
+                                    <DatePicker style={{ width: "100%" }} />
                                 </div>
                             </div>
                         </div>

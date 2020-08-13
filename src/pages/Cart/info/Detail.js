@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import actions from "../../../store/action/cart"
 import Item from "./Layout";
-import { CardHeader, Loading } from "../../../components/common";
+import { CardHeader } from "../../../components/common";
 
 const Edit = props => {
     const [state, setState] = useState({
@@ -27,7 +27,6 @@ const Edit = props => {
         dispatch(actions.LoadDetail({ token: token, id: props.params.id }));
         dispatch(actions.LoadSellOpen({ token: token, id: props.params.id }));
         // dispatch(actions.LoadSellOpenList({ token: token, id: props.params.id, area_id: state.areaStatus.value }));
-
         dispatch(actions.LoadFilterListOpenSale({ token: token, id: props.params.id }))
 
     }, [])

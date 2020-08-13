@@ -3,7 +3,7 @@ import { Trans } from 'react-i18next';
 import { Select } from 'antd';
 
 const InputSelect = (props) => {
-    const { className, name, value, label, datas, placeholder, onChange, isClear, classNameGroup, trans } = props;
+    const { className, name, value, label, datas, placeholder, onChange, isClear, classNameGroup, onSearch, trans } = props;
     const { Option } = Select;
 
     return (
@@ -18,6 +18,7 @@ const InputSelect = (props) => {
 
                 <Select
                     showSearch
+                    onSearch={onSearch}
                     style={{ width: 200 }}
                     className="form-control"
                     onChange={onChange}
