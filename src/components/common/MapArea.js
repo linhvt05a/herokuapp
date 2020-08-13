@@ -1,7 +1,8 @@
 import React, { memo } from 'react';
 import { Trans } from 'react-i18next';
 
-import ReactMapboxGl, { Popup, Feature, Layer } from "react-mapbox-gl";
+import ReactMapboxGl, { Popup, Feature, Layer, Marker } from "react-mapbox-gl";
+import CardNodata from '../Card/CardNodata';
 
 const Map = ReactMapboxGl({
     accessToken:
@@ -36,6 +37,8 @@ const polygonPaint = {
     'fill-opacity': 0.2
 };
 
+const markerUrl = 'http://maps.google.com/mapfiles/ms/icons/red-dot.png';
+
 const MapArea = (props) => {
     const { projectListSuccess, projectListRes, locationData } = props;
     const markerData = projectListRes ? projectListRes[locationData] : {}
@@ -43,7 +46,8 @@ const MapArea = (props) => {
         <div className="card h-100">
             <div className="card-body p-0">
                 {
-                    (projectListSuccess && markerData) &&
+                    (projectListSuccess && markerData) ?
+                    (markerData.lon && markerData.lat) ?
                     <Map
                         className="map"
                         style={MAP_STYLE}
@@ -59,6 +63,11 @@ const MapArea = (props) => {
                                 <Feature coordinates={markerData.location.coordinates} />
                             }
                         </Layer>
+                        <Marker
+                            coordinates={[markerData.lon, markerData.lat]}
+                            anchor="bottom">
+                            <img src={markerUrl}/>
+                        </Marker>
                         <Popup
                             coordinates={[markerData.lon, markerData.lat]}
                             offset={{
@@ -67,12 +76,12 @@ const MapArea = (props) => {
                             <div className='m_map'>
                                 <h1 className='top' style={{ borderBottom: "1px solid #f3f3f3" }}>{markerData.project_name}<i class='address'>{markerData.address}</i></h1>
                                 <ul className='bottom'>
-                                    <li><Trans>LandArea</Trans>: <span className='value'>{markerData.project_acreage}</span></li>
-                                    <li className='investor'><Trans>Investor</Trans>: <span className='value'>{markerData.investor_name}</span></li>
+                                    <li><Trans>land_area</Trans>: <span className='value'>{markerData.project_acreage}</span></li>
+                                    <li className='investor'><Trans>investor</Trans>: <span className='value'>{markerData.investor_name}</span></li>
                                 </ul>
                             </div>
                         </Popup>
-                    </Map>
+                    </Map> : <CardNodata />  : <CardNodata />
                 }
             </div>
         </div>

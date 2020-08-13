@@ -46,7 +46,7 @@ export default {
     PROJECT_NEWS_EDIT: '/api/v1/project/news/edit/',
     PROJECT_NEWS_DELETE: '/api/v1/project/news/delete/',
     PROJECT_CURRENCY_LIST: '/api/v1/project/currency/list/',
-    
+
     PROJECT_SELLOPEN_LIST: '/api/be/v1/shopping_cart/sell_open/',
     PROJECT_BANKING_LIST: '/api/be/v1/shopping_cart/banking/',
     PROJECT_SALE_POLICY_LIST: '/api/be/v1/policy_sale/',
@@ -64,10 +64,10 @@ export default {
     SYS_STATE_EDIT: '/api/v1/system/workflow/template/state/edit/',
     SYS_STATE_PARENT_LIST: '/api/v1/system/workflow/template/state/parent/list/',
 
-    // LOCATION_REGION: '/api/v1/location/regions/',
-    // LOCATION_PROVINCE: '/api/v1/location/provinces/',
-    // LOCATION_DISTRICT: '/api/v1/location/districts/',
-    // LOCATION_WARD: '/api/v1/location/wards/',
+    LOCATION_REGION: '/api/fe/v1/regions/',
+    LOCATION_PROVINCE: '/api/fe/v1//provinces/',
+    LOCATION_DISTRICT: '/api/fe/v1/districts/',
+    LOCATION_WARD: '/api/fe/v1/wards/',
 
     LANGUAGE_LIST: '/api/v1/user/language/list/',
     LANGUAGE_CHANGE: '/api/v1/user/language/change/',
@@ -98,7 +98,11 @@ export default {
     //Request Cart
     CART_REQUEST_DATA: "/api/be/v1/distribution/add_request/",
     CART_PROMOTION_LIST: "/api/be/v1/policy_promotion/list_promotion_short/",
-    
+    CART_PROMOTION_PRODUCT: "/api/be/v1/policy_promotion/detail_add_request/",
+
+
+    //Customer
+    CUSTOMER_LIST: "/api/be/v1/customer/list/",
 
     getHeader,
     getUrl,

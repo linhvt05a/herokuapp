@@ -41,13 +41,13 @@ const Dashboard = (props) => {
             <SalesSummary />
             <div className="row">
                 <div className="col-xl-9 col-lg-9 col-md-12 col-sm-12 d-flex flex-column">
-                    <CardHeader label="ProjectFilterTitle" />
+                    <CardHeader label="project_filter" />
                     <CardFilter token={token} onSearch={onSearch} />
-                    <CardHeader label="ProjectListTitle" />
+                    <CardHeader label="project_list" />
                     <CardProjectList updateLocation={props.updateLocation} projectListSuccess={projectListSuccess} projectListRes={projectListRes} page={page} totalPage={totalPage} totalRecord={totalRecord} onItemClick={onItemClick} />
                 </div>
                 <div className="col-xl-3 col-lg-3 col-md-12 col-sm-12  mt-lg-0 mt-5  d-flex flex-column">
-                    <CardHeader label="Map" />
+                    <CardHeader label="map" />
                     <MapArea projectListSuccess={projectListSuccess} projectListRes={projectListRes} locationData={locationData} />
                 </div>
             </div>

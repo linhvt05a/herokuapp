@@ -4,8 +4,9 @@ import Pagination from "../common/Pagination"
 import { Trans } from 'react-i18next';
 import CardProduct from "../Card/CardProduct";
 import ListProduct from "../Table/ListProduct";
-import { CardProductFilter, CardNodata } from "../Card"
-const body = props => {
+import { CardProductFilter, CardNodata } from "../Card";
+
+const ProductDetail = props => {
     let { dataFilter, data, page, total_page, total_record, link_to } = props;
     const [state, setState] = useState(true);
     return (
@@ -43,4 +44,4 @@ const body = props => {
 
     )
 }
-export default body;
+export default ProductDetail;

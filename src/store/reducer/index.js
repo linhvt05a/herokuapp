@@ -4,12 +4,15 @@ import cart from "./cartReducer";
 import project from "./projectReducer";
 import product_request from './approveListReducer';
 import request_cart from './requestCartReducer';
-import productDetail from './productReducer'
+import productDetail from './productReducer';
+import customer from './customerReducer';
 import { combineReducers } from 'redux';
 const allReducers = combineReducers({
     currency, dashboard,
     cart, project,
-    product_request, request_cart,
-    productDetail
+    product_request,
+    request_cart,
+    productDetail,
+    customer
 });
 export default allReducers; 

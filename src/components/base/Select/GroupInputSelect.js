@@ -1,5 +1,5 @@
 import React from 'react';
-import { Input, Select } from 'antd';
+import { Input } from 'antd';
 import { Trans } from 'react-i18next';
 
 const GroupInputSelect = (props) => {
@@ -16,7 +16,7 @@ const GroupInputSelect = (props) => {
                     </label>
                 }
 				<div className="input-group input-group-select">
-					<Input addonAfter={props.addonAfter} placeholder={props.placeholder} value={props.value} disabled />
+					<Input addonAfter={props.addonAfter} placeholder={props.placeholder} value={props.value} disabled={disabled ? disabled : undefined} />
 				</div>
 			</div>
 		</div>

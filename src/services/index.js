@@ -11,6 +11,8 @@ import { projectService } from './Project/services_project';
 
 import { productService } from './Product/service_product';
 
+import { customerService } from './NewContract/services_customer';
+
 import { requestCartService } from './RequestCart/services_request_cart'
 
 

@@ -1,8 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Input, Select } from 'antd';
+import { Radio } from 'antd';
+import Input from '../../../../../components/base/Input/Input';
+import DatePicker from '../../../../../components/base/DatePicker/DatePicker';
+import Select from '../../../../../components/base/Select/Select';
+import { useDispatch } from "react-redux";
+import { customerListRequest } from '../../../../../store/action';
 
 const CustomerInfoForm = (props) => {
+    const {typeCustomer, changeTypeCustomer, customerList } = props;
+    const dispatch = useDispatch();
+    const onChangeTypeCustomer = (e) => {
+        changeTypeCustomer(e.target.value);
+        e.preventDefault();
+    }
+    const onSearchCustomer = (search) => {
+        // dispatch(customerListRequest({token, search}));
+    }
     return (
         <div>
             <div className="create-contract__wrap">
@@ -10,95 +24,100 @@ const CustomerInfoForm = (props) => {
                     <div className="d-flex align-items-center flex-wrap mb-2 mt-4">
                         <div className="text-uppercase uni_text_6d30ab fw-medium fs-18 mr-5">
                             Thông tin khách hàng
-                    </div>
+                        </div>
                         <div className="d-flex flex-wrap mt-2 mt-md-0 mb-2 mb-md-0">
-                            <label className="checkbox-inline active radio-circle mr-4">
-                                <Input type="radio" name="radio-customer" value="1" className="checkbox-custom" />
-                                <span className="checkbox-custom-dummy"></span>
-                                            Khách hàng mới
-                        </label>
-                            <label className="checkbox-inline radio-circle">
-                                <Input type="radio" name="radio-customer" value="2" className="checkbox-custom" />
-                                <span className="checkbox-custom-dummy"></span>
-                                            Khách hàng đã có trong hệ thống
-                        </label>
+                            <Radio.Group onChange={onChangeTypeCustomer} value={typeCustomer}>
+                                <Radio className="checkbox-custom-dummy" value={0}>Khách hàng mới</Radio>
+                                <Radio className="checkbox-custom-dummy" value={1}>Khách hàng đã có trong hệ thống</Radio>
+                            </Radio.Group>
                         </div>
                     </div>
+                    { typeCustomer===1 &&
+                        <div className="create-contract__customer collapse show">
+                            <div class="row mb-4 mt-4" data-select2-id="336">
+                                <div class="col-12 col-md-2 d-flex align-items-center">
+                                    <label class="fw-medium mb-0 mr-5 w-auto">Tìm kiếm khách hàng </label>
+                                </div>
+                                <div class="col-12 col-md-10" data-select2-id="335">
+                                    <div class="form-group select2-highlight mb-0">
+                                        <Select onSearch={ onSearchCustomer } data={customerList} />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
                     <div className="create-contract__customer collapse show">
                         <i className="text-note d-block">Ghi Chú<span className="uni_star_e94c4c">(*)</span>: Thông tin bắt buộc nhập</i>
                         <div className="row mt-2 mb-4">
                             <div className="col-12 col-6 col-md-6 col-lg-3">
                                 <div className="form-group">
                                     <label className="fw-medium">Danh xưng <span className="uni_star_e94c4c">*</span></label>
-                                    <select><option>test</option></select>
+                                    <Select datas={[{label: 'Ông', value: 0}, {label: 'Bà', value: 1}]}
+                                            placeholder='Chọn danh xưng'
+                                    />
                                 </div>
                             </div>
                             <div className="col-12 col-6 col-md-6 col-lg-3">
-                                <div className="form-group">
-                                    <label className="fw-medium">Họ tên <span className="uni_star_e94c4c">*</span></label>
-                                    <Input type="text" placeholder="Nhập họ tên  " className="form-control" />
-                                </div>
+                            <Input label='Họ tên' type="text" placeholder="Nhập họ tên" />
                             </div>
                             <div className="col-12 col-6 col-md-6 col-lg-3">
                                 <div className="form-group">
                                     <label className="fw-medium">Đối tượng khách hàng <span className="uni_star_e94c4c">*</span></label>
-                                    <select><option>test</option></select>
+                                    <Select></Select>
                                 </div>
                             </div>
                             <div className="col-12 col-6 col-md-6 col-lg-3">
-                                <div className="form-group">
-                                    <label className="fw-medium">Số CMND/CCCD/Hộ chiếu <span className="uni_star_e94c4c">*</span></label>
-                                    <Input type="text" placeholder="Nhập số" className="form-control" />
-                                </div>
+                                <Input type="text"
+                                       placeholder="Nhập số"
+                                       label={<><span>Số CMND/CCCD/Hộ chiếu</span> <span className="uni_star_e94c4c">*</span></>}
+                                />
                             </div>
                             <div className="col-12 col-6 col-md-6 col-lg-3">
                                 <div className="form-group">
                                     <label className="fw-medium">Quốc tịch <span className="uni_star_e94c4c">*</span></label>
-                                    <select><option>test</option></select>
+                                    <Select></Select>
                                 </div>
                             </div>
                             <div className="col-12 col-6 col-md-6 col-lg-3">
                                 <div className="form-group">
                                     <label className="fw-medium">Tỉnh / Thành phố <span className="uni_star_e94c4c">*</span></label>
-                                    <select><option>test</option></select>
+                                    <Select></Select>
                                 </div>
                             </div>
                             <div className="col-12 col-6 col-md-6 col-lg-3">
                                 <div className="form-group">
                                     <label className="fw-medium">Quận / Huyện <span className="uni_star_e94c4c">*</span></label>
-                                    <select><option>test</option></select>
+                                    <Select></Select>
                                 </div>
                             </div>
                             <div className="col-12 col-6 col-md-6 col-lg-3">
                                 <div className="form-group">
                                     <label className="fw-medium">Phường / Xã <span className="uni_star_e94c4c">*</span></label>
-                                    <select><option>test</option></select>
+                                    <Select></Select>
                                 </div>
                             </div>
                             <div className="col-12 col-6 col-md-6 col-lg-3">
                                 <div className="form-group">
                                     <label className="fw-medium">Số nhà <span className="uni_star_e94c4c">*</span></label>
-                                    <Input type="text" placeholder="Nhập số nhà" className="form-control" />
+                                    <Input type="text" placeholder="Nhập số nhà" />
                                 </div>
                             </div>
                             <div className="col-12 col-6 col-md-6 col-lg-3">
                                 <div className="form-group">
                                     <label className="fw-medium">Email <span className="uni_star_e94c4c">*</span></label>
-                                    <Input type="text" placeholder="Email " className="form-control" />
+                                    <Input type="text" placeholder="Email " />
                                 </div>
                             </div>
                             <div className="col-12 col-6 col-md-6 col-lg-3">
                                 <div className="form-group">
                                     <label className="fw-medium">Điện thoại <span className="uni_star_e94c4c">*</span></label>
-                                    <Input type="text" placeholder="Nhập số " className="form-control" />
+                                    <Input type="text" placeholder="Nhập số " />
                                 </div>
                             </div>
                             <div className="col-12 col-6 col-md-6 col-lg-3">
                                 <div className="form-group">
                                     <label className="fw-medium">Ngày sinh</label>
-                                    <div className="m_datepicker">
-                                        <Input type="text" placeholder="Chọn ngày sinh " className="form-control js-datepicker" />
-                                    </div>
+                                    <DatePicker style={{width: "100%"}}/>
                                 </div>
                             </div>
                         </div>
