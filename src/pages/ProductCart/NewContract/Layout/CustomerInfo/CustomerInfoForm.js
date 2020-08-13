@@ -6,6 +6,7 @@ import DatePicker from '../../../../../components/base/DatePicker/DatePicker';
 import Select from '../../../../../components/base/Select/Select';
 import { useDispatch, connectAdvanced } from "react-redux";
 import { actionsCustomer } from '../../../../../store/action';
+import { converAddress } from "../../../../../utils/Utils"
 
 const CustomerInfoForm = (props) => {
     const { typeCustomer, changeTypeCustomer, customerList } = props;
@@ -35,6 +36,7 @@ const CustomerInfoForm = (props) => {
     useEffect(() => {
         if (state.valueSeach !== "") {
             let dataCustomer = customerList[0]
+            converAddress(dataCustomer.full_address);
             setState({ ...state, dataCustomer })
         }
         else
@@ -112,7 +114,7 @@ const CustomerInfoForm = (props) => {
                                     onChange={(value => setState({ ...state, customer_name: value }))}
                                     disabled={onDisable(typeCustomer)} />
                             </div>
-                            {console.log(state)}
+                            {/* {console.log(state)} */}
                             <div className="col-12 col-6 col-md-6 col-lg-3">
                                 <div className="form-group">
                                     <label className="fw-medium">Đối tượng khách hàng <span className="uni_star_e94c4c">*</span></label>
@@ -165,7 +167,7 @@ const CustomerInfoForm = (props) => {
                             <div className="col-12 col-6 col-md-6 col-lg-3">
                                 <div className="form-group">
                                     <label className="fw-medium">Điện thoại <span className="uni_star_e94c4c">*</span></label>
-                                    <Input type="text" placeholder="Nhập số " disabled={onDisable(typeCustomer)} />
+                                    <Input type="text" placeholder="Nhập số " value={state.dataCustomer.customer_mobile} disabled={onDisable(typeCustomer)} />
                                 </div>
                             </div>
                             <div className="col-12 col-6 col-md-6 col-lg-3">
