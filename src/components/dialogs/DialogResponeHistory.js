@@ -4,6 +4,9 @@ import { Modal } from 'react-bootstrap'
 import TextEditor from '../base/Editor/TextEditor'
 import {Spinner} from '../../components/common'
 import {InfiniteScroll} from 'react-infinite-scroll-component'
+import ReactScrollablePagination from 'react-scrollable-pagination'
+import {withRouter} from 'react-router-dom';
+const Scroller = withRouter(ReactScrollablePagination)
 
 const DialogResponeHistory = (props) => {
   const [showReplyForm, setshowReplyForm] = useState(false)
@@ -19,14 +22,11 @@ const DialogResponeHistory = (props) => {
           style={{ maxWidth: 1095 }}
           role="document"
         >
-          <CardHeader label="PHẢN HỒI" />
+          <CardHeader label={props.requestStatus=== 1 || props.requestStatus === 3 ? "PHẢN HỒI" : "LỊCH SỬ PHẢN HỒI"} />
           <div className="modal-content square">
             <div className="modal-body pb-0 pr-3">
               <div className="uni_text_6d30ab fw-medium fs-18 mb-2">PHẢN HỒI</div>
-                    {/* <InfiniteScroll >
-                  <div>fdsfsdfsdfdsfdsfds</div>
-              </InfiniteScroll> */}
-              {/* <div className="approval_history--modal">
+              <div className="approval_history--modal">
                 {list_comment &&
                   list_comment.map((item) => (
                     <div className="item">
@@ -46,44 +46,48 @@ const DialogResponeHistory = (props) => {
                       
                     </div>
                   ))}
-                    {props.isLoading && <Spinner />}
+                {props.isLoading && <Spinner />}
+                {props.requestStatus === 1 || props.requestStatus === 3 ?
                     <ShowFormReply 
-                      image={props.image} 
-                      changeComment ={props.changeComment} 
-                      showReplyForm={showReplyForm} 
-                      sendMessage ={()=>props.sendMessage(props.request_id)} 
-                      closeForm={() => setshowReplyForm(false)} 
-                      />
+                          image={props.image} 
+                          changeComment ={props.changeComment} 
+                          showReplyForm={showReplyForm} 
+                          sendMessage ={()=>props.sendMessage(props.request_id)} 
+                          closeForm={() => setshowReplyForm(false)} 
+                          validContent = {props.validContent}
+                        />:<></>}
               </div>
-             */}
+            
             </div>
-            {/* <CloseButton close={props.close} /> */}
+            <CloseButton close={props.close} />
           </div>
+       
         </div>
       </div>
     </Modal>
   );
 }
 
-// function ShowFormReply(props) {
-//     return(
-//       <>
-//       <figure className="avatar">
-//           <img src= {props.image} />
-//       </figure>
-//       <TextEditor value = "" handleChange = {props.changeComment} />
-//           <div className="modal-footer pt-0 border-top-0" style={{ marginTop: 25}}>
-//             <button className=" square btn-uni-exit min-width-button" style={{backgroundColor:'#6d30ab', color:'#fff'}} onClick={props.sendMessage}>SEND</button>
-//           </div>
-//       </>
-//     )
-//  }
+function ShowFormReply(props) {
+    return(
+      <>
+      <figure className="avatar">
+          <img src= {props.image} />
+      </figure>
+      <TextEditor value = "" handleChange = {props.changeComment} />
+        <span style={{color:'red', fontSize: 14, marginTop: 20}}>{props.validContent !== "" ? "Missing Information" : ''}</span>
+          <div className="modal-footer pt-0 border-top-0" style={{ marginTop: 25}}>
+            <button className=" square btn-uni-exit min-width-button" style={{backgroundColor:'#6d30ab', color:'#fff'}} onClick={props.sendMessage}>SEND</button>
+          </div>
+      </>
+    )
+ }
  
-// function CloseButton(props) {
-//   return (
-//     <div className="modal-footer pt-0 border-top-0">
-//       <button className=" square btn-uni-exit min-width-button" onClick={props.close}>Đóng</button>
-//     </div>
-//   )
-// }
+function CloseButton(props) {
+  return (
+    <div className="modal-footer pt-0 border-top-0">
+      <button className=" square btn-uni-exit min-width-button" onClick={props.close}>Đóng</button>
+    </div>
+  )
+}
 export default DialogResponeHistory;
