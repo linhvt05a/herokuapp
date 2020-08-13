@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { approvedListRequest, commentListRequest, addCommentRequest } from '../../store/action/approval'
 import {productDetailRequest} from '../../store/action/product'
@@ -23,10 +23,14 @@ const PageListCart = (props) => {
     const [requestStatus, setReqStatus] = useState(0)
     const[validContent, setValid]  =  useState('')
     const[page, setPage] = useState(1)
+    const[total_record, setTotalRecord] = useState(0)
+    const[total_page, setTotalPage] = useState(0)
+    const[limit_order_by_last, setLimitPage] = useState()
 
     const token = "MjoxMzliMDZiZmI4OTJhOGYxYmQ2MzVhZmFmODEyZmM5M2RhNDFkM2Yx"
     const product_id = 63
     const tab_include = []
+
     useEffect(() => {
         dispatch(productDetailRequest({token, product_id, tab_include}))
     }, [])
@@ -43,7 +47,6 @@ const PageListCart = (props) => {
     const list_comment = commentSuccess ? product_request.commentList.detail : null
     const productsDetail =  productSuccess ? product_detail.productDetail.detail : []
 
-       
     const handleClick =  (request_id, request_status) => {
         setReqStatus(request_status)
         setShowPopUp(!showPopUp)
@@ -65,10 +68,9 @@ const PageListCart = (props) => {
     }
 
     const onSearch = () => {
-
         dispatch(approvedListRequest({ token, product_id, request_type, request_status, priority, order_by_oldest}))
     }
-  
+    
     const sendMessage = (request_id) =>{
         if(content === ""){
             setValid('Content not null')
@@ -82,6 +84,7 @@ const PageListCart = (props) => {
     const changeComment = (value) =>{
         setContent(value)
     }
+
   
     return (
        
@@ -101,6 +104,7 @@ const PageListCart = (props) => {
             />
         
             <DialogResponeHistory 
+                    page={page}
                     isLoading ={isFetchingComment} 
                     changeComment={changeComment} sendMessage={sendMessage} 
                     image={props.user.avatar_url} showPopUp={showPopUp} 
@@ -110,6 +114,8 @@ const PageListCart = (props) => {
                     request_id={request_id}
                     requestStatus={requestStatus}
                     validContent={validContent}
+                    token={token}
+
             />
         </>
     )

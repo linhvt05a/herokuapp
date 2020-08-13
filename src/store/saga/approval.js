@@ -32,6 +32,9 @@ export function* approveListWatcher(){
 
 
 export function* commentList(payload) {
+    if(payload.payload.limit > 0){
+        console.log('fdsfsfsdfsd')
+    }
     try {
         const response = yield approve_system_services.commentList(payload);
         response.success ? yield put({ type: COMMENT_LIST_SUCCESS, response }) : yield put({ type: COMMENT_LIST_FAILURE, response });

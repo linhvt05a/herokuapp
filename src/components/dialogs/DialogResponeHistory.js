@@ -1,16 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useLayoutEffect} from "react";
 import { CardHeader } from "../common";
 import { Modal } from 'react-bootstrap'
 import TextEditor from '../base/Editor/TextEditor'
 import {Spinner} from '../../components/common'
-import {InfiniteScroll} from 'react-infinite-scroll-component'
-import ReactScrollablePagination from 'react-scrollable-pagination'
-import {withRouter} from 'react-router-dom';
-const Scroller = withRouter(ReactScrollablePagination)
+import InfiniteScroll from "react-infinite-scroller";
+import { useDispatch, useSelector } from 'react-redux'
+import {commentListRequest} from '../../store/action/approval'
 
 const DialogResponeHistory = (props) => {
   const [showReplyForm, setshowReplyForm] = useState(false)
   const { list_comment ,data, isLoading} = props
+  const [loadMore, setLoadMore] = useState([])
+  const dispatch = useDispatch()
+  const dataLoadMore =  useSelector(state => state.product_request)
+  const{token,request_id, page} = props
+
+
+  const handleLoadMore = (limit) =>{
+      // dispatch(commentListRequest(token, request_id, page, limit))
+  }
+
   return (
     <Modal show={props.showPopUp} onHide={props.close}>
       <div
@@ -27,26 +36,24 @@ const DialogResponeHistory = (props) => {
             <div className="modal-body pb-0 pr-3">
               <div className="uni_text_6d30ab fw-medium fs-18 mb-2">PHẢN HỒI</div>
               <div className="approval_history--modal">
-                {list_comment &&
-                  list_comment.map((item) => (
-                    <div className="item">
-                      <figure className="avatar">
-                        <img src={item.customer_avatar} />
-                      </figure>
-                      <div className="content">
-                        <div className="head">
-                          <b className="name">{item.title}</b>
-                          <span className="d-flex align-items-center">
-                            <i className="time">{item.created_at}</i>
-                            <i className="reply las la-undo" ></i>
-                          </span>
+              <InfiniteScroll 
+                    pageStart={props.page}
+                    loadMore={()=> handleLoadMore({limit: list_comment && list_comment.length + 10})}
+                    hasMore={true || false}
+                    useWindow={false}
+                      loader={
+                        <div key="loading" className="loader">
+                          Loading ...
                         </div>
-                        <div className="detail">{item.content}</div>
-                      </div>
-                      
-                    </div>
-                  ))}
-                {props.isLoading && <Spinner />}
+                      }
+                    >
+                {
+                  list_comment && list_comment.map((item, index)=>
+                    <ListComment item={item} />
+                  ) 
+                }
+              </InfiniteScroll>
+                {props.validContent !=="" && props.isLoading && <Spinner />}
                 {props.requestStatus === 1 || props.requestStatus === 3 ?
                     <ShowFormReply 
                           image={props.image} 
@@ -57,15 +64,34 @@ const DialogResponeHistory = (props) => {
                           validContent = {props.validContent}
                         />:<></>}
               </div>
-            
             </div>
             <CloseButton close={props.close} />
           </div>
-       
         </div>
       </div>
     </Modal>
   );
+}
+function ListComment (props){
+
+  return(
+          <div className="item">
+          <figure className="avatar">
+            <img src={props.item.customer_avatar} />
+          </figure>
+          <div className="content" >
+            <div className="head">
+              <b className="name">{props.item.title}</b>
+              <span className="d-flex align-items-center">
+                <i className="time">{props.item.created_at}</i>
+                <i className="reply las la-undo" ></i>
+              </span>
+            </div>
+            <div className="detail">{props.item.content}</div>
+          </div>
+      </div>
+  )
+
 }
 
 function ShowFormReply(props) {
