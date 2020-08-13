@@ -13,7 +13,9 @@ const CustomerInfoForm = (props) => {
     const [state, setState] = useState({
         dataCustomerName: [],
         valueSeach: "",
-        dataCustomer: []
+        dataCustomer: {},
+        customer_name: "",
+        customer_title: ""
     })
     const token = 'MjoxMzliMDZiZmI4OTJhOGYxYmQ2MzVhZmFmODEyZmM5M2RhNDFkM2Yx=';
 
@@ -21,6 +23,15 @@ const CustomerInfoForm = (props) => {
         return { value, label }
     }
     // console.log(props);
+    useEffect(() => {
+        if (typeCustomer == 1) {
+            dispatch(actionsCustomer.requestCustomerList({ token }));
+        }
+        else {
+            setState({ ...state, dataCustomer: {} })
+        }
+    }, [typeCustomer])
+
     useEffect(() => {
         if (state.valueSeach !== "") {
             let dataCustomer = customerList[0]
@@ -43,6 +54,9 @@ const CustomerInfoForm = (props) => {
     const onSearchCustomer = (search) => {
         setState({ ...state, valueSeach: search })
         dispatch(actionsCustomer.requestCustomerList({ token: token, name: search }))
+    }
+    const onDisable = (id) => {
+        return id == 1 ? true : false
     }
     return (
         <div>
@@ -79,72 +93,85 @@ const CustomerInfoForm = (props) => {
                             <div className="col-12 col-6 col-md-6 col-lg-3">
                                 <div className="form-group">
                                     <label className="fw-medium">Danh xưng <span className="uni_star_e94c4c">*</span></label>
-                                    <Select datas={[{ label: 'Ông', value: 0 }, { label: 'Bà', value: 1 }]}
-                                        placeholder='Chọn danh xưng' value={""}
+                                    <Select
+                                        datas={[{ label: 'Ông', value: 1 }, { label: 'Bà', value: 2 }]}
+                                        disabled={onDisable(typeCustomer)}
+                                        placeholder='Chọn danh xưng'
+                                        onChange={value => setState({ ...state, customer_title: value })}
+                                        value={typeCustomer == 1 ? state.dataCustomer.customer_active_flag !== undefined ? state.dataCustomer.customer_active_flag === false ? 2 : 1 : "" : state.customer_title}
                                     />
+
                                 </div>
                             </div>
                             <div className="col-12 col-6 col-md-6 col-lg-3">
-                                <Input label='Họ tên' type="text" placeholder="Nhập họ tên" />
+                                <Input
+                                    label='Họ tên'
+                                    type="text"
+                                    value={typeCustomer == 1 ? state.dataCustomer.customer_name : state.customer_name}
+                                    placeholder={typeCustomer == 1 ? "" : "Nhập họ tên"}
+                                    onChange={(value => setState({ ...state, customer_name: value }))}
+                                    disabled={onDisable(typeCustomer)} />
                             </div>
+                            {console.log(state)}
                             <div className="col-12 col-6 col-md-6 col-lg-3">
                                 <div className="form-group">
                                     <label className="fw-medium">Đối tượng khách hàng <span className="uni_star_e94c4c">*</span></label>
-                                    <Select></Select>
+                                    <Select value={state.dataCustomer.customer_job ? state.dataCustomer.customer_job : ""} disabled={onDisable(typeCustomer)} />
                                 </div>
                             </div>
                             <div className="col-12 col-6 col-md-6 col-lg-3">
                                 <Input type="text"
-                                    placeholder="Nhập số"
+                                    value={state.dataCustomer.customer_business_certification ? state.dataCustomer.customer_business_certification : ""}
+                                    placeholder="Nhập số" disabled={onDisable(typeCustomer)}
                                     label={<><span>Số CMND/CCCD/Hộ chiếu</span> <span className="uni_star_e94c4c">*</span></>}
                                 />
                             </div>
                             <div className="col-12 col-6 col-md-6 col-lg-3">
                                 <div className="form-group">
                                     <label className="fw-medium">Quốc tịch <span className="uni_star_e94c4c">*</span></label>
-                                    <Select></Select>
+                                    <Select value="Việt nam" disabled={onDisable(typeCustomer)}></Select>
                                 </div>
                             </div>
                             <div className="col-12 col-6 col-md-6 col-lg-3">
                                 <div className="form-group">
                                     <label className="fw-medium">Tỉnh / Thành phố <span className="uni_star_e94c4c">*</span></label>
-                                    <Select></Select>
+                                    <Select disabled={onDisable(typeCustomer)}></Select>
                                 </div>
                             </div>
                             <div className="col-12 col-6 col-md-6 col-lg-3">
                                 <div className="form-group">
                                     <label className="fw-medium">Quận / Huyện <span className="uni_star_e94c4c">*</span></label>
-                                    <Select></Select>
+                                    <Select disabled={onDisable(typeCustomer)}></Select>
                                 </div>
                             </div>
                             <div className="col-12 col-6 col-md-6 col-lg-3">
                                 <div className="form-group">
                                     <label className="fw-medium">Phường / Xã <span className="uni_star_e94c4c">*</span></label>
-                                    <Select></Select>
+                                    <Select disabled={onDisable(typeCustomer)}></Select>
                                 </div>
                             </div>
                             <div className="col-12 col-6 col-md-6 col-lg-3">
                                 <div className="form-group">
                                     <label className="fw-medium">Số nhà <span className="uni_star_e94c4c">*</span></label>
-                                    <Input type="text" placeholder="Nhập số nhà" />
+                                    <Input type="text" placeholder="Nhập số nhà" disabled={onDisable(typeCustomer)} />
                                 </div>
                             </div>
                             <div className="col-12 col-6 col-md-6 col-lg-3">
                                 <div className="form-group">
                                     <label className="fw-medium">Email <span className="uni_star_e94c4c">*</span></label>
-                                    <Input type="text" placeholder="Email " />
+                                    <Input type="text" placeholder="Email " value={state.dataCustomer.customer_email} disabled={onDisable(typeCustomer)} />
                                 </div>
                             </div>
                             <div className="col-12 col-6 col-md-6 col-lg-3">
                                 <div className="form-group">
                                     <label className="fw-medium">Điện thoại <span className="uni_star_e94c4c">*</span></label>
-                                    <Input type="text" placeholder="Nhập số " />
+                                    <Input type="text" placeholder="Nhập số " disabled={onDisable(typeCustomer)} />
                                 </div>
                             </div>
                             <div className="col-12 col-6 col-md-6 col-lg-3">
                                 <div className="form-group">
                                     <label className="fw-medium">Ngày sinh</label>
-                                    <DatePicker style={{ width: "100%" }} />
+                                    <DatePicker style={{ width: "100%" }} disabled={onDisable(typeCustomer)} />
                                 </div>
                             </div>
                         </div>

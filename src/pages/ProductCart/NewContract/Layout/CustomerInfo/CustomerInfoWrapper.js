@@ -15,12 +15,6 @@ const CustomerInFoWrapper = (props) => {
     const dispatch = useDispatch();
     const token = 'MjoxMzliMDZiZmI4OTJhOGYxYmQ2MzVhZmFmODEyZmM5M2RhNDFkM2Yx=';
 
-    useEffect(() => {
-        dispatch(actionsCustomer.requestCustomerList({ token, search: '' }));
-    }, [])
-
-
-
     return (
         <CustomerInfoForm typeCustomer={state.typeCustomer}
             changeTypeCustomer={(value) => setState({ ...state, typeCustomer: value })}
