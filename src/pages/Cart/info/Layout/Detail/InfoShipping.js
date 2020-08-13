@@ -7,12 +7,12 @@ import { Select } from "../../../../../components/base"
 import ModalRequest from "../modal/ModalRequest"
 import { Link } from 'react-router-dom';
 import { useSelector } from "react-redux";
-import { isProductStatus, isProductType, isProductColor, formatCurrency } from "../../../../../utils/Utils"
-import { CardNodata } from "../../../../../components/common";
+import { isProductStatus, isProductType, isProductColor, formatCurrency, translate } from "../../../../../utils/Utils"
+import { CardNodata, Loading } from "../../../../../components/common";
 
 const InfoShipping = props => {
     const token = 'MTAwNjpNVEF3Tmpwa05ESmlPVGc1WldVM05HWmhNMlZrWXpWaFlqQXhOalV4T1RReFl6QmtOVFUyTW1Oa1pUVTQ=';
-    let { STATE } = props;
+    let { STATE, loading } = props;
     let { state, setState } = STATE
     const [click, setClick] = useState([]);
     const [show, setShow] = useState({
@@ -60,25 +60,23 @@ const InfoShipping = props => {
         setClick(newData)
     }
 
-    //will-change: transform; position: absolute; transform: translate3d(-137px, -145px, 0px); top: 0px; left: 0px;
     const renderPopUp = (value) => {
-
         return (
             <div className="dropdown-menu show" x-placement="top-start" style={{ position: 'absolute', transform: 'translate3d(-183px, -150px, 0px)', top: 0, left: 0, willChange: 'transform' }}>
                 <a className="dropdown-item" data-toggle="modal" data-target="#createRequest" onClick={() => setShow({ ...show, Show_request: true, value: value })}>
-                    <i className="icon-dropdown las la-question-circle" /><Trans>Create a request</Trans></a>
+                    <i className="icon-dropdown las la-question-circle" /><Trans>create_request</Trans></a>
 
                 <Link to={'/perm/project/' + value.product_id}
                     className="dropdown-item"
                 >
                     <i className="icon-dropdown las la-list-alt" />
-                    <Trans>See requirements</Trans>
+                    <Trans>see_requirements</Trans>
                 </Link>
 
                 <a className="dropdown-item" onClick={() => setShow({ ...show, Show_contract: true })}>
-                    <i className="icon-dropdown las la-plus-square" /><Trans>Create a contract</Trans></a>
+                    <i className="icon-dropdown las la-plus-square" /><Trans>create_contract</Trans></a>
                 <a className="dropdown-item" onClick={() => setShow({ ...show, Show_return: true })} >
-                    <i className="icon-dropdown las la-undo" /><Trans>Request a return</Trans></a>
+                    <i className="icon-dropdown las la-undo" /><Trans>request_return</Trans></a>
             </div>
         )
     }
@@ -90,7 +88,7 @@ const InfoShipping = props => {
                     <div className="floor_selected">
                         <div className="floor mi" style={{ minWidth: `70px` }}>{data.floor_or_lot_name}</div>
                         <a className="agency channel uni_text_6d30ab text-underline border-right-0" href="#">
-                            Tổng số sản phẩm: {data.total_product}
+                            {translate("total_product")}: {data.total_product}
                         </a>
                     </div>
                 </td>
@@ -114,12 +112,14 @@ const InfoShipping = props => {
                 return <tr key={`${value.product_name} - ${i}`} className={`child child-row${index} ${click.length > 0 ? click[index] && click[index].status : null}`} >
                     <td className={i == item.length - 1 ? "pl-0" : "border-bottom-none pl-0"} colSpan={2}>
                         <a href="#" className="uni_text_e94c4c m_border_e94c4c fw-medium number_circle_top pl-3 pr-3 pt-2 pb-2" data-toggle="modal" data-target="#listProfile">
-                            <u>Hồ sơ bị từ chối</u>
-                            <small>1</small>
+                            <u>{translate("file_rejected")}</u>
+                            <small>{i}</small>
                         </a>
                     </td>
                     <td>
-                        <i className="icon las la-sticky-note uni_text_e94c4c icon_total_request"><small>{value.total_request}</small></i>
+                        <Link to={'/perm/project/' + value.product_id}>
+                            <i className="icon las la-sticky-note uni_text_e94c4c icon_total_request">{value.total_request > 0 ? <small>{value.total_request}</small> : null}</i>
+                        </Link>
                         <div className="fw-medium uni_text_6d30ab name_apart">{value.product_name}</div>
                         <span className="fw-medium uni_text_000 ">{`[ ${value.architecture_type_name}  | ${value.area_m2_total} m2 ]`}</span>
                     </td>
@@ -127,10 +127,10 @@ const InfoShipping = props => {
                         <div
                             className={`sales_status_cart sales_status_cart_2 min-height-40 `}
                             style={{ borderColor: isProductColor(value.product_status), color: isProductColor(value.product_status) }}
-                        ><Trans>{isProductStatus(value.product_status)}</Trans></div>
+                        >{translate(isProductStatus(value.product_status))}</div>
                     </td>
                     <td>
-                        <Trans>{isProductType(value.product_type_id)}</Trans>
+                        {translate(isProductType(value.product_type_id))}
                     </td>
                     <td>
                         <div className="input-group min-max">
@@ -172,28 +172,28 @@ const InfoShipping = props => {
     return (
         <div className="card square">
             <div className="card-body m_table--collapse">
-                <p className="mb-4 mt-4 fs-18 uni_text_6d30ab text-uppercase text-center font-weight-bold">TÌM KIẾM </p>
+                {loading ? <Loading /> : [<p className="mb-4 mt-4 fs-18 uni_text_6d30ab text-uppercase text-center font-weight-bold">{translate("search")}</p>,
                 <div className="row mb-4 d-flex justify-content-center">
                     <Select
                         className="col-lg-3 col-md-6 col-sm-12"
-                        label="Choose area"
-                        placeholder="Choose area"
+                        label="choose_area"
+                        placeholder="choose_area"
                         name="status"
                         isClear={state.FilterAreaStatus.value == "" ? true : false}
                         value={state.FilterAreaStatus.value} datas={state.dataArea}
                         onChange={(value) => props.onChangeArea(value)} />
                     <Select
                         className="col-lg-3 col-md-6 col-sm-12"
-                        label="Choose block"
-                        placeholder="Choose block"
+                        label="choose_block"
+                        placeholder="choose_block"
                         name="status"
                         isClear={state.FilterBlockStatus.value == "" ? true : false}
                         value={state.FilterBlockStatus.value} datas={state.dataFilterBlock}
                         onChange={(value) => props.onChangeBlock(value)} />
                     <Select
                         className="col-lg-3 col-md-6 col-sm-12"
-                        label="Choose floor or lot"
-                        placeholder="Choose floor or lot"
+                        label="choose_floor"
+                        placeholder="choose_floor"
                         name="status" isClear={state.FilterFloorStatus.value == "" ? true : false}
                         value={state.FilterFloorStatus.value} datas={state.dataFilterFloor}
                         onChange={(value) => props.onChangeFloor(value)} />
@@ -202,24 +202,24 @@ const InfoShipping = props => {
                         <div className="form-group">
                             <label className="invisible d-md-block d-none">button</label>
                             <button type="submit" className="min-width-button btn-uni-purple min-height-40 " onClick={() => props.onSearch()}>
-                                <Trans>Search</Trans>
+                                {translate("search")}
                             </button>
                         </div>
                     </div>
-                </div>
+                </div>,
                 <div className="m_table m_table--sales min-width-100-pc">
                     <table>
                         <thead>
                             <tr>
-                                <th className="pl-0">STT</th>
-                                <th>TẦNG<i className="icon_sort las la-exchange-alt" /></th>
-                                <th>CĂN HỘ<i className="icon_sort las la-exchange-alt" /></th>
-                                <th style={{ width: '10%' }}>TRẠNG THÁI </th>
-                                <th style={{ width: '10%' }}>LOẠI SẢN PHẨM</th>
-                                <th style={{ width: '16%' }}>HOA HỒNG</th>
-                                <th style={{ width: '20%' }}>CHÍNH SÁCH ÁP DỤNG</th>
-                                <th>GIÁ BÁN</th>
-                                <th className="text-center">GHI CHÚ</th>
+                                <th className="pl-0">{translate("no.")}</th>
+                                <th>{translate('floor')}<i className="icon_sort las la-exchange-alt" /></th>
+                                <th>{translate("house")}<i className="icon_sort las la-exchange-alt" /></th>
+                                <th style={{ width: '10%' }}>{translate("status")}</th>
+                                <th style={{ width: '10%' }}>{translate("product_type")}</th>
+                                <th style={{ width: '16%' }}>{translate("commission")}</th>
+                                <th style={{ width: '20%' }}>{translate("policy_apply")}</th>
+                                <th>{translate("price")}</th>
+                                <th className="text-center">{translate("note")}</th>
                             </tr>
                         </thead>
                         {/* heading  */}
@@ -228,7 +228,7 @@ const InfoShipping = props => {
                                 return [trParent(data, index), trChild(data.product_list, index)]
                             }) : <CardNodata />}
                         </tbody></table>
-                </div>
+                </div>]}
             </div>
             {show.Show_request && <ModalRequest active={show.Show_request} close={() => setShow({ ...show, Show_request: false })} value={show.value} />}
             {show.Show_contract && <div></div>}

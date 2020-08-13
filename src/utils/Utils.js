@@ -19,7 +19,8 @@ export {
     isProductType,
     isProductStatus,
     isProductColor,
-    formatCurrency
+    formatCurrency,
+    translate
 }
 
 const DATEFORMAT = {
@@ -234,7 +235,6 @@ function isProductColor(number) {
     }
 }
 function formatCurrency(number) {
-    console.log(number)
     if (number !== null) {
         var n = null;
         if (Number.isInteger(number)) {
@@ -247,6 +247,10 @@ function formatCurrency(number) {
         return n2.split('').reverse().join('') + ",00 ";
     } else {
         return 0;
-        
+
     }
+}
+
+function translate(text) {
+    return <Trans>{text}</Trans>
 }
