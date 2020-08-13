@@ -18,4 +18,4 @@ export const customerListSuccess = (payload) => ({
 export const customerListFailure = (payload) => ({
     type: CUSTOMER_LIST_FAILURE,
     payload,
-  });
+});
