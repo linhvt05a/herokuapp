@@ -78,5 +78,9 @@ export default {
     "lang_vi": "Vietnamese",
     "lang_en": "English",
     "detail": "Detail",
-    "status": "Status"
+    "status": "Status",
+    "high": "High",
+    "average": "Average",
+    "low": "Low",
+    "choose_the_priority": "Choose the priority"
 }
