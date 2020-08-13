@@ -1,4 +1,4 @@
-{
+export default {
     "support_request": "Require to be supported",
     "note": "Note",
     "request_info": "Information must be entered",
@@ -78,8 +78,7 @@
     "lang_vi": "Vietnamese",
     "lang_en": "English",
     "detail": "Detail",
-    "status": "Status"
-    "max_conversion": "Maximum Conversion",
+    "status": "Status",
     "high": "High",
     "average": "Average",
     "low": "Low",
