@@ -136,7 +136,7 @@ const TabSalespolicy = (props) => {
     const trChildPath1 = (data, parentId, block_id, type_id, index, status, indexParent, totaldistribute) => {
         let arr = [];
         if (data) {
-            return <tr className={`child child-row-${parentId}-${block_id} ${click[indexParent] && click[indexParent].child && click[indexParent].child.id == index ? click[indexParent].child.status : null}`}
+            return [<tr className={`child child-row-${parentId}-${block_id} ${click[indexParent] && click[indexParent].child && click[indexParent].child.id == index ? click[indexParent].child.status : null}`}
                 data-child={`row-${parentId}`} data-parent={`row-${parentId}-${block_id}-${type_id}`}>
                 <td className="border-bottom-none"></td>
                 <td className="border-bottom-none"></td>
@@ -193,7 +193,9 @@ const TabSalespolicy = (props) => {
                     : ''
                     }
                 </td>
-            </tr>
+            </tr>,
+            data.list_internal.length != 0 ?
+            trChildPathEnd(data.list_internal, parentId, block_id, type_id, index, status, indexParent, totaldistribute): ""]
         }
         return arr;
     }
@@ -201,7 +203,7 @@ const TabSalespolicy = (props) => {
     const trChildPath2 = (data, parentId, block_id, type_id, index, status, indexParent, totaldistribute) => {
         let arr = [];
         if (data) {
-            return <tr className={`child child-row-${parentId}-${block_id} ${click[indexParent] && click[indexParent].child && click[indexParent].child.id == index ? click[indexParent].child.status : null}`}
+            return [<tr className={`child child-row-${parentId}-${block_id} ${click[indexParent] && click[indexParent].child && click[indexParent].child.id == index ? click[indexParent].child.status : null}`}
                     data-child={`row-${parentId}`} data-parent={`row-${parentId}-${block_id}-${type_id}`}>
                 <td className="border-bottom-none"></td>
                 <td className="border-bottom-none"></td>
@@ -258,7 +260,46 @@ const TabSalespolicy = (props) => {
                     : ''
                     }
                 </td>
+            </tr>, 
+            data.list_agent.length != 0 ?
+            trChildPathEnd(data.list_agent, parentId, block_id, type_id, index, status, indexParent, totaldistribute): ""]
+        }
+        return arr;
+    }
+    const trChildPathEnd = (data, parentId, block_id, type_id, index, status, indexParent, totaldistribute) => {
+        let arr = [];
+        if (data) {
+            arr = data.map((item, i) => {
+            return <tr class="child child-row-262-2-1" data-child-two="row-262-2" data-child="row-262">
+                <td class="border-bottom-none"></td>
+                <td class="border-bottom-none"></td>
+                <td colspan="1" class="pl-0">
+                    {item.customer_name}
+                </td>
+                <td>
+                    
+                    {/* <a href="#" target="_blank" class="link_href_6d30ab font-weight-bold">
+                    <u>{item.policy_name}</u></a> */}
+                    {item.policy_active_flag != null ?
+                    <a href="#" target="_blank" class="link_href_6d30ab font-weight-bold">
+                        <u>{item.policy_name}</u>
+                    </a>: <span class="uni_text_6d30ab">-</span>
+                    }
+                </td>
+                <td>   
+                    <span class="text-green-399b54 font-weight-bold">Active</span>
+                </td>
+                <td>20/07/2020</td>
+                <td>30/07/2020</td>
+                <td>
+                    <span class="d-inline-flex align-items-center justify-content-center m_text_status_3 m_border_status_3 min-height-40 pl-3 pr-3 width-110">
+                        Finished
+                    </span>
+                </td>
+                <td></td>
+                <td></td>
             </tr>
+            })
         }
         return arr;
     }
@@ -291,10 +332,6 @@ const TabSalespolicy = (props) => {
                     <tbody style={{ maxHeight: "400px" }}>
                         {salepolicyListRes ? salepolicyListRes.map((data, index) => {
                             return [trParent(data, index), trChild(data.list_block, data.id, index, data.status)]
-                            // return [trParent(data, index), trChild(data.list_block, index, data.status)]
-                            // data.list_block ? data.list_block.map((childdata, childindex) => {
-                            //     return [trParent(data, index), trChild(data.list_block, index, data.status), trChildPath(childdata.list_policy_agent, childindex)]
-                            // }) : null
                         }) : null}
                     </tbody>
                 </table>
