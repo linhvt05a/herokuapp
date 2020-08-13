@@ -1,9 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import DiscountList from './DiscountList';
 import PriceTable from './PriceTable'
 import { Link } from 'react-router-dom';
+import { actionsCustomer } from '../../../../../store/action';
+import { useDispatch, useSelector } from "react-redux";
+
 
 const DiscountWrapper = (props) => {
+
+    const token = 'MTAwNjpNVEF3Tmpwa05ESmlPVGc1WldVM05HWmhNMlZrWXpWaFlqQXhOalV4T1RReFl6QmtOVFUyTW1Oa1pUVTQ=';
+    const dispatch = useDispatch();
+    const promotionStore = useSelector(state => state.promotionContract);
+    useEffect(() => {
+        dispatch(actionsCustomer.requestCustomerPromotionContract({ token: token, product_id: 1790 }))
+    }, []);
+
+    const promotionSuccess = promotionStore.promotionContract.success;
+    const promotionListRes = promotionSuccess ? promotionStore.promotionContract.detail : null;
+
+    console.log('jjjjjjjjjjjj', promotionListRes);
     return(
         <div>
            <div class="create-contract__item collapse show" data-step="2">
