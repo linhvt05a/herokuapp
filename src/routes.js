@@ -51,7 +51,7 @@ const MAINS = [
     /*{ "path": "/cart/cart_list", "value": Info.Home, "menu": "menu_shipping_cart_list_title", "title": "menu_shipping_cart_list_title" },
     { "path": "/cart/cart_list/detail/:id", "value": Info.Edit, "menu": "menu_shipping_cart_list_title", "title": "Detail" },*/
     { "path": "/cart/cart_list", "value": Cart.Home, "menu": "menu_shipping_cart_list_title", "title": "menu_shipping_cart_list_title" },
-    { "path": "/cart/cart_list/detail/:id", "value": Cart.Edit, "menu": "menu_shipping_cart_list_title", "title": "Detail" },
+    { "path": "/cart/cart_list/detail/:id", "value": Cart.Edit, "menu": "menu_shipping_cart_list_title", "title": "detail", "noTitle": true },
 ]
 
 export const STORYBOOKS = [

@@ -127,7 +127,7 @@ class MainPage extends Component {
                 />
                 <div className="page-wrapper">
                     <div className="container-fluid">
-                        <PageTitle label={this.state.title} location={this.props.location} PATHS={this.props.PATHS} />
+                        <PageTitle label={this.state.title} location={this.props.location} PATHS={this.props.PATHS} {...this.props} />
                         {
                             <this.state.page user={user}
                                 search={search}

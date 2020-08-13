@@ -131,34 +131,35 @@ const Edit = props => {
     }
 
     return (
-        [<div className="row mt-3">
+        [<div className="page-title text-truncate m_text_000 font-weight-medium">{dataCart.Detail.name}</div>
+            , <div className="row mt-3" >
             <div className="col-xl-6 col-lg-6 col-md-12 col-sm-12 d-flex flex-column">
-                <CardHeader label="PROJECT INFORMATION" />
-                {dataCart.isLoadingDetail ? <Loading /> : <Item.Detail_info data={dataCart.Detail} />}
+                <CardHeader label="project_information" />
+                <Item.Detail_info data={dataCart.Detail} loading={dataCart.isLoadingDetail} />
             </div>
             <div className="col-xl-6 col-lg-6 col-md-12 col-sm-12 d-flex flex-column">
-                <CardHeader label="STATISTICS OF OPEN SALE" />
-                {dataCart.isLoadingSaleOpen ? <Loading /> : <Item.Detail_progress dataSellOpen={dataCart.Sell_Open} />}
+                <CardHeader label="statictis_of_open_sale" />
+                <Item.Detail_progress dataSellOpen={dataCart.Sell_Open} loading={dataCart.isLoadingSaleOpen} />
             </div>
         </div>,
         <div>
-            <CardHeader label="LIST OF AREAS" dropdown={{ title: state.areaStatus.label, data: state.dataArea }} onClick={(value) => onFilterArea(value)} />
-            {dataCart.isLoadingSaleOpenList ? <Loading /> : <Item.Detail_content data={dataCart.Sell_Open_Floor} floorData={state.dataFilterFloor} />}
+            <CardHeader label="list_of_areas" dropdown={{ title: state.areaStatus.label, data: state.dataArea }} onClick={(value) => onFilterArea(value)} />
+            <Item.Detail_content data={dataCart.Sell_Open_Floor} floorData={state.dataFilterFloor} loading={dataCart.isLoadingSaleOpenList} />
         </div>,
         <div>
-
-            <CardHeader label="Basket details" dropdown={{ title: state.saleOpenStatus.value == "" ? "Tất cả" : state.saleOpenStatus.label, data: state.dataSaleOpen }} onClick={(value) => onFilteSaleOpen(value)} />
-            {dataCart.isLoadingSaleOpenCart ? <Loading /> : <Item.Detail_InfoShipping
+            <CardHeader label="basket_details" dropdown={{ title: state.saleOpenStatus.value == "" ? "Tất cả" : state.saleOpenStatus.label, data: state.dataSaleOpen }} onClick={(value) => onFilteSaleOpen(value)} />
+            <Item.Detail_InfoShipping
                 STATE={{ state, setState }}
                 onChangeArea={(value) => onChangeArea(value)}
                 onChangeFloor={(value) => onChangeFloor(value)}
                 onChangeBlock={(value) => onChangeBlock(value)}
                 onSearch={() => ONSEARCH()}
+                loading={dataCart.isLoadingSaleOpenCart}
                 {...props}
             // data={dataCart.Sell_Open_Cart}
             // dropdownFloor={{ value: "", data: state.dataSaleOpen }}
             // onFilterFloor={(value) => console.log(value)}
-            />}
+            />
 
         </div>]
     )
