@@ -32,13 +32,13 @@ function commentList(payload) {
 }
 
 function approveList(payload) {
-    const{token, product_id, request_type, request_status, priority,order_by_oldest} = payload.payload
+    const{token, product_id, request_type, request_status, priority, order_by_oldest} = payload.payload
     const requestOptions = {
         method: 'GET',
         headers: api.getHeader(token)
     };
 
-    const params = {product_id, request_type, request_status, priority, order_by_oldest};
+    const params = {product_id, request_type, request_status, priority,order_by_oldest};
     const url = api.getUrl(api.HISTORY_APPROVED, params)
     return api.handleRequest(url, requestOptions);
 }

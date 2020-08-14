@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useLayoutEffect} from "react";
 import { CardHeader } from "../common";
-import { Modal } from 'react-bootstrap'
+import { Modal } from 'antd'
 import TextEditor from '../base/Editor/TextEditor'
 import {Spinner} from '../../components/common'
 import InfiniteScroll from "react-infinite-scroller";
@@ -13,45 +13,49 @@ const DialogResponeHistory = (props) => {
   const { list_comment ,data, isLoading} = props
 
   return (
-    <Modal show={props.showPopUp} onHide={props.close}>
-      <div
-        className="modal fade show"
-        style={{ display: "block", paddingRight: 15 }}
-      >
+        <Modal
+            closable={props.close}
+            visible={props.showPopUp}
+            footer={null}
+            width={1200}
+            onCancel={() => props.close()}>
         <div
-          className="modal-dialog center"
-          style={{ maxWidth: 1095 }}
-          role="document"
-        >
-          <CardHeader label={props.requestStatus=== 1 || props.requestStatus === 3 ? "PHẢN HỒI" : "LỊCH SỬ PHẢN HỒI"} />
-          <div className="modal-content square">
-            <div className="modal-body pb-0 pr-3">
-              <div className="uni_text_6d30ab fw-medium fs-18 mb-2">PHẢN HỒI</div>
-              <div className="approval_history--modal" onScroll={props.handleScroll}>
-              {isLoading  && <Spinner />}
-                {
-                  
-                  list_comment && list_comment.map((item, index)=>
-                  <ListComment item={item} />
-                  ) 
-                }
-                
-                {props.validContent !=="" && isLoading && <Spinner />}
-                {props.requestStatus === 1 || props.requestStatus === 3 ?
-                    <ShowFormReply 
-                          image={props.image} 
-                          changeComment ={props.changeComment} 
-                          showReplyForm={showReplyForm} 
-                          sendMessage ={()=>props.sendMessage(props.request_id)} 
-                          closeForm={() => setshowReplyForm(false)} 
-                          validContent = {props.validContent}
-                        />:<></>}
-              </div>
-            </div>
-            <CloseButton close={props.close} />
+    className="modal fade show"
+    style={{ display: "block", paddingRight: 15 }}
+  >
+    <div
+      className="modal-dialog center"
+      style={{ maxWidth: 1095 }}
+      role="document"
+    >
+      <CardHeader label={props.requestStatus=== 1 || props.requestStatus === 3 ? "PHẢN HỒI" : "LỊCH SỬ PHẢN HỒI"} />
+      <div className="modal-content square">
+        <div className="modal-body pb-0 pr-3">
+          <div className="uni_text_6d30ab fw-medium fs-18 mb-2">PHẢN HỒI</div>
+          <div className="approval_history--modal" onScroll={props.handleScroll}>
+          {isLoading  && <Spinner />}
+            {
+              list_comment && list_comment.map((item, index)=>
+              <ListComment item={item} />
+              ) 
+            }
+            
+            {props.validContent !=="" && isLoading && <Spinner />}
+            {props.requestStatus === 1 || props.requestStatus === 3 ?
+                <ShowFormReply 
+                      image={props.image} 
+                      changeComment ={props.changeComment} 
+                      showReplyForm={showReplyForm} 
+                      sendMessage ={()=>props.sendMessage(props.request_id)} 
+                      closeForm={() => setshowReplyForm(false)} 
+                      validContent = {props.validContent}
+                    />:<></>}
           </div>
         </div>
+        <CloseButton close={props.close} />
       </div>
+    </div>
+  </div>
     </Modal>
   );
 }
