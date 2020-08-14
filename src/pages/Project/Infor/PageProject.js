@@ -71,8 +71,8 @@ const PageProject = props => {
     return (
         [<CardHeader
             dropdown={{ title: state.projectStatus && state.projectStatus.value == "" ? "Product Status" : state.projectStatus.label, data: state.dataProjectStatus }}
-            label={"Project"}
-            searchBox={{ title: "home_map_search" }}
+            label={"project"}
+            searchBox={{ title: "project_name" }}
             onSearch={value => SEARCH(value)}
             onClick={value => onFilter(value)} />
             , <ListProduct

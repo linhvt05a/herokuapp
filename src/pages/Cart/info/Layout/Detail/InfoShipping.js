@@ -109,7 +109,7 @@ const InfoShipping = props => {
         let arr = [];
         if (item) {
             arr = item.map((value, i) => {
-                return <tr key={`${value.product_name} - ${i}`} className={`child child-row${index} ${click.length > 0 ? click[index] && click[index].status : null}`} >
+                return <tr key={`${i}`} className={`child child-row${index} ${click.length > 0 ? click[index] && click[index].status : null}`} >
                     <td className={i == item.length - 1 ? "pl-0" : "border-bottom-none pl-0"} colSpan={2}>
                         <a href="#" className="uni_text_e94c4c m_border_e94c4c fw-medium number_circle_top pl-3 pr-3 pt-2 pb-2" data-toggle="modal" data-target="#listProfile">
                             <u>{translate("file_rejected")}</u>

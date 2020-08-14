@@ -7,6 +7,7 @@ import Select from "../../../../../components/base/Select/Select";
 import Image from "../modal/Image";
 import { Trans } from 'react-i18next';
 import { CardNodata, Loading } from "../../../../../components/common"
+import { translate } from '../../../../../utils/Utils';
 
 const Content = props => {
 
@@ -36,13 +37,14 @@ const Content = props => {
             setState({ ...state, index: value })
         }
     }
+
     return (
         <div className="card square h-100">
             <div className="card-body sales_list-zone">
                 {props.loading ? <Loading /> :
                     [<div className="sales_method_filter mt-2">
                         <div className="item">
-                            <div className="name">Tìm kiếm</div>
+                            <div className="name">{translate("search")}</div>
                             <div className="area">
                                 <span className="label">Theo tầng</span>
                                 <Select classNameGroup="form-group mb-0" datas={state.floor} value={state.valueFilter} onChange={(value) => setState({ ...state, valueFilter: value })} />

@@ -5,7 +5,8 @@ import actionsCart from "../../../store/action/cart";
 import { typeListRequest } from "../../../store/action/dashboard"
 import ListProduct from "../../../components/Wrapper/ProductDetail";
 import { Loading } from "../../../components/common";
-import { CardHeader } from "../../../components/Card"
+import { CardHeader } from "../../../components/Card";
+
 
 const Cart = props => {
     const dispatch = useDispatch();

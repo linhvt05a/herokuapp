@@ -6,6 +6,7 @@ import React from 'react';
 import Sell_Open from "../modal/sell_open";
 import { Trans } from 'react-i18next';
 import { Loading } from "../../../../../components/common"
+import { translate } from '../../../../../utils/Utils';
 
 const progress = props => {
 
@@ -15,7 +16,7 @@ const progress = props => {
                 {props.loading ? <Loading /> :
                     <div className="top pt-3 pl-3 pr-3">
                         <div className="sales_status mb-2">
-                            <p className="title"><Trans>Note</Trans></p>
+                            <p className="title">{translate("note")}</p>
                             <p className="item">
                                 <span className="square sales_status_style02_01_bg"></span>
                                 <span className="text sales_status_style02_01_text"><Trans>Expected</Trans></span>

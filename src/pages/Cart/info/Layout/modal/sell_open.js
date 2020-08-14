@@ -73,10 +73,10 @@ const sell_open = props => {
         <table style={{ minWidth: `735px` }}>
             <thead>
                 <tr>
-                    <th className="col-3 pl-0"><Trans>Sell open</Trans></th>
-                    <th className="col-3 pl-0"><Trans>Product</Trans></th>
-                    <th className="col-3 text-center"><Trans>Total agent</Trans></th>
-                    <th className="col-3 text-center" ><Trans>Total internal</Trans></th>
+                    <th className="col-3 pl-0"><Trans>sell_open</Trans></th>
+                    <th className="col-3 pl-0"><Trans>product</Trans></th>
+                    <th className="col-3 text-center"><Trans>total_agent</Trans></th>
+                    <th className="col-3 text-center" ><Trans>total_internal</Trans></th>
                 </tr>
             </thead>
             <tbody style={{ maxHeight: `300px` }}>
