@@ -18,7 +18,7 @@ class DropdownPurple extends DropItem {
                 <button className="m_select--label m_dropdown--label square  dropdown-toggle" type="button" style={{ backgroundColor: backgroundColor, color: color }} >
                     <Trans>{this.props.label}</Trans>
                 </button>
-                <div className={this.state.show ? "dropdown-menu show" : "dropdown-menu"} aria-labelledby="dropdownMenuButton">
+                <div className={this.state.show ? "dropdown-menu show" : "dropdown-menu"} aria-labelledby="dropdownMenuButton" style={{maxHeight: "300px", overflowY: "auto"}}>
                     {
                         this.props.datas && this.props.datas.map((item, index) => <a className="dropdown-item " key={index} name={item.value} onClick={() => this.onClick(item)}><Trans>{item.label}</Trans> </a>)
                     }
