@@ -43,9 +43,9 @@ function* customerCreateContractWatcher() {
 // }
 
 export function* customerPromotionContract(payload) {
-    let { token } = payload.params;
+    let { token, product_id } = payload.params;
     try {
-        const response = yield customerService.promotionContract(token);
+        const response = yield customerService.promotionContract(token, product_id);
         response.success ? yield put({ type: actions.CUSTOMER_PROMOTION_CONTRACT_SUCCESS, response }) : yield put({ type: actions.CUSTOMER_PROMOTION_CONTRACT_FAILURE, response });
     } catch (err) {
         yield put({ type: actions.CUSTOMER_PROMOTION_CONTRACT_FAILURE, err });

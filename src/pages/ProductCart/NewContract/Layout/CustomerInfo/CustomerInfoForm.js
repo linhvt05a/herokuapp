@@ -4,8 +4,8 @@ import { Radio } from 'antd';
 import Input from '../../../../../components/base/Input/Input';
 import DatePicker from '../../../../../components/base/DatePicker/DatePicker';
 import Select from '../../../../../components/base/Select/Select';
-import { useDispatch, connectAdvanced } from "react-redux";
-import { actionsCustomer } from '../../../../../store/action';
+import { useDispatch, useSelector } from "react-redux";
+import { actionsCustomer, actionsLocation } from '../../../../../store/action';
 import { converAddress } from "../../../../../utils/Utils"
 
 const CustomerInfoForm = (props) => {
@@ -17,26 +17,52 @@ const CustomerInfoForm = (props) => {
         dataCustomer: {},
         customer_name: "",
         customer_title: "",
-        address: {},
-        gender: null
+        address: { _city: 0, _district: "", _ward: "", _address: "" },
+        gender: null,
+        dataCity: [],
+        dataDistrict: [],
     })
     const token = 'MjoxMzliMDZiZmI4OTJhOGYxYmQ2MzVhZmFmODEyZmM5M2RhNDFkM2Yx=';
-
+    const locationStore = useSelector(state => state.location);
     const createData = (value, label) => {
         return { value, label }
     }
-    // console.log(props);
+
+    useEffect(() => {
+        let data = locationStore.provinceList;
+        if (data.detail && data.detail.length > 0) {
+            let newData = [];
+            data.detail.map((item) => {
+                newData.push(createData(item.province_id, item.name))
+            })
+            setState({ ...state, dataCity: newData })
+        }
+    }, [locationStore.provinceList]);
+    useEffect(() => {
+        let data = locationStore.districtList;
+        if (data.detail && data.detail.length > 0) {
+            let newData = [];
+            data.detail.map((item) => {
+                newData.push(createData(item.district_id, item.name))
+            })
+            setState({ ...state, dataDistrict: newData })
+        }
+    }, [locationStore.districtList])
+
+
     useEffect(() => {
         if (typeCustomer == 1) {
             dispatch(actionsCustomer.requestCustomerList({ token }));
+            setState({ ...state, address: { _city: "", _ward: "", _district: "", _address: "" } })
         }
         else {
             setState({
                 ...state,
                 dataCustomer: {},
-                address: {},
+                address: { _city: -1, _ward: "", _district: "", _address: "" },
                 customer_name: "",
-                customer_title: ""
+                customer_title: "",
+                gender: null
             })
         }
     }, [typeCustomer])
@@ -52,11 +78,15 @@ const CustomerInfoForm = (props) => {
             if (customerList.length > 0) {
                 let newData = [];
                 customerList.map((item, index) => {
-                    newData.push(createData(item.customer_name, item.customer_name))
+                    newData.push(createData(item.customer_name, item.customer_find))
                 })
                 setState({ ...state, dataCustomerName: newData })
             }
-    }, [customerList])
+    }, [customerList]);
+
+    useEffect(() => {
+        dispatch(actionsLocation.requestProvinceList({ token: token }))
+    }, [])
 
     const onChangeTypeCustomer = (e) => {
         changeTypeCustomer(e.target.value);
@@ -66,9 +96,15 @@ const CustomerInfoForm = (props) => {
         setState({ ...state, valueSeach: search })
         dispatch(actionsCustomer.requestCustomerList({ token: token, name: search }))
     }
+    const onChangeCity = (value) => {
+        setState({ ...state, address: { _city: value, _ward: "", _district: "", _address: "" } })
+        dispatch(actionsLocation.requestDistrictList({ token: token, province_id: value }))
+    }
+
     const onDisable = (id) => {
         return id == 1 ? true : false
     }
+    console.log(state.dataDistrict);
     return (
         <div>
             <div className="create-contract__wrap">
@@ -146,13 +182,22 @@ const CustomerInfoForm = (props) => {
                             <div className="col-12 col-6 col-md-6 col-lg-3">
                                 <div className="form-group">
                                     <label className="fw-medium">Tỉnh / Thành phố <span className="uni_star_e94c4c">*</span></label>
-                                    <Select disabled={onDisable(typeCustomer)} value={onDisable(typeCustomer) ? state.address._city : ""}></Select>
+                                    <Select
+                                        disabled={onDisable(typeCustomer)}
+                                        value={state.address._city}
+                                        isClear={state.address._city === -1 ? true : false}
+                                        onChange={onChangeCity}
+                                        datas={state.dataCity} />
                                 </div>
                             </div>
                             <div className="col-12 col-6 col-md-6 col-lg-3">
                                 <div className="form-group">
                                     <label className="fw-medium">Quận / Huyện <span className="uni_star_e94c4c">*</span></label>
-                                    <Select value={onDisable(typeCustomer) ? state.address._district : ""} disabled={onDisable(typeCustomer)}></Select>
+                                    <Select
+                                        value={state.address._district}
+                                        disabled={onDisable(typeCustomer)}
+                                        isClear={state.address._district === "" ? true : false}
+                                        datas={state.dataDistrict} />
                                 </div>
                             </div>
                             <div className="col-12 col-6 col-md-6 col-lg-3">
