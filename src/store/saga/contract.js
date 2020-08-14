@@ -14,9 +14,9 @@ import {
 
 export function* paymentList(payload) {
     console.log('payloadPaymentList', payload);
-    const { token, productId, paymentPolicyId, chosenDiscountId, initialAmount } = payload.payload;
+    const { token, productId, policyId, chosenDiscountId, initialAmount } = payload.payload;
     const product_id = productId;
-    const payment_policy_id = paymentPolicyId;
+    const payment_policy_id = policyId;
     const chosen_discount_id = chosenDiscountId;
     const initial_amount = initialAmount;
     try {
