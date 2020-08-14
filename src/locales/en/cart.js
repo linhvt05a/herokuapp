@@ -83,5 +83,9 @@ export default {
     average: "Average",
     low: "Low",
     choose_the_priority: "Choose the priority",
-    choose_the_promotion: "Choose the promotion"
+    choose_the_promotion: "Choose the promotion",
+    total_agents: "Total Agents",
+    total_sales_staff: "Total sales staff",
+    total_project: "Total project",
+    total_products_are_selling: "Total products are selling",
 }

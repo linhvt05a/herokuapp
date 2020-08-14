@@ -32,12 +32,13 @@ import {
   requestDataRequest,
   promotionListRequest,
   promotionProductRequest,
+  clearData,
 } from "./requestCart";
-import
-actionsCustomer
-  from "./customer"
-
+import 
+  actionsCustomer 
+from "./customer"
 import actionsLocation from "./location"
+
 export {
   currentcyAddRequest,
   currentcyDetailRequest,
@@ -64,4 +65,5 @@ export {
   promotionProductRequest,
   actionsCustomer,
   actionsLocation
+  clearData,
 };

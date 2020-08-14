@@ -243,7 +243,7 @@ const InfoShipping = props => {
                         </tbody></table>
                 </div>]}
             </div>
-            {show.Show_request && <ModalRequest active={show.Show_request} close={() => setShow({ ...show, Show_request: false })} value={show.value} />}
+            {show.Show_request && <ModalRequest showToast={props.showToast} active={show.Show_request} close={() => setShow({ ...show, Show_request: false })} value={show.value} />}
             {show.Show_contract && <div></div>}
             {show.Show_requirements && <div></div>}
             {show.Show_return && <div></div>}
