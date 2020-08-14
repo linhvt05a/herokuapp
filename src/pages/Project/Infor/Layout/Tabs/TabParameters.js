@@ -93,7 +93,7 @@ const TabParameters = (props) => {
                     </h6>
                 </div>
                 <div className="summernoteOnHead col-12">
-                    <TextEditor value = "" handleChange = {props.changeComment} />
+                    <TextEditor value = "Mô tả dự án" handleChange = {props.changeComment} />
                 </div>
             </div>
             <div className="row mt-4">
