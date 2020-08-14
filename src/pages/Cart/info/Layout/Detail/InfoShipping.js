@@ -73,8 +73,9 @@ const InfoShipping = props => {
                     <Trans>see_requirements</Trans>
                 </Link>
 
-                <a className="dropdown-item" onClick={() => setShow({ ...show, Show_contract: true })}>
-                    <i className="icon-dropdown las la-plus-square" /><Trans>create_contract</Trans></a>
+                <Link to={{ pathname: '/product_card/new_contract/customer_info', state: { value: value } }} className="dropdown-item" >
+                    <i className="icon-dropdown las la-plus-square" />{translate("create_contract")}
+                </Link>
                 <a className="dropdown-item" onClick={() => setShow({ ...show, Show_return: true })} >
                     <i className="icon-dropdown las la-undo" /><Trans>request_return</Trans></a>
             </div>

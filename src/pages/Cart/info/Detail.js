@@ -145,7 +145,7 @@ const Edit = props => {
 
     }
     return (
-        [<PageTitle label={dataCart.Detail.name} location={state.location} PATHS={state.PATH} />
+        [dataCart.Detail && dataCart.Detail.name ? <PageTitle label={dataCart.Detail.name} location={state.location} PATHS={state.PATH} /> : null
             , <div className="row mt-3" >
             <div className="col-xl-6 col-lg-6 col-md-12 col-sm-12 d-flex flex-column">
                 <CardHeader label="project_information" />

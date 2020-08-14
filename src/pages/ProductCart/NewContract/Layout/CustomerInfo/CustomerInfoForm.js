@@ -8,7 +8,7 @@ import { useDispatch } from "react-redux";
 import { customerListRequest } from '../../../../../store/action';
 
 const CustomerInfoForm = (props) => {
-    const {typeCustomer, changeTypeCustomer, customerList } = props;
+    const { typeCustomer, changeTypeCustomer, customerList } = props;
     const dispatch = useDispatch();
     const onChangeTypeCustomer = (e) => {
         changeTypeCustomer(e.target.value);
@@ -32,7 +32,7 @@ const CustomerInfoForm = (props) => {
                             </Radio.Group>
                         </div>
                     </div>
-                    { typeCustomer===1 &&
+                    {typeCustomer === 1 &&
                         <div className="create-contract__customer collapse show">
                             <div class="row mb-4 mt-4" data-select2-id="336">
                                 <div class="col-12 col-md-2 d-flex align-items-center">
@@ -40,7 +40,7 @@ const CustomerInfoForm = (props) => {
                                 </div>
                                 <div class="col-12 col-md-10" data-select2-id="335">
                                     <div class="form-group select2-highlight mb-0">
-                                        <Select onSearch={ onSearchCustomer } data={customerList} />
+                                        <Select onSearch={onSearchCustomer} data={customerList} />
                                     </div>
                                 </div>
                             </div>
@@ -52,13 +52,13 @@ const CustomerInfoForm = (props) => {
                             <div className="col-12 col-6 col-md-6 col-lg-3">
                                 <div className="form-group">
                                     <label className="fw-medium">Danh xưng <span className="uni_star_e94c4c">*</span></label>
-                                    <Select datas={[{label: 'Ông', value: 0}, {label: 'Bà', value: 1}]}
-                                            placeholder='Chọn danh xưng'
+                                    <Select datas={[{ label: 'Ông', value: 0 }, { label: 'Bà', value: 1 }]}
+                                        placeholder='Chọn danh xưng'
                                     />
                                 </div>
                             </div>
                             <div className="col-12 col-6 col-md-6 col-lg-3">
-                            <Input label='Họ tên' type="text" placeholder="Nhập họ tên" />
+                                <Input label='Họ tên' type="text" placeholder="Nhập họ tên" />
                             </div>
                             <div className="col-12 col-6 col-md-6 col-lg-3">
                                 <div className="form-group">
@@ -68,8 +68,8 @@ const CustomerInfoForm = (props) => {
                             </div>
                             <div className="col-12 col-6 col-md-6 col-lg-3">
                                 <Input type="text"
-                                       placeholder="Nhập số"
-                                       label={<><span>Số CMND/CCCD/Hộ chiếu</span> <span className="uni_star_e94c4c">*</span></>}
+                                    placeholder="Nhập số"
+                                    label={<><span>Số CMND/CCCD/Hộ chiếu</span> <span className="uni_star_e94c4c">*</span></>}
                                 />
                             </div>
                             <div className="col-12 col-6 col-md-6 col-lg-3">
@@ -117,7 +117,7 @@ const CustomerInfoForm = (props) => {
                             <div className="col-12 col-6 col-md-6 col-lg-3">
                                 <div className="form-group">
                                     <label className="fw-medium">Ngày sinh</label>
-                                    <DatePicker style={{width: "100%"}}/>
+                                    <DatePicker style={{ width: "100%" }} />
                                 </div>
                             </div>
                         </div>
