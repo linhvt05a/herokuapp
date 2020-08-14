@@ -25,6 +25,9 @@ const PageProjectDetail = (props) => {
             <div class="container-fluid">
                 <ProjectInfo detail={projectDetailRes} />           
                 <ProjectTab tabdata={projectDetailRes.investor} detail={projectDetailRes} project_id={id} token={token} />
+                <div class="sales_list_button text-right">
+                    <a href={`/info/project/`}><button type="button" id="btn-back" class="min-width-button min-height-40 btn-uni-exit">Quay lại</button></a>
+                </div>
             </div>
         : ""
     )
