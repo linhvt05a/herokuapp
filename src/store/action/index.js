@@ -33,10 +33,11 @@ import {
   promotionListRequest,
   promotionProductRequest,
 } from "./requestCart";
-import 
-  actionsCustomer 
+import
+  actionsCustomer
 from "./customer"
 
+import actionsCustomer from "./customer"
 export {
   currentcyAddRequest,
   currentcyDetailRequest,

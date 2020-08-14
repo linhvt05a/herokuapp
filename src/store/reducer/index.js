@@ -7,6 +7,7 @@ import request_cart from './requestCartReducer';
 import productDetail from './productReducer';
 import customer from './customerReducer';
 import contract from './contractReducer';
+import location from "./locationReducer"
 import { combineReducers } from 'redux';
 const allReducers = combineReducers({
     currency, dashboard,
@@ -16,5 +17,6 @@ const allReducers = combineReducers({
     productDetail,
     customer,
     contract,
+    location,
 });
 export default allReducers; 
