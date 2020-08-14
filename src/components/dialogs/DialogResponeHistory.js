@@ -6,10 +6,12 @@ import {Spinner} from '../../components/common'
 import InfiniteScroll from "react-infinite-scroller";
 import { useDispatch, useSelector } from 'react-redux'
 import {commentListRequest} from '../../store/action/approval'
+import { Trans } from 'react-i18next';
 
 const DialogResponeHistory = (props) => {
   const [showReplyForm, setshowReplyForm] = useState(false)
   const { list_comment ,data, isLoading} = props
+
   return (
     <Modal show={props.showPopUp} onHide={props.close}>
       <div
@@ -25,23 +27,16 @@ const DialogResponeHistory = (props) => {
           <div className="modal-content square">
             <div className="modal-body pb-0 pr-3">
               <div className="uni_text_6d30ab fw-medium fs-18 mb-2">PHẢN HỒI</div>
-              <div className="approval_history--modal">
-              <InfiniteScroll 
-                    pageStart={props.page}
-                    loadMore={()=>props.handleLoadMore({limit: list_comment && list_comment.length + 10})}
-                    hasMore={true || false}
-                    useWindow={false}
-                      loader={
-                        <span>Loading....</span>
-                      }
-                    >
+              <div className="approval_history--modal" onScroll={props.handleScroll}>
+              {isLoading  && <Spinner />}
                 {
+                  
                   list_comment && list_comment.map((item, index)=>
-                    <ListComment item={item} />
+                  <ListComment item={item} />
                   ) 
                 }
-              </InfiniteScroll>
-                {props.validContent !=="" && props.isLoading && <Spinner />}
+                
+                {props.validContent !=="" && isLoading && <Spinner />}
                 {props.requestStatus === 1 || props.requestStatus === 3 ?
                     <ShowFormReply 
                           image={props.image} 
@@ -88,7 +83,7 @@ function ShowFormReply(props) {
       <figure className="avatar">
           <img src= {props.image} />
       </figure>
-      <TextEditor value = "" handleChange = {props.changeComment} />
+      <TextEditor handleChange = {props.changeComment} />
         <span style={{color:'red', fontSize: 14, marginTop: 20}}>{props.validContent !== "" ? "Missing Information" : ''}</span>
           <div className="modal-footer pt-0 border-top-0" style={{ marginTop: 25}}>
             <button className=" square btn-uni-exit min-width-button" style={{backgroundColor:'#6d30ab', color:'#fff'}} onClick={props.sendMessage}>SEND</button>

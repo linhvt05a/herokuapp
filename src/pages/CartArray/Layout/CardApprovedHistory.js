@@ -10,7 +10,7 @@ import InputDate from "../../../components/base/DatePicker/DatePicker";
 import {CardApproval} from '../Layout'
 
 const CardApprovedHistory = (props) => {
-  const [selected, setSelected] = useState(false);
+  const [selected, setSelected] = useState(true);
   return (
     <div className="row ">
       <CardFilterApproved onChange={props.onChange} onSearch={props.onSearch} />
@@ -128,16 +128,15 @@ const CardReview = (props) => {
                 {
                     props.listApprove && props.listApprove.length > 0 ?
                     <div className="tab-content">
-                        {props.selected === true ? <div className="tab-pane fade show active" id="newest">
+                        {props.selected === true  ? 
+                        <div className="tab-pane fade show active" id="newest">
                         
                             {props.listApprove && props.listApprove.map((approveItem, index)=>
                                 <CardApproval approveItem={approveItem} handleClick={props.handleClick} />
                             )}
-                        </div>:  <CardNodata />}
-                    </div>:  <CardNodata />
-                    
-                }
-                
+                        </div>: <CardNodata />}
+                    </div>: <CardNodata />
+                }  
           </div>
         </div>
       </div>

@@ -5,7 +5,7 @@ import {productDetailRequest} from '../../store/action/product'
 import { CardInfo, CardApprovedHistory } from './Layout/index'
 import { DialogResponeHistory } from '../../components/dialogs'
 import {ModalHistoryAprroval} from './Layout'
-
+import { Trans } from 'react-i18next';
 
 const PageListCart = (props) => {
     const [showPopUp, setShowPopUp] = useState(false)
@@ -25,7 +25,8 @@ const PageListCart = (props) => {
     const[page, setPage] = useState(1)
     const[total_record, setTotalRecord] = useState(0)
     const[total_page, setTotalPage] = useState(0)
-    const[limit_order_by_last, setLimitPage] = useState()
+    const[limit_order_by_last, setLimitPage] = useState(0)
+    const[loading, setLoading] = useState(false)
 
     const token = "MjoxMzliMDZiZmI4OTJhOGYxYmQ2MzVhZmFmODEyZmM5M2RhNDFkM2Yx"
     const product_id = 63
@@ -37,6 +38,7 @@ const PageListCart = (props) => {
     
     const isFetching = product_request.isFetching;
     const isFetchingComment = product_request.isFetching
+    console.log(isFetchingComment)
     const approveSuccess = product_request.approveList.success
     const isFetchingApprove = product_request.approveList.isFetching
     const commentSuccess = product_request.commentList.success
@@ -84,10 +86,19 @@ const PageListCart = (props) => {
     const changeComment = (value) =>{
         setContent(value)
     }
-    const handleLoadMore = (limit) =>{
-        
+    const handleLoadMore = () =>{
+        setPage(page + 1)
+        setLimitPage(10)
+        dispatch(commentListRequest({token, request_id, limit_order_by_last, page}))
     }
   
+    const handleScroll = (event) => {
+        const element = event.target;
+        if (element.scrollHeight - element.scrollTop === element.clientHeight) {
+            setLoading(true)
+          handleLoadMore()
+        }
+      }
     return (
        
         <>
@@ -101,6 +112,7 @@ const PageListCart = (props) => {
                 list_comment={list_comment}
                 onChange={onChange}
                 onSearch={onSearch}
+              
                 
 
             />
@@ -118,6 +130,8 @@ const PageListCart = (props) => {
                     validContent={validContent}
                     token={token}
                     handleLoadMore = {handleLoadMore}
+                    handleScroll = {handleScroll}
+                    loading={loading}
 
             />
         </>
