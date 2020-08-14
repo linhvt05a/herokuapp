@@ -3,7 +3,9 @@ import { Trans } from 'react-i18next';
 import { Modal, Button } from 'antd';
 import { bankingListRequest } from '../../../../../store/action/project';
 import { useDispatch, useSelector } from "react-redux";
+import Moment from 'moment';
 
+const formatDate = "DD-MM-YYYY";
 const TabBanking = (props) => {
     const token = 'MTAwNjpNVEF3Tmpwa05ESmlPVGc1WldVM05HWmhNMlZrWXpWaFlqQXhOalV4T1RReFl6QmtOVFUyTW1Oa1pUVTQ=';
     let { project_id } = props;
@@ -115,8 +117,8 @@ const ModalListSellOpen = (props) => {
                                             <tr key={index}>
                                                 <td style={{ width: '10%' }} className="pl-0 col-1">{index + 1}</td>
                                                 <td style={{ width: '35%' }} className="col-3">{item.sell_open_name}</td>
-                                                <td style={{ width: '30%' }} className="col-3">{item.sell_open_from_date}</td>
-                                                <td style={{ width: '30%' }} className="col-3">{item.sell_open_to_date}</td>
+                                                <td style={{ width: '30%' }} className="col-3">{Moment(item.sell_open_from_date).format(formatDate)}</td>
+                                                <td style={{ width: '30%' }} className="col-3">{Moment(item.sell_open_to_date).format(formatDate)}</td>
                                             </tr>
                                         ))
                                     }

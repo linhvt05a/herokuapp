@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Trans } from 'react-i18next';
 import { salepolicyListRequest } from '../../../../../store/action/project';
 import { useDispatch, useSelector } from "react-redux";
+import Moment from 'moment';
 
 const TabSalespolicy = (props) => {
     const token = 'MTAwNjpNVEF3Tmpwa05ESmlPVGc1WldVM05HWmhNMlZrWXpWaFlqQXhOalV4T1RReFl6QmtOVFUyTW1Oa1pUVTQ=';
@@ -17,6 +18,8 @@ const TabSalespolicy = (props) => {
     const salepolicyListSuccess = salepolicyStore.salepolicyList.success;
     const salepolicyListRes = salepolicyListSuccess ? salepolicyStore.salepolicyList.detail : null;
 
+    const formatDate = "DD-MM-YYYY";
+    
     const showTapsParent = (target, index) => {
         let newData = [].concat(click);
         if (target.className.indexOf('la-plus-circle') > -1) {
@@ -70,8 +73,8 @@ const TabSalespolicy = (props) => {
                 </td>
                 <td></td>
                 <td></td>
-                <td>{data.sell_open_date}</td>
-                <td>{data.sell_end_date}</td>
+                <td>{Moment(data.sell_open_date).format(formatDate)}</td>
+                <td>{Moment(data.sell_end_date).format(formatDate)}</td>
                 <td>
                     {data.status == 1 ?
                         <span class="d-inline-flex align-items-center justify-content-center m_text_status_1 m_border_status_1 min-height-40 pl-3 pr-3 width-110">
@@ -112,8 +115,8 @@ const TabSalespolicy = (props) => {
                     <td>
                     </td>
                     <td></td>
-                    <td>{item.sell_open_date}</td>
-                    <td>{item.sell_end_date}</td>
+                    <td>{Moment(item.sell_open_date).format(formatDate)}</td>
+                    <td>{Moment(item.sell_end_date).format(formatDate)}</td>
                     <td>
                         {status == 1 ?
                             <span class="d-inline-flex align-items-center justify-content-center m_text_status_1 m_border_status_1 min-height-40 pl-3 pr-3 width-110">
@@ -172,8 +175,8 @@ const TabSalespolicy = (props) => {
                         : <span className="text-green-399b54 font-weight-bold"></span>
                     }
                 </td>
-                <td>{data.sell_open_date}</td>
-                <td>{data.sell_end_date}</td>
+                <td>{Moment(data.sell_open_date).format(formatDate)}</td>
+                <td>{Moment(data.sell_end_date).format(formatDate)}</td>
                 <td>
                 {status == 1 ?
                     <span class="d-inline-flex align-items-center justify-content-center m_text_status_1 m_border_status_1 min-height-40 pl-3 pr-3 width-110">
@@ -239,8 +242,8 @@ const TabSalespolicy = (props) => {
                         : <span className="text-green-399b54 font-weight-bold"></span>
                     }
                 </td>
-                <td>{data.sell_open_date}</td>
-                <td>{data.sell_end_date}</td>
+                <td>{Moment(data.sell_open_date).format(formatDate)}</td>
+                <td>{Moment(data.sell_end_date).format(formatDate)}</td>
                 <td>
                 {status == 1 ?
                     <span class="d-inline-flex align-items-center justify-content-center m_text_status_1 m_border_status_1 min-height-40 pl-3 pr-3 width-110">
@@ -303,8 +306,8 @@ const TabSalespolicy = (props) => {
                     : <span className="text-green-399b54 font-weight-bold"></span>
                 }
                 </td>
-                <td>{item.sell_open_date}</td>
-                <td>{item.sell_end_date}</td>
+                <td>{Moment(item.sell_open_date).format(formatDate)}</td>
+                <td>{Moment(item.sell_end_date).format(formatDate)}</td>
                 <td>
                 {status == 1 ?
                     <span class="d-inline-flex align-items-center justify-content-center m_text_status_1 m_border_status_1 min-height-40 pl-3 pr-3 width-110">

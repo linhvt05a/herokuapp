@@ -2,7 +2,9 @@ import React, { useEffect } from 'react';
 import { Trans } from 'react-i18next';
 import { SellOpenListRequest } from '../../../../../store/action/project';
 import { useDispatch, useSelector } from "react-redux";
+import Moment from 'moment';
 
+const formatDate = "DD-MM-YYYY";
 const TabSellopenlist = (props) => {
     const token = 'MTAwNjpNVEF3Tmpwa05ESmlPVGc1WldVM05HWmhNMlZrWXpWaFlqQXhOalV4T1RReFl6QmtOVFUyTW1Oa1pUVTQ=';
     let { project_id } = props;
@@ -55,8 +57,8 @@ const RowListOpenSell = (props) => {
                     <input type="text" className="form-control text-uppercase" value={item.sell_open_name} readonly=""/>
                 </div>
             </td>
-            <td className="col-2" style={{width: "15%"}}>{item.sell_open_date}</td>
-            <td className="col-2" style={{width: "15%"}}>{item.sell_end_date}</td>
+            <td className="col-2" style={{width: "15%"}}>{Moment(item.sell_open_date).format(formatDate)}</td>
+            <td className="col-2" style={{width: "15%"}}>{Moment(item.sell_end_date).format(formatDate)}</td>
             <td className="col-2" style={{width: "15%"}, {textAlign: "center"}}>
                 <span className="uni_text_6d30ab">{item.total_agent_distribute}</span>
             </td>
