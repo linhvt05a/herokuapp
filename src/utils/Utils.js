@@ -256,32 +256,35 @@ function translate(text) {
 }
 
 function converAddress(address = []) {
-    let city = "";
-    let district = "";
-    let ward = "";
+    let _city = "";
+    let _district = "";
+    let _ward = "";
+    let _address
     let index = 0;
     let isStart = address.length;
-    console.log(address);
     for (let i = address.length;i > 0;i--) {
         if (address[i] == ",") {
-            if (index == 0) {
-                city = address.slice(i + 1, isStart);
-                index = 1; isStart = i + 1;
-            }
-            else {
-                if (index == 1) {
-                    district = address.slice(i + 1, isStart);
-                    index = 2; isStart = i + 1;
-                }
-                else {
-                    ward = address.slice(0, isStart);
-                    index = 2;
-                    break
-                }
-            }
 
+            if (index === 2) {
+                _ward = address.slice(i + 1, isStart);
+                _address = address.slice(0, i);
+                break
+            }
+            if (index === 1) {
+                _district = address.slice(i + 1, isStart);
+                index = 2;
+                isStart = i;
+            }
+            if (index === 0) {
+                _city = address.slice(i + 1, isStart);
+                index = 1;
+                isStart = i;
+            }
         }
     }
-    console.log(city, district, ward);
-    return { city, district, ward }
+
+
+
+    // console.log(_address);
+    return { _city, _district, _ward, _address }
 }
