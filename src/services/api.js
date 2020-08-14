@@ -23,6 +23,7 @@ export default {
     DASHBOARD_TYPE_LIST: '/api/be/v1/common/project/setting_type',
     DASHBOARD_STATUS_LIST: '/api/be/v1/common/project/status',
     DASHBOARD_PROJECT_LIST: '/api/be/v1/project',
+    DASHBOARD_DATA_TOTAL: '/api/be/v1/dashboard/dashboard_total/',
 
     PROJECT_LIST: '/api/v1/project/list/',
     PROJECT_INVESTOR: '/api/v1/information/investor/list_shorten/',
@@ -103,6 +104,8 @@ export default {
 
     //Customer
     CUSTOMER_LIST: "/api/be/v1/customer/list/",
+    CUSTOMER_CREATE_CONTRACT: "/api/be/v1/contract/create/",
+    CUSTOMER_PROMOTION_CONTRACT: "/api/be/v1/contract/promotion/",
 
     //Contract Payment
     CONTRACT_PAYMENT: "/api/be/v1/contract/accounting/",

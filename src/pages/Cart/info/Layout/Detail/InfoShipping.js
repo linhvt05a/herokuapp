@@ -14,7 +14,6 @@ const InfoShipping = props => {
     const token = 'MTAwNjpNVEF3Tmpwa05ESmlPVGc1WldVM05HWmhNMlZrWXpWaFlqQXhOalV4T1RReFl6QmtOVFUyTW1Oa1pUVTQ=';
     let { STATE, loading } = props;
     let { state, setState } = STATE;
-    console.log(state);
     const [click, setClick] = useState([]);
     const [show, setShow] = useState({
         Show_request: false,
@@ -62,25 +61,39 @@ const InfoShipping = props => {
     }
 
     const renderPopUp = (value) => {
-        return (
-            <div className="dropdown-menu show" x-placement="top-start" style={{ position: 'absolute', transform: 'translate3d(-183px, -150px, 0px)', top: 0, left: 0, willChange: 'transform' }}>
-                <a className="dropdown-item" data-toggle="modal" data-target="#createRequest" onClick={() => setShow({ ...show, Show_request: true, value: value })}>
-                    <i className="icon-dropdown las la-question-circle" /><Trans>create_request</Trans></a>
+        if (state.saleOpenStatus.status != 3) {
+            return (
+                <div className="dropdown-menu show" x-placement="top-start" style={{ position: 'absolute', transform: 'translate3d(-183px, -150px, 0px)', top: 0, left: 0, willChange: 'transform' }}>
+                    <a className="dropdown-item" data-toggle="modal" data-target="#createRequest" onClick={() => setShow({ ...show, Show_request: true, value: value })}>
+                        <i className="icon-dropdown las la-question-circle" /><Trans>create_request</Trans></a>
 
-                <Link to={'/perm/project/' + value.product_id}
-                    className="dropdown-item"
-                >
-                    <i className="icon-dropdown las la-list-alt" />
-                    <Trans>see_requirements</Trans>
-                </Link>
+                    <Link to={'/perm/project/' + value.product_id}
+                        className="dropdown-item"
+                    >
+                        <i className="icon-dropdown las la-list-alt" />
+                        <Trans>see_requirements</Trans>
+                    </Link>
 
-                <Link to={{ pathname: '/product_card/new_contract/customer_info', state: { value: value } }} className="dropdown-item" >
-                    <i className="icon-dropdown las la-plus-square" />{translate("create_contract")}
-                </Link>
-                <a className="dropdown-item" onClick={() => setShow({ ...show, Show_return: true })} >
-                    <i className="icon-dropdown las la-undo" /><Trans>request_return</Trans></a>
-            </div>
-        )
+                    <Link to={{ pathname: '/product_card/new_contract/customer_info', state: { value: value } }} className="dropdown-item" >
+                        <i className="icon-dropdown las la-plus-square" />{translate("create_contract")}
+                    </Link>
+                    <a className="dropdown-item" onClick={() => setShow({ ...show, Show_return: true })} >
+                        <i className="icon-dropdown las la-undo" /><Trans>request_return</Trans></a>
+                </div>
+            )
+        }
+        else {
+            return (
+                <div className="dropdown-menu show" x-placement="top-start" style={{ position: 'absolute', transform: 'translate3d(-173px, -35px, 0px)', top: 0, left: 0, willChange: 'transform' }}>
+                    <Link to={'/perm/project/' + value.product_id}
+                        className="dropdown-item"
+                    >
+                        <i className="icon-dropdown las la-list-alt" />
+                        <Trans>see_requirements</Trans>
+                    </Link>
+                </div>
+            )
+        }
     }
     const trParent = (data, index) => {
         return (

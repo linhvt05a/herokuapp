@@ -107,3 +107,19 @@ function convertProjectSettingTypeFilter(list, active_id) {
     }
     return result
 }
+
+export function convertPaymentContract(datas) {
+    let res = [];
+    for (let i = 0; i < datas.length; i++) {
+        let temp = {
+            totalAmount: datas[i].accumulate_total,
+            discount: datas[i].accumulate_rate,
+            title: datas[i].description,
+            amount: datas[i].amount,
+            progress: datas[i].progress_time,
+            paid: datas[i].amount_per_index,
+        }
+        res.push(temp);
+    }
+    return res;
+}

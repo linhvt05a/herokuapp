@@ -57,7 +57,7 @@ const cart = {
     menu_shipping_cart_list_title: "Danh Sách Rổ hàng",
     menu_shipping_cart_registration: "Đăng Ký Rổ Hàng",
     menu_synthetic: "Tổng Hợp",
-    'no.': "Stt",
+    no: "Stt",
     no_data: "Không có dữ liệu",
     note: "Ghi chú",
     policy_apply: "Chính sách áp dụng",
@@ -65,13 +65,13 @@ const cart = {
     priority: "Độ ưu tiên",
     product: "Sản phẩm",
     product_type: "Loại sản phẩm",
-    "project": "Dự án",
+    project: "Dự án",
     project_filter: "Tìm kiếm dự án",
     project_information: "Thông tin dự án",
     project_list: "Danh sách dự án",
     project_name: "Tên dự án",
     project_status: "Tình trạng dự án",
-    "project_investors": "Chủ đầu tư dự án",
+    project_investors: "Chủ đầu tư dự án",
     promotion: "Chương trình khuyến mãi",
     promotion_change_request: "Yêu cầu quy đổi khuyến mãi cho khách hàng",
     promotion_gift: "Khuyến mãi tặng hiện vật hiện tại",
@@ -90,8 +90,9 @@ const cart = {
     status: "Trạng thái",
     support_request: "Yêu cầu hỗ trợ",
     total_product: "Tổng số sản phẩm",
-    "total_area": "Tổng diện tích",
+    total_area: "Tổng diện tích",
     update: "Cập nhật",
+    choose_the_promotion: "Chọn chương trình khuyến mãi"
 }
 
 export default cart;

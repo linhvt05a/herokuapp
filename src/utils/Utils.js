@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Trans } from 'react-i18next';
-import { data } from 'jquery';
 import * as moment from 'moment';
 
 export {
@@ -20,7 +19,8 @@ export {
     isProductStatus,
     isProductColor,
     formatCurrency,
-    translate
+    translate,
+    converAddress
 }
 
 const DATEFORMAT = {
@@ -253,4 +253,35 @@ function formatCurrency(number) {
 
 function translate(text) {
     return <Trans>{text}</Trans>
+}
+
+function converAddress(address = []) {
+    let city = "";
+    let district = "";
+    let ward = "";
+    let index = 0;
+    let isStart = address.length;
+    console.log(address);
+    for (let i = address.length;i > 0;i--) {
+        if (address[i] == ",") {
+            if (index == 0) {
+                city = address.slice(i + 1, isStart);
+                index = 1; isStart = i + 1;
+            }
+            else {
+                if (index == 1) {
+                    district = address.slice(i + 1, isStart);
+                    index = 2; isStart = i + 1;
+                }
+                else {
+                    ward = address.slice(0, isStart);
+                    index = 2;
+                    break
+                }
+            }
+
+        }
+    }
+    console.log(city, district, ward);
+    return { city, district, ward }
 }

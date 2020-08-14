@@ -21,7 +21,6 @@ const Cart = props => {
     // const { token } = props.user;
 
     useEffect(() => {
-        dispatch(actionsCart.LoadList({ token: token, value: state.valueSearch, status_id: state.projectStatus.value }))
         dispatch(typeListRequest({ token: token }))
         dispatch(actionsCart.LoadProjectStatus({ token: token }))
     }, [])
@@ -38,6 +37,7 @@ const Cart = props => {
             data.map((item) => {
                 dataSelect.push(create_Filter_Project_Status(item.id, item.name))
             })
+            dispatch(actionsCart.LoadList({ token: token, value: state.valueSearch, status_id: dataSelect[0].value }))
             setState({ ...state, dataProjectStatus: dataSelect, projectStatus: dataSelect[0] })
         }
     }, [dataCart.Filter_Project_Status])

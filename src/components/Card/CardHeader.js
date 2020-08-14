@@ -6,7 +6,14 @@ const CardHeader = props => {
     const [state, setState] = useState({
         valueSearch: ""
     });
-
+    const onChangeSearch = (value) => {
+        setState({ ...state, valueSearch: value.target.value })
+    }
+    const onEnter = (e) => {
+        if (e.key == "Enter") {
+            onSearch(state.valueSearch)
+        }
+    }
     let { onSearch, classHeading, label, labelEnd, dropdown, searchBox, onFilter } = props;
 
     return (
@@ -30,7 +37,7 @@ const CardHeader = props => {
             {searchBox ?
                 <div className="m_search">
                     <label className="m_search--label d-none  d-md-block"><Trans>{searchBox.title}</Trans></label>
-                    <input name="project_name" id="filter-by-project-name" value={state.valueSearch} className="m_search--input" type="text" onChange={item => setState({ ...state, valueSearch: item.target.value })} />
+                    <input name="project_name" id="filter-by-project-name" value={state.valueSearch} className="m_search--input" type="text" onChange={onChangeSearch} onKeyDown={onEnter} />
                     <button className="m_search--button" type="button" id="search_by_name" onClick={() => onSearch(state.valueSearch)}><i className="fa fa-search" aria-hidden="true" ></i>
                     </button>
                 </div> : null}

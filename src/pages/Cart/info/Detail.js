@@ -44,11 +44,12 @@ const Edit = props => {
         let newlocation = location;
         newlocation.pathname = "/cart/cart_list/detail/";
         setState({ ...state, PATH: PATHS, location: newlocation });
+        dispatch(actions.LoadFilterListOpenSale({ token: token, id: props.params.id }))
 
     }, [])
     const dataCart = useSelector(state => state.cart);
-    const createData = (value, label) => {
-        return { value, label }
+    const createData = (value, label, status = null) => {
+        return { value, label, status }
     }
 
     useEffect(() => {
@@ -65,7 +66,7 @@ const Edit = props => {
         let newData = [];
         let data = dataCart.Filter_Open_Sale;
         if (data.length > 0) {
-            data.map((item) => newData.push(createData(item.id, item.name)))
+            data.map((item) => newData.push(createData(item.id, item.name, item.status)))
             setState({ ...state, dataSaleOpen: newData, saleOpenStatus: newData[0] })
             dispatch(actions.LoadSellOpenCart({ token: token, id: props.params.id, sell_open_id: newData[0].value, block_id: state.FilterBlockStatus.value, floor_or_lot_id: state.FilterFloorStatus.value }));
             dispatch(actions.LoadFilterFloor({ token: token, id: props.params.id, sell_open_id: newData[0].value }));
@@ -157,11 +158,11 @@ const Edit = props => {
             </div>
         </div>,
         <div>
-            <CardHeader label="list_of_areas" dropdown={{ title: state.areaStatus.label, data: state.dataArea }} onClick={(value) => onFilterArea(value)} />
+            <CardHeader label="list_of_areas" dropdown={{ title: state.areaStatus.label, data: state.dataArea }} onFilter={(value) => onFilterArea(value)} />
             <Item.Detail_content data={dataCart.Sell_Open_Floor} floorData={state.dataFilterFloor} loading={dataCart.isLoadingSaleOpenList} />
         </div>,
         <div>
-            <CardHeader label="basket_details" dropdown={{ title: state.saleOpenStatus.value == "" ? "Tất cả" : state.saleOpenStatus.label, data: state.dataSaleOpen }} onClick={(value) => onFilteSaleOpen(value)} />
+            <CardHeader label="basket_details" dropdown={{ title: state.saleOpenStatus.value == "" ? "Tất cả" : state.saleOpenStatus.label, data: state.dataSaleOpen }} onFilter={(value) => onFilteSaleOpen(value)} />
             <Item.Detail_InfoShipping
                 STATE={{ state, setState }}
                 onChangeArea={(value) => onChangeArea(value)}

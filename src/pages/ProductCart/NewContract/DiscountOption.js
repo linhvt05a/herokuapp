@@ -3,12 +3,12 @@ import ProductDetail from '../../Layout/ProductDetail';
 import CardWrapper from './Layout/CardWrapper';
 import DiscountWrapper from './Layout/DiscountOption/DiscountWrapper';
 
-const DiscountOption = () => {
+const DiscountOption = (props) => {
     return (
         <div class="container-fluid">
             <ProductDetail />
             <CardWrapper currentStep={2}
-                         children={<DiscountWrapper />}
+                         children={<DiscountWrapper {...props}/>}
              />
         </div>
     )
