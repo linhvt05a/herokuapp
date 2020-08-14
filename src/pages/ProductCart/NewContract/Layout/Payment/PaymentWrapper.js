@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import PaymentInfo from './PaymentInfo';
 import HeaderPayment from './Header';
 import { useDispatch, useSelector } from "react-redux";
-import { policyListRequest, policyProgressListRequest, paymentListRequest } from '../../../../../store/action/contract';
+import { paymentListRequest } from '../../../../../store/action/contract';
 import { convertPaymentContract } from '../../../../../utils/ConvertData';
 import { Link } from 'react-router-dom';
 const PaymentWrapper = (props) => {
@@ -13,10 +13,10 @@ const PaymentWrapper = (props) => {
     const dispatch = useDispatch();
 
     const productId = 1790;
-    const paymentPolicyId=188;
-    const chosenDiscountId=0;
+    const paymentPolicyId = 188;
+    const chosenDiscountId = 0;
     useEffect(() => {
-        dispatch(paymentListRequest({ token, productId, paymentPolicyId, chosenDiscountId  }));
+        dispatch(paymentListRequest({ token, productId, paymentPolicyId, chosenDiscountId }));
     }, [])
     return (
         <div>

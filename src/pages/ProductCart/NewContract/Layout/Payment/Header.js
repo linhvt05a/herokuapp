@@ -1,7 +1,7 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import { Select, Input } from '../../../../../components/base';
-import {useDispatch, useSelector} from "react-redux";
-import {convertPolicyPayment, convertPolicyPaymentProgress} from "../../../../../utils/ConvertData";
+import { useDispatch, useSelector } from "react-redux";
+import { convertPolicyPayment, convertPolicyPaymentProgress } from "../../../../../utils/ConvertData";
 import { policyListRequest, policyProgressListRequest, paymentListRequest } from '../../../../../store/action/contract';
 
 
@@ -15,7 +15,6 @@ const HeaderPayment = (props) => {
     const policyList = isPolicySuccess ? convertPolicyPayment(contractStore.policyList.detail) : [];
     const isPolicyProgressSuccess = contractStore.policyProgressList.success;
     const policyProgressList = isPolicyProgressSuccess ? convertPolicyPaymentProgress(contractStore.policyProgressList.detail) : [];
-    console.log('aaaaa', policyProgressList);
 
     const productId = 1976;
     useEffect(() => {
@@ -23,8 +22,8 @@ const HeaderPayment = (props) => {
     }, []);
     const onChangePolicy = (value) => {
         setPolicy(value);
-        paymentListRequest({token, productId, policyId: value});
-        policyProgressListRequest({token, productId, policyId: value});
+        dispatch(paymentListRequest({ token, productId, policyId: value }));
+        dispatch(policyProgressListRequest({ token, productId, policyId: value }));
     }
     const onChangePolicyProgress = (value) => {
         setDiscount(value);
@@ -49,7 +48,7 @@ const HeaderPayment = (props) => {
                     <div class="form-group">
                         <label class="fw-medium w-auto">Chính sách <span class="uni_star_e94c4c">*</span></label>
                         <Select onChange={onChangePolicy}
-                                datas={policyList}
+                            datas={policyList}
                         />
                     </div>
                 </div>
@@ -58,7 +57,7 @@ const HeaderPayment = (props) => {
                         <label class="fw-medium w-auto">Tiến độ thanh toán <span
                             class="uni_star_e94c4c">*</span></label>
                         <Select onChange={onChangePolicyProgress}
-                                datas={policyProgressList}
+                            datas={policyProgressList}
                         />
                     </div>
                 </div>
