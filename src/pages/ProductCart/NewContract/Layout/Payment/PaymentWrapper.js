@@ -9,14 +9,14 @@ const PaymentWrapper = (props) => {
     const token = 'MjoxMzliMDZiZmI4OTJhOGYxYmQ2MzVhZmFmODEyZmM5M2RhNDFkM2Yx=';
     const contractStore = useSelector(state => state.contract); // get data from reducer
     const isSuccess = contractStore.paymentList.success;
-    const paymentList = isSuccess ? convertPaymentContract(contractStore.paymentList.detail) : null;
-    console.log('contractStore', contractStore);
+    const paymentList = isSuccess ? convertPaymentContract(contractStore.paymentList.detail.policy) : null;
     const dispatch = useDispatch();
 
     const productId = 1790;
+    const paymentPolicyId=188;
+    const chosenDiscountId=0;
     useEffect(() => {
-        dispatch(paymentListRequest({ token, productId }));
-        // dispatch(policyProgressListRequest({ token, productId, paymentPolicyId }));
+        dispatch(paymentListRequest({ token, productId, paymentPolicyId, chosenDiscountId  }));
     }, [])
     return (
         <div>
