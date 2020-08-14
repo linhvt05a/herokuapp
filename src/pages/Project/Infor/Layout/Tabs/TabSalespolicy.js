@@ -34,18 +34,19 @@ const TabSalespolicy = (props) => {
             newData[indexParent] = { id: indexParent, status: "active", child: { id: index, status: "active" } }
             target.className = "icon icon_collapse las la-minus-circle"
         }
-        else { target.className = "icon icon_collapse las la-plus-circle"; newData[indexParent] = { id: indexParent, status: "", child: { id: index, status: "" } } }
+        else { target.className = "icon icon_collapse las la-plus-circle"; newData[indexParent] = { id: indexParent, status: "active", child: { id: index, status: "" } } }
         setClick(newData)
     }
     const showTapsChildPath = (target, index, indexParent) => {
-
-        let newData = [].concat(click);
-        if (target.className.indexOf('la-plus-circle') > -1) {
-            newData[indexParent] = { id: indexParent, status: "active", child: { id: index, status: "active" } }
-            target.className = "icon icon_collapse las la-minus-circle"
+        // let newData = [].concat(click);
+        if (target.className.indexOf('la-angle-down') > -1) {
+            // newData[indexParent] = { id: indexParent, status: "active", child: { id: index, status: "active" } }
+            target.className = "icon icon_collapse angle las la-angle-up"
         }
-        else { target.className = "icon icon_collapse las la-plus-circle"; newData[indexParent] = { id: indexParent, status: "", child: { id: index, status: "" } } }
-        setClick(newData)
+        else { target.className = "icon icon_collapse angle las la-angle-down"; 
+        // newData[indexParent] = { id: indexParent, status: "", child: { id: index, status: "" } } 
+        }
+        // setClick(newData)
     }
     const trParent = (data, index) => {
         // console.log(`parent${index}`, data);
@@ -189,7 +190,7 @@ const TabSalespolicy = (props) => {
                 </td>
                 <td className="text-center">
                     {data.list_internal.length != 0 ?
-                        <i class="icon icon_collapse angle las la-angle-down" onClick={event => showTapsChildPath(event.target, i, index)}></i>
+                        <i class="icon icon_collapse angle las la-angle-down" onClick={event => showTapsChildPath(event.target, index, indexParent)}></i>
                     : ''
                     }
                 </td>
@@ -256,7 +257,7 @@ const TabSalespolicy = (props) => {
                 </td>
                 <td className="text-center">
                     {data.list_agent.length != 0 ?
-                        <i class="icon icon_collapse angle las la-angle-down" onClick={event => showTapsChildPath(event.target, i, index)}></i>
+                        <i class="icon icon_collapse angle las la-angle-down" onClick={event => showTapsChildPath(event.target, index, indexParent)}></i>
                     : ''
                     }
                 </td>
@@ -268,6 +269,7 @@ const TabSalespolicy = (props) => {
     }
     const trChildPathEnd = (data, parentId, block_id, type_id, index, status, indexParent, totaldistribute) => {
         let arr = [];
+        console.log('tututu', data);
         if (data) {
             arr = data.map((item, i) => {
             return <tr class="child child-row-262-2-1" data-child-two="row-262-2" data-child="row-262">
@@ -277,9 +279,6 @@ const TabSalespolicy = (props) => {
                     {item.customer_name}
                 </td>
                 <td>
-                    
-                    {/* <a href="#" target="_blank" class="link_href_6d30ab font-weight-bold">
-                    <u>{item.policy_name}</u></a> */}
                     {item.policy_active_flag != null ?
                     <a href="#" target="_blank" class="link_href_6d30ab font-weight-bold">
                         <u>{item.policy_name}</u>
@@ -287,14 +286,29 @@ const TabSalespolicy = (props) => {
                     }
                 </td>
                 <td>   
-                    <span class="text-green-399b54 font-weight-bold">Active</span>
+                {
+                    data.policy_active_flag == true ?
+                    <span className="text-green-399b54 font-weight-bold">Active</span>
+                    : <span className="text-green-399b54 font-weight-bold"></span>
+                }
                 </td>
-                <td>20/07/2020</td>
-                <td>30/07/2020</td>
+                <td>{item.sell_open_date}</td>
+                <td>{item.sell_end_date}</td>
                 <td>
-                    <span class="d-inline-flex align-items-center justify-content-center m_text_status_3 m_border_status_3 min-height-40 pl-3 pr-3 width-110">
-                        Finished
+                {status == 1 ?
+                    <span class="d-inline-flex align-items-center justify-content-center m_text_status_1 m_border_status_1 min-height-40 pl-3 pr-3 width-110">
+                        <Trans>Expect</Trans>
                     </span>
+                : status == 2 ?
+                    <span class="d-inline-flex align-items-center justify-content-center m_text_status_2 m_border_status_2 min-height-40 pl-3 pr-3 width-110">
+                        <Trans>Opening</Trans>
+                    </span>
+                : status == 3 ?
+                    <span class="d-inline-flex align-items-center justify-content-center m_text_status_3 m_border_status_3 min-height-40 pl-3 pr-3 width-110">
+                        <Trans>Finished</Trans>
+                    </span>
+                    : ""
+                }
                 </td>
                 <td></td>
                 <td></td>
@@ -329,7 +343,7 @@ const TabSalespolicy = (props) => {
                             <th></th>
                         </tr>
                     </thead>
-                    <tbody style={{ maxHeight: "400px" }}>
+                    <tbody style={{ maxHeight: "600px" }}>
                         {salepolicyListRes ? salepolicyListRes.map((data, index) => {
                             return [trParent(data, index), trChild(data.list_block, data.id, index, data.status)]
                         }) : null}

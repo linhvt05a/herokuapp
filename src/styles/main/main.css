@@ -3865,3 +3865,6 @@ input[type=number]::-webkit-inner-spin-button {
         padding-left: 0;
     }
 }
+.text-underline {
+    text-decoration: none !important;
+}
