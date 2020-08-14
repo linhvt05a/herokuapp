@@ -109,7 +109,7 @@ class MainPage extends Component {
     }
 
     render() {
-        console.log('menu', this.state.menu);
+        // console.log('menu', this.state.menu);
         if (this.state.page == null) {
             return <div></div>
         }
@@ -127,7 +127,8 @@ class MainPage extends Component {
                 />
                 <div className="page-wrapper">
                     <div className="container-fluid">
-                        <PageTitle label={this.state.title} location={this.props.location} PATHS={this.props.PATHS} {...this.props} />
+                        {this.props.data.noTitle ? null :
+                            <PageTitle label={this.state.title} location={this.props.location} PATHS={this.props.PATHS} />}
                         {
                             <this.state.page user={user}
                                 search={search}

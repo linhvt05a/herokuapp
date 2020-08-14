@@ -92,11 +92,6 @@ const ModalRequest = (props) => {
                 dispatch(requestDataRequest({ token, request_type: state.request_type, product_id: value.product_id,
                     list_promotion_detail: list_promotion_detail, priority: state.priority, reason: state.reason }));
             }
-            console.log("list_promotion_detail", list_promotion_detail)
-            console.log("request_type", state.request_type)
-            console.log("product_id", value.product_id)
-            console.log("priority", state.priority)
-            console.log("reason", state.reason)
         } else {
             return
         }
@@ -109,7 +104,6 @@ const ModalRequest = (props) => {
             model.values_change = parseFloat(value)
         }
         setState({...state, listChangeData: list})
-        console.log("list", list)
     }
 
     const onChangeCheckData = (index) => {
@@ -120,7 +114,6 @@ const ModalRequest = (props) => {
         setState({...state, indexRequestList: list})
     }
 
-    console.log("data", isGetRequestDataSuccess)
     const renderDiscount = () => {
         return (
             <div>
@@ -299,7 +292,8 @@ const ModalRequest = (props) => {
                     <div className="uni_text_6d30ab fw-medium fs-18 mt-2 mb-2 text-uppercase"><Trans>request</Trans></div>
                     <div className="row">
                         <CustomSelect require trans value={state.request_type} isClear={state.request_type != 0 ? false : true} className="col-12 col-md-8"
-                            label="request_type" datas={request} placeholder="choose_request_type" onChange={(value) => setState({ ...state, request_type: value, priority: null })} />
+                            label="request_type" datas={request} placeholder="choose_request_type"
+                            onChange={(value) => setState({ ...state, request_type: value, priority: null })} />
                         <InputText className="col-12 col-md-4" type="text" label={props.value.product_name} disabled />
                     </div>
                     {renderRequest()}

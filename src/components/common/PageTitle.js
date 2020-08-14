@@ -1,70 +1,112 @@
-import React, { Component } from 'react';
+import React, { Component, useState, useEffect } from 'react';
 import { Trans } from 'react-i18next';
 
-class PageTitle extends Component {
-    constructor() {
-        super();
-        this.state = {
-            pages: []
-        }
-    }
+const PageTitle = props => {
+    const [state, setState] = useState({
+        pages: []
+    })
 
-    componentWillMount() {
+    useEffect(() => {
         var pages = [];
         var active = false;
-        var href = this.props.location.pathname;
-        // console.log(href);
-        var pos = href.length;
-        if (pos > 1) {
-            do {
-                var href = href.substring(0, pos);
-                if (href in this.props.PATHS) {
-                    pages.unshift({ 'label': this.props.PATHS[href], 'href': href, 'active': active })
+        if (props !== undefined) {
+            var href = props.location.pathname;
+            if (href) {
+                var pos = href.length;
+                if (pos > 1) {
+                    do {
+                        var href = href.substring(0, pos);
+                        if (href in props.PATHS) {
+                            pages.unshift({ 'label': props.PATHS[href], 'href': href, 'active': active })
+                        }
+                        active = true;
+                        var pos = href.lastIndexOf("/");
+                    } while (pos > 1);
                 }
-                active = true;
-                var pos = href.lastIndexOf("/");
-            } while (pos > 1);
+            }
+
         }
-
         pages.unshift({ 'label': 'Home', 'href': '/', 'active': active })
-        this.setState({ "pages": pages });
-    }
+        setState({ "pages": pages });
+    }, [props])
+    // componentWillMount() {
+    //     var pages = [];
+    //     var active = false;
+    //     var href = this.props.location.pathname;
+    //     if (href) {
+    //         var pos = href.length;
+    //         if (pos > 1) {
+    //             do {
+    //                 var href = href.substring(0, pos);
+    //                 console.log("chay", this.props.PATHS);
+    //                 if (href in this.props.PATHS) {
+    //                     pages.unshift({ 'label': this.props.PATHS[href], 'href': href, 'active': active })
+    //                 }
+    //                 active = true;
+    //                 var pos = href.lastIndexOf("/");
+    //             } while (pos > 1);
+    //         }
+    //     }
+    //     pages.unshift({ 'label': 'Home', 'href': '/', 'active': active })
+    //     this.setState({ "pages": pages });
+    // }
+    // componentWillUpdate() {
+    //     var pages = [];
+    //     var active = false;
+    //     var href = this.props.location.pathname;
+    //     console.log(this.props);
+    //     if (href) {
+    //         var pos = href.length;
+    //         if (pos > 1 && this.props.PATHS) {
+    //             do {
+    //                 var href = href.substring(0, pos);
+    //                 if (href in this.props.PATHS) {
+    //                     pages.unshift({ 'label': this.props.PATHS[href], 'href': href, 'active': active })
+    //                 }
+    //                 active = true;
+    //                 var pos = href.lastIndexOf("/");
+    //             } while (pos > 1);
+    //         }
+    //     }
+    //     pages.unshift({ 'label': 'Home', 'href': '/', 'active': active })
+    //     this.setState({ "pages": pages });
+    // }
 
-    render() {
-        var length = this.state.pages.length - 1;
-        return (
-            <div className="page-breadcrumb">
-                <div className="row">
-                    <div className="col-12 col-sm-6 col-md-6">
-                        {this.props.data.noTitle ? null :
-                            <h3 className="page-title text-truncate m_text_000 font-weight-medium"><Trans>{this.props.label}</Trans></h3>}
-                    </div>
-                    <div className="col-12 col-sm-6 col-md-6 d-flex justify-content-start justify-content-sm-end mt-2 mt-sm-0 align-items-center">
-                        <nav aria-label="breadcrumb">
-                            <ol className="breadcrumb">
-                                {
-                                    this.state.pages.map((item, index) => (
-                                        index != length ?
-                                            <li key={index} className="breadcrumb-item active" aria-current="page">
-                                                <a href={item.href}>
-                                                    <Trans>{item.label}</Trans>
-                                                    <i className="fa fa-angle-right" aria-hidden="true"></i>
-                                                </a>
-                                            </li>
-                                            :
 
-                                            <li key={index} className="breadcrumb-item active" aria-current="page">
+    var length = state.pages.length - 1;
+    // console.log(this.props);
+    return (
+        <div className="page-breadcrumb">
+            <div className="row">
+                <div className="col-12 col-sm-6 col-md-6">
+                    <h3 className="page-title text-truncate m_text_000 font-weight-medium"><Trans>{props.label}</Trans></h3>
+                </div>
+                <div className="col-12 col-sm-6 col-md-6 d-flex justify-content-start justify-content-sm-end mt-2 mt-sm-0 align-items-center">
+                    <nav aria-label="breadcrumb">
+                        <ol className="breadcrumb">
+                            {
+                                state.pages.map((item, index) => (
+                                    index != length ?
+                                        <li key={index} className="breadcrumb-item active" aria-current="page">
+                                            <a href={item.href}>
                                                 <Trans>{item.label}</Trans>
-                                            </li>
-                                    ))
-                                }
-                            </ol>
-                        </nav>
-                    </div>
+                                                <i className="fa fa-angle-right" aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                        :
+
+                                        <li key={index} className="breadcrumb-item active" aria-current="page">
+                                            <Trans>{item.label}</Trans>
+                                        </li>
+                                ))
+                            }
+                        </ol>
+                    </nav>
                 </div>
             </div>
-        )
-    }
+        </div>
+    )
 }
+
 
 export default PageTitle;

@@ -20,7 +20,7 @@ const CardProjectList = (props) => {
                         <table style={{minWidth: "1050px !important"}}>
                             <thead>
                                 <tr>
-                                    <th style={{width: "30%"}} className="col-1 pl-0"><Trans>no.</Trans></th>
+                                    <th style={{width: "30%"}} className="col-1 pl-0"><Trans>no</Trans></th>
                                     <th className="col-2 text-uppercase"><Trans>project_name</Trans></th>
                                     <th className="col-2 text-uppercase"><Trans>project_status</Trans></th>
                                     <th className="col-2 text-uppercase"><Trans>expected_revenue</Trans><span className="current_currency_name"> (VND)</span></th>

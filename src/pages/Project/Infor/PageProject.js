@@ -36,7 +36,8 @@ const PageProject = props => {
             data.map((item, index) => {
                 dataSelect.push(create_Filter_Project_Status(item.id, item.name))
             })
-            setState({ ...state, dataProjectStatus: dataSelect, projectStatus: dataSelect[0] })
+            setState({ ...state, dataProjectStatus: dataSelect, projectStatus: dataSelect[0] });
+            dispatch(actionsCart.LoadList({ token: token, value: state.valueSearch, status_id: dataSelect[0].value }))
         }
 
     }, [dataCart.Filter_Project_Status])
@@ -71,10 +72,10 @@ const PageProject = props => {
     return (
         [<CardHeader
             dropdown={{ title: state.projectStatus && state.projectStatus.value == "" ? "Product Status" : state.projectStatus.label, data: state.dataProjectStatus }}
-            label={"Project"}
-            searchBox={{ title: "home_map_search" }}
+            label={"project"}
+            searchBox={{ title: "project_name" }}
             onSearch={value => SEARCH(value)}
-            onClick={value => onFilter(value)} />
+            onFilter={value => onFilter(value)} />
             , <ListProduct
             dataFilter={state.dataType}
             data={dataCart.List}

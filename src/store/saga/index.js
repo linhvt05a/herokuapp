@@ -22,7 +22,8 @@ import {
   provinceListWatcher,
   typeListWatcher,
   statusListWatcher,
-  projectListWatcher
+  projectListWatcher,
+  dataTotalWatcher
 } from './dashboardSaga';
 import {
   projectDetailWatcher,
@@ -66,28 +67,24 @@ function* allSaga() {
     filterFloorWatcher(),
     filterProjectStatusWatcher(),
     filterListOpenSaleWatcher(),
-
     regionListWatcher(),
     provinceListWatcher(),
     typeListWatcher(),
     statusListWatcher(),
-    //project
+    dataTotalWatcher(),
     projectListWatcher(),
+    //project
     projectDetailWatcher(),
     sellopenListWatcher(),
     bankingListWatcher(),
     salepolicyListWatcher(),
-
     commentListWatcher(),
     approveListWatcher(),
     addCommentWatcher(),
-
     requestDataWatcher(),
     promotionListWatcher(),
     promotionProductWatcher(),
-
     productDetaillWatcher(),
-
     paymentListWatcher(),
     policyListWatcher(),
     policyProgressListWatcher(),
@@ -97,6 +94,5 @@ function* allSaga() {
 
   ]);
 }
-
 
 export default allSaga;

@@ -48,7 +48,7 @@ export function* cartSellOpenList(payload) {
     let { token, id, area_id, sell_open_id } = payload.params
 
     try {
-        const response = yield sysCartService.sellopenList(token, id, area_id, sell_open_id);
+        const response = yield sysCartService.sellopenList(token, id, area_id, sell_open_id); console.log(response);
         response.success ? yield put({ type: actions.LOAD_SELL_OPEN_LIST_SUCCESS, response }) : yield put({ type: actions.LOAD_SELL_OPEN_LIST_FAILURE, response });
     } catch (err) {
         yield put({ type: actions.LOAD_SELL_OPEN_LIST_FAILURE, err });
@@ -131,7 +131,7 @@ export function* FilterListOpenSale(payload) {
     const token = payload.params.token;
     const id = payload.params.id;
     try {
-        const response = yield sysCartService.filterListOpenSale(token, id);
+        const response = yield sysCartService.filterListOpenSale(token, id); console.log("2", response);
         response.success ? yield put({ type: actions.LOAD_FILTER_LIST_OPEN_SALE_SUCCESS, response }) : yield put({ type: actions.LOAD_FILTER_LIST_OPEN_SALE_FAILURE, response });
     } catch (err) {
         yield put({ type: actions.LOAD_FILTER_LIST_OPEN_SALE_FAILURE, err });
