@@ -37,7 +37,9 @@ import {
 import 
   actionsCustomer 
 from "./customer"
-import actionsLocation from "./location"
+import 
+  actionsLocation 
+from "./location"
 
 export {
   currentcyAddRequest,
@@ -64,6 +66,6 @@ export {
   promotionListRequest,
   promotionProductRequest,
   actionsCustomer,
-  actionsLocation
+  actionsLocation,
   clearData,
 };
