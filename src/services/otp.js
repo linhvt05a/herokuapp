@@ -11,8 +11,8 @@ function getOTP()
         current_time_no_second += 59
     }
 
-    var token = hotp.generate('najvj5u2sd5svty', current_time_no_second)
-//    console.log("hotp " + token);
+    var token = hotp.generate('najvj5u2sd5svty', current_time_no_second);
+    console.log(hotp);
     return token
 }
 
