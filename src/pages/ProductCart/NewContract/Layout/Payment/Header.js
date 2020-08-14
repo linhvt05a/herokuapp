@@ -7,7 +7,7 @@ import { policyListRequest, policyProgressListRequest, paymentListRequest } from
 
 const HeaderPayment = (props) => {
     const [policy, setPolicy] = useState('');
-    const [discount, setDiscount] = useState('');
+    const [discount, setDiscount] = useState(0);
     const token = 'MjoxMzliMDZiZmI4OTJhOGYxYmQ2MzVhZmFmODEyZmM5M2RhNDFkM2Yx=';
     const contractStore = useSelector(state => state.contract); // get data from reducer
     const dispatch = useDispatch();
@@ -22,10 +22,11 @@ const HeaderPayment = (props) => {
     }, []);
     const onChangePolicy = (value) => {
         setPolicy(value);
-        dispatch(paymentListRequest({ token, productId, policyId: value }));
+        dispatch(paymentListRequest({ token, productId, policyId: value, chosenDiscountId: discount }));
         dispatch(policyProgressListRequest({ token, productId, policyId: value }));
     }
     const onChangePolicyProgress = (value) => {
+        dispatch(paymentListRequest({ token, productId, policyId: policy, chosenDiscountId: value }));
         setDiscount(value);
     }
     return (

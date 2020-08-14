@@ -45,12 +45,11 @@ export function* policyListWatcher() {
 }
 
 export function* policyProgressList(payload) {
-    console.log('policyProgressList', payload);
     const { token, productId, policyId } = payload.payload;
     const product_id = productId;
     const payment_policy_id = policyId;
     try {
-        const response = yield contractService.policyPaymentForProduct(token, product_id, payment_policy_id);
+        const response = yield contractService.policyPaymentProgressList(token, product_id, payment_policy_id);
         response.success ? yield put({ type: POLICY_PROGRESS_LIST_SUCCESS, response }) : yield put({ type: POLICY_PROGRESS_LIST_FAILURE, response });
     } catch (err) {
         yield put({ type: POLICY_PROGRESS_LIST_FAILURE, err });
