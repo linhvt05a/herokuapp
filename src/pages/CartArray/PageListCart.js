@@ -26,10 +26,10 @@ const PageListCart = (props) => {
     const[page, setPage] = useState(1)
     const[total_record, setTotalRecord] = useState(0)
     const[total_page, setTotalPage] = useState(0)
-    const[limit_order_by_last, setLimitPage] = useState(0)
+    const[limit, setLimitPage] = useState(0)
     const[loading, setLoading] = useState(false)
     const[defaultValue, setDefault] = useState('')
-    const token = "MjoxMzliMDZiZmI4OTJhOGYxYmQ2MzVhZmFmODEyZmM5M2RhNDFkM2Yx"
+    const token = "MjoxMzliMDZiZmI4OTJhOGYxYmQ2MzVhZmFmODEyZmM5M2RhNDFkM2Yx="
     const product_id = 63
     const tab_include = []
 
@@ -56,7 +56,7 @@ const PageListCart = (props) => {
         setReqStatus(request_status)
         setShowPopUp(!showPopUp)
         setRequestId(request_id)
-        dispatch(commentListRequest({ token, request_id, page }))
+        dispatch(commentListRequest({ token, request_id, page, limit: 5}))
     }
     const onChange = (value, option) => {
         if (option.name === "request_type") {
@@ -90,26 +90,21 @@ const PageListCart = (props) => {
     }
     const handleLoadMore = () =>{
         setPage(page + 1)
-        setLimitPage(10)
-        dispatch(commentListRequest({token, request_id, limit_order_by_last, page}))
+        
+        console.log('page123', page);
+        dispatch(commentListRequest({token, request_id, limit: 5, page}));
     }
   
     const handleScroll = (event) => {
         const element = event.target;
+        console.log(element)
         if (element.scrollHeight - element.scrollTop === element.clientHeight) {
-            setLoading(true)
-          handleLoadMore()
+          handleLoadMore();
         }
       }
 
       const handleChangeTab = (order_by_oldest)=>{
-          dispatch(approvedListRequest({token, product_id, order_by_oldest}))
-      }
-      const clearSelect = () =>{
-          setStatus(null)
-          setType({...initialState })
-          setPriority(null)
-          
+          dispatch(approvedListRequest({token, product_id, order_by_oldest}));
       }
       const cancelSearch = () =>{
         setType(initialState)
