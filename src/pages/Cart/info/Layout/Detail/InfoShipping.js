@@ -13,7 +13,8 @@ import { CardNodata, Loading } from "../../../../../components/common";
 const InfoShipping = props => {
     const token = 'MTAwNjpNVEF3Tmpwa05ESmlPVGc1WldVM05HWmhNMlZrWXpWaFlqQXhOalV4T1RReFl6QmtOVFUyTW1Oa1pUVTQ=';
     let { STATE, loading } = props;
-    let { state, setState } = STATE
+    let { state, setState } = STATE;
+    console.log(state);
     const [click, setClick] = useState([]);
     const [show, setShow] = useState({
         Show_request: false,
@@ -169,7 +170,6 @@ const InfoShipping = props => {
         }
         return arr
     }
-
     return (
         <div className="card square">
             <div className="card-body m_table--collapse">
