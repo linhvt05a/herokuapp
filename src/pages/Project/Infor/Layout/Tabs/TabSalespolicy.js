@@ -42,13 +42,6 @@ const TabSalespolicy = (props) => {
         if (target.className.indexOf('la-angle-down') > -1) {
             newData[indexParent] = { 
                 id: indexParent, status: "active", child: { id: index, status: "active", type: type_distribute }
-                // id: indexParent, status: "active", 
-                // child: { 
-                //     id: index, status: "active", 
-                //     childPath:{
-                //         id: index, status: "active", type: type_distribute
-                //     }
-                // } 
             }
             target.className = "icon icon_collapse angle las la-angle-up"
         }
@@ -56,13 +49,6 @@ const TabSalespolicy = (props) => {
             target.className = "icon icon_collapse angle las la-angle-down"; 
             newData[indexParent] = { 
                 id: indexParent, status: "active", child: { id: index, status: "active", type: "" }
-                // id: indexParent, status: "active", 
-                // child: { 
-                //     id: index, status: "active", 
-                //     childPath:{
-                //         id: index, status: "active", type: ""
-                //     }
-                // } 
             }
         }
         setClick(newData)
@@ -70,10 +56,7 @@ const TabSalespolicy = (props) => {
 
         
     }
-
-    console.log('ifiifiifif', click);
     const trParent = (data, index) => {
-        // console.log(`parent${index}`, data);
         return (
             <tr class="parent" data-parent={`row-${data.id}`} key={index}>
                 <td class="number pl-0">{index + 1}</td>
