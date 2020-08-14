@@ -5,7 +5,9 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import actions from "../../../store/action/cart"
 import Item from "./Layout";
-import { CardHeader } from "../../../components/common";
+import { CardHeader, PageTitle } from "../../../components/common";
+import { useLocation, useRouteMatch } from "react-router-dom";
+import { MAINS } from "../../../routes"
 
 const Edit = props => {
     const [state, setState] = useState({
@@ -18,21 +20,36 @@ const Edit = props => {
         FilterAreaStatus: { value: "", label: "" },
         dataFilterArea: [],
         FilterBlockStatus: { value: "", label: "" },
-        dataFilterBlock: []
+        dataFilterBlock: [],
+        PATH: {},
+        location: {}
     })
     const dispatch = useDispatch();
     const token = 'MjoxMzliMDZiZmI4OTJhOGYxYmQ2MzVhZmFmODEyZmM5M2RhNDFkM2Yx';
-
+    let location = useLocation();
+    let Math = useRouteMatch();
+    location.pathname = "/cart/cart_list/detail"
     useEffect(() => {
         dispatch(actions.LoadDetail({ token: token, id: props.params.id }));
         dispatch(actions.LoadSellOpen({ token: token, id: props.params.id }));
         // dispatch(actions.LoadSellOpenList({ token: token, id: props.params.id, area_id: state.areaStatus.value }));
+
+        dispatch(actions.LoadFilterListOpenSale({ token: token, id: props.params.id }));
+        let PATHS = {}
+        for (var i = 0;i < MAINS.length;i++) {
+            var data = MAINS[i];
+            var path = data.path.replace("/:id", "");
+            PATHS[path] = data.title;
+        }
+        let newlocation = location;
+        newlocation.pathname = "/cart/cart_list/detail/";
+        setState({ ...state, PATH: PATHS, location: newlocation });
         dispatch(actions.LoadFilterListOpenSale({ token: token, id: props.params.id }))
 
     }, [])
     const dataCart = useSelector(state => state.cart);
-    const createData = (value, label) => {
-        return { value, label }
+    const createData = (value, label, status = null) => {
+        return { value, label, status }
     }
 
     useEffect(() => {
@@ -49,7 +66,7 @@ const Edit = props => {
         let newData = [];
         let data = dataCart.Filter_Open_Sale;
         if (data.length > 0) {
-            data.map((item) => newData.push(createData(item.id, item.name)))
+            data.map((item) => newData.push(createData(item.id, item.name, item.status)))
             setState({ ...state, dataSaleOpen: newData, saleOpenStatus: newData[0] })
             dispatch(actions.LoadSellOpenCart({ token: token, id: props.params.id, sell_open_id: newData[0].value, block_id: state.FilterBlockStatus.value, floor_or_lot_id: state.FilterFloorStatus.value }));
             dispatch(actions.LoadFilterFloor({ token: token, id: props.params.id, sell_open_id: newData[0].value }));
@@ -128,9 +145,8 @@ const Edit = props => {
         }));
 
     }
-
     return (
-        [<div className="page-title text-truncate m_text_000 font-weight-medium">{dataCart.Detail.name}</div>
+        [dataCart.Detail && dataCart.Detail.name ? <PageTitle label={dataCart.Detail.name} location={state.location} PATHS={state.PATH} /> : null
             , <div className="row mt-3" >
             <div className="col-xl-6 col-lg-6 col-md-12 col-sm-12 d-flex flex-column">
                 <CardHeader label="project_information" />
@@ -142,11 +158,11 @@ const Edit = props => {
             </div>
         </div>,
         <div>
-            <CardHeader label="list_of_areas" dropdown={{ title: state.areaStatus.label, data: state.dataArea }} onClick={(value) => onFilterArea(value)} />
+            <CardHeader label="list_of_areas" dropdown={{ title: state.areaStatus.label, data: state.dataArea }} onFilter={(value) => onFilterArea(value)} />
             <Item.Detail_content data={dataCart.Sell_Open_Floor} floorData={state.dataFilterFloor} loading={dataCart.isLoadingSaleOpenList} />
         </div>,
         <div>
-            <CardHeader label="basket_details" dropdown={{ title: state.saleOpenStatus.value == "" ? "Tất cả" : state.saleOpenStatus.label, data: state.dataSaleOpen }} onClick={(value) => onFilteSaleOpen(value)} />
+            <CardHeader label="basket_details" dropdown={{ title: state.saleOpenStatus.value == "" ? "Tất cả" : state.saleOpenStatus.label, data: state.dataSaleOpen }} onFilter={(value) => onFilteSaleOpen(value)} />
             <Item.Detail_InfoShipping
                 STATE={{ state, setState }}
                 onChangeArea={(value) => onChangeArea(value)}

@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import React from 'react';
-import { isProductType } from "../../../../../utils/Utils"
+import { isProductType, translate } from "../../../../../utils/Utils"
 import DatePicker from "../../../../../components/base/DatePicker/DatePicker"
 import { Trans } from 'react-i18next';
 import moment from "moment"
@@ -73,10 +73,10 @@ const sell_open = props => {
         <table style={{ minWidth: `735px` }}>
             <thead>
                 <tr>
-                    <th className="col-3 pl-0"><Trans>Sell open</Trans></th>
-                    <th className="col-3 pl-0"><Trans>Product</Trans></th>
-                    <th className="col-3 text-center"><Trans>Total agent</Trans></th>
-                    <th className="col-3 text-center" ><Trans>Total internal</Trans></th>
+                    <th className="col-3 pl-0">{translate(sell_open)}</th>
+                    <th className="col-3 pl-0"><Trans>product</Trans></th>
+                    <th className="col-3 text-center"><Trans>total_agent</Trans></th>
+                    <th className="col-3 text-center" ><Trans>total_internal</Trans></th>
                 </tr>
             </thead>
             <tbody style={{ maxHeight: `300px` }}>

@@ -32,8 +32,8 @@ const TabSellopenlist = (props) => {
                         <th className="col-2" style={{width: "25%"}}><Trans>ĐỢT</Trans></th>
                         <th className="col-2" style={{width: "15%"}}><Trans>TỪ NGÀY</Trans></th>
                         <th className="col-2" style={{width: "15%"}}><Trans>ĐẾN NGÀY</Trans></th>
-                        <th className="col-2" style={{width: "15%"}}><Trans>TỔNG SỐ KÊNH ĐẠI LÝ</Trans></th>
-                        <th className="col-2" style={{width: "15%"}}><Trans>TỔNG SỐ KÊNH NỘI BỘ</Trans></th>
+                        <th className="col-2" style={{width: "15%"}, {textAlign: "center"}}><Trans>TỔNG SỐ KÊNH ĐẠI LÝ</Trans></th>
+                        <th className="col-2" style={{width: "15%"}, {textAlign: "center"}}><Trans>TỔNG SỐ KÊNH NỘI BỘ</Trans></th>
                     </tr>
                     </thead>
                     <tbody style={{maxHeight: "400px"}}>
@@ -57,10 +57,10 @@ const RowListOpenSell = (props) => {
             </td>
             <td className="col-2" style={{width: "15%"}}>{item.sell_open_date}</td>
             <td className="col-2" style={{width: "15%"}}>{item.sell_end_date}</td>
-            <td className="col-2" style={{width: "15%"}}>
+            <td className="col-2" style={{width: "15%"}, {textAlign: "center"}}>
                 <span className="uni_text_6d30ab">{item.total_agent_distribute}</span>
             </td>
-            <td className="col-2" style={{width: "15%"}}>
+            <td className="col-2" style={{width: "15%"}, {textAlign: "center"}}>
                 <span className="uni_text_6d30ab">{item.total_internal_distribute}</span>
             </td>
         </tr>
