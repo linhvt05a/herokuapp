@@ -6,6 +6,8 @@ import { Select } from 'antd';
 import {GroupInputIcon, GroupInputSelect} from '../../../components/base/Select'
 import{DISTRIBUTION_CHANNEL_AGENT, DISTRIBUTION_CHANNEL_INTERNAL} from '../../../constant'
 import {formatCurrency} from '../../../utils/Utils'
+import { Trans } from 'react-i18next';
+
 const { Option } = Select;
 const selectAfter = (
     <Select defaultValue="vnd" className="select-after">
@@ -24,7 +26,7 @@ const selectAfter = (
             <CardHeader label="THÔNG TIN SẢN PHẨM" />
             <div className="card h-100 square">
                 <div className="card-body">
-                    <div className="text-uppercase fw-medium fs-18">THÔNG TIN SẢN PHẨM</div>
+                    <div className="text-uppercase fw-medium fs-18"><Trans>PRODUCT INFORMATION</Trans></div>
                     <div className="row">
                         <InputText className="col-12 col-sm-6 col-md-6 col-lg-4" label="Dự án" value={props.project_detail?.name} disabled/>
                         <InputText className="col-12 col-sm-6 col-md-6 col-lg-4" label="Khu" value={productDetail.area_name} disabled/>

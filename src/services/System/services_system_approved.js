@@ -20,25 +20,25 @@ function addComment(payload){
 }
 
 function commentList(payload) {
-    const{token, request_id, page, limit} = payload.payload
+    const{token, request_id, page, limit_order_by_last} = payload.payload
     const requestOptions = {
         method: 'GET',
         headers: api.getHeader(token)
     };
 
-    const params = {request_id, page, limit};
+    const params = {request_id, page, limit_order_by_last};
     const url = api.getUrl(api.LIST_COMMENT, params)
     return api.handleRequest(url, requestOptions);
 }
 
 function approveList(payload) {
-    const{token, product_id, request_type, request_status, priority,order_by_oldest} = payload.payload
+    const{token, product_id, request_type, request_status, priority, order_by_oldest} = payload.payload
     const requestOptions = {
         method: 'GET',
         headers: api.getHeader(token)
     };
 
-    const params = {product_id, request_type, request_status, priority, order_by_oldest};
+    const params = {product_id, request_type, request_status, priority,order_by_oldest};
     const url = api.getUrl(api.HISTORY_APPROVED, params)
     return api.handleRequest(url, requestOptions);
 }

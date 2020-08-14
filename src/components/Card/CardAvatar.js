@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Trans } from 'react-i18next';
 
 const urlAvar = "https://cloudapi.minerva.vn/cdn/sunnyworld-sale-dev/distribution_channel/avatardbdc1e6dc2ed8b441ed120200713111318.401990.jpg"
 const CardAvatar = (props) =>{
@@ -7,7 +8,7 @@ const CardAvatar = (props) =>{
             <div className="m_heading">
                 {/* BUTTON TITLE : BEGIN */}
                 <button type="button" className="m_button no-event">
-                    <span>{props.label}</span>
+                    <span><Trans>{props.label}</Trans></span>
                 </button>
                 {/* BUTTON TITLE : END */}
             </div>

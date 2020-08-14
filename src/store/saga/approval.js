@@ -18,7 +18,6 @@ import {
 } from '../actionType/approval'
 
 export function* approveList(payload) {
-    console.log(payload)
     try {
         const response = yield approve_system_services.approveList(payload);
         response.success ? yield put({ type: APPROVAL_LIST_SUCCESS, response }) : yield put({ type: APPROVAL_LIST_FAILURE, response });
