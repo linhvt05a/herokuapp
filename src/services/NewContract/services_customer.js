@@ -19,12 +19,12 @@ export const customerService = {
         const url = api.getUrl(api.CUSTOMER_CREATE_CONTRACT, params);
         return api.handleRequest(url, requestOptions);
     },
-    promotionContract: (token) => {
+    promotionContract: (token, product_id) => {
         const requestOptions = {
             method: 'GET',
             headers: api.getHeader(token)
         };
-        const params = {};
+        const params = { token, product_id };
         const url = api.getUrl(api.CUSTOMER_PROMOTION_CONTRACT, params);
         return api.handleRequest(url, requestOptions);
     }

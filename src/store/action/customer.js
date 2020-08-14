@@ -28,10 +28,6 @@ const actions = {
     type: actions.CUSTOMER_CREATE_CONTRACT_REQUEST,
     params
   }),
-  // requestCustomerAccountingContract: (params) => ({
-  //   type: actions.CUSTOMER_ACCOUNTING_CONTRACT_REQUEST,
-  //   params
-  // }),
   requestCustomerPromotionContract: (params) => ({
     type: actions.CUSTOMER_PROMOTION_CONTRACT_REQUEST,
     params

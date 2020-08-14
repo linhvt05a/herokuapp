@@ -28,24 +28,10 @@ function* customerCreateContractWatcher() {
     yield takeLatest(actions.CUSTOMER_CREATE_CONTRACT_REQUEST, customerCreateContract);
 }
 
-
-// export function* customerAccountingContract(payload) {
-//     let { token } = payload.params;
-//     try {
-//         const response = yield customerService.accountingContract(token);
-//         response.success ? yield put({ type: actions.CUSTOMER_ACCOUNTING_CONTRACT_SUCCESS, response }) : yield put({ type: actions.CUSTOMER_ACCOUNTING_CONTRACT_FAILURE, response });
-//     } catch (err) {
-//         yield put({ type: actions.CUSTOMER_ACCOUNTING_CONTRACT_SUCCESS, err });
-//     }
-// }
-// function* customerAccountingContractWatcher() {
-//     yield takeLatest(actions.CUSTOMER_ACCOUNTING_CONTRACT_REQUEST, customerAccountingContract);
-// }
-
 export function* customerPromotionContract(payload) {
-    let { token } = payload.params;
+    let { token, product_id } = payload.params;
     try {
-        const response = yield customerService.promotionContract(token);
+        const response = yield customerService.promotionContract(token, product_id);
         response.success ? yield put({ type: actions.CUSTOMER_PROMOTION_CONTRACT_SUCCESS, response }) : yield put({ type: actions.CUSTOMER_PROMOTION_CONTRACT_FAILURE, response });
     } catch (err) {
         yield put({ type: actions.CUSTOMER_PROMOTION_CONTRACT_FAILURE, err });
@@ -59,7 +45,6 @@ export default function* rootSaga() {
     yield all([
         fork(customerListWatcher),
         fork(customerCreateContractWatcher),
-        // fork(customerAccountingContractWatcher)
         fork(customerPromotionPromotionWatcher)
     ]);
 }

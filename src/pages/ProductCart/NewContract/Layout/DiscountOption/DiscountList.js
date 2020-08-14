@@ -6,11 +6,7 @@ const DiscountList = (props) => {
         <div class="col-12 col-lg-8">
             <div class="text-uppercase uni_text_6d30ab fw-medium fs-18 mb-2 mt-4">
                 LỰA CHỌN KHUYẾN MÃI
-                                        </div>
-
-            <span class="uni_text_000">Sản phẩm này không có khuyến mãi nào </span>
-            <Nodata />
-
+            </div>
             <div class="mb-4 m_table m_table--sales m_table--collapse min-width-100-pc max-height-100">
                 <table style={{ minWidth: "1000px !important" }}>
                     <thead>

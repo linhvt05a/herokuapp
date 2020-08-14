@@ -10,18 +10,18 @@ const DiscountWrapper = (props) => {
 
     const token = 'MTAwNjpNVEF3Tmpwa05ESmlPVGc1WldVM05HWmhNMlZrWXpWaFlqQXhOalV4T1RReFl6QmtOVFUyTW1Oa1pUVTQ=';
     const dispatch = useDispatch();
-    const promotionStore = useSelector(state => state.promotionContract);
+    const customerStore = useSelector(state => state.customer);
     useEffect(() => {
         dispatch(actionsCustomer.requestCustomerPromotionContract({ token: token, product_id: 1790 }))
     }, []);
 
-    const promotionSuccess = promotionStore.promotionContract.success;
-    const promotionListRes = promotionSuccess ? promotionStore.promotionContract.detail : null;
+    const promotionSuccess = customerStore.promotionContract.success;
+    const promotionListRes = promotionSuccess ? customerStore.promotionContract.detail : null;
+    console.log('promotionListRes', promotionListRes);
 
-    console.log('jjjjjjjjjjjj', promotionListRes);
-    return(
+    return (
         <div>
-           <div class="create-contract__item collapse show" data-step="2">
+            <div class="create-contract__item collapse show" data-step="2">
                 <div class="row">
                     <DiscountList />
                     <PriceTable />
