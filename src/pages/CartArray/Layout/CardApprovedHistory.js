@@ -22,7 +22,7 @@ const CardApprovedHistory = (props) => {
       <CardReview
         selected={()=>setSelected(!selected)}
         listApprove={props.listApprove}
-        isFetching={props.isFetchingApprove}
+        isFetching={props.isFetching}
         approveSuccess={props.approveSuccess}
         totalApprove ={props.totalApprove}
         changeTab={props.handleChangeTab}
@@ -137,7 +137,7 @@ const CardReview = (props) => {
                     props.listApprove && props.listApprove.length > 0 ?
                     <div className="tab-content">
                         {
-                           <div className="tab-pane fade show active" id="newest">
+                          <div className="tab-pane fade show active" id="newest">
                               {props.listApprove.map((approveItem, index)=>
                                   <CardApproval approveItem={approveItem} handleClick={props.handleClick} />
                               )}

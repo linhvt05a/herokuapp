@@ -39,10 +39,11 @@ const PageListCart = (props) => {
     }, [])
     
     const isFetching = product_request.isFetching;
+    console.log(isFetching)
     const isFetchingComment = product_request.isFetching
-    console.log(isFetchingComment)
     const approveSuccess = product_request.approveList.success
     const isFetchingApprove = product_request.approveList.isFetching
+    console.log(isFetchingApprove)
     const commentSuccess = product_request.commentList.success
     const isCommentSuccess = product_request.commentAdd.success
     const productSuccess = product_detail.productDetail.success
@@ -121,7 +122,7 @@ const PageListCart = (props) => {
             <CardInfo productDetail={productsDetail} project_detail = {project_detail} />
             <CardApprovedHistory
                 approveSuccess={approveSuccess}
-                isFetching={isFetchingApprove}
+                isFetching={isFetching}
                 listApprove={dataApprove}
                 totalApprove = {totalApprove}
                 handleClick={handleClick}
