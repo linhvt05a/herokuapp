@@ -17,7 +17,11 @@ import {
 
     PROJECT_LIST_REQUEST,
     PROJECT_LIST_SUCCESS,
-    PROJECT_LIST_FAILURE
+    PROJECT_LIST_FAILURE,
+
+    DATA_TOTAL_REQUEST,
+    DATA_TOTAL_SUCCESS,
+    DATA_TOTAL_FAILURE
 } from '../actionType/dashboard';
   
 // region list
@@ -87,5 +91,19 @@ export const projectListSuccess = (payload) => ({
 });
 export const projectListFailure = (payload) => ({
   type: PROJECT_LIST_FAILURE,
+  payload,
+});
+
+// data total
+export const dataTotalRequest = (payload) => ({
+  type: DATA_TOTAL_REQUEST,
+  payload,
+});
+export const dataTotalSuccess = (payload) => ({
+  type: DATA_TOTAL_SUCCESS,
+  payload,
+});
+export const dataTotalFailure = (payload) => ({
+  type: DATA_TOTAL_FAILURE,
   payload,
 });

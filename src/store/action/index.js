@@ -10,6 +10,7 @@ import {
   typeListRequest,
   statusListRequest,
   projectListRequest,
+  dataTotalRequest,
 } from "./dashboard";
 import {
   projectAddRequest,
@@ -32,8 +33,10 @@ import {
   promotionListRequest,
   promotionProductRequest,
 } from "./requestCart";
+import 
+  actionsCustomer 
+from "./customer"
 
-import actionsCustomer from "./customer"
 export {
   currentcyAddRequest,
   currentcyDetailRequest,
@@ -44,6 +47,7 @@ export {
   typeListRequest,
   statusListRequest,
   projectListRequest,
+  dataTotalRequest,
   projectAddRequest,
   projectDetailRequest,
   projectEditRequest,

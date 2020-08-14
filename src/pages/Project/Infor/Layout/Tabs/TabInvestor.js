@@ -17,9 +17,7 @@ const TabInvestor = (props) => {
                             </h6>
                         </div>
                         <div className="col-4">
-                            {/* <a href="javascript:void(0)" class="float-right link_href_6d30ab" style="font-style: italic;" ref="view_project_investor_history" data-href="/backend/project/list_project_history_investor/">
-                            </a> */}
-                            <a href="#" className="float-right link_href_6d30ab">
+                            <a style={{ fontStyle: 'italic' }} href="#" className="float-right link_href_6d30ab">
                             </a>
                         </div>
                     </div>
@@ -55,15 +53,15 @@ const TabInvestor = (props) => {
                     </div>
 
                     <div className="row mt-1">
-                        <div className="col-12">
-                            <label className="font-weight-bold"><Trans>Tải tập tin</Trans>:
-                            </label>
-                            {/* <a style="text-decoration: underline;" target="_blank" className="uni_text_6d30ab" href="http://cloudapi.minerva.vn/cdn/sunnyworld-workflow-clone/b4343c8710a31fd0d21024.jpg">
-                            </a> */}
-                            <a target="_blank" class="uni_text_6d30ab" href={data.file_url_business_license}>
-                                [{data.investor_business_license_file_name}]
-                            </a>
-                        </div>
+                        {data.investor_business_license_file_name != null ?
+                            <div className="col-12">
+                                <label className="font-weight-bold"><Trans>Tải tập tin</Trans>:
+                                </label>
+                                <a style={{ textDecoration: 'underline' }} target="_blank" class="uni_text_6d30ab" href={data.file_url_business_license}>
+                                    [{data.investor_business_license_file_name}]
+                                </a>
+                            </div>:''
+                        }
                     </div>
                     <div className="row mt-4">
                         <div className="col-12">

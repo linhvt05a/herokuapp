@@ -23,7 +23,7 @@ const info = props => {
                             <div className="row m_grid--list_project">
                                 <div className="item mb-0 border-0">
                                     <div className="content">
-                                        <p className="name">{data.name}<span className="address">{data.full_address}</span>
+                                        <p className="name">{data.setting_type_name}<span className="address">{data.full_address}</span>
                                         </p>
                                         <ul className="details">
                                             <li>

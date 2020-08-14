@@ -5,7 +5,8 @@ export const dashboardService = {
     getProvinceList,
     getTypeList,
     getStatusList,
-    getProjectList
+    getProjectList,
+    getDataTotal
 }
 
 function getRegionList(token) {
@@ -54,5 +55,17 @@ function getProjectList(token, search_name, search_alphabet, setting_type, distr
                     'project_id': project_id, 'status_id': status_id, 'province_id': province_id, 'region_id': region_id,
                     'distribution_name': distribution_name, 'open_sale_id': open_sale_id, 'is_full_project': is_full_project, 'has_map_style': has_map_style};
     const url = api.getUrl(api.DASHBOARD_PROJECT_LIST, params);
+    return api.handleRequest(url, requestOptions);
+}
+
+function getDataTotal(token, search_name, search_alphabet, setting_type, distribution_type_id, project_id, status_id, province_id, region_id, distribution_name, open_sale_id, is_full_project, has_map_style) {
+    const requestOptions = {
+        method: 'GET',
+        headers: api.getHeader(token)
+    };
+    const params = {'search_name': search_name, 'search_alphabet': search_alphabet, 'setting_type': setting_type, 'distribution_type_id': distribution_type_id,
+                    'project_id': project_id, 'status_id': status_id, 'province_id': province_id, 'region_id': region_id,
+                    'distribution_name': distribution_name, 'open_sale_id': open_sale_id, 'is_full_project': is_full_project, 'has_map_style': has_map_style};
+    const url = api.getUrl(api.DASHBOARD_DATA_TOTAL, params);
     return api.handleRequest(url, requestOptions);
 }

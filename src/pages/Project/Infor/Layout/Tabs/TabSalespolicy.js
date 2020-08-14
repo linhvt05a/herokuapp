@@ -313,8 +313,8 @@ const TabSalespolicy = (props) => {
                     </h6>
                 </div>
             </div>
-            <div className="m_table m_table--sales min-width-100-pc sales_house-selected">
-                <table>
+            <div class="m_table m_table--sales min-width-100-pc table-height mb-0">
+                <table class="table table-sticky-01">
                     <thead>
                         <tr>
                             <th className="pl-0"><Trans>STT</Trans></th>

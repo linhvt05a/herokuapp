@@ -824,7 +824,7 @@ ul.list-style-none {
     z-index: 10;
     background: 0 0;
     transition: .2s ease-in;
-    z-index: 9999;
+    z-index: 5;
 }
 
 @media (max-width: 768px) {
@@ -3588,7 +3588,7 @@ input[type=number]::-webkit-inner-spin-button {
     right: -5px;
     align-items: center;
     justify-content: center;
-    line-height: 1.8;
+    line-height: 1.4;
 }
 
 .mailbox.show {
