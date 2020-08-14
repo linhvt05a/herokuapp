@@ -100,6 +100,9 @@ const CustomerInfoForm = (props) => {
         setState({ ...state, address: { _city: value, _ward: "", _district: "", _address: "" } })
         dispatch(actionsLocation.requestDistrictList({ token: token, province_id: value }))
     }
+    const onChangeDistrict = (value) => {
+        setState({ ...state, })
+    }
 
     const onDisable = (id) => {
         return id == 1 ? true : false
@@ -196,6 +199,7 @@ const CustomerInfoForm = (props) => {
                                     <Select
                                         value={state.address._district}
                                         disabled={onDisable(typeCustomer)}
+                                        onChange={onChangeDistrict}
                                         isClear={state.address._district === "" ? true : false}
                                         datas={state.dataDistrict} />
                                 </div>
