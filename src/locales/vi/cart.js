@@ -89,7 +89,12 @@ const cart = {
     total_product: "Tổng số sản phẩm",
     total_area: "Tổng diện tích",
     update: "Cập nhật",
-    choose_the_promotion: "Chọn chương trình khuyến mãi"
+    choose_the_promotion: "Chọn chương trình khuyến mãi",
+    choose_the_priority:"Chọn độ ưu tiên",
+    total_agents: "Tổng số đại lý",
+    total_sales_staff: "Tổng số nhân viên sales",
+    total_project: "Tổng số dự án ",
+    total_products_are_selling: "Tổng sản phẩm đang bán",
 }
 
 export default cart;
