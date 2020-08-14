@@ -8,7 +8,7 @@ const TabSalespolicy = (props) => {
     let { project_id } = props;
     const dispatch = useDispatch();
     const [click, setClick] = useState([]);
-    const [clickChild1, setClickChild1] = useState([]);
+    const [clickChild, setClickChild] = useState([]);
     const salepolicyStore = useSelector(state => state.project);
     useEffect(() => {
         dispatch(salepolicyListRequest({ token: token, project_id: project_id }));
@@ -20,7 +20,7 @@ const TabSalespolicy = (props) => {
     const showTapsParent = (target, index) => {
         let newData = [].concat(click);
         if (target.className.indexOf('la-plus-circle') > -1) {
-            newData[index] = { id: index, status: "active", child: { id: "", status: "" } }
+            newData[index] = { id: index, status: "active", child: { id: "", status: "", type: ""} }
             target.className = "icon icon_collapse las la-minus-circle"
         }
         else { target.className = "icon icon_collapse las la-plus-circle"; newData[index] = { id: index, status: "" } }
@@ -37,17 +37,41 @@ const TabSalespolicy = (props) => {
         else { target.className = "icon icon_collapse las la-plus-circle"; newData[indexParent] = { id: indexParent, status: "active", child: { id: index, status: "" } } }
         setClick(newData)
     }
-    const showTapsChildPath = (target, index, indexParent) => {
-        // let newData = [].concat(click);
+    const showTapsChildPath = (target, indexParent, index, type_distribute) => {
+        let newData = [].concat(click);
         if (target.className.indexOf('la-angle-down') > -1) {
-            // newData[indexParent] = { id: indexParent, status: "active", child: { id: index, status: "active" } }
+            newData[indexParent] = { 
+                id: indexParent, status: "active", child: { id: index, status: "active", type: type_distribute }
+                // id: indexParent, status: "active", 
+                // child: { 
+                //     id: index, status: "active", 
+                //     childPath:{
+                //         id: index, status: "active", type: type_distribute
+                //     }
+                // } 
+            }
             target.className = "icon icon_collapse angle las la-angle-up"
         }
-        else { target.className = "icon icon_collapse angle las la-angle-down"; 
-        // newData[indexParent] = { id: indexParent, status: "", child: { id: index, status: "" } } 
+        else { 
+            target.className = "icon icon_collapse angle las la-angle-down"; 
+            newData[indexParent] = { 
+                id: indexParent, status: "active", child: { id: index, status: "active", type: "" }
+                // id: indexParent, status: "active", 
+                // child: { 
+                //     id: index, status: "active", 
+                //     childPath:{
+                //         id: index, status: "active", type: ""
+                //     }
+                // } 
+            }
         }
-        // setClick(newData)
+        setClick(newData)
+        console.log('child path', target, index, indexParent, type_distribute, newData);
+
+        
     }
+
+    console.log('ifiifiifif', click);
     const trParent = (data, index) => {
         // console.log(`parent${index}`, data);
         return (
@@ -190,7 +214,7 @@ const TabSalespolicy = (props) => {
                 </td>
                 <td className="text-center">
                     {data.list_internal.length != 0 ?
-                        <i class="icon icon_collapse angle las la-angle-down" onClick={event => showTapsChildPath(event.target, index, indexParent)}></i>
+                        <i class="icon icon_collapse angle las la-angle-down" onClick={event => showTapsChildPath(event.target, index, indexParent, type_id)}></i>
                     : ''
                     }
                 </td>
@@ -257,7 +281,7 @@ const TabSalespolicy = (props) => {
                 </td>
                 <td className="text-center">
                     {data.list_agent.length != 0 ?
-                        <i class="icon icon_collapse angle las la-angle-down" onClick={event => showTapsChildPath(event.target, index, indexParent)}></i>
+                        <i class="icon icon_collapse angle las la-angle-down" onClick={event => showTapsChildPath(event.target, index, indexParent, type_id)}></i>
                     : ''
                     }
                 </td>
@@ -267,12 +291,16 @@ const TabSalespolicy = (props) => {
         }
         return arr;
     }
+    // <tr className={`child child-row-${parentId}-${block_id}-${type_id} 
+    //         ${click[i] && click[i].child && click[i].child.id == index && click[i].child.type == type_id ? click[i].child.status : null}`}
+    //         data-child-two={`row-${parentId}-${block_id}`} data-child={`row-${parentId}`} ></tr>
     const trChildPathEnd = (data, parentId, block_id, type_id, index, status, indexParent, totaldistribute) => {
         let arr = [];
-        console.log('tututu', data);
+        
         if (data) {
             arr = data.map((item, i) => {
-            return <tr class="child child-row-262-2-1" data-child-two="row-262-2" data-child="row-262">
+            return <tr class={`child child-row-${parentId}-${block_id}-${type_id} 
+            ${click[indexParent] && click[indexParent].child && click[indexParent].child.id == index && click[indexParent].child.type == type_id ? click[indexParent].child.status : null}`}>
                 <td class="border-bottom-none"></td>
                 <td class="border-bottom-none"></td>
                 <td colspan="1" class="pl-0">
