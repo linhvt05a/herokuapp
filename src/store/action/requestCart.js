@@ -10,6 +10,8 @@ import {
   PROMOTION_PRODUCT_REQUEST,
   PROMOTION_PRODUCT_SUCCESS,
   PROMOTION_PRODUCT_FAILURE,
+
+  CLEAR_DATA,
 } from '../actionType/requestCart';
   
 // request data
@@ -52,4 +54,9 @@ export const promotionProductSuccess = (payload) => ({
 export const promotionProductFailure = (payload) => ({
   type: PROMOTION_PRODUCT_FAILURE,
   payload,
+});
+
+// clear data
+export const clearData = () => ({
+  type: CLEAR_DATA
 });

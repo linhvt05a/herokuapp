@@ -8,7 +8,7 @@ import CustomInput from '../../../../../components/base/Input/Input';
 import CustomTextArea from '../../../../../components/base/TextArea/TextArea';
 import { CUSTOMER_REQUEST_TYPE_COMMISSION, CUSTOMER_REQUEST_TYPE_PROMOTION, CUSTOMER_REQUEST_PRIORITY_HIGH,
     CUSTOMER_REQUEST_PRIORITY_MID, CUSTOMER_REQUEST_PRIORITY_LOW } from '../../../../../constant';
-import { promotionListRequest, promotionProductRequest, requestDataRequest } from '../../../../../store/action/requestCart';
+import { promotionListRequest, promotionProductRequest, requestDataRequest, clearData } from '../../../../../store/action/requestCart';
 import { useDispatch, useSelector } from "react-redux";
 import { formatCurrency } from '../../../../../utils/Utils'
 
@@ -40,13 +40,12 @@ const ModalRequest = (props) => {
         listChangeData: [],
         indexRequestList: []
     })
-    const { value, t } = props
+    const { value, t, showToast } = props;
     const dispatch = useDispatch();
     const token = "MTAwNjpNVEF3Tmpwa05ESmlPVGc1WldVM05HWmhNMlZrWXpWaFlqQXhOalV4T1RReFl6QmtOVFUyTW1Oa1pUVTQ="
 
     const res = useSelector(state => state.request_cart);
     const isGetRequestDataSuccess = res.requestData.success;
-    const requestDataRes = isGetRequestDataSuccess ? res.requestData.detail : null;
     const isGetPromotionListSuccess = res.promotionList.success;
     const promotionListRes = isGetPromotionListSuccess ? mappingListToSelectList(res.promotionList.detail, 'promotion_id', 'promotion_name') : null;
     const isGetPromotionProductSuccess = res.promotionProduct.success;
@@ -70,6 +69,22 @@ const ModalRequest = (props) => {
         }
         setState({...state, listChangeData: list, indexRequestList: indexList });
     }, [promotionProductRes]);
+
+    useEffect(() => {
+        if (isGetRequestDataSuccess) {
+            dispatch(clearData())
+            setState({
+                request_type: 0,
+                value_change: null,
+                priority: null,
+                reason: "",
+                listChangeData: [],
+                indexRequestList: []
+            });
+            showToast('success', t("update_successful"));
+            props.close();
+        }
+    }, [isGetRequestDataSuccess]);
 
     const onChangePromotion = (promotion_id) => {
         dispatch(promotionProductRequest({ token, product_id: value.product_id, promotion_id }));
@@ -246,35 +261,12 @@ const ModalRequest = (props) => {
         )
     }
 
-    const renderOther = () => {
-        return (
-            <div>
-                <div className="uni_text_6d30ab fw-medium fs-18 mt-2 mb-2">NỘI DUNG</div>
-                <div className="row">
-                    <div className="col-12 col-sm-6 col-lg-8">
-                        <div className="form-group">
-                            <label className="fw-medium">Nội dung<span className="uni_star_e94c4c">*</span> </label>
-                            <input type="text" className="form-control" defaultValue="Đề nghị thay đổi chính sách" />
-                        </div>
-                    </div>
-                    <CustomSelect className="col-12 col-sm-6 col-lg-4" datas={priority} value={1} label="Độ ưu tiên*" onChange={(value) => setState({ ...state, priority: value })} />
-                </div>
-                <div className="form-group">
-                    <label className="fw-medium">Lý do<span className="uni_star_e94c4c">*</span></label>
-                    <textarea placeholder="Nhập lý do " className="form-control" cols={30} rows={4} defaultValue={""} />
-                </div>
-            </div>
-        )
-    }
-
     const renderRequest = () => {
         switch (state.request_type) {
             case 1:
                 return renderDiscount();
             case 2:
                 return renderExchange();
-            case 3:
-                return renderOther();
         }
     }
 
@@ -308,5 +300,3 @@ const ModalRequest = (props) => {
 }
 
 export default withTranslation()(ModalRequest);
-
-

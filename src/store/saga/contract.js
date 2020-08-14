@@ -14,9 +14,9 @@ import {
 
 export function* paymentList(payload) {
     console.log('payloadPaymentList', payload);
-    const { token, productId, paymentPolicyId, chosenDiscountId, initialAmount } = payload.payload;
+    const { token, productId, policyId, chosenDiscountId, initialAmount } = payload.payload;
     const product_id = productId;
-    const payment_policy_id = paymentPolicyId;
+    const payment_policy_id = policyId;
     const chosen_discount_id = chosenDiscountId;
     const initial_amount = initialAmount;
     try {
@@ -31,10 +31,10 @@ export function* paymentListWatcher() {
 }
 
 export function* policyList(payload) {
-    const token = payload.payload.token;
-    const search = payload.payload.search;
+    const { token, productId } = payload.payload;
+    const product_id = productId;
     try {
-        const response = yield contractService.policyPaymentForProduct(token, search);
+        const response = yield contractService.policyPaymentForProduct(token, product_id);
         response.success ? yield put({ type: POLICY_LIST_SUCCESS, response }) : yield put({ type: POLICY_LIST_FAILURE, response });
     } catch (err) {
         yield put({ type: POLICY_LIST_FAILURE, err });
@@ -45,10 +45,11 @@ export function* policyListWatcher() {
 }
 
 export function* policyProgressList(payload) {
-    const token = payload.payload.token;
-    const search = payload.payload.search;
+    const { token, productId, policyId } = payload.payload;
+    const product_id = productId;
+    const payment_policy_id = policyId;
     try {
-        const response = yield contractService.policyPaymentForProduct(token, search);
+        const response = yield contractService.policyPaymentProgressList(token, product_id, payment_policy_id);
         response.success ? yield put({ type: POLICY_PROGRESS_LIST_SUCCESS, response }) : yield put({ type: POLICY_PROGRESS_LIST_FAILURE, response });
     } catch (err) {
         yield put({ type: POLICY_PROGRESS_LIST_FAILURE, err });

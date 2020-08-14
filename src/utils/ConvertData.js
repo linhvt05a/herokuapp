@@ -2,7 +2,8 @@ import { mappingListToSelectList } from "../components/input";
 
 export {
     convertTaskTimeLineChart,
-    convertProjectSettingTypeFilter
+    convertProjectSettingTypeFilter,
+    convertPaymentContract
 }
 //get color status
 function getColorWithStatus(status) {
@@ -108,7 +109,7 @@ function convertProjectSettingTypeFilter(list, active_id) {
     return result
 }
 
-export function convertPaymentContract(datas) {
+function convertPaymentContract(datas) {
     let res = [];
     for (let i = 0; i < datas.length; i++) {
         let temp = {
@@ -118,6 +119,30 @@ export function convertPaymentContract(datas) {
             amount: datas[i].amount,
             progress: datas[i].progress_time,
             paid: datas[i].amount_per_index,
+        }
+        res.push(temp);
+    }
+    return res;
+}
+
+export function convertPolicyPayment(datas) {
+    let res = [];
+    for (let i = 0; i < datas.length; i++) {
+        let temp = {
+            value: datas[i].payment_policy_id,
+            label: datas[i].name,
+        }
+        res.push(temp);
+    }
+    return res;
+}
+
+export function convertPolicyPaymentProgress(datas) {
+    let res = [];
+    for (let i = 0; i < datas.length; i++) {
+        let temp = {
+            value: datas[i].discount_percent,
+            label: datas[i].name,
         }
         res.push(temp);
     }

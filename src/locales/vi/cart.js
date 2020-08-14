@@ -84,12 +84,23 @@ const cart = {
     search: "Tìm kiếm",
     see_requirements: "Xem các yêu cầu",
     statictis_of_open_sale: "Thống kê các đợt mở bán",
+    "sell_open": "Đợt mở bán",
+    "total_agent": "Tổng dự kiến",
+    "total_internal": "Tổng thực tế",
     status: "Trạng thái",
     support_request: "Yêu cầu hỗ trợ",
     total_product: "Tổng số sản phẩm",
     total_area: "Tổng diện tích",
     update: "Cập nhật",
-    choose_the_promotion: "Chọn chương trình khuyến mãi"
+    choose_the_promotion: "Chọn chương trình khuyến mãi",
+    choose_the_priority:"Chọn độ ưu tiên",
+    total_agents: "Tổng số đại lý",
+    total_sales_staff: "Tổng số nhân viên sales",
+    total_project: "Tổng số dự án ",
+    total_products_are_selling: "Tổng sản phẩm đang bán",
+    high: "Cao",
+    average: "Trung bình",
+    low: "Thấp",
 }
 
 export default cart;

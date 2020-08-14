@@ -4,6 +4,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     // entry: './src/index.js',
+   
     entry: {
         libs: './src/index.js',
         m_customize: './src/styles/customize.js'
@@ -84,5 +85,6 @@ module.exports = {
         },
         contentBase: './build',
         hot: true
-    }
+    },
+    
 };
