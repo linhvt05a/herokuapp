@@ -17,7 +17,6 @@ function* provinceListWatcher() {
 
 export function* DistrictList(payload) {
     let { token, province_id } = payload.params;
-    console.log(payload);
     try {
         const response = yield locationService.getDistrict(token, province_id);
         response.success ? yield put({ type: actionsLocation.DISTRICT_LIST_SUCCESS, response }) : yield put({ type: actionsLocation.DISTRICT_LIST_FAILURE, response });
