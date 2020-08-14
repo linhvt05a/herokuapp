@@ -17,10 +17,14 @@ const CustomerInfoForm = (props) => {
         dataCustomer: {},
         customer_name: "",
         customer_title: "",
+        customer_mobile: "",
+        customer_email: "",
+        customer_business: "",
         address: { _city: 0, _district: "", _ward: "", _address: "" },
         gender: null,
         dataCity: [],
         dataDistrict: [],
+        dataWard: []
     })
     const token = 'MjoxMzliMDZiZmI4OTJhOGYxYmQ2MzVhZmFmODEyZmM5M2RhNDFkM2Yx=';
     const locationStore = useSelector(state => state.location);
@@ -48,6 +52,16 @@ const CustomerInfoForm = (props) => {
             setState({ ...state, dataDistrict: newData })
         }
     }, [locationStore.districtList])
+    useEffect(() => {
+        let data = locationStore.wardList;
+        if (data.detail && data.detail.length > 0) {
+            let newData = [];
+            data.detail.map((item) => {
+                newData.push(createData(item.ward_id, item.name))
+            })
+            setState({ ...state, dataWard: newData })
+        }
+    }, [locationStore.wardList])
 
 
     useEffect(() => {
@@ -62,6 +76,9 @@ const CustomerInfoForm = (props) => {
                 address: { _city: -1, _ward: "", _district: "", _address: "" },
                 customer_name: "",
                 customer_title: "",
+                customer_email: "",
+                customer_mobile: "",
+                customer_business: "",
                 gender: null
             })
         }
@@ -69,10 +86,19 @@ const CustomerInfoForm = (props) => {
 
     useEffect(() => {
         if (state.valueSeach !== "") {
-            let dataCustomer = customerList[0]
+            let dataCustomer = customerList[0];
+            let customer_mobile = dataCustomer.customer_mobile;
+            let customer_email = dataCustomer.customer_email;
+            let customer_business = dataCustomer.customer_business_certification;
             let _address = converAddress(dataCustomer.full_address);
             let _gender = dataCustomer.customer_active_flag === false ? 2 : 1
-            setState({ ...state, dataCustomer, address: _address, gender: _gender })
+            setState({
+                ...state,
+                dataCustomer,
+                address: _address,
+                gender: _gender,
+                customer_mobile, customer_email, customer_business
+            })
         }
         else
             if (customerList.length > 0) {
@@ -97,17 +123,17 @@ const CustomerInfoForm = (props) => {
         dispatch(actionsCustomer.requestCustomerList({ token: token, name: search }))
     }
     const onChangeCity = (value) => {
-        setState({ ...state, address: { _city: value, _ward: "", _district: "", _address: "" } })
+        setState({ ...state, address: { _city: value, _ward: "", _district: "", _address: state.address._address } })
         dispatch(actionsLocation.requestDistrictList({ token: token, province_id: value }))
     }
     const onChangeDistrict = (value) => {
-        setState({ ...state, })
+        setState({ ...state, address: { _city: state.address._city, _ward: "", _district: value, _address: state.address._address } })
+        dispatch(actionsLocation.requestWardList({ token: token, district_id: value }))
     }
 
     const onDisable = (id) => {
         return id == 1 ? true : false
     }
-    console.log(state.dataDistrict);
     return (
         <div>
             <div className="create-contract__wrap">
@@ -159,7 +185,7 @@ const CustomerInfoForm = (props) => {
                                     type="text"
                                     value={typeCustomer == 1 ? state.dataCustomer.customer_name : state.customer_name}
                                     placeholder={typeCustomer == 1 ? "" : "Nhập họ tên"}
-                                    onChange={(value => setState({ ...state, customer_name: value }))}
+                                    onChange={(value => setState({ ...state, customer_name: value.target.value }))}
                                     disabled={onDisable(typeCustomer)} />
                             </div>
                             {/* {console.log(state)} */}
@@ -171,15 +197,18 @@ const CustomerInfoForm = (props) => {
                             </div>
                             <div className="col-12 col-6 col-md-6 col-lg-3">
                                 <Input type="text"
-                                    value={state.dataCustomer.customer_business_certification ? state.dataCustomer.customer_business_certification : ""}
+                                    value={state.customer_business}
                                     placeholder="Nhập số" disabled={onDisable(typeCustomer)}
+                                    onChange={value => setState({ ...state, customer_business: value.target.value })}
                                     label={<><span>Số CMND/CCCD/Hộ chiếu</span> <span className="uni_star_e94c4c">*</span></>}
                                 />
                             </div>
                             <div className="col-12 col-6 col-md-6 col-lg-3">
                                 <div className="form-group">
                                     <label className="fw-medium">Quốc tịch <span className="uni_star_e94c4c">*</span></label>
-                                    <Select value={onDisable(typeCustomer) ? 'Việt nam' : ""} disabled={onDisable(typeCustomer)}></Select>
+                                    <Select value={1} disabled={onDisable(typeCustomer)}
+                                        datas={[{ value: 1, label: "Việt Nam" }]}
+                                    ></Select>
                                 </div>
                             </div>
                             <div className="col-12 col-6 col-md-6 col-lg-3">
@@ -207,25 +236,35 @@ const CustomerInfoForm = (props) => {
                             <div className="col-12 col-6 col-md-6 col-lg-3">
                                 <div className="form-group">
                                     <label className="fw-medium">Phường / Xã <span className="uni_star_e94c4c">*</span></label>
-                                    <Select disabled={onDisable(typeCustomer)} value={onDisable(typeCustomer) ? state.address._ward : ""}></Select>
+                                    <Select
+                                        value={state.address._ward}
+                                        disabled={onDisable(typeCustomer)}
+                                        onChange={(value) => setState({ ...state, address: { _city: state.address._city, _ward: value, _district: state.address._district, _address: state.address._address } })}
+                                        isClear={state.address._ward === "" ? true : false}
+                                        datas={state.dataWard} />
                                 </div>
                             </div>
                             <div className="col-12 col-6 col-md-6 col-lg-3">
                                 <div className="form-group">
                                     <label className="fw-medium">Số nhà <span className="uni_star_e94c4c">*</span></label>
-                                    <Input type="text" placeholder="Nhập số nhà" value={onDisable(typeCustomer) ? state.address._address : ""} disabled={onDisable(typeCustomer)} />
+                                    <Input
+                                        type="text"
+                                        placeholder="Nhập số nhà"
+                                        value={state.address._address}
+                                        onChange={value => setState({ ...state, address: { _city: state.address._city, _ward: state.address._ward, _district: state.address._district, _address: value.target.value } })}
+                                        disabled={onDisable(typeCustomer)} />
                                 </div>
                             </div>
                             <div className="col-12 col-6 col-md-6 col-lg-3">
                                 <div className="form-group">
                                     <label className="fw-medium">Email <span className="uni_star_e94c4c">*</span></label>
-                                    <Input type="text" placeholder="Email " value={state.dataCustomer.customer_email} disabled={onDisable(typeCustomer)} />
+                                    <Input onChange={value => setState({ ...state, customer_email: value.target.value })} type="email" placeholder="Email " value={state.customer_email} disabled={onDisable(typeCustomer)} />
                                 </div>
                             </div>
                             <div className="col-12 col-6 col-md-6 col-lg-3">
                                 <div className="form-group">
                                     <label className="fw-medium">Điện thoại <span className="uni_star_e94c4c">*</span></label>
-                                    <Input type="text" placeholder="Nhập số " value={state.dataCustomer.customer_mobile} disabled={onDisable(typeCustomer)} />
+                                    <Input onChange={value => setState({ ...state, customer_mobile: value.target.value })} type="number" placeholder="Nhập số " value={state.customer_mobile} disabled={onDisable(typeCustomer)} />
                                 </div>
                             </div>
                             <div className="col-12 col-6 col-md-6 col-lg-3">
@@ -241,7 +280,7 @@ const CustomerInfoForm = (props) => {
             <div className="sales_list_button text-right">
                 <button type="button" className="min-width-button min-height-40 btn-uni-delete">Hủy</button>
                 <button type="button" className="min-width-button min-height-40 btn-uni-purple-outline">Trở về</button>
-                <Link to="/product_card/new_contract/discount_option"><button type="button" className="min-width-button min-height-40 btn-uni-purple createContractNext">Tiếp theo</button></Link>
+                <Link to="/product_card/new_contract/discount_option"><button type="button" className="min-width-button min-height-40 btn-uni-purple createContractNext" >Tiếp theo</button></Link>
             </div>
         </div>
     )

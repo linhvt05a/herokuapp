@@ -82,7 +82,7 @@ class InputDate extends Component {
                     }
                     <DatePicker
                         // className={this.props.classValue ? this.props.classValue : "form-control js-datepicker"}
-                        dateFormat={dateFormat ? dateFormat : DATE_FORMAT}
+                        format={dateFormat ? dateFormat : DATE_FORMAT}
                         placeholderText={this.props.label}
                         defaultValue={this.state.values}
                         onChange={this.handleChange}

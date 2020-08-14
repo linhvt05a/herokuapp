@@ -10,13 +10,13 @@ export const customerService = {
         const url = api.getUrl(api.CUSTOMER_LIST, params); console.log(url);
         return api.handleRequest(url, requestOptions);
     },
-    createContract: (token) => {
+    createContract: (token, params) => {
         const requestOptions = {
-            method: 'GET',
-            headers: api.getHeader(token)
+            method: 'POST',
+            headers: api.getHeader(token),
+            body: params
         };
-        const params = {};
-        const url = api.getUrl(api.CUSTOMER_CREATE_CONTRACT, params);
+        const url = api.getUrl(api.CUSTOMER_CREATE_CONTRACT);
         return api.handleRequest(url, requestOptions);
     },
     promotionContract: (token, product_id) => {
