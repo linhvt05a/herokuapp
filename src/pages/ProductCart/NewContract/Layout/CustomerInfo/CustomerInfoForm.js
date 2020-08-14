@@ -16,7 +16,9 @@ const CustomerInfoForm = (props) => {
         valueSeach: "",
         dataCustomer: {},
         customer_name: "",
-        customer_title: ""
+        customer_title: "",
+        address: {},
+        gender: null
     })
     const token = 'MjoxMzliMDZiZmI4OTJhOGYxYmQ2MzVhZmFmODEyZmM5M2RhNDFkM2Yx=';
 
@@ -29,15 +31,22 @@ const CustomerInfoForm = (props) => {
             dispatch(actionsCustomer.requestCustomerList({ token }));
         }
         else {
-            setState({ ...state, dataCustomer: {} })
+            setState({
+                ...state,
+                dataCustomer: {},
+                address: {},
+                customer_name: "",
+                customer_title: ""
+            })
         }
     }, [typeCustomer])
 
     useEffect(() => {
         if (state.valueSeach !== "") {
             let dataCustomer = customerList[0]
-            converAddress(dataCustomer.full_address);
-            setState({ ...state, dataCustomer })
+            let _address = converAddress(dataCustomer.full_address);
+            let _gender = dataCustomer.customer_active_flag === false ? 2 : 1
+            setState({ ...state, dataCustomer, address: _address, gender: _gender })
         }
         else
             if (customerList.length > 0) {
@@ -131,31 +140,31 @@ const CustomerInfoForm = (props) => {
                             <div className="col-12 col-6 col-md-6 col-lg-3">
                                 <div className="form-group">
                                     <label className="fw-medium">Quốc tịch <span className="uni_star_e94c4c">*</span></label>
-                                    <Select value="Việt nam" disabled={onDisable(typeCustomer)}></Select>
+                                    <Select value={onDisable(typeCustomer) ? 'Việt nam' : ""} disabled={onDisable(typeCustomer)}></Select>
                                 </div>
                             </div>
                             <div className="col-12 col-6 col-md-6 col-lg-3">
                                 <div className="form-group">
                                     <label className="fw-medium">Tỉnh / Thành phố <span className="uni_star_e94c4c">*</span></label>
-                                    <Select disabled={onDisable(typeCustomer)}></Select>
+                                    <Select disabled={onDisable(typeCustomer)} value={onDisable(typeCustomer) ? state.address._city : ""}></Select>
                                 </div>
                             </div>
                             <div className="col-12 col-6 col-md-6 col-lg-3">
                                 <div className="form-group">
                                     <label className="fw-medium">Quận / Huyện <span className="uni_star_e94c4c">*</span></label>
-                                    <Select disabled={onDisable(typeCustomer)}></Select>
+                                    <Select value={onDisable(typeCustomer) ? state.address._district : ""} disabled={onDisable(typeCustomer)}></Select>
                                 </div>
                             </div>
                             <div className="col-12 col-6 col-md-6 col-lg-3">
                                 <div className="form-group">
                                     <label className="fw-medium">Phường / Xã <span className="uni_star_e94c4c">*</span></label>
-                                    <Select disabled={onDisable(typeCustomer)}></Select>
+                                    <Select disabled={onDisable(typeCustomer)} value={onDisable(typeCustomer) ? state.address._ward : ""}></Select>
                                 </div>
                             </div>
                             <div className="col-12 col-6 col-md-6 col-lg-3">
                                 <div className="form-group">
                                     <label className="fw-medium">Số nhà <span className="uni_star_e94c4c">*</span></label>
-                                    <Input type="text" placeholder="Nhập số nhà" disabled={onDisable(typeCustomer)} />
+                                    <Input type="text" placeholder="Nhập số nhà" value={onDisable(typeCustomer) ? state.address._address : ""} disabled={onDisable(typeCustomer)} />
                                 </div>
                             </div>
                             <div className="col-12 col-6 col-md-6 col-lg-3">
