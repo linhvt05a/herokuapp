@@ -24,7 +24,7 @@ export const customerService = {
             method: 'GET',
             headers: api.getHeader(token)
         };
-        const params = { product_id };
+        const params = { token, product_id };
         const url = api.getUrl(api.CUSTOMER_PROMOTION_CONTRACT, params);
         return api.handleRequest(url, requestOptions);
     }
