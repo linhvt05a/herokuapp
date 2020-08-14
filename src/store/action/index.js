@@ -32,6 +32,7 @@ import {
   requestDataRequest,
   promotionListRequest,
   promotionProductRequest,
+  clearData,
 } from "./requestCart";
 import 
   actionsCustomer 
@@ -61,5 +62,6 @@ export {
   requestDataRequest,
   promotionListRequest,
   promotionProductRequest,
+  clearData,
   actionsCustomer
 };

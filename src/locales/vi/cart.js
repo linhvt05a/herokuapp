@@ -95,6 +95,9 @@ const cart = {
     total_sales_staff: "Tổng số nhân viên sales",
     total_project: "Tổng số dự án ",
     total_products_are_selling: "Tổng sản phẩm đang bán",
+    high: "Cao",
+    average: "Trung bình",
+    low: "Thấp",
 }
 
 export default cart;

@@ -10,6 +10,8 @@ import {
     PROMOTION_PRODUCT_REQUEST,
     PROMOTION_PRODUCT_SUCCESS,
     PROMOTION_PRODUCT_FAILURE,
+
+    CLEAR_DATA,
   } from '../actionType/requestCart';
   
   const initialState = {
@@ -41,6 +43,9 @@ import {
         return { ...state, isFetching: false, promotionProduct: action.response };
       case PROMOTION_PRODUCT_FAILURE:
         return { ...state, isFetching: false, promotionProduct: { success: false, error: action.err } };
+
+      case CLEAR_DATA:
+        return { ...state, isFetching: false, requestData: {}, promotionList: {}, promotionProduct: {} };
       default:
         return state;
     }
