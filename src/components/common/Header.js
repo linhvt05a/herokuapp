@@ -1,14 +1,13 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 
+import bannerAds from '../../assets/images/image/mask-group-364.png'
+
 class Header extends React.Component {
     render() {
         return (
             <header className="header">
-                <img src="./assets/images/mask_group.png"
-                    srcset="./assets/images/mask-group-364@2x.png 2x,
-                        ./assets/images/mask-group-364@3x.png 3x"
-                    class="Mask-Group-364" />
+                <img src={bannerAds} class="mask-group-364" />
                 <div className="header_border">
                     <div className="container container-sm container-md">
                         <div className="header_top">
