@@ -5,6 +5,10 @@ class Header extends React.Component {
     render() {
         return (
             <header className="header">
+                <img src="./assets/images/mask_group.png"
+                    srcset="./assets/images/mask-group-364@2x.png 2x,
+                        ./assets/images/mask-group-364@3x.png 3x"
+                    class="Mask-Group-364" />
                 <div className="header_border">
                     <div className="container container-sm container-md">
                         <div className="header_top">
