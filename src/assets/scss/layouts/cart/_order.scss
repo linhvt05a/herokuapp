@@ -1,0 +1,204 @@
+.main-cart__order {
+    .block {
+        &__01 {
+            @include flexbox;
+            @include align-items(center);
+            .label {
+                @include flex_center;
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                background-color: rgba(233, 76, 76, 0.35);
+            }
+            .icon {
+                @include flex_center;
+                color: #fff;
+                background-color: #e94c4c;
+                width: 35px;
+                height: 35px;
+                border-radius: 50%;
+            }
+            .highlight {
+                @include fw-medium;
+                color: #e94c4c;
+            }
+            .list {
+                font-size: 16px;
+                color: #0d0d0d;
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                flex: 1;
+                padding-left: 17px;
+                @media (max-width: 767px) {
+                    font-size: 14px;
+                }
+            }
+            .list-item {
+                line-height: normal;
+                &:not(:last-child) {
+                    margin-bottom: 5px;
+                }
+            }
+        }
+        &__02 {
+            padding-top: 24px;
+            padding-bottom: 30px;
+        }
+        &__03 {
+            padding-top: 24px;
+            padding-bottom: 30px;
+        }
+        &__04 {
+            .project_item__detail {
+                margin-bottom: 20px;
+                .view_horizontal {
+                    box-shadow: none;
+                    border: solid 1px #dee2e6;
+                    background-color: #ffffff;
+                    margin: 0;
+                }
+            }
+        }
+        &__05 {
+            padding-top: 24px;
+            padding-bottom: 30px;
+            .reply__master .files .file {
+                padding: 3px 12px;
+            }
+        }
+    }
+
+    .order-info {
+        @include flexbox;
+        @include justify-content(space-between);
+        @media (max-width: 767px) {
+            @include flex-direction(column);
+        }
+        &__item {
+            @include flexbox;
+            @include align-items(center);
+            padding-left: 24px;
+            border-left: 1px solid #ddd;
+            @media (max-width: 767px) {
+                padding-left: 0;
+                border: none;
+                &:not(:last-child) {
+                    margin-bottom: 15px;
+                }
+            }
+            &:first-child {
+                padding-left: 0;
+                border: none;
+            }
+        }
+        &__label {
+            @include flex_center;
+            width: 44px;
+            height: 44px;
+            border-radius: 5px;
+            background-color: #5480f9;
+            &.calendar {
+                background-color: #a8c200;
+            }
+            &.money {
+                background-color: #fd7e14;
+                .icon {
+                    font-size: 25px;
+                }
+            }
+        }
+        &__icon {
+            font-size: 23px;
+            color: #ffffff;
+        }
+        &__detail {
+            padding-left: 14px;
+            line-height: normal;
+        }
+        &__title {
+            font-size: 14px;
+            color: #656565;
+            margin: 0;
+            margin-bottom: 3px;
+        }
+        &__text {
+            @include fw-medium;
+            font-size: 20px;
+            color: #0d0d0d;
+            margin: 0;
+        }
+        &__note {
+            margin-top: 24px;
+            .label {
+                @include fw-medium;
+                font-size: 16px;
+                color: #0d0d0d;
+                margin-bottom: 10px;
+            }
+            .form-control {
+                width: 100%;
+                height: 120px;
+                border: solid 1px #d1d1d1;
+                background-color: #ffffff;
+                border-radius: 0;
+                padding: 10px 15px;
+                font-size: 14px;
+                @mixin placeholder {
+                    @include fw-light;
+                    font-size: 14px;
+                    font-style: italic;
+                    color: #9a9a9a;
+                }
+
+                &::-webkit-input-placeholder {
+                    /* Chrome/Opera/Safari */
+                    @include placeholder;
+                }
+                &::-moz-placeholder {
+                    /* Firefox 19+ */
+                    @include placeholder;
+                }
+                &:-ms-input-placeholder {
+                    /* IE 10+ */
+                    @include placeholder;
+                }
+                &:-moz-placeholder {
+                    /* Firefox 18- */
+                    @include placeholder;
+                }
+            }
+        }
+    }
+
+    
+
+    .upload-files {
+        border: dashed 1px #51c471;
+        padding: 13px 30px 23px 30px;
+        position: relative;
+        @include flex_center;
+        &__input {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            z-index: 1;
+            opacity: 0;
+            cursor: pointer;
+        }
+        &__center {
+            @include flexbox;
+            @include align-items(center);
+            @include flex-direction(column);
+        }
+        &__icon {
+            font-size: 50px;
+            color: #51c471;
+        }
+        &__text {
+            color: #51c471;
+        }
+    }
+}

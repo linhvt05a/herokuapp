@@ -1,0 +1,46 @@
+.cart-expenses{
+   @include salesHeading;
+   &__detail{
+      padding: 20px 24px;
+      background-color: #fff;
+   }
+   &__list{
+      @include flexbox;
+      @include align-items(center);
+      @include justify-content(space-between);
+      margin-bottom: 4px;
+      &.promotion{
+         .cart-expenses__title{
+              color: #25b15f;
+              &::before{
+               color: #25b15f;
+              }
+         }
+         .cart-expenses__value{
+              color: #25b15f;
+         }
+      }
+   }
+   &__title{
+      font-size: 16px;
+      color: #0d0d0d;
+      padding-left: 15px;
+      position: relative;
+      &::before{
+         position: absolute;
+         content: "\f621";
+         font-family: "Font Awesome 5 Free";
+         font-weight: 900;
+         font-size: 9px;
+         color: #6d30ab;
+         left: 0;
+         top: 50%;
+         @include transform(translateY(-50%));
+      }
+   }
+   &__value{
+      @include fw-medium;
+      font-size: 16px;
+      color: #0d0d0d;
+   }
+}

@@ -1,0 +1,75 @@
+// modal
+.modal-background {
+    background-color: #000;
+    display: none;
+    height: 100%;
+    position: fixed;
+    opacity: 0.5;
+    width: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    &.active {
+        display: none;
+        @media (max-width: 767px) {
+            display: block;
+        }
+    }
+}
+.modal-dialog {
+    @include flexbox;
+    @include align-items(center);
+    height: 90%;
+    margin: 0 auto;
+    opacity: 0;
+    transition: all 0.3s;
+    &.open {
+        opacity: 1;
+    }
+}
+.modal-content {
+    border-radius: 0;
+    border: none;
+    @media (max-width: 480px) {
+        width: 95%;
+        margin: 0 auto;
+    }
+}
+.modal-header {
+    @include flexbox;
+    @include align-items(center);
+    border-radius: 0;
+    border: none;
+    padding: 17px 24px;
+    background-size: 100% 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    .close {
+        font-size: 22px;
+        color: #ffffff;
+        padding: 0;
+        margin: 0;
+        opacity: 1;
+        text-shadow: none;
+        cursor: pointer;
+
+        &:not(:disabled):not(.disabled):focus,
+        &:not(:disabled):not(.disabled):hover {
+            color: #ffffff;
+        }
+    }
+}
+.modal-title {
+    @include fw-medium;
+    font-size: 24px;
+    color: #ffffff;
+}
+.modal-body {
+    padding: 0;
+}
+.modal-backdrop {
+    background-color: rgba(0, 0, 0, 0.65);
+    &.show {
+        opacity: 1;
+    }
+}

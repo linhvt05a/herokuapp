@@ -1,0 +1,45 @@
+/*pogination footer*/
+.pagination {
+	justify-content: center;
+	margin: 0;
+	padding-top: 40px;
+	@media screen and (max-width:991px){
+		padding-bottom: 40px;
+	}
+	.page-item {
+		&:first-child .page-link,
+		&:last-child .page-link {
+			border-radius: 0px;
+		}
+	}
+	.page-link{
+		color: #0d0d0d;
+		background-color: #f3f4f9;
+		line-height: 1.14;
+		border: 1px solid #dee2e6;
+		// height: 32px;
+		@media screen and (max-width: 375px) {
+			font-size: 12px;
+		}
+		&.active {
+			/**/
+			border: 1px solid #6d30ab;
+			background-color: #6d30ab;
+			color: #f3f4f9;
+		}
+		&:hover {
+			background-color: #f3f4f9;
+			color: #6d30ab;
+			border: 1px solid #6d30ab;
+		}
+	}
+	li{
+		margin: 0.25rem;
+		&:first-child .page-link,
+		&:last-child .page-link {
+			text-align: center;
+			padding-left: 8px;
+		}
+	}
+}
+

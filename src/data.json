@@ -1,0 +1,54 @@
+{
+    "project": [
+        {
+            "id": 1,
+            "name": "Dự Án Royal Garden",
+            "address": "17 đường D2, Phường 4, Quận Bình Thạnh, Tp.HCM"
+        },
+        {
+            "id": 2,
+            "name": "Dự Án Royal Garden 1",
+            "address": "17 đường D2, Phường 4, Quận 2, Tp.HCM"
+        },
+        {
+            "id": 3,
+            "name": "Dự Án Royal Garden 2",
+            "address": "17 đường D2, Phường 4, Quận 2, Tp.HCM"
+        },
+        {
+            "id": 4,
+            "name": "Dự Án Royal Garden 3",
+            "address": "17 đường D2, Phường 4, Quận 2, Tp.HCM"
+        }
+    ],
+    "news": [
+        {
+            "id": 1,
+            "image": "https://via.placeholder.com/150",
+            "date": "17/02/2020",
+            "title": "Công nghệ AR mới nhất hiện nay sẽ được áp dụng vào ngôi nhà của bạn",
+            "details": "Chương trình khuyến mãi của Serviced Residences. Miễn phí 1 tháng tiền thuê áp dụng cho Hợp đồng thuê từ 12 tháng. Tặng gói dịch vụ cơ bản hàng tháng Áp dụng cho Hợp đồng thuê từ 06 tháng bao gồm: Internet, TH cáp, điện sinh hoạt có ..."
+        },
+        {
+            "id": 1,
+            "image": "https://via.placeholder.com/150",
+            "date": "17/02/2020",
+            "title": "Công nghệ AR mới nhất hiện nay sẽ được áp dụng vào ngôi nhà của bạn",
+            "details": "Chương trình khuyến mãi của Serviced Residences. Miễn phí 1 tháng tiền thuê áp dụng cho Hợp đồng thuê từ 12 tháng. Tặng gói dịch vụ cơ bản hàng tháng Áp dụng cho Hợp đồng thuê từ 06 tháng bao gồm: Internet, TH cáp, điện sinh hoạt có ..."
+        },
+        {
+            "id": 1,
+            "image": "https://via.placeholder.com/150",
+            "date": "17/02/2020",
+            "title": "Công nghệ AR mới nhất hiện nay sẽ được áp dụng vào ngôi nhà của bạn",
+            "details": "Chương trình khuyến mãi của Serviced Residences. Miễn phí 1 tháng tiền thuê áp dụng cho Hợp đồng thuê từ 12 tháng. Tặng gói dịch vụ cơ bản hàng tháng Áp dụng cho Hợp đồng thuê từ 06 tháng bao gồm: Internet, TH cáp, điện sinh hoạt có ..."
+        },
+        {
+            "id": 1,
+            "image": "https://via.placeholder.com/150",
+            "date": "17/02/2020",
+            "title": "Công nghệ AR mới nhất hiện nay sẽ được áp dụng vào ngôi nhà của bạn",
+            "details": "Chương trình khuyến mãi của Serviced Residences. Miễn phí 1 tháng tiền thuê áp dụng cho Hợp đồng thuê từ 12 tháng. Tặng gói dịch vụ cơ bản hàng tháng Áp dụng cho Hợp đồng thuê từ 06 tháng bao gồm: Internet, TH cáp, điện sinh hoạt có ..."
+        }
+    ]
+}

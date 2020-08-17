@@ -1,0 +1,7 @@
+.slick-track {
+    @include flexbox;
+}
+.slick-slide {
+    outline: none;
+    box-shadow: none;
+}

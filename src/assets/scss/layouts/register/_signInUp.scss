@@ -1,0 +1,26 @@
+.form_signInUp{
+    padding:30px 25px;
+    box-shadow: 0 8px 5px 0 rgba(0, 0, 0, 0.13);
+    background-color: #ffffff;
+    @media(max-width:767px){
+        padding:20px;
+        .btn{
+            padding: 7px 15px;
+        }
+    }
+    
+    .form-group{
+        margin-bottom: 20px;
+        @media(max-width:767px){
+            margin-bottom: 15px;
+        }
+    }
+}
+.btn_signIn{
+    max-width: 175px;
+    width: 100%;
+    margin-bottom: 10px;
+    @media(max-width:767px){
+        max-width: 125px;
+    }
+}
