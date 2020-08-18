@@ -13,11 +13,10 @@ function Header() {
     const [open, setOpen] = useState();
     const showAdvisory = () => {
         let classAdv = "chat_online chatOnline active";
-        if (classAdv.length != 0) {
-            console.log('show');
+        if (classAdv.length == 0) {
             setOpen(false);
         }
-        else { setOpen(true); console.log('hide'); }
+        else { setOpen(true); }
     }
     return (
         <>
