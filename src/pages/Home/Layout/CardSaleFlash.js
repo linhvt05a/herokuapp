@@ -10,7 +10,7 @@ const CardSaleFlash = (props) => {
         dots: true,
         infinite: true,
         speed: 500,
-        slidesToShow: 1,
+        slidesToShow: 2,
         slidesToScroll: 1
     };
 
@@ -19,15 +19,13 @@ const CardSaleFlash = (props) => {
             <div className="container container-sm container-md">
                 <ItemHeader label="sale_flash" />
                 <div className="striking_apartment--content">
-                    <div className="row">
-                        <Slider>
-                            {
-                                (datas && datas.length > 0) ? datas.map((item, index) => (
-                                    <ItemProduct key={index} data={item} />
-                                )) : <CardNoData />
-                            }
-                        </Slider>
-                    </div>
+                    <Slider {...settings}>
+                        {
+                            (datas && datas.length > 0) ? datas.map((item, index) => (
+                                <ItemProduct key={index} data={item} />
+                            )) : <CardNoData />
+                        }
+                    </Slider>
                 </div>
             </div>
         </div>
