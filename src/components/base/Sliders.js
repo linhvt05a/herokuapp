@@ -23,11 +23,11 @@ const PrettoSlider = withStyles({
       left: 'calc(-50% + 4px)',
     },
     track: {
-      height: 8,
+      height: 4,
       borderRadius: 4,
     },
     rail: {
-      height: 8,
+      height: 4,
       borderRadius: 4,
      
      
