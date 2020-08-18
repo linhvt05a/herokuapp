@@ -4,9 +4,6 @@ import { Trans } from "react-i18next";
 import Chat from "../common/Chat";
 import FormContact from "../common/FormContact";
 
-import bannerAds from '../../assets/images/image/mask-group-364.png'
-import giftImg from '../../assets/images/icon/gift.png'
-
 function Header() {
     const [show, setShowAdvisory] = useState(false);
     const [inHover, setHover] = useState(false);
@@ -15,7 +12,9 @@ function Header() {
     return (
         <>
         <header className="header">
-            <img src={bannerAds} className="mask-group-364" style={{width: "100%"}} />
+            <Link to="/#">
+                <img src="../assets/images/mask-group-364.png" className="mask-group-364" style={{width: "100%"}} />
+            </Link>
             <div className="header_border">
                 <div className="container container-sm container-md">
                     <div className="header_top">
@@ -215,7 +214,7 @@ function Header() {
                         <li className="item">
                             <NavLink activeClassName="active" className="item-link" to="/promotion">
                                 KHUYẾN MÃI
-                                <img src={giftImg} class="gift" />
+                                <img src="../assets/images/gift.png" class="gift" />
                             </NavLink>
                         </li>
                         <li className="item d-flex justify-content-between d-md-none">

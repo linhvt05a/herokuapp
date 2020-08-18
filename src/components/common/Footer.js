@@ -1,8 +1,13 @@
-import React from "react";
-
+import React, { useEffect, useState } from 'react';
+import Chat from "../common/Chat";
 import { Link } from "react-router-dom";
 
+
 function Footer() {
+    const [show, setShowAdvisory] = useState(false);
+    const ScrollToTop = () => {
+        window.scrollTo({top: 0, behavior: 'smooth'});
+    }
     return (
         <footer className="footer">
             <div className="footer_top">
@@ -166,24 +171,25 @@ function Footer() {
             </div>
         
             <ul className="footer_social">
-            <li>
-                <Link to="/#" className="phone clickPhone">
-                    <i className="icon fas fa-phone-alt" />
-                    <i className="text">0909 123 456</i>
-                </Link>
-            </li>
-            <li>
-                <Link to="/#" className="chat startChatOnline">
-                    <i className="icon fas fa-comments" />
-                </Link>
-            </li>
-            <li>
-                <Link to="/#" className="totop toTop">
-                    <i className="icon fas fa-chevron-up" />
-                </Link>
-            </li>
-        </ul>
-    </footer>
+                <li>
+                    <Link to="/#" className="phone clickPhone">
+                        <i className="icon fas fa-phone-alt" />
+                        <i className="text">0909 123 456</i>
+                    </Link>
+                </li>
+                <li>
+                    <Link to="/#" className="chat startChatOnline" onClick={() => setShowAdvisory(!show)}>
+                        <i className="icon fas fa-comments" />
+                    </Link>
+                </li>
+                <li>
+                    <Link to="/#" className="totop toTop" onClick={() => ScrollToTop()}>
+                        <i className="icon fas fa-chevron-up" />
+                    </Link>
+                </li>
+            </ul>
+            <Chat active={show}/>
+        </footer>
     );
 }
 
