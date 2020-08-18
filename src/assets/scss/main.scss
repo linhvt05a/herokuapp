@@ -4,45 +4,7 @@
 /*element*/
 @import "./elements/fonts";
 @import "./elements/mixin";
-@import "./elements/color";
-@import "./elements/button";
-@import "./elements/select";
-@import "./elements/input";
-@import "./elements/animation";
-@import "./elements/alert";
-@import "./elements/datepicker";
-@import "./elements/scrollbar";
-@import "./elements/modal";
+@import "./elements/**.scss";
 
-// /*layout*/
-@import "./layouts/all/element";
-@import "./layouts/all/element_mixin";
-@import "./layouts/all/contact";
-@import "./layouts/all/striking_apartment";
-@import "./layouts/all/app_managerment";
-@import "./layouts/all/recruitment";
-@import "./layouts/all/chat";
-@import "./layouts/all/sales_policy";
-@import "./layouts/all/borrow";
-@import "./layouts/all/loan_online";
-@import "./layouts/all/exchanges";
-@import "./layouts/all/save_product";
-@import "./layouts/all/element";
-@import "./layouts/all/element_mixin";
-@import "./layouts/all/panigation";
-@import "./layouts/all/top_banner";
-@import "./layouts/all/filter_select";
-@import "./layouts/all/overview";
-@import "./layouts/all/map";
-@import "./layouts/all/shopping_guide";
-@import "./layouts/all/juridical";
-@import "./layouts/all/hot_product";
-// @import "./layouts/all/assets_link";
-
-@import "./layouts/head/head";
-@import "./layouts/news/news";
-@import "./layouts/project/project";
-@import "./layouts/register/register";
-@import "./layouts/introduce/introduce";
-@import "./layouts/user_account/user_account";
-@import "./layouts/cart/cart";
+/*layout*/
+@import "./layouts/**/*.scss";
