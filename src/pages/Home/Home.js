@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { CardSaleFlash } from "./Layout/index";
 import { ItemHeader, ItemHomeProject } from './Item/index'
 import { Trans } from "react-i18next";
+import { CardSaleFlash, CardNews } from "./Layout/index";
 
 const Home = (props) => {
 
@@ -808,101 +808,9 @@ const Home = (props) => {
                 </div>
             </div>
             {/* end app_managerment  */}
+            
             {/* Latest news  */}
-            <div className="latest_news bg_grey">
-                <div className="container container-sm container-md">
-                    <div className="latest_news--heading">
-                        <h3 className="main_heading">
-                            <span>Tin tức mới nhất</span>
-                        </h3>
-                        <Link to="/" className="readmore">
-                            XEM THÊM{" "}
-                            <i className="icon fas fa-angle-double-right" />
-                        </Link>
-                    </div>
-                    <div className="latest_news--content js_news">
-                        <div className="item">
-                            <figure className="img">
-                                <img
-                                    className="w-100"
-                                    src="./assets/images/four-brown-wooden-chairs-2635038.jpg"
-                                    alt="Mở bán khu biệt thự cao cấp ở Quận 7 , Tp.HCM"
-                                />
-                            </figure>
-                            <div className="box">
-                                <h4 className="name">
-                                    <Link to="/">
-                                        Mở bán khu biệt thự cao cấp ở Quận 7
-                                        , Tp.HCM
-                                    </Link>
-                                </h4>
-                                <div className="des">
-                                    Quỹ đất nội thành ngày càng khan hiếm,
-                                    cộng với quá trình rà soát
-                                </div>
-                                <span className="time">
-                                    <i className="icon far fa-clock" />
-                                    9:00 - 27/02/2020
-                                </span>
-                            </div>
-                        </div>
-                        <div className="item">
-                            <figure className="img">
-                                <img
-                                    className="w-100"
-                                    src="./assets/images/four-brown-wooden-chairs-2635038.jpg"
-                                    alt="Mở bán khu biệt thự cao cấp ở Quận 7 , Tp.HCM"
-                                />
-                            </figure>
-                            <div className="box">
-                                <h4 className="name">
-                                    <Link to="/">
-                                        Mở bán khu biệt thự cao cấp ở Quận 7
-                                        , Tp.HCM
-                                    </Link>
-                                </h4>
-                                <div className="des">
-                                    Quỹ đất nội thành ngày càng khan hiếm,
-                                    cộng với quá trình rà soát lại khiến thị
-                                    trường bất động sản lớn nhất nước rơi
-                                    vào tình trạng cung giảm.
-                                </div>
-                                <span className="time">
-                                    <i className="icon far fa-clock" />
-                                    9:00 - 27/02/2020
-                                </span>
-                            </div>
-                        </div>
-                        <div className="item">
-                            <figure className="img">
-                                <img
-                                    className="w-100"
-                                    src="./assets/images/four-brown-wooden-chairs-2635038.jpg"
-                                    alt="Mở bán khu biệt thự cao cấp ở Quận 7 , Tp.HCM"
-                                />
-                            </figure>
-                            <div className="box">
-                                <h4 className="name">
-                                    <Link to="/">
-                                        Mở bán khu biệt thự cao cấp ở Quận 7
-                                        , Tp.HCM
-                                    </Link>
-                                </h4>
-                                <div className="des">
-                                    Quỹ đất nội thành ngày càng khan hiếm,
-                                    cộng với quá trình rà soát lại khiến thị
-                                    trường bất động sản lớn nhất nước rơi
-                                    vào tình trạng cung giảm.
-                                </div>
-                                <span className="time">
-                                    <i className="icon far fa-clock" />
-                                    9:00 - 27/02/2020
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                <CardNews />
             {/* End Latest news  */}
         </div>
     )
