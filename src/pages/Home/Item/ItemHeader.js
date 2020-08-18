@@ -5,13 +5,13 @@ import { Select } from 'antd'
 
 const ItemHeader = (props) => {
 
-    const { label, readmore, options } = props
+    const { headerBodyClassName, labelHeader, readmore, options, status } = props
     const { Option } = Select
 
     return (
-        <div className="latest_news--heading">
+        <div className={headerBodyClassName}>
             <h2 className="main_heading">
-                <span><Trans>{label}</Trans></span>
+                <span><Trans>{labelHeader}</Trans></span>
             </h2>
             {
                 readmore &&
@@ -32,6 +32,17 @@ const ItemHeader = (props) => {
                             })}
                         />
                     </div>
+                </div>
+            }
+            {
+                status &&
+                <div className="project_list--status text-uppercase">
+                    <Link to="/#" className="status working">
+                        <Trans>on_sale</Trans>
+                    </Link>
+                    <Link to="/#" className="status done">
+                        <Trans>about_to_sell</Trans>
+                    </Link>
                 </div>
             }
         </div>

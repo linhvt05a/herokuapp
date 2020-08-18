@@ -5,7 +5,7 @@ import Slider from "react-slick";
 
 const CardSaleFlash = (props) => {
 
-    const { datas, banner, detail, options, readmore } = props
+    const { headerBodyClassName, labelHeader, datas, banner, detail, options, readmore } = props
     const settings = {
         infinite: true,
         slidesToShow: 3,
@@ -15,9 +15,9 @@ const CardSaleFlash = (props) => {
     return (
         <div className="striking_apartment label_filter bg_grey">
             <div className="container container-sm container-md">
-                <ItemHeader label="sale_flash" options={options ? options : undefined} readmore={readmore ? readmore : undefined} />
+                <ItemHeader headerBodyClassName={headerBodyClassName} labelHeader={labelHeader} options={options ? options : undefined} readmore={readmore ? readmore : undefined} />
                 {
-                    banner ? <img src="/assets/images/flashsale.png" style={{width: "100%", height: "100px", marginBottom: "40px"}}></img> : ""
+                    banner ? <img src="/assets/images/flashsale.png" style={{width: "100%", marginBottom: "40px"}}></img> : ""
                 }
                 <div className="striking_apartment--content">
                     {
