@@ -1,8 +1,13 @@
+// polyfills 
+import "@babel/polyfill";
+import "./polyfills/classList.min";
+
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import './i18n';
+import './assets/cssLibs';
 
 ReactDOM.render(
     <App />,
