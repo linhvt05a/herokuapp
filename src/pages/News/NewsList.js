@@ -2,9 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import TopBanner from "../../components/common/TopBanner";
 import {Categories, FilterProject} from '../News/index'
+import {Paginations} from '../../components/base/index'
 
-class News extends React.Component {
-    render() {
+const News = () => {
         return (
             <div className="news">
                 <TopBanner />
@@ -21,22 +21,16 @@ class News extends React.Component {
                             <RowNews />
                             <RowNews />
                         </div>
-                            {/*pagination*/}
-                            <Pagination />
-                            {/*end pagination*/}
+                            <Paginations total_page={20} total_record={4} page={1} />
                         </div>
                         <div className="col-md-12 col-lg-4 col-xl-4 col-right_news mb-sm-3 mb-0">
                             <Categories />
                             <FilterProject />
                         </div>
-                    
                     </div>
-                
                 </div>
             </div>
-        
         );
-    }
 }
 
 const RowNews = () => {
@@ -74,49 +68,7 @@ const RowNews = () => {
                     </div>
                 </div>
             </div>
-    
     )
 }
-const Pagination = () =>{
-    return(
-        <ul className="pagination">
-        <li className="page-item">
-            <Link className="page-link" to="#">
-                Đầu
-            </Link>
-        </li>
-        <li className="page-item">
-            <Link className="page-link" to="#">
-                <i className="fas fa-angle-double-left " />
-            </Link>
-        </li>
-        <li className="page-item">
-            <Link className="page-link" to="#">
-                1
-            </Link>
-        </li>
-        <li className="page-item">
-            <Link className="page-link active" to="#">
-                2
-            </Link>
-        </li>
-        <li className="page-item">
-            <Link className="page-link" to="#">
-                3
-            </Link>
-        </li>
-        <li className="page-item">
-            <Link className="page-link" to="#">
-                <i className="fas fa-angle-double-right " />
-            </Link>
-        </li>
-        <li className="page-item">
-            <Link className="page-link" to="#">
-                Cuối
-            </Link>
-        </li>
-    </ul>
-    
-    )
-}
+
 export default News;
