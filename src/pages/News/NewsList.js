@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import TopBanner from "../../components/common/TopBanner";
 import {Categories, FilterProject} from '../News/index'
 import {Paginations} from '../../components/base/index'
-
+import RegisterModal from './RegisterModal'
 const News = () => {
         return (
             <div className="news">
@@ -26,9 +26,11 @@ const News = () => {
                         <div className="col-md-12 col-lg-4 col-xl-4 col-right_news mb-sm-3 mb-0">
                             <Categories />
                             <FilterProject />
+                            
                         </div>
                     </div>
                 </div>
+                <RegisterModal />
             </div>
         );
 }

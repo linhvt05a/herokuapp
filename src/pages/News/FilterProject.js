@@ -27,10 +27,11 @@ const FilterProject = () =>{
             </div>
             <div className="range_item area">
                 <label className="label">Diện tích<i>(m2)</i></label>
-                    <Sliders value= {data1} displayBox="on"/>
+                    <Sliders value={data1} displayBox="on"/>
             </div>
         </div>
             <SearchByProject />
+            
     </div>
 
     )

@@ -5,8 +5,7 @@ const SliderRange = (props) => {
 
     return (
         <>
-            <Slider defaultValue={30} />
-            <Slider range defaultValue={[20, 50]} />
+            <Slider range defaultValue={[20, 50]}/>
       </>
     )
 }
