@@ -1,5 +1,9 @@
 @import "./element_mixin";
 
+$HelveticaNeue: "HelveticaNeue";
+$HelveticaNeue-Medium: "HelveticaNeue-Medium";
+$HelveticaNeue-Light: "HelveticaNeue-Light";
+
 body {
     @include fonts_body;
     @include fontf_body;

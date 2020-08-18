@@ -39,25 +39,18 @@ module.exports = {
                     name: 'images/[name].[ext]'
                 }
             },
-            // {
-            //     test: /\.scss$/,
-            //     use: ExtractTextPlugin.extract({
-            //         fallback: 'style-loader',
-            //         use: [
-            //             { loader: 'css-loader' },
-            //             // 'sass-loader'
-            //             {
-            //                 loader: "sass-loader",
-            //                 options: {
-            //                     sassOptions: {
-            //                         importer: globImporter(),
-            //                     },
-            //                 },
-            //             },
-            //         ],
-            //
-            //     })
-            // }
+            {
+                test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: '[name].[ext]',
+                            outputPath: 'fonts/'
+                        }
+                    }
+                ]
+            },
             {
                 test: /\.(scss|css)$/,
                 use: [
@@ -87,9 +80,6 @@ module.exports = {
         filename: 'bundle.js'
     },
     plugins: [
-        // new MiniCssExtractPlugin({
-        //     filename: '[name].css',
-        // }),
         new MiniCssExtractPlugin({
             filename: "css/[name].css",
         }),

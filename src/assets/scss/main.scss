@@ -1,8 +1,11 @@
-// libs
-@import "./font-awesome.scss";
+/*fonts*/ 
+@import "./font-awesome";
+@import "../fonts/fonts";
 
-/*element*/
-@import "./elements/fonts";
+/*libs*/
+@import "./antd/**.scss";
+
+/*custom*/
 @import "./elements/mixin";
 @import "./elements/**.scss";
 
