@@ -361,6 +361,7 @@ class News extends React.Component {
                     </div>
                 </div>
             </div>
+        
         );
     }
 }
