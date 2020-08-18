@@ -21,7 +21,7 @@ function Header() {
     return (
         <>
         <header className="header">
-            <img src={bannerAds} className="mask-group-364" />
+            <img src={bannerAds} className="mask-group-364" style={{width: "100%"}} />
             <div className="header_border">
                 <div className="container container-sm container-md">
                     <div className="header_top">
