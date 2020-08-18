@@ -2,6 +2,8 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
+const globImporter = require("node-sass-glob-importer");
+
 
 module.exports = {
     // entry: './src/index.js',
@@ -52,9 +54,19 @@ module.exports = {
                     fallback: 'style-loader',
                     use: [
                         { loader: 'css-loader' },
-                        'sass-loader'
+                        // 'sass-loader'
+                        {
+                            loader: "sass-loader",
+                            options: {
+                                sassOptions: {
+                                    importer: globImporter(),
+                                },
+                            },
+                        },
                     ],
+                    
                 })
+                
             }
         ]
     },
