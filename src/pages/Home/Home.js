@@ -299,7 +299,7 @@ const Home = (props) => {
                 </div>
             </div>
             {/*end block map  */}
-            <CardSaleFlash datas={["a", "iu", "e", "vl", "wa", "di"]} />
+            <CardSaleFlash datas={["a", "iu", "e", "vl", "wa", "di"]} banner options/>
             {/* block over  */}
             <div className="overview">
                 <div className="container container-sm container-md">
