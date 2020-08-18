@@ -1,5 +1,7 @@
 import Sliders from './Sliders'
-import Paginations from './Paginations'
+import Paginations from './Paginations';
+import ButtonCustom from './Button';
+import ModalCenter from './Modal';
 export {
-    Sliders, Paginations
+    Sliders, Paginations, ButtonCustom, ModalCenter
 }
