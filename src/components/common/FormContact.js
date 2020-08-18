@@ -72,7 +72,6 @@ function FormContact(props) {
                             <div className="form-group mb-0 text-center">
                                 <Link
                                     onClick={event => showTap(3)}
-                                    to="/demo"
                                     className="text-forgot forgotPassword">
                                     Quên mật khẩu
                                 </Link>
