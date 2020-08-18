@@ -1,5 +1,5 @@
-// libs 
-@import "./libs.scss";
+// libs
+@import "./font-awesome.scss";
 
 /*element*/
 @import "./elements/fonts";
@@ -12,6 +12,7 @@
 @import "./elements/alert";
 @import "./elements/datepicker";
 @import "./elements/scrollbar";
+@import "./elements/modal";
 
 // /*layout*/
 @import "./layouts/all/element";
@@ -45,5 +46,3 @@
 @import "./layouts/introduce/introduce";
 @import "./layouts/user_account/user_account";
 @import "./layouts/cart/cart";
-
-
