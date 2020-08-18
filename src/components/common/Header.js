@@ -1,16 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from 'react';
 import { Link, NavLink } from "react-router-dom";
 import { Trans } from "react-i18next";
+import Chat from "../common/Chat";
+
+
 
 import bannerAds from '../../assets/images/image/mask-group-364.png'
 import giftImg from '../../assets/images/icon/gift.png'
 
 // onClick={even => showAdvisory()}
 function Header() {
+    const [open, setOpen] = useState();
     const showAdvisory = () => {
-        console.log('oki');
+        let classAdv = "chat_online chatOnline active";
+        if (classAdv.length != 0) {
+            console.log('show');
+            setOpen(false);
+        }
+        else { setOpen(true); console.log('hide'); }
     }
     return (
+        <>
         <header className="header">
             <img src={bannerAds} className="mask-group-364" />
             <div className="header_border">
@@ -27,7 +37,7 @@ function Header() {
                         </div>
                         <ul className="header_contact d-none d-md-flex">
                             <li className="chat">
-                                <Link to="/#" onClick={even => showAdvisory()}>
+                                <Link to="/#" onClick={event => showAdvisory(event.target)}>
                                     <i className="fas fa-comments" />
                                     Tư vấn
                                 </Link>
@@ -604,6 +614,8 @@ function Header() {
             </div>
             <div className="modal-background" />
         </header>
+        <Chat active={open} />
+        </>
     );
 }
 
