@@ -3,14 +3,34 @@ import { Link, NavLink } from "react-router-dom";
 import { Trans } from "react-i18next";
 import Chat from "../common/Chat";
 import FormContact from "../common/FormContact";
+import Input from '../../components/base/Input/Input';
+// import Select from '../../components/base/Select/Select';
+// import { Select } from 'antd';
+import Select from '../../components/base/Select/Select';
 
 function Header() {
     const [show, setShowAdvisory] = useState(false);
     const [inHover, setHover] = useState(false);
     const [inHoverProfile, setHoverProfile] = useState(false);
     const [inHoverNav, setHoverNav] = useState(false);
+
+    function handleChange(value) {
+        console.log(`selected ${value}`);
+    }
     return (
         <>
+        <div style={{width: "30%"}}>
+            <Input className="col-12 col-sm-6 col-md-6 col-lg-4" />
+            <Select onChange={handleChange}
+                datas={[
+                    { value: 1, label: "Việt Nam" },
+                    { value: 2, label: "Lào" },
+                    { value: 3, label: "Cam pu chia" },
+                ]}
+            >
+            </Select>
+        </div>
+
         <header className="header">
             <Link to="/#">
                 <img src="../assets/images/mask-group-364.png" className="mask-group-364" style={{width: "100%"}} />
