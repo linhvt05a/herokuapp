@@ -1,3 +1,7 @@
+// polyfills 
+import "@babel/polyfill";
+import "./polyfills/classList.min";
+
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";

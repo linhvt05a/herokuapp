@@ -1,7 +1,10 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const TerserPlugin = require('terser-webpack-plugin');
+const globImporter = require("node-sass-glob-importer");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
+
 
 module.exports = {
     // entry: './src/index.js',
@@ -36,26 +39,43 @@ module.exports = {
                     name: 'images/[name].[ext]'
                 }
             },
+            // {
+            //     test: /\.scss$/,
+            //     use: ExtractTextPlugin.extract({
+            //         fallback: 'style-loader',
+            //         use: [
+            //             { loader: 'css-loader' },
+            //             // 'sass-loader'
+            //             {
+            //                 loader: "sass-loader",
+            //                 options: {
+            //                     sassOptions: {
+            //                         importer: globImporter(),
+            //                     },
+            //                 },
+            //             },
+            //         ],
+            //
+            //     })
+            // }
             {
-                test: /\.css$/i,
-                use: ExtractTextPlugin.extract({
-                    fallback: 'style-loader',
-                    use: [
-                        { loader: 'css-loader' },
-                    ],
-
-                })
+                test: /\.(scss|css)$/,
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    {
+                        loader: "css-loader",
+                        options: {},
+                    },
+                    {
+                        loader: "sass-loader",
+                        options: {
+                            sassOptions: {
+                                importer: globImporter(),
+                            },
+                        },
+                    },
+                ],
             },
-            {
-                test: /\.scss$/,
-                use: ExtractTextPlugin.extract({
-                    fallback: 'style-loader',
-                    use: [
-                        { loader: 'css-loader' },
-                        'sass-loader'
-                    ],
-                })
-            }
         ]
     },
     resolve: {
@@ -67,8 +87,11 @@ module.exports = {
         filename: 'bundle.js'
     },
     plugins: [
-        new ExtractTextPlugin({
-            filename: '[name].css',
+        // new MiniCssExtractPlugin({
+        //     filename: '[name].css',
+        // }),
+        new MiniCssExtractPlugin({
+            filename: "css/[name].css",
         }),
         new webpack.HotModuleReplacementPlugin(),
         new HtmlWebpackPlugin(

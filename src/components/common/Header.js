@@ -2,22 +2,16 @@ import React, { useEffect, useState } from 'react';
 import { Link, NavLink } from "react-router-dom";
 import { Trans } from "react-i18next";
 import Chat from "../common/Chat";
-
-
+import FormContact from "../common/FormContact";
 
 import bannerAds from '../../assets/images/image/mask-group-364.png'
 import giftImg from '../../assets/images/icon/gift.png'
 
-// onClick={even => showAdvisory()}
 function Header() {
-    const [open, setOpen] = useState();
-    const showAdvisory = () => {
-        let classAdv = "chat_online chatOnline active";
-        if (classAdv.length == 0) {
-            setOpen(false);
-        }
-        else { setOpen(true); }
-    }
+    const [show, setShowAdvisory] = useState(false);
+    const [inHover, setHover] = useState(false);
+    const [inHoverProfile, setHoverProfile] = useState(false);
+    const [inHoverNav, setHoverNav] = useState(false);
     return (
         <>
         <header className="header">
@@ -36,7 +30,7 @@ function Header() {
                         </div>
                         <ul className="header_contact d-none d-md-flex">
                             <li className="chat">
-                                <Link to="/#" onClick={event => showAdvisory(event.target)}>
+                                <Link to="/#" onClick={() => setShowAdvisory(!show)}>
                                     <i className="fas fa-comments" />
                                     Tư vấn
                                 </Link>
@@ -48,13 +42,14 @@ function Header() {
                                 </Link>
                             </li>
                             <li className="languages">
-                                <div className="dropdown">
+                                <div className={`dropdown ${inHover ? "open": ''}`} onMouseLeave={() => setHover(false)}>
                                     <Link
+                                        onMouseEnter={() => setHover(true)}
                                         to="/demo"
                                         className="dropdown-toggle"
                                         data-toggle="dropdown"
                                         data-hover="dropdown"
-                                        aria-expanded="false"
+                                        aria-expanded={inHover}
                                     >
                                         <img
                                             src="./assets/images/lang_vn.jpg"
@@ -62,7 +57,7 @@ function Header() {
                                         />
                                         <i className="icon_arrow fas fa-chevron-down" />
                                     </Link>
-                                    <ul className="dropdown-menu pull-right">
+                                    <ul className="dropdown-menu pull-right" >
                                         <li>
                                             <Link to="/#">
                                                 <img
@@ -119,12 +114,12 @@ function Header() {
                         <li className="item">
                             <NavLink activeClassName="active" className="item-link" to="/project"
                             >
-                                DỰ ÁN ĐANG BÁN
+                                ĐANG BÁN
                             </NavLink>
                         </li>
                         <li className="item">
                             <NavLink activeClassName="active" className="item-link" to="/cart">
-                                DỰ ÁN SẮP BÁN
+                                SẮP BÁN
                             </NavLink>
                         </li>
                         <li className="item">
@@ -132,8 +127,9 @@ function Header() {
                                 SÀN GIAO DỊCH
                             </NavLink>
                         </li>
-                        <li className="item hasChild dropdown d-none d-md-block">
+                        <li className={`item hasChild dropdown d-none d-md-block ${inHoverNav ? "open": ''}`} >
                             <NavLink activeClassName="active"
+                                onMouseEnter={() => setHoverNav(true)}
                                 className="item-link dropdown-toggle"
                                 data-toggle="dropdown"
                                 data-hover="dropdown"
@@ -141,7 +137,7 @@ function Header() {
                             >
                                 HỔ TRỢ
                             </NavLink>
-                            <ul className="header_menu--child dropdown-menu">
+                            <ul className="header_menu--child dropdown-menu" onMouseLeave={() => setHoverNav(false)}>
                                 <li className="item-child">
                                     <NavLink activeClassName="active"
                                         className="item-child-link"
@@ -167,12 +163,6 @@ function Header() {
                                     </NavLink>
                                 </li>
                                 <li className="item-child">
-                                    {/* <Link
-                                        className="item-child-link"
-                                        to="/demo"
-                                    >
-                                        Liên hệ
-                                    </Link> */}
                                     <NavLink activeClassName="active"
                                         className="item-child-link"
                                         to="/contact"
@@ -422,190 +412,19 @@ function Header() {
                                 <i className="icon cart fas fa-cart-plus" />
                             </Link>
                         </div>
-                        <div className="item dropdown">
+                        <div className={`item dropdown ${inHoverProfile ? "open": ''}`}>
                             <Link
+                                onMouseEnter={() => setHoverProfile(true)}
                                 to="/demo"
                                 className="dropdown-toggle link"
                                 data-toggle="dropdown"
                                 data-hover="dropdown"
-                                aria-expanded="false"
+                                aria-expanded={inHoverProfile}
                             >
                                 <i className="icon user fas fa-user-circle" />
                             </Link>
-                            <div className="dropdown-menu">
-                                {/* form_register */}
-                                <div className="header_register form_register">
-                                    <ul
-                                        className="nav header_register--heading"
-                                        role="tablist"
-                                    >
-                                        <li className="nav-item">
-                                            <Link
-                                                className="nav-link active"
-                                                id="pills-signin-tab"
-                                                data-toggle="pill"
-                                                to="#pills-signin"
-                                                role="tab"
-                                                aria-controls="pills-signin"
-                                                aria-selected="true"
-                                            >
-                                                ĐĂNG NHẬP
-                                            </Link>
-                                        </li>
-                                        <li className="nav-item">
-                                            <Link
-                                                className="nav-link"
-                                                id="pills-signup-tab"
-                                                data-toggle="pill"
-                                                to="#pills-signup"
-                                                role="tab"
-                                                aria-controls="pills-signup"
-                                                aria-selected="false"
-                                            >
-                                                ĐĂNG KÝ
-                                            </Link>
-                                        </li>
-                                    </ul>
-                                    <div className="tab-content">
-                                        <div
-                                            className="tab-pane fade show active"
-                                            id="pills-signin"
-                                            role="tabpanel"
-                                            aria-labelledby="pills-signin-tab"
-                                        >
-                                            <div className="form form_signInUp">
-                                                <div className="form-group">
-                                                    <input
-                                                        type="text"
-                                                        placeholder="Email"
-                                                        className="form-control"
-                                                    />
-                                                </div>
-                                                <div className="form-group">
-                                                    <input
-                                                        type="password"
-                                                        placeholder="Mật khẩu"
-                                                        className="form-control"
-                                                    />
-                                                </div>
-                                                <div className="form-group mb-0 text-center">
-                                                    <Link
-                                                        to="/demo"
-                                                        className="btn btn_green btn_signIn text-uppercase"
-                                                    >
-                                                        ĐĂNG NHẬP
-                                                    </Link>
-                                                </div>
-                                                <div className="form-group mb-0 text-center">
-                                                    <Link
-                                                        to="/demo"
-                                                        className="text-forgot forgotPassword"
-                                                    >
-                                                        Quên mật khẩu
-                                                    </Link>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div
-                                            className="tab-pane fade"
-                                            id="pills-signup"
-                                            role="tabpanel"
-                                            aria-labelledby="pills-signup-tab"
-                                        >
-                                            <div className="form form_signInUp">
-                                                <div className="form-group">
-                                                    <input
-                                                        type="text"
-                                                        placeholder="Họ tên"
-                                                        className="form-control"
-                                                    />
-                                                </div>
-                                                <div className="form-group">
-                                                    <input
-                                                        type="text"
-                                                        placeholder="Email"
-                                                        className="form-control"
-                                                    />
-                                                </div>
-                                                <div className="form-group">
-                                                    <input
-                                                        type="password"
-                                                        placeholder="Mật khẩu"
-                                                        className="form-control"
-                                                    />
-                                                </div>
-                                                <div className="form-group">
-                                                    <input
-                                                        type="password"
-                                                        placeholder="Nhập lại mật khẩu"
-                                                        className="form-control"
-                                                    />
-                                                </div>
-                                                <div className="form-group mb-0 text-center">
-                                                    <Link
-                                                        to="/demo"
-                                                        className="btn btn_green btn_signIn text-uppercase"
-                                                    >
-                                                        ĐĂNG KÝ
-                                                    </Link>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                {/* form_forgot */}
-                                <div className="header_register form_forgot d-none">
-                                    <div className="header_register--heading text-uppercase text-white text-center">
-                                        QUÊN MẬT KHẨU
-                                    </div>
-                                    <div className="form form_signInUp">
-                                        <div className="form-group form_forgot--info">
-                                            Hãy điền thông tin email của bạn
-                                            để
-                                            <br />
-                                            chúng tôi lấy lại mật khẩu
-                                        </div>
-                                        <div className="form-group">
-                                            <input
-                                                type="text"
-                                                placeholder="Email"
-                                                className="form-control"
-                                            />
-                                        </div>
-                                        <div className="form-group mb-0 text-center">
-                                            <Link
-                                                to="/demo"
-                                                className="btn btn_green btn_signIn text-uppercase mb-0"
-                                            >
-                                                GỬI
-                                            </Link>
-                                        </div>
-                                    </div>
-                                </div>
-                                {/* form_logged */}
-                                <div className="header_register form_logged d-none">
-                                    <div className="header_register--heading">
-                                        <figure className="avatar">
-                                            <img
-                                                src="./assets/images/avatar_logged.jpg"
-                                                alt="Trần Thị Thu Hoài"
-                                            />
-                                        </figure>
-                                        <div className="info">
-                                            <div className="name">
-                                                Trần Thị Thu Hoài
-                                            </div>
-                                            <div className="mail">
-                                                thutran1975@gmail.com
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="form_logged--action">
-                                        <Link to="/#" className="action">
-                                            Đăng xuất
-                                        </Link>
-                                    </div>
-                                </div>
+                            <div className="dropdown-menu" onMouseLeave={() => setHoverProfile(false)}>
+                                <FormContact />
                             </div>
                         </div>
                     </div>
@@ -613,7 +432,7 @@ function Header() {
             </div>
             <div className="modal-background" />
         </header>
-        <Chat active={open} />
+        <Chat active={show} />
         </>
     );
 }
