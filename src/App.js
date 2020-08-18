@@ -20,7 +20,6 @@ import ShoppingGuide from "./pages/ShoppingGuide/ShoppingGuide";
 import Juridical from "./pages/Juridical/Juridical";
 import Promotion from './pages/Promotion/Promotion'
 import Error404 from "./pages/Error/Error404";
-
 import { Provider } from 'react-redux';
 import configureStore from './store';
 const store = configureStore()
