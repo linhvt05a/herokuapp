@@ -18,8 +18,8 @@ import RecruitmentList from "./pages/Recruitment/RecruitmentList";
 import RecruitmentDetail from "./pages/Recruitment/RecruitmentDetail";
 import ShoppingGuide from "./pages/ShoppingGuide/ShoppingGuide";
 import Juridical from "./pages/Juridical/Juridical";
+import Promotion from './pages/Promotion/Promotion'
 import Error404 from "./pages/Error/Error404";
-import Example from "./pages/Example";
 
 import { Provider } from 'react-redux';
 import configureStore from './store';
@@ -31,7 +31,6 @@ class App extends React.Component {
             <Provider store={store}>
                 <Router>
                     <Header />
-
                     <Switch>
                         <Route exact path="/" component={Home} />
                         <Route exact path="/contact" component={Contact} />
@@ -43,7 +42,7 @@ class App extends React.Component {
                         <Route exact path="/recruitment/1" component={RecruitmentDetail} />
                         <Route exact path="/shopping-guide" component={ShoppingGuide} />
                         <Route exact path="/juridical" component={Juridical} />
-                        <Route exact path="/example" component={Example} />
+                        <Route exact path="/promotion" component={Promotion} />
                         <Route component={Error404} />
                     </Switch>
 

@@ -223,7 +223,7 @@ function Header() {
                             </ul>
                         </li>
                         <li className="item">
-                            <NavLink activeClassName="active" className="item-link" to="/dddd">
+                            <NavLink activeClassName="active" className="item-link" to="/promotion">
                                 KHUYẾN MÃI
                                 <img src={giftImg} class="gift" />
                             </NavLink>

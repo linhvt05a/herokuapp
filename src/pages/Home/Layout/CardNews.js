@@ -9,21 +9,20 @@ const CardNews = () => {
                 <h3 className="main_heading">
                     <span>Tin tức mới nhất</span>
                 </h3>
-                <Link to="/" className="readmore">
+                <Link to="/news" className="readmore">
                     XEM THÊM
                     <i className="icon fas fa-angle-double-right" />
                 </Link>
             </div>
             <div className="latest_news--content js_news slick-initialized slick-slider">
                 <div aria-live="polite" className="slick-list draggable">
-                    <div className="slick-track" role="listbox" style={{ opacity: 1, width: 1134, left: 0 }}>
+                    <div className="slick-track" role="listbox" style={{ opacity: 1, width: 1134, left: 0}}>
                         <NewsLoop />
                         <NewsLoop />
                         <NewsLoop />
                         <NewsLoop />
                     </div>
                 </div>
-               
             </div>
         </div>
     </div>
@@ -34,7 +33,7 @@ const CardNews = () => {
 const NewsLoop = () =>{
     return (
             <div className="item slick-slide slick-current slick-active"  data-slick-index={0} aria-hidden="false"  tabIndex={-1}  role="option" 
-                    aria-describedby="slick-slide00" style={{ width: 354 }}>
+                    aria-describedby="slick-slide00" style={{ width: 354, marginTop: 20 }}>
                         <figure className="img">
                             <img
                                 className="w-100"
