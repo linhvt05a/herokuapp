@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 
 const ItemProduct = (props) => {
 
-    const { data, index } = props
+    const { data, index, detail } = props
 
     return (
-        <div className="col-12 col-sm-12 col-md-6 col-lg-4">
+        <div className={detail ? "col-12 col-sm-12 col-md-6 col-lg-4" : "col-12"}>
             <div className="item">
                 <Link to="/#" className="link" />
                 <figure className="image">
