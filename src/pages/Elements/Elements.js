@@ -1,5 +1,6 @@
 import React from "react";
-import { SelectDefault, SelectMultiple } from "../../components/base/Select";
+import { SelectDefault, SelectMultiple  } from "../../components/base/Select";
+import { SliderRange  } from "../../components/base/Slider";
 
 const Elements = (props) => {
     return (
@@ -10,6 +11,9 @@ const Elements = (props) => {
                 </div>
                 <div className="col-3">
                     <SelectMultiple />
+                </div>
+                <div className="col-3">
+                    <SliderRange />
                 </div>
             </div>
         </div>
