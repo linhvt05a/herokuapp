@@ -11,6 +11,7 @@ import RecruitmentList from "./pages/Recruitment/RecruitmentList";
 import RecruitmentDetail from "./pages/Recruitment/RecruitmentDetail";
 import ShoppingGuide from "./pages/ShoppingGuide";
 import Juridical from "./pages/Juridical";
+import Promotion from "./pages/Promotion"
 import Error404 from "./pages/Error404";
 
 class Routers extends React.Component {
@@ -27,6 +28,7 @@ class Routers extends React.Component {
                 <Route exact path="/recruitment/1" component={RecruitmentDetail}/>
                 <Route exact path="/shopping-guide" component={ShoppingGuide}/>
                 <Route exact path="/juridical" component={Juridical}/>
+                <Route exact path="/promotion" component={Promotion}/>
                 <Route component={Error404}/>
             </Switch>
         );
