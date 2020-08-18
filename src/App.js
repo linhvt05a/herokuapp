@@ -20,6 +20,7 @@ import ShoppingGuide from "./pages/ShoppingGuide/ShoppingGuide";
 import Juridical from "./pages/Juridical/Juridical";
 import Error404 from "./pages/Error/Error404";
 import Example from "./pages/Example";
+import Elements from "./pages/Elements/Elements";
 
 import { Provider } from 'react-redux';
 import configureStore from './store';
@@ -44,6 +45,7 @@ class App extends React.Component {
                         <Route exact path="/shopping-guide" component={ShoppingGuide} />
                         <Route exact path="/juridical" component={Juridical} />
                         <Route exact path="/example" component={Example} />
+                        <Route exact path="/elements" component={Elements} />
                         <Route component={Error404} />
                     </Switch>
 
