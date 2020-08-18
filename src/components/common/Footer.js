@@ -67,6 +67,11 @@ function Footer() {
                                                     </Link>
                                                 </li>
                                                 <li>
+                                                    <Link to="/promotion">
+                                                        Khuyến mãi
+                                                    </Link>
+                                                </li>
+                                                <li>
                                                     {/* <Link to="/#">
                                                         Hướng dẫn mua
                                                     </Link> */}
