@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5df0c9a9-893e-48f9-a62f-6e6980d64f6e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/scss/libs.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/libs.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Home/Layout/CardSaleFlash.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home/Layout/CardSaleFlash.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,7 +12,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="develop" />
+        <entry key="$PROJECT_DIR$" value="hieu_dev" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -73,7 +69,21 @@
       <option name="project" value="LOCAL" />
       <updated>1597393064839</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="ui component flash sale">
+      <created>1597732358271</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1597732358271</updated>
+    </task>
+    <task id="LOCAL-00006" summary="ui component DS du an">
+      <created>1597744568492</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1597744568492</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -93,40 +103,42 @@
     <MESSAGE value="gan API Dashboard" />
     <MESSAGE value="fix error" />
     <MESSAGE value="fix css Dropdown" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix css Dropdown" />
+    <MESSAGE value="ui component flash sale" />
+    <MESSAGE value="ui component DS du an" />
+    <option name="LAST_COMMIT_MESSAGE" value="ui component DS du an" />
   </component>
   <component name="WindowStateProjectService">
     <state x="968" y="427" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1597714576284">
       <screen x="0" y="23" width="2560" height="1338" />
     </state>
     <state x="968" y="427" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.23.2560.1338@0.23.2560.1338" timestamp="1597714576284" />
-    <state x="882" y="294" key="CommitChangelistDialog2" timestamp="1597393064722">
+    <state x="882" y="294" key="CommitChangelistDialog2" timestamp="1597744568325">
       <screen x="0" y="23" width="2560" height="1338" />
     </state>
-    <state x="882" y="294" key="CommitChangelistDialog2/0.23.2560.1338@0.23.2560.1338" timestamp="1597393064722" />
-    <state width="346" height="498" key="Git.Branch.Popup" timestamp="1597715544308">
+    <state x="882" y="294" key="CommitChangelistDialog2/0.23.2560.1338@0.23.2560.1338" timestamp="1597744568325" />
+    <state width="346" height="498" key="Git.Branch.Popup" timestamp="1597744608258">
       <screen x="0" y="23" width="2560" height="1338" />
     </state>
-    <state width="346" height="498" key="Git.Branch.Popup/0.23.2560.1338@0.23.2560.1338" timestamp="1597715544308" />
-    <state x="256" y="146" key="MergeDialog" timestamp="1597392497733">
+    <state width="346" height="498" key="Git.Branch.Popup/0.23.2560.1338@0.23.2560.1338" timestamp="1597744608258" />
+    <state x="256" y="146" key="MergeDialog" timestamp="1597744714894">
       <screen x="0" y="23" width="2560" height="1338" />
     </state>
-    <state x="256" y="146" key="MergeDialog/0.23.2560.1338@0.23.2560.1338" timestamp="1597392497733" />
-    <state x="990" y="415" key="MultipleFileMergeDialog" timestamp="1597392497745">
+    <state x="256" y="146" key="MergeDialog/0.23.2560.1338@0.23.2560.1338" timestamp="1597744714894" />
+    <state x="990" y="415" key="MultipleFileMergeDialog" timestamp="1597744721694">
       <screen x="0" y="23" width="2560" height="1338" />
     </state>
-    <state x="990" y="415" key="MultipleFileMergeDialog/0.23.2560.1338@0.23.2560.1338" timestamp="1597392497745" />
-    <state x="880" y="420" key="Vcs.Push.Dialog.v2" timestamp="1597661219798">
+    <state x="990" y="415" key="MultipleFileMergeDialog/0.23.2560.1338@0.23.2560.1338" timestamp="1597744721694" />
+    <state x="880" y="420" key="Vcs.Push.Dialog.v2" timestamp="1597744569699">
       <screen x="0" y="23" width="2560" height="1338" />
     </state>
-    <state x="880" y="420" key="Vcs.Push.Dialog.v2/0.23.2560.1338@0.23.2560.1338" timestamp="1597661219798" />
+    <state x="880" y="420" key="Vcs.Push.Dialog.v2/0.23.2560.1338@0.23.2560.1338" timestamp="1597744569699" />
     <state x="950" y="524" key="com.intellij.ide.util.TipDialog" timestamp="1597714791855">
       <screen x="0" y="23" width="2560" height="1338" />
     </state>
     <state x="950" y="524" key="com.intellij.ide.util.TipDialog/0.23.2560.1338@0.23.2560.1338" timestamp="1597714791855" />
-    <state x="1060" y="616" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1597715536758">
+    <state x="1060" y="616" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1597744596503">
       <screen x="0" y="23" width="2560" height="1338" />
     </state>
-    <state x="1060" y="616" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.2560.1338@0.23.2560.1338" timestamp="1597715536758" />
+    <state x="1060" y="616" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.2560.1338@0.23.2560.1338" timestamp="1597744596503" />
   </component>
 </project>
