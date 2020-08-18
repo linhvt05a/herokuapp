@@ -163,12 +163,6 @@ function Header() {
                                     </NavLink>
                                 </li>
                                 <li className="item-child">
-                                    {/* <Link
-                                        className="item-child-link"
-                                        to="/demo"
-                                    >
-                                        Liên hệ
-                                    </Link> */}
                                     <NavLink activeClassName="active"
                                         className="item-child-link"
                                         to="/contact"
