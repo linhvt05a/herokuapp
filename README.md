@@ -42,9 +42,9 @@ Việc chia các folder nhỏ ra giúp cho chỉnh sửa nhanh hơn đỡ tốn 
 ├──assets<br>
 ├──helpers<br>
 ├──store<br>
-  ├───redux<br>
-  ├───reducers<br>
-  ├───saga<br>
+  - ├───redux<br>
+  - ├───reducers<br>
+  - ├───saga<br>
 
 - **actions** : chứa tất cả các actions
 - **apis** : Thư mục này có thể đổi lại thành services, apis là nơi chứa các function để gọi Rest API kết nối tới backend.
@@ -60,12 +60,12 @@ Việc chia các folder nhỏ ra giúp cho chỉnh sửa nhanh hơn đỡ tốn 
 
 
 Cách 2 có thể chia thư mục theo re-ducks, không chia nhỏ các folder mà mỗi page sẽ là 1 folder chưa tất cả actions, reducers, api, contants
-examplePage/
-├── actions.js
-├── index.js
-├── operations.js
-├── reducers.js
-├── selectors.js
-├── tests.js
-├── types.js
-├── utils.js
+examplePage/<br>
+├── actions.js<br>
+├── index.js<br>
+├── operations.js<br>
+├── reducers.js<br>
+├── selectors.js<br>
+├── tests.js<br>
+├── types.js<br>
+├── utils.js<br>
