@@ -7,6 +7,8 @@ import { CardSaleFlash, CardNews } from "./Layout/index";
 
 const Home = (props) => {
 
+    const options = [{value: 1, label: "Căn hộ"}, {value: 2, label: "Biệt thự"}, {value: 3, label: "Chung cư"}]
+
     return (
         <div className="homePage">
             {/* block map  */}
@@ -302,7 +304,7 @@ const Home = (props) => {
                 </div>
             </div>
             {/*end block map  */}
-            <CardSaleFlash headerBodyClassName="label_filter--heading" labelHeader="flash_sale" datas={["a", "iu", "e", "vl", "wa", "di"]} banner options timeLine/>
+            <CardSaleFlash headerBodyClassName="label_filter--heading" labelHeader="flash_sale" datas={["a", "iu", "e", "vl", "wa", "di"]} options={options} timeLine/>
             {/* block over  */}
             <div className="overview">
                 <div className="container container-sm container-md">

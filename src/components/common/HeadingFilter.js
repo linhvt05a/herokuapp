@@ -5,7 +5,7 @@ import { Select } from 'antd'
 
 const HeadingFilter = (props) => {
 
-    const { headerBodyClassName, labelHeader, readmore, options, status } = props
+    const { headerBodyClassName, labelHeader, readmore, options, status, trans } = props
     const { Option } = Select
 
     return (
