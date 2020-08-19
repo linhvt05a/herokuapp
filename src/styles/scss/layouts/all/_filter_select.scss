@@ -19,6 +19,9 @@
         box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.13);
         // border: solid 1px #dee2e6;
         background-color: #ffffff;
+        b {
+            display: none;
+        }
         .select2 {
             .select2-selection.select2-selection--single {
                 border-radius: 0;
@@ -30,10 +33,6 @@
                 width: 100% !important;
             }
         }
-
-        b {
-            display: none;
-        }
         .select2-selection__rendered {
             // padding: 6px;
             padding-left: 15px;
@@ -42,7 +41,6 @@
             @include flexbox;
             @include align-items(center);
         }
-
         .select2-selection__arrow {
             top: 0;
             height: 100%;
@@ -70,6 +68,15 @@
                 color: #51c471;
             }
         }
+
+        .ant-select{
+            height: 40px;
+            line-height: 40px;
+        }
+        .ant-select-selector{
+            height: 100%;
+        }
+
     }
     .select2-results__option .select2-results__option--highlighted {
         background: #51c471 !important;
