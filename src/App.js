@@ -1,7 +1,8 @@
 //libs
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-
+import { Provider } from 'react-redux';
+import configureStore from './store';
 //components
 import Header from "./components/common/Header";
 import Footer from "./components/common/Footer";
@@ -18,8 +19,10 @@ import RecruitmentList from "./pages/Recruitment/RecruitmentList";
 import RecruitmentDetail from "./pages/Recruitment/RecruitmentDetail";
 import ShoppingGuide from "./pages/ShoppingGuide/ShoppingGuide";
 import Juridical from "./pages/Juridical/Juridical";
-import Error404 from "./pages/Error/Error404";
+import Promotion from './pages/Promotion/Promotion'
+import Elements from "./pages/Elements/Elements";
 import Example from "./pages/Example";
+import Error404 from "./pages/Error/Error404";
 
 import { Provider } from 'react-redux';
 import configureStore from './store/redux/configureStore';
@@ -31,7 +34,6 @@ class App extends React.Component {
             <Provider store={store}>
                 <Router>
                     <Header />
-
                     <Switch>
                         <Route exact path="/" component={Home} />
                         <Route exact path="/contact" component={Contact} />
@@ -43,6 +45,8 @@ class App extends React.Component {
                         <Route exact path="/recruitment/1" component={RecruitmentDetail} />
                         <Route exact path="/shopping-guide" component={ShoppingGuide} />
                         <Route exact path="/juridical" component={Juridical} />
+                        <Route exact path="/promotion" component={Promotion} />
+                        <Route exact path="/elements" component={Elements} />
                         <Route exact path="/example" component={Example} />
                         <Route component={Error404} />
                     </Switch>

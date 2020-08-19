@@ -2,14 +2,15 @@ import React from "react";
 
 import { Link } from "react-router-dom";
 
-function Chat() {
+function Chat(props) {
+    let {active} = props;
     return (
-        <div className="chat_online chatOnline">
+        <div className={`chat_online chatOnline ${active ? "active" : ''}`}>
             <label className="chatLabel">
                 Tư vấn trực tuyến
                 <i className="close_chat fas fa-times-circle" />
             </label>
-            <div className="send_info sendInfo">
+            <div className={`send_info sendInfo ${active ? "active" : ''}`}>
                 <form>
                     <input
                         type="text"
