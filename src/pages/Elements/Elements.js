@@ -67,11 +67,11 @@ const Elements = (props) => {
                                 </div>
                                 <div className="form-group">
                                     <Select className="form-control" placeholder="Chọn dự án">
-                                        <option selected disabled>Chọn dự án *</option>
-                                        <option>TPHCM</option>
-                                        <option>Hà Nội</option>
-                                        <option>Đà Nẵng</option>
-                                        <option>Bình Dương</option>
+                                        <Select.Option selected disabled>Chọn dự án *</Select.Option>
+                                        <Select.Option>TPHCM</Select.Option>
+                                        <Select.Option>Hà Nội</Select.Option>
+                                        <Select.Option>Đà Nẵng</Select.Option>
+                                        <Select.Option>Bình Dương</Select.Option>
                                     </Select>
                                 </div>
                                 <div className="form-group">
@@ -86,25 +86,69 @@ const Elements = (props) => {
                     </Modal>
                 </div>
 
+                <div className="col-3">
+                    <div className="form-group">
+                        <Select className="form-control hasIcon icon_project" placeholder="Chọn khu">
+                            <Select.Option selected disabled>Chọn dự án *</Select.Option>
+                            <Select.Option>TPHCM</Select.Option>
+                            <Select.Option>Hà Nội</Select.Option>
+                            <Select.Option>Đà Nẵng</Select.Option>
+                            <Select.Option>Bình Dương</Select.Option>
+                        </Select>
+                    </div>
+                </div>
+                <div className="col-3">
+                    <div className="form-group">
+                        <Select className="form-control hasIcon icon_area" placeholder="Chọn khối/lô">
+                            <Select.Option selected disabled>Chọn dự án *</Select.Option>
+                            <Select.Option>TPHCM</Select.Option>
+                            <Select.Option>Hà Nội</Select.Option>
+                            <Select.Option>Đà Nẵng</Select.Option>
+                            <Select.Option>Bình Dương</Select.Option>
+                        </Select>
+                    </div>
+                </div>
+                <div className="col-3">
+                    <div className="form-group">
+                        <Select className="form-control hasIcon icon_block" placeholder="Loại sản phẩm">
+                            <Select.Option selected disabled>Chọn dự án *</Select.Option>
+                            <Select.Option>TPHCM</Select.Option>
+                            <Select.Option>Hà Nội</Select.Option>
+                            <Select.Option>Đà Nẵng</Select.Option>
+                            <Select.Option>Bình Dương</Select.Option>
+                        </Select>
+                    </div>
+                </div>
+                <div className="col-3">
+                    <div className="form-group">
+                        <Select className="form-control hasIcon icon_product" placeholder="Loại sản phẩm">
+                            <Select.Option selected disabled>Chọn dự án *</Select.Option>
+                            <Select.Option>TPHCM</Select.Option>
+                            <Select.Option>Hà Nội</Select.Option>
+                            <Select.Option>Đà Nẵng</Select.Option>
+                            <Select.Option>Bình Dương</Select.Option>
+                        </Select>
+                    </div>
+                </div>
 
                 <div className="col-3">
                     <div className="form-group">
                         <Select className="form-control" placeholder="Chọn dự án*">
-                            <option selected disabled>Chọn dự án *</option>
-                            <option>TPHCM</option>
-                            <option>Hà Nội</option>
-                            <option>Đà Nẵng</option>
-                            <option>Bình Dương</option>
+                            <Select.Option selected disabled>Chọn dự án *</Select.Option>
+                            <Select.Option>TPHCM</Select.Option>
+                            <Select.Option>Hà Nội</Select.Option>
+                            <Select.Option>Đà Nẵng</Select.Option>
+                            <Select.Option>Bình Dương</Select.Option>
                         </Select>
                     </div>
                 </div>
                 <div className="col-3">
                     <div className="form-group">
                         <Select defaultValue="lucy" className="form-control" disabled placeholder="Chọn dự án*">
-                            <option>TPHCM</option>
-                            <option>Hà Nội</option>
-                            <option>Đà Nẵng</option>
-                            <option>Bình Dương</option>
+                            <Select.Option>TPHCM</Select.Option>
+                            <Select.Option>Hà Nội</Select.Option>
+                            <Select.Option>Đà Nẵng</Select.Option>
+                            <Select.Option>Bình Dương</Select.Option>
                         </Select>
                     </div>
                 </div>
@@ -156,10 +200,10 @@ const Elements = (props) => {
                             <div className="tab-pane fade show active" id="pills-signin" role="tabpanel" aria-labelledby="pills-signin-tab">
                                 <div className="form form_signInUp">
                                     <div className="form-group">
-                                        <input type="text" placeholder="Email" className="form-control" />
+                                        <Input type="text" placeholder="Email" className="form-control" />
                                     </div>
                                     <div className="form-group">
-                                        <input type="password" placeholder="Mật khẩu" className="form-control" />
+                                        <Input type="password" placeholder="Mật khẩu" className="form-control" />
                                     </div>
                                     <div className="form-group mb-0 text-center">
                                         <a href="#" className="btn btn_green btn_signIn text-uppercase">
@@ -176,13 +220,13 @@ const Elements = (props) => {
                             <div className="tab-pane fade" id="pills-signup" role="tabpanel" aria-labelledby="pills-signup-tab">
                                 <div className="form form_signInUp">
                                     <div className="form-group">
-                                        <input type="text" placeholder="Họ tên" className="form-control" />
+                                        <Input type="text" placeholder="Họ tên" className="form-control" />
                                     </div>
                                     <div className="form-group">
-                                        <input type="text" placeholder="Email" className="form-control" />
+                                        <Input type="text" placeholder="Email" className="form-control" />
                                     </div>
                                     <div className="form-group">
-                                        <input type="password" placeholder="Mật khẩu" className="form-control" />
+                                        <Input type="password" placeholder="Mật khẩu" className="form-control" />
                                     </div>
                                     <div className="form-group mb-0 text-center">
                                         <a href="#" className="btn btn_green btn_signIn text-uppercase">
@@ -205,7 +249,7 @@ const Elements = (props) => {
                         <br />chúng tôi lấy lại mật khẩu
                         </div>
                             <div className="form-group">
-                                <input type="text" placeholder="Email" className="form-control" />
+                                <Input type="text" placeholder="Email" className="form-control" />
                             </div>
                             <div className="form-group mb-0 text-center">
                                 <a href="#" className="btn btn_green btn_signIn text-uppercase mb-0">
