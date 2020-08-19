@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import { ItemHeader, ItemHomeProject } from './Item/index'
 import { Trans } from "react-i18next";
@@ -6,12 +6,22 @@ import { CardSaleFlash, CardNews } from "./Layout/index";
 import Maps from "../../components/common/Map";
 
 const Home = (props) => {
+    const [height, setHeight] = useState(0);
+    const headerRef = React.createRef();
+    useEffect(() => {
+        const updateWindowDimensions = () => {
+          const newHeight = document.getElementsByClassName('header')[0].clientHeight;
+          setHeight(newHeight);
+        };
+        window.addEventListener("resize", updateWindowDimensions);
+        return () => window.removeEventListener("resize", updateWindowDimensions) 
+    }, []);
 
     return (
-        <div className="homePage">
+        <div className="homePage" style={{paddingTop: height}}>
             {/* block map  */}
             <div className="map">
-                <div className="map_origin" style={{paddingTop: "202px"}}>
+                <div className="map_origin">
                     <figure>
                         {/* <img
                             className="w-100"
