@@ -20,7 +20,7 @@ function FormContact(props) {
                             className={`nav-link ${tab == 0 ? "active": ""}`}
                             id="pills-signin-tab"
                             data-toggle="pill"
-                            to="#pills-signin"
+                            to="/"
                             role="tab"
                             aria-controls="pills-signin"
                             aria-selected="true">
@@ -33,7 +33,7 @@ function FormContact(props) {
                             className={`nav-link ${tab == 1 ? "active": ""}`}
                             id="pills-signup-tab"
                             data-toggle="pill"
-                            to="#pills-signup"
+                            to="/"
                             role="tab"
                             aria-controls="pills-signup"
                             aria-selected="false">
@@ -71,6 +71,7 @@ function FormContact(props) {
                             </div>
                             <div className="form-group mb-0 text-center">
                                 <Link
+                                    to="/"      
                                     onClick={event => showTap(3)}
                                     className="text-forgot forgotPassword">
                                     Quên mật khẩu
