@@ -1,25 +1,37 @@
-import React from "react";
+import React, { useState, useEffect } from 'react';
+import { ItemHeader, ItemHomeProject } from './Item/index'
 import { Trans } from "react-i18next";
 import { Link } from "react-router-dom";
-import { ItemHomeProject } from './Item/index'
 import HeadingFilter from '../../components/common/HeadingFilter'
 import { CardSaleFlash, CardNews } from "./Layout/index";
+import Maps from "../../components/common/Map";
 
 const Home = (props) => {
+    const [height, setHeight] = useState(0);
+    const headerRef = React.createRef();
+    useEffect(() => {
+        const updateWindowDimensions = () => {
+          const newHeight = document.getElementsByClassName('header')[0].clientHeight;
+          setHeight(newHeight);
+        };
+        window.addEventListener("resize", updateWindowDimensions);
+        return () => window.removeEventListener("resize", updateWindowDimensions) 
+    }, []);
 
     const options = [{value: 1, label: "Căn hộ"}, {value: 2, label: "Biệt thự"}, {value: 3, label: "Chung cư"}]
 
     return (
-        <div className="homePage">
+        <div className="homePage" style={{paddingTop: height}}>
             {/* block map  */}
             <div className="map">
-                <div className="map_origin" style={{paddingTop: "202px"}}>
+                <div className="map_origin">
                     <figure>
-                        <img
+                        {/* <img
                             className="w-100"
                             src="./assets/images/map.jpg"
                             alt="Bạn muốn tìm dự án bất động sản của Minerva"
-                        />
+                        /> */}
+                        <Maps />
                     </figure>
                     <div className="map_origin--content">
                         <h1 className="heading text-center">

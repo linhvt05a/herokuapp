@@ -21,8 +21,6 @@ function Header() {
         return () => window.removeEventListener("scroll", onScroll);
     }, [scrollTop]);
 
-    console.log('scroll', scrolling);
-
     return (
         <>
         <header className={`header ${scrolling == true ? "fixed" : ''}`}>
