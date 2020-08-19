@@ -24,8 +24,9 @@ const HeadingFilter = (props) => {
                 options &&
                 <div class="filter_select">
                     <div class="text"><Trans>filter_by</Trans> : </div>
-                    <div class="form-group filter_project">
+                    <div class="filter_project form-group">
                         <Select
+                            placeholder="Select--"
                             className="form-control"
                             children={options.length > 0 && options.map((e, key) => {
                                 return <Option name={name} key={key} value={e.value}>{trans ? <Trans>{e.label}</Trans> : e.label}</Option>;
