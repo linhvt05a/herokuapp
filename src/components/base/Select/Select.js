@@ -5,10 +5,9 @@ import { Select, Form } from 'antd';
 const InputSelect = (props) => {
     const { className, name, value, label, datas, placeholder,validSelect, onChange, isClear, classNameGroup, trans, require, onSearch, disabled, titleClassName } = props;
     const { Option } = Select;
-    const message = "Missing information"
     return (
         <div className={className ? className : ''}>
-            <div className={classNameGroup ? classNameGroup : ""}>
+            <div className={classNameGroup ? classNameGroup : "form-group"}>
                 {
                     label &&
                     <label className={titleClassName ? titleClassName : "fw-medium"}>
@@ -21,7 +20,7 @@ const InputSelect = (props) => {
                     <Select
                         showSearch
                         onSearch={onSearch}
-                        style={{ width: 200 }}
+                        style={{ width:  270, height: 48 }}
                         className="form-control"
                         onChange={onChange}
                         filterOption={(input, option) =>

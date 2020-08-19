@@ -4,16 +4,18 @@ import {Sliders} from '../../components/base/index'
 import {InputSelect} from '../../components/base/Select/index'
 const data = [20, 60]
 const data1 = [10, 80]
-
+const province = [{value:1, label :'--Select--'},{value:2, label :'TPHCM'}, {value:3, label :'Ha Noi'}, {value:4, label :'Hai Phong'}]
+const district = [{value:1, label :'--Select--'},{value:2, label :'TPHCM'}, {value:3, label :'Ha Noi'}, {value:4, label :'Hai Phong'}]
+const status = [{value:1, label :'--Select--'},{value:2, label :'TPHCM'}, {value:3, label :'Ha Noi'}, {value:4, label :'Hai Phong'}]
 const FilterProject = () =>{
     return(
         <div className="searchProject">
                 <div className="searchProject__title">
                     Tìm kiếm dự án theo
                 </div>
-                <InputSelect placeholder="Tỉnh/Thành phố"/>
-                <InputSelect placeholder="Quận/Huyện"/>
-                <InputSelect placeholder="Chọn tiến độ"/>
+                <InputSelect placeholder="Tỉnh/Thành phố" datas ={province}/>
+                <InputSelect placeholder="Quận/Huyện" datas={district}/>
+                <InputSelect placeholder="Chọn tiến độ" datas={status}/>
                 {/*PHẠM VI GIÁ*/}
                 <div className="map_search--range">
                     <div className="range_item price">

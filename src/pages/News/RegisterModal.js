@@ -16,7 +16,7 @@ const RegisterModal = (props) =>{
   const[validContent,setValidContent] = useState('')
   const[validSelect, setValidSelect] = useState('')
 
-  const hanleInput = (e) =>{
+  const handleInput = (e) =>{
     const{name, value} = e.target
     if(name ==="full_name"){
       setFullname(value)
@@ -32,19 +32,29 @@ const RegisterModal = (props) =>{
     const handleSelect = (value) => {
       setProject(value)
     }
-    const phoneRex = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/
+    
     const onSubmitted = () =>{
      if(fullName ==="" && mobile ==="" && content ==="" && projectSelect ===""){
         setValidate('Missing information field require')
         setValidMobile('Missing information field require')
         setValidContent('Missing information field require')
         setValidSelect('Missing information field require')
-     }else if(mobile !== phoneRex){
-        setValidMobile('Please enter a phone number with 10 digits.  1 not necessary')
+     }else if (fullName !=="" && projectSelect !== null && content !=="" && mobile !=="" ){
+        setValidate('')
+        setValidSelect('')
+        setValidContent('')
+        MobileRex(mobile)
      }
-     
   }
 
+  function MobileRex (mobile){
+    const phoneRex = /^([+]39)?((3[\d]{2})([ ,\-,\/]){0,1}([\d, ]{6,9}))|(((0[\d]{1,4}))([ ,\-,\/]){0,1}([\d, ]{5,10}))$/
+     if(!mobile.match(phoneRex)){
+      return setValidMobile('Please enter a phone number with 10 digits.  1 not necessary')
+   }else{
+    return setValidMobile('')
+   }
+  }
   
   return (
           <Modal visible={true}  footer={null}>
@@ -60,14 +70,14 @@ const RegisterModal = (props) =>{
                 </button>
               </div>
                 <div className="modal-body pt-4 pl-4 pr-4">
-                  <InputBase placeholder="Họ tên *" type="text" name = "full_name" value={fullName} onChange={hanleInput} validateMessage={validateMessage}/>
+                  <InputBase placeholder="Họ tên *" type="text" name = "full_name" value={fullName} onChange={handleInput} validateMessage={validateMessage}/>
                 
-                  <InputBase  placeholder="Điện thoại *" type="text" name="phone_number" value={mobile} onChange="" onChange={hanleInput} validateMobile={validateMobile}/>
+                  <InputBase  placeholder="Điện thoại *" type="text" name="phone_number" value={mobile} onChange="" onChange={handleInput} validateMobile={validateMobile}/>
                
                   <InputSelect name="project"  onChange="" datas={project} onChange="" onChange={handleSelect} validSelect={validSelect}/>
                  
                 <div className="form-group">
-                  <textarea placeholder="Nội dung *" name="content" className="form-control" style={{ height: 130 }} value= {content} onChange={hanleInput}  />
+                  <textarea placeholder="Nội dung *" name="content" className="form-control" style={{ height: 130 }} value= {content} onChange={handleInput}  />
                   <span style={{color: 'red', fontSize: 12}}>{validContent}</span>
                 </div>
               </div>
