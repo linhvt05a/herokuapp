@@ -1,7 +1,7 @@
 import React from "react";
-import { Tooltip } from 'antd'
+import { Tooltip } from "antd";
 
-const ItemProduct = (props) => {
+const ItemPromotion = (props) => {
 
     const { data, index, detail } = props
 
@@ -75,4 +75,4 @@ const ItemProduct = (props) => {
     )
 }
 
-export default ItemProduct;
+export default ItemPromotion;

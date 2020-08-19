@@ -3,9 +3,9 @@ import { Trans } from 'react-i18next';
 import { Link } from "react-router-dom";
 import { Select } from 'antd'
 
-const ItemHeader = (props) => {
+const HeadingFilter = (props) => {
 
-    const { headerBodyClassName, labelHeader, readmore, options, status } = props
+    const { headerBodyClassName, labelHeader, readmore, options, status, trans } = props
     const { Option } = Select
 
     return (
@@ -49,4 +49,4 @@ const ItemHeader = (props) => {
     )
 }
 
-export default ItemHeader;
+export default HeadingFilter;

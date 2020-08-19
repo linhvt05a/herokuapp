@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from "react-router-dom";
 import { ItemHeader, ItemHomeProject } from './Item/index'
 import { Trans } from "react-i18next";
+import { Link } from "react-router-dom";
+import HeadingFilter from '../../components/common/HeadingFilter'
 import { CardSaleFlash, CardNews } from "./Layout/index";
 import Maps from "../../components/common/Map";
 
@@ -16,6 +17,8 @@ const Home = (props) => {
         window.addEventListener("resize", updateWindowDimensions);
         return () => window.removeEventListener("resize", updateWindowDimensions) 
     }, []);
+
+    const options = [{value: 1, label: "Căn hộ"}, {value: 2, label: "Biệt thự"}, {value: 3, label: "Chung cư"}]
 
     return (
         <div className="homePage" style={{paddingTop: height}}>
@@ -313,7 +316,7 @@ const Home = (props) => {
                 </div>
             </div>
             {/*end block map  */}
-            <CardSaleFlash headerBodyClassName="label_filter--heading" labelHeader="flash_sale" datas={["a", "iu", "e", "vl", "wa", "di"]} banner options/>
+            <CardSaleFlash headerBodyClassName="label_filter--heading" labelHeader="flash_sale" datas={["a", "iu", "e", "vl", "wa", "di"]} options={options} timeLine/>
             {/* block over  */}
             <div className="overview">
                 <div className="container container-sm container-md">
@@ -361,7 +364,7 @@ const Home = (props) => {
             {/* project_list  */}
             <div className="project_list project_tab">
                 <div className="container container-sm container-md">
-                    <ItemHeader headerBodyClassName="project_list--heading" labelHeader="project_list" status />
+                    <HeadingFilter headerBodyClassName="project_list--heading" labelHeader="project_list" status />
                     <div className="row project_list--content project_tab--content">
                         <ItemHomeProject bodyClassName="col col-12 col-sm-6 col-md-7 col-xl-7"/>
                         <ItemHomeProject bodyClassName="col col-12 col-sm-6 col-md-5 col-xl-5"/>

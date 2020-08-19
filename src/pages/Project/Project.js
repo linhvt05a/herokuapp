@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import TopBanner from "../../components/common/TopBanner";
-import { ItemHeader } from '../Home/Item/index'
+import HeadingFilter from '../../components/common/HeadingFilter'
 import { ItemDetailProject } from './Item/index'
 
 const Contact = (props) => {
@@ -259,7 +259,7 @@ const Contact = (props) => {
                 </div>
                 <div className="project_page--list project_tab">
                     <div className="container container-sm container-md">
-                        <ItemHeader headerBodyClassName="project_list--heading" labelHeader="project_list" status />
+                        <HeadingFilter headerBodyClassName="project_list--heading" labelHeader="project_list" status />
                         <div className="row project_list--content project_tab--content">
                             <ItemDetailProject />
                             <ItemDetailProject />
