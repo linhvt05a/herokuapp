@@ -1,13 +1,23 @@
-import React from "react";
+import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import TopBanner from "../../components/common/TopBanner";
 import HeadingFilter from '../../components/common/HeadingFilter'
 import { ItemDetailProject } from './Item/index'
+import { Input, Select } from 'antd';
 
 const Contact = (props) => {
 
+    const [height, setHeight] = useState(120);
+    useEffect(() => {
+        const updateWindowDimensions = () => {
+          const newHeight = document.getElementsByClassName('header')[0].clientHeight;
+          setHeight(newHeight);
+        };
+        window.addEventListener("resize", updateWindowDimensions);
+        return () => window.removeEventListener("resize", updateWindowDimensions) 
+    }, []);
     return (
-        <div className="projectPage">
+        <div className="projectPage" style={{paddingTop: height}}>
             <TopBanner />
             <div className="project_page bg_grey">
                 <div className="project_page--filter">
@@ -20,74 +30,35 @@ const Contact = (props) => {
                             <div className="row">
                                 <div className="col-12 col-sm-12 col-md-4">
                                     <div className="form-group">
-                                        <select defaultValue={'DEFAULT'}
-                                            className="js-select2 form-control"
-                                            name="state"
-                                        >
-                                            <option
-                                                disabled
-                                                value="AL"
-                                            >
-                                                Tỉnh/Thành phố
-                                            </option>
-                                            <option value="WY">
-                                                Wyoming
-                                            </option>
-                                            <option value="WY">
-                                                Wyoming
-                                            </option>
-                                            <option value="WY">
-                                                Wyoming
-                                            </option>
-                                        </select>
+                                        <Select className="form-control" placeholder="Tỉnh/Thành phố">
+                                            <option selected disabled>Tỉnh/Thành phố</option>
+                                            <option>TPHCM</option>
+                                            <option>Hà Nội</option>
+                                            <option>Đà Nẵng</option>
+                                            <option>Bình Dương</option>
+                                        </Select>
                                     </div>
                                 </div>
                                 <div className="col-12 col-sm-12 col-md-4">
                                     <div className="form-group">
-                                        <select defaultValue={'DEFAULT'}
-                                            className="js-select2 form-control"
-                                            name="state"
-                                        >
-                                            <option
-                                                disabled
-                                                value="AL"
-                                            >
-                                                Quận/Huyện
-                                            </option>
-                                            <option value="WY">
-                                                Wyoming
-                                            </option>
-                                            <option value="WY">
-                                                Wyoming
-                                            </option>
-                                            <option value="WY">
-                                                Wyoming
-                                            </option>
-                                        </select>
+                                        <Select className="form-control" placeholder="Quận/Huyện">
+                                            <option selected disabled>Quận/Huyện</option>
+                                            <option>TPHCM</option>
+                                            <option>Hà Nội</option>
+                                            <option>Đà Nẵng</option>
+                                            <option>Bình Dương</option>
+                                        </Select>
                                     </div>
                                 </div>
                                 <div className="col-12 col-sm-12 col-md-4">
                                     <div className="form-group">
-                                        <select defaultValue={'DEFAULT'}
-                                            className="js-select2 form-control"
-                                            name="state"
-                                        >
-                                            <option
-                                                disabled
-                                                value="AL"
-                                            >
-                                                Chọn tiến độ
-                                            </option>
-                                            <option value="WY">
-                                                Wyoming
-                                            </option>
-                                            <option value="WY">
-                                                Wyoming
-                                            </option>
-                                            <option value="WY">
-                                                Wyoming
-                                            </option>
-                                        </select>
+                                        <Select className="form-control" placeholder="Chọn tiến độ">
+                                            <option selected disabled>Chọn tiến độ</option>
+                                            <option>TPHCM</option>
+                                            <option>Hà Nội</option>
+                                            <option>Đà Nẵng</option>
+                                            <option>Bình Dương</option>
+                                        </Select>
                                     </div>
                                 </div>
                             </div>

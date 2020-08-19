@@ -7,7 +7,7 @@ import { CardSaleFlash, CardNews } from "./Layout/index";
 import Maps from "../../components/common/Map";
 
 const Home = (props) => {
-    const [height, setHeight] = useState(0);
+    const [height, setHeight] = useState(120);
     const headerRef = React.createRef();
     useEffect(() => {
         const updateWindowDimensions = () => {
