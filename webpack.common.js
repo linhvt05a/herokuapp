@@ -10,7 +10,7 @@ module.exports = {
     // entry: './src/index.js',
     entry: {
         libs: './src/index.js',
-        m_main: './src/assets/scss/main.scss'
+        m_main: './src/styles/scss/main.scss'
     },
     module: {
         rules: [
@@ -39,18 +39,18 @@ module.exports = {
                     name: 'images/[name].[ext]'
                 }
             },
-            {
-                test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
-                use: [
-                    {
-                        loader: 'file-loader',
-                        options: {
-                            name: '[name].[ext]',
-                            outputPath: 'fonts/'
-                        }
-                    }
-                ]
-            },
+            // {
+            //     test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+            //     use: [
+            //         {
+            //             loader: 'file-loader',
+            //             options: {
+            //                 name: '[name].[ext]',
+            //                 outputPath: 'fonts/'
+            //             }
+            //         }
+            //     ]
+            // },
             {
                 test: /\.(scss|css)$/,
                 use: [
