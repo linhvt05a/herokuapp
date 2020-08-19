@@ -105,4 +105,43 @@
         }
         
     }
+    &.hasIcon{
+        .ant-select-selector{
+            padding-left: 40px;
+            &::before{
+                position: absolute;
+                font-family: "Font Awesome 5 Free";
+                font-size: 17px;
+                font-weight: 900;
+                color: #6d30ab;
+                left: 15px;
+            }
+        }
+        &.icon_project{
+            .ant-select-selector::before{
+                content: "\f1ad";
+            }
+        }
+        &.icon_area{
+            .ant-select-selector::before{
+                content: "\f850";
+            }
+        }
+        &.icon_block{
+            .ant-select-selector{
+                padding-left: 45px;
+                &::before{
+                    content: "\f468";
+                }
+            }
+        }
+        &.icon_product{
+            .ant-select-selector{
+                padding-left: 45px;
+                &::before{
+                    content: "\f49e";
+                }
+            }
+        }
+    }
 }
