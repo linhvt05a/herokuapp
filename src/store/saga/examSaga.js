@@ -1,7 +1,7 @@
 // eslint-disable-next-line
 import { put, takeLatest, all, fork } from "redux-saga/effects";
 import { exampleService } from "../../apis/Example";
-import * as examTypes from '../../constants/loadList';
+import * as Types from '../../constants/loadList';
 
 
 export function* exampleList(payload) {
@@ -11,15 +11,15 @@ export function* exampleList(payload) {
     let { token, search_name, status_id, setting_type } = payload.params
     try {
         const response = yield exampleService.list(token, search_name, status_id, setting_type);
-        response.success ? yield put({ type: examTypes.LOAD_LIST_SUCCESS, response }) : yield put({ type: examTypes.LOAD_LIST_FAILURE, response });
+        response.success ? yield put({ type: Types.LOAD_LIST_SUCCESS, response }) : yield put({ type: Types.LOAD_LIST_FAILURE, response });
     } catch (err) {
-        yield put({ type: examTypes.LOAD_LIST_FAILURE, err });
+        yield put({ type: Types.LOAD_LIST_FAILURE, err });
     }
 }
 
 
 export function* exampleListlWatcher() {
-    yield takeLatest(examTypes.FETCH_LOAD_LIST, exampleList);
+    yield takeLatest(Types.FETCH_LOAD_LIST, exampleList);
 }
 
 export default function* rootSaga() {

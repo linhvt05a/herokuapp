@@ -1,10 +1,10 @@
 const name = 'CART_';
 
-import * as exampleType from './../constants/loadList';
+import * as Types from './../constants/loadList';
 
 export const actions = (params) => {
   return {
-    type: exampleType.FETCH_LOAD_LIST,
+    type: name + Types.FETCH_LOAD_LIST,
     payload: params
   }
 }

@@ -1,7 +1,7 @@
 import {
     getHeader, getUrl, authHeader, handleRequest, handleRequestBinary
 } from './../apis/lib.js';
-import * as contentType from './../constants/ContentHtml'
+import * as contentType from '../constants/contentHtml'
 
 import { CLOUD_SERVER, API_ENDPOINT } from './../constants';
 
@@ -24,4 +24,3 @@ export default {
 
     contentType
 };
-

@@ -1,5 +1,5 @@
 import { ToUTF8, FromUTF8 } from './../helpers/utf.js';
-import { CONTENT_HTML } from './../constants/ContentHtml'
+import { CONTENT_HTML } from '../constants/contentHtml'
 var pako = require('pako');
 
 const contentType = CONTENT_HTML.CONTENT_TYPE;

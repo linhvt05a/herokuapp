@@ -1,4 +1,4 @@
-import { examAction } from './../../actions';
+import * as examActionType from './../../constants/loadList';
 
 const initialState = {
     List: [],
@@ -6,7 +6,7 @@ const initialState = {
 
 export default (state = initialState, action) => {
     switch (action.type) {
-        case examAction.LOAD_LIST_SUCCESS:
+        case examActionType.LOAD_LIST_SUCCESS:
             return {
                 ...state,
                 List: action.response,
