@@ -4,20 +4,119 @@ import { SliderRange } from "../../components/base/Slider";
 import ButtonStyle from "../../components/base/Button";
 import { Alert } from 'antd';
 
+import { Modal, Button } from 'antd';
+import { Input, Select } from 'antd';
+
+
+
 
 const Elements = (props) => {
+    const [state, setState] = React.useState({
+        visible : false
+    }); 
+    const showModal = () => {
+        setState({
+            visible: true,
+        });
+    };
+    
+    const handleOk = e => {
+        setState({
+            visible: false,
+        });
+    };
+    
+    const handleCancel = e => {
+        setState({
+            visible: false,
+        });
+    };
 
     return (
         <div className="container" style={{ paddingTop: '300px', paddingBottom: "100px" }}>
             <div className="row">
-                <div className="col-3">
-                    <SelectDefault />
-                </div>
-                <div className="col-3">
-                    <SelectMultiple />
-                </div>
-                <div className="col-3">
+
+                <div className="col-12">
                     <SliderRange />
+                </div>
+
+                <div className="col-12 mt-3 mb-3">
+                    <Button type="primary" onClick={showModal}>
+                        Open Modal Đăng ký tham quan
+                    </Button>
+                    <Modal
+                        title=''
+                        visible={state.visible}
+                        onOk={handleOk}
+                        onCancel={handleCancel}
+                        width="390px"
+                    >
+                        <div className="modal-content">
+                            <div className="modal-header">
+                                <h5 className="modal-title" id="exampleModalLongTitle">Đăng ký tham quan</h5>
+                            </div>
+                            <div className="modal-body pt-4 pl-4 pr-4">
+                                <div className="form-group">
+                                    <Input placeholder="Họ tên *" type="text" className="form-control" />
+                                </div>
+                                <div className="form-group">
+                                    <Input placeholder="Họ tên *" type="text" className="form-control" />
+                                </div>
+                                <div className="form-group">
+                                    <Input placeholder="Điện thoại *" type="text" className="form-control" />
+                                </div>
+                                <div className="form-group">
+                                    <Select className="form-control" placeholder="Chọn dự án">
+                                        <option selected disabled>Chọn dự án *</option>
+                                        <option>TPHCM</option>
+                                        <option>Hà Nội</option>
+                                        <option>Đà Nẵng</option>
+                                        <option>Bình Dương</option>
+                                    </Select>
+                                </div>
+                                <div className="form-group">
+                                    <textarea name placeholder="Nội dung *" className="form-control" style={{height: 130}} defaultValue={""} />
+                                </div>
+                            </div>
+                            <div className="modal-footer justify-content-center border-top-0 pt-0 pb-4">
+                                <a href="#" className="btn btn_green">ĐĂNG KÝ</a>
+                            </div>
+                        </div>
+
+                    </Modal>
+                </div>
+
+
+                <div className="col-3">
+                    <div className="form-group">
+                        <Select className="form-control" placeholder="Chọn dự án*">
+                            <option selected disabled>Chọn dự án *</option>
+                            <option>TPHCM</option>
+                            <option>Hà Nội</option>
+                            <option>Đà Nẵng</option>
+                            <option>Bình Dương</option>
+                        </Select>
+                    </div>
+                </div>
+                <div className="col-3">
+                    <div className="form-group">
+                        <Select defaultValue="lucy" className="form-control" disabled placeholder="Chọn dự án*">
+                            <option>TPHCM</option>
+                            <option>Hà Nội</option>
+                            <option>Đà Nẵng</option>
+                            <option>Bình Dương</option>
+                        </Select>
+                    </div>
+                </div>
+                <div className="col-3">
+                    <div className="form-group">
+                        <Input placeholder="Họ tên *" type="text" className="form-control" />
+                    </div>
+                </div>
+                <div className="col-3">
+                    <div className="form-group">
+                        <Input disabled value="Nguyen Van A" placeholder="Họ tên *" type="text" className="form-control" />
+                    </div>
                 </div>
 
                 <div className="col-12 mt-3">
@@ -36,6 +135,8 @@ const Elements = (props) => {
                     <Alert message="Error" type="error" showIcon />
 
                 </div>
+
+                
 
                 <div className="col-4 mt-3">
                     <div className="header_register">
