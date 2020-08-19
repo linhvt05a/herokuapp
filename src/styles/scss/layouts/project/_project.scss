@@ -61,16 +61,18 @@
         @include fw-medium;
         color: #ffffff;
         padding: 8px;
+        padding-bottom: 3px;
+        width: 50px;
         &::before {
-            display: none;
-            border: 15px solid #e94c4c;
-            border-right: 0;
-            border-left: 15px solid transparent;
-            @media (max-width: 767px) {
-                border: 14px solid #e94c4c;
-                border-right: 0;
-                border-left: 14px solid transparent;
-            }
+            border: 25px solid #e94c4c;
+            border-top: 20px solid transparent;
+            border-bottom: 20px solid transparent;
+            width: 100%;
+            height: auto;
+            top: auto;
+            bottom: -20px;
+            left: 0;
+            z-index: -1;
         }
     }
 }
