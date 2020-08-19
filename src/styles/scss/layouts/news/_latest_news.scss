@@ -1,57 +1,59 @@
-.latest_news{
+.latest_news {
     padding: 80px 0 90px 0;
-    @media(max-width:767px){
+    @media (max-width: 767px) {
         padding: 50px 0 50px 0;
     }
-    &--heading{
+    &--heading {
         @include flexbox;
         @include justify-content(space-between);
         @include align-items(center);
         margin-bottom: 35px;
-        @media(max-width:767px){
+        @media (max-width: 767px) {
             @include flex-direction(column);
             @include align-items(flex-start);
             margin-bottom: 20px;
         }
-        .main_heading{}
-        
+        .main_heading {
+        }
     }
-    &--content{
-        .item{
+    &--content {
+        .item {
+            margin-top: 15px;
+            @include box-shadow(0 0 10px 0 rgba(0, 0, 0, 0.12));
             @include transition(all 0.2s ease);
             background-color: #ffffff;
-            @media(max-width: 991px){
+            @media (max-width: 991px) {
                 margin-bottom: 30px;
             }
-            &:hover{
-                box-shadow: 0 0 30px 0 rgba(0,0,0,0.12);
+            &:hover {
+                box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.12);
             }
         }
-        .box{
+        .box {
             padding: 30px 25px 35px 25px;
             flex: 1;
         }
-        .img{
+        .img {
             max-height: 340px;
             width: 100%;
             position: relative;
             overflow: hidden;
             @include flex_center;
         }
-        .name{
+        .name {
             font-size: 20px;
             padding-bottom: 18px;
-            margin-bottom:  17px;
+            margin-bottom: 17px;
             position: relative;
             @include fw-medium;
-            a{
+            a {
                 color: #0d0d0d;
-                &:hover{
+                &:hover {
                 }
             }
-            &::before{
+            &::before {
                 position: absolute;
-                content: '';
+                content: "";
                 width: 40px;
                 height: 3px;
                 background-color: #6d30ab;
@@ -59,40 +61,40 @@
                 left: 0;
             }
         }
-        .des{
+        .des {
             font-size: 14px;
             color: #656565;
             padding-bottom: 20px;
         }
-        .time{
+        .time {
             color: #0d0d0d;
             font-size: 12px;
             @include fw-medium;
-            .icon{
+            .icon {
                 color: #6d30ab;
                 font-size: 14px;
                 padding-right: 7px;
             }
         }
 
-        // slider 
+        // slider
         .slick-slide {
             margin: 0 12px;
         }
         .slick-list {
             margin: 0 -12px;
         }
-        .slick-track{
+        .slick-track {
             @include flexbox;
             @include flex-wrap(wrap);
-            .slick-slide{
+            .slick-slide {
                 height: auto;
                 @include flexbox;
                 @include align-items(center);
                 @include flex-direction(column);
             }
         }
-        .slick-arrow{
+        .slick-arrow {
             z-index: 1;
             opacity: 1;
             width: 36px;
@@ -100,27 +102,27 @@
             background-color: rgba(0, 0, 0, 0.3);
             top: 50%;
             @include transform(translateY(-50%));
-            &::before{
+            &::before {
                 font-family: "Font Awesome 5 Free";
                 font-weight: 900;
                 font-size: 16px;
                 opacity: 1;
             }
         }
-        .slick-next{
+        .slick-next {
             right: 0;
-            &::before{
+            &::before {
                 content: "\f054";
             }
         }
-        .slick-prev{
+        .slick-prev {
             left: 0;
-            &::before{
+            &::before {
                 content: "\f053";
             }
         }
-        .slick-disabled{
-            &::before{
+        .slick-disabled {
+            &::before {
                 opacity: 0.5;
             }
         }

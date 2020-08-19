@@ -1,34 +1,42 @@
 import React from "react";
-import { SelectDefault, SelectMultiple } from "../../components/base/Select";
 import { SliderRange } from "../../components/base/Slider";
 import ButtonStyle from "../../components/base/Button";
-import { Alert } from 'antd';
-
-import { Modal, Button } from 'antd';
-import { Input, Select } from 'antd';
-
-
-
+import { Alert, Modal, Button, Checkbox, Input, Select, Row, Col, Group, Radio } from 'antd';
 
 const Elements = (props) => {
     const [state, setState] = React.useState({
-        visible : false
-    }); 
+        visible: false
+    });
     const showModal = () => {
         setState({
             visible: true,
         });
     };
-    
+
     const handleOk = e => {
         setState({
             visible: false,
         });
     };
-    
+
     const handleCancel = e => {
         setState({
             visible: false,
+        });
+    };
+
+    const checkboxOnChange = e => {
+        console.log(`checkbox = ${e.target.checked}`);
+    }
+
+    const checkboxGroupOnChange = e => {
+        console.log(`checkboxGroup = ${e.target.checked}`);
+    }
+
+    const radioOnChange = e => {
+        console.log('radio', e.target.value);
+        setState({
+            value: e.target.value,
         });
     };
 
@@ -37,13 +45,46 @@ const Elements = (props) => {
             <div className="row">
 
                 <div className="col-12">
+                    <Checkbox onChange={checkboxOnChange}>Checkbox</Checkbox>
+                    <hr />
+                    <Checkbox.Group style={{ width: '100%' }} onChange={checkboxGroupOnChange}>
+                        <Row>
+                            <Col span={8}>
+                                <Checkbox value="A">Group A</Checkbox>
+                            </Col>
+                            <Col span={8}>
+                                <Checkbox value="B">Group B</Checkbox>
+                            </Col>
+                            <Col span={8}>
+                                <Checkbox value="C">Group C</Checkbox>
+                            </Col>
+                            <Col span={8}>
+                                <Checkbox value="D">Group D</Checkbox>
+                            </Col>
+                            <Col span={8}>
+                                <Checkbox value="E">Group E</Checkbox>
+                            </Col>
+                        </Row>
+                    </Checkbox.Group>
+                    <hr />
+                </div>
+                <div className="col-12">
+                    <Radio.Group onChange={radioOnChange} value={state.value}>
+                        <Radio value={1}>A</Radio>
+                        <Radio value={2}>B</Radio>
+                        <Radio value={3}>C</Radio>
+                        <Radio value={4}>D</Radio>
+                    </Radio.Group>
+                    <hr />
+                </div>
+                <div className="col-12">
                     <SliderRange />
                 </div>
 
                 <div className="col-12 mt-3 mb-3">
                     <Button type="primary" onClick={showModal}>
                         Open Modal Đăng ký tham quan
-                    </Button>
+                </Button>
                     <Modal
                         title=''
                         visible={state.visible}
@@ -75,7 +116,7 @@ const Elements = (props) => {
                                     </Select>
                                 </div>
                                 <div className="form-group">
-                                    <textarea name placeholder="Nội dung *" className="form-control" style={{height: 130}} defaultValue={""} />
+                                    <textarea name placeholder="Nội dung *" className="form-control" style={{ height: 130 }} defaultValue={""} />
                                 </div>
                             </div>
                             <div className="modal-footer justify-content-center border-top-0 pt-0 pb-4">
@@ -174,13 +215,13 @@ const Elements = (props) => {
 
                 <div className="col-12 mt-3">
                     <Alert message="Success Tips" type="success" showIcon />
+                    <br />
                     <Alert message="Informational Notes" type="info" showIcon />
+                    <br />
                     <Alert message="Warning" type="warning" showIcon closable />
+                    <br />
                     <Alert message="Error" type="error" showIcon />
-
                 </div>
-
-                
 
                 <div className="col-4 mt-3">
                     <div className="header_register">
@@ -188,12 +229,12 @@ const Elements = (props) => {
                             <li className="nav-item">
                                 <a className="nav-link active" id="pills-signin-tab" data-toggle="pill" href="#pills-signin" role="tab" aria-controls="pills-signin" aria-selected="true">
                                     ĐĂNG NHẬP
-                                </a>
+                            </a>
                             </li>
                             <li className="nav-item">
                                 <a className="nav-link" id="pills-signup-tab" data-toggle="pill" href="#pills-signup" role="tab" aria-controls="pills-signup" aria-selected="false">
                                     ĐĂNG KÝ
-                                </a>
+                            </a>
                             </li>
                         </ul>
                         <div className="tab-content">
@@ -208,12 +249,12 @@ const Elements = (props) => {
                                     <div className="form-group mb-0 text-center">
                                         <a href="#" className="btn btn_green btn_signIn text-uppercase">
                                             ĐĂNG NHẬP
-                                        </a>
+                                    </a>
                                     </div>
                                     <div className="form-group mb-0 text-center">
                                         <a href="#" className="text-forgot">
                                             Quên mật khẩu
-                                        </a>
+                                    </a>
                                     </div>
                                 </div>
                             </div>
@@ -231,7 +272,7 @@ const Elements = (props) => {
                                     <div className="form-group mb-0 text-center">
                                         <a href="#" className="btn btn_green btn_signIn text-uppercase">
                                             ĐĂNG KÝ
-                                        </a>
+                                    </a>
                                     </div>
                                 </div>
                             </div>
@@ -242,19 +283,19 @@ const Elements = (props) => {
                     <div className="header_register form_forgot">
                         <div className="header_register--heading text-uppercase text-white text-center">
                             QUÊN MẬT KHẨU
-                    </div>
+                </div>
                         <div className="form form_signInUp">
                             <div className="form-group form_forgot--info">
                                 Hãy điền thông tin email của bạn để
-                        <br />chúng tôi lấy lại mật khẩu
-                        </div>
+                    <br />chúng tôi lấy lại mật khẩu
+                    </div>
                             <div className="form-group">
                                 <Input type="text" placeholder="Email" className="form-control" />
                             </div>
                             <div className="form-group mb-0 text-center">
                                 <a href="#" className="btn btn_green btn_signIn text-uppercase mb-0">
                                     GỬI
-                        </a>
+                    </a>
                             </div>
                         </div>
                     </div>
