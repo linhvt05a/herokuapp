@@ -1,8 +1,7 @@
-import { examAction } from '../action';
+import { examAction } from './../../actions';
 
 const initialState = {
     List: [],
-
 };
 
 export default (state = initialState, action) => {

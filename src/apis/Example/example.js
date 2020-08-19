@@ -1,4 +1,4 @@
-import api from '../api';
+import api from './../../apis';
 import { TOKEN } from '../../../env';
 
 export const exampleService = {

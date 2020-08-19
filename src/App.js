@@ -22,7 +22,7 @@ import Error404 from "./pages/Error/Error404";
 import Example from "./pages/Example";
 
 import { Provider } from 'react-redux';
-import configureStore from './store';
+import configureStore from './store/redux/configureStore';
 const store = configureStore()
 
 class App extends React.Component {

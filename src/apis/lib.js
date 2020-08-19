@@ -1,8 +1,10 @@
-import { ToUTF8, FromUTF8 } from './utf.js'
+import { ToUTF8, FromUTF8 } from './../helpers/utf.js';
+import { CONTENT_HTML } from './../constants/ContentHtml'
 var pako = require('pako');
 
-const CONTENT_TYPE = 'application/json; charset=utf-8';
-const CONTENT_MULITPART = 'multipart/form-data';
+const contentType = CONTENT_HTML.CONTENT_TYPE;
+const contentMutipart = CONTENT_HTML.CONTENT_MUTITPART;
+
 const MNV_ENCODE = 0
 
 function Encode(data) {
@@ -52,7 +54,7 @@ function getUrl(url, data = {}) {
 }
 
 
-function getHeader(token, content_type = CONTENT_TYPE, auth_type = 'Bearer') {
+function getHeader(token, content_type = contentType, auth_type = 'Bearer') {
     var auth = auth_type + ' ' + token;
     var headers = {
         'Authorization': auth,
@@ -138,5 +140,5 @@ export {
     handleRequest,
     handleRequestBinary,
 
-    CONTENT_TYPE
+    contentType
 }
