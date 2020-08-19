@@ -392,6 +392,7 @@ function Header() {
                                                 <input
                                                     type="text"
                                                     placeholder="Email"
+                                                    
                                                     className="form-control"
                                                 />
                                             </div>

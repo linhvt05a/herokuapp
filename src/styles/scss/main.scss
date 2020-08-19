@@ -2,12 +2,12 @@
 @import "./fonts/font-awesome";
 @import "./fonts/fonts-page";
 
-/*libs*/
-@import "./antd/**.scss";
-
 /*custom*/
 @import "./elements/mixin";
 @import "./elements/**.scss";
+
+/*libs custom*/
+@import "./antd/**.scss";
 
 /*layout*/
 @import "./layouts/**/*.scss";
