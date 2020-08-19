@@ -10,7 +10,7 @@ const Home = (props) => {
         <div className="homePage">
             {/* block map  */}
             <div className="map">
-                <div className="map_origin">
+                <div className="map_origin" style={{paddingTop: "202px"}}>
                     <figure>
                         <img
                             className="w-100"
