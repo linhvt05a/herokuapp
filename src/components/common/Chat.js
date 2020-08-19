@@ -10,7 +10,7 @@ function Chat(props) {
                 Tư vấn trực tuyến
                 <i className="close_chat fas fa-times-circle" />
             </label>
-            <div className="send_info sendInfo active">
+            <div className={`send_info sendInfo ${active ? "active" : ''}`}>
                 <form>
                     <input
                         type="text"
