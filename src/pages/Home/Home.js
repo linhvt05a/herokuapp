@@ -3,7 +3,7 @@ import { ItemHeader, ItemHomeProject } from './Item/index'
 import { Trans } from "react-i18next";
 import { Link } from "react-router-dom";
 import HeadingFilter from '../../components/common/HeadingFilter'
-import { CardSaleFlash, CardNews } from "./Layout/index";
+import { CardSaleFlash, CardNews, CardOverView } from "./Layout/index";
 import Maps from "../../components/common/Map";
 
 const Home = (props) => {
@@ -318,48 +318,7 @@ const Home = (props) => {
             {/*end block map  */}
             <CardSaleFlash headerBodyClassName="label_filter--heading" labelHeader="flash_sale" datas={["a", "iu", "e", "vl", "wa", "di"]} options={options} timeLine/>
             {/* block over  */}
-            <div className="overview">
-                <div className="container container-sm container-md">
-                    <h2 className="overview_heading">
-                        Tổng quan Minerva
-                        <span className="sub">
-                            Minerva phát triển các mảng bất động sản có áp
-                            dụng các công nghệ thông minh hiện nay. Giúp mọi
-                            người có cuộc sống thoải mái và tiện nghi với
-                            công nghệ.
-                        </span>
-                    </h2>
-                    <div className="overview_services">
-                        <div className="item">
-                            <p className="number">1</p>
-                            <p className="title">Bất động sản</p>
-                            <p className="text">
-                                Xây dựng các công trình bất động sản chất
-                                lượng, đạt chuẩn cao cấp và đáp ứng yêu cầu
-                                của bạn
-                            </p>
-                        </div>
-                        <div className="item">
-                            <p className="number">2</p>
-                            <p className="title">Công nghệ thông minh</p>
-                            <p className="text">
-                                Áp dụng công nghệ thông minh vào ngôi nhà mơ
-                                ước của bạn. Giúp bạn có được cuộc sống
-                                thoải mái và đầy tiện nghi
-                            </p>
-                        </div>
-                        <div className="item">
-                            <p className="number">3</p>
-                            <p className="title">Nâng cấp công nghệ</p>
-                            <p className="text">
-                                Bảo trì, cập nhật và nâng cấp công nghệ
-                                thông minh của người dùng theo mọi thời điểm
-                                công nghệ mới nhất
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <CardOverView />
             {/* end block over  */}
             {/* project_list  */}
             <div className="project_list project_tab">
