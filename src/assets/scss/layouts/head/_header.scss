@@ -406,19 +406,17 @@
                     margin-top: 4px;
                 }
             }
-            
-            &.hasChild {
-                .item-link::after {
-                    color: #6d30ab;
-                    @media (max-width: 767px) {
-                        color: #fff;
+            &.active,
+            &:hover {
+                &.hasChild {
+                    .item-link::after {
+                        color: #6d30ab;
+                        @media (max-width: 767px) {
+                            color: #fff;
+                        }
                     }
                 }
-            }
-            .item-link {
-               
-                &.active,
-                &:hover {
+                .item-link {
                     color: #6d30ab;
                     font-weight: 500;
                     text-decoration: none;
@@ -434,6 +432,7 @@
                             left: 18px;
                             bottom: 5px;
                             transform: none;
+
                             display: none;
                         }
                     }
@@ -464,9 +463,9 @@
                 left: 50%;
                 opacity: 0;
             }
-            // &.active::after {
-            //     content: "\f077" !important;
-            // }
+            &.active::after {
+                content: "\f077" !important;
+            }
         }
         .hasChild {
             &.open {

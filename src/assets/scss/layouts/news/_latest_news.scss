@@ -14,61 +14,7 @@
             margin-bottom: 20px;
         }
         .main_heading{}
-        .readmore{
-            font-size: 16px;
-            color: #9a9a9a;
-            text-transform: uppercase;
-            padding-right: 24px;
-            position: relative;
-            font-family: $HelveticaNeue-Light;
-            @media(max-width:767px){
-                margin-top: 10px;
-                text-align: center;
-                width: 100%;
-                max-width: 110px;
-                margin-left: auto;
-                margin-right: 0;
-            }
-            @-webkit-keyframes readmore_linear {
-                0% {opacity: 1; transform: translateX(0px) scale(1);}
-                25%{opacity: 0; transform:translateX(10px) scale(0.9);}
-                26%{opacity: 0; transform:translateX(-10px) scale(0.9);}
-                55% {opacity: 1; transform: translateX(0px) scale(1);}
-            }
-            @-moz-keyframes readmore_linear {
-                0% {opacity: 1; transform: translateX(0px) scale(1);}
-                25%{opacity: 0; transform:translateX(10px) scale(0.9);}
-                26%{opacity: 0; transform:translateX(-10px) scale(0.9);}
-                55% {opacity: 1; transform: translateX(0px) scale(1);}
-            }
-            @-o-keyframes readmore_linear {
-                0% {opacity: 1; transform: translateX(0px) scale(1);}
-                25%{opacity: 0; transform:translateX(10px) scale(0.9);}
-                26%{opacity: 0; transform:translateX(-10px) scale(0.9);}
-                55% {opacity: 1; transform: translateX(0px) scale(1);}
-            }
-            @keyframes readmore_linear {
-                0% {opacity: 1; transform: translateX(0px) scale(1);}
-                25%{opacity: 0; transform:translateX(10px) scale(0.9);}
-                26%{opacity: 0; transform:translateX(-10px) scale(0.9);}
-                55% {opacity: 1; transform: translateX(0px) scale(1);}
-            }
-
-            .icon{
-                font-size: 16px;
-                color: #9a9a9a;
-                position: absolute;
-                right: 0;
-                top: 4px;
-                animation-name: readmore_linear;
-                animation-duration:1.4s;
-                animation-iteration-count:infinite;
-                animation-timing-function:linear;
-                &::before{
-                    font-weight: 900;
-                }
-            }
-        }
+        
     }
     &--content{
         .item{

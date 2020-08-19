@@ -114,9 +114,20 @@
         .details{
             z-index: 1;
             position: relative;
+            @include flexbox;
+            @include flex_wrap(wrap);
+           
             .child{
-                &:not(:last-child){
-                    padding-bottom: 8px;
+                flex: 1;
+                @media(max-width:480px){
+                    flex: 50%;
+                    text-align: left !important;
+                }
+                &:not(:first-child){
+                    text-align: center;
+                }
+                &:first-child{
+                    white-space: nowrap;
                 }
             }
             .icon{
@@ -173,6 +184,34 @@
                 padding: 12px 15px;
                 margin-left: 10px;
                 margin-right: 10px;
+            }
+        }
+        .price{
+            &__label{
+                font-size: 14px;
+                color: #0d0d0d;
+            }
+            &__wrap{
+                @include flexbox;
+                @include flex_wrap(wrap)
+            }
+            &__item{}
+            &__discount{
+                @include fw-medium;
+                font-size: 26px;
+                color: #e94c4c;
+            }
+            &__origin{
+                font-size: 18px;
+                color: #9a9a9a;
+            }
+            .percent{
+                font-size: 16px;
+                color: #e94c4c;
+            }
+            .noted{
+                font-size: 10px;
+                color: #6d30ab;
             }
         }
     }

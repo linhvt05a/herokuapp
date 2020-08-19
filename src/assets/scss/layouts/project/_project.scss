@@ -1,8 +1,8 @@
-@import 'project_page';
-@import 'project_list';
-@import 'project_detail';
+// @import 'project_page';
+// @import 'project_list';
+// @import 'project_detail';
 
-.sell_tatus {
+.sell_status {
     font-size: 14px;
     text-align: center;
     color: #ffffff;
@@ -11,6 +11,7 @@
     position: absolute;
     right: 0;
     top: 20px;
+    z-index: 2;
     @media (max-width: 767px) {
         font-size: 12px;
     }
@@ -46,6 +47,27 @@
             border-left: 15px solid transparent;
             @media (max-width: 767px) {
                 border: 14px solid #a8c200;
+                border-right: 0;
+                border-left: 14px solid transparent;
+            }
+        }
+    }
+    &.promotion{
+        background-color: #e94c4c;
+        left: 0;
+        top: 0;
+        right: auto;
+        font-size: 14px;
+        @include fw-medium;
+        color: #ffffff;
+        padding: 8px;
+        &::before {
+            display: none;
+            border: 15px solid #e94c4c;
+            border-right: 0;
+            border-left: 15px solid transparent;
+            @media (max-width: 767px) {
+                border: 14px solid #e94c4c;
                 border-right: 0;
                 border-left: 14px solid transparent;
             }

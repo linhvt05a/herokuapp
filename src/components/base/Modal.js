@@ -1,6 +1,5 @@
 import React from 'react';
 import { withTranslation, Trans } from 'react-i18next';
-import Modal from 'react-bootstrap/Modal';
 
 
 const ModalCenter = (props) => {
