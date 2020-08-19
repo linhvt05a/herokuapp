@@ -29,11 +29,9 @@ const News = () => {
                             <Categories />
                             <FilterProject />
                         </div>
-                        <button onClick={handleShow}>
-                            click
-                        </button>
                     </div>
                 </div>
+                <RegisterModal />
             </div>
         );
 }

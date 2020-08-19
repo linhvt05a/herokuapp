@@ -8,25 +8,25 @@ const data1 = [10, 80]
 const FilterProject = () =>{
     return(
         <div className="searchProject">
-            <div className="searchProject__title">
-                Tìm kiếm dự án theo
-            </div>
+                <div className="searchProject__title">
+                    Tìm kiếm dự án theo
+                </div>
                 <InputSelect placeholder="Tỉnh/Thành phố"/>
                 <InputSelect placeholder="Quận/Huyện"/>
                 <InputSelect placeholder="Chọn tiến độ"/>
-        {/*PHẠM VI GIÁ*/}
-            <div className="map_search--range">
-                <div className="range_item price">
-                    <label className="label">
-                        Phạm vi giá<br /><i>(tỷ đồng)</i>
-                    </label>
-                        <Sliders value={data} displayBox="on"/>
+                {/*PHẠM VI GIÁ*/}
+                <div className="map_search--range">
+                    <div className="range_item price">
+                        <label className="label">
+                            Phạm vi giá<br /><i>(tỷ đồng)</i>
+                        </label>
+                            <Sliders value={data} displayBox="on"/>
+                    </div>
+                    <div className="range_item area">
+                        <label className="label">Diện tích<i>(m2)</i></label>
+                            <Sliders value={data1} displayBox="on"/>
+                    </div>
                 </div>
-                <div className="range_item area">
-                    <label className="label">Diện tích<i>(m2)</i></label>
-                        <Sliders value={data1} displayBox="on"/>
-                </div>
-            </div>
                 <SearchByProject />
             
     </div>

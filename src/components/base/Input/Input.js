@@ -1,5 +1,5 @@
 import React from 'react'
-import { Input } from 'antd';
+import { Input, Form } from 'antd';
 import { Trans } from 'react-i18next';
 
 const InputBase = (props) => {
@@ -17,16 +17,18 @@ const InputBase = (props) => {
                     </label>
                 }
                 <div className="input-group">
-                    <Input
-                        addonAfter={addonAfter}
-                        addonBefore={addonBefore}
-                        onChange={onChange}
-                        placeholder={placeholder}
-                        value={value}
-                        name={name}
-                        type={type}
-                        {...attr}
-                        disabled={disabled ? disabled : undefined} />
+                    <Form>
+                        <Input
+                            addonAfter={addonAfter}
+                            addonBefore={addonBefore}
+                            onChange={onChange}
+                            placeholder={placeholder}
+                            value={value}
+                            name={name}
+                            type={type}
+                            {...attr}
+                            disabled={disabled ? disabled : undefined} />
+                    </Form>
                 </div>
             </div>
         </div>
