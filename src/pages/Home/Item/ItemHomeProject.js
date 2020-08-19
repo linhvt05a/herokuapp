@@ -25,10 +25,10 @@ const ItemHomeProject = (props) => {
                         </Link>
                     </div>
                 </div>
-                {/* <div className="sell_tatus selling">
+                {/* <div className="sell_status selling">
                     Đang bán
                 </div> */}
-                <div className="sell_tatus will_sell">
+                <div className="sell_status will_sell">
                     Sắp bán
                 </div>
             </div>
