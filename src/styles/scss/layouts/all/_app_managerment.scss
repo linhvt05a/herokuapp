@@ -1,0 +1,154 @@
+.app_managerment{
+    padding-top: 80px;
+    padding-bottom: 90px;
+    background-repeat: no-repeat;
+    background-position: right -50px bottom -45px;
+    background-size: 55%;
+    @media (max-width: 767px){
+        padding: 50px 0;
+    }
+        
+    .main_heading{
+        
+    }
+    &--left{
+        .title{
+            color: #0d0d0d; 
+            font-size: 55px;
+            @include fw-medium;
+            margin-bottom: 35px;
+            margin-top: 55px;
+            @media (max-width: 767px) {
+                font-size: 35px;
+                margin: 20px 0 15px 0;
+            }
+        }
+        .sub-title{
+            font-size: 20px;
+            color: #9a9a9a;
+            font-style: italic;
+            @include fw-light;
+            margin-bottom: 42px;
+            @media (max-width: 767px) {
+                font-size: 16px;
+                margin-bottom: 30px;
+            }
+        }
+        .features{
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            margin-bottom: 45px;
+            @include flexbox;
+            @include justify-content(space-between);
+            @include flex-wrap(wrap);
+            @media (max-width: 991px) {
+                margin-bottom: 20px;
+            }
+            li{
+                margin-bottom: 30px;
+                width: calc(50% - 10px);
+                @media (max-width: 767px) {
+                    width: 100%;
+                }
+            }
+            .name{
+                color: #0d0d0d;
+                font-size: 20px;
+                font-weight: bold;
+                margin-bottom: 2px;
+                font-family: $HelveticaNeue-Medium;
+            }
+            .des{
+                font-size: 14px;
+                font-weight: normal;
+                margin: 0;
+            }
+        }
+        .stores{
+            @include flexbox;
+            @media (max-width: 991px) {
+                @include justify-content(center);
+             }
+            .item{
+                @include flexbox;
+                @include align-items(center);
+                @include flex-direction(column);
+                max-width: 160px;
+                width: 100%;
+                @media (max-width: 375px) {
+                    width: 50%;
+                }
+                &:hover{
+                    .heading{
+                        @include transform(translateY(-5px));
+                    }
+                    
+                }
+                &:not(:last-child){
+                    margin-right: 20px;
+                    @media (max-width: 375px) {
+                        margin-right: 15px;
+                    }
+                }
+                
+            }
+            .heading{
+                @include transition(all .2s ease);
+                background-color: #6d30ab;
+                padding: 8px 18px;
+                color: #fff;
+                text-decoration: none;
+                display: flex;
+                align-items: center;
+                width: 100%;
+                margin-bottom: 10px;
+                @media (max-width: 375px) {
+                    padding: 8px 10px;
+                }
+            }
+            .icon{
+                font-size: 23px;
+                padding-right: 12px;
+                &.fa-apple{
+                    font-size: 28px;
+                }
+                @media (max-width: 375px) {
+                    font-size: 16px !important;
+                }
+            }
+            .text{
+                margin: 0;
+                .top{
+                    font-size: 10px;
+                    font-weight: normal;
+                    @include fw-light;
+                }
+                .bottom{
+                    text-transform: uppercase;
+                    font-size: 14px;
+                    @include fw-medium;
+                }
+            }
+            .qr_code{
+                padding: 15px; 
+                border: 1px solid #ddd;
+                background-color: #fff;
+                img{
+                    width: 100%;
+                }
+            }
+            span{
+                display: block;
+            }
+        }
+    }
+    &--right{
+        @media (max-width: 991px) {
+           margin-top: 40px;
+           max-width: 65%;
+           margin-left: auto;
+           margin-right: auto;
+        }
+    }
+}

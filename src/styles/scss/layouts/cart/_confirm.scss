@@ -1,0 +1,101 @@
+.main-cart__confirm {
+    .block {
+        &__01 {
+            .block__heading {
+                margin-bottom: 12px;
+            }
+            .noted {
+                line-height: normal;
+                &-1 {
+                    @include fw-medium;
+                    font-size: 16px;
+                    color: #0d0d0d;
+                    margin-bottom: 10px;
+                }
+                &-2 {
+                    color: #656565;
+                    margin-bottom: 18px;
+                }
+            }
+            .link {
+                color: #5480f9;
+                text-decoration: underline;
+            }
+        }
+        &__02 {
+            .block__heading {
+                .noted {
+                    margin-top: 8px;
+                }
+            }
+        }
+    }
+    .contract {
+        &__image {
+            position: relative;
+            border: solid 1px #9a9a9a;
+            padding: 20px 7px;
+            margin-bottom: 23px;
+        }
+        &__img {
+            overflow-y: auto;
+            max-height: 600px;
+            @include scrollbar;
+            img {
+                width: 100%;
+            }
+        }
+        &__icons {
+            @include flexbox;
+            @include align-items(center);
+            position: absolute;
+            top: 18px;
+            right: 25px;
+
+            .icon {
+                @include flex_center;
+                margin: 0 7px;
+                width: 44px;
+                height: 44px;
+                background-color: rgba(13, 13, 13, 0.35);
+                font-size: 18px;
+                color: #ffffff;
+                border-radius: 50%;
+                cursor: pointer;
+                &:hover {
+                    font-size: 20px;
+                }
+            }
+        }
+        &__rules {
+            .checkbox-inline {
+                font-size: 16px;
+                line-height: 1.19;
+                letter-spacing: 0.48px;
+                color: #0d0d0d;
+                padding-left: 28px;
+                &:not(:last-child) {
+                    margin-bottom: 12px;
+                }
+                .checkbox-custom-dummy {
+                    border: 1px solid #6d30ab;
+                    width: 18px;
+                    height: 18px;
+                    top: 1px;
+                    &::after {
+                        left: 6px;
+                        top: 1px;
+                    }
+                }
+                &.active {
+                    .checkbox-custom-dummy::after {
+                        border: solid #6d30ab;
+                        border-width: 0 2px 2px 0;
+                    }
+                }
+            }
+            .icon {
+            }
+        }
+    }
+}

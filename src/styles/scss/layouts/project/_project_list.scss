@@ -1,0 +1,251 @@
+.project_list{
+    background-color: #f3f4f9;
+    padding-top: 85px;
+    padding-bottom: 90px;
+    @media (max-width: 767px){
+        padding: 50px 0;
+    }
+    &--status{
+        @include flexbox;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        border-bottom: none;
+        @media(max-width: 991px){
+            width: 100%;
+            justify-content: center;
+        }
+        a{
+            color: #656565;
+            font-size: 16px;
+            display: inline-block;
+            @media (max-width: 767px){
+                font-size: 14px;
+            }
+            &:not(:last-child){
+                padding-right: 25px;
+                margin-right: 25px;
+                border-right: 1px solid #ddd;
+            }
+            &:hover,&.active{
+                color: #6d30ab;
+                cursor: pointer;
+                text-decoration: underline;
+            }
+        }
+    }
+    &--item{
+        position: relative;
+        margin-bottom: 25px;
+        height: 315px;
+        background-color: #fff;
+        overflow: hidden;
+        @media(max-width: 767px){
+            margin-bottom: 10px;
+        }
+        &::before{
+            position: absolute;
+            content: '';
+            width: 100%;
+            height: 100%;
+            bottom: 0;
+            background-image: linear-gradient(to bottom, rgba(13, 13, 13, 0), rgba(13, 13, 13, 0.08) 59%, rgba(13, 13, 13, 0.45));
+        }
+        @media(max-width:767px){
+            height: 180px;
+        }
+        .name{
+            font-size: 24px;
+            font-weight: bold;
+            color: #ffffff;
+            padding-left: 50px;
+            position: absolute;
+            bottom: 25px;
+            left: 25px;
+            margin: 0;
+            transition: .4s;
+            @media(max-width:1199px){
+                font-size: 18px; 
+                left: -20px; 
+            }
+            @media(max-width:767px){
+                font-size: 13px; 
+                bottom: 15px; 
+            }
+            @media(max-width:480px){
+                // font-size: 11px; 
+            }
+            &:hover{
+                padding-left: 15px;
+                @media(max-width:767px){
+                    padding-left: 30px; 
+                }
+                &::before{
+                    background-color: #e4bc58;
+                    animation: .4s changeAxis both;
+                    top: 50%;
+                    @include transform(translateY(-50%));
+                }
+            }
+            &::before{
+                position: absolute;
+                content: '';
+                left: 0;
+                top: 50%;
+                height: 3px;
+                width: 40px;
+                background-color: #fff;
+                animation: .3s changeAxisBack both;
+            }
+        }
+        .image{
+            @include flex_center;
+            height: 100%;
+            background-repeat: no-repeat;
+            background-size:cover ;
+            background-position: center center;
+            img{
+                width: 100%;
+            }
+        }
+        &:hover{
+            .heading{
+                padding-left: 23px;
+                @media(max-width:991px){
+                    padding-left: 15px;
+                }
+                &::before{   
+                    width: 0;
+                    top: 50%;
+                    @include transform(translateY(-50%) rotate(90deg));
+                }
+                &::after{
+                    height: 60%;
+                }
+            }
+            .heading__date, .heading__list-btn{
+                display: flex;
+            }
+        }
+    }
+    &--heading{
+        @include flexbox;
+        @include align-items(center);
+        @include justify-content(space-between);
+        margin-bottom: 35px;
+        @media(max-width:991px){
+            @include flex-direction(column);
+            @include align-items(flex-start);
+            margin-bottom: 20px;
+        }
+        .main_heading{
+            margin-bottom: 0;
+            padding: 0;
+            @media(max-width:991px){
+                margin-bottom: 10px;
+            }
+            @media (max-width: 480px){
+                font-size: 25px;
+            }
+        }
+    }
+    &--content{
+        @media(max-width: 575px){
+            width: 100%;
+            margin: 0 auto;
+        }
+    }
+    .col{
+        padding: 0 12px;
+        @media(max-width: 767px){
+            padding: 0 5px;
+        }
+    }
+
+    .btn{
+        min-width: 160px;
+    }
+   
+    .heading{
+        position: absolute;
+        left: 35px;
+        bottom: 15px;
+        padding-left: 50px;
+        transition: all 0.2s ease;
+        @media(max-width:991px){
+            padding-left: 20px;
+            left: 10px;
+        }
+        &::before{
+            position: absolute;
+            content: '';
+            left: 0;
+            top: 50%;
+            height: 3px;
+            width: 40px;
+            background-color: #fff;
+            // animation: .3s changeAxisBack both;
+            @media(max-width:991px){
+                width: 15px;
+                height: 2px;
+            }
+        }
+        &::after{
+            position: absolute;
+            content: '';
+            left: 0;
+            top: 50%;
+            height: 0;
+            width: 3px;
+            background-color: #fff;
+            transform: translateY(-50%);
+            transition: all 0.2s ease;
+            @media(max-width:991px){
+                width: 2px;
+            }
+        }
+        &__name{
+            font-size: 24px;
+            font-weight: bold;
+            color: #ffffff;
+            @media(max-width:1199px){
+                font-size: 18px; 
+            }
+            @media(max-width:767px){
+                font-size: 13px; 
+            }
+        }
+        &__date{
+            font-size: 14px;
+            color: #ffffff;
+            padding-bottom: 7px;
+            transition: all 0.3s ease;
+            display: none;
+        }
+        &__list-btn{
+            transition: all 0.3s ease;
+            display: none;
+            .btn{
+                padding: 7px 0 3px 0;
+                max-width: 100px;
+                min-width: auto;
+                width: 100%;
+                min-height: 34px;
+                height: 100%;
+                font-family: $HelveticaNeue-Light;
+                font-size: 12px;
+                @media(max-width:991px){
+                    max-width: 75px;
+                }
+                &:not(:last-child){
+                    margin-right: 10px;
+                    @media(max-width:991px){
+                        margin-right: 5px;
+                    }
+                }
+            }
+        }
+        
+    }
+}
+

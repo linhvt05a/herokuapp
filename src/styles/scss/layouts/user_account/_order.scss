@@ -1,0 +1,26 @@
+.user-acc {
+    &__order {
+    }
+}
+.order_status_01 {
+    .icon {
+        font-size: 17.5px;
+        color: #fb9334;
+    }
+    .text {
+        @include fw-light;
+        font-size: 16px;
+        color: #fb9334;
+    }
+}
+.order_status_02 {
+    .icon {
+        font-size: 17.5px;
+        color: #a8c200;
+    }
+    .text {
+        @include fw-light;
+        font-size: 16px;
+        color: #a8c200;
+    }
+}

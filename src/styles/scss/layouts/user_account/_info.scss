@@ -1,0 +1,210 @@
+.user-acc{
+    &__info{
+        .avatar{
+            @include flex_center;
+            background-size: cover;
+            width: 100%;
+            max-width: 350px;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 8px 5px 0 rgba(0, 0, 0, 0.13);
+            position: relative;
+            top: 0;
+            right: 0;
+            &:before{
+                content: "";
+                display: block;
+                padding-top: 87%;
+            }
+            &__image{
+                background-color: rgba(13, 13, 13, 0.3);
+                border-radius: 50%;
+                overflow: hidden;
+                width: 70%;
+                position: relative;
+                &:before{
+                    content: "";
+                    display: block;
+                    padding-top: 100%;
+                }
+                .center{
+                    @include flex_center;
+                    @include flex-direction(column);
+                    @include transform(translate(-50%,-50%));
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    width: 100%;
+                    height: 100%;
+                }
+
+                .icon{
+                    font-size: 45px;
+                    color: #ffffff;
+                    margin-bottom: 5px;
+                }
+                .text{
+                    color: #ffffff;
+                }
+                .uploaded_avatar{
+                    width: 100%;
+                }
+            }
+            .upload{
+                @include transform(translate(-50%,-50%));
+                opacity: 0;
+                width: 100%;
+                height: 100%;
+                cursor: pointer;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+            }
+            .upload_again{
+                @include flex_center;
+                position: absolute;
+                right: 80px;
+                bottom: 30px;
+                width: 17.78%;
+                background-color: #ffffff;
+                border-radius: 50%;
+                @media(max-width:480px){
+                    right: 70px;
+                    bottom: 25px;
+                }
+                &::before{
+                    content: '';
+                    padding-top: 100%;
+                    display: block;
+                }
+                .icon{
+                    font-size: 29px;
+                    color: #51c471;
+                }
+            }
+        }
+        .heading{
+            font-size: 22px;
+            color: #6d30ab;
+            @include fw-medium;
+            margin-bottom: 10px;
+            @media(max-width: 767px){
+               margin-bottom: 15px;
+            }
+            .sub{
+                display: block;
+                @include fw-light;
+                font-style: italic;
+                color: #9a9a9a;
+                font-size: 14px;
+                margin-top: -3px;
+            }
+        }
+        .form-group{
+            &:not(:last-child){
+                margin-bottom: 15px;
+            }
+            label{
+                @include flexbox;
+                @include align-items(center);
+                color: #656565;
+                .icon{
+                    font-size: 15px;
+                    color: #9ea9bb;
+                    padding-right: 15px;
+                    @media(max-width:767px){
+                        padding-right: 10px;
+                    }
+                }
+            }
+            .form-control{
+                height: 48px;
+                border: solid 1px #e0e0e0;
+                border-radius: 0;
+                @media(max-width:767px){
+                    height: 40px;
+                }
+                @mixin placeholderInputStyles {
+                    font-size: 14px;
+                    font-weight: 300;
+                    font-style: italic;
+                    color: #e94c4c;
+                }
+                &::-webkit-input-placeholder {
+                    /* Chrome/Opera/Safari */
+                    @include placeholderInputStyles
+                }
+                &::-moz-placeholder {
+                    /* Firefox 19+ */
+                    @include placeholderInputStyles
+                }
+                &:-ms-input-placeholder {
+                    /* IE 10+ */
+                    @include placeholderInputStyles
+                }
+                &:-moz-placeholder {
+                    /* Firefox 18- */
+                    @include placeholderInputStyles
+                }
+
+                &[type='password']{
+                    
+                    &::-webkit-input-placeholder {
+                        color: #9a9a9a;
+                    }
+                    &::-moz-placeholder {
+                        color: #9a9a9a;
+                    }
+                    &:-ms-input-placeholder {
+                        color: #9a9a9a;
+                    }
+                    &:-moz-placeholder {
+                        color: #9a9a9a;
+                    }
+                }
+                
+            }
+            
+            
+        }
+        .text_pwd{
+            font-weight: 300;
+            font-style: italic;
+            color: #51c471;
+            text-decoration: underline;
+            padding-left: 20px;
+            cursor: pointer;
+            @media(max-width:575px){
+               padding-left: 0;
+               width: 100%;
+               margin-top: 5px;
+            }
+        }
+        .list_checkbox{
+            height: 48px;
+            @media(max-width:767px){
+                height: 40px;
+            }
+        }
+        .card{
+            box-shadow: none;
+            border-radius: 0;
+            border: none;
+            margin-bottom: 24px;
+            &-body{
+                padding: 14px 24px;
+            }
+        }
+        .btn{
+            padding: 11px 22px;
+            max-width: 160px;
+            width: 100%;
+            margin-top: 16px;
+            @media(max-width: 767px){
+                margin-top: 0;
+                padding: 8px 22px;
+                max-width: 120px;
+            }
+        }
+    }
+}
