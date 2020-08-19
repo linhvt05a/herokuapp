@@ -3,12 +3,12 @@ import { Trans } from 'react-i18next';
 import { Select, Form } from 'antd';
 
 const InputSelect = (props) => {
-    const { className, name, value, label, datas, placeholder, onChange, isClear, classNameGroup, trans, require, onSearch, disabled, titleClassName } = props;
+    const { className, name, value, label, datas, placeholder,validSelect, onChange, isClear, classNameGroup, trans, require, onSearch, disabled, titleClassName } = props;
     const { Option } = Select;
     const message = "Missing information"
     return (
         <div className={className ? className : ''}>
-            <div className={classNameGroup ? classNameGroup : "form-group"}>
+            <div className={classNameGroup ? classNameGroup : ""}>
                 {
                     label &&
                     <label className={titleClassName ? titleClassName : "fw-medium"}>
@@ -18,8 +18,6 @@ const InputSelect = (props) => {
                         }
                     </label>
                 }
-                <Form>
-                    <Form.Item name={name} rules={[{ required: true, message: message }]}>
                     <Select
                         showSearch
                         onSearch={onSearch}
@@ -34,13 +32,10 @@ const InputSelect = (props) => {
                         placeholder={<Trans>{placeholder}</Trans>}
                         children={datas && datas.map((e, key) => {
                             return <Option name={name} key={key} value={e.value}>{trans ? <Trans>{e.label}</Trans> : e.label}</Option>;
-                        })} />
-                    </Form.Item>
-                </Form>
-                
-                
-
+                        })} /><br />
+                    <span style={{color: 'red', fontSize: 12}}><Trans>{validSelect}</Trans></span>   
             </div>
+            
         </div>
     )
 }
