@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ItemHeader, ItemHomeProject } from './Item/index'
 import { Trans } from "react-i18next";
 import { CardSaleFlash, CardNews } from "./Layout/index";
+import Maps from "../../components/common/Map";
 
 const Home = (props) => {
 
@@ -12,11 +13,12 @@ const Home = (props) => {
             <div className="map">
                 <div className="map_origin" style={{paddingTop: "202px"}}>
                     <figure>
-                        <img
+                        {/* <img
                             className="w-100"
                             src="./assets/images/map.jpg"
                             alt="Bạn muốn tìm dự án bất động sản của Minerva"
-                        />
+                        /> */}
+                        <Maps />
                     </figure>
                     <div className="map_origin--content">
                         <h1 className="heading text-center">
