@@ -3,9 +3,13 @@ import { Link } from "react-router-dom";
 import TopBanner from "../../components/common/TopBanner";
 import HeadingFilter from '../../components/common/HeadingFilter'
 import { ItemDetailProject } from './Item/index'
+import {Sliders} from '../../components/base/index'
 import { Input, Select } from 'antd';
 
 const Contact = (props) => {
+
+    const data = [20, 60]
+    const data1 = [10, 80]
 
     const [height, setHeight] = useState(120);
     useEffect(() => {
@@ -70,16 +74,7 @@ const Contact = (props) => {
                                                 Phạm vi giá (tỷ đồng)
                                             </label>
                                             <div className="slider-wrapper">
-                                                <input
-                                                    className="input-range"
-                                                    type="text"
-                                                    data-slider-step={1}
-                                                    data-slider-value="0, 100"
-                                                    data-slider-min={0}
-                                                    data-slider-max={100}
-                                                    data-slider-range="true"
-                                                    data-slider-tooltip_split="true"
-                                                />
+                                                <Sliders value={data} displayBox="on"/>
                                             </div>
                                         </div>
                                     </div>
@@ -89,16 +84,7 @@ const Contact = (props) => {
                                                 Diện tích (m2)
                                             </label>
                                             <div className="slider-wrapper">
-                                                <input
-                                                    className="input-range"
-                                                    type="text"
-                                                    data-slider-step={1}
-                                                    data-slider-value="0, 1000"
-                                                    data-slider-min={0}
-                                                    data-slider-max={1000}
-                                                    data-slider-range="true"
-                                                    data-slider-tooltip_split="true"
-                                                />
+                                                <Sliders value={data} displayBox="on"/>
                                             </div>
                                         </div>
                                     </div>
