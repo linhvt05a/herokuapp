@@ -25,7 +25,7 @@ const ItemDetailProject = (props) => {
                             Bình Thạnh, Tp.HCM
                         </p>
                         <div className="list-btn">
-                            <Link to="/#" className="btn btn_green">
+                            <Link to="/project-detail" className="btn btn_green">
                                 CHI TIẾT
                             </Link>
                             <Link to="/#" className="btn btn_white">

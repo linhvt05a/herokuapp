@@ -12,6 +12,7 @@ import Chat from "./components/common/Chat";
 import Home from "./pages/Home/Home";
 import Contact from "./pages/Contact/Contact";
 import Project from "./pages/Project/Project";
+import ProjectDetail from "./pages/ProjectDetail/ProjectDetail";
 import Introduce from "./pages/Introduce/Introduce";
 import News from "./pages/News/NewsList";
 import NewsDetail from "./pages/News/NewsDetail";
@@ -36,6 +37,7 @@ class App extends React.Component {
                         <Route exact path="/" component={Home} />
                         <Route exact path="/contact" component={Contact} />
                         <Route exact path="/project" component={Project} />
+                        <Route exact path="/project-detail" component={ProjectDetail} />
                         <Route exact path="/introduce" component={Introduce} />
                         <Route exact path="/news" component={News} />
                         <Route exact path="/news/1" component={NewsDetail} />

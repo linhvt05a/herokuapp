@@ -3,5 +3,7 @@ import ItemHeader from './ItemHeader'
 import ItemHomeProject from './ItemHomeProject'
 
 export {
-    ItemProduct, ItemHeader, ItemHomeProject
+    ItemProduct, 
+    ItemHeader, 
+    ItemHomeProject
 }
