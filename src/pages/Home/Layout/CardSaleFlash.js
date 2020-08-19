@@ -1,11 +1,12 @@
 import React from "react";
-import { ItemHeader, ItemProduct } from "../Item/index";
+import { ItemProduct, ItemTimeLine } from "../Item/index";
+import HeadingFilter from '../../../components/common/HeadingFilter'
 import CardNoData from "../../../components/common/CardNoData";
 import Slider from "react-slick";
 
 const CardSaleFlash = (props) => {
 
-    const { headerBodyClassName, labelHeader, datas, banner, detail, options, readmore } = props
+    const { headerBodyClassName, labelHeader, datas, banner, detail, options, readmore, timeLine } = props
     const settings = {
         infinite: true,
         slidesToShow: 3,
@@ -15,11 +16,14 @@ const CardSaleFlash = (props) => {
     return (
         <div className="striking_apartment label_filter bg_grey">
             <div className="container container-sm container-md">
-                <ItemHeader headerBodyClassName={headerBodyClassName} labelHeader={labelHeader} options={options ? options : undefined} readmore={readmore ? readmore : undefined} />
+                <HeadingFilter headerBodyClassName={headerBodyClassName} labelHeader={labelHeader} options={options ? options : undefined} readmore={readmore ? readmore : undefined} />
                 {
                     banner ? <img src="/assets/images/flashsale.png" style={{width: "100%", marginBottom: "40px"}}></img> : ""
                 }
-                <div className="striking_apartment--content">
+                {
+                    timeLine ? <ItemTimeLine /> : ""
+                }
+                <div className="striking_apartment--content jsSalesQuick">
                     {
                         (datas && datas.length > 0) ?
                             detail ?
