@@ -18,15 +18,15 @@ const RegisterModal = (props) =>{
                 </button>
               </div>
                 <div className="modal-body pt-4 pl-4 pr-4">
-                  <InputBase placeholder="Họ tên *" type="text" />
-                  <InputBase  placeholder="Điện thoại *" type="text" />
-                  <InputSelect />
+                  <InputBase placeholder="Họ tên *" type="text" name = "full_name" value="" onChange =""/>
+                  <InputBase  placeholder="Điện thoại *" type="text" name="phone_number" value="" onChange=""/>
+                  <InputSelect name="project" value="" onChange=""/>
                 <div className="form-group">
                   <textarea placeholder="Nội dung *" className="form-control" style={{ height: 130 }} />
                 </div>
               </div>
               <div className="modal-footer justify-content-center border-top-0 pt-0 pb-4">
-                  <a href="#" className="btn btn_green"> ĐĂNG KÝ </a>
+                  <a href="#" className="btn btn_green" > ĐĂNG KÝ </a>
               </div>
             </div>
           </div>
