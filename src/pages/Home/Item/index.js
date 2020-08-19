@@ -1,7 +1,7 @@
 import ItemProduct from './ItemProduct'
-import ItemHeader from './ItemHeader'
 import ItemHomeProject from './ItemHomeProject'
+import ItemTimeLine from './ItemTimeLine'
 
 export {
-    ItemProduct, ItemHeader, ItemHomeProject
+    ItemProduct, ItemHomeProject, ItemTimeLine
 }
