@@ -406,38 +406,6 @@
                     margin-top: 4px;
                 }
             }
-            &.active,
-            &:hover {
-                &.hasChild {
-                    .item-link::after {
-                        color: #6d30ab;
-                        @media (max-width: 767px) {
-                            color: #fff;
-                        }
-                    }
-                }
-                .item-link {
-                    color: #6d30ab;
-                    font-weight: 500;
-                    text-decoration: none;
-                    @media (max-width: 767px) {
-                        color: #e4bb53;
-                    }
-                    &::before {
-                        opacity: 1;
-                        width: 60%;
-                        @media (max-width: 767px) {
-                            background-color: #fff;
-                            width: 50px;
-                            left: 18px;
-                            bottom: 5px;
-                            transform: none;
-
-                            display: none;
-                        }
-                    }
-                }
-            }
         }
         .item-link {
             color: #0d0d0d;
@@ -463,8 +431,24 @@
                 left: 50%;
                 opacity: 0;
             }
-            &.active::after {
-                content: "\f077" !important;
+            &.active,
+            &:hover{
+                color: #6d30ab;
+                font-weight: 500;
+                text-decoration: none;
+                &::before {
+                    opacity: 1;
+                    width: 60%;
+                    @media (max-width: 767px) {
+                        background-color: #fff;
+                        width: 50px;
+                        left: 18px;
+                        bottom: 5px;
+                        transform: none;
+
+                        display: none;
+                    }
+                }
             }
         }
         .hasChild {
