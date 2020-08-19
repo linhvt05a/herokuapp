@@ -9,14 +9,27 @@ function Header() {
     const [inHover, setHover] = useState(false);
     const [inHoverProfile, setHoverProfile] = useState(false);
     const [inHoverNav, setHoverNav] = useState(false);
+    const [scrolling, setScrolling] = useState(false);
+    const [scrollTop, setScrollTop] = useState(0);
+
+    useEffect(() => {
+        const onScroll = e => {
+          setScrollTop(e.target.documentElement.scrollTop);
+          setScrolling(e.target.documentElement.scrollTop > scrollTop);
+        };
+        window.addEventListener("scroll", onScroll);
+        return () => window.removeEventListener("scroll", onScroll);
+    }, [scrollTop]);
+
+    console.log('scroll', scrolling);
 
     return (
         <>
-        <header className="header">
-            <Link to="/#">
-                <img src="../assets/images/mask-group-364.png" className="mask-group-364" style={{width: "100%"}} />
-            </Link>
+        <header className={`header ${scrolling == true ? "fixed" : ''}`}>
             <div className="header_border">
+                <Link to="/#">
+                    <img src="../assets/images/mask-group-364.png" className="mask-group-364" style={{width: "100%"}} />
+                </Link>
                 <div className="container container-sm container-md">
                     <div className="header_top">
                         <div className="header_promotion">
@@ -400,6 +413,9 @@ function Header() {
                     </ul>
                     <div className="header_actions d-none d-md-flex">
                         <div className="item">
+                            <Link to="/#" className="link">
+                                <img src="../assets/images/live_stream.png" className="live_stream" />
+                            </Link>
                             <Link to="/#" className="link">
                                 <span className="icon">
                                     <i className="heart far fa-heart" />
