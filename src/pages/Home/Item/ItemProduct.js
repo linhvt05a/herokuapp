@@ -28,7 +28,7 @@ const ItemProduct = (props) => {
                     <i className="icon far fa-object-ungroup" />
                     <span className="text">
                         80 ( m<sup>2</sup> )
-                        <Tooltip title="Đẹp vl">
+                        <Tooltip title="142,490,700đ">
                             <i className="noted fas fa-info-circle" />
                         </Tooltip>
                     </span>

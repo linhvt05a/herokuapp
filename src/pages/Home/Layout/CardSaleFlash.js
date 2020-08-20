@@ -14,14 +14,14 @@ const CardSaleFlash = (props) => {
     };
 
     return (
-        <div className="striking_apartment label_filter bg_grey">
+        <div className="project_detail--list bg_grey sales_quick">
             <div className="container container-sm container-md">
                 <HeadingFilter headerBodyClassName={headerBodyClassName} labelHeader={labelHeader} options={options ? options : undefined} readmore={readmore ? readmore : undefined} />
                 {
                     banner ? <img src="/assets/images/flashsale.png" style={{width: "100%", marginBottom: "40px"}}></img> : ""
                 }
                 {
-                    timeLine ? <ItemTimeLine datas={['2020-08-19T13:20:00', '2020-08-19T14:20:00', '2020-08-19T14:20:00', '2020-08-19T15:20:00', '2020-08-19T16:20:00']} /> : ""
+                    timeLine ? <ItemTimeLine datas={['2020-08-20T13:20:00', '2020-08-20T14:20:00', '2020-08-20T15:00:00', '2020-08-20T15:20:00', '2020-08-20T16:20:00']} /> : ""
                 }
                 <div className="striking_apartment--content jsSalesQuick">
                     {
@@ -30,7 +30,9 @@ const CardSaleFlash = (props) => {
                                 <div className="row">
                                     {
                                         datas.map((item, index) => (
-                                            <ItemProduct key={index} data={item} detail />
+                                            <div className="col-12 col-sm-12 col-md-6 col-lg-4">
+                                                <ItemProduct key={index} data={item} detail />
+                                            </div>
                                         ))
                                     }
                                 </div> :

@@ -1,0 +1,18 @@
+
+.ant-tooltip-inner{
+    @include fw-light;
+    font-size: 13px;
+    color: #0d0d0d;
+    border: solid 1px #e0e0e0;
+    background-color: #ffffff;
+    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.13);
+}
+.ant-tooltip-content{
+    border-radius: 0;
+}
+.ant-tooltip-arrow-content{
+    background-color: #fff;
+    width: 8px;
+    height: 8px;
+    border: solid 1px #e0e0e0;
+}

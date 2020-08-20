@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import TopBanner from "../../components/common/TopBanner";
-import {Paginations} from '../../components/base/index'
-
+import {Paginations} from '../../components/base/index';
+import { CardPromotion } from './Layout/index'
+import { CardSaleFlash } from '../Home/Layout/index'
 
 const tab = [
     {id: 1, label:"CÁC DỰ ÁN", tabs: true},
@@ -98,7 +99,7 @@ const PromotionProject = (props) =>{
             </span>
             </div>
         </div>
-    </div>
+        </div>
     )
 }
 

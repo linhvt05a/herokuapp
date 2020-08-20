@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { ItemHeader, ItemHomeProject } from './Item/index'
+import { ItemHomeProject } from './Item/index'
 import { Trans } from "react-i18next";
 import CardNews from '../../components/common/CardNews'
 import { Link } from "react-router-dom";
 import HeadingFilter from '../../components/common/HeadingFilter'
-import { CardSaleFlash,CardOverView } from "./Layout/index";
+import { CardSaleFlash, CardOverView, CardHotProduct } from "./Layout/index";
 import Maps from "../../components/common/Map";
 
 const Home = (props) => {
@@ -317,7 +317,7 @@ const Home = (props) => {
                 </div>
             </div>
             {/*end block map  */}
-            <CardSaleFlash headerBodyClassName="label_filter--heading" labelHeader="flash_sale" datas={["a", "iu", "e", "vl", "wa", "di"]} options={options} timeLine/>
+            <CardSaleFlash headerBodyClassName="label_filter--heading" labelHeader="flash_sale" datas={["a", "iu", "e", "vl", "wa", "di"]} readmore timeLine/>
             {/* block over  */}
             <CardOverView />
             {/* end block over  */}
@@ -395,225 +395,7 @@ const Home = (props) => {
             </div>
             {/* end contact  */}
             {/* striking apartment  */}
-            <div className="striking_apartment label_filter bg_grey">
-                <div className="container container-sm container-md">
-                    <HeadingFilter headerBodyClassName="project_list--heading" labelHeader="house_highlight" options />
-                    <div className="striking_apartment--content">
-                        <div className="row">
-                            <div className="col-12 col-sm-12 col-md-6 col-lg-4">
-                                <div className="item">
-                                    <Link to="/#" className="link" />
-                                    <figure className="image">
-                                        <i className="liked active fas fa-heart" />
-                                        <img
-                                            src="./assets/images/house_highlight.jpg"
-                                            alt="Căn hộ Saigon Royal"
-                                        />
-                                        <span className="type">
-                                            Căn hộ cho thuê
-                                        </span>
-                                    </figure>
-                                    <div className="heading">
-                                        <h4 className="name">
-                                            Căn hộ Saigon Royal
-                                        </h4>
-                                        <p className="address mb-0">
-                                            227 đường Nguyễn Văn Cừ, Phường
-                                            4, Quận 7, Tp.HCM
-                                        </p>
-                                    </div>
-                                    <div className="details">
-                                        <p className="child mb-0">
-                                            <i className="icon far fa-object-ungroup" />
-                                            <span className="text">
-                                                Diện tích : 320 ( m2 )
-                                            </span>
-                                        </p>
-                                        <p className="child mb-0">
-                                            <i className="icon fas fa-money-bill-wave" />
-                                            <span className="text">
-                                                Giá cho thuê :{" "}
-                                                <i className="price">
-                                                    26 ( triệu/tháng )
-                                                </i>
-                                            </span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-12 col-sm-12 col-md-6 col-lg-4">
-                                <div className="item">
-                                    <Link to="/" className="link" />
-                                    <figure className="image">
-                                        <i className="liked fas fa-heart" />
-                                        <img
-                                            src="./assets/images/house_highlight.jpg"
-                                            alt="Căn hộ Saigon Royal"
-                                        />
-                                        <span className="type">
-                                            Căn hộ cho thuê
-                                        </span>
-                                    </figure>
-                                    <div className="heading">
-                                        <h4 className="name">
-                                            Căn hộ Saigon Royal
-                                        </h4>
-                                        <p className="address mb-0">
-                                            227 đường Nguyễn Văn Cừ, Phường
-                                            4, Quận 7, Tp.HCM
-                                        </p>
-                                    </div>
-                                    <div className="details">
-                                        <p className="child mb-0">
-                                            <i className="icon far fa-object-ungroup" />
-                                            <span className="text">
-                                                Diện tích : 320 ( m2 )
-                                            </span>
-                                        </p>
-                                        <p className="child mb-0">
-                                            <i className="icon fas fa-money-bill-wave" />
-                                            <span className="text">
-                                                Giá cho thuê :{" "}
-                                                <i className="price">
-                                                    26 ( triệu/tháng )
-                                                </i>
-                                            </span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-12 col-sm-12 col-md-6 col-lg-4">
-                                <div className="item">
-                                    <Link to="/" className="link" />
-                                    <figure className="image">
-                                        <i className="liked fas fa-heart" />
-                                        <img
-                                            src="./assets/images/house_highlight.jpg"
-                                            alt="Căn hộ Saigon Royal"
-                                        />
-                                        <span className="type">
-                                            Căn hộ cho thuê
-                                        </span>
-                                    </figure>
-                                    <div className="heading">
-                                        <h4 className="name">
-                                            Căn hộ Saigon Royal
-                                        </h4>
-                                        <p className="address mb-0">
-                                            227 đường Nguyễn Văn Cừ, Phường
-                                            4, Quận 7, Tp.HCM
-                                        </p>
-                                    </div>
-                                    <div className="details">
-                                        <p className="child mb-0">
-                                            <i className="icon far fa-object-ungroup" />
-                                            <span className="text">
-                                                Diện tích : 320 ( m2 )
-                                            </span>
-                                        </p>
-                                        <p className="child mb-0">
-                                            <i className="icon fas fa-money-bill-wave" />
-                                            <span className="text">
-                                                Giá cho thuê :{" "}
-                                                <i className="price">
-                                                    26 ( triệu/tháng )
-                                                </i>
-                                            </span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-12 col-sm-12 col-md-6 col-lg-4">
-                                <div className="item">
-                                    <Link to="/" className="link" />
-                                    <figure className="image">
-                                        <i className="liked fas fa-heart" />
-                                        <img
-                                            src="./assets/images/house_highlight.jpg"
-                                            alt="Căn hộ Saigon Royal"
-                                        />
-                                        <span className="type">
-                                            Căn hộ cho thuê
-                                        </span>
-                                    </figure>
-                                    <div className="heading">
-                                        <h4 className="name">
-                                            Căn hộ Saigon Royal
-                                        </h4>
-                                        <p className="address mb-0">
-                                            227 đường Nguyễn Văn Cừ, Phường
-                                            4, Quận 7, Tp.HCM
-                                        </p>
-                                    </div>
-                                    <div className="details">
-                                        <p className="child mb-0">
-                                            <i className="icon far fa-object-ungroup" />
-                                            <span className="text">
-                                                Diện tích : 320 ( m2 )
-                                            </span>
-                                        </p>
-                                        <p className="child mb-0">
-                                            <i className="icon fas fa-money-bill-wave" />
-                                            <span className="text">
-                                                Giá cho thuê :{" "}
-                                                <i className="price">
-                                                    26 ( triệu/tháng )
-                                                </i>
-                                            </span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-12 col-sm-12 col-md-6 col-lg-4">
-                                <div className="item">
-                                    <Link to="/" className="link" />
-                                    <figure className="image">
-                                        <i className="liked fas fa-heart" />
-                                        <img
-                                            src="./assets/images/house_highlight.jpg"
-                                            alt="Căn hộ Saigon Royal"
-                                        />
-                                        <span className="type">
-                                            Căn hộ cho thuê
-                                        </span>
-                                    </figure>
-                                    <div className="heading">
-                                        <h4 className="name">
-                                            Căn hộ Saigon Royal
-                                        </h4>
-                                        <p className="address mb-0">
-                                            227 đường Nguyễn Văn Cừ, Phường
-                                            4, Quận 7, Tp.HCM
-                                        </p>
-                                    </div>
-                                    <div className="details">
-                                        <p className="child mb-0">
-                                            <i className="icon far fa-object-ungroup" />
-                                            <span className="text">
-                                                Diện tích : 320 ( m2 )
-                                            </span>
-                                        </p>
-                                        <p className="child mb-0">
-                                            <i className="icon fas fa-money-bill-wave" />
-                                            <span className="text">
-                                                Giá cho thuê :{" "}
-                                                <i className="price">
-                                                    26 ( triệu/tháng )
-                                                </i>
-                                            </span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="text-center text-uppercase">
-                            <Link to="/" className="btn btn_purple">
-                                XEM TẤT CẢ
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <CardHotProduct headerBodyClassName="label_filter--heading" labelHeader="hot_product" datas={["a", "iu", "e", "vl", "wa", "di", "test"]} options={options} />
             {/* end striking apartment  */}
             {/* app_managerment  */}
             <div className="app_managerment">
