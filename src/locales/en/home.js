@@ -6,5 +6,6 @@ export default {
     on_sale: "On sale",
     about_to_sell: "About to sell",
     project_list: "Project list",
-    see_all: "See all"
+    see_all: "See all",
+    hot_product: "Hot product"
 }

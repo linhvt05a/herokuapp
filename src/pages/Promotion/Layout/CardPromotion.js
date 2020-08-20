@@ -14,11 +14,11 @@ const CardPromotion = (props) => {
     };
 
     return (
-        <div className="striking_apartment label_filter bg_grey">
+        <div className="project_detail--list bg_grey sales_quick">
             <div className="container container-sm container-md">
                 <HeadingFilter headerBodyClassName={headerBodyClassName} labelHeader={labelHeader} options={options ? options : undefined} readmore={readmore ? readmore : undefined} />
                 {
-                    banner ? <img src="/assets/images/flashsale.png" style={{width: "100%", marginBottom: "40px"}}></img> : ""
+                    banner ? <img src="/assets/images/sale_banner.png" style={{width: "100%", marginBottom: "40px"}}></img> : ""
                 }
                 <div className="striking_apartment--content">
                     {
@@ -28,8 +28,7 @@ const CardPromotion = (props) => {
                                     {
                                         datas.map((item, index) => (
                                             <div className="col-12 col-sm-12 col-md-6 col-lg-4">
-
-                                            <ItemPromotion key={index} data={item} detail />
+                                                <ItemPromotion key={index} data={item} detail />
                                             </div>
                                         ))
                                     }
