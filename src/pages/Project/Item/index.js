@@ -1,5 +1,6 @@
-import ItemDetailProject from './ItemDetailProject'
+import ItemProject from './ItemProject';
+import ItemProjectDetail from './ItemProjectDetail'
 
 export {
-    ItemDetailProject
+    ItemProject, ItemProjectDetail
 }

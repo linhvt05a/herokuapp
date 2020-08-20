@@ -21,7 +21,8 @@ import RecruitmentDetail from "./pages/Recruitment/RecruitmentDetail";
 import TransactionLevel from "./pages/TransactionLevel/TransactionLevel";
 import ShoppingGuide from "./pages/ShoppingGuide/ShoppingGuide";
 import Juridical from "./pages/Juridical/Juridical";
-import Promotion from './pages/Promotion/Promotion'
+import Promotion from './pages/Promotion/Promotion';
+import FlashSaleList from './pages/Promotion/FlashSaleList';
 import Elements from "./pages/Elements/Elements";
 import Example from "./pages/Example";
 import Error404 from "./pages/Error/Error404";
@@ -54,6 +55,7 @@ class App extends React.Component {
                         <Route exact path="/shopping-guide" component={ShoppingGuide} />
                         <Route exact path="/juridical" component={Juridical} />
                         <Route exact path="/promotion" component={Promotion} />
+                        <Route exact path="/flashsale" component={FlashSaleList} />
                         <Route exact path="/elements" component={Elements} />
                         <Route exact path="/example" component={Example} />
                         <Route component={Error404} />
