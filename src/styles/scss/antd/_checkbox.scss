@@ -1,21 +1,22 @@
-.ant-checkbox-input{
-    border: solid 1px #656565;
-    opacity: 1;
-}
-.ant-checkbox-inner{
-    border-radius: 0;
-    border: solid 1px #656565;
-}
-.ant-checkbox-checked .ant-checkbox-inner{
-    background-color: white;
-    border-color: white;
-    &::after{
-        border-color: #000;
-    }
-}
-.ant-checkbox + span {
+
+.checkbox-black{
     color: #656565;
-    margin: 0;
-    white-space: nowrap;
-    cursor: pointer;
+    .checkbox-custom-dummy{
+        border: solid 1px #656565;
+        top: 3px;
+    }
+    .checkbox-custom{
+        left: 0;
+        top: 3px;
+        width: 15px;
+        height: 15px;
+    }
+    &.active{
+        .checkbox-custom-dummy{
+            &::after{
+                border: solid #000;
+                border-width: 0 2px 2px 0;
+            }
+        }
+    }
 }
