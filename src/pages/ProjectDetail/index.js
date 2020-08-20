@@ -1,5 +1,5 @@
 import ProjectDetail from './ProjectDetail';
-import ApartmentSlider from './ApartmentSlider';
+import ApartmentSlider from './Slider/ApartmentSlider';
 export {
     ProjectDetail,
     ApartmentSlider,
