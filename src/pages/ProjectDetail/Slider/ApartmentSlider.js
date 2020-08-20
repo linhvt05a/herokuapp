@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Slider from "react-slick";
-import TabInSlider from '../Tabs';
+import TabInSlider from './Tabs';
 
 class ApartmentSlider extends Component {
     constructor(props) {
@@ -67,11 +67,13 @@ class ApartmentSlider extends Component {
                     <Slider
                         asNavFor={this.state.nav1}
                         ref={slider => (this.slider2 = slider)}
-                        slidesToShow={6}
+                        slidesToShow={5}
+                        slidesToScroll={1}
                         swipeToSlide={true}
                         focusOnSelect={true}
+                        centerMode={true}
                         autoplay={true}
-                        autoplaySpeed={2000}
+                        autoplaySpeed={3000}
                         className="apartment_slider-nav"
                         >
                         <figure>

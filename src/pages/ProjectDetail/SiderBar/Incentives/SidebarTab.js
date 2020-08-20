@@ -74,7 +74,6 @@ class SidebarTab extends React.Component {
       <TabsWraper className="tabs-wrapper">
       {
         dataTabs.map((item, index) => {
-          console.log(item.content)
           if(item.id_tab==="tab01") {
             return (
                 <TabContent key={index} active="true" title={item.title} id_tab={item.id_tab}>

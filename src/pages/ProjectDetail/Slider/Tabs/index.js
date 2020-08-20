@@ -1,6 +1,25 @@
 import React, { Component } from "react";
 import "./styles.css";
 
+const dataTabs = [
+  {
+      title: "1d",
+      content: "./assets/images/living-room-area_01.jpg"
+  },
+  {
+      title: "2d",
+      content: "https://via.placeholder.com/730x420"
+  },
+  {
+      title: "3d",
+      content: "./assets/images/living-room-area_01.jpg"
+  },
+  {
+      title: "AR",
+      content: "https://via.placeholder.com/730x420"
+  }
+]
+
 class TabsWraper extends Component {
   constructor() {
     super();
@@ -64,24 +83,6 @@ TabContent.defaultProps = {
   active: false
 };
 
-const dataTabs = [
-    {
-        title: "1d",
-        content: "./assets/images/living-room-area_01.jpg"
-    },
-    {
-        title: "2d",
-        content: "https://via.placeholder.com/730x420"
-    },
-    {
-        title: "3d",
-        content: "./assets/images/living-room-area_01.jpg"
-    },
-    {
-        title: "AR",
-        content: "https://via.placeholder.com/730x420"
-    }
-]
 
 class TabInSlider extends React.Component {
   render() {
