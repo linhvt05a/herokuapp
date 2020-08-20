@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import TopBanner from "../../components/common/TopBanner";
 import { Input, Select, Checkbox } from 'antd';
-import TopBannerDetail from "../Project/Item/TopBannerDetail";
+import TopBannerDetail from "../TransactionLevel/Item/TopBannerDetailTrans";
 
 const TransactionLevel = (props) => {
 
