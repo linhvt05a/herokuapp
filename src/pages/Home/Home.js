@@ -2,7 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { ItemHeader, ItemHomeProject } from './Item/index'
 import { Trans } from "react-i18next";
-import { CardSaleFlash, CardNews } from "./Layout/index";
+import { CardSaleFlash } from "./Layout/index";
+import CardNews from '../../components/common/CardNews'
 
 const Home = (props) => {
 
