@@ -9,10 +9,10 @@ const ItemDetailProject = (props) => {
         <div className="d-flex flex-column col-12 col-sm-6 col-md-6 cols-lg-4 col-xl-4">
             <div className="project_page--item">
                 <div className="wrap">
-                    <div className="sell_tatus selling">
+                    <div className="sell_status selling">
                         Đang bán
                     </div>
-                    {/* <div className="sell_tatus will_sell">
+                    {/* <div className="sell_status will_sell">
                         Sắp bán
                     </div> */}
                     <figure className="image" style={{backgroundImage: "url(./assets/images/projectItem01.jpg)"}} />
@@ -25,7 +25,7 @@ const ItemDetailProject = (props) => {
                             Bình Thạnh, Tp.HCM
                         </p>
                         <div className="list-btn">
-                            <Link to="/#" className="btn btn_green">
+                            <Link to="/project/1" className="btn btn_green">
                                 CHI TIẾT
                             </Link>
                             <Link to="/#" className="btn btn_white">

@@ -1,7 +1,8 @@
 import home from './vi/home';
+import promotion from './vi/promotion'
 
 const vi = {
-    ...home
+    ...home, ...promotion
 }
 
 export default vi;

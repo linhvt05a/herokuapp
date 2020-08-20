@@ -187,8 +187,7 @@
             }
             .info_2{
                 padding: 16px 30px;
-                padding-bottom: 40px;
-                
+                padding-bottom: 0;
                 table{
                     width: 100%;
                     td{
@@ -235,6 +234,14 @@
                 margin-top: 20px;
                 .btn {
                     width: calc(50% - 7px);
+                }
+            }
+            .incentives {
+                margin-top: 0;
+                padding-top: 10px;
+                &__heading{
+                    font-size: 18px;
+                    color: #e94c4c;
                 }
             }
         } 
@@ -313,6 +320,15 @@
                     left: 15px;
                 }
             }
+            .icon_like_down{
+                position: absolute;
+                top: 20px;
+                right: 24px;
+                @media(max-width:767px) {
+                    top: 10px;
+                    right: 15px;
+                }
+            }
             .wrap{
                 height: 0;
                 visibility: hidden;
@@ -376,7 +392,7 @@
                 line-height: 1.44;
             }
         }
-        .image_type {
+        .image_type, .icon_like_down {
             @include flexbox;
             padding: 0;
             margin: 0;
@@ -428,6 +444,18 @@
             .type_2d {}
             .type_3d {}
             .type_ar {}
+        }
+        .icon_like_down {
+            li {
+                background: #333333;
+                opacity: 0.5;
+                color: #fff;
+                .liked{
+                    &.active{
+                        color: #e9c301;
+                    }
+                }
+            }
         }
     }
 

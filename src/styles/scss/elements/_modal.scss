@@ -73,3 +73,39 @@
         opacity: 1;
     }
 }
+
+.modal_special {
+    box-shadow: 0 8px 5px 0 rgba(0, 0, 0, 0.13);
+    .modal_label {
+        font-size: 16px;
+    }
+    .modal_color_red {
+        color: #e94c4c;
+    }
+    .modal_discount_input {
+        display: flex;
+    }
+    .modal_txt_percent {
+        max-width: 15%;
+    }
+    .list_special_offers {
+        display: flex;
+        align-items: baseline;
+        border-bottom: solid 1px #dee2e6;
+        padding: 10px 0;
+        .modal_icon_check {
+            color: #51c471;
+            margin-right: 10px;
+        }
+        .content_offers {
+            font-size: 16px;
+            .link_change_money{
+                text-decoration: underline;
+                font-size: 12px;
+               a{
+                color: #6d30ab;
+               }
+            }
+        }
+    }
+}

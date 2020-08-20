@@ -1,13 +1,29 @@
 import React, { useEffect, useState } from 'react';
 import Chat from "../common/Chat";
 import { Link } from "react-router-dom";
-
+import {
+    Form,
+    Input,
+    Button,
+    AutoComplete,
+} from 'antd';
+  
+const AutoCompleteOption = AutoComplete.Option;
 
 function Footer() {
     const [show, setShowAdvisory] = useState(false);
     const ScrollToTop = () => {
         window.scrollTo({top: 0, behavior: 'smooth'});
     }
+
+    const [form] = Form.useForm();
+
+    const onFinish = values => {
+        console.log('Received values of form: ', values);
+    };
+
+    const [autoCompleteResult, setAutoCompleteResult] = useState([]);
+
     return (
         <footer className="footer">
             <div className="footer_top">
@@ -119,7 +135,33 @@ function Footer() {
                                         Nhập e-mail của bạn để nhận tin tức
                                         mới nhất về Bất động sản
                                     </p>
-                                    <div className="input-group">
+                                    <Form
+                                        className="input-group"
+                                        form={form}
+                                        name="registermail"
+                                        onFinish={onFinish}
+                                        >
+                                        <Form.Item
+                                            name="email"
+                                            placeholder="Email của bạn"
+                                            rules={[
+                                            {
+                                                type: 'email',
+                                                message: 'E-mail không hợp lệ, vui lòng thử lại!',
+                                            },
+                                            {
+                                                required: true,
+                                                message: 'Vui lòng nhập E-mail của bạn!',
+                                            },
+                                            ]}
+                                        >
+                                            <Input className="form-control" placeholder="Email của bạn" />
+                                        </Form.Item>
+                                        <Button className="input-group-text" type="primary" htmlType="submit">
+                                            ĐĂNG KÝ
+                                        </Button>
+                                    </Form>
+                                    {/* <div className="input-group" style={{marginTop: "20px"}}>
                                         <input
                                             type="text"
                                             placeholder="Email của bạn"
@@ -133,7 +175,7 @@ function Footer() {
                                         <div className="invalid-feedback">
                                             Please choose a username.
                                         </div>
-                                    </div>
+                                    </div> */}
                                     <ul className="list_social">
                                         <li>
                                             <Link to="/#">

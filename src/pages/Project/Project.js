@@ -1,13 +1,44 @@
-import React from "react";
+import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import TopBanner from "../../components/common/TopBanner";
-import { ItemHeader } from '../Home/Item/index'
+import HeadingFilter from '../../components/common/HeadingFilter'
 import { ItemDetailProject } from './Item/index'
+import {Sliders} from '../../components/base/index'
+import { Input, Select, Checkbox } from 'antd';
 
 const Contact = (props) => {
 
+    const data = [20, 60]
+    const data1 = [10, 80]
+
+    const [height, setHeight] = useState(120);
+    useEffect(() => {
+        const updateWindowDimensions = () => {
+          const newHeight = document.getElementsByClassName('header')[0].clientHeight;
+          setHeight(newHeight);
+        };
+        window.addEventListener("resize", updateWindowDimensions);
+        return () => window.removeEventListener("resize", updateWindowDimensions) 
+    }, []);
+
+    const handleChangeProvince = (value) => {
+        console.log(`Province ${value}`);
+    }
+
+    const handleChangeDistrict = (value) => {
+        console.log(`District ${value}`);
+    }
+
+    const handleChangeProgress = (value) => {
+        console.log(`Progress ${value}`);
+    }
+
+    const checkboxOnChange = e => {
+        console.log(`checkbox = ${e.target.checked}`);
+    }
+
     return (
-        <div className="projectPage">
+        <div className="projectPage" style={{paddingTop: height}}>
             <TopBanner />
             <div className="project_page bg_grey">
                 <div className="project_page--filter">
@@ -20,74 +51,35 @@ const Contact = (props) => {
                             <div className="row">
                                 <div className="col-12 col-sm-12 col-md-4">
                                     <div className="form-group">
-                                        <select defaultValue={'DEFAULT'}
-                                            className="js-select2 form-control"
-                                            name="state"
-                                        >
-                                            <option
-                                                disabled
-                                                value="AL"
-                                            >
-                                                Tỉnh/Thành phố
-                                            </option>
-                                            <option value="WY">
-                                                Wyoming
-                                            </option>
-                                            <option value="WY">
-                                                Wyoming
-                                            </option>
-                                            <option value="WY">
-                                                Wyoming
-                                            </option>
-                                        </select>
+                                        <Select className="form-control" placeholder="Tỉnh/Thành phố" onChange={handleChangeProvince}>
+                                            <option selected disabled>Tỉnh/Thành phố</option>
+                                            <option value="0">TPHCM</option>
+                                            <option value="1">Hà Nội</option>
+                                            <option value="2">Đà Nẵng</option>
+                                            <option value="3">Bình Dương</option>
+                                        </Select>
                                     </div>
                                 </div>
                                 <div className="col-12 col-sm-12 col-md-4">
                                     <div className="form-group">
-                                        <select defaultValue={'DEFAULT'}
-                                            className="js-select2 form-control"
-                                            name="state"
-                                        >
-                                            <option
-                                                disabled
-                                                value="AL"
-                                            >
-                                                Quận/Huyện
-                                            </option>
-                                            <option value="WY">
-                                                Wyoming
-                                            </option>
-                                            <option value="WY">
-                                                Wyoming
-                                            </option>
-                                            <option value="WY">
-                                                Wyoming
-                                            </option>
-                                        </select>
+                                        <Select className="form-control" placeholder="Quận/Huyện" onChange={handleChangeDistrict}>
+                                            <option selected disabled>Quận/Huyện</option>
+                                            <option value="0">TPHCM</option>
+                                            <option value="1">Hà Nội</option>
+                                            <option value="2">Đà Nẵng</option>
+                                            <option value="3">Bình Dương</option>
+                                        </Select>
                                     </div>
                                 </div>
                                 <div className="col-12 col-sm-12 col-md-4">
                                     <div className="form-group">
-                                        <select defaultValue={'DEFAULT'}
-                                            className="js-select2 form-control"
-                                            name="state"
-                                        >
-                                            <option
-                                                disabled
-                                                value="AL"
-                                            >
-                                                Chọn tiến độ
-                                            </option>
-                                            <option value="WY">
-                                                Wyoming
-                                            </option>
-                                            <option value="WY">
-                                                Wyoming
-                                            </option>
-                                            <option value="WY">
-                                                Wyoming
-                                            </option>
-                                        </select>
+                                        <Select className="form-control" placeholder="Chọn tiến độ" onChange={handleChangeProgress}>
+                                            <option selected disabled>Chọn tiến độ</option>
+                                            <option value="0">TPHCM</option>
+                                            <option value="1">Hà Nội</option>
+                                            <option value="2">Đà Nẵng</option>
+                                            <option value="3">Bình Dương</option>
+                                        </Select>
                                     </div>
                                 </div>
                             </div>
@@ -99,16 +91,7 @@ const Contact = (props) => {
                                                 Phạm vi giá (tỷ đồng)
                                             </label>
                                             <div className="slider-wrapper">
-                                                <input
-                                                    className="input-range"
-                                                    type="text"
-                                                    data-slider-step={1}
-                                                    data-slider-value="0, 100"
-                                                    data-slider-min={0}
-                                                    data-slider-max={100}
-                                                    data-slider-range="true"
-                                                    data-slider-tooltip_split="true"
-                                                />
+                                                <Sliders value={data} displayBox="on"/>
                                             </div>
                                         </div>
                                     </div>
@@ -118,135 +101,38 @@ const Contact = (props) => {
                                                 Diện tích (m2)
                                             </label>
                                             <div className="slider-wrapper">
-                                                <input
-                                                    className="input-range"
-                                                    type="text"
-                                                    data-slider-step={1}
-                                                    data-slider-value="0, 1000"
-                                                    data-slider-min={0}
-                                                    data-slider-max={1000}
-                                                    data-slider-range="true"
-                                                    data-slider-tooltip_split="true"
-                                                />
+                                                <Sliders value={data} displayBox="on"/>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div className="map_search--option">
-                                <div className="search_option">
+                                <div className="search_option option_project">
                                     <ul className="list-inline list-inline-sm">
                                         <li>
-                                            <label
-                                                className="checkbox-inline"
-                                                type="checkbox"
-                                            >
-                                                <input
-                                                    name="checkbox-1"
-                                                    type="checkbox"
-                                                    className="checkbox-custom"
-                                                />
-                                                <span className="checkbox-custom-dummy" />
-                                                Single Villa
-                                            </label>
+                                            <Checkbox onChange={checkboxOnChange}>Single Villa</Checkbox>
                                         </li>
                                         <li>
-                                            <label
-                                                className="checkbox-inline"
-                                                type="checkbox"
-                                            >
-                                                <input
-                                                    name="checkbox-2"
-                                                    type="checkbox"
-                                                    className="checkbox-custom"
-                                                />
-                                                <span className="checkbox-custom-dummy" />
-                                                Duplex Villa
-                                            </label>
+                                            <Checkbox onChange={checkboxOnChange}>Duplex Villa</Checkbox>
                                         </li>
                                         <li>
-                                            <label
-                                                className="checkbox-inline"
-                                                type="checkbox"
-                                            >
-                                                <input
-                                                    name="checkbox-3"
-                                                    type="checkbox"
-                                                    className="checkbox-custom"
-                                                />
-                                                <span className="checkbox-custom-dummy" />
-                                                Shophouse
-                                            </label>
+                                            <Checkbox onChange={checkboxOnChange}>Shophouse</Checkbox>
                                         </li>
                                         <li>
-                                            <label
-                                                className="checkbox-inline"
-                                                type="checkbox"
-                                            >
-                                                <input
-                                                    name="checkbox-4"
-                                                    type="checkbox"
-                                                    className="checkbox-custom"
-                                                />
-                                                <span className="checkbox-custom-dummy" />
-                                                Penthouse
-                                            </label>
+                                            <Checkbox onChange={checkboxOnChange}>Penthouse</Checkbox>
                                         </li>
                                         <li>
-                                            <label
-                                                className="checkbox-inline"
-                                                type="checkbox"
-                                            >
-                                                <input
-                                                    name="checkbox-5"
-                                                    type="checkbox"
-                                                    className="checkbox-custom"
-                                                />
-                                                <span className="checkbox-custom-dummy" />
-                                                Apartment
-                                            </label>
+                                            <Checkbox onChange={checkboxOnChange}>Apartment</Checkbox>
                                         </li>
                                         <li>
-                                            <label
-                                                className="checkbox-inline"
-                                                type="checkbox"
-                                            >
-                                                <input
-                                                    name="checkbox-5"
-                                                    type="checkbox"
-                                                    className="checkbox-custom"
-                                                />
-                                                <span className="checkbox-custom-dummy" />
-                                                Duplex
-                                            </label>
+                                            <Checkbox onChange={checkboxOnChange}>Duplex</Checkbox>
                                         </li>
                                         <li>
-                                            <label
-                                                className="checkbox-inline"
-                                                type="checkbox"
-                                            >
-                                                <input
-                                                    name="checkbox-5"
-                                                    type="checkbox"
-                                                    className="checkbox-custom"
-                                                />
-                                                <span className="checkbox-custom-dummy" />
-                                                Studio
-                                            </label>
+                                            <Checkbox onChange={checkboxOnChange}>Studio</Checkbox>
                                         </li>
                                         <li>
-                                            <label
-                                                className="checkbox-inline"
-                                                type="checkbox"
-                                            >
-                                                <input
-                                                    name="checkbox-5"
-                                                    type="checkbox"
-                                                    className="checkbox-custom"
-                                                />
-                                                <span className="checkbox-custom-dummy" />
-                                                Officetel
-                                            </label>
+                                            <Checkbox onChange={checkboxOnChange}>Officetel</Checkbox>
                                         </li>
                                     </ul>
                                 </div>
@@ -259,7 +145,7 @@ const Contact = (props) => {
                 </div>
                 <div className="project_page--list project_tab">
                     <div className="container container-sm container-md">
-                        <ItemHeader headerBodyClassName="project_list--heading" labelHeader="project_list" status />
+                        <HeadingFilter headerBodyClassName="project_list--heading" labelHeader="project_list" status />
                         <div className="row project_list--content project_tab--content">
                             <ItemDetailProject />
                             <ItemDetailProject />

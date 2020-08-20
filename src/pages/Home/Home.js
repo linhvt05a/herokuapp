@@ -1,23 +1,38 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
 import { ItemHeader, ItemHomeProject } from './Item/index'
 import { Trans } from "react-i18next";
-import { CardSaleFlash } from "./Layout/index";
 import CardNews from '../../components/common/CardNews'
+import { Link } from "react-router-dom";
+import HeadingFilter from '../../components/common/HeadingFilter'
+import { CardSaleFlash,CardOverView } from "./Layout/index";
+import Maps from "../../components/common/Map";
 
 const Home = (props) => {
+    const [height, setHeight] = useState(120);
+    const headerRef = React.createRef();
+    useEffect(() => {
+        const updateWindowDimensions = () => {
+          const newHeight = document.getElementsByClassName('header')[0].clientHeight;
+          setHeight(newHeight);
+        };
+        window.addEventListener("resize", updateWindowDimensions);
+        return () => window.removeEventListener("resize", updateWindowDimensions) 
+    }, []);
+
+    const options = [{value: 1, label: "Căn hộ"}, {value: 2, label: "Biệt thự"}, {value: 3, label: "Chung cư"}]
 
     return (
-        <div className="homePage">
+        <div className="homePage" style={{paddingTop: height}}>
             {/* block map  */}
             <div className="map">
-                <div className="map_origin" style={{paddingTop: "202px"}}>
+                <div className="map_origin">
                     <figure>
-                        <img
+                        {/* <img
                             className="w-100"
                             src="./assets/images/map.jpg"
                             alt="Bạn muốn tìm dự án bất động sản của Minerva"
-                        />
+                        /> */}
+                        <Maps />
                     </figure>
                     <div className="map_origin--content">
                         <h1 className="heading text-center">
@@ -302,55 +317,14 @@ const Home = (props) => {
                 </div>
             </div>
             {/*end block map  */}
-            <CardSaleFlash headerBodyClassName="label_filter--heading" labelHeader="flash_sale" datas={["a", "iu", "e", "vl", "wa", "di"]} banner options/>
+            <CardSaleFlash headerBodyClassName="label_filter--heading" labelHeader="flash_sale" datas={["a", "iu", "e", "vl", "wa", "di"]} options={options} timeLine/>
             {/* block over  */}
-            <div className="overview">
-                <div className="container container-sm container-md">
-                    <h2 className="overview_heading">
-                        Tổng quan Minerva
-                        <span className="sub">
-                            Minerva phát triển các mảng bất động sản có áp
-                            dụng các công nghệ thông minh hiện nay. Giúp mọi
-                            người có cuộc sống thoải mái và tiện nghi với
-                            công nghệ.
-                        </span>
-                    </h2>
-                    <div className="overview_services">
-                        <div className="item">
-                            <p className="number">1</p>
-                            <p className="title">Bất động sản</p>
-                            <p className="text">
-                                Xây dựng các công trình bất động sản chất
-                                lượng, đạt chuẩn cao cấp và đáp ứng yêu cầu
-                                của bạn
-                            </p>
-                        </div>
-                        <div className="item">
-                            <p className="number">2</p>
-                            <p className="title">Công nghệ thông minh</p>
-                            <p className="text">
-                                Áp dụng công nghệ thông minh vào ngôi nhà mơ
-                                ước của bạn. Giúp bạn có được cuộc sống
-                                thoải mái và đầy tiện nghi
-                            </p>
-                        </div>
-                        <div className="item">
-                            <p className="number">3</p>
-                            <p className="title">Nâng cấp công nghệ</p>
-                            <p className="text">
-                                Bảo trì, cập nhật và nâng cấp công nghệ
-                                thông minh của người dùng theo mọi thời điểm
-                                công nghệ mới nhất
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <CardOverView />
             {/* end block over  */}
             {/* project_list  */}
             <div className="project_list project_tab">
                 <div className="container container-sm container-md">
-                    <ItemHeader headerBodyClassName="project_list--heading" labelHeader="project_list" status />
+                    <HeadingFilter headerBodyClassName="project_list--heading" labelHeader="project_list" status />
                     <div className="row project_list--content project_tab--content">
                         <ItemHomeProject bodyClassName="col col-12 col-sm-6 col-md-7 col-xl-7"/>
                         <ItemHomeProject bodyClassName="col col-12 col-sm-6 col-md-5 col-xl-5"/>
@@ -423,25 +397,7 @@ const Home = (props) => {
             {/* striking apartment  */}
             <div className="striking_apartment label_filter bg_grey">
                 <div className="container container-sm container-md">
-                    <div className=" label_filter--heading">
-                        <h3 className="main_heading">
-                            <span>Căn hộ nổi bật nhất</span>
-                        </h3>
-                        <div className="filter_select">
-                            <div className="text">Lọc theo :</div>
-                            <div className="form-group filter_project">
-                                <select
-                                    defaultValue={"DEFAULT"}
-                                    className="js-select2"
-                                    data-minimum-results-for-search="Infinity"
-                                >
-                                    <option>Tất cả</option>
-                                    <option>Căn hộ</option>
-                                    <option>Biệt thự</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
+                    <HeadingFilter headerBodyClassName="project_list--heading" labelHeader="house_highlight" options />
                     <div className="striking_apartment--content">
                         <div className="row">
                             <div className="col-12 col-sm-12 col-md-6 col-lg-4">

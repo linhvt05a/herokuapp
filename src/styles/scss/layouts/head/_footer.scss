@@ -343,3 +343,16 @@
         
     }
 }
+#registermail {
+    background: none !important;
+}
+#registermail .ant-form-item {
+    width: 238px;
+}
+#registermail .input-group-text {
+    height: 46px !important;
+    border-radius: 0 !important;
+}
+#registermail .ant-form-item-control-input {
+    margin-bottom: 10px;
+}

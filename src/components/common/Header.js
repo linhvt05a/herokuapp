@@ -21,8 +21,6 @@ function Header() {
         return () => window.removeEventListener("scroll", onScroll);
     }, [scrollTop]);
 
-    console.log('scroll', scrolling);
-
     return (
         <>
         <header className={`header ${scrolling == true ? "fixed" : ''}`}>
@@ -136,7 +134,7 @@ function Header() {
                             </NavLink>
                         </li>
                         <li className="item">
-                            <NavLink activeClassName="active" className="item-link" to="/dddd">
+                            <NavLink activeClassName="active" className="item-link" to="/transaction-level">
                                 SÀN GIAO DỊCH
                             </NavLink>
                         </li>
@@ -146,7 +144,7 @@ function Header() {
                                 className="item-link dropdown-toggle"
                                 data-toggle="dropdown"
                                 data-hover="dropdown"
-                                to="/dddd"
+                                to="/support"
                             >
                                 HỔ TRỢ
                             </NavLink>
