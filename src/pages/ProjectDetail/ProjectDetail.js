@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ApartmentSlider from './Slider/ApartmentSlider';
-import SiderBar from './SiderBar';
+import SideBar from './SideBar';
 import SalesAccordion from './SalesAccordion';
 
 class ProjectDetail extends Component {
@@ -22,7 +22,7 @@ class ProjectDetail extends Component {
                         <SalesAccordion/>
                     </div>
                     <div className="col-12 col-sm-12 col-lg-4">
-                        <SiderBar/>
+                        <SideBar/>
                     </div>
                     </div>
                 </div>

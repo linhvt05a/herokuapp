@@ -1,22 +1,23 @@
 import React, { Component } from "react";
-import "./styles.css";
+import Slider from "react-slick";
+import SliderInTab from "./../SliderInTab";
 
 const dataTabs = [
   {
-      title: "1d",
-      content: "./assets/images/living-room-area_01.jpg"
+    title: "image",
+    content: "./assets/images/living-room-area_01.jpg"
   },
   {
-      title: "2d",
-      content: "https://via.placeholder.com/730x420"
+    title: "2d",
+    content: "https://via.placeholder.com/730x420"
   },
   {
-      title: "3d",
-      content: "./assets/images/living-room-area_01.jpg"
+    title: "3d",
+    content: "./assets/images/living-room-area_01.jpg"
   },
   {
-      title: "AR",
-      content: "https://via.placeholder.com/730x420"
+    title: "AR",
+    content: "https://via.placeholder.com/730x420"
   }
 ]
 
@@ -72,8 +73,8 @@ class TabsWraper extends Component {
 class TabContent extends Component {
   render() {
     return (
-      <div className={"wrap"+ " wrap_"+(this.props.title) + (this.props.active ? " active" : "")}>
-           {this.props.children}
+      <div className={"wrap" + " wrap_" + (this.props.title) + (this.props.active ? " active" : "")}>
+        {this.props.children}
       </div>
     );
   }
@@ -86,18 +87,18 @@ TabContent.defaultProps = {
 
 class TabInSlider extends React.Component {
   render() {
-    
     return (
       <TabsWraper className="tabs-wrapper">
-      {
-        dataTabs.map((item, index) => (
-            <TabContent key={index} active="true" title={item.title} >
-                <figure>
-                    <img className="w-100" src={item.content} alt="" />
-                </figure>
-            </TabContent> 
-        ))
-      }
+        {
+
+          dataTabs.map((item, index) => {
+            return (
+              <TabContent key={index} active="true" title={item.title} >
+                <SliderInTab/>
+              </TabContent>
+            )
+          })
+        }
       </TabsWraper>
     );
   }

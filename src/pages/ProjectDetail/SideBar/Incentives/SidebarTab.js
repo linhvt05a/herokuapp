@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import "./styles.css";
-import { logDOM } from "@testing-library/react";
 
 class TabsWraper extends Component {
   constructor() {
@@ -119,9 +117,7 @@ class SidebarTab extends React.Component {
                 }
               
             </TabContent> 
-            )
-            }
-            
+            )}
         })
       }
       </TabsWraper>
