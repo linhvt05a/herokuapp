@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const ItemDetailProject = (props) => {
+const ItemProject = (props) => {
 
     const { data } = props
 
@@ -39,4 +39,4 @@ const ItemDetailProject = (props) => {
     )
 }
 
-export default ItemDetailProject;
+export default ItemProject;

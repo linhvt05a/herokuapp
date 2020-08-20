@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import TopBanner from "../../components/common/TopBanner";
 import HeadingFilter from '../../components/common/HeadingFilter'
-import { ItemDetailProject } from './Item/index'
+import { ItemProject } from './Item/index'
 import {Sliders} from '../../components/base/index'
 import { Input, Select, Checkbox } from 'antd';
 
@@ -147,12 +147,12 @@ const Contact = (props) => {
                     <div className="container container-sm container-md">
                         <HeadingFilter headerBodyClassName="project_list--heading" labelHeader="project_list" status />
                         <div className="row project_list--content project_tab--content">
-                            <ItemDetailProject />
-                            <ItemDetailProject />
-                            <ItemDetailProject />
-                            <ItemDetailProject />
-                            <ItemDetailProject />
-                            <ItemDetailProject />
+                            <ItemProject />
+                            <ItemProject />
+                            <ItemProject />
+                            <ItemProject />
+                            <ItemProject />
+                            <ItemProject />
                         </div>
                         <ul className="pagination">
                             <li className="page-item">

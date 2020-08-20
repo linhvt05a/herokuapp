@@ -27,7 +27,7 @@ const CardPromotion = (props) => {
                                 <div className="row">
                                     {
                                         datas.map((item, index) => (
-                                            <div className="col-12 col-sm-12 col-md-6 col-lg-4">
+                                            <div className="col-12 col-sm-12 col-md-6 col-lg-4 mb-3">
                                                 <ItemPromotion key={index} data={item} detail />
                                             </div>
                                         ))
