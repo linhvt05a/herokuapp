@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import TopBanner from "../../components/common/TopBanner";
 import {Paginations} from '../../components/base/index';
-import { CardPromotion } from './Layout/index'
-import { CardSaleFlash } from '../Home/Layout/index'
+import { Trans } from 'react-i18next';
+
 
 const tab = [
-    {id: 1, label:"CÁC DỰ ÁN", tabs: true},
-    {id: 2, label:"KHÁCH HÀNG", tabs: false}
+    {id: 1, label:"PROJECTS", tabs: true},
+    {id: 2, label:"CUSTOMER", tabs: false}
 ]
 const promotion =
  [
@@ -45,7 +45,7 @@ const Promotion = () =>{
         <div className="overview" >
           <div className="container container-sm container-md">
             <h2 className="overview_heading" style={{marginTop: 200}}>
-              Ưu đãi và khuyến mãi
+                <Trans>Offers and promotions</Trans>
               <span className="sub">
                 Tại đây chúng tôi cung cấp tới khách hàng thông tin về chương trình ưu
                 đãi cập nhật mới nhất và hấp dẫn nhất khi mua bất động sản của chúng
@@ -112,7 +112,7 @@ const CustomerPromotion = (props) =>{
 const CustomTab = (props) =>{
     return(
         <li className="nav-item">
-            <a className='nav-link' onClick={props.setTab} style={{color:props.selected === !props.tabs ? '#6d30ab':'black'}}>{props.label}</a>
+            <a className='nav-link' onClick={props.setTab} style={{color:props.selected === !props.tabs ? '#6d30ab':'black'}}><Trans>{props.label}</Trans></a>
         </li>
     )
 }

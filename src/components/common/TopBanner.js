@@ -7,7 +7,7 @@ const TopBanner = (props) => {
         <div
             className="top_banner"
             style={{
-                backgroundImage: "url(./assets/images/"+ data.img +")",
+                backgroundImage: "url(./assets/images/"+ data?.img +")",
                 height: 350
             }}
         >
