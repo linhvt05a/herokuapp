@@ -4,8 +4,8 @@ import TopBanner from "../../components/common/TopBanner";
 import HeadingFilter from '../../components/common/HeadingFilter'
 import { ItemProject } from './Item/index'
 import {Sliders} from '../../components/base/index'
-import { Input, Select, Checkbox, Pagination } from 'antd';
-// import Pagination from '../../components/common/Pagination'
+import { Input, Select, Checkbox } from 'antd';
+import Pagination from '../../components/common/Pagination';
 
 
 const Contact = (props) => {
@@ -18,9 +18,10 @@ const Contact = (props) => {
     const [height, setHeight] = useState(120);
 
     const [paging, setPaging] = useState({
-        totalItem: 30,
-        currentPage:  1,
-        totalPage: 6
+        totalItem: 18,
+        currentPage:  2,
+        totalPage: 5,
+        itemOnPage: 6
     });
     useEffect(() => {
         const updateWindowDimensions = () => {
@@ -46,30 +47,6 @@ const Contact = (props) => {
     const checkboxOnChange = e => {
         console.log(`checkbox = ${e.target.checked}`);
     }
-
-    const onChange = page => {
-        console.log(page);
-        
-    };
-    
-    const itemRender = (current, type, originalElement) =>  {
-        console.log('uuuuauau',current, type,);
-        if (type === 'prev') {
-          return <Link className="page-link">
-                    <i className="fas fa-angle-double-left " />
-                </Link>
-        }
-        if (type === 'next') {
-          return <Link className="page-link">
-                    <i className="fas fa-angle-double-right " />
-                </Link>
-        }
-        return originalElement;
-    }
-
-    const onChangePage = (page) => {
-        console.log('page', page);
-    } 
 
     return (
         <div className="projectPage" style={{paddingTop: height}}>
@@ -188,62 +165,8 @@ const Contact = (props) => {
                             <ItemProject />
                             <ItemProject />
                         </div>
-                        {/* <Pagination page={paging.currentPage} total_page={paging.totalPage} total_record={paging.totalItem} change={onChangePage} /> */}
                         <ul className="pagination">
-                            {/* <Pagination page={paging.currentPage} total_page={paging.totalPage} total_record={paging.totalItem}/> */}
-                            {/* <li className="page-item">
-                                <Link className="page-link">
-                                    Đầu
-                                </Link>
-                            </li> */}
-                            <Pagination className="page-item " 
-                                defaultPageSize = {paging.totalPage}
-                                defaultCurrent={paging.currentPage} 
-                                total={paging.totalItem} 
-                                onChange={onChange}
-                                itemRender={itemRender}
-                            />
-                            {/* <li className="page-item">
-                                <Link className="page-link" onClick={onChangePagingEnd}>
-                                    Cuối
-                                </Link>
-                            </li> */}
-
-                            {/* <li className="page-item">
-                                <Link className="page-link" to="/">
-                                    Đầu
-                                </Link>
-                            </li>
-                            <li className="page-item">
-                                <Link className="page-link" to="/">
-                                    <i className="fas fa-angle-double-left " />
-                                </Link>
-                            </li>
-                            <li className="page-item">
-                                <Link className="page-link" to="/">
-                                    1
-                                </Link>
-                            </li>
-                            <li className="page-item">
-                                <Link className="page-link active" to="/">
-                                    2
-                                </Link>
-                            </li>
-                            <li className="page-item">
-                                <Link className="page-link" to="/">
-                                    3
-                                </Link>
-                            </li>
-                            <li className="page-item">
-                                <Link className="page-link" to="/">
-                                    <i className="fas fa-angle-double-right " />
-                                </Link>
-                            </li>
-                            <li className="page-item">
-                                <Link className="page-link" to="/">
-                                    Cuối
-                                </Link>
-                            </li> */}
+                            <Pagination dataPaging={paging}/>
                         </ul>
                     </div>
                 </div>
