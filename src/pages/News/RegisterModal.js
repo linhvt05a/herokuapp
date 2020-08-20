@@ -73,9 +73,9 @@ const RegisterModal = (props) =>{
                   <InputBase placeholder="Họ tên *" type="text" name = "full_name" value={fullName} onChange={handleInput} validateMessage={validateMessage}/>
                 
                   <InputBase  placeholder="Điện thoại *" type="text" name="phone_number" value={mobile} onChange="" onChange={handleInput} validateMobile={validateMobile}/>
-               
-                  <InputSelect name="project"  onChange="" datas={project} onChange="" onChange={handleSelect} validSelect={validSelect}/>
-                 
+
+                  <InputSelect name="project" style={346}  onChange="" datas={project} onChange="" onChange={handleSelect} validSelect={validSelect}/>
+
                 <div className="form-group">
                   <textarea placeholder="Nội dung *" name="content" className="form-control" style={{ height: 130 }} value= {content} onChange={handleInput}  />
                   <span style={{color: 'red', fontSize: 12}}>{validContent}</span>
