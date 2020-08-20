@@ -17,8 +17,9 @@ const Contact = (props) => {
     const [height, setHeight] = useState(120);
 
     const [paging, setPaging] = useState({
-        totalPage: 10,
-        currentPage:  1
+        totalPage: 50,
+        currentPage:  1,
+        defaultPageSize: 6
     });
     useEffect(() => {
         const updateWindowDimensions = () => {
@@ -43,6 +44,34 @@ const Contact = (props) => {
 
     const checkboxOnChange = e => {
         console.log(`checkbox = ${e.target.checked}`);
+    }
+
+    const onChange = page => {
+        console.log(page);
+        
+    };
+
+    const pageEnd = paging.totalPage / paging.defaultPageSize;
+    const onChangePagingEnd = () => {
+        setPaging({
+            ...paging, currentPage: 5
+        });
+    };
+    console.log('hhâhha', paging)
+    
+    const itemRender = (current, type, originalElement) =>  {
+        console.log('uuuuauau',current, type,);
+        if (type === 'prev') {
+          return <Link className="page-link">
+                    <i className="fas fa-angle-double-left " />
+                </Link>
+        }
+        if (type === 'next') {
+          return <Link className="page-link">
+                    <i className="fas fa-angle-double-right " />
+                </Link>
+        }
+        return originalElement;
     }
 
     return (
@@ -163,17 +192,23 @@ const Contact = (props) => {
                             <ItemDetailProject />
                         </div>
                         <ul className="pagination">
-                            <li className="page-item">
-                                <Link className="page-link" to="/">
+                            {/* <li className="page-item">
+                                <Link className="page-link">
                                     Đầu
                                 </Link>
-                            </li>
-                            <Pagination className="page-item" defaultCurrent={paging.currentPage} total={paging.totalPage} />
-                            <li className="page-item">
-                                <Link className="page-link" to="/">
+                            </li> */}
+                            <Pagination className="page-item " 
+                                defaultPageSize = {paging.defaultPageSize}
+                                defaultCurrent={paging.currentPage} 
+                                total={paging.totalPage} 
+                                onChange={onChange}
+                                itemRender={itemRender}
+                            />
+                            {/* <li className="page-item">
+                                <Link className="page-link" onClick={onChangePagingEnd}>
                                     Cuối
                                 </Link>
-                            </li>
+                            </li> */}
                             {/* <li className="page-item">
                                 <Link className="page-link" to="/">
                                     Đầu

@@ -3,7 +3,6 @@ import React from "react";
 const TopBanner = (props) => {
 
     let { data } = props;
-    console.log(data);
     if (data == undefined || data == null || data == "") {
         return (
             <div
