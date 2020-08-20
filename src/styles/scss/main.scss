@@ -1,14 +1,16 @@
 /*fonts*/ 
-@import "./fonts/font-awesome";
-@import "./fonts/fonts-page";
+@import "./fonts/**.scss";
 
-/*custom*/
-@import "./elements/mixin";
-@import "./elements/**.scss";
-
-/*libs custom*/
-@import "./antd/**.scss";
+/*elements*/
+@import "./global/elements/mixin";
+@import "./global/elements/**.scss";
 
 /*layout*/
-@import "./layouts/**/*.scss";
+@import "./global/layouts/**/**.scss";
+
+/*libs*/
+@import "./antd/**.scss";
+
+/*customize*/
+@import "./customize/**.scss";
  
