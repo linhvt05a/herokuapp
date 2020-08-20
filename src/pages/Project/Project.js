@@ -11,6 +11,8 @@ const Contact = (props) => {
     const data = [20, 60]
     const data1 = [10, 80]
 
+    const dataTopBanner = { img: "project.jpg", title: "Dự án"} ;
+
     const [height, setHeight] = useState(120);
     useEffect(() => {
         const updateWindowDimensions = () => {
@@ -39,7 +41,7 @@ const Contact = (props) => {
 
     return (
         <div className="projectPage" style={{paddingTop: height}}>
-            <TopBanner />
+            <TopBanner data={dataTopBanner}/>
             <div className="project_page bg_grey">
                 <div className="project_page--filter">
                     <div className="container container-sm container-md">
