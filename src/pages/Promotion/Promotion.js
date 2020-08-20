@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import TopBanner from "../../components/common/TopBanner";
-import {Paginations} from '../../components/base/index'
+import {Paginations} from '../../components/base/index';
+import { CardPromotion } from './Layout/index'
+import { CardSaleFlash } from '../Home/Layout/index'
 
 
 const tab = [
@@ -11,6 +13,8 @@ const tab = [
 const Promotion = () =>{
     const [selected, setSelected] = useState(true)
     return(
+    <div className="homePage" style={{paddingTop: "228px"}}>
+        <CardSaleFlash headerBodyClassName="label_filter--heading" labelHeader="flash_sale" datas={["a", "iu", "e", "vl", "wa", "di"]} banner readmore timeLine />
         <div className="overview" >
           <div className="container container-sm container-md">
             <h2 className="overview_heading" style={{marginTop: 200}}>
@@ -28,13 +32,13 @@ const Promotion = () =>{
                     <div className="container container-sm container-md tab-content">
                         <div className="latest_news--content tab-pane fade active show" id="home">
                            {
-                                selected  === true ? 
+                                selected  === true ?
                                 <div className="row">
                                     <RowPromotion />
                                     <RowPromotion />
                                     <RowPromotion />
                                     <RowPromotion />
-                                </div>:<></>  
+                                </div>:<></>
                             }
                         </div>
                     </div>
@@ -42,8 +46,9 @@ const Promotion = () =>{
                 </div>
           </div>
         </div>
-   
-      
+         <CardPromotion headerBodyClassName="label_filter--heading" labelHeader="hot_promotion" datas={["a", "iu", "e", "vl", "wa", "di"]} banner readmore />
+    </div>
+
     )
 }
 
@@ -54,7 +59,7 @@ const CustomTab = (props) =>{
                 <a className={!props.selected ? "nav-link active": 'nav-link'} onClick={()=> console.log(props.tabs)}>{props.label}</a>
             </li>
         )
-       
+
 }
 
 const RowPromotion = () =>{
@@ -83,7 +88,6 @@ const RowPromotion = () =>{
             </span>
             </div>
         </div>
-    </div>
     )
 }
 
