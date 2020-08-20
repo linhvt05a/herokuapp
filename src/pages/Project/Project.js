@@ -5,6 +5,7 @@ import HeadingFilter from '../../components/common/HeadingFilter'
 import { ItemDetailProject } from './Item/index'
 import {Sliders} from '../../components/base/index'
 import { Input, Select, Checkbox, Pagination } from 'antd';
+// import Pagination from '../../components/common/Pagination'
 
 
 const Contact = (props) => {
@@ -17,9 +18,9 @@ const Contact = (props) => {
     const [height, setHeight] = useState(120);
 
     const [paging, setPaging] = useState({
-        totalPage: 50,
+        totalItem: 30,
         currentPage:  1,
-        defaultPageSize: 6
+        totalPage: 6
     });
     useEffect(() => {
         const updateWindowDimensions = () => {
@@ -50,14 +51,6 @@ const Contact = (props) => {
         console.log(page);
         
     };
-
-    const pageEnd = paging.totalPage / paging.defaultPageSize;
-    const onChangePagingEnd = () => {
-        setPaging({
-            ...paging, currentPage: 5
-        });
-    };
-    console.log('hhâhha', paging)
     
     const itemRender = (current, type, originalElement) =>  {
         console.log('uuuuauau',current, type,);
@@ -73,6 +66,10 @@ const Contact = (props) => {
         }
         return originalElement;
     }
+
+    const onChangePage = (page) => {
+        console.log('page', page);
+    } 
 
     return (
         <div className="projectPage" style={{paddingTop: height}}>
@@ -191,16 +188,18 @@ const Contact = (props) => {
                             <ItemDetailProject />
                             <ItemDetailProject />
                         </div>
+                        {/* <Pagination page={paging.currentPage} total_page={paging.totalPage} total_record={paging.totalItem} change={onChangePage} /> */}
                         <ul className="pagination">
+                            {/* <Pagination page={paging.currentPage} total_page={paging.totalPage} total_record={paging.totalItem}/> */}
                             {/* <li className="page-item">
                                 <Link className="page-link">
                                     Đầu
                                 </Link>
                             </li> */}
                             <Pagination className="page-item " 
-                                defaultPageSize = {paging.defaultPageSize}
+                                defaultPageSize = {paging.totalPage}
                                 defaultCurrent={paging.currentPage} 
-                                total={paging.totalPage} 
+                                total={paging.totalItem} 
                                 onChange={onChange}
                                 itemRender={itemRender}
                             />
@@ -209,6 +208,7 @@ const Contact = (props) => {
                                     Cuối
                                 </Link>
                             </li> */}
+
                             {/* <li className="page-item">
                                 <Link className="page-link" to="/">
                                     Đầu
