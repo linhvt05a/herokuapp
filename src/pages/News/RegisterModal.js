@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import {Modal} from 'antd';
 import {InputSelect} from '../../components/base/Select/index'
 import {InputBase} from '../../components/base/index'
+import { Trans } from 'react-i18next';
 
 const project = [{value:1, label:'donalll'},{value:2, label:'cat'},{value:3, label:'dog'}]
 
@@ -63,7 +64,7 @@ const RegisterModal = (props) =>{
                     <div className="modal-content">
                     <div className="modal-header">
                 <h5 className="modal-title">
-                      Đăng ký tham quan
+                      <Trans>Sign up to visit</Trans>
                 </h5>
                 <button type="button"  className="close">
                   <i className="fas fa-times-circle" />
@@ -73,16 +74,16 @@ const RegisterModal = (props) =>{
                   <InputBase placeholder="Họ tên *" type="text" name = "full_name" value={fullName} onChange={handleInput} validateMessage={validateMessage}/>
                 
                   <InputBase  placeholder="Điện thoại *" type="text" name="phone_number" value={mobile} onChange="" onChange={handleInput} validateMobile={validateMobile}/>
-               
-                  <InputSelect name="project"  onChange="" datas={project} onChange="" onChange={handleSelect} validSelect={validSelect}/>
-                 
+
+                  <InputSelect name="project" style={346}  onChange="" datas={project} onChange="" onChange={handleSelect} validSelect={validSelect}/>
+
                 <div className="form-group">
                   <textarea placeholder="Nội dung *" name="content" className="form-control" style={{ height: 130 }} value= {content} onChange={handleInput}  />
                   <span style={{color: 'red', fontSize: 12}}>{validContent}</span>
                 </div>
               </div>
               <div className="modal-footer justify-content-center border-top-0 pt-0 pb-4">
-                  <a href="#" className="btn btn_green" onClick={onSubmitted}> ĐĂNG KÝ </a>
+                  <a href="#" className="btn btn_green" onClick={onSubmitted}> <Trans>REGISTRATION</Trans> </a>
               </div>
             </div>
           </div>
