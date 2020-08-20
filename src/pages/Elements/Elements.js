@@ -1,11 +1,12 @@
 import React from "react";
 import { SliderRange } from "../../components/base/Slider";
 import ButtonStyle from "../../components/base/Button";
+import InputCheckbox from "../../components/base/Input/InputCheckbox";
 import { Alert, Modal, Button, Checkbox, Input, Select, Row, Col, Group, Radio } from 'antd';
 
 const Elements = (props) => {
     const [state, setState] = React.useState({
-        visible: false, checked: true,
+        visible: false, checked: false,
     });
     const showModal = () => {
         setState({
@@ -25,10 +26,6 @@ const Elements = (props) => {
         });
     };
 
-    const checkboxOnChange = e => {
-        console.log(`checkbox = ${e.target.checked}`);
-    }
-
     const checkboxGroupOnChange = e => {
         console.log(`checkboxGroup = ${e.target.checked}`);
     }
@@ -45,27 +42,7 @@ const Elements = (props) => {
             <div className="row">
 
                 <div className="col-12">
-                    <Checkbox onChange={checkboxOnChange}>Checkbox</Checkbox>
-                    <hr />
-                    <Checkbox.Group style={{ width: '100%' }} onChange={checkboxGroupOnChange}>
-                        <Row>
-                            <Col span={8}>
-                                <Checkbox value="A">Group A</Checkbox>
-                            </Col>
-                            <Col span={8}>
-                                <Checkbox value="B">Group B</Checkbox>
-                            </Col>
-                            <Col span={8}>
-                                <Checkbox value="C">Group C</Checkbox>
-                            </Col>
-                            <Col span={8}>
-                                <Checkbox value="D">Group D</Checkbox>
-                            </Col>
-                            <Col span={8}>
-                                <Checkbox value="E">Group E</Checkbox>
-                            </Col>
-                        </Row>
-                    </Checkbox.Group>
+                    <InputCheckbox />
                     <hr />
                 </div>
                 <div className="col-12">
