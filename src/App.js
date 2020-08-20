@@ -26,6 +26,11 @@ import Elements from "./pages/Elements/Elements";
 import Example from "./pages/Example";
 import Error404 from "./pages/Error/Error404";
 
+
+import Notifi from "./components/common/Notifi";
+
+
+
 const store = configureStore()
 
 class App extends React.Component {
@@ -34,6 +39,7 @@ class App extends React.Component {
             <Provider store={store}>
                 <Router>
                     <Header />
+                    <Notifi />
                     <Switch>
                         <Route exact path="/" component={Home} />
                         <Route exact path="/contact" component={Contact} />
@@ -54,7 +60,7 @@ class App extends React.Component {
                     </Switch>
 
                     <Footer />
-
+                   
                     {/* <Chat /> */}
 
                 </Router>
