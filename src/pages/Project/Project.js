@@ -4,7 +4,8 @@ import TopBanner from "../../components/common/TopBanner";
 import HeadingFilter from '../../components/common/HeadingFilter'
 import { ItemDetailProject } from './Item/index'
 import {Sliders} from '../../components/base/index'
-import { Input, Select, Checkbox } from 'antd';
+import { Input, Select, Checkbox, Pagination } from 'antd';
+
 
 const Contact = (props) => {
 
@@ -14,6 +15,11 @@ const Contact = (props) => {
     const dataTopBanner = { img: "project.jpg", title: "Dự án"} ;
 
     const [height, setHeight] = useState(120);
+
+    const [paging, setPaging] = useState({
+        totalPage: 10,
+        currentPage:  1
+    });
     useEffect(() => {
         const updateWindowDimensions = () => {
           const newHeight = document.getElementsByClassName('header')[0].clientHeight;
@@ -162,6 +168,17 @@ const Contact = (props) => {
                                     Đầu
                                 </Link>
                             </li>
+                            <Pagination className="page-item" defaultCurrent={paging.currentPage} total={paging.totalPage} />
+                            <li className="page-item">
+                                <Link className="page-link" to="/">
+                                    Cuối
+                                </Link>
+                            </li>
+                            {/* <li className="page-item">
+                                <Link className="page-link" to="/">
+                                    Đầu
+                                </Link>
+                            </li>
                             <li className="page-item">
                                 <Link className="page-link" to="/">
                                     <i className="fas fa-angle-double-left " />
@@ -191,7 +208,7 @@ const Contact = (props) => {
                                 <Link className="page-link" to="/">
                                     Cuối
                                 </Link>
-                            </li>
+                            </li> */}
                         </ul>
                     </div>
                 </div>
