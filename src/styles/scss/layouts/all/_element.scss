@@ -1859,6 +1859,12 @@ main {
     padding-right: 24px;
     position: relative;
     font-family: $HelveticaNeue-Light;
+    &:hover{
+        color: #6d30ab;
+        .icon{
+            color: #6d30ab;
+        }
+    }
     @media(max-width:767px){
         margin-top: 10px;
         text-align: center;
