@@ -5,7 +5,7 @@ import { Alert, Modal, Button, Checkbox, Input, Select, Row, Col, Group, Radio }
 
 const Elements = (props) => {
     const [state, setState] = React.useState({
-        visible: false
+        visible: false, checked: true,
     });
     const showModal = () => {
         setState({
