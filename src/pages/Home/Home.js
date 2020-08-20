@@ -8,59 +8,49 @@ import { CardSaleFlash, CardOverView, CardHotProduct } from "./Layout/index";
 import Maps from "../../components/common/Map";
 
 const news =
- [
-    {
-        id: 0, 
-        title: 'Mở bán khu biệt thự cao cấp ở Quận 7 , Tp.HCM', 
-        description:'Quỹ đất nội thành ngày càng khan hiếm, cộng với quá trình rà soát lại khiến thịtrường bất động sản lớn nhất nước rơi vào tình trạng cung giảm',
-        time:'9:00 - 27/02/2020',
-        image:'./assets/images/four-brown-wooden-chairs-2635038.jpg'
-    },
-    {
-        id: 1, 
-        title: 'Mở bán khu biệt thự cao cấp ở Quận 7 , Tp.HCM', 
-        description:'Quỹ đất nội thành ngày càng khan hiếm, cộng với quá trình rà soát lại khiến thịtrường bất động sản lớn nhất nước rơi vào tình trạng cung giảm',
-        time:'9:00 - 27/02/2020',
-        image:'./assets/images/four-brown-wooden-chairs-2635038.jpg'
-    },
-    {
-        id: 2, 
-        title: 'Mở bán khu biệt thự cao cấp ở Quận 7 , Tp.HCM', 
-        description:'Quỹ đất nội thành ngày càng khan hiếm, cộng với quá trình rà soát lại khiến thịtrường bất động sản lớn nhất nước rơi vào tình trạng cung giảm',
-        time:'9:00 - 27/02/2020',
-        image:'./assets/images/four-brown-wooden-chairs-2635038.jpg'
-    },
-    {
-        id: 3, 
-        title: 'Mở bán khu biệt thự cao cấp ở Quận 7 , Tp.HCM', 
-        description:'Quỹ đất nội thành ngày càng khan hiếm, cộng với quá trình rà soát lại khiến thịtrường bất động sản lớn nhất nước rơi vào tình trạng cung giảm',
-        time:'9:00 - 27/02/2020',
-        image:'./assets/images/four-brown-wooden-chairs-2635038.jpg'
-    },
-    {
-        id: 4, 
-        title: 'Mở bán khu biệt thự cao cấp ở Quận 7 , Tp.HCM', 
-        description:'Quỹ đất nội thành ngày càng khan hiếm, cộng với quá trình rà soát lại khiến thịtrường bất động sản lớn nhất nước rơi vào tình trạng cung giảm',
-        time:'9:00 - 27/02/2020',
-        image:'./assets/images/four-brown-wooden-chairs-2635038.jpg'
-    }
-]
+    [
+        {
+            id: 0,
+            title: 'Mở bán khu biệt thự cao cấp ở Quận 7 , Tp.HCM',
+            description: 'Quỹ đất nội thành ngày càng khan hiếm, cộng với quá trình rà soát lại khiến thịtrường bất động sản lớn nhất nước rơi vào tình trạng cung giảm',
+            time: '9:00 - 27/02/2020',
+            image: './assets/images/four-brown-wooden-chairs-2635038.jpg'
+        },
+        {
+            id: 1,
+            title: 'Mở bán khu biệt thự cao cấp ở Quận 7 , Tp.HCM',
+            description: 'Quỹ đất nội thành ngày càng khan hiếm, cộng với quá trình rà soát lại khiến thịtrường bất động sản lớn nhất nước rơi vào tình trạng cung giảm',
+            time: '9:00 - 27/02/2020',
+            image: './assets/images/four-brown-wooden-chairs-2635038.jpg'
+        },
+        {
+            id: 2,
+            title: 'Mở bán khu biệt thự cao cấp ở Quận 7 , Tp.HCM',
+            description: 'Quỹ đất nội thành ngày càng khan hiếm, cộng với quá trình rà soát lại khiến thịtrường bất động sản lớn nhất nước rơi vào tình trạng cung giảm',
+            time: '9:00 - 27/02/2020',
+            image: './assets/images/four-brown-wooden-chairs-2635038.jpg'
+        },
+        {
+            id: 3,
+            title: 'Mở bán khu biệt thự cao cấp ở Quận 7 , Tp.HCM',
+            description: 'Quỹ đất nội thành ngày càng khan hiếm, cộng với quá trình rà soát lại khiến thịtrường bất động sản lớn nhất nước rơi vào tình trạng cung giảm',
+            time: '9:00 - 27/02/2020',
+            image: './assets/images/four-brown-wooden-chairs-2635038.jpg'
+        },
+        {
+            id: 4,
+            title: 'Mở bán khu biệt thự cao cấp ở Quận 7 , Tp.HCM',
+            description: 'Quỹ đất nội thành ngày càng khan hiếm, cộng với quá trình rà soát lại khiến thịtrường bất động sản lớn nhất nước rơi vào tình trạng cung giảm',
+            time: '9:00 - 27/02/2020',
+            image: './assets/images/four-brown-wooden-chairs-2635038.jpg'
+        }
+    ]
 const Home = (props) => {
-    const [height, setHeight] = useState(120);
-    const headerRef = React.createRef();
-    useEffect(() => {
-        const updateWindowDimensions = () => {
-          const newHeight = document.getElementsByClassName('header')[0].clientHeight;
-          setHeight(newHeight);
-        };
-        window.addEventListener("resize", updateWindowDimensions);
-        return () => window.removeEventListener("resize", updateWindowDimensions) 
-    }, []);
 
-    const options = [{value: 1, label: "Căn hộ"}, {value: 2, label: "Biệt thự"}, {value: 3, label: "Chung cư"}]
+    const options = [{ value: 1, label: "Căn hộ" }, { value: 2, label: "Biệt thự" }, { value: 3, label: "Chung cư" }]
 
     return (
-        <div className="homePage" style={{paddingTop: height}}>
+        <div className="homePage">
             {/* block map  */}
             <div className="map">
                 <div className="map_origin">
@@ -355,22 +345,25 @@ const Home = (props) => {
                 </div>
             </div>
             {/*end block map  */}
-            <CardSaleFlash headerBodyClassName="label_filter--heading" labelHeader="flash_sale" datas={["a", "iu", "e", "vl", "wa", "di"]} readmore timeLine/>
+
+            <CardSaleFlash headerBodyClassName="label_filter--heading" labelHeader="flash_sale" datas={["a", "iu", "e", "vl", "wa", "di"]} readmore timeLine />
+
             {/* block over  */}
             <CardOverView />
             {/* end block over  */}
+
             {/* project_list  */}
             <div className="project_list project_tab">
                 <div className="container container-sm container-md">
                     <HeadingFilter headerBodyClassName="project_list--heading" labelHeader="project_list" status />
                     <div className="row project_list--content project_tab--content">
-                        <ItemHomeProject bodyClassName="col col-12 col-sm-6 col-md-7 col-xl-7"/>
-                        <ItemHomeProject bodyClassName="col col-12 col-sm-6 col-md-5 col-xl-5"/>
-                        <ItemHomeProject bodyClassName="col col-12 col-sm-4 col-md-4 col-xl-4"/>
-                        <ItemHomeProject bodyClassName="col col-12 col-sm-4 col-md-4 col-xl-4"/>
-                        <ItemHomeProject bodyClassName="col col-12 col-sm-4 col-md-4 col-xl-4"/>
-                        <ItemHomeProject bodyClassName="col col-12 col-sm-6 col-md-6 col-xl-6"/>
-                        <ItemHomeProject bodyClassName="col col-12 col-sm-6 col-md-6 col-xl-6"/>
+                        <ItemHomeProject bodyClassName="col col-12 col-sm-6 col-md-7 col-xl-7" />
+                        <ItemHomeProject bodyClassName="col col-12 col-sm-6 col-md-5 col-xl-5" />
+                        <ItemHomeProject bodyClassName="col col-12 col-sm-4 col-md-4 col-xl-4" />
+                        <ItemHomeProject bodyClassName="col col-12 col-sm-4 col-md-4 col-xl-4" />
+                        <ItemHomeProject bodyClassName="col col-12 col-sm-4 col-md-4 col-xl-4" />
+                        <ItemHomeProject bodyClassName="col col-12 col-sm-6 col-md-6 col-xl-6" />
+                        <ItemHomeProject bodyClassName="col col-12 col-sm-6 col-md-6 col-xl-6" />
                     </div>
                     <div className="text-center text-uppercase mt-3">
                         <Link to="/#" className="btn btn_purple ml-auto mr-auto">
@@ -380,6 +373,7 @@ const Home = (props) => {
                 </div>
             </div>
             {/* end project_list  */}
+
             {/* contact  */}
             <div className="container container-sm container-md">
                 <div className="contact">
@@ -432,9 +426,11 @@ const Home = (props) => {
                 </div>
             </div>
             {/* end contact  */}
+
             {/* striking apartment  */}
             <CardHotProduct headerBodyClassName="label_filter--heading" labelHeader="hot_product" datas={["a", "iu", "e", "vl", "wa", "di", "test"]} options={options} />
             {/* end striking apartment  */}
+
             {/* app_managerment  */}
             <div className="app_managerment">
                 <div className="container container-sm container-md">
@@ -585,9 +581,9 @@ const Home = (props) => {
                 </div>
             </div>
             {/* end app_managerment  */}
-            
+
             {/* Latest news  */}
-                <CardNews data ={news}/>
+            <CardNews data={news} />
             {/* End Latest news  */}
         </div>
     )

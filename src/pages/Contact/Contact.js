@@ -4,13 +4,6 @@ import TopBanner from "../../components/common/TopBanner";
 const Contact = props => {
     return (
         <div className="contactPage">
-            {/* <div
-                className="top_banner--contact"
-                style={{
-                    backgroundImage: "url(./assets/images/contact_map.jpg)",
-                }}
-            /> */}
-            <TopBanner />
             <div className="contact__page">
                 <div className="container container-sm container-md">
                     <div className="row">

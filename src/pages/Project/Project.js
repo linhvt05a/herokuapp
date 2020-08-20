@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import TopBanner from "../../components/common/TopBanner";
 import HeadingFilter from '../../components/common/HeadingFilter'
 import { ItemProject } from './Item/index'
-import {Sliders} from '../../components/base/index'
+import { Sliders } from '../../components/base/index'
 import { Input, Select, Checkbox, Pagination } from 'antd';
 // import Pagination from '../../components/common/Pagination'
 
@@ -13,23 +13,11 @@ const Contact = (props) => {
     const data = [20, 60]
     const data1 = [10, 80]
 
-    const dataTopBanner = { img: "project.jpg", title: "Dự án"} ;
-
-    const [height, setHeight] = useState(120);
-
     const [paging, setPaging] = useState({
         totalItem: 30,
-        currentPage:  1,
+        currentPage: 1,
         totalPage: 6
     });
-    useEffect(() => {
-        const updateWindowDimensions = () => {
-          const newHeight = document.getElementsByClassName('header')[0].clientHeight;
-          setHeight(newHeight);
-        };
-        window.addEventListener("resize", updateWindowDimensions);
-        return () => window.removeEventListener("resize", updateWindowDimensions) 
-    }, []);
 
     const handleChangeProvince = (value) => {
         console.log(`Province ${value}`);
@@ -49,31 +37,30 @@ const Contact = (props) => {
 
     const onChange = page => {
         console.log(page);
-        
+
     };
-    
-    const itemRender = (current, type, originalElement) =>  {
-        console.log('uuuuauau',current, type,);
+
+    const itemRender = (current, type, originalElement) => {
+        console.log('uuuuauau', current, type,);
         if (type === 'prev') {
-          return <Link className="page-link">
-                    <i className="fas fa-angle-double-left " />
-                </Link>
+            return <Link className="page-link">
+                <i className="fas fa-angle-double-left " />
+            </Link>
         }
         if (type === 'next') {
-          return <Link className="page-link">
-                    <i className="fas fa-angle-double-right " />
-                </Link>
+            return <Link className="page-link">
+                <i className="fas fa-angle-double-right " />
+            </Link>
         }
         return originalElement;
     }
 
     const onChangePage = (page) => {
         console.log('page', page);
-    } 
+    }
 
     return (
-        <div className="projectPage" style={{paddingTop: height}}>
-            <TopBanner data={dataTopBanner}/>
+        <div className="projectPage">
             <div className="project_page bg_grey">
                 <div className="project_page--filter">
                     <div className="container container-sm container-md">
@@ -125,7 +112,7 @@ const Contact = (props) => {
                                                 Phạm vi giá (tỷ đồng)
                                             </label>
                                             <div className="slider-wrapper">
-                                                <Sliders value={data} displayBox="on"/>
+                                                <Sliders value={data} displayBox="on" />
                                             </div>
                                         </div>
                                     </div>
@@ -135,7 +122,7 @@ const Contact = (props) => {
                                                 Diện tích (m2)
                                             </label>
                                             <div className="slider-wrapper">
-                                                <Sliders value={data} displayBox="on"/>
+                                                <Sliders value={data} displayBox="on" />
                                             </div>
                                         </div>
                                     </div>
@@ -196,10 +183,10 @@ const Contact = (props) => {
                                     Đầu
                                 </Link>
                             </li> */}
-                            <Pagination className="page-item " 
-                                defaultPageSize = {paging.totalPage}
-                                defaultCurrent={paging.currentPage} 
-                                total={paging.totalItem} 
+                            <Pagination className="page-item "
+                                defaultPageSize={paging.totalPage}
+                                defaultCurrent={paging.currentPage}
+                                total={paging.totalItem}
                                 onChange={onChange}
                                 itemRender={itemRender}
                             />
