@@ -18,7 +18,7 @@ const CardPromotion = (props) => {
             <div className="container container-sm container-md">
                 <HeadingFilter headerBodyClassName={headerBodyClassName} labelHeader={labelHeader} options={options ? options : undefined} readmore={readmore ? readmore : undefined} />
                 {
-                    banner ? <img src="/assets/images/flashsale.png" style={{width: "100%", marginBottom: "40px"}}></img> : ""
+                    banner ? <img src="/assets/images/sale_banner.png" style={{width: "100%", marginBottom: "40px"}}></img> : ""
                 }
                 <div className="striking_apartment--content">
                     {
