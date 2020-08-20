@@ -49,7 +49,7 @@ const News = () => {
                     <div className="row">
                         <div className="col-sm-12 col-md-12 col-lg-8 col-xl-8">
                         <div className="row_content">
-                            { news && news.map((news, index)=> <RowNews data={news} />)}
+                            { news && news.map((news, index)=> <RowNews data={news} index={news.id}/>)}
                         </div>
                             <Paginations total_page={20} total_record={4} page={1} />
                         </div>
@@ -66,7 +66,7 @@ const News = () => {
 
 const RowNews = (props) => {
     return(
-            <div className="card">
+            <div className="card" key={props.index}>
                 <Link to="/" className="link"></Link>
                 <div className="row ">
                     <div className="col-sm-12 col-md-5 col-xl-5 d-flex">
