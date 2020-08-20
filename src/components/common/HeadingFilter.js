@@ -5,7 +5,7 @@ import { Select } from 'antd'
 
 const HeadingFilter = (props) => {
 
-    const { headerBodyClassName, labelHeader, readmore, options, status, trans } = props
+    const { headerBodyClassName, labelHeader, readmore, options, status, trans, link } = props
     const { Option } = Select
 
     return (
@@ -15,7 +15,7 @@ const HeadingFilter = (props) => {
             </h2>
             {
                 readmore &&
-                <Link to="/#" className="readmore">
+                <Link to={link} className="readmore">
                     <Trans>read_more</Trans>
                     <i className="icon fas fa-angle-double-right" />
                 </Link>

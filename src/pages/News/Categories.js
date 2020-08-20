@@ -1,40 +1,41 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
+import { Trans } from 'react-i18next';
 
 const Categories = ()=>{
     return(
         <ul className="news_menu bg_white mb-45">
         <label className="news_menu__title">
-            Chuyên mục
+            <Trans>Categories</Trans>
         </label>
         <li>
             <Link to="#">
                 <i className="fas fa-angle-right mr-2" />
-                Tin tức thị trường
+                <Trans>Market</Trans>
             </Link>
         </li>
         <li>
             <Link to="#">
                 <i className="fas fa-angle-right mr-2" />
-                Thị trường căn hộ
+                <Trans>Department</Trans>
             </Link>
         </li>
         <li>
             <Link to="#">
                 <i className="fas fa-angle-right mr-2" />
-                Nhà đẹp
+                <Trans>House</Trans>
             </Link>
         </li>
         <li>
             <Link to="#">
                 <i className="fas fa-angle-right mr-2" />
-                Báo cáo phân tích
+                <Trans>Analysis report</Trans>
             </Link>
         </li>
         <li>
             <Link to="#">
                 <i className="fas fa-angle-right mr-2" />
-                Chuyên mục 01
+                <Trans>Category 01</Trans>
             </Link>
         </li>
     </ul>

@@ -10,7 +10,7 @@ const tab = [
 ]
 
 const Promotion = () =>{
-    
+
     const [selected, setSelected] = useState(true)
 
     return(

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="25.647" height="23.809" viewBox="0 0 25.647 23.809">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <g id="bullhorn" transform="matrix(0.966, -0.259, 0.259, 0.966, -1.607, 5.56)">
+    <g id="Group_14219" data-name="Group 14219" transform="translate(0 0)">
+      <g id="Group_14218" data-name="Group 14218" transform="translate(0 0)">
+        <path id="Path_22393" data-name="Path 22393" class="cls-1" d="M0,2.148A2.266,2.266,0,0,0,1.472,4.3V.206C1.472.147,1.5.059,1.5,0A2.3,2.3,0,0,0,0,2.148Z" transform="translate(0 6.21)"/>
+        <path id="Path_22394" data-name="Path 22394" class="cls-1" d="M3.855,0H0L1.442,5.239A1.825,1.825,0,0,0,3.208,6.592a1.854,1.854,0,0,0,1.5-.736A1.707,1.707,0,0,0,5,4.267Z" transform="translate(4.179 13.42)"/>
+        <path id="Path_22395" data-name="Path 22395" class="cls-1" d="M0,.029H.029V0C.029.029.029.029,0,.029Z" transform="translate(1.501 6.151)"/>
+        <path id="Path_22396" data-name="Path 22396" class="cls-1" d="M.235,0H0V5.3H.235a2.649,2.649,0,0,0,0-5.3Z" transform="translate(22.367 5.768)"/>
+        <path id="Path_22397" data-name="Path 22397" class="cls-1" d="M0,1.825V6A2,2,0,0,0,2,7.946H7.357V0H2A1.914,1.914,0,0,0,0,1.825Z" transform="translate(2.355 4.591)"/>
+        <path id="Path_22398" data-name="Path 22398" class="cls-1" d="M0,12.655,10.889,17.01V0L0,4.356Z" transform="translate(10.595 0)"/>
+      </g>
+    </g>
+  </g>
+</svg>
