@@ -42,7 +42,7 @@ $btn_purple_text: #fff;
 .btn_green {
     background-color: $btn_green_bg;
     color: $btn_green_text;
-    border: solid 2px $btn_green_bg;
+    border: solid 1px $btn_green_bg;
     &:hover {
         background-color: #187d35;
         color: $btn_green_text;
@@ -53,7 +53,7 @@ $btn_purple_text: #fff;
 .btn_purple {
     background-color: $btn_purple_bg;
     color: $btn_purple_text;
-    border: solid 2px $btn_purple_bg;
+    border: solid 1px $btn_purple_bg;
     &:hover {
         background-color: #4b1186;
         color: $btn_purple_text;
@@ -63,7 +63,7 @@ $btn_purple_text: #fff;
 .btn_red {
     background-color: #e94c4c;
     color: #fff;
-    border: solid 2px #e94c4c;
+    border: solid 1px #e94c4c;
     &:hover {
         background-color: #c71c1c;
         border-color: #c71c1c;

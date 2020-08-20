@@ -396,25 +396,7 @@ const Home = (props) => {
             {/* striking apartment  */}
             <div className="striking_apartment label_filter bg_grey">
                 <div className="container container-sm container-md">
-                    <div className=" label_filter--heading">
-                        <h3 className="main_heading">
-                            <span>Căn hộ nổi bật nhất</span>
-                        </h3>
-                        <div className="filter_select">
-                            <div className="text">Lọc theo :</div>
-                            <div className="form-group filter_project">
-                                <select
-                                    defaultValue={"DEFAULT"}
-                                    className="js-select2"
-                                    data-minimum-results-for-search="Infinity"
-                                >
-                                    <option>Tất cả</option>
-                                    <option>Căn hộ</option>
-                                    <option>Biệt thự</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
+                    <HeadingFilter headerBodyClassName="project_list--heading" labelHeader="house_highlight" options />
                     <div className="striking_apartment--content">
                         <div className="row">
                             <div className="col-12 col-sm-12 col-md-6 col-lg-4">
