@@ -4,7 +4,7 @@ import TopBanner from "../../components/common/TopBanner";
 import HeadingFilter from '../../components/common/HeadingFilter'
 import { ItemDetailProject } from './Item/index'
 import {Sliders} from '../../components/base/index'
-import { Input, Select } from 'antd';
+import { Input, Select, Checkbox } from 'antd';
 
 const Contact = (props) => {
 
@@ -20,6 +20,23 @@ const Contact = (props) => {
         window.addEventListener("resize", updateWindowDimensions);
         return () => window.removeEventListener("resize", updateWindowDimensions) 
     }, []);
+
+    const handleChangeProvince = (value) => {
+        console.log(`Province ${value}`);
+    }
+
+    const handleChangeDistrict = (value) => {
+        console.log(`District ${value}`);
+    }
+
+    const handleChangeProgress = (value) => {
+        console.log(`Progress ${value}`);
+    }
+
+    const checkboxOnChange = e => {
+        console.log(`checkbox = ${e.target.checked}`);
+    }
+
     return (
         <div className="projectPage" style={{paddingTop: height}}>
             <TopBanner />
@@ -34,34 +51,34 @@ const Contact = (props) => {
                             <div className="row">
                                 <div className="col-12 col-sm-12 col-md-4">
                                     <div className="form-group">
-                                        <Select className="form-control" placeholder="Tỉnh/Thành phố">
+                                        <Select className="form-control" placeholder="Tỉnh/Thành phố" onChange={handleChangeProvince}>
                                             <option selected disabled>Tỉnh/Thành phố</option>
-                                            <option>TPHCM</option>
-                                            <option>Hà Nội</option>
-                                            <option>Đà Nẵng</option>
-                                            <option>Bình Dương</option>
+                                            <option value="0">TPHCM</option>
+                                            <option value="1">Hà Nội</option>
+                                            <option value="2">Đà Nẵng</option>
+                                            <option value="3">Bình Dương</option>
                                         </Select>
                                     </div>
                                 </div>
                                 <div className="col-12 col-sm-12 col-md-4">
                                     <div className="form-group">
-                                        <Select className="form-control" placeholder="Quận/Huyện">
+                                        <Select className="form-control" placeholder="Quận/Huyện" onChange={handleChangeDistrict}>
                                             <option selected disabled>Quận/Huyện</option>
-                                            <option>TPHCM</option>
-                                            <option>Hà Nội</option>
-                                            <option>Đà Nẵng</option>
-                                            <option>Bình Dương</option>
+                                            <option value="0">TPHCM</option>
+                                            <option value="1">Hà Nội</option>
+                                            <option value="2">Đà Nẵng</option>
+                                            <option value="3">Bình Dương</option>
                                         </Select>
                                     </div>
                                 </div>
                                 <div className="col-12 col-sm-12 col-md-4">
                                     <div className="form-group">
-                                        <Select className="form-control" placeholder="Chọn tiến độ">
+                                        <Select className="form-control" placeholder="Chọn tiến độ" onChange={handleChangeProgress}>
                                             <option selected disabled>Chọn tiến độ</option>
-                                            <option>TPHCM</option>
-                                            <option>Hà Nội</option>
-                                            <option>Đà Nẵng</option>
-                                            <option>Bình Dương</option>
+                                            <option value="0">TPHCM</option>
+                                            <option value="1">Hà Nội</option>
+                                            <option value="2">Đà Nẵng</option>
+                                            <option value="3">Bình Dương</option>
                                         </Select>
                                     </div>
                                 </div>
@@ -91,119 +108,31 @@ const Contact = (props) => {
                                 </div>
                             </div>
                             <div className="map_search--option">
-                                <div className="search_option">
+                                <div className="search_option option_project">
                                     <ul className="list-inline list-inline-sm">
                                         <li>
-                                            <label
-                                                className="checkbox-inline"
-                                                type="checkbox"
-                                            >
-                                                <input
-                                                    name="checkbox-1"
-                                                    type="checkbox"
-                                                    className="checkbox-custom"
-                                                />
-                                                <span className="checkbox-custom-dummy" />
-                                                Single Villa
-                                            </label>
+                                            <Checkbox onChange={checkboxOnChange}>Single Villa</Checkbox>
                                         </li>
                                         <li>
-                                            <label
-                                                className="checkbox-inline"
-                                                type="checkbox"
-                                            >
-                                                <input
-                                                    name="checkbox-2"
-                                                    type="checkbox"
-                                                    className="checkbox-custom"
-                                                />
-                                                <span className="checkbox-custom-dummy" />
-                                                Duplex Villa
-                                            </label>
+                                            <Checkbox onChange={checkboxOnChange}>Duplex Villa</Checkbox>
                                         </li>
                                         <li>
-                                            <label
-                                                className="checkbox-inline"
-                                                type="checkbox"
-                                            >
-                                                <input
-                                                    name="checkbox-3"
-                                                    type="checkbox"
-                                                    className="checkbox-custom"
-                                                />
-                                                <span className="checkbox-custom-dummy" />
-                                                Shophouse
-                                            </label>
+                                            <Checkbox onChange={checkboxOnChange}>Shophouse</Checkbox>
                                         </li>
                                         <li>
-                                            <label
-                                                className="checkbox-inline"
-                                                type="checkbox"
-                                            >
-                                                <input
-                                                    name="checkbox-4"
-                                                    type="checkbox"
-                                                    className="checkbox-custom"
-                                                />
-                                                <span className="checkbox-custom-dummy" />
-                                                Penthouse
-                                            </label>
+                                            <Checkbox onChange={checkboxOnChange}>Penthouse</Checkbox>
                                         </li>
                                         <li>
-                                            <label
-                                                className="checkbox-inline"
-                                                type="checkbox"
-                                            >
-                                                <input
-                                                    name="checkbox-5"
-                                                    type="checkbox"
-                                                    className="checkbox-custom"
-                                                />
-                                                <span className="checkbox-custom-dummy" />
-                                                Apartment
-                                            </label>
+                                            <Checkbox onChange={checkboxOnChange}>Apartment</Checkbox>
                                         </li>
                                         <li>
-                                            <label
-                                                className="checkbox-inline"
-                                                type="checkbox"
-                                            >
-                                                <input
-                                                    name="checkbox-5"
-                                                    type="checkbox"
-                                                    className="checkbox-custom"
-                                                />
-                                                <span className="checkbox-custom-dummy" />
-                                                Duplex
-                                            </label>
+                                            <Checkbox onChange={checkboxOnChange}>Duplex</Checkbox>
                                         </li>
                                         <li>
-                                            <label
-                                                className="checkbox-inline"
-                                                type="checkbox"
-                                            >
-                                                <input
-                                                    name="checkbox-5"
-                                                    type="checkbox"
-                                                    className="checkbox-custom"
-                                                />
-                                                <span className="checkbox-custom-dummy" />
-                                                Studio
-                                            </label>
+                                            <Checkbox onChange={checkboxOnChange}>Studio</Checkbox>
                                         </li>
                                         <li>
-                                            <label
-                                                className="checkbox-inline"
-                                                type="checkbox"
-                                            >
-                                                <input
-                                                    name="checkbox-5"
-                                                    type="checkbox"
-                                                    className="checkbox-custom"
-                                                />
-                                                <span className="checkbox-custom-dummy" />
-                                                Officetel
-                                            </label>
+                                            <Checkbox onChange={checkboxOnChange}>Officetel</Checkbox>
                                         </li>
                                     </ul>
                                 </div>
