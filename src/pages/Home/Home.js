@@ -18,7 +18,7 @@ import { CardSaleFlash, CardOverView, CardHotProduct } from "./Layout/index";
 import Maps from "../../components/common/Map";
 import ListProject from "./AppManagerment/ListProject";
 import Name from "./AppManagerment/Name";
-
+import Dowload from "./AppManagerment/DownloadApp";
 import DownloadApp from "./AppManagerment/DownloadApp";
 import Picture from "./AppManagerment/Picture";
 
