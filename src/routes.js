@@ -77,7 +77,7 @@ const MAIN = [
         "banner_show": true
     },
     {
-        "path": "/projectDetail",
+        "path": "/project/:id",
         "component": ProjectDetail,
         "banner_title": "projectDetail_banner_title",
         "banner_url": projectDetail_banner_url,
@@ -140,7 +140,7 @@ const MAIN = [
         "banner_show": true
     },
     {
-        "path": "/flashSaleList",
+        "path": "/flashsale",
         "component": FlashSaleList,
         "banner_title": "flashSaleList_banner_title",
         "banner_url": flashSaleList_banner_url,
