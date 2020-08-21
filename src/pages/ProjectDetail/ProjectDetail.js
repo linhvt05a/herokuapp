@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ApartmentSlider from './Slider/ApartmentSlider';
+import ApartmentSlider from './Slider';
 import SideBar from './SideBar';
 import SalesAccordion from './SalesAccordion';
 

@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import TabInSlider from './Tabs';
+import Tabs from './Tabs';
 
-class ApartmentSlider extends Component {
+class Slider extends Component {
 
     render() {
         return (
             <div className="apartment_slider selectApartment">
-                <TabInSlider/>
+                <Tabs/>
             </div>
         )
     }
 }
-export default ApartmentSlider  
+export default Slider

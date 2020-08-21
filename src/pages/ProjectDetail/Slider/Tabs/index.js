@@ -1,11 +1,16 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
-import SliderInTab from "./../SliderInTab";
+import SliderInTab from "./SliderInTab";
 
 const dataTabs = [
   {
     title: "image",
-    content: "./assets/images/living-room-area_01.jpg"
+    images: [
+      "https://via.placeholder.com/730x420",
+      "https://via.placeholder.com/730x420",
+      "https://via.placeholder.com/730x420",
+      "https://via.placeholder.com/730x420"
+    ]
   },
   {
     title: "2d",
@@ -85,7 +90,7 @@ TabContent.defaultProps = {
 };
 
 
-class TabInSlider extends React.Component {
+class Tabs extends React.Component {
   render() {
     return (
       <TabsWraper className="tabs-wrapper">
@@ -94,7 +99,11 @@ class TabInSlider extends React.Component {
           dataTabs.map((item, index) => {
             return (
               <TabContent key={index} active="true" title={item.title} >
-                <SliderInTab/>
+                <figure>
+                    <img className="w-100" src={item.content} alt="" />
+                </figure>
+
+                {/* <SliderInTab/> */}
               </TabContent>
             )
           })
@@ -104,4 +113,4 @@ class TabInSlider extends React.Component {
   }
 }
 
-export default TabInSlider;
+export default Tabs;
