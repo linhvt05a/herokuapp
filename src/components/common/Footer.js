@@ -112,14 +112,13 @@ function Footer() {
                                     <li>
                                         <Link to="/#">
                                             <i className="fas fa-envelope" />
-                                            minerval@gmail.com
+                                            info@minerva.vn
                                         </Link>
                                     </li>
                                     <li>
                                         <Link to="/#">
                                             <i className="fas fa-map-marker-alt" />
-                                            119 Pasteur, phường 6, quận
-                                            3,TPHCM
+                                            119 Pasteur, Phường 6, Quận 3, TPHCM
                                         </Link>
                                     </li>
                                 </ul>
@@ -145,37 +144,21 @@ function Footer() {
                                             name="email"
                                             placeholder="Email của bạn"
                                             rules={[
-                                            {
-                                                type: 'email',
-                                                message: 'E-mail không hợp lệ, vui lòng thử lại!',
-                                            },
-                                            {
-                                                required: true,
-                                                message: 'Vui lòng nhập E-mail của bạn!',
-                                            },
-                                            ]}
-                                        >
+                                                {
+                                                    type: 'email',
+                                                    message: 'E-mail không hợp lệ, vui lòng thử lại!',
+                                                },
+                                                {
+                                                    required: true,
+                                                    message: 'Vui lòng nhập E-mail của bạn!',
+                                                },
+                                            ]}>
                                             <Input className="form-control" placeholder="Email của bạn" />
                                         </Form.Item>
                                         <Button className="input-group-text" type="primary" htmlType="submit">
                                             ĐĂNG KÝ
                                         </Button>
                                     </Form>
-                                    {/* <div className="input-group" style={{marginTop: "20px"}}>
-                                        <input
-                                            type="text"
-                                            placeholder="Email của bạn"
-                                            className="form-control"
-                                        />
-                                        <div className="input-group-append">
-                                            <span className="input-group-text">
-                                                ĐĂNG KÝ
-                                            </span>
-                                        </div>
-                                        <div className="invalid-feedback">
-                                            Please choose a username.
-                                        </div>
-                                    </div> */}
                                     <ul className="list_social">
                                         <li>
                                             <Link to="/#">
