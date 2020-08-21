@@ -1,5 +1,5 @@
 //libs
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef , useLayoutEffect} from 'react';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Provider } from 'react-redux';
 import configureStore from './store';
@@ -16,25 +16,11 @@ import TopBanner from "./components/common/TopBanner";
 // import PageIndex from "./pages/index";
 
 import { MAIN, PATHS } from "./routes"
+import PagesWrapper from './Pages';
 
 
 const App = () => {
-
     const store = configureStore();
-    const [height, setHeight] = useState(0);
-    useEffect(() => {
-        const updateWindowDimensions = () => {
-            const newHeight = document.getElementsByClassName('header')[0].clientHeight;
-            setHeight(newHeight);
-        };
-        window.addEventListener("resize", updateWindowDimensions);
-        window.addEventListener("load", updateWindowDimensions);
-        return () => {
-            window.removeEventListener("resize", updateWindowDimensions);
-            window.removeEventListener("load", updateWindowDimensions);
-        }
-    }, []);
-
     return (
         <Provider store={store}>
             <Router>
@@ -42,19 +28,7 @@ const App = () => {
                 <Header />
                 <Notifi />
 
-                <div className="page_wrapper" style={{ paddingTop: height }}>
-
-                    <Switch >
-                        {MAIN.map((data, idx) => (
-                            <Route exact key={idx} path={data.path}>
-                                <TopBanner data={data} />
-                                <data.component />
-                            </Route>
-                        ))}
-                        <Route component={Error404} />
-                    </Switch>
-
-                </div>
+                <PagesWrapper />
 
                 <Footer />
                 <Chat />
