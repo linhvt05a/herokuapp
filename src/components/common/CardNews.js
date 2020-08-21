@@ -87,7 +87,6 @@ const NewsLoop = (props) =>{
                     </span>
                 </div>
             </div>
-    
         </div>
     
     )
