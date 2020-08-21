@@ -4,17 +4,17 @@ import { Slider, Switch } from 'antd';
 
 
 const Sliders = (props) => {
-  const {value, reverse, tooltipVisible, disabled, onChange} = props
+  const {value, reverse, tooltipVisible, disabled, onChange, range} = props
     return (
         <div className="slider-wrapper">
             <Slider 
-              range 
+              range ={range}
               defaultValue={value} 
               reverse={reverse} 
               tooltipVisible ={tooltipVisible} 
               disabled={disabled} 
               onChange={onChange}
-              style={{marginTop: -1}}
+              style={{marginTop: 0}}
             />
         </div>
     );

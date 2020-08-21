@@ -54,7 +54,7 @@ const News = () => {
                 <div className="row">
                     <div className="col-sm-12 col-md-12 col-lg-8 col-xl-8">
                         <div className="row_content">
-                            {news && news.map((news, index) => <RowNews data={news} />)}
+                            {news && news.map((news, index) => <RowNews data={news} key={news.id}/>)}
                         </div>
                         <ul className="pagination">
                             <Pagination dataPaging={paging}/>

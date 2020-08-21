@@ -20,7 +20,7 @@ const CardNews = (props) => {
             <div className="latest_news--content js_news slick-initialized slick-slider">
                 <div aria-live="polite" className="slick-list draggable">
                     <div className="slick-track" role="listbox" style={{ opacity: 1, width: 1134, left: 0}}>
-                        {latest_news && latest_news.map((data)=><NewsLoop item={data} />)}
+                        {latest_news && latest_news.map((data)=><NewsLoop item={data} key={data.id}/>)}
                     </div>
                 </div>
             </div>
@@ -33,7 +33,7 @@ const CardNews = (props) => {
 const NewsLoop = (props) =>{
     return (
             <div className="item slick-slide slick-current slick-active"  data-slick-index={0} aria-hidden="false"  tabIndex={-1}  role="option" 
-                    aria-describedby="slick-slide00" style={{ width: 354, marginTop: 20 }} key={props.id}>
+                    aria-describedby="slick-slide00" style={{ width: 354, marginTop: 20 }}>
                         <figure className="img">
                             <img
                                 className="w-100"
