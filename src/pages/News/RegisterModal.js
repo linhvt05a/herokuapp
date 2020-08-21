@@ -24,7 +24,7 @@ const RegisterModal = (props) =>{
   }
 
   return (
-          <Modal visible={true}  footer={null}>
+          <Modal visible={false}  footer={null}>
               <div  className="modal fade show" style={{ paddingRight: 15,display:'block'}}>
                 <div className="modal-dialog open" role="document" style={{ maxWidth: 395 }}>
                     <div className="modal-content">
