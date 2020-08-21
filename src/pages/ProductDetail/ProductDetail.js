@@ -3,7 +3,7 @@ import ApartmentSlider from './Slider';
 import SideBar from './SideBar';
 import SalesAccordion from './SalesAccordion';
 
-class ProjectDetail extends Component {
+class ProductDetail extends Component {
     render() {
         return (
             <div className="project_detail--apartment bg_grey">
@@ -30,4 +30,4 @@ class ProjectDetail extends Component {
         )
     }
 }
-export default ProjectDetail;
+export default ProductDetail;

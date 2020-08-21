@@ -3,6 +3,7 @@ import Home from "./pages/Home/Home";
 import Contact from "./pages/Contact/Contact";
 import Project from "./pages/Project/Project";
 import ProjectDetail from "./pages/Project/ProjectDetail";
+import ProductDetail from "./pages/ProductDetail/ProductDetail";
 import Introduce from "./pages/Introduce/Introduce";
 import News from "./pages/News/NewsList";
 import NewsDetail from "./pages/News/NewsDetail";
@@ -81,6 +82,11 @@ const MAIN = [
         "component": ProjectDetail,
         "banner_title": "projectDetail_banner_title",
         "banner_url": projectDetail_banner_url,
+        "banner_show": true
+    },
+    {
+        "path": "/product-detail",
+        "component": ProductDetail,
         "banner_show": true
     },
     {
