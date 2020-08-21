@@ -1,0 +1,30 @@
+import React, { useState } from "react";
+import PaginationPage from "react-js-pagination";
+ 
+const Pagination = (props) => {
+    let { dataPaging } = props;
+    const [activePage, setActivePage] = useState(dataPaging.currentPage);
+    const handlePageChange = (pageNumber) => {
+        // console.log(`active page is ${pageNumber}`);
+        setActivePage(pageNumber);
+    }
+    return (
+        <div>
+            <PaginationPage
+            itemClass="page-item"
+            linkClass="page-link"
+            activeLinkClass="active"
+            prevPageText={<i className="fas fa-angle-double-left " />}
+            nextPageText={<i className="fas fa-angle-double-right " />}
+            firstPageText='Đầu'
+            lastPageText='Cuối'
+            activePage={activePage}
+            itemsCountPerPage={dataPaging.itemOnPage}
+            totalItemsCount={dataPaging.totalItem}
+            pageRangeDisplayed={dataPaging.totalPage}
+            onChange={handlePageChange.bind(this)}
+            />
+        </div>
+    )
+}
+export default Pagination;

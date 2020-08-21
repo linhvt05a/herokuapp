@@ -1,5 +1,5 @@
 //libs
-import React from "react";
+import React, { useState, useEffect, useRef } from 'react';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Provider } from 'react-redux';
 import configureStore from './store';
@@ -9,56 +9,59 @@ import Footer from "./components/common/Footer";
 import Chat from "./components/common/Chat";
 
 //pages
-import Home from "./pages/Home/Home";
-import Contact from "./pages/Contact/Contact";
-import Project from "./pages/Project/Project";
-import ProjectDetail from "./pages/ProjectDetail/ProjectDetail";
-import Introduce from "./pages/Introduce/Introduce";
-import News from "./pages/News/NewsList";
-import NewsDetail from "./pages/News/NewsDetail";
-import RecruitmentList from "./pages/Recruitment/RecruitmentList";
-import RecruitmentDetail from "./pages/Recruitment/RecruitmentDetail";
-import ShoppingGuide from "./pages/ShoppingGuide/ShoppingGuide";
-import Juridical from "./pages/Juridical/Juridical";
-import Promotion from './pages/Promotion/Promotion'
-import Elements from "./pages/Elements/Elements";
-import Example from "./pages/Example";
-import Error404 from "./pages/Error/Error404";
 
-const store = configureStore()
+import { Error404 } from "./pages/Error"
+import Notifi from "./components/common/Notifi";
+import TopBanner from "./components/common/TopBanner";
+// import PageIndex from "./pages/index";
 
-class App extends React.Component {
-    render() {
-        return (
-            <Provider store={store}>
-                <Router>
-                    <Header />
-                    <Switch>
-                        <Route exact path="/" component={Home} />
-                        <Route exact path="/contact" component={Contact} />
-                        <Route exact path="/project" component={Project} />
-                        <Route exact path="/project-detail" component={ProjectDetail} />
-                        <Route exact path="/introduce" component={Introduce} />
-                        <Route exact path="/news" component={News} />
-                        <Route exact path="/news/1" component={NewsDetail} />
-                        <Route exact path="/recruitment" component={RecruitmentList} />
-                        <Route exact path="/recruitment/1" component={RecruitmentDetail} />
-                        <Route exact path="/shopping-guide" component={ShoppingGuide} />
-                        <Route exact path="/juridical" component={Juridical} />
-                        <Route exact path="/promotion" component={Promotion} />
-                        <Route exact path="/elements" component={Elements} />
-                        <Route exact path="/example" component={Example} />
+import { MAIN, PATHS } from "./routes"
+
+
+const App = () => {
+
+    const store = configureStore();
+    const [height, setHeight] = useState(0);
+    useEffect(() => {
+        const updateWindowDimensions = () => {
+            const newHeight = document.getElementsByClassName('header')[0].clientHeight;
+            setHeight(newHeight);
+        };
+        window.addEventListener("resize", updateWindowDimensions);
+        window.addEventListener("load", updateWindowDimensions);
+        return () => {
+            window.removeEventListener("resize", updateWindowDimensions);
+            window.removeEventListener("load", updateWindowDimensions);
+        }
+    }, []);
+
+    return (
+        <Provider store={store}>
+            <Router>
+
+                <Header />
+                <Notifi />
+
+                <div className="page_wrapper" style={{ paddingTop: height }}>
+
+                    <Switch >
+                        {MAIN.map((data, idx) => (
+                            <Route exact key={idx} path={data.path}>
+                                <TopBanner data={data} />
+                                <data.component />
+                            </Route>
+                        ))}
                         <Route component={Error404} />
                     </Switch>
 
-                    <Footer />
+                </div>
 
-                    {/* <Chat /> */}
+                <Footer />
+                <Chat />
 
-                </Router>
-            </Provider>
-        );
-    }
+            </Router>
+        </Provider>
+    );
 }
 
 export default App;

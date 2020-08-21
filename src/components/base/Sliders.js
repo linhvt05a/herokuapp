@@ -37,7 +37,7 @@ const PrettoSlider = withStyles({
 const Sliders = (props) => {
     return (
         <div className="slider-wrapper">
-            <PrettoSlider defaultValue={props.value} valueLabelDisplay={props.displayBox} style={{marginTop: -10}}/>
+            <PrettoSlider defaultValue={props.value} valueLabelDisplay={props.displayBox} style={{marginTop: -5}}/>
         </div>
     );
 }

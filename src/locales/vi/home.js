@@ -6,7 +6,9 @@ const home = {
     on_sale: "Đang bán",
     about_to_sell: "Sắp bán",
     project_list: "Danh sách dự án",
-    see_all: "Xem tất cả"
+    see_all: "Xem tất cả",
+    house_highlight: "Căn hộ nổi bật nhất",
+    hot_product: "Sản phẩm nổi bất nhất"
 }
 
 export default home;

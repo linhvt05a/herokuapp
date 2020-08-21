@@ -6,7 +6,6 @@ class ShoppingGuide extends React.Component {
     render() {
         return (
             <div className="projectPage">
-                <TopBanner />
                 <div className="direction_product">
                     <div className="container container-sm container-md">
                         <h3 className="main_heading">

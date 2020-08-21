@@ -1,7 +1,8 @@
 import Sliders from './Sliders'
 import Paginations from './Paginations';
 import ButtonCustom from './Button';
-import ModalCenter from './Modal';
+import InputCheckbox from './Input/InputCheckbox'
+import InputBase from './Input/InputBase'
 export {
-    Sliders, Paginations, ButtonCustom, ModalCenter
+    Sliders, Paginations, ButtonCustom, InputCheckbox, InputBase
 }

@@ -1,11 +1,12 @@
 import React from "react";
-import { ItemHeader, ItemProduct } from "../Item/index";
+import { ItemProduct, ItemTimeLine } from "../Item/index";
+import HeadingFilter from '../../../components/common/HeadingFilter'
 import CardNoData from "../../../components/common/CardNoData";
 import Slider from "react-slick";
 
 const CardSaleFlash = (props) => {
 
-    const { headerBodyClassName, labelHeader, datas, banner, detail, options, readmore } = props
+    const { headerBodyClassName, labelHeader, datas, banner, detail, options, readmore, timeLine } = props
     const settings = {
         infinite: true,
         slidesToShow: 3,
@@ -13,20 +14,25 @@ const CardSaleFlash = (props) => {
     };
 
     return (
-        <div className="striking_apartment label_filter bg_grey">
+        <div className="project_detail--list bg_grey sales_quick">
             <div className="container container-sm container-md">
-                <ItemHeader headerBodyClassName={headerBodyClassName} labelHeader={labelHeader} options={options ? options : undefined} readmore={readmore ? readmore : undefined} />
+                <HeadingFilter headerBodyClassName={headerBodyClassName} labelHeader={labelHeader} options={options ? options : undefined} readmore={readmore ? readmore : undefined} link="/flashsale" />
                 {
                     banner ? <img src="/assets/images/flashsale.png" style={{width: "100%", marginBottom: "40px"}}></img> : ""
                 }
-                <div className="striking_apartment--content">
+                {
+                    timeLine ? <ItemTimeLine datas={['2020-08-20T13:20:00', '2020-08-20T14:20:00', '2020-08-20T15:00:00', '2020-08-20T15:20:00', '2020-08-20T16:20:00']} /> : ""
+                }
+                <div className="striking_apartment--content jsSalesQuick">
                     {
                         (datas && datas.length > 0) ?
                             detail ?
                                 <div className="row">
                                     {
                                         datas.map((item, index) => (
-                                            <ItemProduct key={index} data={item} detail />
+                                            <div className="col-12 col-sm-12 col-md-6 col-lg-4 mb-3">
+                                                <ItemProduct key={index} data={item} detail />
+                                            </div>
                                         ))
                                     }
                                 </div> :
