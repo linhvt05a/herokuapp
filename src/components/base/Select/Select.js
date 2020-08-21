@@ -3,7 +3,7 @@ import { Trans } from 'react-i18next';
 import { Select, Form } from 'antd';
 
 const InputSelect = (props) => {
-    const { className, name, value, label, datas, placeholder,validSelect, onChange, isClear, classNameGroup, trans, require, onSearch, disabled, titleClassName } = props;
+    const { className, name, value, label,errors, style,datas, placeholder,validSelect, onChange, isClear, classNameGroup, trans, require, onSearch, disabled, titleClassName } = props;
     const { Option } = Select;
     return (
         <div className={className ? className : ''}>
@@ -20,7 +20,7 @@ const InputSelect = (props) => {
                     <Select
                         showSearch
                         onSearch={onSearch}
-                        style={{ width:  270, height: 48 }}
+                        style={{ width:  style, height: 48 }}
                         className="form-control"
                         onChange={onChange}
                         filterOption={(input, option) =>
@@ -32,7 +32,7 @@ const InputSelect = (props) => {
                         children={datas && datas.map((e, key) => {
                             return <Option name={name} key={key} value={e.value}>{trans ? <Trans>{e.label}</Trans> : e.label}</Option>;
                         })} /><br />
-                    <span style={{color: 'red', fontSize: 12}}><Trans>{validSelect}</Trans></span>   
+                        <span style={{color: 'red', fontSize: 12}}><Trans>{errors}</Trans></span>   
             </div>
             
         </div>

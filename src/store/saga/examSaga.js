@@ -12,6 +12,8 @@ export function* exampleList(payload) {
     try {
         const response = yield exampleService.list(token, search_name, status_id, setting_type);
         response.success ? yield put({ type: examAction.LOAD_LIST_SUCCESS, response }) : yield put({ type: examAction.LOAD_LIST_FAILURE, response });
+
+        console.log(response);
     } catch (err) {
         yield put({ type: examAction.LOAD_LIST_FAILURE, err });
     }

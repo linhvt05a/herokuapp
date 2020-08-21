@@ -1,19 +1,16 @@
 import React from "react";
+import { Trans } from "react-i18next";
 
-class TopBanner extends React.Component {
-    render() {
-        return (
-            <div
-                className="top_banner"
-                style={{
-                    backgroundImage: "url(./assets/images/project.jpg)",
-                    height: 350
-                }}
-            >
-                <h2 className="top_banner--heading" style={{marginTop: 40}}>Tin tức</h2>
-            </div>
-        );
-    }
+const TopBanner = (props) => {
+    let { data } = props;
+    // console.log(1, data)
+    return (
+        <div className={`top_banner ${data.banner_show ? '' : 'd-none'}`}
+            style={{ backgroundImage: `url("${data.banner_url}")` }}
+        >
+            <h2 className="top_banner--heading"><Trans>{data.banner_title}</Trans></h2>
+        </div>
+    )
 }
 
 export default TopBanner;

@@ -7,7 +7,6 @@ class RecruitmentDetail extends React.Component {
     render() {
         return (
             <div className="newsPage news">
-                <TopBanner />
                 <div className="recruitment--detail">
                     <div className="container container-sm container-md">
                         <h3 className="main_heading">

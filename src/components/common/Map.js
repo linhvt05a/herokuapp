@@ -14,12 +14,16 @@ L.Icon.Default.mergeOptions({
 });
 
 function MapLea(props) {
-    const position = [51.505, 0.09];
+    const position = [10.782504, 106.695931];
     return (
-        <Map center={position} zoom={13} style={{ height: "670px", zIndex: 0 }}>
+        <Map 
+            center={position} zoom={16} 
+            style={{ height: "670px", zIndex: 0 }}
+            attributionControl={false}
+            >
             <TileLayer
-                attribution="&amp;copy <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
             />
             <Marker position={position}>
                 <Popup>
