@@ -108,8 +108,46 @@
         .right{
         }
         .apartment_detail{
-            background-color: #fff;
             @include salesHeading();
+            .compare_price {
+                font-family: HelveticaNeue;
+                display: inline-flex;
+                align-items: center;
+                .num {
+                    opacity: 0.65;
+                    font-size: 24px;
+                    line-height: 1.21;
+                    text-align: center;
+                    text-decoration: line-through;
+                    color: #ffffff;
+                    margin-right: 15px;
+                }
+                .discount_label {
+                    padding: 5px 2px;
+                    border-radius: 2px;
+                    background-color: #e94c4c;
+                    font-size: 14px;
+                    color: #ffffff;
+                    line-height: 1.14;
+                    text-decoration: none;
+                }
+            }
+            .info {
+                background: #ffffff;
+                margin-bottom: 40px;
+                padding-bottom: 30px;
+            }
+            .see_bank_list {
+                margin-top: 20px;
+                border: 1px solid #e94c4c;
+                padding: 10px;
+                text-align: center;
+                a {
+                    color: #e94c4c;
+                    font-size: 14px;
+                    font-weight: bold;
+                }
+            }
             .info_1{ 
                 @include flexbox;
                 @include flex-wrap(wrap);

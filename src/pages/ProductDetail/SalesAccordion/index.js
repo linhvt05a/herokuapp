@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Collapse from './Accordion';
+import Accordion from './Accordion';
 
 const data = [
     {
@@ -46,6 +46,32 @@ const data = [
     },
     {
       id:2,
+      title: "Mặt bằng tầng và mặt bằng dự án",
+      paragraph : [
+        {
+          content: [
+            "./assets/images/living-room-area_01.jpg",
+            "https://via.placeholder.com/730x420",
+            "https://via.placeholder.com/730x420",
+            "https://via.placeholder.com/730x420",
+            "https://via.placeholder.com/730x420",
+            "https://via.placeholder.com/730x420",
+            "https://via.placeholder.com/730x420",
+          ]
+        }
+      ]
+    },
+    {
+      id: 3,
+      title: "Giới thiệu dự án và tiến độ",
+      paragraph : [
+        {
+          content: `<p>Khu VALLEN gồm 3 tòa căn hộ, được thiết kế hiện đại với 6 loại hình căn hộ từ 29 - 95m2, đáp ứng được mọi nhu cầu của khách hàng. Phân khu Sapphire 3 được đánh số thứ tự (tính từ tuyến đường sắt đô thị số 6 vào công viên trung tâm) lần lượt là S3.01, S3.02, S3.03.</p><iframe width="680" height="380" src="https://www.youtube.com/embed/P_TT76GGhbU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+        }
+      ]
+    },
+    {
+      id:4,
       title: "Tiện ích nội khu",
       paragraph : [
         {
@@ -84,27 +110,22 @@ const data = [
       ]
     },
     {
-      id:3,
-      title: "Mặt bằng tầng và mặt bằng dự án",
+      id:5,
+      title: "Ngân hàng hổ trợ liên kết",
       paragraph : [
         {
-          content: "content 4"
-        },
-        {
-          content: "content 5"
-        },
-        {
-          content: "content 6"
+          content: "Các ngân hàng đầy uy tính đã liên kết với chúng tôi trong việc cho bạn vay những khoản tiền phù hợp, để mua những sản phẩm của chúng tôi :"
         }
       ]
     }
+    
   ];
 
 class SalesAccordion extends Component {
     render() {
         return (
             <div>
-                <Collapse data={data}/>
+                <Accordion data={data}/>
             </div>
         )
     }

@@ -53,7 +53,7 @@ export default class SliderInTab extends Component {
                     itemImg.map((img, index) => {
                         return (
                             <figure key={index}>
-                            <img src={img} alt="" />
+                            <img src={img} alt="" height={55} />
                             </figure>
                         )
                         })

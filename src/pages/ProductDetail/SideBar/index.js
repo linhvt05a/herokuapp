@@ -6,11 +6,12 @@ import Info from './Info';
 const dataInfo = [
     {
         id: 1,
-        title01: "Giá niêm yết (đồng)",
-        gia_niemyet: 3000000000,
+        title01: "Giá niêm yết",
+        listed_price: 2044474800,
+        compare_price: 2198360000,
         content: [],
         title02: "Giá thông thủy",
-        gia_thongthuy: 50560000,
+        clearance_price: 50560000,
         title03: "Diện tích",
         dientich: 100,
         title04: "Hướng",
@@ -62,7 +63,7 @@ class SiderBar extends Component {
     render() {
         return (
             <div className="apartment_detail">
-                <Info dataInfo={dataInfo}/>
+                <Info dataInfo={dataInfo} />
                 <Insentives />
             </div>
         )

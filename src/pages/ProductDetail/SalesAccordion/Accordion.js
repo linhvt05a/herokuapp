@@ -1,4 +1,6 @@
 import React from "react";
+import Parser from 'html-react-parser';
+import TabsSlider from "../TabsSlider";
 
 class Accordion extends React.Component {
   render() {
@@ -64,6 +66,30 @@ class AccordionItem extends React.Component {
                   <div className="row">
                     {
                       paragraph.map((item,index) => (
+                        <div className="col-sm-12 col-sm-12 col-md-12" key={index}>
+                          <TabsSlider/>
+                        </div>
+                      ))
+                    }
+                  </div>
+                </div> :
+                id===3 ?
+                <div className="list_style_01">
+                  <div className="row">
+                    {
+                      paragraph.map((item,index) => (
+                        <div className="col-sm-12 col-sm-12 col-md-12" key={index}>
+                          {Parser(item.content)}
+                        </div>
+                      ))
+                    }
+                  </div>
+                </div> :
+                id===4 ?
+                <div className="list_style_01">
+                  <div className="row">
+                    {
+                      paragraph.map((item,index) => (
                         <div className="col-12 col-sm-6 col-sm-6 col-md-4" key={index}>
                           <p className="list_style_02--item" key={index}>{item.content}</p>
                         </div>
@@ -75,8 +101,8 @@ class AccordionItem extends React.Component {
                   <div className="row">
                     {
                       paragraph.map((item,index) => (
-                        <div className="col-12 col-sm-6 col-sm-6 col-md-4" key={index}>
-                          <p className="list_style_01--item" key={index}>{item.content}</p>
+                        <div className="col-sm-12 col-sm-12 col-md-12" key={index}>
+                          <p key={index}>{item.content}</p>
                         </div>
                       ))
                     }
