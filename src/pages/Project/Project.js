@@ -6,7 +6,11 @@ import Pagination from '../../components/common/Pagination';
 import FilterProject from '../../components/common/FilterProject';
 
 
-const Contact = (props) => {
+const Project = (props) => {
+
+    const data = [20, 60]
+    const data1 = [10, 80]
+
     const [paging, setPaging] = useState({
         totalItem: 18,
         currentPage:  2,
@@ -38,4 +42,4 @@ const Contact = (props) => {
         </div>
     )
 }
-export default Contact;
+export default Project;
