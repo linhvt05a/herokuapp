@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import TopBanner from "../../components/common/TopBanner";
 import { Categories, FilterProject } from '../News/index'
-import Pagination from '../../components/common/Pagination'
 import RegisterModal from "./RegisterModal";
 import { Trans } from "react-i18next";
+import Pagination from '../../components/common/Pagination';
 
 const data = { img: 'project.jpg' }
 const news =
@@ -39,6 +39,12 @@ const news =
         }
     ]
 const News = () => {
+    const [paging, setPaging] = useState({
+        totalItem: 18,
+        currentPage:  2,
+        totalPage: 5,
+        itemOnPage: 6
+    });
     return (
         <div className="news">
             <div className="container container-sm container-md">
@@ -50,7 +56,9 @@ const News = () => {
                         <div className="row_content">
                             {news && news.map((news, index) => <RowNews data={news} />)}
                         </div>
-                        <Pagination total_page={20} total_record={4} page={1} />
+                        <ul className="pagination">
+                            <Pagination dataPaging={paging}/>
+                        </ul>
                     </div>
                     <div className="col-md-12 col-lg-4 col-xl-4 col-right_news mb-sm-3 mb-0">
                         <Categories />

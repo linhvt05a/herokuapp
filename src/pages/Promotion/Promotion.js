@@ -72,6 +72,12 @@ const promotions =
         }
     ]
 const Promotion = () => {
+    const [paging, setPaging] = useState({
+        totalItem: 18,
+        currentPage:  2,
+        totalPage: 5,
+        itemOnPage: 6
+    });
     return (
         <div className="homePage">
             <CardSaleFlash headerBodyClassName="label_filter--heading" labelHeader="flash_sale" datas={["a", "iu", "e", "vl", "wa", "di"]} banner readmore timeLine />
@@ -94,7 +100,9 @@ const Promotion = () => {
                                 </div>
                             </div>
                         </div>
-                        <Pagination total_page={20} total_record={4} page={1}/>
+                        <ul className="pagination">
+                            <Pagination dataPaging={paging}/>
+                        </ul>
                     </div>
                 </div>
             </div>
