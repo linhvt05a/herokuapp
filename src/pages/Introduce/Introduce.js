@@ -7,8 +7,6 @@ class Introduce extends React.Component {
     render() {
         return (
             <div className="introducePage">
-                <TopBanner />
-
                 {/* introduce_overview  */}
                 <div className="introduce_overview">
                     <div className="container container-sm container-md">

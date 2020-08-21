@@ -13,24 +13,12 @@ const Contact = (props) => {
     const data = [20, 60]
     const data1 = [10, 80]
 
-    const dataTopBanner = { img: "project.jpg", title: "Dự án"} ;
-
-    const [height, setHeight] = useState(120);
-
     const [paging, setPaging] = useState({
         totalItem: 18,
         currentPage:  2,
         totalPage: 5,
         itemOnPage: 6
     });
-    useEffect(() => {
-        const updateWindowDimensions = () => {
-          const newHeight = document.getElementsByClassName('header')[0].clientHeight;
-          setHeight(newHeight);
-        };
-        window.addEventListener("resize", updateWindowDimensions);
-        return () => window.removeEventListener("resize", updateWindowDimensions) 
-    }, []);
 
     const handleChangeProvince = (value) => {
         console.log(`Province ${value}`);
@@ -47,10 +35,8 @@ const Contact = (props) => {
     const checkboxOnChange = e => {
         console.log(`checkbox = ${e.target.checked}`);
     }
-
     return (
-        <div className="projectPage" style={{paddingTop: height}}>
-            <TopBanner data={dataTopBanner}/>
+        <div className="projectPage">
             <div className="project_page bg_grey">
                 <div className="project_page--filter">
                     <div className="container container-sm container-md">
@@ -102,7 +88,7 @@ const Contact = (props) => {
                                                 Phạm vi giá (tỷ đồng)
                                             </label>
                                             <div className="slider-wrapper">
-                                                <Sliders value={data} displayBox="on"/>
+                                                <Sliders value={data} displayBox="on" />
                                             </div>
                                         </div>
                                     </div>
@@ -112,7 +98,7 @@ const Contact = (props) => {
                                                 Diện tích (m2)
                                             </label>
                                             <div className="slider-wrapper">
-                                                <Sliders value={data} displayBox="on"/>
+                                                <Sliders value={data} displayBox="on" />
                                             </div>
                                         </div>
                                     </div>

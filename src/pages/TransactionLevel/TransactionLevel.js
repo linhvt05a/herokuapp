@@ -9,23 +9,8 @@ const TransactionLevel = (props) => {
     const data = [20, 60]
     const data1 = [10, 80]
 
-    const dataImg = "banner_exchanges.png";
-    const type = 1;
-    const [height, setHeight] = useState(50);
-    useEffect(() => {
-        const updateWindowDimensions = () => {
-          const newHeight = document.getElementsByClassName('header')[0].clientHeight;
-          setHeight(newHeight);
-        };
-        window.addEventListener("resize", updateWindowDimensions);
-        return () => window.removeEventListener("resize", updateWindowDimensions) 
-    }, []);
-
     return (
-        <div className="projectDetailPage" style={{paddingTop: height}}>
-            <TopBannerDetail dataImg={dataImg} type={type}/>
-            
-        </div>
+        <div className="projectDetailPage"></div>
     )
 }
 export default TransactionLevel;

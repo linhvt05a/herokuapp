@@ -1,21 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import TopBanner from "../../components/common/TopBanner";
 
 class Juridical extends React.Component {
     render() {
         return (
             <div className="projectPage">
-                <TopBanner />
-                <div
-                    className="top_banner"
-                    style={{
-                        backgroundImage: "url(./assets/images/juridical.jpg)",
-                    }}
-                >
-                    <h2 className="top_banner--heading">Nội dung pháp lý</h2>
-                </div>
+
                 <div className="juridical">
                     <div className="container container-sm container-md">
                         <h3 className="main_heading">

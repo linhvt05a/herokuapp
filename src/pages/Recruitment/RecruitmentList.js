@@ -7,7 +7,6 @@ class RecruitmentList extends React.Component {
     render() {
         return (
             <div className="newsPage news">
-                <TopBanner />
                 {/* block over  */}
                 <div className="overview">
                     <div className="container container-sm container-md">

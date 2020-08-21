@@ -38,7 +38,7 @@ const Elements = (props) => {
     };
 
     return (
-        <div className="container" style={{ paddingTop: '300px', paddingBottom: "100px" }}>
+        <div className="container">
             <div className="row">
 
                 <div className="col-12">
