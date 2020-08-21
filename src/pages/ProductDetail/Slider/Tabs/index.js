@@ -1,39 +1,65 @@
 import React, { Component } from "react";
-import Slider from "react-slick";
 import SliderInTab from "./SliderInTab";
 
 const dataTabs = [
   {
     title: "image",
-    images: [
+    content: [
+      "./assets/images/living-room-area_01.jpg",
+      "https://theorigami.vinhomes.vn/wp-content/uploads/2020/08/vinhomes-gay-an-tuong-voi-the-origami-2-400-can-ho-duoc-dat-mua-trong-3-ngay-4-768x430.jpg",
       "https://via.placeholder.com/730x420",
       "https://via.placeholder.com/730x420",
       "https://via.placeholder.com/730x420",
-      "https://via.placeholder.com/730x420"
+      "https://via.placeholder.com/730x420",
+      "https://via.placeholder.com/730x420",
     ]
   },
   {
     title: "2d",
-    content: "https://via.placeholder.com/730x420"
+    content: [
+      "https://theorigami.vinhomes.vn/wp-content/uploads/2020/08/vinhomes-gay-an-tuong-voi-the-origami-2-400-can-ho-duoc-dat-mua-trong-3-ngay-1-768x529.jpg",
+      "https://via.placeholder.com/730x420",
+      "https://via.placeholder.com/730x420",
+      "https://via.placeholder.com/730x420",
+      "https://via.placeholder.com/730x420",
+      "https://via.placeholder.com/730x420",
+      "https://via.placeholder.com/730x420",
+    ]
   },
   {
     title: "3d",
-    content: "./assets/images/living-room-area_01.jpg"
+    content: [
+      "https://theorigami.vinhomes.vn/wp-content/uploads/2020/08/vinhomes-gay-an-tuong-voi-the-origami-2-400-can-ho-duoc-dat-mua-trong-3-ngay-2-768x570.jpg",
+      "https://via.placeholder.com/730x420",
+      "https://via.placeholder.com/730x420",
+      "https://via.placeholder.com/730x420",
+      "https://via.placeholder.com/730x420",
+      "https://via.placeholder.com/730x420",
+      "https://via.placeholder.com/730x420",
+    ]
   },
   {
     title: "AR",
-    content: "https://via.placeholder.com/730x420"
+    content: [
+      "https://theorigami.vinhomes.vn/wp-content/uploads/2020/08/vinhomes-gay-an-tuong-voi-the-origami-2-400-can-ho-duoc-dat-mua-trong-3-ngay-3-768x433.jpg",
+      "https://via.placeholder.com/730x420",
+      "https://via.placeholder.com/730x420",
+      "https://via.placeholder.com/730x420",
+      "https://via.placeholder.com/730x420",
+      "https://via.placeholder.com/730x420",
+      "https://via.placeholder.com/730x420",
+    ]
   }
 ]
 
 class TabsWraper extends Component {
   constructor() {
     super();
-
     this.state = {
       activeIndex: 0
     };
   }
+
 
   handleOnClick(key, event) {
     event.preventDefault();
@@ -99,11 +125,7 @@ class Tabs extends React.Component {
           dataTabs.map((item, index) => {
             return (
               <TabContent key={index} active="true" title={item.title} >
-                <figure>
-                    <img className="w-100" src={item.content} alt="" />
-                </figure>
-
-                {/* <SliderInTab/> */}
+                  <SliderInTab itemImg={item.content}/>
               </TabContent>
             )
           })

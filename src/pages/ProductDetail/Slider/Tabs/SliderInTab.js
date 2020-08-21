@@ -18,35 +18,24 @@ export default class SliderInTab extends Component {
     }
     render() {
         const { nav1, nav2 } = this.state;
+        const {itemImg}= this.props;
         return (
             <div>
                 <Slider
                     asNavFor={nav2}
                     ref={slider => (this.slider1 = slider)}
                     className="apartment_slider-for"
-                    >
-                    <figure>
-                        <img src="./assets/images/living-room-area_01.jpg" alt="" />
-                    </figure>
-                    <figure>
-                        <img src="./assets/images/living-room-area_01.jpg" alt="" />
-                    </figure>
-                    <figure>
-                        <img src="./assets/images/living-room-area_01.jpg" alt="" />
-                    </figure>
-                    <figure>
-                        <img src="./assets/images/living-room-area_01.jpg" alt="" />
-                    </figure>
-                    <figure>
-                        <img src="./assets/images/living-room-area_01.jpg" alt="" />
-                    </figure>
-                    <figure>
-                        <img src="./assets/images/living-room-area_01.jpg" alt="" />
-                    </figure>
-                    <figure>
-                        <img src="./assets/images/living-room-area_01.jpg" alt="" />
-                    </figure>
-                </Slider>
+                  >
+                    {
+                    itemImg.map((img, index) => {
+                        return (
+                          <figure key={index}>
+                            <img src={img} alt="" />
+                          </figure>
+                        )
+                      })
+                    }
+                  </Slider>
                 <Slider
                     asNavFor={nav1}
                     ref={slider => (this.slider2 = slider)}
@@ -59,27 +48,15 @@ export default class SliderInTab extends Component {
                     autoplaySpeed={3000}
                     className="apartment_slider-nav"
                     >
-                    <figure>
-                        <img src="./assets/images/living-room-area_01.jpg" alt="" />
-                    </figure>
-                    <figure>
-                        <img src="./assets/images/living-room-area_01.jpg" alt="" />
-                    </figure>
-                    <figure>
-                        <img src="./assets/images/living-room-area_01.jpg" alt="" />
-                    </figure>
-                    <figure>
-                        <img src="./assets/images/living-room-area_01.jpg" alt="" />
-                    </figure>
-                    <figure>
-                        <img src="./assets/images/living-room-area_01.jpg" alt="" />
-                    </figure>
-                    <figure>
-                        <img src="./assets/images/living-room-area_01.jpg" alt="" />
-                    </figure>
-                    <figure>
-                        <img src="./assets/images/living-room-area_01.jpg" alt="" />
-                    </figure>
+                    {
+                    itemImg.map((img, index) => {
+                        return (
+                            <figure key={index}>
+                            <img src={img} alt="" />
+                            </figure>
+                        )
+                        })
+                    }
                 </Slider>
             </div>
         )
