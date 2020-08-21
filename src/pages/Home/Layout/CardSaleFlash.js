@@ -16,7 +16,7 @@ const CardSaleFlash = (props) => {
     return (
         <div className="project_detail--list bg_grey sales_quick">
             <div className="container container-sm container-md">
-                <HeadingFilter headerBodyClassName={headerBodyClassName} labelHeader={labelHeader} options={options ? options : undefined} readmore={readmore ? readmore : undefined} />
+                <HeadingFilter headerBodyClassName={headerBodyClassName} labelHeader={labelHeader} options={options ? options : undefined} readmore={readmore ? readmore : undefined} link="/flashsale" />
                 {
                     banner ? <img src="/assets/images/flashsale.png" style={{width: "100%", marginBottom: "40px"}}></img> : ""
                 }
@@ -30,7 +30,7 @@ const CardSaleFlash = (props) => {
                                 <div className="row">
                                     {
                                         datas.map((item, index) => (
-                                            <div className="col-12 col-sm-12 col-md-6 col-lg-4">
+                                            <div className="col-12 col-sm-12 col-md-6 col-lg-4 mb-3">
                                                 <ItemProduct key={index} data={item} detail />
                                             </div>
                                         ))

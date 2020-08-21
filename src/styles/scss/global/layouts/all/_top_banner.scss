@@ -5,6 +5,9 @@
     background-size: auto 100% ;
     background-position: top center;
     background-repeat: no-repeat;
+    @include flexbox;
+    @include align-items(center);
+    @include justify-content(center);
     &::before{
         position: absolute;
         content: '';
@@ -14,10 +17,7 @@
         height: 100%;
     }
     &--heading{
-        @include transform(translate(-50%,-50%));
-        position: absolute;
-        top: 50%;
-        left: 50%;
+        
         font-size: 40px;
         font-weight: normal;        
         color: #ffffff;

@@ -9,11 +9,6 @@ import Slider from "react-slick";
 const CardHotProduct = (props) => {
 
     const { headerBodyClassName, labelHeader, datas, detail, options } = props
-    const settings = {
-        infinite: true,
-        slidesToShow: 3,
-        slidesToScroll: 1
-    };
 
     return (
         <div className="project_detail--list bg_grey sales_quick">
@@ -26,11 +21,11 @@ const CardHotProduct = (props) => {
                             {
                                 datas.map((item, index) => (
                                     detail ?
-                                    <div key={index} className="col-12 col-sm-12 col-md-6 col-lg-4">
+                                    <div key={index} className="col-12 col-sm-12 col-md-6 col-lg-4 mb-3">
                                         <ItemProduct data={item} detail />
                                     </div> :
                                     index < 6 ?
-                                    <div key={index} className="col-12 col-sm-12 col-md-6 col-lg-4">
+                                    <div key={index} className="col-12 col-sm-12 col-md-6 col-lg-4 mb-3">
                                         <ItemProduct data={item} detail />
                                     </div> : ""
                                 ))

@@ -1,17 +1,13 @@
 import React from "react";
 
 const TopBanner = (props) => {
-
     let { data } = props;
+    // console.log(1, data)
     return (
-        <div
-            className="top_banner"
-            style={{
-                backgroundImage: "url(./assets/images/"+ data?.img +")",
-                height: 350
-            }}
+        <div className={`top_banner ${data.banner_show ? '' : 'd-none'}`}
+            style={{ backgroundImage: `url("${data.banner_url}")` }}
         >
-            <h2 className="top_banner--heading" style={{marginTop: 40}}>{data.title}</h2>
+            <h2 className="top_banner--heading">{data.banner_title}</h2>
         </div>
     )
 }

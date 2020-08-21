@@ -6,7 +6,6 @@ class Error404 extends React.Component {
     render() {
         return (
             <div className="error404Page">
-                <TopBanner />
                 <div className="container">
                     <div className="404-page pt-5 pb-5 text-center">
                         <figure>
