@@ -109,6 +109,26 @@
         }
         .apartment_detail{
             @include salesHeading();
+            .product_contact {
+                padding: 16px 30px;
+                h5 {
+                    font-weight: bold;
+                }
+                .address {
+                    font-size: 12px;
+                }
+                .contact_detail {
+                    li {
+                        font-size: 16px;
+                        font-weight: bold;
+                        a.tel {
+                            font-size: 18px;
+                            font-weight: bold;
+                            color: #e94c4c;
+                        }
+                    }
+                }
+            }
             .compare_price {
                 font-family: HelveticaNeue;
                 display: inline-flex;
@@ -140,9 +160,10 @@
             .see_bank_list {
                 margin-top: 20px;
                 border: 1px solid #e94c4c;
-                padding: 10px;
                 text-align: center;
                 a {
+                    padding: 10px;
+                    display: block;
                     color: #e94c4c;
                     font-size: 14px;
                     font-weight: bold;

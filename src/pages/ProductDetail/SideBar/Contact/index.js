@@ -3,14 +3,14 @@ import React, { Component } from 'react'
 export default class Contact extends Component {
     render() {
         return (
-            <div>
-                <h4>Dự Án Royal Garden</h4>
-                <p>17 đường D2, Phường 4, Quận Bình Thạnh, Tp.HCM</p>
-                <ul>
-                    <li>Hotline tư vấn:  012 345 567 89</li>
+            <div className="product_contact">
+                <h5>Dự Án Royal Garden</h5>
+                <p className="address">17 đường D2, Phường 4, Quận Bình Thạnh, Tp.HCM</p>
+                <ul className="contact_detail">
+                    <li>Hotline tư vấn:  <a className="tel" tel="01234556789">012 345 567 89</a></li>
                     <li>Liên hệ qua mạng xã hội : 
-                        <a href="/">a</a>
-                        <a href="/">b</a>
+                        <a href="./asset/images/icon_skype.png"><img src=""/></a>
+                        <a href="./asset/images/icon_message.png"><img src=""/></a>
                     </li>
                 </ul>
                 <p><a href="/">Chi tiết chính sách bán hàng</a></p>

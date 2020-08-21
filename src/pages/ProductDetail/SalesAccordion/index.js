@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Accordion from './Accordion';
+import Accordion from './Accordion/Accordion';
 
 const data = [
     {

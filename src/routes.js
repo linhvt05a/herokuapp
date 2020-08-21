@@ -170,13 +170,13 @@ const MAIN = [
         "banner_show": true,
         "banner_class": ''
     },
-    {
-        "path": "/hot_product/list",
-        "component": HotProduct,
-        "banner_title": "product_hot_product_banner_title",
-        "banner_url": product_banner_url,
-        "banner_show": true
-    },
+    // {
+    //     "path": "/hot_product/list",
+    //     "component": HotProduct,
+    //     "banner_title": "product_hot_product_banner_title",
+    //     "banner_url": product_banner_url,
+    //     "banner_show": true
+    // },
 ];
 
 export { MAIN }
