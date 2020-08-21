@@ -77,11 +77,11 @@ const MAIN = [
         "banner_show": true
     },
     {
-        "path": "/projectDetail",
+        "path": "/project/:id",
         "component": ProjectDetail,
         "banner_title": "projectDetail_banner_title",
         "banner_url": projectDetail_banner_url,
-        "banner_show": true
+        "banner_show": false
     },
     {
         "path": "/news",
@@ -116,7 +116,7 @@ const MAIN = [
         "component": TransactionLevel,
         "banner_title": "transactionLevel_banner_title",
         "banner_url": transactionLevel_banner_url,
-        "banner_show": true
+        "banner_show": false
     },
     {
         "path": "/shoppingGuide",
@@ -140,7 +140,7 @@ const MAIN = [
         "banner_show": true
     },
     {
-        "path": "/flashSaleList",
+        "path": "/flashsale",
         "component": FlashSaleList,
         "banner_title": "flashSaleList_banner_title",
         "banner_url": flashSaleList_banner_url,
