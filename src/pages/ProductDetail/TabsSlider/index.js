@@ -4,6 +4,7 @@ import TabContent from './TabContent';
 
 const dataTabs = [
   {
+    id: 1,
     title: "image",
     content: [
       "./assets/images/living-room-area_01.jpg",
@@ -16,6 +17,7 @@ const dataTabs = [
     ]
   },
   {
+    id: 2,
     title: "2d",
     content: [
       "./assets/images/living-room-area_01.jpg",
@@ -28,6 +30,7 @@ const dataTabs = [
     ]
   },
   {
+    id: 3,
     title: "3d",
     content: [
       "https://via.placeholder.com/730x420",
@@ -40,6 +43,7 @@ const dataTabs = [
     ]
   },
   {
+    id: 4,
     title: "AR",
     content: [
       "./assets/images/living-room-area_01.jpg",
@@ -75,7 +79,9 @@ class TabsWraper extends Component {
 
     return (
       <li key={key} className={this.state.activeIndex == key ? "active" : ""} onClick={this.handleOnClick.bind(this, key)}>
-        {tab.props.title}
+        {
+          tab.props.title == "image" ? <i class="icon fas fa-image"></i> : tab.props.title
+        }
       </li>
     );
   }

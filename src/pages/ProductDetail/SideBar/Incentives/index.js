@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import SidebarTab from './SidebarTab';
+import { Trans } from 'react-i18next';
 
 const dataTabs = [
     {
@@ -82,12 +83,12 @@ export default class index extends Component {
         return (
             <div className="incentives">
                 <div class="incentives__heading">
-                    Chính sách ưu đãi
+                    <Trans>Chính sách ưu đãi</Trans>
                 </div>
                 <SidebarTab dataTabs={dataTabs}/>
                 <div className="list_button d-flex">
-                    <a href="/" className="btn btn_green text-uppercase">MUA NGAY</a>
-                    <a href="/" className="btn btn_purple text-uppercase">NGÂN SÁCH</a>
+                    <a href="/" className="btn btn_green text-uppercase"><Trans>MUA NGAY</Trans></a>
+                    <a href="/" className="btn btn_purple text-uppercase"><Trans>NGÂN SÁCH</Trans></a>
                 </div>
             </div>
         )

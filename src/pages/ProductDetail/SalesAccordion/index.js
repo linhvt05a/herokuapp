@@ -100,7 +100,7 @@ const data = [
     }
   ];
 
-class SalesCollapse extends Component {
+class SalesAccordion extends Component {
     render() {
         return (
             <div>
@@ -109,4 +109,4 @@ class SalesCollapse extends Component {
         )
     }
 }
-export default SalesCollapse;
+export default SalesAccordion;
