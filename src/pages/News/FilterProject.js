@@ -18,22 +18,20 @@ const FilterProject = () =>{
                 <InputSelect placeholder="Tỉnh/Thành phố" datas ={province}/>
                 <InputSelect placeholder="Quận/Huyện" datas={district}/>
                 <InputSelect placeholder="Chọn tiến độ" datas={status}/>
-                {/*PHẠM VI GIÁ*/}
                 <div className="map_search--range">
                     <div className="range_item price">
                         <label className="label">
                             <Trans>Price range</Trans>
                             <br /><i>(tỷ đồng)</i>
                         </label>
-                            <Sliders value={data} displayBox="on"/>
+                            <Sliders value={[20, 50]} reverse ={true} tooltipVisible = {true} />
                     </div>
                     <div className="range_item area">
                         <label className="label"><Trans>Acreage</Trans><i> (m2)</i></label>
-                            <Sliders value={data1} displayBox="on"/>
+                        <Sliders value={[0, 50]} reverse ={true} tooltipVisible = {true}/>
                     </div>
                 </div>
                 <SearchByProject />
-            
     </div>
 
     )
