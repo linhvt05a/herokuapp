@@ -10,6 +10,7 @@ import Pagination from '../../components/common/Pagination';
 
 const Contact = (props) => {
 
+    const { Option } = Select
     const data = [20, 60]
     const data1 = [10, 80]
 
@@ -49,33 +50,33 @@ const Contact = (props) => {
                                 <div className="col-12 col-sm-12 col-md-4">
                                     <div className="form-group">
                                         <Select className="form-control" placeholder="Tỉnh/Thành phố" onChange={handleChangeProvince}>
-                                            <option selected disabled>Tỉnh/Thành phố</option>
-                                            <option value="0">TPHCM</option>
-                                            <option value="1">Hà Nội</option>
-                                            <option value="2">Đà Nẵng</option>
-                                            <option value="3">Bình Dương</option>
+                                            <Option selected disabled>Tỉnh/Thành phố</Option>
+                                            <Option value="0">TPHCM</Option>
+                                            <Option value="1">Hà Nội</Option>
+                                            <Option value="2">Đà Nẵng</Option>
+                                            <Option value="3">Bình Dương</Option>
                                         </Select>
                                     </div>
                                 </div>
                                 <div className="col-12 col-sm-12 col-md-4">
                                     <div className="form-group">
                                         <Select className="form-control" placeholder="Quận/Huyện" onChange={handleChangeDistrict}>
-                                            <option selected disabled>Quận/Huyện</option>
-                                            <option value="0">TPHCM</option>
-                                            <option value="1">Hà Nội</option>
-                                            <option value="2">Đà Nẵng</option>
-                                            <option value="3">Bình Dương</option>
+                                            <Option selected disabled>Quận/Huyện</Option>
+                                            <Option value="0">TPHCM</Option>
+                                            <Option value="1">Hà Nội</Option>
+                                            <Option value="2">Đà Nẵng</Option>
+                                            <Option value="3">Bình Dương</Option>
                                         </Select>
                                     </div>
                                 </div>
                                 <div className="col-12 col-sm-12 col-md-4">
                                     <div className="form-group">
                                         <Select className="form-control" placeholder="Chọn tiến độ" onChange={handleChangeProgress}>
-                                            <option selected disabled>Chọn tiến độ</option>
-                                            <option value="0">TPHCM</option>
-                                            <option value="1">Hà Nội</option>
-                                            <option value="2">Đà Nẵng</option>
-                                            <option value="3">Bình Dương</option>
+                                            <Option selected disabled>Chọn tiến độ</Option>
+                                            <Option value="0">TPHCM</Option>
+                                            <Option value="1">Hà Nội</Option>
+                                            <Option value="2">Đà Nẵng</Option>
+                                            <Option value="3">Bình Dương</Option>
                                         </Select>
                                     </div>
                                 </div>
