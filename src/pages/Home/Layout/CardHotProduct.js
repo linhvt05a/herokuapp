@@ -1,17 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import { Trans } from 'react-i18next';  
 import { Link } from "react-router-dom";
 import { ItemProduct } from "../Item/index";
-import HeadingFilter from '../../../components/common/HeadingFilter'
+import HeadingFilter from '../../../components/common/HeadingFilter';
 import CardNoData from "../../../components/common/CardNoData";
-import Slider from "react-slick";
+import Pagination from '../../../components/common/Pagination';
 
 const CardHotProduct = (props) => {
 
     const { headerBodyClassName, labelHeader, datas, detail, options } = props
+    const [paging, setPaging] = useState({
+        totalItem: 18,
+        currentPage:  2,
+        totalPage: 5,
+        itemOnPage: 6
+    });
 
     return (
-        <div className="project_detail--list bg_grey sales_quick">
+        <div className="striking_apartment label_filter bg_grey">
             <div className="container container-sm container-md">
                 <HeadingFilter headerBodyClassName={headerBodyClassName} labelHeader={labelHeader} options={options ? options : undefined} />
                 <div className="striking_apartment--content">
@@ -34,10 +40,16 @@ const CardHotProduct = (props) => {
                         <CardNoData />
                     }
                     {
-                        (options) &&
+                        options &&
                         <div className="text-center text-uppercase">
-                            <Link to="/" className="btn btn_purple"><Trans>see_all</Trans></Link>
+                            <Link to="/hot_product/list" className="btn btn_purple"><Trans>see_all</Trans></Link>
                         </div>
+                    }
+                    {
+                        detail &&
+                        <ul className="pagination">
+                            <Pagination dataPaging={paging}/>
+                        </ul>
                     }
                 </div>
             </div>

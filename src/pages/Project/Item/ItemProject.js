@@ -34,6 +34,9 @@ const ItemProject = (props) => {
                         </div>
                     </div>
                 </div>
+                <div class="icon_big_sale">
+                    <img src="./assets/images/icon_big_sale.png" />
+                </div>
             </div>
         </div>
     )

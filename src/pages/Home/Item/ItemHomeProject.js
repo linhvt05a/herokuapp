@@ -17,7 +17,7 @@ const ItemHomeProject = (props) => {
                         Đợt 1 : 02/04/2020 - 30/04/2020
                     </div>
                     <div className="heading__list-btn">
-                        <Link to="/#" className="btn btn_green">
+                        <Link to="/project/1" className="btn btn_green">
                             CHI TIẾT
                         </Link>
                         <Link to="/#" className="btn btn_white">
@@ -30,6 +30,9 @@ const ItemHomeProject = (props) => {
                 </div> */}
                 <div className="sell_status will_sell">
                     Sắp bán
+                </div>
+                <div class="icon_big_sale">
+                    <img src="./assets/images/icon_big_sale.png" />
                 </div>
             </div>
         </div>

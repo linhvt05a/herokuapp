@@ -1,14 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from "react-router-dom";
-import TopBanner from "../../components/common/TopBanner";
-import HeadingFilter from '../../components/common/HeadingFilter'
-import { ItemProject } from './Item/index'
 import {Sliders} from '../../components/base/index'
-import { Input, Select, Checkbox } from 'antd';
-import Pagination from '../../components/common/Pagination';
+import { Select, Checkbox } from 'antd';
+import { CardHotProduct } from '../Home/Layout/index'
 
-
-const Project = (props) => {
+const HotProduct = (props) => {
 
     const data = [20, 60]
     const data1 = [10, 80]
@@ -37,13 +33,10 @@ const Project = (props) => {
     }
     return (
         <div className="projectPage">
-            <div className="project_page bg_grey">
+            <div className="project_page hot_product bg_grey">
                 <div className="project_page--filter">
                     <div className="container container-sm container-md">
-                        <div
-                            className="map_search--content"
-                            style={{ maxWidth: "100%" }}
-                        >
+                        <div className="map_search--content" style={{ maxWidth: "100%" }} >
                             <h2 className="heading">Tìm kiếm dự án theo</h2>
                             <div className="row">
                                 <div className="col-12 col-sm-12 col-md-4">
@@ -140,24 +133,9 @@ const Project = (props) => {
                         </div>
                     </div>
                 </div>
-                <div className="project_page--list project_tab">
-                    <div className="container container-sm container-md">
-                        <HeadingFilter headerBodyClassName="project_list--heading" labelHeader="project_list" status />
-                        <div className="row project_list--content project_tab--content">
-                            <ItemProject />
-                            <ItemProject />
-                            <ItemProject />
-                            <ItemProject />
-                            <ItemProject />
-                            <ItemProject />
-                        </div>
-                        <ul className="pagination">
-                            <Pagination dataPaging={paging}/>
-                        </ul>
-                    </div>
-                </div>
+                <CardHotProduct headerBodyClassName="label_filter--heading" labelHeader="product_list_title" datas={["a", "iu", "e", "vl", "wa", "di", "test"]} detail />
             </div>
         </div>
     )
 }
-export default Project;
+export default HotProduct;
