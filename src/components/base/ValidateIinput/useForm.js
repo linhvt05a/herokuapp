@@ -16,7 +16,6 @@ const useForm = (initialValues, callback, validate) =>{
 
 	const handleSubmit = event => {
 		if (event) event.preventDefault()
-		// Only validate if the validate function is used
 		if (validate) {
 			setErrors(validate(values))
 		}

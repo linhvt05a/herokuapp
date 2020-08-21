@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import {Link} from 'react-router-dom';
 import {Sliders} from '../../components/base/index'
 import {InputSelect} from '../../components/base/Select/index'
 import { Trans } from 'react-i18next';
+import { useForm } from 'antd/lib/form/Form';
 const data = [20, 60]
 const data1 = [10, 80]
 const province = [{value:1, label :'--Select--'},{value:2, label :'TPHCM'}, {value:3, label :'Ha Noi'}, {value:4, label :'Hai Phong'}]
@@ -10,6 +11,17 @@ const district = [{value:1, label :'--Select--'},{value:2, label :'TPHCM'}, {val
 const status = [{value:1, label :'--Select--'},{value:2, label :'TPHCM'}, {value:3, label :'Ha Noi'}, {value:4, label :'Hai Phong'}]
 
 const FilterProject = () =>{
+    const [priceRange, setPrice] = useState([])
+    const [acreage, setAcreage] = useState([])
+
+    const changePrice = (e) =>{
+        setPrice(e)
+        console.log('priceRange',priceRange)
+    }
+    const changeAcreage =(e)=>{
+        setAcreage(e)
+        console.log('acreage',acreage)
+    }
     return(
         <div className="searchProject">
                 <div className="searchProject__title">
@@ -24,11 +36,11 @@ const FilterProject = () =>{
                             <Trans>Price range</Trans>
                             <br /><i>(tỷ đồng)</i>
                         </label>
-                            <Sliders value={0} reverse ={false} tooltipVisible = {true} range ={false}/>
+                        <Sliders  defaultValue={[10,0]} reverse ={false} tooltipVisible = {true} range ={true} onChange={changePrice}/>
                     </div>
                     <div className="range_item area">
                         <label className="label"><Trans>Acreage</Trans><i> (m2)</i></label>
-                        <Sliders value={0} reverse ={false} tooltipVisible = {true} range ={false}/>
+                        <Sliders  defaultValue={[0, 0]} reverse ={false} tooltipVisible = {true} range ={true} onChange={changeAcreage}/>
                     </div>
                 </div>
                 <SearchByProject />
