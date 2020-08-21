@@ -8,6 +8,7 @@ const ProjectDetail = (props) => {
 
     return (
         <div className="projectDetailPage">
+            <TopBannerDetail />
             <CardProjectList headerBodyClassName="label_filter--heading" labelHeader="Royal Garden" datas={["a", "iu", "e", "vl", "wa", "di", "test"]} />
         </div>
     )

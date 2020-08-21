@@ -81,7 +81,7 @@ const MAIN = [
         "component": ProjectDetail,
         "banner_title": "projectDetail_banner_title",
         "banner_url": projectDetail_banner_url,
-        "banner_show": true
+        "banner_show": false
     },
     {
         "path": "/news",
@@ -116,7 +116,7 @@ const MAIN = [
         "component": TransactionLevel,
         "banner_title": "transactionLevel_banner_title",
         "banner_url": transactionLevel_banner_url,
-        "banner_show": true
+        "banner_show": false
     },
     {
         "path": "/shoppingGuide",
