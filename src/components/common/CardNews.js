@@ -24,10 +24,10 @@ const CardNews = (props) => {
                 <h3 className="main_heading">
                 <Trans><span>LATEST NEWS</span></Trans>
                 </h3>
-                <Link to="/news" className="readmore">
+                <a href="/news" className="readmore">
                     <Trans><span>READ MORE</span></Trans>
                     <i className="icon fas fa-angle-double-right" />
-                </Link>
+                </a>
             </div>
             <Slider {...settings}>
                 {latest_news && latest_news.map((data)=> <NewsLoop item={data} key ={data.id}/>)}
@@ -40,52 +40,53 @@ const CardNews = (props) => {
     function NextArrow(props) {
         const { className, style, onClick } = props;
         return (
-          <div
+        <div
             className={className}
             style={{ ...style,  display: "block",backgroundColor:'gray' }}
             onClick={onClick}
-          />
+        />
         );
-      }
-      function PrevArrow(props) {
+    }
+
+    function PrevArrow(props) {
         const { className, style, onClick } = props;
         return (
-          <div
+        <div
             className={className}
             style={{ ...style, display: "block", backgroundColor:'gray'}}
             onClick={onClick}
-          />
+        />
         );
-      }
+    }
 }
 
 
 const NewsLoop = (props) =>{
     return (
         <div class="latest_news--content">
-                    <div className="item " style={{ width: 354, marginLeft: 10}}>
-        <figure className="img">
-            <img
-                className="w-100"
-                src={props.item.image}
-                alt="Mở bán khu biệt thự cao cấp ở Quận 7 , Tp.HCM"
-            />
-        </figure>
-        <div className="box">
-            <h4 className="name">
-                <a href="#" tabIndex={0}>
-                    {props.item.title}
-                </a>
-            </h4>
-            <div className="des">
-                {props.item.description}
+            <div className="item " style={{ width: 354, marginLeft: 10}}>
+                <figure className="img">
+                    <img
+                        className="w-100"
+                        src={props.item.image}
+                        alt="Mở bán khu biệt thự cao cấp ở Quận 7 , Tp.HCM"
+                    />
+                </figure>
+                <div className="box">
+                    <h4 className="name">
+                        <a href="#" tabIndex={0}>
+                            {props.item.title}
+                        </a>
+                    </h4>
+                    <div className="des">
+                        {props.item.description}
+                    </div>
+                    <span className="time">
+                        <i className="icon far fa-clock" />
+                        {props.item.time}
+                    </span>
+                </div>
             </div>
-            <span className="time">
-                <i className="icon far fa-clock" />
-                {props.item.time}
-            </span>
-        </div>
-        </div>
     
         </div>
     

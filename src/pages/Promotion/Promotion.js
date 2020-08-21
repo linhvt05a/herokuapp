@@ -81,15 +81,15 @@ const Promotion = () => {
     return (
         <div className="homePage">
             <CardSaleFlash headerBodyClassName="label_filter--heading" labelHeader="flash_sale" datas={["a", "iu", "e", "vl", "wa", "di"]} banner readmore timeLine />
-          
             <div className="overview" >
                 <div className="container container-sm container-md">
                     <h2 className="overview_heading">
                         <Trans>Offers and promotions</Trans>
                 <span className="sub">
-                            Tại đây chúng tôi cung cấp tới khách hàng thông tin về chương trình ưu
-                            đãi cập nhật mới nhất và hấp dẫn nhất khi mua bất động sản của chúng
-                            tôi
+                    <Trans>
+                        Here we provide customers with information about the program.
+                        Use the newest and most attractive update when buying their property
+                    </Trans>
                 </span>
                     </h2>
                     <div className="latest_news p-0 ">
@@ -111,7 +111,6 @@ const Promotion = () => {
     )
 }
 
-
 const RowPromotion = (props) => {
     return (
         <div className="col-12 col-sm-12 col-md-6 col-lg-4 d-flex flex-column" key={props.index}>
@@ -126,7 +125,7 @@ const RowPromotion = (props) => {
                     <div className="des">{props.data.description}</div>
                     <span className="time">
                         <i className="icon far fa-clock" />{props.data.time}
-                </span>
+                    </span>
                 </div>
             </div>
         </div>

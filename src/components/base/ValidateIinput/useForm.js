@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 
+const deFault  = [{value:'',label :'ffdfsdfsfsfsfsf'}]
 const useForm = (initialValues, callback, validate) =>{
     const [values, setValues] = useState(initialValues)
     const [errors, setErrors] = useState({}) 
@@ -30,9 +31,10 @@ const useForm = (initialValues, callback, validate) =>{
 		}))
     }
     const handleSelect = (value, option) => {
-		setValues(values=>({
-			...values, [option.name]: value
-		}))
+		
+			setValues(values=>({
+				...values, [option.name]: value
+			}))
     }
     return {
         handleChange, 
