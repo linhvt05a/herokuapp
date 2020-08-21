@@ -24,6 +24,7 @@ export default class SliderInTab extends Component {
                 <Slider
                     asNavFor={nav2}
                     ref={slider => (this.slider1 = slider)}
+                    arrows={false}
                     className="apartment_slider-for"
                   >
                     {

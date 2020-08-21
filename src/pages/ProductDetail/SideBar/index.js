@@ -1,127 +1,143 @@
 import React, { Component } from 'react'
 import Insentives from './Incentives';
 
+const dataInfo = [
+    {
+        id: 1,
+        title01: "Giá niêm yết (đồng)",
+        gia_niemyet: 3000000000,
+        content: [],
+        title02: "Giá thông thủy",
+        gia_thongthuy: 50560000,
+        title03: "Diện tích",
+        dientich: 100,
+        title04: "Hướng",
+        huong: "Đông Bắc"
+    },
+    {
+        id: 2,
+        title: "Thông tin chi tiết",
+        content: [
+            {
+                icon: '<i class="icon_label fas fa-couch"></i>',
+                room: "Phòng khách",
+                acreage: 36
+            },
+            {
+                icon: 'https://via.placeholder.com/10x10',
+                room: "Phòng ngủ 1",
+                acreage: 16
+            },
+            {
+                icon: 'https://via.placeholder.com/10x10',
+                room: "Phòng ngủ 2",
+                acreage: 16
+            },
+            {
+                icon: 'https://via.placeholder.com/10x10',
+                room: "Phòng ngủ 3",
+                acreage: 15
+            },
+            {
+                icon: 'https://via.placeholder.com/10x10',
+                room: "Phòng vệ sinh 1",
+                acreage: 6
+            },
+            {
+                icon: 'https://via.placeholder.com/10x10',
+                room: "Phòng vệ sinh 2",
+                acreage: 7
+            },
+            {
+                icon: 'https://via.placeholder.com/10x10',
+                room: "Ban công",
+                acreage: 4
+            }
+        ]
+    }
+];
 class SiderBar extends Component {
     render() {
         return (
             <div className="apartment_detail">
-                <div className="sales_heading">
-                    <span className="text">Giá niêm yết (đồng)
-                    <i className="icon_info fas fa-info-circle" />
-                    </span>
-                    <span className="number">3.000.000.000</span>
-                </div>
-                <div className="info_1">
-                    <div className="item">
-                    <span className="title">
-                        Giá thông thủy
-                        <i className="icon_info fas fa-info-circle" />
-                    </span>
-                    <span className="number water">
-                        50.560.000
-                    </span>
-                    <span className="unit">
-                        ( đồng/m<sup>2</sup> )
-                    </span>
-                    </div>
-                    <div className="item">
-                    <span className="title">
-                        Diện tích
-                        <i className="icon_info fas fa-info-circle" />
-                    </span>
-                    <span className="number acreage">
-                        100
-                    </span>
-                    <span className="unit">
-                        ( m<sup>2</sup> )
-                    </span>
-                    </div>
-                    <div className="item">
-                    <span className="title">
-                        Hướng
-                    </span>
-                    <span className="number direction">
-                        Đông Bắc
-                    </span>
-                    </div>
-                </div>
-                <div className="info_2">
-                    <div className="heading">Thông tin chi tiết</div>
-                    <table>
-                    <tbody><tr>
-                        <td className="icon">
-                            <i className="icon_label fas fa-couch" />
-                        </td>
-                        <td className="name">
-                            Phòng khách ( m<sup>2</sup> )
-                        </td>
-                        <td className="number">
-                            36
-                        </td>
-                        </tr>
-                        <tr>
-                        <td className="icon">
-                            <i className="icon_label fas fa-bed" />
-                        </td>
-                        <td className="name">
-                            Phòng ngủ 1 ( m<sup>2</sup> )
-                        </td>
-                        <td className="number">
-                            16
-                        </td>
-                        </tr>
-                        <tr>
-                        <td className="icon" />
-                        <td className="name">
-                            Phòng ngủ 2 ( m<sup>2</sup> )
-                        </td>
-                        <td className="number">
-                            16
-                        </td>
-                        </tr>
-                        <tr>
-                        <td className="icon" />
-                        <td className="name">
-                            Phòng ngủ 3 ( m<sup>2</sup> )
-                        </td>
-                        <td className="number">
-                            15
-                        </td>
-                        </tr>
-                        <tr>
-                        <td className="icon">
-                            <i className="icon_label fas fa-toilet-paper" />
-                        </td>
-                        <td className="name">
-                            Phòng vệ sinh 1 ( m<sup>2</sup> )
-                        </td>
-                        <td className="number">
-                            6
-                        </td>
-                        </tr>
-                        <tr>
-                        <td className="icon" />
-                        <td className="name">
-                            Phòng vệ sinh 2 ( m<sup>2</sup> )
-                        </td>
-                        <td className="number">
-                            7
-                        </td>
-                        </tr>
-                        <tr>
-                        <td className="icon">
-                            <i className="icon_label fas fa-band-aid" />
-                        </td>
-                        <td className="name">
-                            Ban công ( m<sup>2</sup> )
-                        </td>
-                        <td className="number">
-                            4
-                        </td>
-                        </tr>
-                    </tbody></table>
-                </div>
-                <Insentives/>
+                {
+                    dataInfo.map((infoItem, index) => (
+                        <div key={index}>
+                        {
+                            infoItem.id == 1 ? 
+                            <div>
+                                <div className="sales_heading">
+                                    <span className="text">{infoItem.title01}
+                                    <i className="icon_info fas fa-info-circle" />
+                                    </span>
+                                    <span className="number">{infoItem.gia_niemyet}</span>
+                                </div> 
+                                <div className="info_1">
+                                    <div className="item">
+                                        <span className="title">
+                                            {infoItem.title02}
+                                            <i className="icon_info fas fa-info-circle" />
+                                        </span>
+                                        <span className="number water">
+                                            {infoItem.gia_thongthuy}
+                                        </span>
+                                        <span className="unit">
+                                            ( đồng/m<sup>2</sup> )
+                                        </span>
+                                    </div>
+                                    <div className="item">
+                                        <span className="title">
+                                            {infoItem.title03}
+                                            <i className="icon_info fas fa-info-circle" />
+                                        </span>
+                                        <span className="number acreage">
+                                            {infoItem.dientich}
+                                        </span>
+                                        <span className="unit">
+                                            ( m<sup>2</sup> )
+                                        </span>
+                                    </div>
+                                    <div className="item">
+                                        <span className="title">
+                                            {infoItem.title04}
+                                        </span>
+                                        <span className="number direction">
+                                            {infoItem.huong}
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            : 
+                            <div className="info_2">
+                                <div className="heading">{infoItem.title}</div>
+                                <table>
+                                    <tbody>
+                                        {
+                                            infoItem.content.map((item, index) => {
+                                                return (
+                                                    <tr key={index}>
+                                                        <td className="icon">
+                                                        <i class="icon_label fas fa-couch"></i>
+                                                        </td>
+                                                        <td className="name">
+                                                            {item.room} ( m<sup>2</sup> )
+                                                    </td>
+                                                        <td className="number">
+                                                            {item.acreage}
+                                                        </td>
+                                                    </tr>
+                                                )
+                                            })
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        }
+                        </div>
+                    ))
+                }
+
+                <Insentives />
             </div>
         )
     }

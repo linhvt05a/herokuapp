@@ -81,6 +81,9 @@ export default class index extends Component {
     render() {
         return (
             <div className="incentives">
+                <div class="incentives__heading">
+                    Chính sách ưu đãi
+                </div>
                 <SidebarTab dataTabs={dataTabs}/>
                 <div className="list_button d-flex">
                     <a href="/" className="btn btn_green text-uppercase">MUA NGAY</a>

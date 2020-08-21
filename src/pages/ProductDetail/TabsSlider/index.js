@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import SliderInTab from "./SliderInTab";
+import TabContent from './TabContent';
 
 const dataTabs = [
   {
     title: "image",
     content: [
       "./assets/images/living-room-area_01.jpg",
-      "https://theorigami.vinhomes.vn/wp-content/uploads/2020/08/vinhomes-gay-an-tuong-voi-the-origami-2-400-can-ho-duoc-dat-mua-trong-3-ngay-4-768x430.jpg",
+      "https://via.placeholder.com/730x420",
       "https://via.placeholder.com/730x420",
       "https://via.placeholder.com/730x420",
       "https://via.placeholder.com/730x420",
@@ -17,7 +18,7 @@ const dataTabs = [
   {
     title: "2d",
     content: [
-      "https://theorigami.vinhomes.vn/wp-content/uploads/2020/08/vinhomes-gay-an-tuong-voi-the-origami-2-400-can-ho-duoc-dat-mua-trong-3-ngay-1-768x529.jpg",
+      "./assets/images/living-room-area_01.jpg",
       "https://via.placeholder.com/730x420",
       "https://via.placeholder.com/730x420",
       "https://via.placeholder.com/730x420",
@@ -29,7 +30,7 @@ const dataTabs = [
   {
     title: "3d",
     content: [
-      "https://theorigami.vinhomes.vn/wp-content/uploads/2020/08/vinhomes-gay-an-tuong-voi-the-origami-2-400-can-ho-duoc-dat-mua-trong-3-ngay-2-768x570.jpg",
+      "https://via.placeholder.com/730x420",
       "https://via.placeholder.com/730x420",
       "https://via.placeholder.com/730x420",
       "https://via.placeholder.com/730x420",
@@ -41,7 +42,7 @@ const dataTabs = [
   {
     title: "AR",
     content: [
-      "https://theorigami.vinhomes.vn/wp-content/uploads/2020/08/vinhomes-gay-an-tuong-voi-the-origami-2-400-can-ho-duoc-dat-mua-trong-3-ngay-3-768x433.jpg",
+      "./assets/images/living-room-area_01.jpg",
       "https://via.placeholder.com/730x420",
       "https://via.placeholder.com/730x420",
       "https://via.placeholder.com/730x420",
@@ -100,26 +101,10 @@ class TabsWraper extends Component {
   }
 }
 
-
-class TabContent extends Component {
+class TabsSlider extends React.Component {
   render() {
     return (
-      <div className={"wrap" + " wrap_" + (this.props.title) + (this.props.active ? " active" : "")}>
-        {this.props.children}
-      </div>
-    );
-  }
-}
-
-TabContent.defaultProps = {
-  active: false
-};
-
-
-class Tabs extends React.Component {
-  render() {
-    return (
-      <TabsWraper className="tabs-wrapper">
+      <TabsWraper className="apartment_slider selectApartment">
         {
 
           dataTabs.map((item, index) => {
@@ -135,4 +120,4 @@ class Tabs extends React.Component {
   }
 }
 
-export default Tabs;
+export default TabsSlider;

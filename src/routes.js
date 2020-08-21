@@ -87,7 +87,7 @@ const MAIN = [
     {
         "path": "/product-detail",
         "component": ProductDetail,
-        "banner_show": true
+        "banner_show": false
     },
     {
         "path": "/news",
