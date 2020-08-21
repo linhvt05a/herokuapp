@@ -3,36 +3,41 @@ import React, { Component } from "react";
 const ListProject = () => {
   const list = [
     {
+      id: 1,
       name: "Quản lý dự án",
       des:
         "Xây dựng các công trình bất động sản chất lượng, đạt chuẩn cao cấp và đáp ứng yêu cầu của bạn",
     },
     {
+      id: 2,
       name: "Quản lý dự án",
       des:
         "Xây dựng các công trình bất động sản chất lượng, đạt chuẩn cao cấp và đáp ứng yêu cầu của bạn",
     },
     {
+      id: 3,
       name: "Quản lý dự án",
       des:
         "Xây dựng các công trình bất động sản chất lượng, đạt chuẩn cao cấp và đáp ứng yêu cầu của bạn",
     },
     {
+      id: 4,
       name: "Quản lý dự án",
       des:
         "Xây dựng các công trình bất động sản chất lượng, đạt chuẩn cao cấp và đáp ứng yêu cầu của bạn",
     },
     {
+      id: 5,
       name: "Quản lý dự án",
       des:
         "Xây dựng các công trình bất động sản chất lượng, đạt chuẩn cao cấp và đáp ứng yêu cầu của bạn",
     },
     {
+      id: 6,
       name: "Quản lý dự án",
       des:
         "Xây dựng các công trình bất động sản chất lượng, đạt chuẩn cao cấp và đáp ứng yêu cầu của bạn",
     },
-
   ];
   return (
     <ul className="features">
