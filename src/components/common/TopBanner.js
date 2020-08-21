@@ -1,4 +1,5 @@
 import React from "react";
+import { Trans } from "react-i18next";
 
 const TopBanner = (props) => {
     let { data } = props;
@@ -7,7 +8,7 @@ const TopBanner = (props) => {
         <div className={`top_banner ${data.banner_show ? '' : 'd-none'}`}
             style={{ backgroundImage: `url("${data.banner_url}")` }}
         >
-            <h2 className="top_banner--heading">{data.banner_title}</h2>
+            <h2 className="top_banner--heading"><Trans>{data.banner_title}</Trans></h2>
         </div>
     )
 }
