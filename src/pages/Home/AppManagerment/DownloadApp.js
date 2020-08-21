@@ -5,7 +5,7 @@ class DownloadApp extends Component {
     return (
       <div className="stores">
         <div className="item">
-          <Link to="/#" className="heading">
+          <Link to="/playstore" className="heading">
             <i className="icon fab fa-google-play" />
             <p className="text">
               <span className="top">Tải ứng dụng từ</span>
@@ -17,7 +17,7 @@ class DownloadApp extends Component {
           </figure>
         </div>
         <div className="item">
-          <Link to="/#" className="heading">
+          <Link to="/appstore" className="heading">
             <i className="icon fab fa-apple" />
             <p className="text">
               <span className="top">Đã có sẳn trên</span>
