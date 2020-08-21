@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import HeadingFilter from '../../components/common/HeadingFilter'
 import { CardSaleFlash, CardOverView, CardHotProduct } from "./Layout/index";
 import Maps from "../../components/common/Map";
+import SlideHome from "./Layout/Slider/SlideHome"
 
 const news =
     [
@@ -55,34 +56,9 @@ const Home = (props) => {
             <div className="map">
                 <div className="map_origin">
                     <figure>
-                        {/* <img
-                            className="w-100"
-                            src="./assets/images/map.jpg"
-                            alt="Bạn muốn tìm dự án bất động sản của Minerva"
-                        /> */}
                         <Maps />
                     </figure>
-                    <div className="map_origin--content">
-                        <h1 className="heading text-center">
-                            Bạn muốn tìm dự án bất động sản của Minerva
-                        </h1>
-                        <div className="list_button d-flex justify-content-center">
-                            <Link
-                                to="/#"
-                                className="btn btn_white map_to"
-                                data-maptab="map_my-place"
-                            >
-                                VỊ TRÍ CỦA BẠN
-                            </Link>
-                            <Link
-                                to="/#"
-                                className="btn btn_green map_to"
-                                data-maptab="map_search"
-                            >
-                                TÌM KIẾM
-                            </Link>
-                        </div>
-                    </div>
+                    <SlideHome />
                 </div>
                 <div className="map_my-place map_tab">
                     <figure>
