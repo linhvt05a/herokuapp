@@ -41,112 +41,128 @@ const MAIN = [
         "component": Home,
         "banner_title": "home_banner_title",
         "banner_url": home_banner_url,
-        "banner_show": false
+        "banner_show": false,
+        "banner_class": ''
     },
     {
         "path": "/elements",
         "component": Elements,
         "banner_title": "elements_banner_title",
         "banner_url": elements_banner_url,
-        "banner_show": true
+        "banner_show": true,
+        "banner_class": ''
     },
     {
         "path": "/example",
         "component": Example,
         "banner_title": "example_banner_title",
         "banner_url": example_banner_url,
-        "banner_show": true
+        "banner_show": true,
+        "banner_class": ''
     },
     {
         "path": "/introduce",
         "component": Introduce,
         "banner_title": "introduce_banner_title",
         "banner_url": introduce_banner_url,
-        "banner_show": true
+        "banner_show": true,
+        "banner_class": ''
     },
     {
         "path": "/contact",
         "component": Contact,
         "banner_title": "contact_banner_title",
         "banner_url": contact_banner_url,
-        "banner_show": true
+        "banner_show": true,
+        "banner_class": ''
     },
     {
         "path": "/project",
         "component": Project,
         "banner_title": "project_banner_title",
         "banner_url": project_banner_url,
-        "banner_show": true
+        "banner_show": true,
+        "banner_class": ''
     },
     {
         "path": "/project/:id",
         "component": ProjectDetail,
         "banner_title": "projectDetail_banner_title",
         "banner_url": projectDetail_banner_url,
-        "banner_show": true
+        "banner_show": false,
+        "banner_class": ''
     },
     {
         "path": "/news",
         "component": News,
         "banner_title": "news_banner_title",
         "banner_url": news_banner_url,
-        "banner_show": true
+        "banner_show": true,
+        "banner_class": ''
     },
     {
         "path": "/NewsDetail",
         "component": NewsDetail,
         "banner_title": "newsDetail_banner_title",
         "banner_url": newsDetail_banner_url,
-        "banner_show": true
+        "banner_show": true,
+        "banner_class": ''
     },
     {
         "path": "/recruitmentList",
         "component": RecruitmentList,
         "banner_title": "recruitmentList_banner_title",
         "banner_url": recruitmentList_banner_url,
-        "banner_show": true
+        "banner_show": true,
+        "banner_class": ''
     },
     {
         "path": "/recruitmentDetail",
         "component": RecruitmentDetail,
         "banner_title": "recruitmentDetail_banner_title",
         "banner_url": recruitmentDetail_banner_url,
-        "banner_show": true
+        "banner_show": true,
+        "banner_class": ''
     },
     {
         "path": "/transactionLevel",
         "component": TransactionLevel,
         "banner_title": "transactionLevel_banner_title",
         "banner_url": transactionLevel_banner_url,
-        "banner_show": true
+        "banner_show": false,
+        "banner_class": ''
     },
     {
         "path": "/shoppingGuide",
         "component": ShoppingGuide,
         "banner_title": "shoppingGuide_banner_title",
         "banner_url": shoppingGuide_banner_url,
-        "banner_show": true
+        "banner_show": true,
+        "banner_class": ''
     },
     {
         "path": "/juridical",
         "component": Juridical,
         "banner_title": "juridical_banner_title",
         "banner_url": juridical_banner_url,
-        "banner_show": true
+        "banner_show": true,
+        "banner_class": ''
     },
     {
         "path": "/promotion",
         "component": Promotion,
         "banner_title": "promotion_banner_title",
         "banner_url": promotion_banner_url,
-        "banner_show": true
+        "banner_show": true,
+        "banner_class": ''
     },
     {
         "path": "/flashsale",
         "component": FlashSaleList,
         "banner_title": "flashSaleList_banner_title",
         "banner_url": flashSaleList_banner_url,
-        "banner_show": true
+        "banner_show": true,
+        "banner_class": ''
     },
     {
         "path": "/hot_product/list",

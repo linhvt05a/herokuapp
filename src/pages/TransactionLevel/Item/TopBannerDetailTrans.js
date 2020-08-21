@@ -4,7 +4,7 @@ import { Select } from 'antd';
 
 const TopBannerDetailTrans = (props) => {
 
-    let { dataImg, type } = props; 
+    let { dataImg } = props; 
     const onChangeProject = (value) => {
         console.log(`Chọn dự án ${value}`);
     }
@@ -18,7 +18,7 @@ const TopBannerDetailTrans = (props) => {
     }
 
     return (
-        <div class="top_banner--detail d-flex align-items-end" style={{backgroundImage: "url(../assets/images/"+ dataImg +")"}}>
+        <div class="top_banner--detail d-flex align-items-end" style={{backgroundImage: "url(../assets/images/banner_exchanges.png)"}}>
             <div class="container container-sm container-md d-flex justify-content-center">
                 <div class="project_detail--filter column-3">
                     <div class="row">

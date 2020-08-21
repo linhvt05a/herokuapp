@@ -4,7 +4,7 @@ import { Select } from 'antd';
 
 const TopBannerDetail = (props) => {
 
-    let { dataImg, type } = props; 
+    let { dataImg } = props; 
     const onChangeProject = (value) => {
         console.log(`Chọn dự án ${value}`);
     }
@@ -22,7 +22,7 @@ const TopBannerDetail = (props) => {
     }
 
     return (
-        <div class="top_banner--detail d-flex align-items-end" style={{backgroundImage: "url(../assets/images/"+ dataImg +")"}}>
+        <div class="top_banner--detail d-flex align-items-end" style={{backgroundImage: "url(../assets/images/VAP-tt-nha-dat-tang.jpg)"}}>
             <div class="container container-sm container-md">
                 <div class="project_detail--filter">
                     <div class="row">
@@ -59,7 +59,6 @@ const TopBannerDetail = (props) => {
                                 </Select>
                             </div>
                         </div>
-                        {type && type != 0 ? "" :
                         <div className="col-3">
                             <div className="form-group">
                                 <Select className="form-control hasIcon icon_product" placeholder="Loại sản phẩm" onChange={onChangeCategory}>
@@ -71,7 +70,6 @@ const TopBannerDetail = (props) => {
                                 </Select>
                             </div>
                         </div>
-                        }
                     </div>
                 </div>
             </div> 
