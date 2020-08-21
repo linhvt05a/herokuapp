@@ -27,20 +27,20 @@ const FilterProject = () =>{
                 <div className="searchProject__title">
                     <Trans>Search for projects by</Trans>
                 </div>
-                <InputSelect placeholder="Tỉnh/Thành phố" datas ={province}/>
-                <InputSelect placeholder="Quận/Huyện" datas={district}/>
-                <InputSelect placeholder="Chọn tiến độ" datas={status}/>
+                <InputSelect placeholder="Province" datas ={province}/>
+                <InputSelect placeholder="District" datas={district}/>
+                <InputSelect placeholder="Select progress" datas={status}/>
                 <div className="map_search--range" style={{marginTop: 70}}>
                     <div className="range_item price">
                         <label className="label">
                             <Trans>Price range</Trans>
-                            <br /><i>(tỷ đồng)</i>
+                            <br /><i><Trans>(bilions)</Trans></i>
                         </label>
-                        <Sliders  defaultValue={[10,0]} reverse ={false} tooltipVisible = {true} range ={true} onChange={changePrice}/>
+                        <Sliders  defaultValue={[10, 80]} reverse ={false} tooltipVisible = {true} range ={true} onChange={changePrice}/>
                     </div>
                     <div className="range_item area">
                         <label className="label"><Trans>Acreage</Trans><i> (m2)</i></label>
-                        <Sliders  defaultValue={[0, 0]} reverse ={false} tooltipVisible = {true} range ={true} onChange={changeAcreage}/>
+                        <Sliders  defaultValue={[10, 90]} reverse ={false} tooltipVisible = {true} range ={true} onChange={changeAcreage}/>
                     </div>
                 </div>
                 <SearchByProject />
@@ -49,7 +49,7 @@ const FilterProject = () =>{
 }
 
 const SearchByProject = () =>{
-    return <Link to="#" className="btn btn_green text-uppercase w-100">tìm kiếm</Link>
+    return <Link to="#" className="btn btn_green text-uppercase w-100"><Trans>SEARCH</Trans></Link>
 }
 
 export default FilterProject
