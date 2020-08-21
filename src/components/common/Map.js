@@ -17,7 +17,7 @@ function MapLea(props) {
     const position = [10.782504, 106.695931];
     return (
         <Map 
-            center={position} zoom={15} 
+            center={position} zoom={16} 
             style={{ height: "670px", zIndex: 0 }}
             attributionControl={false}
             >
