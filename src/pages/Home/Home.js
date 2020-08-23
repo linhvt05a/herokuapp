@@ -1,6 +1,7 @@
 <<<<<<< HEAD
 import React, { useState, useEffect } from "react";
 import { ItemHeader, ItemHomeProject } from "./Item/index";
+<<<<<<< HEAD
 
 import React, { useState, useEffect } from 'react';
 import { ItemHomeProject } from './Item/index'
@@ -22,6 +23,29 @@ import Dowload from "./AppManagerment/DownloadApp";
 import DownloadApp from "./AppManagerment/DownloadApp";
 import Picture from "./AppManagerment/Picture";
 
+=======
+=======
+import React, { useState, useEffect } from 'react';
+import { ItemHomeProject } from './Item/index'
+>>>>>>> develop
+import { Trans } from "react-i18next";
+import CardNews from '../../components/common/CardNews'
+import { Link } from "react-router-dom";
+<<<<<<< HEAD
+import HeadingFilter from "../../components/common/HeadingFilter";
+import { CardSaleFlash, CardNews, CardOverView } from "./Layout/index";
+=======
+import HeadingFilter from '../../components/common/HeadingFilter'
+import { CardSaleFlash, CardOverView, CardHotProduct } from "./Layout/index";
+>>>>>>> develop
+import Maps from "../../components/common/Map";
+import ListProject from "./AppManagerment/ListProject";
+import Name from "./AppManagerment/Name";
+
+import DownloadApp from "./AppManagerment/DownloadApp";
+import Picture from "./AppManagerment/Picture";
+
+>>>>>>> 1151db40998f0cc4cd2e481c9933312b32ef892c
 const news =
     [
         {
@@ -61,7 +85,11 @@ const news =
         }
     ]
 const Home = (props) => {
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+>>>>>>> 1151db40998f0cc4cd2e481c9933312b32ef892c
   const [height, setHeight] = useState(120);
   const headerRef = React.createRef();
   useEffect(() => {
@@ -87,7 +115,11 @@ const Home = (props) => {
         <div className="map_origin">
           <figure>
             {/* <img
+<<<<<<< HEAD
 
+=======
+=======
+>>>>>>> 1151db40998f0cc4cd2e481c9933312b32ef892c
 
     const options = [{ value: 1, label: "Căn hộ" }, { value: 2, label: "Biệt thự" }, { value: 3, label: "Chung cư" }]
 
@@ -98,6 +130,10 @@ const Home = (props) => {
                 <div className="map_origin">
                     <figure>
                         {/* <img
+<<<<<<< HEAD
+=======
+>>>>>>> develop
+>>>>>>> 1151db40998f0cc4cd2e481c9933312b32ef892c
                             className="w-100"
                             src="./assets/images/map.jpg"
                             alt="Bạn muốn tìm dự án bất động sản của Minerva"
@@ -174,7 +210,11 @@ const Home = (props) => {
                         </select>
                       </div>
                     </div>
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+>>>>>>> 1151db40998f0cc4cd2e481c9933312b32ef892c
                     <div className="col-12 col-sm-12 col-md-4">
                       <div className="form-group">
                         <select
@@ -190,7 +230,11 @@ const Home = (props) => {
                           <option value="WY">Wyoming</option>
                         </select>
                       </div>
+<<<<<<< HEAD
 
+=======
+=======
+>>>>>>> 1151db40998f0cc4cd2e481c9933312b32ef892c
                 </div>
             </div>
             {/*end block map  */}
@@ -213,7 +257,11 @@ const Home = (props) => {
                         <ItemHomeProject bodyClassName="col col-12 col-sm-4 col-md-4 col-xl-4" />
                         <ItemHomeProject bodyClassName="col col-12 col-sm-6 col-md-6 col-xl-6" />
                         <ItemHomeProject bodyClassName="col col-12 col-sm-6 col-md-6 col-xl-6" />
+<<<<<<< HEAD
 
+=======
+>>>>>>> develop
+>>>>>>> 1151db40998f0cc4cd2e481c9933312b32ef892c
                     </div>
                   </div>
                   <div className="map_search--range">
@@ -232,7 +280,11 @@ const Home = (props) => {
                         />
                       </div>
                     </div>
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+>>>>>>> 1151db40998f0cc4cd2e481c9933312b32ef892c
                     <div className="range_item area">
                       <label className="label">Diện tích (m2)</label>
                       <div className="slider-wrapper">
@@ -503,7 +555,11 @@ const Home = (props) => {
                       </span>
                     </p>
                   </div>
+<<<<<<< HEAD
 
+=======
+=======
+>>>>>>> 1151db40998f0cc4cd2e481c9933312b32ef892c
             {/* end contact  */}
 
             {/* striking apartment  */}
@@ -657,7 +713,7 @@ const Home = (props) => {
                             </div>
                         </div>
                     </div>
->>>>>>> develop
+
                 </div>
               </div>
               <div className="col-12 col-sm-12 col-md-6 col-lg-4">
