@@ -1,6 +1,6 @@
 import React from "react";
 import { SliderRange } from "../../components/base/Slider";
-import ButtonStyle from "../../components/base/Button";
+import {ButtonStyle} from "../../components/base/index";
 import InputCheckbox from "../../components/base/Input/InputCheckbox";
 import { Alert, Modal, Button, Checkbox, Input, Select, Row, Col, Group, Radio } from 'antd';
 

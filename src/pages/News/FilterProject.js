@@ -4,6 +4,8 @@ import {Sliders} from '../../components/base/index'
 import {InputSelect} from '../../components/base/Select/index'
 import { Trans } from 'react-i18next';
 import { useForm } from 'antd/lib/form/Form';
+import {ButtonStyle} from '../../components/base/index'
+
 const data = [20, 60]
 const data1 = [10, 80]
 const province = [{value:1, label :'--Select--'},{value:2, label :'TPHCM'}, {value:3, label :'Ha Noi'}, {value:4, label :'Hai Phong'}]
@@ -43,13 +45,10 @@ const FilterProject = () =>{
                         <Sliders  defaultValue={data1} reverse ={false} tooltipVisible = {true} range ={true} onChange={changeAcreage}/>
                     </div>
                 </div>
-                <SearchByProject />
+                <ButtonStyle className="btn btn_green text-uppercase w-100" href="#" label="SEARCH"/>
     </div>
     )
 }
 
-const SearchByProject = () =>{
-    return <Link to="#" className="btn btn_green text-uppercase w-100"><Trans>SEARCH</Trans></Link>
-}
 
 export default FilterProject
