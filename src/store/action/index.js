@@ -1,5 +1,7 @@
 import examAction from "./examAction"
+import productAction from "./productAction"
 
 export {
-  examAction
+  examAction,
+  productAction,
 };

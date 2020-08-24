@@ -3,7 +3,7 @@ import Home from "./pages/Home/Home";
 import Contact from "./pages/Contact/Contact";
 import Project from "./pages/Project/Project";
 import ProjectDetail from "./pages/Project/ProjectDetail";
-import ProductDetail from "./pages/ProductDetail/ProductDetail";
+import ProductDetail from "./pages/ProductDetail";
 import Introduce from "./pages/Introduce/Introduce";
 import News from "./pages/News/NewsList";
 import NewsDetail from "./pages/News/NewsDetail";
@@ -94,7 +94,7 @@ const MAIN = [
         "banner_class": ''
     },
     {
-        "path": "/product-detail",
+        "path": "/product-detail/:id",
         "component": ProductDetail,
         "banner_show": false
     },

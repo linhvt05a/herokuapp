@@ -13,6 +13,7 @@ export default {
     //EXAMPLE
     // EXAMPLE_LIST: "https://pokeapi.co/api/v2/pokemon/ditto",
     EXAMPLE_LIST: "/api/be/v1/project/",
+    PRODUCT_LIST: "/api/main_web/v1/infrastructure/product/detail",
 
 
     getHeader,
@@ -23,4 +24,3 @@ export default {
 
     CONTENT_TYPE
 };
-
