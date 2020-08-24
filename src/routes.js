@@ -3,7 +3,7 @@ import Home from "./pages/Home/Home";
 import Contact from "./pages/Contact/Contact";
 import Project from "./pages/Project/Project";
 import ProjectDetail from "./pages/Project/ProjectDetail";
-import Introduce from "./pages/Introduce/Introduce";
+import IntroducePage from "./pages/Introduce/Introduce";
 import News from "./pages/News/NewsList";
 import NewsDetail from "./pages/News/NewsDetail";
 import RecruitmentList from "./pages/Recruitment/RecruitmentList";
@@ -62,7 +62,7 @@ const MAIN = [
     },
     {
         "path": "/introduce",
-        "component": Introduce,
+        "component": IntroducePage,
         "banner_title": "introduce_banner_title",
         "banner_url": introduce_banner_url,
         "banner_show": true,
