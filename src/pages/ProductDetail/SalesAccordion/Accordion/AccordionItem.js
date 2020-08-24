@@ -1,6 +1,46 @@
 import React, { Component } from 'react';
 import Parser from 'html-react-parser';
 import TabsSlider from "../../TabsSlider";
+import MutiSlider from './../../../../components/common/MutiSlider';
+
+const dataImgs = [
+  {
+    id: 1,
+    img: "./assets/images/scb_logo.png",
+    width: 152,
+    height: 80
+  },
+  {
+    id: 2,
+    img: "./assets/images/vcb_logo.png",
+    width: 152,
+    height: 80
+  },
+  {
+    id: 3,
+    img: "./assets/images/tcb_logo.png",
+    width: 152,
+    height: 80
+  },
+  {
+    id: 4,
+    img: "./assets/images/acb_logo.png",
+    width: 152,
+    height: 80
+  },
+  {
+    id: 5,
+    img: "https://via.placeholder.com/177x93",
+    width: 152,
+    height: 80
+  },
+  {
+    id: 6,
+    img: "https://via.placeholder.com/177x93",
+    width: 152,
+    height: 80
+  }
+]
 
 class AccordionItem extends React.Component {
     state = {
@@ -84,6 +124,7 @@ class AccordionItem extends React.Component {
                         paragraph.map((item,index) => (
                           <div className="col-sm-12 col-sm-12 col-md-12" key={index}>
                             <p key={index}>{item.content}</p>
+                            <MutiSlider dataImgs={dataImgs}/>
                           </div>
                         ))
                       }

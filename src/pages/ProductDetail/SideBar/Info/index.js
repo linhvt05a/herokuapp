@@ -20,10 +20,9 @@ class Info extends Component {
                                             <span className="number">{infoItem.listed_price}<Trans>đ</Trans></span>
                                             <p className="compare_price">
                                                 <span className="num">{infoItem.compare_price}<Trans>đ</Trans></span>
-                                                <span className="discount_label"><Trans>Giảm 7%</Trans></span>
+                                                <span className="discount_label"><Trans>Giảm</Trans>7<Trans>%</Trans></span>
                                             </p>
                                         </div>
-                                        <Contact/>
                                         <div className="info_1">
                                             <div className="item">
                                                 <span className="title">
@@ -58,6 +57,7 @@ class Info extends Component {
                                                 </span>
                                             </div>
                                         </div>
+                                        <Contact/>
                                     </div>
                                     :
                                     <div className="info_2">
