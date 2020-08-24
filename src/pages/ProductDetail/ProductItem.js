@@ -14,14 +14,14 @@ const ProductItem = (props) => {
     
     return (
         data ?
-        <div className="project_detail--apartment bg_grey">
+        <div className="product_detail--apartment bg_grey">
             <div className="container container-sm container-md">
                 <h2 className="main_heading"><span>{data.address_house}</span></h2>
                 <div className="row">
                     <div className="col-12 col-sm-12 col-lg-8">
                         <div className="slider_in_tab">
                             <TimeLine datas={['00', '20', '35']} />
-                            <TabsSlider />
+                            <TabsSlider dataLayout={data.layout}/>
                             <Promotion />
                             <IconLikeDown />
                         </div>

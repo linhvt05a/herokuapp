@@ -109,6 +109,8 @@ class TabsWraper extends Component {
 
 class TabsSlider extends React.Component {
   render() {
+    const { dataLayout } = this.props;
+    console.log(dataLayout);
     return (
       <TabsWraper className="apartment_slider selectApartment">
         {
@@ -116,7 +118,7 @@ class TabsSlider extends React.Component {
           dataTabs.map((item, index) => {
             return (
               <TabContent key={index} active="true" title={item.title} >
-                  <SliderInTab itemImg={item.content}/>
+                  <SliderInTab itemImg={dataLayout}/>
               </TabContent>
             )
           })

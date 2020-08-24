@@ -18,10 +18,17 @@ export default class SliderInTab extends Component {
     }
     render() {
         const { nav1, nav2 } = this.state;
-        const {itemImg}= this.props;
+        const { itemImg }= this.props;
         return (
-            <div>
-                <Slider
+            itemImg ? <div>
+                {
+                    itemImg.layout_2d.map((item,index) => (
+                        <figure key={index}>
+                            <img src={item.image_2d_url} alt="" />
+                          </figure>
+                    ))
+                }
+                {/* <Slider
                     asNavFor={nav2}
                     ref={slider => (this.slider1 = slider)}
                     arrows={false}
@@ -49,13 +56,13 @@ export default class SliderInTab extends Component {
                     itemImg.map((img, index) => {
                         return (
                             <figure key={index}>
-                                 <img src={img} alt=""/>
+                                 <img src={img} alt="" height={80}/>
                             </figure>
                         )
                         })
                     }
-                </Slider>
-            </div>
+                </Slider> */}
+            </div> : ""
         )
     }
 }
