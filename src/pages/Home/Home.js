@@ -52,18 +52,29 @@ const Home = (props) => {
 
     const options = [{ value: 1, label: "Căn hộ" }, { value: 2, label: "Biệt thự" }, { value: 3, label: "Chung cư" }]
 
+    const [state, setState] = useState({
+        position: false,
+        search: false
+    });
+    const handlerButtonPosition = () => {
+        setState({...state, position: true})
+    }
+    const handlerButtonSearch = () => {
+        setState({...state, search: true})
+    }
+    
     return (
         <div className="homePage">
             {/* block map  */}
             <div className="map">
-                <div className="map_origin">
+                <div className="map_origin" style={{display : state.position || state.search ? "none" : ""}}>
                     <figure>
                         <Maps />
                     </figure>
-                    <LocationView />
+                    <LocationView HandlerPosition={handlerButtonPosition} HandlerSearch={handlerButtonSearch} />
                 </div>
-                <YourPosition />
-                <OnMapPoligon />
+                <YourPosition active={state}/>
+                <OnMapPoligon active={state}/>
             </div>
             {/*end block map  */}
 

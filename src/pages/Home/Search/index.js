@@ -1,5 +1,8 @@
-import OnMapPoligon from './OnMapPoligon'
+import OnMapPoligon from './OnMapPoligon';
+import ListSelect from './LeftContent/ListSelect';
+import InputRange from './LeftContent/InputRange';
+import ListCheckbox from './LeftContent/ListCheckbox';
 
 export {
-    OnMapPoligon
+    OnMapPoligon, ListSelect, InputRange, ListCheckbox
 }
