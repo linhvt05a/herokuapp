@@ -345,6 +345,7 @@ const Home = (props) => {
                     </div>
                 </div>
             </div>
+            
             {/*end block map  */}
 
             <CardSaleFlash headerBodyClassName="label_filter--heading" labelHeader="flash_sale" datas={["a", "iu", "e", "vl", "wa", "di"]} readmore timeLine />

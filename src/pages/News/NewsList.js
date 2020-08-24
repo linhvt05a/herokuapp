@@ -74,7 +74,7 @@ const News = () => {
 const RowNews = (props) => {
     return (
         <div className="card" >
-            <Link to="/" className="link"></Link>
+            <Link to="/NewsDetail" className="link"></Link>
             <div className="row ">
                 <div className="col-sm-12 col-md-5 col-xl-5 d-flex">
                     <div className="news__card--img">
