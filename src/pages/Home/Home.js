@@ -5,7 +5,7 @@ import CardNews from '../../components/common/CardNews'
 import { Link } from "react-router-dom";
 import HeadingFilter from '../../components/common/HeadingFilter'
 import { CardSaleFlash, CardOverView, CardHotProduct } from "./Layout/index";
-import Maps from "../../components/common/Map";
+import MapHome from "../../components/common/Map/MapHome";
 import { LocationView, YourPosition } from "./Location/index";
 import { OnMapPoligon } from "./Search/index";
 
@@ -62,14 +62,14 @@ const Home = (props) => {
     const handlerButtonSearch = () => {
         setState({...state, search: true})
     }
-    
+
     return (
         <div className="homePage">
             {/* block map  */}
             <div className="map">
                 <div className="map_origin" style={{display : state.position || state.search ? "none" : ""}}>
                     <figure>
-                        <Maps />
+                        <MapHome />
                     </figure>
                     <LocationView HandlerPosition={handlerButtonPosition} HandlerSearch={handlerButtonSearch} />
                 </div>

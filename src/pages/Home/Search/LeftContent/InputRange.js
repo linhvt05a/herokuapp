@@ -24,7 +24,7 @@ const InputRange = (props) => {
                     Phạm vi giá (tỷ đồng)
                 </label>
                 <div className="slider-wrapper">
-                    <Sliders value={data} reverse={false} tooltipVisible={true} range={false} onChange={changePrice} />
+                    <Sliders value={[10, 20]} onChange={changePrice} />
                 </div>
             </div>
             <div className="range_item area">
@@ -32,7 +32,7 @@ const InputRange = (props) => {
                     Diện tích (m2)
                 </label>
                 <div className="slider-wrapper">
-                    <Sliders value={data1} reverse={false} tooltipVisible={true} range={false} onChange={changeAcreage} />
+                    <Sliders value={[20, 80]} onChange={changeAcreage} />
                 </div>
             </div>
         </div>

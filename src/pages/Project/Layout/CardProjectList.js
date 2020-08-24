@@ -35,9 +35,7 @@ const CardProjectList = (props) => {
                                         }
                                     </div>
                                 </div>
-                                <ul className="pagination">
-                                    <Pagination dataPaging={paging}/>
-                                </ul>
+                                <Pagination dataPaging={paging}/>
                             </div>
                             <div class="col-12 col-sm-12 col-lg-4">
                                 <CardProjectFilter />

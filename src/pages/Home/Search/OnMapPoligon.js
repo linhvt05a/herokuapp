@@ -2,9 +2,11 @@ import React from 'react';
 import { Trans } from "react-i18next";
 import { Link } from "react-router-dom";
 import { ListSelect, InputRange, ListCheckbox } from "./index";
+import MapPoligon from "../../../components/common/Map/MapPoligon";
 
 const OnMapPoligon = props => {
     let { active } = props;
+    console.log(active);
     return (
         <div className={`map_search map_tab ${active.search == true ? "active" : "" }`}>
             <div className="container-fluid">
@@ -20,13 +22,7 @@ const OnMapPoligon = props => {
                         </div>
                     </div>
                     <div className="col-12 col-sm-12 col-md-12 col-xl-6 p-0">
-                        <figure
-                            className="has_bg"
-                            style={{
-                                backgroundImage:
-                                    "url(./assets/images/map_search.jpg)",
-                            }}
-                        ></figure>
+                        {active.search == true ? <MapPoligon /> : ''} 
                     </div>
                 </div>
             </div>

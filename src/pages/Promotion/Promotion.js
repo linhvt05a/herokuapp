@@ -100,9 +100,7 @@ const Promotion = () => {
                                 </div>
                             </div>
                         </div>
-                        <ul className="pagination">
-                            <Pagination dataPaging={paging}/>
-                        </ul>
+                        <Pagination dataPaging={paging}/>
                     </div>
                 </div>
             </div>

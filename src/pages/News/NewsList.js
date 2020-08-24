@@ -56,9 +56,7 @@ const News = () => {
                         <div className="row_content">
                             {news && news.map((news, index) => <RowNews data={news} key={news.id}/>)}
                         </div>
-                        <ul className="pagination">
-                            <Pagination dataPaging={paging}/>
-                        </ul>
+                        <Pagination dataPaging={paging}/>
                     </div>
                     <div className="col-md-12 col-lg-4 col-xl-4 col-right_news mb-sm-3 mb-0">
                         <Categories />
