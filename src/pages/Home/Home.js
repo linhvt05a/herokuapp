@@ -76,6 +76,7 @@ const Home = (props) => {
                 <YourPosition active={state}/>
                 <OnMapPoligon active={state}/>
             </div>
+            
             {/*end block map  */}
 
             <CardSaleFlash headerBodyClassName="label_filter--heading" labelHeader="flash_sale" datas={["a", "iu", "e", "vl", "wa", "di"]} readmore timeLine />
