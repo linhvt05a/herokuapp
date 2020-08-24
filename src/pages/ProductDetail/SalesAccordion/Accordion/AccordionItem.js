@@ -100,7 +100,8 @@ class AccordionItem extends React.Component {
                       {
                         paragraph.map((item,index) => (
                           <div className="col-sm-12 col-sm-12 col-md-12" key={index}>
-                            {Parser(item.content)}
+                            <p>{item.content}</p>
+                            <div class="embed-responsive embed-responsive-16by9">{Parser(item.video)}</div>
                           </div>
                         ))
                       }
