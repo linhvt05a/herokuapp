@@ -41,19 +41,15 @@ export default class SliderInTab extends Component {
                     asNavFor={nav1}
                     ref={slider => (this.slider2 = slider)}
                     slidesToShow={5}
-                    slidesToScroll={1}
                     swipeToSlide={true}
                     focusOnSelect={true}
-                    centerMode={true}
-                    autoplay={true}
-                    autoplaySpeed={3000}
                     className="apartment_slider-nav"
                     >
                     {
                     itemImg.map((img, index) => {
                         return (
                             <figure key={index}>
-                            <img src={img} alt="" height={55} />
+                                 <img src={img} alt=""/>
                             </figure>
                         )
                         })

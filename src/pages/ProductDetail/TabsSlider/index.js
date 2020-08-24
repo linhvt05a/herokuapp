@@ -8,12 +8,12 @@ const dataTabs = [
     title: "image",
     content: [
       "./assets/images/living-room-area_01.jpg",
-      "https://via.placeholder.com/730x420",
-      "https://via.placeholder.com/730x420",
-      "https://via.placeholder.com/730x420",
-      "https://via.placeholder.com/730x420",
-      "https://via.placeholder.com/730x420",
-      "https://via.placeholder.com/730x420",
+      "https://via.placeholder.com/800x460",
+      "https://via.placeholder.com/800x460",
+      "https://via.placeholder.com/800x460",
+      "https://via.placeholder.com/800x460",
+      "https://via.placeholder.com/800x460",
+      "https://via.placeholder.com/800x460",
     ]
   },
   {
@@ -21,25 +21,25 @@ const dataTabs = [
     title: "2d",
     content: [
       "./assets/images/living-room-area_01.jpg",
-      "https://via.placeholder.com/730x420",
-      "https://via.placeholder.com/730x420",
-      "https://via.placeholder.com/730x420",
-      "https://via.placeholder.com/730x420",
-      "https://via.placeholder.com/730x420",
-      "https://via.placeholder.com/730x420",
+      "https://via.placeholder.com/800x460",
+      "https://via.placeholder.com/800x460",
+      "https://via.placeholder.com/800x460",
+      "https://via.placeholder.com/800x460",
+      "https://via.placeholder.com/800x460",
+      "https://via.placeholder.com/800x460",
     ]
   },
   {
     id: 3,
     title: "3d",
     content: [
-      "https://via.placeholder.com/730x420",
-      "https://via.placeholder.com/730x420",
-      "https://via.placeholder.com/730x420",
-      "https://via.placeholder.com/730x420",
-      "https://via.placeholder.com/730x420",
-      "https://via.placeholder.com/730x420",
-      "https://via.placeholder.com/730x420",
+      "https://via.placeholder.com/800x460",
+      "https://via.placeholder.com/800x460",
+      "https://via.placeholder.com/800x460",
+      "https://via.placeholder.com/800x460",
+      "https://via.placeholder.com/800x460",
+      "https://via.placeholder.com/800x460",
+      "https://via.placeholder.com/800x460",
     ]
   },
   {
@@ -47,12 +47,12 @@ const dataTabs = [
     title: "AR",
     content: [
       "./assets/images/living-room-area_01.jpg",
-      "https://via.placeholder.com/730x420",
-      "https://via.placeholder.com/730x420",
-      "https://via.placeholder.com/730x420",
-      "https://via.placeholder.com/730x420",
-      "https://via.placeholder.com/730x420",
-      "https://via.placeholder.com/730x420",
+      "https://via.placeholder.com/800x460",
+      "https://via.placeholder.com/800x460",
+      "https://via.placeholder.com/800x460",
+      "https://via.placeholder.com/800x460",
+      "https://via.placeholder.com/800x460",
+      "https://via.placeholder.com/800x460",
     ]
   }
 ]
