@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from "react-redux";
 import { ItemHomeProject } from './Item/index'
 import { Trans } from "react-i18next";
 import CardNews from '../../components/common/CardNews'
@@ -6,6 +7,8 @@ import { Link } from "react-router-dom";
 import HeadingFilter from '../../components/common/HeadingFilter'
 import { CardSaleFlash, CardOverView, CardHotProduct } from "./Layout/index";
 import { MapHome } from "../../components/common/Map/index";
+import { projectAction } from "../../store/action/index";
+import CardNoData from '../../components/common/CardNoData';
 import { LocationView, YourPosition } from "./Location/index";
 import { OnMapPoligon } from "./Search/index";
 
@@ -48,17 +51,35 @@ const news =
         },
         
     ]
+
 const Home = (props) => {
 
     const options = [{ value: 1, label: "Căn hộ" }, { value: 2, label: "Biệt thự" }, { value: 3, label: "Chung cư" }]
-
+    const project = useSelector(state => state.projectReducer);
+    const isGetProjectListSuccess = project.projectList.success;
+    const projectList = isGetProjectListSuccess ? project.projectList.detail : null;
+    const dispatch = useDispatch();
     const [state, setState] = useState({
+        projectStatus: 3,
         position: false,
         search: false
     });
+
+    useEffect(() => {
+        dispatch(projectAction.loadProjectList({project_sale_status: state.projectStatus}));
+    }, []);
+
+    const onStatusClick = (e) => {
+        dispatch(projectAction.loadProjectList({project_sale_status: parseInt(e.target.name)}))
+        setState({
+            projectStatus: parseInt(e.target.name)
+        });
+    }
+
     const handlerButtonPosition = () => {
         setState({...state, position: true})
     }
+
     const handlerButtonSearch = () => {
         setState({...state, search: true})
     }
@@ -76,6 +97,7 @@ const Home = (props) => {
                 {state.position == true ? <YourPosition active={state}/> : ''}
                 <OnMapPoligon active={state}/>
             </div>
+
             {/*end block map  */}
 
             <CardSaleFlash headerBodyClassName="label_filter--heading" labelHeader="flash_sale" datas={["a", "iu", "e", "vl", "wa", "di"]} readmore timeLine />
@@ -87,15 +109,22 @@ const Home = (props) => {
             {/* project_list  */}
             <div className="project_list project_tab">
                 <div className="container container-sm container-md">
-                    <HeadingFilter headerBodyClassName="project_list--heading" labelHeader="project_list" status />
+                    <HeadingFilter headerBodyClassName="project_list--heading" labelHeader="project_list" status onStatusClick={onStatusClick} projectStatus={state.projectStatus} />
                     <div className="row project_list--content project_tab--content">
-                        <ItemHomeProject bodyClassName="col col-12 col-sm-6 col-md-7 col-xl-7" />
-                        <ItemHomeProject bodyClassName="col col-12 col-sm-6 col-md-5 col-xl-5" />
-                        <ItemHomeProject bodyClassName="col col-12 col-sm-4 col-md-4 col-xl-4" />
-                        <ItemHomeProject bodyClassName="col col-12 col-sm-4 col-md-4 col-xl-4" />
-                        <ItemHomeProject bodyClassName="col col-12 col-sm-4 col-md-4 col-xl-4" />
-                        <ItemHomeProject bodyClassName="col col-12 col-sm-6 col-md-6 col-xl-6" />
-                        <ItemHomeProject bodyClassName="col col-12 col-sm-6 col-md-6 col-xl-6" />
+                        {
+                            (projectList && projectList.length > 0) ? projectList.map((item, index) => (
+                                index < 7 &&
+                                <ItemHomeProject
+                                key={index}
+                                data={item}
+                                bodyClassName={
+                                    index === 0 ? "col col-12 col-sm-6 col-md-7 col-xl-7" :
+                                    index === 1 ? "col col-12 col-sm-6 col-md-5 col-xl-5" :
+                                    (index === 2 || index === 3 || index === 4) ? "col col-12 col-sm-4 col-md-4 col-xl-4" :
+                                    "col col-12 col-sm-6 col-md-6 col-xl-6"
+                                } />
+                            )) : <CardNoData />
+                        }
                     </div>
                     <div className="text-center text-uppercase mt-3">
                         <Link to="/#" className="btn btn_purple ml-auto mr-auto">

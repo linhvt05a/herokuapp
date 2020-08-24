@@ -1,8 +1,6 @@
-
-
-//shipping
-import { exampleService } from "./Example/Example"
+import { exampleService } from "./Example/example"
+import { projectService } from "./Project/project"
 
 export {
-    exampleService,
+    exampleService, projectService
 }

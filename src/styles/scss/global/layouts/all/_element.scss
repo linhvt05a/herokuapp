@@ -1269,7 +1269,8 @@ main {
             color: #e94c4c;
             padding: 12px 14px;
         }
-        .number {
+        .link {
+            color: #6d30ab;
         }
         .floor {
             display: inline-flex;
@@ -1304,7 +1305,15 @@ main {
             .icon {
                 margin: 0 4px;
             }
+            &_list{
+                @include flexbox;
+                @include align-items(center)
+            }
             .type {
+            }
+            .comment {
+                font-size: 16px;
+                color: #5480f9;
             }
             .bell {
                 font-size: 15px;

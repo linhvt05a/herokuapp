@@ -3,8 +3,8 @@ import {Modal} from 'antd';
 import {InputSelect} from '../../components/base/Select/index'
 import {InputBase} from '../../components/base/index'
 import { Trans } from 'react-i18next';
-import useForm from '../../components/base/ValidateIinput/useForm'
-import validate from '../../components/base/ValidateIinput/ValidateInput'
+import useForm from '../../components/base/ValidateInput/useForm'
+import validate from '../../components/base/ValidateInput/ValidateInput'
 import TextArea from '../../components/base/TextArea/TextArea'
 
 const project = [{value:"", label:'--Select--'},{value:1, label:'donalll'},{value:2, label:'cat'},{value:3, label:'dog'}]

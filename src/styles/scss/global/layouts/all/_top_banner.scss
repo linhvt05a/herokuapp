@@ -17,12 +17,12 @@
         height: 100%;
     }
     &--heading{
-        
         font-size: 40px;
         font-weight: normal;        
         color: #ffffff;
         width: 100%;
         text-align: center;
+        z-index: 1;
         @media(max-width: 767px){
           max-width: 80%;
         }
@@ -52,6 +52,15 @@
         background-size: cover;
         @media(max-width: 767px){
             height: 400px;
+        }
+    }
+    &.banner_flashsale{
+        height: 375px;
+        @media(max-width:767px){
+            height: 250px;
+        }
+        &::before{
+            display: none;
         }
     }
 }  
