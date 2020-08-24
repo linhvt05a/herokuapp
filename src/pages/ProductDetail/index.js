@@ -18,9 +18,7 @@ const ProductDetail = props => {
         <div className="album py-5 bg-light">
             <div className="container">
                 <div className="row">
-                    {data && data.length > 0 ? data.map((item, index) => {
-                        return <ProductItem key={index} data={item} index={index} />
-                    }) : null}
+                    <ProductItem data={data}/>
                 </div>
             </div>
         </div>

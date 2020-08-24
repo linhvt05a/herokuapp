@@ -1,4 +1,3 @@
-const name = 'CART_';
 const actions = {
 
     PRODUCT_LOAD_LIST: name + 'PRODUCT_LOAD_LIST',
