@@ -201,6 +201,25 @@
                 font-size: 26px;
             }
         }
+        .number_origin{
+            @include flex_center;
+            &_price{
+                opacity: 0.65;
+                font-size: 24px;
+                letter-spacing: 0.72px;
+                color: #ffffff;
+                font-style: normal;
+                text-decoration: line-through;
+            }
+            &_percent{
+                border-radius: 2px;
+                background-color: #e94c4c;
+                color: #ffffff;
+                font-style: normal;
+                padding: 2px 4px;
+                margin-left: 10px;
+            }
+        }
 
         .icon_info {
             font-size: 11px;

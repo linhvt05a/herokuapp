@@ -9,50 +9,10 @@
         padding:50px 0
     }
     &--left{
+        @include sliderDots;
         .slick-dots{
             position: absolute;
-            bottom: 23px;
-            li{
-                width: auto;
-                height: auto;
-                margin:0 6px;
-                button{
-                    border: 1px solid #fff;
-                    width: 12px;
-                    height: 12px;
-                    border-radius: 50%;
-                    padding: 0;
-                    position: relative;
-                    &:before{
-                        width: 6px;
-                        height: 6px;
-                        border-radius: 50%;
-                        background: #6d30ab;
-                        content: '';
-                        top: 50%;
-                        left: 50%;
-                        @include transform(translate(-50%,-50%))
-                    }
-                }
-                &.slick-active{
-                    button{
-                        background: #fff;
-                        border: 1px solid #6d30ab;
-                    }
-                }
-                
-            }
-        }
-        .slick-slide{
-            cursor: pointer;
-            img{
-                width: 100%;
-            }    
-        }
-        &.slick-dotted.slick-slider{
-            margin-bottom: 0;
-        }
-        .slick-track{
+            bottom: 20px;
         }
         .item{
             background-size: auto 100%;
