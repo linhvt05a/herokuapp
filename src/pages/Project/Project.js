@@ -1,16 +1,22 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from "react-router-dom";
-import HeadingFilter from '../../components/common/HeadingFilter'
-import { ItemProject } from './Item/index'
+import { useDispatch, useSelector } from "react-redux";
+import HeadingFilter from '../../components/common/HeadingFilter';
+import { ItemProject } from './Item/index';
 import Pagination from '../../components/common/Pagination';
 import FilterProject from '../../components/common/FilterProject';
+import { projectAction } from "../../store/action/index";
+import CardNoData from '../../components/common/CardNoData';
 
 
 const Project = (props) => {
 
-    const data = [20, 60]
-    const data1 = [10, 80]
-
+    const project = useSelector(state => state.projectReducer);
+    const isGetProjectListSuccess = project.projectList.success;
+    const projectList = isGetProjectListSuccess ? project.projectList.detail : null;
+    const dispatch = useDispatch();
+    const [state, setState] = useState({
+        projectStatus: 0
+    });
     const [paging, setPaging] = useState({
         totalItem: 18,
         currentPage:  2,
@@ -18,24 +24,44 @@ const Project = (props) => {
         itemOnPage: 6
     });
 
+    useEffect(() => {
+        if (window.location.pathname === "/project/selling") {
+            dispatch(projectAction.loadProjectList({project_sale_status: 3}))
+            setState({
+                projectStatus: 3
+            })
+        } else {
+            dispatch(projectAction.loadProjectList({project_sale_status: 2}))
+            setState({
+                projectStatus: 2
+            })
+        }
+    }, []);
+
+    const onStatusClick = (e) => {
+        dispatch(projectAction.loadProjectList({project_sale_status: parseInt(e.target.name)}))
+        setState({
+            projectStatus: parseInt(e.target.name)
+        });
+    }
+
     return (
         <div className="projectPage">
             <div className="project_page bg_grey">
                 <FilterProject />
                 <div className="project_page--list project_tab">
                     <div className="container container-sm container-md">
-                        <HeadingFilter headerBodyClassName="project_list--heading" labelHeader="project_list" status />
+                        <HeadingFilter headerBodyClassName="project_list--heading" labelHeader="project_list" status onStatusClick={onStatusClick} projectStatus={state.projectStatus} />
                         <div className="row project_list--content project_tab--content">
-                            <ItemProject />
-                            <ItemProject />
-                            <ItemProject />
-                            <ItemProject />
-                            <ItemProject />
-                            <ItemProject />
+                            {
+                                (projectList && projectList.length > 0) ? projectList.map((item, index) => (
+                                    <ItemProject 
+                                    key={index}
+                                    data={item} />
+                                )) : <CardNoData />
+                            }
                         </div>
-                        <ul className="pagination">
-                            <Pagination dataPaging={paging}/>
-                        </ul>
+                        <Pagination dataPaging={paging}/>
                     </div>
                 </div>
             </div>

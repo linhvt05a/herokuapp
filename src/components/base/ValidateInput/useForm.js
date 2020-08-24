@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 
-const deFault  = [{value:'',label :'ffdfsdfsfsfsfsf'}]
 const useForm = (initialValues, callback, validate) =>{
     const [values, setValues] = useState(initialValues)
     const [errors, setErrors] = useState({}) 
@@ -19,10 +18,12 @@ const useForm = (initialValues, callback, validate) =>{
 		if (event) event.preventDefault()
 		if (validate) {
 			setErrors(validate(values))
+			requestForm(values)
 		}
 		setIsSubmitting(true)
     }
-    
+    const requestForm = (values) =>{
+	}
     const handleChange = event => {
 		event.persist()
 		setValues(values => ({
@@ -39,7 +40,8 @@ const useForm = (initialValues, callback, validate) =>{
     return {
         handleChange, 
         handleSubmit,
-        handleSelect,
+		handleSelect,
+		requestForm,
         values, 
         errors
     }

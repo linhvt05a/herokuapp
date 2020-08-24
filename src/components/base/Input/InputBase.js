@@ -3,7 +3,7 @@ import { Input, Form } from 'antd';
 import { Trans } from 'react-i18next';
 
 const InputBase = (props) => {
-    const { className, titleClassName,errors, name, value, label, addonAfter, addonBefore, placeholder, onChange, require, disabled, maxLength, type, ...attr } = props;
+    const { className, background, titleClassName,errors, name, value, label, addonAfter, addonBefore, placeholder, onChange, require, disabled, maxLength, type, ...attr  } = props;
     return (
         <div className={className ? className : ''}>
             <div className="form-group">
@@ -18,7 +18,7 @@ const InputBase = (props) => {
                 }
                 <div className="input-group">
                                 <Input
-                                style={{height: 48}}
+                                style={{height: 48, backgroundColor: background}}
                                     addonAfter={addonAfter}
                                     addonBefore={addonBefore}
                                     onChange={onChange}

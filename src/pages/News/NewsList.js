@@ -38,6 +38,8 @@ const news =
             image: './assets/images/news_card_1.jpg'
         }
     ]
+
+const cateTitle = [{id:1, title:'Market'}, {id:2,title:'Department'},{id:3,title:'House'}, {id:4,title:'Analysis report'}, {id:5,title:'Category 01'}]
 const News = () => {
     const [paging, setPaging] = useState({
         totalItem: 18,
@@ -56,12 +58,10 @@ const News = () => {
                         <div className="row_content">
                             {news && news.map((news, index) => <RowNews data={news} key={news.id}/>)}
                         </div>
-                        <ul className="pagination">
-                            <Pagination dataPaging={paging}/>
-                        </ul>
+                        <Pagination dataPaging={paging}/>
                     </div>
                     <div className="col-md-12 col-lg-4 col-xl-4 col-right_news mb-sm-3 mb-0">
-                        <Categories />
+                        <Categories cateTitle={cateTitle} label="Categories"/>
                         <FilterProject />
                     </div>
                 </div>
@@ -74,7 +74,7 @@ const News = () => {
 const RowNews = (props) => {
     return (
         <div className="card" >
-            <Link to="/" className="link"></Link>
+            <Link to="/NewsDetail" className="link"></Link>
             <div className="row ">
                 <div className="col-sm-12 col-md-5 col-xl-5 d-flex">
                     <div className="news__card--img">

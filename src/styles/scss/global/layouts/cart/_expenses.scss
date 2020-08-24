@@ -1,32 +1,32 @@
-.cart-expenses{
+.cart-expenses {
    @include salesHeading;
-   &__detail{
+   &__detail {
       padding: 20px 24px;
       background-color: #fff;
    }
-   &__list{
+   &__list {
       @include flexbox;
       @include align-items(center);
       @include justify-content(space-between);
       margin-bottom: 4px;
-      &.promotion{
-         .cart-expenses__title{
-              color: #25b15f;
-              &::before{
+      &.promotion {
+         .cart-expenses__title {
+            color: #25b15f;
+            &::before {
                color: #25b15f;
-              }
+            }
          }
-         .cart-expenses__value{
-              color: #25b15f;
+         .cart-expenses__value {
+            color: #25b15f;
          }
       }
    }
-   &__title{
+   &__title {
       font-size: 16px;
       color: #0d0d0d;
       padding-left: 15px;
       position: relative;
-      &::before{
+      &::before {
          position: absolute;
          content: "\f621";
          font-family: "Font Awesome 5 Free";
@@ -38,9 +38,60 @@
          @include transform(translateY(-50%));
       }
    }
-   &__value{
+   &__value {
       @include fw-medium;
       font-size: 16px;
       color: #0d0d0d;
+   }
+}
+.listed_price {
+   background-color: rgba(109, 48, 171, 0.08);
+}
+.temporary-product {
+   padding: 20px 40px;
+   padding-right: 15px;
+   ul {
+
+      padding: 0;
+      margin: 0;
+      list-style-type: none;
+      li{
+          border-bottom: 2px solid #f3f4f9;
+      }
+      li:nth-last-child(1){
+         border-bottom: none;
+      }
+   }
+   &__product{
+      margin-bottom: 20px;
+      max-height: 215px;
+      overflow-y: auto;
+      @include scrollbar;
+      .pd_scroll{
+         padding: 0 20px;
+         padding-left: 0;
+      }
+   }
+   &__title{
+      font-size: 18px;
+      margin-bottom: 10px;
+   }
+   &__list {
+      display: flex;
+      padding: 10px 0;
+     
+   }
+   &__list:nth-last-child(1){
+      border-bottom: none;
+   }
+   &__department::before {
+      content: "\25A0";
+      color: #9ea9bb;
+      font-size: 15px;
+      padding-right: 5px;
+   }
+   &__price {
+      margin-left: auto;
+      color: #e94c4c;
    }
 }

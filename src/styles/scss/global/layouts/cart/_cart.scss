@@ -48,7 +48,14 @@
                 line-height: 1.36;
             }
         }
+        label {
+            margin: 20px 0;
+            &:nth-child(1) {
+                margin-top: 0;
+            }
+        }
     }
+
     .info-buyer {
         width: 100%;
         td,
@@ -204,4 +211,262 @@
             background-size: 100%;
         }
     }
+    //10_01_Gio_hang_list
+    .select-check {
+        display: flex;
+        .title-project {
+            display: flex;
+            align-items: center;
+            font-size: 20px;
+        }
+        .icon-trash {
+            margin-left: auto;
+            font-size: 25px;
+            a {
+                color: black;
+            }
+        }
+    }
+    .apartment {
+        padding: 20px 21px;
+        margin-top: -21px;
+        &__selling {
+            &:nth-last-child(1) {
+                &::after {
+                    display: none;
+                }
+            }
+        }
+        &__selling::after {
+            border-bottom: 2px solid #f3f4f9;
+            content: "";
+            position: absolute;
+            width: 94%;
+            padding-bottom: 15px;
+        }
+        &__info-project {
+            width: 100%;
+            .block-img {
+                position: relative;
+            }
+            .img {
+                width: 100%;
+            }
+            .liked {
+                position: absolute;
+                right: 10px;
+                top: 10px;
+                width: 35px;
+                height: 35px;
+                border-radius: 50%;
+                background-color: rgba(13, 13, 13, 0.35);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 15px;
+                color: #ffffff;
+                z-index: 3;
+                cursor: pointer;
+            }
+            .delete {
+                text-align: center;
+                font-size: 12px;
+                left: 0;
+                width: 100%;
+                position: absolute;
+                bottom: 0;
+                right: 70px;
+                color: white;
+                padding: 5px 0;
+                background-color: rgba(0, 0, 0, 0.39);
+            }
+        }
+        .price {
+            &__item {
+                flex-direction: column;
+                margin-left: auto;
+            }
+            &__discount {
+                display: flex;
+                justify-content: flex-end;
+                font-size: 20px;
+            }
+            &__origin {
+                display: flex;
+                justify-content: space-between;
+                font-size: 12px;
+                .text-deco {
+                    text-decoration: line-through;
+                }
+            }
+        }
+        &__info {
+            .heading {
+                .name {
+                    font-family: "HelveticaNeue-Medium";
+                    font-size: 20px;
+                    color: #0d0d0d;
+                    line-height: 1.21;
+                    padding-bottom: 22px;
+                    margin-bottom: 4px;
+                }
+                .address {
+                    color: #9a9a9a;
+                    font-size: 12px;
+                    font-style: italic;
+                    display: flex;
+                    align-items: center;
+                }
+            }
+            .details {
+                display: flex;
+                font-size: 12px !important;
+                .child {
+                    flex: 1;
+                    @media (max-width: 480px) {
+                        flex: 50%;
+                        text-align: left !important;
+                    }
+                    &:not(:first-child) {
+                        text-align: center;
+                    }
+                    &:first-child {
+                        white-space: nowrap;
+                    }
+                }
+                .icon {
+                    color: #9ea9bb;
+                    font-size: 15px;
+                    padding-right: 4px;
+                }
+                .text {
+                    font-size: 14px;
+                    color: #0d0d0d;
+                    letter-spacing: -0.5px;
+                }
+            }
+            .content_pay {
+                display: flex;
+                font-size: 12px !important;
+                .icon {
+                    margin-left: auto;
+                }
+
+                .icon-money {
+                    border: 1px solid #fb9334;
+                    margin: 1px;
+                    padding: 10px;
+                    color: #fb9334;
+                    background-color: rgba(251, 147, 52, 0.15);
+                }
+                .icon-gift {
+                    border: 1px solid #25b15f;
+                    margin: 1px;
+                    padding: 10px 12px;
+                    padding-left: 11px;
+                    color: #25b15f;
+                    background-color: rgba(37, 177, 95, 0.15);
+                }
+                .bf_star::before {
+                    position: absolute;
+                    content: "\f621";
+                    font-family: "Font Awesome 5 Free";
+                    font-weight: 900;
+                    font-size: 9px;
+                    color: #6d30ab;
+                    left: 0;
+                }
+                .title_black {
+                    margin-left: 15px;
+                    font-family: $HelveticaNeue-Medium;
+                    font-size: 14px;
+                    font-weight: 500;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: 1.25;
+                }
+                .title_gray {
+                    font-family: $HelveticaNeue;
+                    font-size: 11px;
+                    color: #656565;
+                }
+            }
+            .noted {
+                font-size: 10px;
+                color: #6d30ab;
+                padding-left: 3px;
+            }
+        }
+
+        .cart-expenses {
+            &__detail {
+                padding: 0;
+            }
+            &__list {
+                &.promotion {
+                    .cart-expenses__title {
+                        &::before {
+                            color: #e94c4c;
+                        }
+                    }
+                }
+            }
+            &__title {
+                font-size: 14px;
+            }
+            &__value {
+                font-size: 14px;
+            }
+        }
+        .cart-expenses::before {
+            content: "";
+            position: absolute;
+            height: 90px;
+            left: 0px;
+            border-left: 2px solid #e0e0e0;
+            @media (max-width: 767px) {
+                display: none;
+            }
+        }
+    }
+    .check-all {
+        position: relative;
+        cursor: pointer;
+        padding-left: 40px;
+        input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+        input:checked ~ .checkmark {
+            background: #6d30ab;
+        }
+        input:checked ~ .checkmark::after {
+            display: block;
+        }
+        .checkmark {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 20px;
+            height: 20px;
+            background: white;
+            border: 1px solid #656565;
+            &::after {
+                content: "";
+                position: absolute;
+                display: none;
+                top: 50%;
+                left: 50%;
+                width: 5px;
+                height: 11px;
+                border: solid white;
+                border-width: 0 2px 2px 0;
+                transform: translate(-50%, -50%) rotate(45deg);
+            }
+        }
+    }
+    //end 10_01_Gio_hang_list
 }

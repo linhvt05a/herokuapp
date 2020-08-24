@@ -78,7 +78,15 @@ const MAIN = [
         "banner_class": ''
     },
     {
-        "path": "/project",
+        "path": "/project/selling",
+        "component": Project,
+        "banner_title": "project_banner_title",
+        "banner_url": project_banner_url,
+        "banner_show": true,
+        "banner_class": ''
+    },
+    {
+        "path": "/project/coming_soon",
         "component": Project,
         "banner_title": "project_banner_title",
         "banner_url": project_banner_url,

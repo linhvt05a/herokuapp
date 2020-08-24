@@ -11,10 +11,10 @@ export default {
     LIMIT: 10,
 
     //EXAMPLE
-    // EXAMPLE_LIST: "https://pokeapi.co/api/v2/pokemon/ditto",
     EXAMPLE_LIST: "/api/be/v1/project/",
     PRODUCT_LIST: `/api/main_web/v1/infrastructure/product/detail?product_id=6&tab_include=["detail","price","image","layout","document","history"]`,
 
+    PROJECT_LIST: "/api/main_web/v1/project/",
 
     getHeader,
     getUrl,
