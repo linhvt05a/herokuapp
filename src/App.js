@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Provider } from 'react-redux';
 import configureStore from './store';
 //components
-import Header from "./components/common/Header";
+import Header from "./components/common/Header/Header";
 import Footer from "./components/common/Footer";
 import Chat from "./components/common/Chat";
 
