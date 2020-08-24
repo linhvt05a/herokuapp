@@ -141,6 +141,11 @@
                 .contact_detail {
                     margin: 0;
                     padding: 0;
+                    .sns {
+                        span {
+                            margin-right: 10px;
+                        }
+                    }
                     li {
                         font-size: 16px;
                         font-weight: bold;
@@ -149,7 +154,10 @@
                         position: relative;
                         top: 0;
                         left: 0;
-                        a.tel {
+                        a {   
+                            margin: 0 4px;
+                        }
+                        .tel {
                             font-size: 18px;
                             font-weight: bold;
                             color: #e94c4c;
