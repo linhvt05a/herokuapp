@@ -20,3 +20,20 @@
         }
     }
 }
+.list_checkbox_while {
+    .checkbox-black{
+        color: #ffffff;
+        .checkbox-custom-dummy{
+            border: solid 1px #ffffff;
+            top: 3px;
+        }
+        &.active{
+            .checkbox-custom-dummy{
+                &::after{
+                    border: solid #fff;
+                    border-width: 0 2px 2px 0;
+                }
+            }
+        }
+    }
+}

@@ -28,6 +28,7 @@
     "react-i18next": "^10.13.2",
     "react-js-pagination": "^3.0.3",
     "react-leaflet": "^2.7.0",
+    "react-leaflet-google-layer": "^1.1.4",
     "react-redux": "^7.2.1",
     "react-scripts": "^3.4.3",
     "react-slick": "^0.27.9",

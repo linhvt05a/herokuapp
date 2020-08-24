@@ -239,51 +239,11 @@
             width: 100%;
         }
     }
+    @include sliderDots;
     .slick-dots {
-        position: static;
-        margin-top: 35px;
+        margin-top: 20px;
         @media screen and (max-width: 767px) {
-            margin-top: 20px;
-        }
-        li {
-            width: auto;
-            height: auto;
-            margin: 0 6px;
-            button {
-                border: 1px solid #6d30ab;
-                width: 18px;
-                height: 18px;
-                border-radius: 50%;
-                padding: 0;
-                position: relative;
-                @media screen and (max-width: 767px) {
-                    width: 15px;
-                    height: 15px;
-                }
-                &:before {
-                    font-size: 0;
-                }
-            }
-            &.slick-active {
-                button {
-                    background: #fff;
-                    border: 1px solid #6d30ab;
-                    &:before {
-                        width: 10px;
-                        height: 10px;
-                        border-radius: 50%;
-                        background: #6d30ab;
-                        content: "";
-                        top: 50%;
-                        left: 50%;
-                        @include transform(translate(-50%, -50%));
-                        @media screen and (max-width: 767px) {
-                            width: 7px;
-                            height: 7px;
-                        }
-                    }
-                }
-            }
+            margin-top: 15px;
         }
     }
     .slick-slide {

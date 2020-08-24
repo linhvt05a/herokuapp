@@ -1,0 +1,20 @@
+.bank_linked{
+    margin-top: 15px;
+    @include sliderDots;
+    /* the slides */
+    .slick-slide {
+        margin: 0 7px;
+        padding: 18px 0;
+    }
+    /* the parent */
+    .slick-list {
+        margin: 0 -7px;
+    }
+    .slick-dots{
+        position: static;
+        margin-top: 16px;
+    }
+    &__item{
+        border: solid 1px #dee2e6;
+    }
+}

@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Map, Marker, Popup, TileLayer } from 'react-leaflet'
+import ReactLeafletGoogleLayer from 'react-leaflet-google-layer';
 import "leaflet/dist/leaflet.css";
 
 import L from 'leaflet';
@@ -17,14 +18,19 @@ function MapLea(props) {
     const position = [10.782504, 106.695931];
     return (
         <Map 
-            center={position} zoom={16} 
+            center={position} zoom={13} 
             style={{ height: "670px", zIndex: 0 }}
             attributionControl={false}
             >
-            <TileLayer
-                attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
+            <ReactLeafletGoogleLayer 
+                useGoogMapsLoade = {true}
+                googleMapsLoaderConf={{KEY: 'AIzaSyDZt7EWQR3cI-a_0to4VT2JVcF-c7ti6Ro'}} 
+                type={'hybrid'} 
             />
+            {/* <TileLayer
+                attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                url=''
+            /> */}
             <Marker position={position}>
                 <Popup>
                     popup <br/> Easily customizable.

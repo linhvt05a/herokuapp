@@ -10,7 +10,7 @@ const Pagination = (props) => {
         setActivePage(pageNumber);
     }
     return (
-        <div>
+        <ul className="pagination">
             <PaginationPage
             itemClass="page-item"
             linkClass="page-link"
@@ -25,7 +25,7 @@ const Pagination = (props) => {
             pageRangeDisplayed={dataPaging.totalPage}
             onChange={handlePageChange.bind(this)}
             />
-        </div>
+        </ul>
     )
 }
 export default Pagination;
