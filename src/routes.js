@@ -15,6 +15,7 @@ import Promotion from './pages/Promotion/Promotion';
 import FlashSaleList from './pages/Promotion/FlashSaleList';
 import Elements from "./pages/Elements/Elements";
 import Example from "./pages/Example";
+import HotProduct from "./pages/Product/HotProduct";
 
 const home_banner_url = './assets/images/project.jpg';
 const introduce_banner_url = './assets/images/project.jpg';
@@ -32,6 +33,7 @@ const promotion_banner_url = './assets/images/project.jpg';
 const flashSaleList_banner_url = './assets/images/project.jpg';
 const elements_banner_url = './assets/images/project.jpg';
 const example_banner_url = './assets/images/project.jpg';
+const product_banner_url = './assets/images/project.jpg';
 
 const MAIN = [
     {
@@ -162,7 +164,13 @@ const MAIN = [
         "banner_show": true,
         "banner_class": ''
     },
-
+    {
+        "path": "/hot_product/list",
+        "component": HotProduct,
+        "banner_title": "product_hot_product_banner_title",
+        "banner_url": product_banner_url,
+        "banner_show": true
+    },
 ];
 
 export { MAIN }
