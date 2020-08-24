@@ -5,7 +5,7 @@ import CardNews from '../../components/common/CardNews'
 import { Link } from "react-router-dom";
 import HeadingFilter from '../../components/common/HeadingFilter'
 import { CardSaleFlash, CardOverView, CardHotProduct } from "./Layout/index";
-import MapHome from "../../components/common/Map/MapHome";
+import { MapHome } from "../../components/common/Map/index";
 import { LocationView, YourPosition } from "./Location/index";
 import { OnMapPoligon } from "./Search/index";
 
@@ -73,7 +73,7 @@ const Home = (props) => {
                     </figure>
                     <LocationView HandlerPosition={handlerButtonPosition} HandlerSearch={handlerButtonSearch} />
                 </div>
-                <YourPosition active={state}/>
+                {state.position == true ? <YourPosition active={state}/> : ''}
                 <OnMapPoligon active={state}/>
             </div>
             {/*end block map  */}
