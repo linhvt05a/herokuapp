@@ -1,5 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Trans } from "react-i18next";
+import { IMAGE_URL } from "../../../contant";
+import { convertDateShow } from "../../../utils/Utils"
 
 const ItemHomeProject = (props) => {
 
@@ -8,31 +11,37 @@ const ItemHomeProject = (props) => {
     return (
         <div className={bodyClassName}>
             <div className="project_list--item">
-                <figure className="image" style={{backgroundImage: "url(./assets/images/project_list01.jpg)"}} />
+                <figure className="image" style={{backgroundImage: "url("+ data.avatar_url +")"}} />
                 <div className="heading">
                     <div className="heading__name">
-                        Dự Án Royal Garden
+                        {data.project_name}
                     </div>
                     <div className="heading__date">
-                        Đợt 1 : 02/04/2020 - 30/04/2020
+                        {data.current_project_sell_open_name != null ? data.current_project_sell_open_name + ":" : ""}
+                        {data.current_sale_open_date != null ? convertDateShow(data.current_sale_open_date) + "-" : ""}
+                        {data.current_sale_end_date != null ? convertDateShow(data.current_sale_end_date) + "-" : ""}
                     </div>
                     <div className="heading__list-btn">
-                        <Link to="/project/1" className="btn btn_green">
-                            CHI TIẾT
+                        <Link to="/project/1" className="btn btn_green text-uppercase">
+                            <Trans>home_detail_button_title</Trans>
                         </Link>
-                        <Link to="/#" className="btn btn_white">
-                            SẢN PHẨM
+                        <Link to="/#" className="btn btn_white text-uppercase">
+                            <Trans>home_product_button_title</Trans>
                         </Link>
                     </div>
                 </div>
-                {/* <div className="sell_status selling">
-                    Đang bán
-                </div> */}
-                <div className="sell_status will_sell">
-                    Sắp bán
-                </div>
+                {
+                    data.project_sale_status === 3 ?
+                    <div className="sell_status selling">
+                        <Trans>home_selling</Trans>
+                    </div> :
+                    data.project_sale_status === 2 ?
+                    <div className="sell_status will_sell">
+                        <Trans>home_coming_soon</Trans>
+                    </div> : ""
+                }
                 <div class="icon_big_sale">
-                    <img src="./assets/images/icon_big_sale.png" />
+                    <img src={IMAGE_URL + "/images/icon_big_sale.png"}/>
                 </div>
             </div>
         </div>

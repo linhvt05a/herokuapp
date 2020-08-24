@@ -5,7 +5,7 @@ import { Select } from 'antd'
 
 const HeadingFilter = (props) => {
 
-    const { headerBodyClassName, labelHeader, readmore, options, status, trans, link } = props
+    const { headerBodyClassName, labelHeader, readmore, options, status, trans, link, onStatusClick, projectStatus } = props
     const { Option } = Select
 
     return (
@@ -38,12 +38,12 @@ const HeadingFilter = (props) => {
             {
                 status &&
                 <div className="project_list--status text-uppercase">
-                    <Link to="/#" className="status working">
-                        <Trans>on_sale</Trans>
-                    </Link>
-                    <Link to="/#" className="status done">
-                        <Trans>about_to_sell</Trans>
-                    </Link>
+                    <a name={3} className={projectStatus === 3 ? "status working active" : "status working"} onClick={onStatusClick}>
+                        <Trans>home_selling</Trans>
+                    </a>
+                    <a name={2} className={projectStatus === 2 ? "status done active" : "status done"} onClick={onStatusClick}>
+                        <Trans>home_coming_soon</Trans>
+                    </a>
                 </div>
             }
         </div>
