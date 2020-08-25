@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-const useForm = (signupValue, callback, validate) =>{
+const useFormSignup = (signupValue, callback, validate) =>{
 	const [signupValues, setSignup] = useState(signupValue)
 	const [signupErrors, setSignupErrors] = useState({}) 
     const [isSubmitting, setIsSubmitting] = useState(false)
@@ -35,4 +35,6 @@ return {
     }
 }
 
-export default useForm
+export {
+	useFormSignup
+} 
