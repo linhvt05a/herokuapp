@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import HeadingFilter from '../../components/common/HeadingFilter'
 import { CardSaleFlash, CardOverView, CardHotProduct } from "./Layout/index";
 import { MapHome } from "../../components/common/Map/index";
-import { projectAction } from "../../store/action/index";
+import { projectAction, productAction } from "../../store/action/index";
 import CardNoData from '../../components/common/CardNoData';
 import { LocationView, YourPosition } from "./Location/index";
 import { OnMapPoligon } from "./Search/index";
@@ -54,10 +54,12 @@ const news =
 
 const Home = (props) => {
 
-    const options = [{ value: 1, label: "Căn hộ" }, { value: 2, label: "Biệt thự" }, { value: 3, label: "Chung cư" }]
     const project = useSelector(state => state.projectReducer);
+    const product = useSelector(state => state.productReducer);
     const isGetProjectListSuccess = project.projectList.success;
     const projectList = isGetProjectListSuccess ? project.projectList.detail : null;
+    const isGetHotProductListSuccess = product.hotProductList.success;
+    const hotProductList = isGetHotProductListSuccess ? product.hotProductList.detail : null;
     const dispatch = useDispatch();
     const [state, setState] = useState({
         projectStatus: 3,
@@ -67,6 +69,7 @@ const Home = (props) => {
 
     useEffect(() => {
         dispatch(projectAction.loadProjectList({project_sale_status: state.projectStatus}));
+        dispatch(productAction.loadHotProductList({}));
     }, []);
 
     const onStatusClick = (e) => {
@@ -82,6 +85,14 @@ const Home = (props) => {
 
     const handlerButtonSearch = () => {
         setState({...state, search: true})
+    }
+
+    const onProjectGroupFilterChange = (value) => {
+        if (value != null) {
+            dispatch(productAction.loadHotProductList({list_product_type_id: `[${value}]`}));
+        } else {
+            dispatch(productAction.loadHotProductList({}));
+        }
     }
 
     return (
@@ -107,32 +118,36 @@ const Home = (props) => {
             {/* end block over  */}
 
             {/* project_list  */}
-            <div className="project_list project_tab">
-                <div className="container container-sm container-md">
-                    <HeadingFilter headerBodyClassName="project_list--heading" labelHeader="project_list" status onStatusClick={onStatusClick} projectStatus={state.projectStatus} />
-                    <div className="row project_list--content project_tab--content">
-                        {
-                            (projectList && projectList.length > 0) ? projectList.map((item, index) => (
-                                index < 7 &&
-                                <ItemHomeProject
-                                key={index}
-                                data={item}
-                                bodyClassName={
-                                    index === 0 ? "col col-12 col-sm-6 col-md-7 col-xl-7" :
-                                    index === 1 ? "col col-12 col-sm-6 col-md-5 col-xl-5" :
-                                    (index === 2 || index === 3 || index === 4) ? "col col-12 col-sm-4 col-md-4 col-xl-4" :
-                                    "col col-12 col-sm-6 col-md-6 col-xl-6"
-                                } />
-                            )) : <CardNoData />
-                        }
-                    </div>
-                    <div className="text-center text-uppercase mt-3">
-                        <Link to="/#" className="btn btn_purple ml-auto mr-auto">
-                            <Trans>see_all</Trans>
-                        </Link>
+            {
+                isGetProjectListSuccess &&
+                <div className="project_list project_tab">
+                    <div className="container container-sm container-md">
+                        <HeadingFilter headerBodyClassName="project_list--heading" labelHeader="project_list" status onStatusClick={onStatusClick} projectStatus={state.projectStatus} />
+                        <div className="row project_list--content project_tab--content">
+                            {
+                                (projectList && projectList.length > 0) ? projectList.map((item, index) => (
+                                    index < 7 &&
+                                    <ItemHomeProject
+                                    key={index}
+                                    data={item}
+                                    projectStatus={state.projectStatus}
+                                    bodyClassName={
+                                        index === 0 ? "col col-12 col-sm-6 col-md-7 col-xl-7" :
+                                        index === 1 ? "col col-12 col-sm-6 col-md-5 col-xl-5" :
+                                        (index === 2 || index === 3 || index === 4) ? "col col-12 col-sm-4 col-md-4 col-xl-4" :
+                                        "col col-12 col-sm-6 col-md-6 col-xl-6"
+                                    } />
+                                )) : <CardNoData />
+                            }
+                        </div>
+                        <div className="text-center text-uppercase mt-3">
+                            <Link to="/#" className="btn btn_purple ml-auto mr-auto">
+                                <Trans>see_all</Trans>
+                            </Link>
+                        </div>
                     </div>
                 </div>
-            </div>
+            }
             {/* end project_list  */}
 
             {/* contact  */}
@@ -189,7 +204,7 @@ const Home = (props) => {
             {/* end contact  */}
 
             {/* striking apartment  */}
-            <CardHotProduct headerBodyClassName="label_filter--heading" labelHeader="hot_product" datas={["a", "iu", "e", "vl", "wa", "di", "test"]} options={options} />
+            <CardHotProduct headerBodyClassName="label_filter--heading" labelHeader="hot_product" datas={hotProductList != null ? hotProductList.list_product : null} options onFilterChange={onProjectGroupFilterChange} />
             {/* end striking apartment  */}
 
             {/* app_managerment  */}

@@ -1,11 +1,12 @@
 import React from "react";
 import { Trans } from 'react-i18next';
 import { Link } from "react-router-dom";
-import { Select } from 'antd'
+import { Select } from 'antd';
+import { PROJECT_SALE_GROUP } from "../../contant";
 
 const HeadingFilter = (props) => {
 
-    const { headerBodyClassName, labelHeader, readmore, options, status, trans, link, onStatusClick, projectStatus } = props
+    const { headerBodyClassName, labelHeader, readmore, options, status, trans, link, onStatusClick, projectStatus, onChange } = props
     const { Option } = Select
 
     return (
@@ -28,7 +29,8 @@ const HeadingFilter = (props) => {
                         <Select
                             placeholder="Select--"
                             className="form-control"
-                            children={options.length > 0 && options.map((e, key) => {
+                            onChange={onChange}
+                            children={PROJECT_SALE_GROUP.length > 0 && PROJECT_SALE_GROUP.map((e, key) => {
                                 return <Option name={name} key={key} value={e.value}>{trans ? <Trans>{e.label}</Trans> : e.label}</Option>;
                             })}
                         />
