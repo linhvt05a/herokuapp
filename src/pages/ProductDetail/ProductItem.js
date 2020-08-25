@@ -21,14 +21,14 @@ const ProductItem = (props) => {
                     <div className="col-12 col-sm-12 col-lg-8">
                         <div className="slider_in_tab">
                             <TimeLine datas={['00', '20', '35']} />
-                            <TabsSlider dataLayout={data.layout}/>
+                            <TabsSlider dataImg={data.image} dataLayout={data.layout}/>
                             <Promotion />
                             <IconLikeDown />
                         </div>
                         <div className="description">
-                            {/* <div key={index}>{Parser(item)}</div> */}
+                            <div>{data.description}</div>
                         </div>
-                        <SalesAccordion />
+                        <SalesAccordion data={data}/>
                     </div>
                     <div className="col-12 col-sm-12 col-lg-4">
                         <SideBar dataInfo={data} />

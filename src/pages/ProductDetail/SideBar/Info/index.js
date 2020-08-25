@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Trans } from 'react-i18next';
 import Contact from '../Contact';
+import Info02 from './Info02';
 
 const Info = (props) => {
     const { dataInfo } = props;
@@ -8,7 +9,6 @@ const Info = (props) => {
     return (
         dataInfo ?
             <div className="info">
-
                 <div>
                     {
                         dataInfo.price.map((item, index) => (
@@ -19,7 +19,7 @@ const Info = (props) => {
                                 <span className="number">{item.estimate_price}<Trans>{item.price_unit_name}</Trans></span>
                                 <p className="compare_price">
                                     <span className="num">{item.price}<Trans>{item.price_unit_name}</Trans></span>
-                                    <span className="discount_label"><Trans>Giảm </Trans>{100-((item.estimate_price)/(item.price))*100}<Trans></Trans>%</span>
+                                    <span className="discount_label"><Trans>Giảm </Trans>{item.estimate_price&&item.price ? 100-((item.estimate_price)/(item.price))*100 : 0}<Trans></Trans>%</span>
                                 </p>
                             </div>
                         ))
@@ -56,8 +56,7 @@ const Info = (props) => {
                         </div>
                     </div>
                     <Contact dataInfo={dataInfo}/>
-
-
+                    <Info02 dataInfo={dataInfo}/>
                 </div>
             </div> : ""
     )

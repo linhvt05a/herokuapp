@@ -5,7 +5,6 @@ import Info from './Info';
 
 const SiderBar = (props) => {
     const { dataInfo } = props;
-    console.log(dataInfo);
         return (
             dataInfo ?
             <div className="apartment_detail">

@@ -376,7 +376,9 @@
                 }
             }
             .promotion {
-                position: relative;
+                position: absolute;
+                right: 0;
+                bottom: -110px;
                 div {
                     position: absolute;
                     bottom: 111px;
@@ -396,67 +398,6 @@
             }
             
         }
-            .info_contact{
-                margin-bottom: 18px;
-                .address{
-                    font-size: 12px;
-                    color: #656565;
-                    display: block;
-                    @include fw-normal;
-                }
-                .icon_fa{
-                    font-size: 10px;
-                    color: #e94c4c;
-                    padding-right: 10px;
-                }
-                .icon{
-                    &_skype{
-                        max-width: 25px;
-                    }
-                    &_messenger{
-                        max-width: 30px;
-                    }
-                    img{
-                        
-                        width: 100%;
-                    }
-                }
-                .text_phone{
-                    font-size: 18px;
-                    font-weight: bold;
-                    color: #e94c4c;
-                }
-                &_apart{
-                    @include fw-medium;
-                    font-size: 18px;
-                    color: #0d0d0d;
-                    line-height: normal;
-                }
-                &_support{
-                    list-style: none;
-                    padding: 0;
-                    margin-top: 5px;
-                    margin-bottom: 0px;
-                }
-                &_item{
-                    font-size: 16px;
-                    color: #0d0d0d;
-                }
-                &_link{
-                    font-size: 16px;
-                    letter-spacing: 0.48px;
-                    color: #fb9334;
-                    @include flexbox;
-                    @include align-items(center);
-                    text-decoration: underline;
-                    .icon_file{
-                        font-size: 16px;
-                        color: #fb9334;
-                        padding-right: 10px;
-                    }
-                }
-            }
-        } 
 
         .apartment_slider{
             margin-bottom: 24px;
@@ -696,7 +637,7 @@
     .pagination{
         padding-top: 0;
     }
-
+}
 
 .bank_list {
     @media screen and (max-width: 767px) {

@@ -124,6 +124,7 @@ const data = [
 
 class SalesAccordion extends Component {
     render() {
+      const { data } = this.props;
         return (
             <div>
                 <Accordion data={data}/>
