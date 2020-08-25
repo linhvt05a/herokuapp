@@ -3,13 +3,18 @@ import PaginationPage from "react-js-pagination";
 import { Trans } from "react-i18next";
  
 const Pagination = (props) => {
-    let { dataPaging } = props;
-    const [activePage, setActivePage] = useState(dataPaging.currentPage);
+    let { data } = props;
+    var isPage = 0;
+    if(data != null) {
+        isPage = data.currentPage
+    }
+    const [activePage, setActivePage] = useState(isPage);
     const handlePageChange = (pageNumber) => {
         // console.log(`active page is ${pageNumber}`);
         setActivePage(pageNumber);
     }
     return (
+        data && data.totalPage > 1 ?
         <ul className="pagination">
             <PaginationPage
             itemClass="page-item"
@@ -20,12 +25,12 @@ const Pagination = (props) => {
             firstPageText= {<div><Trans>First</Trans></div>}
             lastPageText={<div><Trans>Last</Trans></div>}
             activePage={activePage}
-            itemsCountPerPage={dataPaging.itemOnPage}
-            totalItemsCount={dataPaging.totalItem}
-            pageRangeDisplayed={dataPaging.totalPage}
+            itemsCountPerPage={data.itemOnPage}
+            totalItemsCount={data.totalItem}
+            pageRangeDisplayed={data.totalPage}
             onChange={handlePageChange.bind(this)}
             />
-        </ul>
+        </ul>: ""
     )
 }
 export default Pagination;

@@ -3,17 +3,12 @@ import { ItemProjectDetail } from "../Item/index";
 import HeadingFilter from '../../../components/common/HeadingFilter';
 import CardNoData from "../../../components/common/CardNoData";
 import { CardProjectFilter } from './index';
-import Pagination from '../../../components/common/Pagination'
+import Pagination from '../../../components/common/Pagination';
+import { LoadDataPaging } from '../../../utils/Utils';
 
 const CardProjectList = (props) => {
 
     const { headerBodyClassName, labelHeader, datas } = props
-    const [paging, setPaging] = useState({
-        totalItem: 18,
-        currentPage:  2,
-        totalPage: 5,
-        itemOnPage: 6
-    });
 
     return (
         <div className="project_detail--list bg_grey sales_quick">
@@ -35,7 +30,7 @@ const CardProjectList = (props) => {
                                         }
                                     </div>
                                 </div>
-                                <Pagination dataPaging={paging}/>
+                                <Pagination data={LoadDataPaging(18, 2, 5, 6)} />
                             </div>
                             <div class="col-12 col-sm-12 col-lg-4">
                                 <CardProjectFilter />

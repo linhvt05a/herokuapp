@@ -39,8 +39,6 @@ const MenuLeft = (props) => {
                 <NavLink activeClassName="active"
                     onMouseEnter={() => setHoverNav(true)}
                     className="item-link dropdown-toggle"
-                    data-toggle="dropdown"
-                    data-hover="dropdown"
                     to="/support"
                 >
                     HỔ TRỢ
@@ -139,39 +137,20 @@ const MenuLeft = (props) => {
                         <i className="icon fas fa-cart-plus" />
                     </Link>
                     <div className="item-utility dropdown languages">
-                        <Link
-                            to="/demo"
-                            className="dropdown-toggle"
-                            data-toggle="dropdown"
-                            data-hover="dropdown"
-                            aria-expanded="false"
-                        >
-                            <img
-                                src="./assets/images/lang_vn.jpg"
-                                alt="languages"
-                            />
+                        <Link to="/demo">
+                            <img src="./assets/images/lang_vn.jpg" alt="languages" />
                             <i className="icon_arrow fas fa-chevron-down" />
                         </Link>
                         <ul className="dropdown-menu pull-right">
                             <li>
                                 <Link to="/#">
-                                    <img
-                                        alt="vvv"
-                                        src="./assets/images/lang_en.png"
-                                        width={16}
-                                        height={16}
-                                    />
+                                    <img src="./assets/images/lang_en.png" width={16} height={16} />
                                     <span>English</span>
                                 </Link>
                             </li>
                             <li className="active">
                                 <Link to="/#">
-                                    <img
-                                        alt="vvvv"
-                                        src="./assets/images/lang_china.png"
-                                        width={16}
-                                        height={16}
-                                    />
+                                    <img src="./assets/images/lang_china.png" width={16} height={16} />
                                     <span>China</span>
                                 </Link>
                             </li>
@@ -261,10 +240,7 @@ const MenuLeft = (props) => {
                                     />
                                 </div>
                                 <div className="form-group mb-0 text-center">
-                                    <Link
-                                        to="/demo"
-                                        className="btn btn_green btn_signIn text-uppercase"
-                                    >
+                                    <Link to="/demo" className="btn btn_green btn_signIn text-uppercase">
                                         ĐĂNG KÝ
                                     </Link>
                                 </div>
@@ -280,25 +256,15 @@ const MenuLeft = (props) => {
                         <div className="header_register form_forgot accordion-inner">
                             <div className="form form_signInUp">
                                 <div className="form-group form_forgot--info">
-                                    Hãy điền thông tin email của
-                                    bạn để
+                                    Hãy điền thông tin email của bạn để
                                     <br />
                                     chúng tôi lấy lại mật khẩu
                                 </div>
                                 <div className="form-group">
-                                    <input
-                                        type="text"
-                                        placeholder="Email"
-                                        
-                                        className="form-control"
-                                    />
+                                    <input type="text" placeholder="Email" className="form-control"/>
                                 </div>
                                 <div className="form-group mb-0 text-center">
-                                    <Link
-                                        to="/demo"
-                                        className="btn btn_green btn_signIn text-uppercase mb-0">
-                                        GỬI
-                                    </Link>
+                                    <Link to="/demo" className="btn btn_green btn_signIn text-uppercase mb-0">GỬI</Link>
                                 </div>
                             </div>
                         </div>

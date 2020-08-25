@@ -5,16 +5,11 @@ import { ItemProduct } from "../Item/index";
 import HeadingFilter from '../../../components/common/HeadingFilter';
 import CardNoData from "../../../components/common/CardNoData";
 import Pagination from '../../../components/common/Pagination';
+import { LoadDataPaging } from '../../../utils/Utils';
 
 const CardHotProduct = (props) => {
 
     const { headerBodyClassName, labelHeader, datas, detail, options } = props
-    const [paging, setPaging] = useState({
-        totalItem: 18,
-        currentPage:  2,
-        totalPage: 5,
-        itemOnPage: 6
-    });
 
     return (
         <div className="striking_apartment label_filter bg_grey">
@@ -47,7 +42,7 @@ const CardHotProduct = (props) => {
                     }
                     {
                         detail &&
-                        <Pagination dataPaging={paging}/>
+                        <Pagination data={LoadDataPaging(18, 2, 5, 6)} />
                     }
                 </div>
             </div>
