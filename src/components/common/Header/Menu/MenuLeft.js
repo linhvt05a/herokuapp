@@ -21,13 +21,12 @@ const MenuLeft = (props) => {
                 </NavLink>
             </li>
             <li className="item">
-                <NavLink activeClassName="active" className="item-link" to="/project"
-                >
+                <NavLink activeClassName="active" className="item-link" to="/project/selling">
                     ĐANG BÁN
                 </NavLink>
             </li>
             <li className="item">
-                <NavLink activeClassName="active" className="item-link" to="/cart">
+                <NavLink activeClassName="active" className="item-link" to="/project/coming_soon">
                     SẮP BÁN
                 </NavLink>
             </li>
