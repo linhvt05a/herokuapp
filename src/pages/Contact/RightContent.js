@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {InputBase, TextArea, ButtonStyle} from '../../components/base/index'
+import { Trans } from 'react-i18next';
 
 const RightContent= (props) =>{
 
@@ -7,7 +8,7 @@ const RightContent= (props) =>{
 
     return(
         <div className="col-12 col-sm-12 col-md-12 col-lg-6 col-right pt-5 pt-lg-0">
-        <h2 className="heading">Liên hệ</h2>
+        <h2 className="heading"><Trans>Contact</Trans></h2>
         <form className="form">
             <InputBase name="fullName" placeholder="Full name *" background="#f3f4f9" value={values.fullName} onChange={handleChange} errors={errors.fullName}/>
             <InputBase name="email" placeholder="Email *" background="#f3f4f9" value={values.email} onChange={handleChange} errors={errors.email}/>
