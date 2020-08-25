@@ -5,6 +5,7 @@ import { Categories, FilterProject } from '../News/index'
 import RegisterModal from "./RegisterModal";
 import { Trans } from "react-i18next";
 import Pagination from '../../components/common/Pagination';
+import { LoadDataPaging } from '../../utils/Utils';
 
 const data = { img: 'project.jpg' }
 const news =
@@ -41,12 +42,6 @@ const news =
 
 const cateTitle = [{id:1, title:'Market'}, {id:2,title:'Department'},{id:3,title:'House'}, {id:4,title:'Analysis report'}, {id:5,title:'Category 01'}]
 const News = () => {
-    const [paging, setPaging] = useState({
-        totalItem: 18,
-        currentPage:  2,
-        totalPage: 5,
-        itemOnPage: 6
-    });
     return (
         <div className="news">
             <div className="container container-sm container-md">
@@ -58,7 +53,7 @@ const News = () => {
                         <div className="row_content">
                             {news && news.map((news, index) => <RowNews data={news} key={news.id}/>)}
                         </div>
-                        <Pagination dataPaging={paging}/>
+                        <Pagination data={LoadDataPaging(18, 2, 5, 6)} />
                     </div>
                     <div className="col-md-12 col-lg-4 col-xl-4 col-right_news mb-sm-3 mb-0">
                         <Categories cateTitle={cateTitle} label="Categories"/>

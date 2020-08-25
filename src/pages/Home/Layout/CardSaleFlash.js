@@ -4,7 +4,8 @@ import { ItemPromotion } from "../../Promotion/Item/index";
 import HeadingFilter from '../../../components/common/HeadingFilter'
 import CardNoData from "../../../components/common/CardNoData";
 import Slider from "react-slick";
-import Pagination from '../../../components/common/Pagination'
+import Pagination from '../../../components/common/Pagination';
+import { LoadDataPaging } from '../../../utils/Utils';
 
 const CardSaleFlash = (props) => {
 
@@ -14,12 +15,6 @@ const CardSaleFlash = (props) => {
         slidesToShow: 3,
         slidesToScroll: 1
     };
-    const [paging, setPaging] = useState({
-        totalItem: 18,
-        currentPage:  2,
-        totalPage: 5,
-        itemOnPage: 6
-    });
 
     return (
         <div className="project_detail--list bg_grey sales_quick">
@@ -56,7 +51,7 @@ const CardSaleFlash = (props) => {
                 </div>
                 {
                     detail &&
-                    <Pagination dataPaging={paging}/>
+                    <Pagination data={LoadDataPaging(18, 2, 5, 6)} />
                 }
             </div>
         </div>
