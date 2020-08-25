@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Insentives from './Incentives';
+import Insentives from './../../../components/common/Incentives';
 import Info from './Info';
 
 

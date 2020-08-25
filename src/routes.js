@@ -139,7 +139,7 @@ const MAIN = [
         "banner_class": ''
     },
     {
-        "path": "/transactionLevel",
+        "path": "/transactionlevel",
         "component": TransactionLevel,
         "banner_title": "transactionLevel_banner_title",
         "banner_url": transactionLevel_banner_url,

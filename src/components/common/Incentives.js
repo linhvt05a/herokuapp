@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SidebarTab from './../../../../components/common/SidebarTab';
+import SidebarTab from './SidebarTab';
 import { Trans } from 'react-i18next';
 
 const dataTabs = [
@@ -77,7 +77,7 @@ const dataTabs = [
     }
 ]
 
-export default class index extends Component {
+export default class Incentives extends Component {
     
     render() {
         return (
