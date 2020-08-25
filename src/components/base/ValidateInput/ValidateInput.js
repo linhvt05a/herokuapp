@@ -30,8 +30,10 @@ const passRex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,32}$/
 
     return errors;
   };
-
-
+function validateLogin (){
+    
+}
   export {
-      validateSignup
+      validateSignup,
+      validateLogin
   }
