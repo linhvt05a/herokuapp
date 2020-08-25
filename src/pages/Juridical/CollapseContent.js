@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Pagination from "../../components/common/Pagination";
+import { LoadDataPaging } from '../../utils/Utils';
 
 const CollapseContent = (props) => {
     const {data, isOpenCollapse, isOpen, dataPaging} = props
@@ -11,7 +12,7 @@ const CollapseContent = (props) => {
             <CollapseItem item={data} isOpen={isOpen} isOpenCollapse={isOpenCollapse} key={index} openCollapse={()=>props.openCollapse(data.id)}/>
         )
         })}
-        <Pagination dataPaging={dataPaging}/>
+        <Pagination data={LoadDataPaging(18, 2, 5, 6)} />
       </div>
     </div>
   );

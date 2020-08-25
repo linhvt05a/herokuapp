@@ -6,6 +6,7 @@ import Pagination from '../../components/common/Pagination';
 import FilterProject from '../../components/common/FilterProject';
 import { projectAction } from "../../store/action/index";
 import CardNoData from '../../components/common/CardNoData';
+import { LoadDataPaging } from '../../utils/Utils';
 
 
 const Project = (props) => {
@@ -17,13 +18,7 @@ const Project = (props) => {
     const [state, setState] = useState({
         projectStatus: 0
     });
-    const [paging, setPaging] = useState({
-        totalItem: 18,
-        currentPage:  2,
-        totalPage: 5,
-        itemOnPage: 6
-    });
-
+    
     useEffect(() => {
         if (window.location.pathname === "/project/selling") {
             dispatch(projectAction.loadProjectList({project_sale_status: 3}))
@@ -61,7 +56,7 @@ const Project = (props) => {
                                 )) : <CardNoData />
                             }
                         </div>
-                        <Pagination dataPaging={paging}/>
+                        <Pagination data={LoadDataPaging(18, 2, 5, 6)} />
                     </div>
                 </div>
             </div>

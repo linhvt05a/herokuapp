@@ -22,7 +22,8 @@ export {
     translate,
     converAddress,
     convertDateHHmm,
-    checkBeforeTime
+    checkBeforeTime,
+    LoadDataPaging
 }
 
 const DATEFORMAT = {
@@ -118,6 +119,20 @@ function copyList(list) {
         }
     }
     return result
+}
+
+// Load data pagination
+function LoadDataPaging(totalItem, currentPage, totalPage, itemOnPage) {
+    var list = {
+        totalItem: totalItem,
+        currentPage: currentPage,
+        totalPage: totalPage,
+        itemOnPage: itemOnPage
+    }
+    console.log(list);
+    if(totalItem == undefined || currentPage == undefined || totalPage == undefined || itemOnPage == undefined){
+        return null;
+    } else { return list; }
 }
 
 //Kiểm tra khác nhau giữa 2 list, và key đặt biệt để kiểm tra nếu list đầu tiên đã có thì sẽ là khác (dùng cho Add)
