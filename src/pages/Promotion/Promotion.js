@@ -4,6 +4,7 @@ import Pagination from '../../components/common/Pagination'
 import { CardPromotion } from './Layout/index'
 import { CardSaleFlash } from '../Home/Layout/index'
 import { Trans } from 'react-i18next';
+import { LoadDataPaging } from '../../utils/Utils';
 
 const promotions =
     [
@@ -72,12 +73,6 @@ const promotions =
         }
     ]
 const Promotion = () => {
-    const [paging, setPaging] = useState({
-        totalItem: 18,
-        currentPage:  2,
-        totalPage: 5,
-        itemOnPage: 6
-    });
     return (
         <div className="homePage">
             <CardSaleFlash headerBodyClassName="label_filter--heading" labelHeader="flash_sale" datas={["a", "iu", "e", "vl", "wa", "di"]} banner readmore timeLine />
@@ -100,7 +95,7 @@ const Promotion = () => {
                                 </div>
                             </div>
                         </div>
-                        <Pagination dataPaging={paging}/>
+                        <Pagination data={LoadDataPaging(18, 2, 5, 6)} />
                     </div>
                 </div>
             </div>
