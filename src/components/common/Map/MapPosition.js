@@ -14,11 +14,11 @@ L.Icon.Default.mergeOptions({
     shadowUrl: require('leaflet/dist/images/marker-shadow.png')
 });
 
-function MapLea(props) {
+function MapPosition(props) {
     const position = [10.782504, 106.695931];
     return (
         <Map 
-            center={position} zoom={13} 
+            center={position} zoom={17} 
             style={{ height: "670px", zIndex: 0 }}
             attributionControl={false}
             >
@@ -32,11 +32,11 @@ function MapLea(props) {
                 url=''
             /> */}
             <Marker position={position}>
-                <Popup>
-                    popup <br/> Easily customizable.
-                </Popup>
+                {/* <Popup>
+
+                </Popup> */}
             </Marker>
         </Map>
     );
 }
-export default MapLea;
+export default MapPosition;

@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { Trans } from "react-i18next";
 import { Link } from "react-router-dom";
-import { Sliders } from '../../../../components/base/index';
+import { SliderRange } from "../../../../components/base/Slider";
 
 const InputRange = (props) => {
     let { active } = props;
@@ -24,7 +24,7 @@ const InputRange = (props) => {
                     Phạm vi giá (tỷ đồng)
                 </label>
                 <div className="slider-wrapper">
-                    <Sliders value={[10, 20]} onChange={changePrice} />
+                    <SliderRange defaultValue={data} reverse={false} tooltipVisible={true} range={true} onChange={changePrice} />
                 </div>
             </div>
             <div className="range_item area">
@@ -32,7 +32,7 @@ const InputRange = (props) => {
                     Diện tích (m2)
                 </label>
                 <div className="slider-wrapper">
-                    <Sliders value={[20, 80]} onChange={changeAcreage} />
+                    <SliderRange defaultValue={data1} reverse={false} tooltipVisible={true} range={true} onChange={changeAcreage} />
                 </div>
             </div>
         </div>

@@ -2,7 +2,7 @@ import React from 'react';
 import { Trans } from "react-i18next";
 import { Link } from "react-router-dom";
 import { ListSelect, InputRange, ListCheckbox } from "./index";
-import MapPoligon from "../../../components/common/Map/MapPoligon";
+import { MapPoligon } from "../../../components/common/Map/index";
 
 const OnMapPoligon = props => {
     let { active } = props;
