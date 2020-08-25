@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
-import { Select } from 'antd';
+import {Form, Select } from 'antd';
 
 const TopBannerDetailTrans = (props) => {
 
@@ -17,11 +17,23 @@ const TopBannerDetailTrans = (props) => {
         console.log(`Chọn khối/lô ${value}`);
     }
 
+    const [componentSelect, setComponentSelect] = useState('default');
+    const onFormLayoutChange = ({ value }) => {
+        setComponentSelect(value);
+    };
+
+    
+
     return (
         <div class="top_banner--detail d-flex align-items-end" style={{backgroundImage: "url(../assets/images/banner_exchanges.png)"}}>
             <div class="container container-sm container-md d-flex justify-content-center">
                 <div class="project_detail--filter column-3">
+                    <Form
+                        onValuesChange={onFormLayoutChange}
+                        size={componentSelect}
+                    >
                     <div class="row">
+                    
                         <div className="col-12 col-sm-6 col-md-6 col-lg-4">
                             <div className="form-group">
                                 <Select className="form-control hasIcon icon_project" placeholder="Chọn dự án" onChange={onChangeProject} >
@@ -56,6 +68,7 @@ const TopBannerDetailTrans = (props) => {
                             </div>
                         </div>
                     </div>
+                    </Form>
                 </div>
             </div> 
         </div>

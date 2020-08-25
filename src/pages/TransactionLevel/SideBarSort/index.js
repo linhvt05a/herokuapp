@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Incentives from '../../../components/common/Incentives'
 
-export default class SideBar extends Component {
+export default class SideBarSort extends Component {
     render() {
         return (
             <div className="col-12 col-sm-12 col-lg-4">
