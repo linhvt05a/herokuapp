@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import {ProductNodata, ProductGrids, ProductTable} from './index'
 import { Link } from 'react-router-dom';
 import { Trans } from 'react-i18next';
+import Pagination from '../../components/common/Pagination';
+import { LoadDataPaging } from '../../utils/Utils';
 
 
 const ProductContent = (props) => {
@@ -27,6 +29,7 @@ const ProductContent = (props) => {
               :
               <ProductTable /> 
             }
+            <Pagination data={LoadDataPaging(20, 2, 5, 6)}/>
           </div>
         
     );
@@ -37,10 +40,6 @@ const ProductMode = (props) =>{
       <a onClick={props.switchMode}>
           {props.content}
       </a>
-    
-
-            
-        
   )
 }
 export default ProductContent

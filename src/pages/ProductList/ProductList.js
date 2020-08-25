@@ -2,7 +2,7 @@ import React, { Component, useState } from "react";
 import CardHeader from "../../components/common/CardHeader";
 import {ProductRightBar, ProductContent, ProductSignInModal} from './index'
 import {Modal} from 'antd'
-import validate from '../../components/base/ValidateInput/ValidateInput'
+import {validateSignup} from '../../components/base/ValidateInput/ValidateInput'
 import useForm from '../../components/base/ValidateInput/useForm'
 
 const productList = [
@@ -73,15 +73,13 @@ const productList = [
     pro3:'Tặng gói bảo trì 1 năm căn hộ'
   },
   ]
+
 const ProductList = () => {
-  const initialValues = {
-		email: '',
-    password: ''
-  }
-  const {values, errors, handleChange, handleSubmit} = useForm(initialValues, register, validate)
+  const signupValue = {fullName: '', emailSignup: '', passwordSignup: '', rePass:''}
+  const { signupValues,signupErrors, handleChangeSignup, handleSignUp} = useForm(signupValue,register, validateSignup)
 
   function register(){
-    console.log('Ready to submit')
+    console.log(signupValues)
   }
 
   const [showSignInModal, setShowSignIn] = useState(false)
@@ -93,13 +91,20 @@ const ProductList = () => {
           <CardHeader label="List of products" />
           <div className="row">
             <ProductContent data={productList}/>
-            <ProductRightBar data ={product_incentives} showSignInModal={()=>setShowSignIn(true)}/>
+            <ProductRightBar 
+                data ={product_incentives} 
+                showSignInModal={()=>setShowSignIn(true)}
+                handleSignUp={handleSignUp} 
+                handleChange={handleChangeSignup} 
+                values= {signupValues} 
+                errors={signupErrors}
+            />
         </div>
         </div>
         {/* end striking apartment  */}
       </div>
         <Modal visible={showSignInModal}>
-            <ProductSignInModal closeModal={()=> setShowSignIn(false)} handleSignIn={handleSubmit} handleChange={handleChange} values={values} errors={errors}/>
+            <ProductSignInModal closeModal={()=> setShowSignIn(false)} handleSignIn="" handleChange="" values="" errors=""/>
         </Modal>
     </div>
   );
