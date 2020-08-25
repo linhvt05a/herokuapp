@@ -1,14 +1,25 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from "react-redux";
 import TopBannerDetailTrans from "../TransactionLevel/Item/TopBannerDetailTrans";
 import Policy from './Policy';
 import Exchanges from './Exchanges';
 import SideBar from './SideBar';
+import { transactionAction } from "../../store/action";
+
 
 const TransactionLevel = (props) => {
 
-    const data = [20, 60]
-    const data1 = [10, 80]
+    // const data = [20, 60]
+    // const data1 = [10, 80]
+    const dispatch = useDispatch();
 
+    useEffect(() => {
+        dispatch(transactionAction.TransactionLoadList({}))
+    }, [])
+
+    const data = useSelector(state => state.transactionReducer)
+    console.log(data);
+    
     return (
         <div className="projectDetailPage">
             <TopBannerDetailTrans />

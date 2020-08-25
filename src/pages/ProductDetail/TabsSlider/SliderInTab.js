@@ -22,9 +22,9 @@ export default class SliderInTab extends Component {
         return (
             itemImg ? <div>
                 {
-                    itemImg.layout_2d.map((item,index) => (
+                    itemImg.map((item,index) => (
                         <figure key={index}>
-                            <img src={item.image_2d_url} alt="" />
+                            <img src={item.image_url} alt="" />
                           </figure>
                     ))
                 }

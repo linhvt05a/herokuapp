@@ -7,52 +7,44 @@ const dataTabs = [
     id: 1,
     title: "image",
     content: [
-      "./assets/images/living-room-area_01.jpg",
-      "https://via.placeholder.com/800x460",
-      "https://via.placeholder.com/800x460",
-      "https://via.placeholder.com/800x460",
-      "https://via.placeholder.com/800x460",
-      "https://via.placeholder.com/800x460",
-      "https://via.placeholder.com/800x460",
+      {
+        "name": null,
+        "image_url": "https://via.placeholder.com/800x460",
+        "image_id": 3
+      }
     ]
   },
   {
     id: 2,
     title: "2d",
     content: [
-      "./assets/images/living-room-area_01.jpg",
-      "https://via.placeholder.com/800x460",
-      "https://via.placeholder.com/800x460",
-      "https://via.placeholder.com/800x460",
-      "https://via.placeholder.com/800x460",
-      "https://via.placeholder.com/800x460",
-      "https://via.placeholder.com/800x460",
+      {
+        "name": null,
+        "image_url": "https://via.placeholder.com/800x460",
+        "image_id": 3
+      }
     ]
   },
   {
     id: 3,
     title: "3d",
     content: [
-      "https://via.placeholder.com/800x460",
-      "https://via.placeholder.com/800x460",
-      "https://via.placeholder.com/800x460",
-      "https://via.placeholder.com/800x460",
-      "https://via.placeholder.com/800x460",
-      "https://via.placeholder.com/800x460",
-      "https://via.placeholder.com/800x460",
+      {
+        "name": null,
+        "image_url": "./assets/images/living-room-area_01.jpg",
+        "image_id": 3
+      }
     ]
   },
   {
     id: 4,
     title: "AR",
     content: [
-      "./assets/images/living-room-area_01.jpg",
-      "https://via.placeholder.com/800x460",
-      "https://via.placeholder.com/800x460",
-      "https://via.placeholder.com/800x460",
-      "https://via.placeholder.com/800x460",
-      "https://via.placeholder.com/800x460",
-      "https://via.placeholder.com/800x460",
+      {
+        "name": null,
+        "image_url": "https://via.placeholder.com/800x460",
+        "image_id": 3
+      }
     ]
   }
 ]
@@ -118,7 +110,7 @@ class TabsSlider extends React.Component {
           dataTabs.map((item, index) => {
             return (
               <TabContent key={index} active="true" title={item.title} >
-                  <SliderInTab itemImg={dataLayout}/>
+                  <SliderInTab itemImg={item.content}/>
               </TabContent>
             )
           })
