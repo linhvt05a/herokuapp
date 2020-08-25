@@ -35,4 +35,6 @@ return {
     }
 }
 
-export default useForm
+export {
+	useForm
+} 

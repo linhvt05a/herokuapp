@@ -3,7 +3,7 @@ import CardHeader from "../../components/common/CardHeader";
 import {ProductRightBar, ProductContent, ProductSignInModal} from './index'
 import {Modal} from 'antd'
 import {validateSignup, validateLogin} from '../../components/base/ValidateInput/ValidateInput'
-import useForm from '../../components/base/ValidateInput/useForm'
+import {useForm} from '../../components/base/ValidateInput/useForm'
 
 const productList = [
   {
