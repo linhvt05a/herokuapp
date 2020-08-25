@@ -13,5 +13,6 @@ export default {
     shoppingGuide_banner_title: "Hướng dẫn mua sắm",
     juridical_banner_title: "Pháp lý",
     promotion_banner_title: "Khuyến mãi",
-    flashSaleList_banner_title: "Danh sách bán hàng nhanh"
+    flashSaleList_banner_title: "Danh sách bán hàng nhanh",
+    customer_account_banner_title: "Tài khoản khách hàng"
 }

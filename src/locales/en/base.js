@@ -13,5 +13,6 @@ export default {
     shoppingGuide_banner_title: "Shopping Guide",
     juridical_banner_title: "Juridical",
     promotion_banner_title: "Promotion",
-    flashSaleList_banner_title: "Flash Sale List"
+    flashSaleList_banner_title: "Flash Sale List",
+    customer_account_banner_title: "Customer Account"
 }
