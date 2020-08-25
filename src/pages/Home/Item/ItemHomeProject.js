@@ -6,7 +6,7 @@ import { convertDateShow } from "../../../utils/Utils"
 
 const ItemHomeProject = (props) => {
 
-    const { bodyClassName, data } = props
+    const { bodyClassName, data, projectStatus } = props
 
     return (
         <div className={bodyClassName}>
@@ -22,10 +22,10 @@ const ItemHomeProject = (props) => {
                         {data.current_sale_end_date != null ? convertDateShow(data.current_sale_end_date) + "-" : ""}
                     </div>
                     <div className="heading__list-btn">
-                        <Link to="/project/1" className="btn btn_green text-uppercase">
+                        <Link to="/#" className="btn btn_green text-uppercase">
                             <Trans>home_detail_button_title</Trans>
                         </Link>
-                        <Link to="/#" className="btn btn_white text-uppercase">
+                        <Link to={{pathname: "/project/1", state: {projectId: 1}}} className="btn btn_white text-uppercase">
                             <Trans>home_product_button_title</Trans>
                         </Link>
                     </div>

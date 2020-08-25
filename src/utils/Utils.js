@@ -260,7 +260,7 @@ function isProductColor(number) {
 }
 
 function formatCurrency(number) {
-    if (number !== null) {
+    if (number !== null && number !== undefined) {
         var n = null;
         if (Number.isInteger(number)) {
             n = JSON.stringify(number).split('').reverse().join("");
