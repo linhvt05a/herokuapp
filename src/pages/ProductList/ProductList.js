@@ -3,7 +3,7 @@ import CardHeader from "../../components/common/CardHeader";
 import {ProductRightBar, ProductContent, ProductSignInModal} from './index'
 import {Modal} from 'antd'
 import {validateSignup, validateLogin} from '../../components/base/ValidateInput/ValidateInput'
-import {useForm} from '../../components/base/ValidateInput/useForm'
+import {useFormSignup} from '../../components/base/ValidateInput/useForm'
 
 const productList = [
   {
@@ -76,7 +76,7 @@ const productList = [
 
 const ProductList = () => {
   const signupValue = {fullName: '', emailSignup: '', passwordSignup: '', rePass:''}
-  const { signupValues,signupErrors, handleChangeSignup, handleSignUp} = useForm(signupValue,register, validateSignup)
+  const { signupValues,signupErrors, handleChangeSignup, handleSignUp} = useFormSignup(signupValue,register, validateSignup)
 
   function register(){
     console.log(signupValues)
