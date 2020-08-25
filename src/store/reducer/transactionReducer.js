@@ -1,8 +1,8 @@
 import { transactionAction } from '../action/index';
 
 const initialState = {
-    transactionList: {},
-    isFetching: false,
+    List: [],
+
 };
 
 export default (state = initialState, action) => {
@@ -10,8 +10,9 @@ export default (state = initialState, action) => {
         case transactionAction.TRANSACTION_LIST_SUCCESS:
             return {
                 ...state,
-                transactionList: action.response,
+                List: action.response,
                 isFetching: true,
+                isLoadingList: false,
             };
         default:
             return state;

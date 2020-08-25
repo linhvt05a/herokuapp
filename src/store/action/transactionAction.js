@@ -5,7 +5,7 @@ const actions = {
     TRANSACTION_LIST_SUCCESS: name + 'TRANSACTION_LIST_SUCCESS',
 
     TransactionLoadList: (params) => ({
-        type: actions.PRODUCT_LOAD_LIST,
+        type: actions.TRANSACTION_LIST_REQUEST,
         params: params
     }),
 

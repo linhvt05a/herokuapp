@@ -26,7 +26,7 @@ const TopBannerDetailTrans = (props) => {
                             <div className="form-group">
                                 <Select className="form-control hasIcon icon_project" placeholder="Chọn dự án" onChange={onChangeProject} >
                                     <Select.Option selected disabled>Chọn dự án *</Select.Option>
-                                    <Select.Option value="1">TPHCM</Select.Option>
+                                    <Select.Option value="1">Royal Garden</Select.Option>
                                     <Select.Option value="2">Hà Nội</Select.Option>
                                     <Select.Option value="3">Đà Nẵng</Select.Option>
                                     <Select.Option value="4">Bình Dương</Select.Option>
@@ -37,7 +37,7 @@ const TopBannerDetailTrans = (props) => {
                             <div className="form-group">
                                 <Select className="form-control hasIcon icon_area" placeholder="Chọn khu" onChange={onChangeArea}>
                                     <Select.Option selected disabled>Chọn khu *</Select.Option>
-                                    <Select.Option value="1">TPHCM</Select.Option>
+                                    <Select.Option value="1">VALLEN</Select.Option>
                                     <Select.Option value="2">Hà Nội</Select.Option>
                                     <Select.Option value="3">Đà Nẵng</Select.Option>
                                     <Select.Option value="4">Bình Dương</Select.Option>
@@ -48,10 +48,10 @@ const TopBannerDetailTrans = (props) => {
                             <div className="form-group">
                                 <Select className="form-control hasIcon icon_block" placeholder="Chọn khối/lô" onChange={onChangeBlock}>
                                     <Select.Option selected disabled>Chọn khối/lô*</Select.Option>
-                                    <Select.Option value="1">TPHCM</Select.Option>
-                                    <Select.Option value="2">Hà Nội</Select.Option>
-                                    <Select.Option value="3">Đà Nẵng</Select.Option>
-                                    <Select.Option value="4">Bình Dương</Select.Option>
+                                    <Select.Option value="1">B</Select.Option>
+                                    <Select.Option value="2">C</Select.Option>
+                                    <Select.Option value="3">D</Select.Option>
+                                    <Select.Option value="4">E</Select.Option>
                                 </Select>
                             </div>
                         </div>
