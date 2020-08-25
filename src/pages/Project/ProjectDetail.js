@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation } from "react-router-dom"
 import TopBannerDetail from "./Item/TopBannerDetail";
 import { CardProjectList } from './Layout/index'
 
 const ProjectDetail = (props) => {
 
-    const type = 0;
-
+    const location=useLocation();
+    console.log(location);
+    
     return (
         <div className="projectDetailPage">
             <TopBannerDetail />

@@ -15,6 +15,8 @@ export default {
 
     PROJECT_LIST: "/api/main_web/v1/project/",
 
+    HOT_PRODUCT_LIST: "/api/main_web/v1/infrastructure/product/highlight/list/",
+
     getHeader,
     getUrl,
     authHeader,

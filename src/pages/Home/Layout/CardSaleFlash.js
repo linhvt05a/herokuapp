@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { ItemProduct, ItemTimeLine } from "../Item/index";
+import { ItemTimeLine } from "../Item/index";
+import { ItemPromotion } from "../../Promotion/Item/index";
 import HeadingFilter from '../../../components/common/HeadingFilter'
 import CardNoData from "../../../components/common/CardNoData";
 import Slider from "react-slick";
@@ -32,8 +33,8 @@ const CardSaleFlash = (props) => {
                                 <div className="row">
                                     {
                                         datas.map((item, index) => (
-                                            <div className="col-12 col-sm-12 col-md-6 col-lg-4 mb-3">
-                                                <ItemProduct key={index} data={item} detail />
+                                            <div key={index} className="col-12 col-sm-12 col-md-6 col-lg-4 mb-3">
+                                                <ItemPromotion data={item} detail />
                                             </div>
                                         ))
                                     }
@@ -41,7 +42,7 @@ const CardSaleFlash = (props) => {
                                 <Slider {...settings}>
                                     {
                                         datas.map((item, index) => (
-                                            <ItemProduct key={index} data={item} />
+                                            <ItemPromotion key={index} data={item} />
                                         ))
                                     }
                                 </Slider> :

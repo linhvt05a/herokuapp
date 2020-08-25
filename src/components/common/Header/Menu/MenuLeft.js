@@ -21,7 +21,8 @@ const MenuLeft = (props) => {
                 </NavLink>
             </li>
             <li className="item">
-                <NavLink activeClassName="active" className="item-link" to="/project/selling">
+                <NavLink activeClassName="active" className="item-link" to="/productList"
+                >
                     ĐANG BÁN
                 </NavLink>
             </li>

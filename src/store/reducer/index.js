@@ -1,10 +1,11 @@
 import examReducer from "./examReducer";
-import projectReducer from "./projectReducer"
+import projectReducer from "./projectReducer";
+import productReducer from "./productReducer";
 import { combineReducers } from 'redux';
 
 
 const allReducers = combineReducers({
 
-    examReducer, projectReducer
+    examReducer, projectReducer, productReducer
 });
 export default allReducers; 
