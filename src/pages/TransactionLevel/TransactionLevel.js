@@ -26,7 +26,7 @@ const TransactionLevel = (props) => {
                             <Policy data={data}/>
                             <Exchanges data={data}/>
                         </div>
-                        <SideBarSort/>
+                        <SideBarSort data={data}/>
                     </div>
                 </div>
             </div>
