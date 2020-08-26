@@ -31,6 +31,10 @@ const ListSelect = (props) => {
         }
     }, [data]);
 
+    useEffect(() => {
+        dispatch(commonAction.loadDistrictList({ province_id: 69 }))
+    }, []);
+
     // useEffect(() => {
     //     let data = locationStore.districtList;
     //     console.log(data);
@@ -48,7 +52,7 @@ const ListSelect = (props) => {
         dispatch(commonAction.loadDistrictList({ province_id: value }))
     }
 
-    console.log(state);
+    // console.log(state);
 
     // const onChangeDistrict = (value) => {
     //     setState({ ...state, address: { _city: state.address._city, _ward: "", _district: value, _address: state.address._address } })

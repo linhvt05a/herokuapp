@@ -23,7 +23,6 @@ export function* districtList(payload) {
     try {
         const response = yield commonService.districtList(token, province_id);
         response.success ? yield put({ type: commonAction.DISTRICT_LIST_SUCCESS, response }) : yield put({ type: commonAction.DISTRICT_LIST_FAILURE, response });
-        console.log("hhhh", response);
     } catch (err) {
         yield put({ type: commonAction.DISTRICT_LIST_FAILURE, err });
     }
@@ -49,6 +48,8 @@ export function* statusListlWatcher() {
 // root Saga
 export default function* rootSaga() {
     yield all([
-        fork(provinceListlWatcher, districtListlWatcher, statusListlWatcher),
+        fork(provinceListlWatcher),
+        fork(districtListlWatcher),
+        fork(statusListlWatcher)
     ]);
 }
