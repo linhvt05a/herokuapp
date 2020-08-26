@@ -35,9 +35,10 @@ const ProductDetail = (props) => {
                                     <div className="col-12 col-sm-12 col-lg-8">
                                         <div className="slider_in_tab">
                                             <TimeLine datas={['00', '20', '35']} />
-                                            <TabsSlider dataImg={data.image} dataLayout={data.layout} />
                                             <Promotion />
                                             <IconLikeDown />
+                                            <TabsSlider dataImg={data.image} dataLayout={data.layout} />
+                                            
                                         </div>
                                         <div className="description">
                                             <div>{data.description}</div>

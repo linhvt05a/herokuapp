@@ -1,53 +1,8 @@
 import React, { Component } from "react";
 import SliderInTab from "./SliderInTab";
 import TabContent from './TabContent';
-
-const dataTabs = [
-  {
-    id: 1,
-    title: "image",
-    content: [
-      {
-        "name": null,
-        "image_url": "https://via.placeholder.com/800x460",
-        "image_id": 3
-      }
-    ]
-  },
-  {
-    id: 2,
-    title: "2d",
-    content: [
-      {
-        "name": null,
-        "image_url": "https://via.placeholder.com/800x460",
-        "image_id": 3
-      }
-    ]
-  },
-  {
-    id: 3,
-    title: "3d",
-    content: [
-      {
-        "name": null,
-        "image_url": "./assets/images/living-room-area_01.jpg",
-        "image_id": 3
-      }
-    ]
-  },
-  {
-    id: 4,
-    title: "AR",
-    content: [
-      {
-        "name": null,
-        "image_url": "https://via.placeholder.com/800x460",
-        "image_id": 3
-      }
-    ]
-  }
-]
+import Promotion from "../../../components/common/Promotion";
+import IconLikeDown from "../../../components/common/IconLikeDown";
 
 class TabsWraper extends Component {
   constructor() {
@@ -102,8 +57,7 @@ class TabsWraper extends Component {
 class TabsSlider extends React.Component {
   render() {
     const { dataImg, dataLayout } = this.props;
-    const layout = [{title: "image", content: dataImg },{ title: "2d", content: dataLayout.layout_2d }, { title: "3d",content: dataLayout.layout_3d }, { title: "ar",content: dataLayout.layout_ar }]
-    console.log("img",dataImg);
+    const layout = [{ title: "image", content: dataImg }, { title: "2d", content: dataLayout.layout_2d }, { title: "3d", content: dataLayout.layout_3d }, { title: "ar", content: dataLayout.layout_ar }]
     return (
       <TabsWraper className="apartment_slider selectApartment">
         {
