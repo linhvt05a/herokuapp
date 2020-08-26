@@ -11,7 +11,7 @@ const RightGuideBar = (props) => {
           <div className="tab-content">
             <div role="tabpanel" className="tab-pane fade" id="tab01"></div>
               {selected && <ContentGuide />}
-              {!selected && <div>Loading....</div>}
+              {!selected && <div>Loading...</div>}
           </div>
         </div>
       </div>

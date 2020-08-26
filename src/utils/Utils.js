@@ -129,7 +129,6 @@ function LoadDataPaging(totalItem, currentPage, totalPage, itemOnPage) {
         totalPage: totalPage,
         itemOnPage: itemOnPage
     }
-    console.log(list);
     if(totalItem == undefined || currentPage == undefined || totalPage == undefined || itemOnPage == undefined){
         return null;
     } else { return list; }
