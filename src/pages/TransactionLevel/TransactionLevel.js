@@ -12,7 +12,7 @@ const TransactionLevel = (props) => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(transactionAction.TransactionLoadList({}))
+        dispatch(transactionAction.TransactionLoadList({project_id:13,area_id:1,block_id:2}))
     }, [])
 
     const data = useSelector(state => state.transactionReducer.List.detail)

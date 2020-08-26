@@ -3,13 +3,13 @@ import { TOKEN } from '../../../env';
 
 export const transactionService = {
 
-    list(token, search_name = "", status_id = "", setting_type) {
+    list(token, project_id = "", area_id = "", block_id="") {
         const requestOptions = {
             method: 'GET',
             headers: api.getHeader(TOKEN)
         };
 
-        const params = { search_name, status_id, setting_type };
+        const params = { project_id, area_id, block_id };
         const url = api.getUrl(api.TRANSACTION_LIST, params);
         console.log(url);
         return api.handleRequest(url, requestOptions);
