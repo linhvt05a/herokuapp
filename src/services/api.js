@@ -17,6 +17,8 @@ export default {
 
     HOT_PRODUCT_LIST: "/api/main_web/v1/infrastructure/product/highlight/list/",
 
+    VISIT_REGISTER :"",
+
     getHeader,
     getUrl,
     authHeader,
