@@ -8,18 +8,22 @@ const HotProduct = (props) => {
 
     const product = useSelector(state => state.productReducer);
     const isGetHotProductListSuccess = product.hotProductList.success;
-    const hotProductList = isGetHotProductListSuccess ? product.hotProductList.detail : null;
+    const hotProductList = isGetHotProductListSuccess ? product.hotProductList : null;
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(productAction.loadHotProductList({}));
+        dispatch(productAction.loadHotProductList({page: 1, limit: 6}));
     }, []);
+
+    const onPageChange = (value) => {
+        dispatch(productAction.loadHotProductList({page: value, limit: 6}));
+    }
 
     return (
         <div className="projectPage">
             <div className="project_page hot_product bg_grey">
                 <FilterProject />
-                <CardHotProduct headerBodyClassName="label_filter--heading" labelHeader="product_list_title" datas={hotProductList != null ? hotProductList.list_product : null} detail />
+                <CardHotProduct headerBodyClassName="label_filter--heading" labelHeader="product_list_title" datas={hotProductList} limit={6} detail onPageChange={onPageChange} />
             </div>
         </div>
     )

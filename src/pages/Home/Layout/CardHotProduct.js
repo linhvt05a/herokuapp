@@ -9,7 +9,7 @@ import { LoadDataPaging } from '../../../utils/Utils';
 
 const CardHotProduct = (props) => {
 
-    const { headerBodyClassName, labelHeader, datas, detail, options, onFilterChange } = props
+    const { headerBodyClassName, labelHeader, datas, limit, detail, options, onFilterChange, onPageChange } = props
 
     return (
         <div className="striking_apartment label_filter bg_grey">
@@ -17,10 +17,10 @@ const CardHotProduct = (props) => {
                 <HeadingFilter headerBodyClassName={headerBodyClassName} labelHeader={labelHeader} options={options ? options : undefined} trans onChange={onFilterChange ? onFilterChange : undefined} />
                 <div className="striking_apartment--content">
                     {
-                        (datas != null && datas.length > 0) ?
+                        (datas && datas.detail && datas.detail.list_product && datas.detail.list_product != null && datas.detail.list_product.length > 0) ?
                         <div className="row">
                             {
-                                datas.map((item, index) => (
+                                datas.detail.list_product.map((item, index) => (
                                     detail ?
                                     <div key={index} className="col-12 col-sm-12 col-md-6 col-lg-4 mb-3">
                                         <ItemProduct data={item} />
@@ -41,8 +41,8 @@ const CardHotProduct = (props) => {
                         </div>
                     }
                     {
-                        detail &&
-                        <Pagination data={LoadDataPaging(18, 2, 5, 6)} />
+                        (detail && datas) &&
+                        <Pagination data={LoadDataPaging(datas.total_record, datas.page, datas.total_page, limit)} onChange={onPageChange} />
                     }
                 </div>
             </div>

@@ -14,6 +14,9 @@ const Project = (props) => {
     const project = useSelector(state => state.projectReducer);
     const isGetProjectListSuccess = project.projectList.success;
     const projectList = isGetProjectListSuccess ? project.projectList.detail : null;
+    const totalPage = isGetProjectListSuccess ? project.projectList.total_page : null;
+    const page = isGetProjectListSuccess ? project.projectList.page : null;
+    const totalRecord = isGetProjectListSuccess ? project.projectList.total_record : null;
     const dispatch = useDispatch();
     const [state, setState] = useState({
         projectStatus: 0
@@ -21,12 +24,12 @@ const Project = (props) => {
     
     useEffect(() => {
         if (window.location.pathname === "/project/selling") {
-            dispatch(projectAction.loadProjectList({project_sale_status: 3}))
+            dispatch(projectAction.loadProjectList({page: 1, limit: 6, project_sale_status: 3}))
             setState({
                 projectStatus: 3
             })
         } else {
-            dispatch(projectAction.loadProjectList({project_sale_status: 2}))
+            dispatch(projectAction.loadProjectList({page: 1, limit: 6, project_sale_status: 2}))
             setState({
                 projectStatus: 2
             })
@@ -38,6 +41,10 @@ const Project = (props) => {
         setState({
             projectStatus: parseInt(e.target.name)
         });
+    }
+
+    const onPageChange = (value) => {
+        dispatch(projectAction.loadProjectList({page: value, limit: 6, project_sale_status: state.projectStatus}));
     }
 
     return (
@@ -56,7 +63,7 @@ const Project = (props) => {
                                 )) : <CardNoData />
                             }
                         </div>
-                        <Pagination data={LoadDataPaging(18, 2, 5, 6)} />
+                        <Pagination data={LoadDataPaging(totalRecord, page, totalPage, 6)} onChange={onPageChange} />
                     </div>
                 </div>
             </div>

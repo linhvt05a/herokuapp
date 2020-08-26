@@ -16,6 +16,8 @@ export default {
     PROJECT_LIST: "/api/main_web/v1/project/",
 
     HOT_PRODUCT_LIST: "/api/main_web/v1/infrastructure/product/highlight/list/",
+    SELLING_PRODUCT_LIST: "/api/main_web/v1/infrastructure/product/selling/list/",
+    COMING_SOON_PRODUCT_LIST: "/api/main_web/v1/infrastructure/product/preparing_sell/list/",
 
     getHeader,
     getUrl,

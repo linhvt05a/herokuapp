@@ -6,7 +6,6 @@ import { MapPoligon } from "../../../components/common/Map/index";
 
 const OnMapPoligon = props => {
     let { active } = props;
-    console.log(active);
     return (
         <div className={`map_search map_tab ${active.search == true ? "active" : "" }`}>
             <div className="container-fluid">
