@@ -3,11 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import TabsSlider from './TabsSlider';
 import SideBar from './SideBar';
 import SalesAccordion from './SalesAccordion';
-import Parser from 'html-react-parser';
-import { Trans } from 'react-i18next';
-import TimeLine from '../../components/common/TimeLine';
-import Promotion from '../../components/common/Promotion';
-import IconLikeDown from '../../components/common/IconLikeDown';
 import { productDetailAction } from "../../store/action";
 import { useParams } from 'react-router-dom';
 
@@ -33,13 +28,14 @@ const ProductDetail = (props) => {
                                 <h2 className="main_heading"><span>{data.address_house}</span></h2>
                                 <div className="row">
                                     <div className="col-12 col-sm-12 col-lg-8">
-                                        <div className="slider_in_tab">
-                                            <TimeLine datas={['00', '20', '35']} />
-                                            <Promotion />
-                                            <IconLikeDown />
-                                            <TabsSlider dataImg={data.image} dataLayout={data.layout} />
-                                            
-                                        </div>
+                                        {
+                                            data.dataImg || data.layout ?
+                                            <div className="slider_in_tab">
+                                                <TabsSlider dataImg={data.image} dataLayout={data.layout} />
+                                            </div>
+                                            :""
+                                        }
+                                        
                                         <div className="description">
                                             <div>{data.description}</div>
                                         </div>

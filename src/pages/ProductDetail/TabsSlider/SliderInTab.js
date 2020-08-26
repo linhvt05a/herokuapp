@@ -19,6 +19,15 @@ export default class SliderInTab extends Component {
     render() {
         const { nav1, nav2 } = this.state;
         const { itemImg }= this.props;
+        console.log(itemImg.length);
+        const MAX_SLIDES = 5; 
+        const infinite = itemImg? itemImg.length  > MAX_SLIDES : false;
+        const settings = {
+            slidesToShow:MAX_SLIDES,
+            infinite:infinite,
+            swipeToSlide:true,
+            focusOnSelect:true
+        }
         return (
             itemImg ? <div>
                 <Slider
@@ -40,9 +49,7 @@ export default class SliderInTab extends Component {
                 <Slider
                     asNavFor={nav1}
                     ref={slider => (this.slider2 = slider)}
-                    slidesToShow={2}
-                    swipeToSlide={true}
-                    focusOnSelect={true}
+                    {...settings}
                     className="apartment_slider-nav"
                     >
                     {
@@ -52,7 +59,7 @@ export default class SliderInTab extends Component {
                                  <img src={item.image_url} alt="" height={80}/>
                             </figure>
                         )
-                        })
+                    })
                     }
                 </Slider>
             </div> : ""

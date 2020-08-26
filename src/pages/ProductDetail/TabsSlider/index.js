@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import SliderInTab from "./SliderInTab";
 import TabContent from './TabContent';
-import Promotion from "../../../components/common/Promotion";
-import IconLikeDown from "../../../components/common/IconLikeDown";
+import TimeLine from '../../../components/common/TimeLine';
+import Promotion from '../../../components/common/Promotion';
+import IconLikeDown from '../../../components/common/IconLikeDown';
 
 class TabsWraper extends Component {
   constructor() {
@@ -63,6 +64,17 @@ class TabsSlider extends React.Component {
         {
           layout.map((itemlayout, index) => (
             <TabContent key={index} active="true" title={itemlayout.title} >
+              {
+                itemlayout.content ?
+                  itemlayout.content.map((item,i) => (
+                    <div key={i}>
+                      <TimeLine datas={['00', '20', '35']} />
+                      <Promotion />
+                      <IconLikeDown />
+                    </div>
+                  ))
+              :""
+              }
               <SliderInTab key={index} itemImg={itemlayout.content} />
             </TabContent>
           ))
