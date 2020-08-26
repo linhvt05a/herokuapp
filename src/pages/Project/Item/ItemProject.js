@@ -30,10 +30,10 @@ const ItemProject = (props) => {
                             {data.address}
                         </p>
                         <div className="list-btn">
-                            <Link to="/project/1" className="btn btn_green text-uppercase">
+                            <Link to="/#" className="btn btn_green text-uppercase">
                                 <Trans>home_detail_button_title</Trans>
                             </Link>
-                            <Link to="/#" className="btn btn_white text-uppercase">
+                            <Link to="/project/1" className="btn btn_white text-uppercase">
                                 <Trans>home_product_button_title</Trans>
                             </Link>
                         </div>

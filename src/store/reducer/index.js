@@ -1,5 +1,6 @@
 import examReducer from "./examReducer";
 import productReducer from "./productReducer";
+import productDetailReducer from "./productDetailReducer";
 import projectReducer from "./projectReducer"
 import transactionReducer from "./transactionReducer"
 import { combineReducers } from 'redux';
@@ -8,7 +9,7 @@ import { combineReducers } from 'redux';
 const allReducers = combineReducers({
     examReducer,
     productReducer,
-    projectReducer,
+    productDetailReducer,
     projectReducer,
     transactionReducer,
 });

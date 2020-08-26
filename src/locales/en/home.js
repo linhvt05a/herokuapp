@@ -9,5 +9,15 @@ export default {
     see_all: "See all",
     hot_product: "Hot product",
     home_detail_button_title: "Detail",
-    home_product_button_title: "Product"
+    home_product_button_title: "Product",
+    home_aparment: "Aparment",
+    home_duplex: "Duplex",
+    home_officetel: "Officetel",
+    home_studio: "Studio",
+    home_penthouse: "Penthouse",
+    home_shophouse: "Shophouse",
+    home_villa: "Villa",
+    home_single_villa: "Single Villa",
+    home_duplex_villa: "Duplex Villa",
+    home_all: "-- All --",
 }

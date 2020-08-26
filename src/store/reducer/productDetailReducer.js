@@ -1,17 +1,18 @@
-import { productAction } from '../action/index';
+import { productDetailAction } from "../action";
 
 const initialState = {
-    hotProductList: {},
-    isFetching: false,
+    List: {},
+
 };
 
 export default (state = initialState, action) => {
     switch (action.type) {
-        case productAction.HOT_PRODUCT_LIST_SUCCESS:
+        case productDetailAction.PRODUCT_LIST_SUCCESS:
             return {
                 ...state,
-                hotProductList: action.response,
+                List: action.response,
                 isFetching: true,
+                isLoadingList: false,
             };
         default:
             return state;

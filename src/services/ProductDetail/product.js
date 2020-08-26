@@ -1,7 +1,7 @@
 import api from '../api';
 import { TOKEN } from '../../../env';
 
-export const productService = {
+export const productDetailService = {
 
     list(token, search_name = "", status_id = "", setting_type) {
         const requestOptions = {
