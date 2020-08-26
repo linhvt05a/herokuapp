@@ -3,13 +3,14 @@ import Pagination from "../../components/common/Pagination";
 import { LoadDataPaging } from '../../utils/Utils';
 
 const CollapseContent = (props) => {
-    const {data, isOpenCollapse, isOpen, dataPaging} = props
+    const {data, isOpenCollapse, dataPaging} = props
   return (
     <div className="col-sm-12 col-md-7 col-lg-8 col-xl-8">
       <div className="juridical__content sales_collapse">
         {data && data.map((data, index)=>{
+          const checkOpen = isOpenCollapse[index]
             return(
-            <CollapseItem item={data} isOpen={isOpen} isOpenCollapse={isOpenCollapse} key={index} openCollapse={()=>props.openCollapse(data.id)}/>
+            <CollapseItem item={data} isOpen={checkOpen} isOpenCollapse={isOpenCollapse} key={index} openCollapse={()=>props.openCollapse(index)}/>
         )
         })}
         <Pagination data={LoadDataPaging(18, 2, 5, 6)} />
@@ -22,7 +23,7 @@ const CollapseItem = (props) => {
     const{isOpenCollapse, item, isOpen} = props
 
   return (
-    <div className={isOpenCollapse === item.id && isOpen === true ? "card show" : "card"}>
+    <div className={isOpen ? "card show" : "card"}>
         <div className="card-header">
             <h2 className="title">{props.item.title}</h2>
             <div className="icon_action">

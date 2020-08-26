@@ -122,14 +122,14 @@ function copyList(list) {
 }
 
 // Load data pagination
-function LoadDataPaging(totalItem, currentPage, totalPage, itemOnPage) {
+function LoadDataPaging(total_record, page, total_page, limit) {
     var list = {
-        totalItem: totalItem,
-        currentPage: currentPage,
-        totalPage: totalPage,
-        itemOnPage: itemOnPage
+        total_record: total_record,
+        page: page,
+        total_page: total_page,
+        limit: limit,
     }
-    if(totalItem == undefined || currentPage == undefined || totalPage == undefined || itemOnPage == undefined){
+    if(total_record === undefined || page === undefined || total_page === undefined || limit === undefined){
         return null;
     } else { return list; }
 }

@@ -19,18 +19,17 @@ const Juridical = ()=> {
     totalPage: 5,
     itemOnPage: 6
 });
-  const[isOpenCollapse, setOpenCollapse] = useState("")
-  const[isOpen, setOpen] = useState(false)
-      const openCollapse = (id) =>{
-        setOpenCollapse(id)
-        setOpen(!isOpen)
+  const[isOpenCollapse, setOpenCollapse] = useState({})
+      const openCollapse = (index) =>{
+        setOpenCollapse(prevState => ({...prevState, [index]: !Boolean(prevState[index])}))
       }
+
         return (
             <div className="juridical">
             <div className="container container-sm container-md">
               <CardHeader label="Juridical"/>
               <div className="row">
-                <CollapseContent data={data} dataPaging={paging} isOpenCollapse={isOpenCollapse} isOpen={isOpen} openCollapse={openCollapse} />
+                <CollapseContent data={data} dataPaging={paging} isOpenCollapse={isOpenCollapse} openCollapse={openCollapse} />
                 <TopRightBar />
               </div>
               
