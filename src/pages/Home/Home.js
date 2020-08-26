@@ -59,7 +59,7 @@ const Home = (props) => {
     const isGetProjectListSuccess = project.projectList.success;
     const projectList = isGetProjectListSuccess ? project.projectList.detail : null;
     const isGetHotProductListSuccess = product.hotProductList.success;
-    const hotProductList = isGetHotProductListSuccess ? product.hotProductList.detail : null;
+    const hotProductList = isGetHotProductListSuccess ? product.hotProductList : null;
     const dispatch = useDispatch();
     const [state, setState] = useState({
         projectStatus: 3,
@@ -105,7 +105,6 @@ const Home = (props) => {
                     </figure>
                     <LocationView HandlerPosition={handlerButtonPosition} HandlerSearch={handlerButtonSearch} />
                 </div>
-                {state.position == true ? <YourPosition active={state}/> : ''}
                 <OnMapPoligon active={state}/>
             </div>
 
@@ -204,7 +203,7 @@ const Home = (props) => {
             {/* end contact  */}
 
             {/* striking apartment  */}
-            <CardHotProduct headerBodyClassName="label_filter--heading" labelHeader="hot_product" datas={hotProductList != null ? hotProductList.list_product : null} options onFilterChange={onProjectGroupFilterChange} />
+            <CardHotProduct headerBodyClassName="label_filter--heading" labelHeader="hot_product" datas={hotProductList} options onFilterChange={onProjectGroupFilterChange} />
             {/* end striking apartment  */}
 
             {/* app_managerment  */}

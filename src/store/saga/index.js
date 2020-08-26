@@ -3,6 +3,7 @@ import examSaga from "./examSaga";
 import productSaga from "./productSaga";
 import productDetailSaga from "./productDetailSaga";
 import projectSaga from "./projectSaga";
+import commonSaga from "./commonSaga"
 import transactionSaga from "./transactionSaga";
 
 function* allSaga() {
@@ -12,6 +13,7 @@ function* allSaga() {
     productDetailSaga(),
     projectSaga(),
     transactionSaga(),
+    commonSaga(),
   ]);
 }
 

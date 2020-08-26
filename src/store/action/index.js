@@ -3,6 +3,7 @@ import productAction from "./productAction";
 import projectAction from "./projectAction";
 import productDetailAction from "./productDetailAction";
 import transactionAction from "./transactionAction";
+import commonAction from "./commonAction";
 
 export {
   examAction,
@@ -10,4 +11,5 @@ export {
   productDetailAction,
   projectAction,
   transactionAction,
+  commonAction,
 }
