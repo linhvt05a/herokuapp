@@ -10,7 +10,7 @@ const province = [{value:1, label :'--Select--'},{value:2, label :'TPHCM'}, {val
 const district = [{value:1, label :'--Select--'},{value:2, label :'TPHCM'}, {value:3, label :'Ha Noi'}, {value:4, label :'Hai Phong'}]
 const status = [{value:1, label :'--Select--'},{value:2, label :'TPHCM'}, {value:3, label :'Ha Noi'}, {value:4, label :'Hai Phong'}]
 
-const SidebarSortItem = () =>{
+const SidebarSortItem = (props) =>{
     const [priceRange, setPrice] = useState([])
     const [acreage, setAcreage] = useState([])
 
@@ -22,9 +22,9 @@ const SidebarSortItem = () =>{
         setAcreage(e)
         console.log('acreage',acreage)
     }
+    const { isStatusActive } = props;
     return(
-        <div className="searchProject">
-            
+        <div {...{className:`searchProject ${isStatusActive && "active"}`}}>
                 <div className="searchProject__title">
                     <Trans>Search for projects by</Trans>
                 </div>

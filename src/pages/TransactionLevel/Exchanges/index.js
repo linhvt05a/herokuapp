@@ -9,7 +9,7 @@ export default class Exchanges extends Component {
             data.list_floor_or_lot.map((item,index) => (
                 <div className="exchanges_apartment" key={index}>
                 <div className="exchanges_apartment--item">
-                    <span className="stt">1</span>
+                    <span className="stt">{index + 1}</span>
                     <div className="exchanges_apartment--heading">
                         <div className="floor_selected">
                             <div className="floor">{item.product_floor_or_lot_name}</div>

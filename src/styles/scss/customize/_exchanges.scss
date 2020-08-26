@@ -306,13 +306,13 @@ $color_05: #399b54;
             visibility: hidden;
             padding: 0 25px;
             transition: all 0.2s ease;
-            opacity: 0;
+            display: none;
             &.active {
                 height: auto;
                 visibility: visible;
                 padding: 20px 25px;
                 z-index: 1;
-                opacity: 1;
+                display: block;
             }
             .map_search--range .range_item label {
                 color: #0d0d0d;
