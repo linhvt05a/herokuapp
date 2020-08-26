@@ -105,7 +105,6 @@ const Home = (props) => {
                     </figure>
                     <LocationView HandlerPosition={handlerButtonPosition} HandlerSearch={handlerButtonSearch} />
                 </div>
-                {state.position == true ? <YourPosition active={state}/> : ''}
                 <OnMapPoligon active={state}/>
             </div>
 

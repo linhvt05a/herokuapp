@@ -17,6 +17,12 @@ export default {
 
     HOT_PRODUCT_LIST: "/api/main_web/v1/infrastructure/product/highlight/list/",
 
+    
+    // COMMON 
+    PROVINCE_LIST: "api/fe/v1/province",
+    DISTRICT_LIST: "api/fe/v1/district",
+    STATUS_LIST: "/api/be/v1/common/project/status",
+
     getHeader,
     getUrl,
     authHeader,
