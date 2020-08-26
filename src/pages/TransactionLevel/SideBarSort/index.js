@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Incentives from '../../../components/common/Incentives'
+import SortAccordion from '../SortAccordion/SortAccordion';
 
 export default class SideBarSort extends Component {
     render() {
@@ -7,6 +8,7 @@ export default class SideBarSort extends Component {
         return (
             data ?
                 <div className="col-12 col-sm-12 col-lg-4">
+                    
                     <div className="exchanges_filter">
                         <div className="heading">
                             <span className="title">Sản phẩm khối B</span>
@@ -51,103 +53,9 @@ export default class SideBarSort extends Component {
                                 <a href="#" className="btn btn_green text-uppercase w-100">tìm kiếm</a>
                             </div>
                         </div>
-                        <div className="wrap">
-                            {
-                                data.list_floor_or_lot.map((item, index) => (
-                                    <div className="floors active">
-                                        <div className="floor">
-                                            <span className="floor-name">{item.product_floor_or_lot_name}</span>
-                                            <span className="floor-number"><i className="available">5</i>/15</span>
-                                        </div>
-                                        {
-                                            item.list_product.map((iten_pro,index) => (
-                                                <div key={index} className="aparts">
-                                                    <p className="apart">
-                                                        <span className="apart-name">{iten_pro.product_name}</span>
-                                                        <span className="apart-price">{iten_pro.product_estimate_price}{iten_pro.product_estimate_price_unit_name}</span>
-                                                    </p>
-                                                </div>
-                                            ))
-                                        }
-                                        
-                                    </div>
-                                ))
-                            }
-
-                            <div className="floors">
-                                <div className="floor">
-                                    <span className="floor-name">
-                                        Tầng 2
-          </span>
-                                    <span className="floor-number">
-                                        <i className="available">5</i>/15
-          </span>
-                                </div>
-                                <div className="aparts">
-                                    <p className="apart">
-                                        <span className="apart-name">Căn B - F0.1</span>
-                                        <span className="apart-price">1.6 tỷ đồng</span>
-                                    </p>
-                                    <p className="apart">
-                                        <span className="apart-name">Căn B - F0.1</span>
-                                        <span className="apart-price">1.6 tỷ đồng</span>
-                                    </p>
-                                    <p className="apart">
-                                        <span className="apart-name">Căn B - F0.1</span>
-                                        <span className="apart-price">1.6 tỷ đồng</span>
-                                    </p>
-                                    <p className="apart">
-                                        <span className="apart-name">Căn B - F0.1</span>
-                                        <span className="apart-price">1.6 tỷ đồng</span>
-                                    </p>
-                                    <p className="apart">
-                                        <span className="apart-name">Căn B - F0.1</span>
-                                        <span className="apart-price">1.6 tỷ đồng</span>
-                                    </p>
-                                    <p className="apart">
-                                        <span className="apart-name">Căn B - F0.1</span>
-                                        <span className="apart-price">1.6 tỷ đồng</span>
-                                    </p>
-                                </div>
-                            </div>
-                            <div className="floors">
-                                <div className="floor">
-                                    <span className="floor-name">
-                                        Tầng 3
-          </span>
-                                    <span className="floor-number">
-                                        <i className="available">5</i>/15
-          </span>
-                                </div>
-                                <div className="aparts">
-                                    <p className="apart">
-                                        <span className="apart-name">Căn B - F0.1</span>
-                                        <span className="apart-price">1.6 tỷ đồng</span>
-                                    </p>
-                                    <p className="apart">
-                                        <span className="apart-name">Căn B - F0.1</span>
-                                        <span className="apart-price">1.6 tỷ đồng</span>
-                                    </p>
-                                    <p className="apart">
-                                        <span className="apart-name">Căn B - F0.1</span>
-                                        <span className="apart-price">1.6 tỷ đồng</span>
-                                    </p>
-                                    <p className="apart">
-                                        <span className="apart-name">Căn B - F0.1</span>
-                                        <span className="apart-price">1.6 tỷ đồng</span>
-                                    </p>
-                                    <p className="apart">
-                                        <span className="apart-name">Căn B - F0.1</span>
-                                        <span className="apart-price">1.6 tỷ đồng</span>
-                                    </p>
-                                    <p className="apart">
-                                        <span className="apart-name">Căn B - F0.1</span>
-                                        <span className="apart-price">1.6 tỷ đồng</span>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
+                        <SortAccordion data={data}/>
                     </div>
+                    
                     <Incentives />
                 </div>
                 : ""

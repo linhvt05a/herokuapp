@@ -4,44 +4,6 @@ import TabsSlider from "../../TabsSlider";
 import MutiSlider from './../../../../components/common/MutiSlider';
 import { Trans } from 'react-i18next';
 
-const dataImgs = [
-  {
-    id: 1,
-    img: "./assets/images/scb_logo.png",
-    width: 152,
-    height: 80
-  },
-  {
-    id: 2,
-    img: "./assets/images/vcb_logo.png",
-    width: 152,
-    height: 80
-  },
-  {
-    id: 3,
-    img: "./assets/images/tcb_logo.png",
-    width: 152,
-    height: 80
-  },
-  {
-    id: 4,
-    img: "./assets/images/acb_logo.png",
-    width: 152,
-    height: 80
-  },
-  {
-    id: 5,
-    img: "https://via.placeholder.com/177x93",
-    width: 152,
-    height: 80
-  },
-  {
-    id: 6,
-    img: "https://via.placeholder.com/177x93",
-    width: 152,
-    height: 80
-  }
-]
 
 class AccordionItem extends React.Component {
   state = {

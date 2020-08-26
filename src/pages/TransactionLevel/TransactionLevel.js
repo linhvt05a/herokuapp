@@ -5,6 +5,7 @@ import Policy from './Policy';
 import Exchanges from './Exchanges';
 import SideBarSort from './SideBarSort';
 import { transactionAction } from "../../store/action";
+import { Trans } from 'react-i18next';
 
 
 const TransactionLevel = (props) => {
@@ -20,7 +21,7 @@ const TransactionLevel = (props) => {
             <TopBannerDetailTrans data={data} />
             <div className="exchanges bg_grey">
                 <div className="container container-sm container-md">
-                    <h2 className="main_heading"><span>Sàn giao dịch</span></h2>
+                    <h2 className="main_heading"><span><Trans>Sàn giao dịch</Trans></span></h2>
                     <div className="row">
                         <div className="col-12 col-sm-12 col-lg-8 mb-4 mb-lg-0">
                             <Policy data={data}/>
