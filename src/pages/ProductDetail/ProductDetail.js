@@ -9,16 +9,19 @@ import TimeLine from '../../components/common/TimeLine';
 import Promotion from '../../components/common/Promotion';
 import IconLikeDown from '../../components/common/IconLikeDown';
 import { productDetailAction } from "../../store/action";
+import { useParams } from 'react-router-dom';
 
 const ProductDetail = (props) => {
+    
     const dispatch = useDispatch();
 
+    const { id } = useParams();
+    
     useEffect(() => {
-        dispatch(productDetailAction.ProductLoadList({}))
+        dispatch(productDetailAction.ProductLoadList({ product_id:id, tab_include:`["detail","price","image","layout","document","history"]`}))
     }, [])
 
-    const data = useSelector(state => state.productReducer.List)
-    console.log('Product Data:', data);
+    const data = useSelector(state => state.productDetailReducer.List.detail);
 
     return (
         data ?

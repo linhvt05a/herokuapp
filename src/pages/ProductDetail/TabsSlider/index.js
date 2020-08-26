@@ -101,20 +101,19 @@ class TabsWraper extends Component {
 
 class TabsSlider extends React.Component {
   render() {
-    const { dataLayout } = this.props;
-    console.log(dataLayout);
+    const { dataImg, dataLayout } = this.props;
+    const layout = [{title: "image", content: dataImg },{ title: "2d", content: dataLayout.layout_2d }, { title: "3d",content: dataLayout.layout_3d }, { title: "ar",content: dataLayout.layout_ar }]
+    console.log("img",dataImg);
     return (
       <TabsWraper className="apartment_slider selectApartment">
         {
-
-          dataTabs.map((item, index) => {
-            return (
-              <TabContent key={index} active="true" title={item.title} >
-                  <SliderInTab itemImg={item.content}/>
-              </TabContent>
-            )
-          })
+          layout.map((itemlayout, index) => (
+            <TabContent key={index} active="true" title={itemlayout.title} >
+              <SliderInTab key={index} itemImg={itemlayout.content} />
+            </TabContent>
+          ))
         }
+
       </TabsWraper>
     );
   }

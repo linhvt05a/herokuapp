@@ -12,7 +12,7 @@ export default {
 
     //EXAMPLE
     EXAMPLE_LIST: "/api/be/v1/project/",
-    PRODUCT_LIST: `/api/main_web/v1/infrastructure/product/detail?product_id=6&tab_include=["detail","price","image","layout","document","history"]`,
+    PRODUCT_LIST: `/api/main_web/v1/infrastructure/product/detail`,
     TRANSACTION_LIST: `/api/main_web/v1/infrastructure/product/trading_market/?project_id=13&area_id=1&block_id=2`,
 
     PROJECT_LIST: "/api/main_web/v1/project/",

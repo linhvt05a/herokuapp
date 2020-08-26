@@ -21,24 +21,17 @@ export default class SliderInTab extends Component {
         const { itemImg }= this.props;
         return (
             itemImg ? <div>
-                {
-                    itemImg.map((item,index) => (
-                        <figure key={index}>
-                            <img src={item.image_url} alt="" />
-                          </figure>
-                    ))
-                }
-                {/* <Slider
+                <Slider
                     asNavFor={nav2}
                     ref={slider => (this.slider1 = slider)}
                     arrows={false}
                     className="apartment_slider-for"
                   >
                     {
-                    itemImg.map((img, index) => {
+                    itemImg.map((item, index) => {
                         return (
                           <figure key={index}>
-                            <img src={img} alt="" />
+                            <img src={item.image_url} alt="" height={400}/>
                           </figure>
                         )
                       })
@@ -47,21 +40,21 @@ export default class SliderInTab extends Component {
                 <Slider
                     asNavFor={nav1}
                     ref={slider => (this.slider2 = slider)}
-                    slidesToShow={5}
+                    slidesToShow={2}
                     swipeToSlide={true}
                     focusOnSelect={true}
                     className="apartment_slider-nav"
                     >
                     {
-                    itemImg.map((img, index) => {
+                    itemImg.map((item, index) => {
                         return (
                             <figure key={index}>
-                                 <img src={img} alt="" height={80}/>
+                                 <img src={item.image_url} alt="" height={80}/>
                             </figure>
                         )
                         })
                     }
-                </Slider> */}
+                </Slider>
             </div> : ""
         )
     }

@@ -10,20 +10,24 @@ const Info = (props) => {
         dataInfo ?
             <div className="info">
                 <div>
+                    <div className="sales_heading">
+                        <span className="text">Giá niêm yết
+                            <i className="icon_info fas fa-info-circle" />
+                        </span>
+                        
                     {
+                        dataInfo.price ?
                         dataInfo.price.map((item, index) => (
-                            <div className="sales_heading" key={index}>
-                                <span className="text">Giá niêm yết
-                                        <i className="icon_info fas fa-info-circle" />
-                                </span>
-                                <span className="number">{item.estimate_price}<Trans>{item.price_unit_name}</Trans></span>
+                            <div key={index}>
+                                <span className="number">{item.price}<Trans>{item.price}</Trans></span> &nbsp;
                                 <p className="compare_price">
-                                    <span className="num">{item.price}<Trans>{item.price_unit_name}</Trans></span>
-                                    <span className="discount_label"><Trans>Giảm </Trans>{item.estimate_price&&item.price ? 100-((item.estimate_price)/(item.price))*100 : 0}<Trans></Trans>%</span>
+                                    <span className="num">{item.estimate_price}<Trans>&nbsp;{item.price_unit_name}</Trans></span>
+                                    <span className="discount_label"><Trans> &nbsp;</Trans>{item.estimate_price && item.price ? 100 - ((item.price) / (item.estimate_price)) * 100 : 0}<Trans></Trans>%</span>
                                 </p>
                             </div>
-                        ))
+                        )) : null
                     }
+                    </div>
                     <div className="info_1">
                         <div className="item">
                             <span className="title">
@@ -51,12 +55,14 @@ const Info = (props) => {
                                 Hướng
                             </span>
                             <span className="number direction">
-                                {dataInfo.list_direction}
+                                {
+                                    dataInfo.list_direction ? dataInfo.list_direction.map((item, key) => { item }) : null
+                                }
                             </span>
                         </div>
                     </div>
-                    <Contact dataInfo={dataInfo}/>
-                    <Info02 dataInfo={dataInfo}/>
+                    <Contact dataInfo={dataInfo} />
+                    <Info02 dataInfo={dataInfo} />
                 </div>
             </div> : ""
     )

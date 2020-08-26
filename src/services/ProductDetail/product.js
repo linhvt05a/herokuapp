@@ -3,15 +3,15 @@ import { TOKEN } from '../../../env';
 
 export const productDetailService = {
 
-    list(token, search_name = "", status_id = "", setting_type) {
+    list(token, product_id = "", tab_include = []) {
         const requestOptions = {
             method: 'GET',
             headers: api.getHeader(TOKEN)
         };
 
-        const params = { search_name, status_id, setting_type };
+        const params = { product_id, tab_include };
+        
         const url = api.getUrl(api.PRODUCT_LIST, params);
-        console.log(url);
         return api.handleRequest(url, requestOptions);
     }
 
