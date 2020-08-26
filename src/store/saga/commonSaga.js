@@ -33,9 +33,9 @@ export function* districtListlWatcher() {
 
 // Get list Status
 export function* statusList(payload) {
-    let { token, province_id } = payload.params
+    let { token } = payload.params
     try {
-        const response = yield commonService.statusList(token, province_id);
+        const response = yield commonService.statusList(token);
         response.success ? yield put({ type: commonAction.STATUS_LIST_SUCCESS, response }) : yield put({ type: commonAction.STATUS_LIST_FAILURE, response });
     } catch (err) {
         yield put({ type: commonAction.STATUS_LIST_FAILURE, err });
@@ -45,11 +45,26 @@ export function* statusListlWatcher() {
     yield takeLatest(commonAction.STATUS_LIST_REQUEST, statusList);
 }
 
+// Get list Status
+export function* minmaxList(payload) {
+    let { token } = payload.params
+    try {
+        const response = yield commonService.minmaxList(token);
+        response.success ? yield put({ type: commonAction.MINMAX_LIST_SUCCESS, response }) : yield put({ type: commonAction.MINMAX_LIST_FAILURE, response });
+    } catch (err) {
+        yield put({ type: commonAction.MINMAX_LIST_FAILURE, err });
+    }
+}
+export function* minmaxListlWatcher() {
+    yield takeLatest(commonAction.MINMAX_LIST_REQUEST, minmaxList);
+}
+
 // root Saga
 export default function* rootSaga() {
     yield all([
         fork(provinceListlWatcher),
         fork(districtListlWatcher),
-        fork(statusListlWatcher)
+        fork(statusListlWatcher),
+        fork(minmaxListlWatcher)
     ]);
 }

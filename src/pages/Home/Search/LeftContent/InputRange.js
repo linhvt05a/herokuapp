@@ -1,10 +1,22 @@
-import React, {useState} from 'react';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from "react-redux";
 import { Trans } from "react-i18next";
 import { Link } from "react-router-dom";
 import { SliderRange } from "../../../../components/base/Slider";
+import { commonAction } from "../../../../store/action";
 
 const InputRange = (props) => {
     let { active } = props;
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(commonAction.loadMinMaxList({}))
+    }, [])
+    const minmax = useSelector(state => state.commonReducer);
+    const isGetminmaxListSuccess = minmax.minmaxList.success;
+    const minmaxList = isGetminmaxListSuccess ? minmax.minmaxList.detail : null;
+
+    console.log("data", minmaxList);
+
     const data = [20, 60]
     const data1 = [10, 80]
     const [priceRange, setPrice] = useState([])

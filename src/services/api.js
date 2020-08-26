@@ -21,9 +21,10 @@ export default {
 
     
     // COMMON 
-    PROVINCE_LIST: "api/fe/v1/province",
-    DISTRICT_LIST: "api/fe/v1/district",
+    PROVINCE_LIST: "/api/fe/v1/province",
+    DISTRICT_LIST: "/api/fe/v1/district",
     STATUS_LIST: "/api/be/v1/common/project/status",
+    MINMAX_LIST: "/api/main_web/v1/project/min_max",
 
     getHeader,
     getUrl,
