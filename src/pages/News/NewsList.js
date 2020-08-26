@@ -7,6 +7,7 @@ import { Trans } from "react-i18next";
 import Pagination from '../../components/common/Pagination';
 import { LoadDataPaging } from '../../utils/Utils';
 
+
 const data = { img: 'project.jpg' }
 const news =
     [
@@ -42,6 +43,7 @@ const news =
 
 const cateTitle = [{id:1, title:'Market'}, {id:2,title:'Department'},{id:3,title:'House'}, {id:4,title:'Analysis report'}, {id:5,title:'Category 01'}]
 const News = () => {
+   
     return (
         <div className="news">
             <div className="container container-sm container-md">

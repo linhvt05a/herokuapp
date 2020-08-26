@@ -96,7 +96,7 @@ const useFormVisit = (signValue, callback, validate) =>{
 	const handleSignVisit = event =>{
 		if (event) event.preventDefault()
 		if (validate) {
-			setVisitError(validate(signErrors))
+			setVisitError(validate(signValues))
 		}
 		setSubmitVisit(true)
 	}
@@ -106,20 +106,24 @@ const useFormVisit = (signValue, callback, validate) =>{
 			...values,
 			[event.target.name]: event.target.value,
 		}))
+		
 	}
 
-	const handleSelectVisit = (option, value) => {
-		setSign(values =>({...values, 
-		[option.name]: value
+	const handleSelectVisit = ( value, option) => {
+		setSign(values => ({
+			...values, 
+			[option.name]: value
 		}))
+		
+		
 	}
 
 	return{
 		handleSignVisit,
 		handleChangeVisit,
 		handleSelectVisit,
-		signValues,
-		signErrors
+		signErrors,
+		signValues
 	}
 }
 

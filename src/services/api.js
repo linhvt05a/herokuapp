@@ -26,6 +26,8 @@ export default {
     STATUS_LIST: "/api/be/v1/common/project/status",
     MINMAX_LIST: "/api/main_web/v1/project/min_max",
 
+    VISIT_REGISTER :"",
+
     getHeader,
     getUrl,
     authHeader,
