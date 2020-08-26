@@ -3,7 +3,7 @@ import CardHeader from "../../components/common/CardHeader";
 import {ProductRightBar, ProductContent, ProductSignInModal} from './index'
 import {Modal} from 'antd'
 import {validateSignup, validateLogin} from '../../components/base/ValidateInput/ValidateInput'
-import {useFormSignup} from '../../components/base/ValidateInput/useForm'
+import {useFormSignup, useFormSignIn} from '../../components/base/ValidateInput/useForm'
 
 const productList = [
   {
@@ -76,8 +76,14 @@ const productList = [
 
 const ProductList = () => {
   const signupValue = {fullName: '', emailSignup: '', passwordSignup: '', rePass:''}
-  const { signupValues,signupErrors, handleChangeSignup, handleSignUp} = useFormSignup(signupValue,register, validateSignup)
+  const signInValue = {emailSignIn:'', passwordSignIn:''}
 
+  const { signupValues,signupErrors, handleChangeSignup, handleSignUp} = useFormSignup(signupValue,register, validateSignup)
+  const {signInValues, signInErrors, handleChangeSignIn, handleSignIn} = useFormSignIn(signInValue, signIn, validateLogin)
+
+  function signIn(){
+    console.log(signInValues)
+  }
   function register(){
     console.log(signupValues)
   }
@@ -104,7 +110,13 @@ const ProductList = () => {
         {/* end striking apartment  */}
       </div>
         <Modal visible={showSignInModal}>
-            <ProductSignInModal closeModal={()=> setShowSignIn(false)} handleSignIn="" handleChange="" values="" errors=""/>
+            <ProductSignInModal 
+              closeModal={()=> setShowSignIn(false)} 
+              handleSignIn={handleSignIn} 
+              handleChangeSignIn={handleChangeSignIn} 
+              signValues={signInValues} 
+              signInErrors={signInErrors}
+            />
         </Modal>
     </div>
   );
