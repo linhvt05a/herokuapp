@@ -4,14 +4,14 @@ import TopBanner from "../../components/common/TopBanner";
 import {LeftGuideBar, RightGuideBar} from './index'
 
 const ShoppingGuide = ()=> {
-    const [selected, setSelected] = useState(false)
+    const [selected, setSelected] = useState(true)
         return (
             <div className="direction_product">
             <div className="container container-sm container-md">
                 <CardHeader label= "Shopping guide"/>
             <div className="row">
-                <LeftGuideBar selected={!selected} setSelected={()=>setSelected(!selected)}/>
-                <RightGuideBar selected={!selected}/>
+                <LeftGuideBar selected={selected} setSelected={setSelected}/>
+                <RightGuideBar selected={selected}/>
             </div>
             </div>
         </div>
