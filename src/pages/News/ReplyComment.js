@@ -1,13 +1,20 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import {TextArea, ButtonStyle} from '../../components/base/index'
 import { Trans } from 'react-i18next';
 
 
-const ReplyComment = () =>{
+const ReplyComment = (props) =>{
+  const [like, setLike] = useState(false)
+  const [totalLike, setTotalLike] = useState(0)
+  
+  const increaseLike = () =>{
+      setLike(true)
+      setTotalLike(totalLike + 1)
+  }
     return (
         <div className="reply__child">
           <div className="reply__child--list">
-            <ReplyBox/>
+            <ReplyBox like={like} onClickLike ={increaseLike} totalLike={totalLike}/>
             <ChildAdmin />
           </div>
       </div>
@@ -30,7 +37,8 @@ const ChildAdmin = () =>{
   )
 }
 
-const ReplyBox = () =>{
+const ReplyBox = (props) =>{
+  const {like, onClickLike, totalLike} = props
   return(
     <div className="child">
     <figure className="avatar">
@@ -53,9 +61,9 @@ const ReplyBox = () =>{
           <i className="icon fas fa-comments" />
           <i className="text">Thảo luận</i>
         </div>
-        <div className="reply_item like">
-          <i className="icon fas fa-thumbs-up" />
-          <i className="text">22</i>
+        <div className={like ? "reply_item like active" : "reply_item like"}>
+          <i className="icon fas fa-thumbs-up active" onClick ={onClickLike}/>
+          <i className="text">{totalLike}</i>
         </div>
       </div>
       <ChildReply />
