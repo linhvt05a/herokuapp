@@ -43,7 +43,7 @@ class AccordionItem extends React.Component {
         <div {...{ className: "aparts" }}>
           {
               list_product.map((item,index) => (
-                <div {...{ className: "apart" }}>
+                <div key={index} {...{ className: "apart" }}>
                     <span className="apart-name">{item.product_name}</span>
                     <span className="apart-price">{item.product_estimate_price}{item.product_estimate_price_unit_name}</span>
                 </div>

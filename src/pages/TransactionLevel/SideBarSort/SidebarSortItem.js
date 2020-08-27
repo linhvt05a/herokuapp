@@ -25,27 +25,27 @@ const SidebarSortItem = (props) =>{
     const { isStatusActive } = props;
     return(
         <div {...{className:`searchProject ${isStatusActive && "active"}`}}>
-                <div className="searchProject__title">
-                    <Trans>Search for projects by</Trans>
+            <div className="searchProject__title">
+                <Trans>Search for projects by</Trans>
+            </div>
+            <InputSelect placeholder="Province" datas ={province}/>
+            <InputSelect placeholder="District" datas={district}/>
+            <InputSelect placeholder="Select progress" datas={status}/>
+            <div className="map_search--range" style={{marginTop: 70}}>
+                <div className="range_item price">
+                    <label className="label">
+                        <Trans>Price range</Trans>
+                        <br /><i><Trans>(bilions)</Trans></i>
+                    </label>
+                    <Sliders  defaultValue={data} reverse ={false} tooltipVisible = {true} range ={true} onChange={changePrice}/>
                 </div>
-                <InputSelect placeholder="Province" datas ={province}/>
-                <InputSelect placeholder="District" datas={district}/>
-                <InputSelect placeholder="Select progress" datas={status}/>
-                <div className="map_search--range" style={{marginTop: 70}}>
-                    <div className="range_item price">
-                        <label className="label">
-                            <Trans>Price range</Trans>
-                            <br /><i><Trans>(bilions)</Trans></i>
-                        </label>
-                        <Sliders  defaultValue={data} reverse ={false} tooltipVisible = {true} range ={true} onChange={changePrice}/>
-                    </div>
-                    <div className="range_item area">
-                        <label className="label"><Trans>Acreage</Trans><i> (m2)</i></label>
-                        <Sliders  defaultValue={data1} reverse ={false} tooltipVisible = {true} range ={true} onChange={changeAcreage}/>
-                    </div>
+                <div className="range_item area">
+                    <label className="label"><Trans>Acreage</Trans><i> (m2)</i></label>
+                    <Sliders  defaultValue={data1} reverse ={false} tooltipVisible = {true} range ={true} onChange={changeAcreage}/>
                 </div>
-                <ButtonStyle className="btn btn_green text-uppercase w-100" href="#" label="SEARCH"/>
-    </div>
+            </div>
+            <ButtonStyle className="btn btn_green text-uppercase w-100" href="#" label="SEARCH"/>
+        </div>
     )
 }
 
