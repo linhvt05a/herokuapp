@@ -9,6 +9,8 @@ import hotNewsReducer from './hotNewsReducer'
 import productListReducer from './productListReducer'
 import productSignupReducer from './productSignupReducer'
 import productIncentiveReducer from './productIncentiveReducer'
+import contactReducer from './contactReducer'
+import juridicalSupportReducer from './juridicalSupportReducer'
 import { combineReducers } from 'redux';
 
 
@@ -17,6 +19,7 @@ const allReducers = combineReducers({
     examReducer, projectReducer, productReducer,
     visitRegisterReducer, promotionReducer,
     newsReducer, newsDetailReducer, hotNewsReducer,
-    productListReducer, productSignupReducer, productIncentiveReducer
+    productListReducer, productSignupReducer, productIncentiveReducer,
+    contactReducer, juridicalSupportReducer
 });
 export default allReducers; 

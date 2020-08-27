@@ -9,8 +9,12 @@ import hotNewsAction from './hotNewsAction'
 import productListAction from './productListAction'
 import productSignupAction from './productSignupAction'
 import productIncentivesAction from './productIncentivesAction'
+import contactAddAction from './contactAddAction'
+import juridicalSupportAction from './juridicalSupportAction'
+
 export {
   examAction, projectAction, productAction, visitSignupAction, promotionAction, 
   newsAction, newsDetailAction, hotNewsAction,
-  productListAction, productSignupAction, productIncentivesAction
+  productListAction, productSignupAction, productIncentivesAction,
+  contactAddAction, juridicalSupportAction
 };
