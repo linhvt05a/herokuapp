@@ -3,15 +3,14 @@ import AccordionItem from "./AccordionItem";
 
 class Accordion extends React.Component {
   render() {
-    const {data} = this.props; //data trong /Accordion/index.js
-    console.log(data);
+    const {data, dataDemo} = this.props; //data trong /Accordion/index.js
     
     return (
       data ? 
       <div {...{ className: "wrapper" }}>
         <div {...{ className: "accordion-list" }}>
               <div {...{ className: "sales_collapse"}}>
-                <AccordionItem {...data} />
+                <AccordionItem dataDemo={dataDemo} {...data} />
               </div>
         </div>
       </div> : ""

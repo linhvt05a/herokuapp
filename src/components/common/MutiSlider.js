@@ -3,7 +3,7 @@ import Slider from "react-slick";
 
 export default class Responsive extends Component {
   render() {
-    const {dataImgs}= this.props; //dataImgs mẫu xem ở /ProductDetail/AccordionItem
+    const {dataImgsDemo}= this.props; //dataImgs mẫu xem ở /ProductDetail/AccordionItem
     
     var settings = {
       dots: true,
@@ -43,7 +43,7 @@ export default class Responsive extends Component {
       <div className="bank_list">
         <Slider {...settings} className="multi__slider ">
           {
-            dataImgs.map((item, index) => {
+            dataImgsDemo.map((item, index) => {
               return (
                 <figure key={index}>
                   <img src={item.img} alt="" width={item.width} height={item.height}/>
