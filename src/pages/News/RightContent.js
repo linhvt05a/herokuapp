@@ -6,7 +6,8 @@ const dataMenu = [{id: 1, label:'Tin tức thị trường'}, {id: 2, label:'Th�
 const data = [20, 60]
 const data1 = [10, 80]
 
-const RightContent = () => {
+const RightContent = (props) => {
+    const{hotList} = props
     const [navigate, setNavigate] = useState({})
     const onClick = (id) =>{
         setNavigate(id)
@@ -18,7 +19,7 @@ const RightContent = () => {
                 {/*Menu*/}
                     <CommonMenu label="Categories" navigate={navigate} dataMenu={dataMenu} onClick={onClick}/>
                 {/*Hot News*/}
-                    <HotNews />
+                    <HotNews data={hotList}/>
                 {/*Search project*/}
                     <CardFilter 
                         label="Product search" 

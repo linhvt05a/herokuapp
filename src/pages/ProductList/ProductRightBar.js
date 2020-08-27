@@ -6,7 +6,7 @@ const ProductRightBar = (props) =>{
     return(
         <div className="col-12 col-sm-12 col-lg-4">
         <div className="row">
-          <ProductForm showSignInModal={showSignInModal} handleChange={handleChange} handleSignUp={handleSignUp} values={values} errors={errors}/>
+          <ProductForm showSignInModal={showSignInModal} handleChange={handleChange} handleSignUp={handleSignUp}  values={values} errors={errors}/>
           <ProductPromotion data={data}/>
         </div>
       </div>

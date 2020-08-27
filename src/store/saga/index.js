@@ -1,21 +1,25 @@
 import { all } from "redux-saga/effects";
 import examSaga from "./examSaga";
-import productSaga from "./productSaga";
-import productDetailSaga from "./productDetailSaga";
-import projectSaga from "./projectSaga";
-import commonSaga from "./commonSaga";
-import transactionSaga from "./transactionSaga";
-import visitRegisterSaga from './visitRegisterSaga';
+import projectSaga from "./projectSaga"
+import productSaga from "./productSaga"
+import visitRegisterSaga from './visitRegisterSaga'
+import promotionSaga from './promotionSaga'
+import newsSaga from './newsSaga'
+import newsDetailSaga from './newsDetailSaga'
+import hotNewsSaga from './hotNewsSaga'
+import productListSaga from './productListSaga'
+import productSignupSaga from './productSignupSaga'
+import productIncentiveSaga from './productIncentiveSaga'
+import contactAddSaga from './contactAddSaga'
+import juridicalSupportSaga from './juridicalSupportSaga'
+import transactionSaga from './transactionSaga';
 
 function* allSaga() {
   yield all([
-    examSaga(),
-    productSaga(),
-    productDetailSaga(),
-    projectSaga(),
-    transactionSaga(),
-    visitRegisterSaga(),
-    commonSaga(),
+    examSaga(), projectSaga(), productSaga(), visitRegisterSaga(), transactionSaga(),
+    newsSaga(), promotionSaga(), newsDetailSaga(), hotNewsSaga(),
+    productListSaga(), productSignupSaga(), productIncentiveSaga(),
+    contactAddSaga(), juridicalSupportSaga()
   ]);
 }
 

@@ -11,8 +11,7 @@ export const promotionService = {
         }; 
 
         const params = { payload };
-        const url = api.getUrl(api.EXAMPLE_LIST, params);
-        console.log(url);
+        const url = api.getUrl(api.PROMOTION_LIST, params);
         return api.handleRequest(url, requestOptions);
     }
 }
