@@ -59,24 +59,40 @@ const OnMapPoligon = props => {
         }
         setState({ ...state, dataSubmit: { project_sale_status: newList } })
     }
+    // useEffect(() => {
+    //     dispatch(projectAction.loadProjectList({ 
+    //         province_id: state.dataSubmit._city, 
+    //         region_id: state.dataSubmit._district,
+    //         status_id: state.dataSubmit._status,
+    //         // area_min: state.dataSubmit.range_area.min,
+    //         // area_max: state.dataSubmit.range_area.max,
+    //         // money_min: state.dataSubmit.range_price.min,
+    //         // money_max: state.dataSubmit.range_price.max,
+    //         project_sale_status: state.project_sale_status
+    //     }))
+    // }, [])
+    // const search = useSelector(state => state.projectReducer);
+    // const isGetsearchListSuccess = search.projectList.success;
+    // const searchList = isGetsearchListSuccess ? search.projectList.detail : null;
+
+    // console.log(searchList);
 
     const OnSearchProject =(e)=> {
-        useEffect(() => {
-            dispatch(projectAction.loadProjectList({ 
-                province_id: state.dataSubmit._city, 
-                region_id: state.dataSubmit._district,
-                status_id: state.dataSubmit._status,
-                area_min: state.dataSubmit.range_area.min,
-                area_max: state.dataSubmit.range_area.max,
-                money_min: state.dataSubmit.range_price.min,
-                money_max: state.dataSubmit.range_price.max,
-            }))
-        }, [])
-        const minmax = useSelector(state => state.commonReducer);
-        const isGetminmaxListSuccess = minmax.minmaxList.success;
-        const minmaxList = isGetminmaxListSuccess ? minmax.minmaxList.detail : null;
+        // console.log(searchList);
+        // dispatch(projectAction.loadProjectList({ 
+        //     province_id: state.dataSubmit._city, 
+        //     region_id: state.dataSubmit._district,
+        //     status_id: state.dataSubmit._status,
+        //     area_min: state.dataSubmit.range_area.min,
+        //     area_max: state.dataSubmit.range_area.max,
+        //     money_min: state.dataSubmit.range_price.min,
+        //     money_max: state.dataSubmit.range_price.max,
+        //     project_sale_status: state.project_sale_status
+        // }))
+        // const search = useSelector(state => state.projectReducer);
+        // const isGetsearchListSuccess = search.projectList.success;
+        // const searchList = isGetsearchListSuccess ? search.projectList.detail : null;
     }
-
     return (
         <div className={`map_search map_tab ${active.search || active.position ? "active" : "" }`}>
             <div className="container-fluid">
