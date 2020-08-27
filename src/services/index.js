@@ -1,8 +1,8 @@
 import { exampleService } from "./Example/example"
 import { projectService } from "./Project/project"
 import { productService } from "./Product/product"
-import { commonService } from "./Common/common"
-
+import {promotionService} from "./Promotion/promotion"
+import {commonService} from './Common/common'
 export {
-    exampleService, projectService, productService, commonService
+    exampleService, projectService, productService, promotionService,commonService
 }
