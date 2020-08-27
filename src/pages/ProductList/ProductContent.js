@@ -9,7 +9,7 @@ import { LoadDataPaging } from '../../utils/Utils';
 const ProductContent = (props) => {
   const [grid, setGrid] = useState(true)
 
-  const{data} = props
+  const{data, totalItem, currentPage, totalPage, itemOnPage} = props
     return (
         <div className="col-12 col-sm-12 col-lg-8">
             {data && data.length > 0 ? 
@@ -29,7 +29,7 @@ const ProductContent = (props) => {
               :
               <ProductTable /> 
             }
-            <Pagination data={LoadDataPaging(20, 2, 5, 6)}/>
+            <Pagination data={LoadDataPaging(totalItem, currentPage, totalPage, itemOnPage)}/>
           </div>
         
     );

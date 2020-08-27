@@ -1,8 +1,19 @@
 export default {
     project_filter: "Project filter",
     filter: "Filter",
-    bedroom_number: "Bedroom number",
+    product_type: "Product Type",
     house_direction: "House Direction",
     price_range: "Price range",
-    area: "Area"
+    project_billions_dong: "billions dong",
+    area: "Area",
+    project_area_unit: "m²",
+    east: "East",
+    west: "West",
+    south: "South",
+    north: "North",
+    south_east: "South East",
+    north_east: "North East",
+    south_west: "South West",
+    north_west: "North West",
+    project_all: "--All--",
 }

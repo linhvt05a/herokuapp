@@ -1,13 +1,48 @@
 import { useState, useEffect } from 'react'
 
-
-
 export {
 	useFormSignup,
 	useFormSignIn,
 	useFormVisit,
-	useFormContact
+	useFormContact,
+	supportForm
 } 
+const supportForm = (requestValue, callback, validate) =>{
+	const [questionValues, setQuestion] = useState(requestValue)
+	const [questionErrors, setQuestErrors] = useState({}) 
+    const [submitReq, setSubmitReq] = useState(false)
+
+    useEffect(
+		() => {
+			if (Object.keys(questionErrors).length === 0 && submitReq) {
+				callback()
+			}
+		},
+		[questionErrors],
+	)
+	const handleRequest = event =>{
+		if (event) event.preventDefault()
+		if (validate) {
+			setQuestErrors(validate(questionValues))
+		}
+		setSubmitReq(true)
+	}
+
+	const handleChangeReq = event =>{
+		event.persist()
+		setQuestion(values => ({
+			...values,
+			[event.target.name]: event.target.value,
+		}))
+	}
+
+	return {
+		handleChangeReq,
+		handleRequest,
+		questionErrors, 
+		questionValues
+	}
+}
 
 const useFormSignup = (signupValue, callback, validate) =>{
 	const [signupValues, setSignup] = useState(signupValue)

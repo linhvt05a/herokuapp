@@ -14,6 +14,7 @@ export default function createStoreWithMiddleware() {
 
   const enhancers = compose(
     applyMiddleware(...middleware),
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
     // window.devToolsExtension && NODE_ENV === 'dev' ? window.devToolsExtension() : f => f
   );
 

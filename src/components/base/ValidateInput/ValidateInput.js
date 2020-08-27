@@ -7,7 +7,26 @@ export {
     validateSignup,
     validateLogin,
     validateVisit,
-    validateContact
+    validateContact,
+    validateRequest
+}
+
+function validateRequest (request){
+    let requestErrors = {}
+    if(!request.requestName){
+        requestErrors.requestName = "Missing information require"
+    }
+
+    if(!request.requestContent){
+        requestErrors.requestContent = "Missing information require"
+    }
+
+    if(!request.requestEmail){
+        requestErrors.requestEmail = "Missing information require"
+    }else if (!request.requestEmail.match(emailRex)){
+        requestErrors.requestEmail ="Please enter a email valid and retry"
+    }
+    return requestErrors
 }
 
  function validateSignup(values) {

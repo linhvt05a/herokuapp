@@ -87,7 +87,7 @@ var salesCollapse = function () {
             $(".sales_collapse .card").removeClass("show");
             $(".sales_collapse .icon_collapse").removeClass("show");
         }
-
+        
         if ($(this).closest(".card").hasClass("show")) {
             $(this).closest(".card").removeClass("show");
         } else {

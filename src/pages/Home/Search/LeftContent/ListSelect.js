@@ -67,7 +67,6 @@ const ListSelect = (props) => {
         setState({ ...state, status: value })
         HandleDStatus(value)
     }
-
     return (
         <div className="row">
             <div className="col-12 col-sm-12 col-md-4">

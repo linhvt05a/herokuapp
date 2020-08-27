@@ -42,7 +42,7 @@ const RegisterModal = (props) =>{
                   <TextArea name="visitContent" placeholder="Nội dung *"  className="form-control" value={signValues.visitContent} errors={signErrors.visitContent} handleChange={handleChangeVisit}/>
               </div>
               <div className="modal-footer justify-content-center border-top-0 pt-0 pb-4">
-                    <ButtonStyle label="REGISTRATION" className="btn btn_green" onClick={handleSignVisit}/>
+                  <ButtonStyle label="REGISTRATION" className="btn btn_green" onClick={handleSignVisit}/>
               </div>
             </div>
           </div>

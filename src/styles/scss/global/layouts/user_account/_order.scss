@@ -1,26 +1,148 @@
 .user-acc {
-    &__order {
+    &__order {}
+
+    &__total_sales {
+        @media (max-width: 991px) {
+            margin-bottom: 35px;
+        }
+
+        .project_item__list {
+            padding: 0;
+            margin-bottom: 0 !important;
+            overflow-x: auto;
+            @media (max-width: 991px) {
+                overflow-x: auto;
+                padding: 22px 24px;
+            }
+        }
+
+        .table_original {
+            @media (max-width: 991px) {
+                overflow-x: unset !important;
+                padding: 0;
+            }
+
+            .table_content {
+                margin: 22px 24px;
+                overflow-x: auto;
+                
+                @media (max-width: 991px) {
+                    overflow-x: unset;
+                    margin: 0;
+                    margin-bottom: 20px;
+                }
+                table{
+                    min-width: 750px;
+                    @media (max-width: 991px) {
+                        min-width: 750px
+                    }
+                    .pd-left-0 {
+                        padding-left: 0;
+                        vertical-align: top;
+                    }
+                    tr{
+                        border-bottom: 2px solid #9a9a9a;
+                    }
+                    tr:nth-of-type(1){
+                        border-bottom: none;
+                    }
+                    .parent{
+                        border-bottom: none
+                    }
+                }
+                .apartment-info-table {
+                    display: flex;
+    
+                    img {
+                        max-width: 65px;
+                        max-height: 65px;
+                    }
+    
+                    .info {
+                        padding-left: 15px;
+                    }
+    
+                    .details {
+                        display: flex;
+                        justify-content: space-between;
+    
+                        .icon {
+                            color: #9ea9bb;
+                            font-size: 15px;
+                            padding-right: 4px;
+                        }
+                    }
+                }
+    
+                .sale-off-link {
+                    text-decoration: underline;
+                    font-size: 12px;
+                }
+            }
+            
+        }
+
+        .table-order-bottom {
+            font-size: 16px;
+            text-align: center;
+
+            table {
+                width: 100%;
+                background-color: rgba(109, 48, 171, 0.2);
+                border: none;
+                overflow-x: auto;
+
+                @media (max-width: 991px) {
+                    min-width: 750px;
+                }
+
+                td {
+                    border-bottom: none;
+                }
+            }
+
+            .total-text {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: white;
+                font-size: 18px;
+                padding: 6px;
+
+            }
+
+            .total-bg {
+                background-image: linear-gradient(112deg, #6d30ab 7%, #4a3bcc 94%);
+                border: none;
+            }
+
+        }
     }
 }
+
 .order_status_01 {
     .icon {
         font-size: 17.5px;
         color: #fb9334;
     }
+
     .text {
         @include fw-light;
         font-size: 16px;
         color: #fb9334;
     }
 }
+
 .order_status_02 {
     .icon {
         font-size: 17.5px;
         color: #a8c200;
     }
+
     .text {
         @include fw-light;
         font-size: 16px;
         color: #a8c200;
     }
+
 }

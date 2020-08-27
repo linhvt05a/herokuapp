@@ -21,8 +21,21 @@ const PROJECT_SALE_GROUP = [
     { value: 9, label: "home_duplex_villa" },
 ]
 
+const DIRECTION_TYPE = [
+    { value: null, label: "project_all" },
+    { value: 1, label: "east" },
+    { value: 2, label: "west" },
+    { value: 3, label: "south" },
+    { value: 4, label: "north" },
+    { value: 5, label: "south_east" },
+    { value: 6, label: "north_east" },
+    { value: 7, label: "south_west" },
+    { value: 8, label: "north_west" },
+]
+
 module.exports = {
     IMAGE_URL,
     PROJECT_STATUS,
-    PROJECT_SALE_GROUP
+    PROJECT_SALE_GROUP,
+    DIRECTION_TYPE
 }

@@ -1,78 +1,28 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect} from 'react'
 import TopBanner from "../../components/common/TopBanner";
 import Pagination from '../../components/common/Pagination'
 import { CardPromotion } from './Layout/index'
 import { CardSaleFlash } from '../Home/Layout/index'
 import { Trans } from 'react-i18next';
 import { LoadDataPaging } from '../../utils/Utils';
+import { useDispatch, useSelector } from "react-redux";
+import { promotionAction } from "../../store/action/index";
 
-const promotions =
-    [
-        {
-            id: 0,
-            title: 'Mở bán khu biệt thự cao cấp ở Quận 7 , Tp.HCM',
-            description: 'Quỹ đất nội thành ngày càng khan hiếm, cộng với quá trình rà soát lại khiến thịtrường bất động sản lớn nhất nước rơi vào tình trạng cung giảm',
-            time: '27/02/2020',
-            image: './assets/images/news_card_1.jpg'
-        },
-        {
-            id: 1,
-            title: 'Mở bán khu biệt thự cao cấp ở Quận 7 , Tp.HCM',
-            description: 'Quỹ đất nội thành ngày càng khan hiếm, cộng với quá trình rà soát lại khiến thịtrường bất động sản lớn nhất nước rơi vào tình trạng cung giảm',
-            time: '27/02/2020',
-            image: './assets/images/news_card_1.jpg'
-        },
-        {
-            id: 2,
-            title: 'Mở bán khu biệt thự cao cấp ở Quận 7 , Tp.HCM',
-            description: 'Quỹ đất nội thành ngày càng khan hiếm, cộng với quá trình rà soát lại khiến thịtrường bất động sản lớn nhất nước rơi vào tình trạng cung giảm',
-            time: '27/02/2020',
-            image: './assets/images/news_card_1.jpg'
-        },
-        {
-            id: 3,
-            title: 'Mở bán khu biệt thự cao cấp ở Quận 7 , Tp.HCM',
-            description: 'Quỹ đất nội thành ngày càng khan hiếm, cộng với quá trình rà soát lại khiến thịtrường bất động sản lớn nhất nước rơi vào tình trạng cung giảm',
-            time: '27/02/2020',
-            image: './assets/images/news_card_1.jpg'
-        },
-        {
-            id: 4,
-            title: 'Mở bán khu biệt thự cao cấp ở Quận 7 , Tp.HCM',
-            description: 'Quỹ đất nội thành ngày càng khan hiếm, cộng với quá trình rà soát lại khiến thịtrường bất động sản lớn nhất nước rơi vào tình trạng cung giảm',
-            time: '27/02/2020',
-            image: './assets/images/news_card_1.jpg'
-        },
-        {
-            id: 5,
-            title: 'Mở bán khu biệt thự cao cấp ở Quận 7 , Tp.HCM',
-            description: 'Quỹ đất nội thành ngày càng khan hiếm, cộng với quá trình rà soát lại khiến thịtrường bất động sản lớn nhất nước rơi vào tình trạng cung giảm',
-            time: '27/02/2020',
-            image: './assets/images/news_card_1.jpg'
-        },
-        {
-            id: 6,
-            title: 'Mở bán khu biệt thự cao cấp ở Quận 7 , Tp.HCM',
-            description: 'Quỹ đất nội thành ngày càng khan hiếm, cộng với quá trình rà soát lại khiến thịtrường bất động sản lớn nhất nước rơi vào tình trạng cung giảm',
-            time: '27/02/2020',
-            image: './assets/images/news_card_1.jpg'
-        },
-        {
-            id: 7,
-            title: 'Mở bán khu biệt thự cao cấp ở Quận 7 , Tp.HCM',
-            description: 'Quỹ đất nội thành ngày càng khan hiếm, cộng với quá trình rà soát lại khiến thịtrường bất động sản lớn nhất nước rơi vào tình trạng cung giảm',
-            time: '27/02/2020',
-            image: './assets/images/news_card_1.jpg'
-        },
-        {
-            id: 8,
-            title: 'Mở bán khu biệt thự cao cấp ở Quận 7 , Tp.HCM',
-            description: 'Quỹ đất nội thành ngày càng khan hiếm, cộng với quá trình rà soát lại khiến thịtrường bất động sản lớn nhất nước rơi vào tình trạng cung giảm',
-            time: '27/02/2020',
-            image: './assets/images/news_card_1.jpg'
-        }
-    ]
 const Promotion = () => {
+    const[totalItem, setTotalItem] = useState(0)
+    const[currentPage, setCurrentPage] = useState(0)
+    const[totalPage, setTotalPage] = useState(0)
+    const[itemOnPage, setItemOnPage] = useState(0)
+
+    const promotion = useSelector(state => state.promotionReducer);
+    const promotionListSuccess = promotion.promotionList.success
+    const promotionList = promotionListSuccess ? promotion.promotionList.detail : null;
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(promotionAction.loadPromotionList({}));
+    }, []);
+
     return (
         <div className="homePage">
             <CardSaleFlash headerBodyClassName="label_filter--heading" labelHeader="flash_sale" datas={["a", "iu", "e", "vl", "wa", "di"]} banner readmore timeLine />
@@ -91,11 +41,11 @@ const Promotion = () => {
                         <div className="container container-sm container-md tab-content">
                             <div className="latest_news--content tab-pane fade active show" id="home">
                                 <div className="row">
-                                    {promotions && promotions.map((item, index)=><RowPromotion data ={item} index={item.id}/>)}     
+                                    {promotionList && promotionList.map((item, index)=><RowPromotion data ={item} key={index} index={item.id}/>)}     
                                 </div>
                             </div>
                         </div>
-                        <Pagination data={LoadDataPaging(18, 2, 5, 6)} />
+                        <Pagination data={LoadDataPaging(totalItem, currentPage, totalPage, itemOnPage)} />
                     </div>
                 </div>
             </div>
@@ -106,7 +56,7 @@ const Promotion = () => {
 
 const RowPromotion = (props) => {
     return (
-        <div className="col-12 col-sm-12 col-md-6 col-lg-4 d-flex flex-column" key={props.index}>
+        <div className="col-12 col-sm-12 col-md-6 col-lg-4 d-flex flex-column">
             <div className="item h-100">
                 <figure className="img">
                     <img className="w-100" src={props.data.image} />
