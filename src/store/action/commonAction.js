@@ -1,6 +1,7 @@
 const provinceList = 'PROVINCE_LIST';
 const districtList = 'DISTRICT_LIST';
 const statusList = 'STATUS_LIST';
+const minmaxList = 'STATUS_LIST';
 
 const actions = {
 
@@ -16,6 +17,10 @@ const actions = {
     STATUS_LIST_FAILURE: statusList + '_FAILURE',
     STATUS_LIST_SUCCESS: statusList + '_SUCCESS',
 
+    MINMAX_LIST_REQUEST: minmaxList + '_REQUEST',
+    MINMAX_LIST_FAILURE: minmaxList + '_FAILURE',
+    MINMAX_LIST_SUCCESS: minmaxList + '_SUCCESS',
+
     loadProvinceList: (params) => ({
         type: actions.PROVINCE_LIST_REQUEST,
         params: params
@@ -28,6 +33,11 @@ const actions = {
 
     loadStatusList: (params) => ({
         type: actions.STATUS_LIST_REQUEST,
+        params: params
+    }),
+
+    loadMinMaxList: (params) => ({
+        type: actions.MINMAX_LIST_REQUEST,
         params: params
     }),
 

@@ -4,6 +4,7 @@ const initialState = {
     provinceList: [],
     districtList: [],
     statusList: [],
+    minmaxList: [],
 
     isFetching: false,
 };
@@ -25,6 +26,11 @@ export default (state = initialState, action) => {
             return { ...state, isFetching: false, statusList: action.response };
         case commonAction.STATUS_LIST_REQUEST:
             return { ...state, isFetching: false, statusList: { success: false, error: action.error } };
+
+        case commonAction.STATUS_LIST_SUCCESS:
+            return { ...state, isFetching: false, minmaxList: action.response };
+        case commonAction.STATUS_LIST_REQUEST:
+            return { ...state, isFetching: false, minmaxList: { success: false, error: action.error } };
 
         default:
             return state;

@@ -3,8 +3,9 @@ import examSaga from "./examSaga";
 import productSaga from "./productSaga";
 import productDetailSaga from "./productDetailSaga";
 import projectSaga from "./projectSaga";
-import commonSaga from "./commonSaga"
+import commonSaga from "./commonSaga";
 import transactionSaga from "./transactionSaga";
+import visitRegisterSaga from './visitRegisterSaga';
 
 function* allSaga() {
   yield all([
@@ -13,6 +14,7 @@ function* allSaga() {
     productDetailSaga(),
     projectSaga(),
     transactionSaga(),
+    visitRegisterSaga(),
     commonSaga(),
   ]);
 }

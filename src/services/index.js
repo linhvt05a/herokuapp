@@ -6,7 +6,9 @@ import { productDetailService } from "./ProductDetail/product";
 import { productService } from "./Product/product"
 import { projectService } from "./Project/project";
 import { transactionService } from "./Transaction/transaction";
-import { commonService } from "./Common/common"
+import { commonService } from "./Common/common";
+import {promotionService} from "./Promotion/promotion";
+
 
 export {
     exampleService,
@@ -15,4 +17,5 @@ export {
     projectService,
     transactionService,
     commonService,
+    promotionService,
 }

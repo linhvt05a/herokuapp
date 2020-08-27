@@ -31,5 +31,14 @@ export const commonService = {
         const params = { };
         const url = api.getUrl(api.STATUS_LIST, params);
         return api.handleRequest(url, requestOptions);
+    },
+    minmaxList(token) {
+        const requestOptions = {
+            method: 'GET',
+            headers: api.getHeader(TOKEN)
+        };
+        const params = { };
+        const url = api.getUrl(api.MINMAX_LIST, params);
+        return api.handleRequest(url, requestOptions);
     }
 };
