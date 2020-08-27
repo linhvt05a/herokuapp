@@ -2,17 +2,19 @@ import React, { useState, useEffect } from "react";
 import CardHeader from '../../components/common/CardHeader'
 import {LeftContent, RightContent} from './index'
 import { useDispatch, useSelector } from "react-redux";
-import { newsDetailAction } from "../../store/action/index";
+import { newsDetailAction, hotNewsAction } from "../../store/action/index";
 
 const NewsDetail = (props) => {
-  
   const newsDetail = useSelector(state => state.newsDetailReducer);
   const newsDetailSuccess = newsDetail.newsDetail.success
   const listDetail = newsDetailSuccess ? newsDetail.newsDetail.detail : null;
   const dispatch = useDispatch();
-
+  const hotNews = useSelector(state => state.hotNewsReducer);
+  const hotListSuccess = hotNews.hotNewsList.success
+  const hotList = hotListSuccess ? hotNews.hotNewsList.detail : null;
   useEffect(() => {
       dispatch(newsDetailAction.LoadNewsDetail({}));
+      dispatch(hotNewsAction.hotNewsList({}));
   }, []);
 
   return (
@@ -21,7 +23,7 @@ const NewsDetail = (props) => {
             <CardHeader label="News"/>
         <div className="row row_detail">
             <LeftContent data ={listDetail}/>
-            <RightContent />
+            <RightContent data={hotList}/>
         </div>
       </div>
     </div>

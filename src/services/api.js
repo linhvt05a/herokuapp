@@ -16,13 +16,16 @@ export default {
     PROJECT_LIST: "/api/main_web/v1/project/",
 
     HOT_PRODUCT_LIST: "/api/main_web/v1/infrastructure/product/highlight/list/",
+    PRODUCT_LIST:"",
+    PRODUCT_SIGNUP:"",
+    PRODUCT_INCENTIVE:"",
 
     VISIT_REGISTER :"",
 
     NEWS_LIST:"",
-
     NEWS_DETAIL:"",
-    
+    HOT_NEWS : "",
+
     PROMOTION_LIST:"",
 
     getHeader,
