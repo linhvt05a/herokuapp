@@ -1,7 +1,7 @@
 const provinceList = 'PROVINCE_LIST';
 const districtList = 'DISTRICT_LIST';
 const statusList = 'STATUS_LIST';
-const minmaxList = 'STATUS_LIST';
+const minmaxList = 'MINMAX_LIST';
 
 const actions = {
 
