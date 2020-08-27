@@ -19,7 +19,7 @@ const LeftContent = () => {
           <div className="news_connect--time">
             <div className="title">
               <i className="far fa-clock" />
-              Ngày đăng: 27/02/2020
+                Ngày đăng: 27/02/2020
             </div>
           </div>
           <SocialNetwork social={social} />

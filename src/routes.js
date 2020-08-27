@@ -111,7 +111,7 @@ const MAIN = [
         "banner_class": ''
     },
     {
-        "path": "/NewsDetail",
+        "path": "/NewsDetail/:id",
         "component": NewsDetail,
         "banner_title": "newsDetail_banner_title",
         "banner_url": newsDetail_banner_url,

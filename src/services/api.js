@@ -19,6 +19,12 @@ export default {
 
     VISIT_REGISTER :"",
 
+    NEWS_LIST:"",
+
+    NEWS_DETAIL:"",
+    
+    PROMOTION_LIST:"",
+
     getHeader,
     getUrl,
     authHeader,
