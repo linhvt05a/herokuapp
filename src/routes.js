@@ -19,6 +19,7 @@ import Example from "./pages/Example";
 import HotProduct from "./pages/Product/HotProduct";
 import User from "./pages/User/CustomerAccount";
 import ProductList from './pages/ProductList/ProductList';
+import PropertySelling from "./pages/PropertySelling/PropertySelling";
 
 const home_banner_url = './assets/images/project.jpg';
 const introduce_banner_url = './assets/images/project.jpg';
@@ -200,7 +201,12 @@ const MAIN = [
     //     "banner_title": "products_list_banner_title",
     //     "banner_url": product_banner_url,
     //     "banner_show": true
-    // }
+    // },
+    {
+        "path": "/property-selling/",
+        "component": PropertySelling,
+        "banner_show": false
+    },
 ];
 
 export { MAIN }

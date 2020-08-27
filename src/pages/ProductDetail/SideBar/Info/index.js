@@ -42,7 +42,7 @@ const Info = (props) => {
                             </span>
                         </div>
                         <div className="item">
-                            <span className="title">Diện tích<i className="icon_info fas fa-info-circle" /></span>
+                            <span className="title"><Trans>Diện tích</Trans><i className="icon_info fas fa-info-circle" /></span>
                             <span className="number acreage">
                                 {dataInfo.area_m2_total}
                             </span>
@@ -52,7 +52,7 @@ const Info = (props) => {
                         </div>
                         <div className="item">
                             <span className="title">
-                                Hướng
+                                <Trans>Hướng</Trans>
                             </span>
                             <span className="number direction">
                                 {
