@@ -1,6 +1,7 @@
 const hotProductList = 'HOT_PRODUCT_LIST';
 const sellingProductList = 'SELLING_PRODUCT_LIST';
 const comingSoonProductList = 'COMING_SOON_PRODUCT_LIST';
+const productTypeList = 'PRODUCT_TYPE_LIST';
 const actions = {
 
     HOT_PRODUCT_LIST_REQUEST: hotProductList + '_REQUEST',
@@ -15,6 +16,10 @@ const actions = {
     COMING_SOON_PRODUCT_LIST_FAILURE: comingSoonProductList + '_FAILURE',
     COMING_SOON_PRODUCT_LIST_SUCCESS: comingSoonProductList + '_SUCCESS',
 
+    PRODUCT_TYPE_LIST_REQUEST: productTypeList + '_REQUEST',
+    PRODUCT_TYPE_LIST_FAILURE: productTypeList + '_FAILURE',
+    PRODUCT_TYPE_LIST_SUCCESS: productTypeList + '_SUCCESS',
+
     loadHotProductList: (params) => ({
         type: actions.HOT_PRODUCT_LIST_REQUEST,
         params: params
@@ -27,6 +32,11 @@ const actions = {
 
     loadComingSoonProductList: (params) => ({
         type: actions.COMING_SOON_PRODUCT_LIST_REQUEST,
+        params: params
+    }),
+
+    loadProductTypeList: (params) => ({
+        type: actions.PRODUCT_TYPE_LIST_REQUEST,
         params: params
     }),
 

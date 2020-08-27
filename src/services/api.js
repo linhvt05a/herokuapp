@@ -20,8 +20,8 @@ export default {
     HOT_PRODUCT_LIST: "/api/main_web/v1/infrastructure/product/highlight/list/",
     SELLING_PRODUCT_LIST: "/api/main_web/v1/infrastructure/product/selling/list/",
     COMING_SOON_PRODUCT_LIST: "/api/main_web/v1/infrastructure/product/preparing_sell/list/",
+    PRODUCT_TYPE: "/api/main_web/v1/infrastructure/product/architecture/list/",
 
-    
     // COMMON 
     PROVINCE_LIST: "/api/fe/v1/province",
     DISTRICT_LIST: "/api/fe/v1/district",

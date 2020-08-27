@@ -8,36 +8,38 @@ import { LoadDataPaging } from '../../../utils/Utils';
 
 const CardProjectList = (props) => {
 
-    const { headerBodyClassName, labelHeader, datas, limit, onPageChange } = props
+    const { headerBodyClassName, labelHeader, datas, limit, onPageChange, inputSelectDatas, sliderDatas, onFilterClick } = props
 
     return (
         <div className="project_detail--list bg_grey sales_quick">
             <div className="container container-sm container-md">
                 <div className="striking_apartment--content jsSalesQuick">
                     <HeadingFilter headerBodyClassName={headerBodyClassName} labelHeader={labelHeader} />
-                    {
-                        (datas && datas.detail && datas.detail.list_product && datas.detail.list_product != null && datas.detail.list_product.length > 0) ?
                         <div className="row">
-                            <div className="col-12 col-sm-12 col-lg-8">
-                                <div className="striking_apartment--content">
-                                    <div className="row">
-                                        {
-                                            datas.detail.list_product.map((item, index) => (
-                                                <div key={index} className="col-12 col-sm-12 col-md-6 mb-3">
-                                                    <ItemProduct data={item} />
-                                                </div>
-                                            ))
-                                        }
+                        {
+                            (datas && datas.detail && datas.detail.list_product && datas.detail.list_product != null && datas.detail.list_product.length > 0) ?
+                                <div className="col-12 col-sm-12 col-lg-8">
+                                    <div className="striking_apartment--content">
+                                        <div className="row">
+                                            {
+                                                datas.detail.list_product.map((item, index) => (
+                                                    <div key={index} className="col-12 col-sm-12 col-md-6 mb-3">
+                                                        <ItemProduct data={item} />
+                                                    </div>
+                                                ))
+                                            }
+                                        </div>
                                     </div>
+                                    <Pagination data={LoadDataPaging(datas.total_record, datas.page, datas.total_page, limit)} onChange={onPageChange} />
+                                </div> :
+                                <div className="col-12 col-sm-12 col-lg-8">
+                                    <CardNoData />
                                 </div>
-                                <Pagination data={LoadDataPaging(datas.total_record, datas.page, datas.total_page, limit)} onChange={onPageChange} />
-                            </div>
+                        }
                             <div class="col-12 col-sm-12 col-lg-4">
-                                <CardProjectFilter />
+                                <CardProjectFilter title="project_filter" inputSelectDatas={inputSelectDatas} sliderDatas={sliderDatas} onFilterClick={onFilterClick} />
                             </div>
-                        </div> :
-                        <CardNoData />
-                    }
+                        </div> 
                 </div>
             </div>
         </div>

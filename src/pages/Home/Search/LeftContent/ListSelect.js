@@ -49,7 +49,6 @@ const ListSelect = (props) => {
 
     useEffect(() => {
         let data = locationStore.statusList;
-        console.log(data);
         if (data.detail && data.detail.length > 0) {
             let newData = [];
             data.detail.map((item) => {
@@ -70,8 +69,7 @@ const ListSelect = (props) => {
     const onChangeStatus = (value) => {
         setState({ ...state, status: value })
     }
-
-    console.log(state);
+    
     return (
         <div className="row">
             <div className="col-12 col-sm-12 col-md-4">

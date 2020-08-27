@@ -18,7 +18,7 @@ const MenuRight = (props) => {
                 </Link>
             </div>
             <div className="item">
-                <Link to="/#" className="link">
+                <Link to="/cart" className="link">
                     <i className="icon cart fas fa-cart-plus" />
                 </Link>
             </div>

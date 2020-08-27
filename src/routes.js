@@ -18,6 +18,7 @@ import Elements from "./pages/Elements/Elements";
 import Example from "./pages/Example";
 import HotProduct from "./pages/Product/HotProduct";
 import User from "./pages/User/CustomerAccount";
+import Cart from "./pages/Cart/Cart";
 import ProductList from './pages/ProductList/ProductList';
 
 const home_banner_url = './assets/images/project.jpg';
@@ -36,6 +37,7 @@ const promotion_banner_url = './assets/images/project.jpg';
 const flashSaleList_banner_url = './assets/images/project.jpg';
 const elements_banner_url = './assets/images/project.jpg';
 const example_banner_url = './assets/images/project.jpg';
+const cart_banner_url = './assets/images/project.jpg';
 const product_banner_url = './assets/images/project.jpg';
 
 const MAIN = [
@@ -192,6 +194,13 @@ const MAIN = [
         "component": User,
         "banner_title": "customer_account_banner_title",
         "banner_url": recruitmentList_banner_url,
+        "banner_show": true
+    },
+    {
+        "path": "/cart",
+        "component": Cart,
+        "banner_title": "cart",
+        "banner_url": cart_banner_url,
         "banner_show": true
     },
     // {

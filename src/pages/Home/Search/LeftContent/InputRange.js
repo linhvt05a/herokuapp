@@ -15,8 +15,6 @@ const InputRange = (props) => {
     const isGetminmaxListSuccess = minmax.minmaxList.success;
     const minmaxList = isGetminmaxListSuccess ? minmax.minmaxList.detail : null;
 
-    console.log("data", minmaxList);
-
     const data = [20, 60]
     const data1 = [10, 80]
     const [priceRange, setPrice] = useState([])

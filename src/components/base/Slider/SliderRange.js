@@ -3,10 +3,10 @@ import { Slider, Switch } from 'antd';
 
 const SliderRange = (props) => {
 
+    const { onChange, min, max } = props
+
     return (
-        <>
-            <Slider range defaultValue={[20, 50]}/>
-      </>
+        <Slider className="w-100" range onChange={onChange} min={min} max={max} />
     )
 }
 

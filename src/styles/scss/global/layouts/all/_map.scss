@@ -81,6 +81,7 @@
             padding: 140px 0;
             background-color: transparent;
             box-shadow: none;
+            position: relative;
 
             @media (max-width: 1199px) {
                 width: 100%;
@@ -96,6 +97,7 @@
                 font-weight: normal;
                 margin-bottom: 30px;
                 text-align: left;
+
                 @media (max-width: 767px) {
                     font-size: 27px;
                     margin-bottom: 20px;
@@ -109,16 +111,11 @@
                 border: none;
             }
 
-            .select2-container--default.select2-container--open
-                .select2-selection--single
-                .select2-selection__arrow
-                b {
+            .select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b {
                 border: none;
             }
 
-            .select2-container--default
-                .select2-selection--single
-                .select2-selection__arrow {
+            .select2-container--default .select2-selection--single .select2-selection__arrow {
                 @include flexbox;
                 height: 100%;
 
@@ -152,15 +149,18 @@
             .select2-container {
                 width: 100% !important;
             }
+
             .map_search--range {
                 .range_item {
                     &:not(:last-child) {
                         margin-bottom: 40px;
+
                         @media (max-width: 480px) {
                             margin-bottom: 20px;
                         }
                     }
                 }
+
                 .slider.slider-horizontal .slider-track {
                     background: #c4b9e9;
                 }
@@ -201,6 +201,27 @@
                 }
             }
         }
+
+        &--btn_exit {
+            position: absolute;
+            top: 5%;
+            right: -56px;
+            color: white;
+            padding: 7px 20px;
+            background: #51c471;
+            z-index: 1;
+            font-size: 24px;
+            border-radius: 0 10px 10px 0;
+            @media (max-width: 1199px) {
+                top: unset;
+                right: auto;
+                left: 50%;
+                transform: translateX(-50%);
+                bottom: -50px;
+                border-radius: 0 0 10px 10px;
+            }
+        }
+
     }
 
     &_tab {
