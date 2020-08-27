@@ -1,30 +1,24 @@
 import { put, takeLatest, all, fork } from "redux-saga/effects";
-import { exampleService } from "../../services";
-import { examAction } from '../action';
+import { newsService } from "../../services";
+import { newsAction } from '../action';
 
 
-export function* exampleList(payload) {
-
-    console.log(payload);
-
-    let { token, search_name, status_id, setting_type } = payload.params
+export function* newsList(payload) {
     try {
-        const response = yield exampleService.list(token, search_name, status_id, setting_type);
-        response.success ? yield put({ type: examAction.LOAD_LIST_SUCCESS, response }) : yield put({ type: examAction.LOAD_LIST_FAILURE, response });
-
-        console.log(response);
+        const response = yield newsService.newsList(payload);
+        response.success ? yield put({ type: newsAction.LOAD_LIST_SUCCESS, response }) : yield put({ type: newsAction.LOAD_LIST_FAILURE, response });
     } catch (err) {
-        yield put({ type: examAction.LOAD_LIST_FAILURE, err });
+        yield put({ type: newsAction.LOAD_LIST_FAILURE, err });
     }
 }
 
 
-export function* exampleListlWatcher() {
-    yield takeLatest(examAction.LOAD_LIST, exampleList);
+export function* newsListWatcher() {
+    yield takeLatest(newsAction.LOAD_LIST, newsList);
 }
 
 export default function* rootSaga() {
     yield all([
-        fork(exampleListlWatcher),
+        fork(newsListWatcher),
     ]);
 }

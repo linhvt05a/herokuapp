@@ -72,8 +72,8 @@ const MAIN = [
         "banner_class": ''
     },
     {
-        "path": "/contact",
-        "component": Contact,
+        "path": "/productList",
+        "component": ProductList,
         "banner_title": "contact_banner_title",
         "banner_url": contact_banner_url,
         "banner_show": true,
@@ -117,7 +117,7 @@ const MAIN = [
         "banner_class": ''
     },
     {
-        "path": "/NewsDetail",
+        "path": "/NewsDetail/:id",
         "component": NewsDetail,
         "banner_title": "newsDetail_banner_title",
         "banner_url": newsDetail_banner_url,

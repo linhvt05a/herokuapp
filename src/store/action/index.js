@@ -7,15 +7,14 @@ import newsAction from './newsAction'
 import promotionAction from './promotionAction'
 import visitSignupAction from './visitSignupAction'
 import commonAction from "./commonAction";
+import newsDetailAction from './newsDetailAction'
+import hotNewsAction from './hotNewsAction'
+import productListAction from './productListAction'
+import productSignupAction from './productSignupAction'
+import productIncentivesAction from './productIncentivesAction'
 
 export {
-  examAction,
-  productAction,
-  productDetailAction,
-  projectAction,
-  promotionAction,
-  transactionAction,
-  newsAction,
-  visitSignupAction,
-  commonAction,
+  examAction, projectAction, productAction, visitSignupAction, promotionAction, commonAction,
+  newsAction, newsDetailAction, hotNewsAction,transactionAction,
+  productListAction, productSignupAction, productIncentivesAction, productDetailAction
 };

@@ -8,7 +8,7 @@ import { projectService } from "./Project/project";
 import { transactionService } from "./Transaction/transaction";
 import { commonService } from "./Common/common";
 import {promotionService} from "./Promotion/promotion";
-
+import {newsService} from './News/news'
 
 export {
     exampleService,
@@ -18,4 +18,5 @@ export {
     transactionService,
     commonService,
     promotionService,
+    newsService
 }
