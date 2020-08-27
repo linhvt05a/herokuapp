@@ -41,7 +41,7 @@ const FilterProject = () =>{
                         <Sliders  defaultValue={data} reverse ={false} tooltipVisible = {true} range ={true} onChange={changePrice}/>
                     </div>
                     <div className="range_item area">
-                        <label className="label"><Trans>Acreage</Trans><i> (m2)</i></label>
+                        <label className="label"><Trans>Acreage</Trans><i> (m<sup>2</sup>)</i></label>
                         <Sliders  defaultValue={data1} reverse ={false} tooltipVisible = {true} range ={true} onChange={changeAcreage}/>
                     </div>
                 </div>
