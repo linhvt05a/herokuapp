@@ -31,7 +31,7 @@ const CardProjectFilter = (props) => {
                                 }
                                 <i>(<Trans>{item.unit}</Trans>)</i>
                             </label>
-                            <SliderRange changeRange={item.onChange} min={item.min} max={item.max} />
+                            <SliderRange defaultValue={[0, 0]} changeRange={item.onChange} min={item.min} max={item.max} />
                         </div>
                     ))
                 }
