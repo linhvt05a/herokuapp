@@ -11,12 +11,16 @@ import productIncentiveReducer from './productIncentiveReducer'
 import projectReducer from './projectReducer'
 import commonReducer from './commonReducer'
 import transactionReducer from './transactionReducer'
+import contactReducer from './contactReducer'
+import juridicalSupportReducer from './juridicalSupportReducer'
+
 import { combineReducers } from 'redux';
 
 const allReducers = combineReducers({
     examReducer, projectReducer, productReducer,commonReducer,transactionReducer,
     visitRegisterReducer, promotionReducer,
     newsReducer, newsDetailReducer, hotNewsReducer,
-    productListReducer, productSignupReducer, productIncentiveReducer
+    productListReducer, productSignupReducer, productIncentiveReducer,
+    contactReducer, juridicalSupportReducer
 });
 export default allReducers; 

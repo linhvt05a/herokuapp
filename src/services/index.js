@@ -9,6 +9,8 @@ import { transactionService } from "./Transaction/transaction";
 import { commonService } from "./Common/common";
 import {promotionService} from "./Promotion/promotion";
 import {newsService} from './News/news'
+import {contactService} from './Contact/ContactAdd'
+import {juridicalService} from './Juridical/juridical'
 
 export {
     exampleService,
@@ -18,5 +20,7 @@ export {
     transactionService,
     commonService,
     promotionService,
-    newsService
+    newsService,
+    contactService, 
+    juridicalService
 }

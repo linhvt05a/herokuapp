@@ -39,6 +39,10 @@ export default {
     NEWS_DETAIL:"",
     HOT_NEWS : "",
 
+    JURIDICAL_ADD:"",
+    
+    CONTACT_ADD : "",
+    
     PROMOTION_LIST:"",
 
     getHeader,

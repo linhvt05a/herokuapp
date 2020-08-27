@@ -12,9 +12,12 @@ import hotNewsAction from './hotNewsAction'
 import productListAction from './productListAction'
 import productSignupAction from './productSignupAction'
 import productIncentivesAction from './productIncentivesAction'
+import contactAddAction from './contactAddAction'
+import juridicalSupportAction from './juridicalSupportAction'
 
 export {
   examAction, projectAction, productAction, visitSignupAction, promotionAction, commonAction,
   newsAction, newsDetailAction, hotNewsAction,transactionAction,
-  productListAction, productSignupAction, productIncentivesAction, productDetailAction
-};
+  productListAction, productSignupAction, productIncentivesAction, productDetailAction,
+  contactAddAction, juridicalSupportAction
+}
