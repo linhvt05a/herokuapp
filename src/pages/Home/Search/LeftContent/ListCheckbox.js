@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import { Trans } from "react-i18next";
 import { Link } from "react-router-dom";
 import InputCheckbox from "../../../../components/base/Input/InputCheckbox";
-
+import { PROJECT_SALE_GROUP } from "../../../../contant";
 
 const ListCheckbox = (props) => {
-    let { data } = props;
+    let { data, OnSearchProject, listCheckbox } = props;
+    // console.log(PROJECT_SALE_GROUP);
 
     const [toggle, settoggleSearch] = useState(false);
     return (
@@ -19,30 +20,11 @@ const ListCheckbox = (props) => {
                 </div>
                 <div className="search_option-content">
                     <div className="search_option-content-inner">
-                        <ul className="list-inline list-inline-sm list_checkbox_while">
-                            <li>
-                                <InputCheckbox label="Chung cư căn hộ" />
-                            </li>
-                            <li>
-                                <InputCheckbox label="Biệt thự cao cấp" />
-                            </li>
-                            <li>
-                                <InputCheckbox label="Văn phòng cho thuê" />
-                            </li>
-                            <li>
-                                <InputCheckbox label="Siêu thị" />
-                            </li>
-                            <li>
-                                <InputCheckbox label="Trung tâm thương mại" />
-                            </li>
-                        </ul>
+                        <InputCheckbox data={PROJECT_SALE_GROUP} listCheckbox={listCheckbox}/>
                     </div>
                 </div>
             </div>
-            <Link
-                to="/#"
-                className="btn btn_green"
-            >
+            <Link className="btn btn_green" onClick={OnSearchProject}>
                 TÌM KIẾM
             </Link>
         </div>

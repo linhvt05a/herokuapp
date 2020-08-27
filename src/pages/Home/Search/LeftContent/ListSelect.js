@@ -6,7 +6,7 @@ import { InputSelect } from '../../../../components/base/Select/index';
 import { commonAction } from "../../../../store/action";
 
 const ListSelect = (props) => {
-    let { data, active } = props;
+    let { data, active, HandleCity, HandleDistrict, HandleDStatus } = props;
     const dispatch = useDispatch();
     const locationStore = useSelector(state => state.commonReducer);
     const createData = (value, label) => {
@@ -17,9 +17,6 @@ const ListSelect = (props) => {
     }, [])
 
     const [state, setState] = useState({
-        dataCustomerName: [],
-        valueSeach: "",
-        dataCustomer: {},
         address: { _city: 0, _district: "", _status: "", _address: "" },
         status: 0,
         dataCity: [],
@@ -41,7 +38,7 @@ const ListSelect = (props) => {
         if (data.detail && data.detail.length > 0) {
             let newData = [];
             data.detail.map((item) => {
-                newData.push(createData(item.province_id, item.name))
+                newData.push(createData(item.district_id, item.name))
             })
             setState({ ...state, dataDistrict: newData })
         }
@@ -49,7 +46,6 @@ const ListSelect = (props) => {
 
     useEffect(() => {
         let data = locationStore.statusList;
-        console.log(data);
         if (data.detail && data.detail.length > 0) {
             let newData = [];
             data.detail.map((item) => {
@@ -59,19 +55,19 @@ const ListSelect = (props) => {
         }
     }, [locationStore.statusList]);
 
-    const onChangeCity = (value, text) => {
-        setState({ ...state, address: { _city: value, _ward: "", _district: "", _address: state.address._address } })
+    const onChangeCity = (value) => {
         dispatch(commonAction.loadDistrictList({ province_id: value }))
+        HandleCity(value)
     }
-
     const onChangeDistrict = (value) => {
-        setState({ ...state, address: { _city: state.address._city, _ward: "", _district: value, _address: state.address._address } })
+        setState({ ...state, address: { _city: state.address._city, _district: value, _address: state.address._address } })
+        HandleDistrict(value)
     }
     const onChangeStatus = (value) => {
         setState({ ...state, status: value })
+        HandleDStatus(value)
     }
 
-    console.log(state);
     return (
         <div className="row">
             <div className="col-12 col-sm-12 col-md-4">

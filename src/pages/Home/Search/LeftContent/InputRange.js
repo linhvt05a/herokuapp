@@ -6,7 +6,7 @@ import { SliderRange } from "../../../../components/base/Slider";
 import { commonAction } from "../../../../store/action";
 
 const InputRange = (props) => {
-    let { active } = props;
+    let { active, changePrice, changeAcreage } = props;
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(commonAction.loadMinMaxList({}))
@@ -14,16 +14,7 @@ const InputRange = (props) => {
     const minmax = useSelector(state => state.commonReducer);
     const isGetminmaxListSuccess = minmax.minmaxList.success;
     const minmaxList = isGetminmaxListSuccess ? minmax.minmaxList.detail : null;
-    const [priceRange, setPrice] = useState([])
-    const [acreage, setAcreage] = useState([])
-    const changePrice = (e) =>{
-        setPrice(e)
-        console.log('priceRange', priceRange)
-    }
-    const changeAcreage =(e)=>{
-        setAcreage(e)
-        console.log('acreage', acreage)
-    }
+
     return (
         minmaxList && minmaxList != null ?
         <div className="map_search--range">
