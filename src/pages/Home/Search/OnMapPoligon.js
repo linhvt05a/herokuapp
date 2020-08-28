@@ -7,7 +7,7 @@ import { ListSelect, InputRange, ListCheckbox } from "./index";
 import { MapPoligon } from "../../../components/common/Map/index";
 
 const OnMapPoligon = props => {
-    let { active } = props;
+    let { active, onShowSearch, onHideSearch } = props;
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(commonAction.loadProvinceList({ lang: "vi" }))
@@ -21,7 +21,6 @@ const OnMapPoligon = props => {
     })
 
     const HandleCity = (value) => {
-        console.log(value);
         setStateSubmit({ ...statesubmit, dataSubmit: { _city: value } })
     }
     const HandleDistrict = (value) => {
@@ -57,6 +56,7 @@ const OnMapPoligon = props => {
         }
         setStateSubmit({ ...statesubmit, dataSubmit: { project_sale_status: newList } })
     }
+    
     // console.log(statesubmit);
     // useEffect(() => {
     //     dispatch(projectAction.loadProjectList({ 
@@ -73,8 +73,6 @@ const OnMapPoligon = props => {
     // const search = useSelector(state => state.projectReducer);
     // const isGetsearchListSuccess = search.projectList.success;
     // const searchList = isGetsearchListSuccess ? search.projectList.detail : null;
-
-    // console.log(searchList);
 
     const OnSearchProject =(e)=> {
         // console.log(searchList);
@@ -93,7 +91,7 @@ const OnMapPoligon = props => {
         // const searchList = isGetsearchListSuccess ? search.projectList.detail : null;
     }
     return (
-        <div className={`map_search map_tab ${active.search || active.position ? "active" : "" }`}>
+        <div className={`map_search map_tab ${active.search || active.position || active.showhide ? "active" : "" }`}>
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-12 col-sm-12 col-md-12 col-xl-6 p-0 bg_image justify-content-center flex-column" 
@@ -104,12 +102,16 @@ const OnMapPoligon = props => {
                             <InputRange changePrice={changePrice} changeAcreage={changeAcreage}/>
                             <ListCheckbox OnSearchProject={OnSearchProject} OnCheckbox={listCheckbox}/>
                         </div>
-                        <span class="map_search--btn_exit">
+                        <span class="map_search--btn_exit" onClick={onShowSearch} >
                             <i class="fas fa-times"></i>
                         </span>
                     </div>
                     <div className={`map_custom_show_hide col-12 col-sm-12 col-md-12 col-xl-6 p-0 ${active.search ? "active" : "" }`}>
-                        {active.search || active.position ? <MapPoligon /> : ''} 
+                        {active.showhide ? <MapPoligon /> : ''}
+                        {active.search || active.position ? <MapPoligon /> : ''}
+                        <span class="map_search--btn_exit" onClick={onHideSearch} style={{right: active.showhide ? "auto" : "-56px"}}>
+                            <i class="fas fa-times"></i>
+                        </span>
                     </div>
                 </div>
             </div>

@@ -14,13 +14,14 @@ import productIncentiveSaga from './productIncentiveSaga'
 import contactAddSaga from './contactAddSaga'
 import juridicalSupportSaga from './juridicalSupportSaga'
 import transactionSaga from './transactionSaga';
-
+import commonSaga from './commonSaga'
+import newsFilterSaga from './newsFilterSaga'
 function* allSaga() {
   yield all([
     examSaga(), projectSaga(), commonSaga(), productSaga(), visitRegisterSaga(), transactionSaga(),
     newsSaga(), promotionSaga(), newsDetailSaga(), hotNewsSaga(),
     productListSaga(), productSignupSaga(), productIncentiveSaga(),
-    contactAddSaga(), juridicalSupportSaga()
+    contactAddSaga(), juridicalSupportSaga(), commonSaga(), newsFilterSaga()
   ]);
 }
 

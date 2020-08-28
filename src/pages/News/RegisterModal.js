@@ -11,7 +11,7 @@ const project = [{value:"", label:'--Select--'},{value:1, label:'donalll'},{valu
 
 
 const RegisterModal = (props) =>{
-  const [showModal, setShowModal] = useState(false)
+  const [showModal, setShowModal] = useState(true)
   const signValue = {visitName: '',visitMobile: '',visitSelect:'',visitContent:''}
   const {signValues, signErrors, handleChangeVisit, handleSelectVisit, handleSignVisit} = useFormVisit(signValue, visitRegister, validateVisit)
 
