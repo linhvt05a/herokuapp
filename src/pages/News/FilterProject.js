@@ -1,51 +1,57 @@
-import React, { Component, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {Link} from 'react-router-dom';
-import {Sliders} from '../../components/base/index'
+// import {Sliders} from '../../components/base/index'
 import {InputSelect} from '../../components/base/Select/index'
 import { Trans } from 'react-i18next';
 import { useForm } from 'antd/lib/form/Form';
-import {ButtonStyle} from '../../components/base/index'
+import {ButtonStyle, InputBase, InputDatePicker} from '../../components/base/index'
+import moment from 'moment';
+import { useDispatch, useSelector } from "react-redux";
+import {newsFilterAction } from "../../store/action/index";
 
-const data = [20, 60]
-const data1 = [10, 80]
+const data = [0, 0]
+const data1 = [0, 0]
 const province = [{value:1, label :'--Select--'},{value:2, label :'TPHCM'}, {value:3, label :'Ha Noi'}, {value:4, label :'Hai Phong'}]
 const district = [{value:1, label :'--Select--'},{value:2, label :'TPHCM'}, {value:3, label :'Ha Noi'}, {value:4, label :'Hai Phong'}]
 const status = [{value:1, label :'--Select--'},{value:2, label :'TPHCM'}, {value:3, label :'Ha Noi'}, {value:4, label :'Hai Phong'}]
 
-const FilterProject = () =>{
-    const [priceRange, setPrice] = useState([])
-    const [acreage, setAcreage] = useState([])
+const FilterProject = (props) =>{
+    const[dateFrom, setDateFrom] = useState(null)
+    const[newsTitle, setTitle] = useState('')
+    const dispatch = useDispatch();
 
-    const changePrice = (e) =>{
-        setPrice(e)
-        console.log('priceRange',priceRange)
+    function convertDate(value){
+        const date = moment(value).format('DD/MM/YYYY')
+        setDateFrom(date)
+        return date
     }
-    const changeAcreage =(e)=>{
-        setAcreage(e)
-        console.log('acreage',acreage)
+
+    const onChange = (name, value) => {
+        convertDate(value, name)
+    }
+    
+    const handleChange = (e) =>{
+        const value = e.target.value
+        setTitle(value)
+
+    }
+    const handleSelect = () =>{
+
+    }
+    const filterSearch = () =>{
+        console.log(newsTitle, dateFrom)
+        dispatch(newsFilterAction.filterNews({}))
     }
     return(
         <div className="searchProject">
                 <div className="searchProject__title">
-                    <Trans>Search for projects by</Trans>
+                    <Trans>Search news by</Trans>
                 </div>
-                <InputSelect placeholder="Province" datas ={province}/>
-                <InputSelect placeholder="District" datas={district}/>
-                <InputSelect placeholder="Select progress" datas={status}/>
-                <div className="map_search--range" style={{marginTop: 70}}>
-                    <div className="range_item price">
-                        <label className="label">
-                            <Trans>Price range</Trans>
-                            <br /><i><Trans>(bilions)</Trans></i>
-                        </label>
-                        <Sliders  defaultValue={data} reverse ={false} tooltipVisible = {true} range ={true} onChange={changePrice}/>
-                    </div>
-                    <div className="range_item area">
-                        <label className="label"><Trans>Acreage</Trans><i> (m<sup>2</sup>)</i></label>
-                        <Sliders  defaultValue={data1} reverse ={false} tooltipVisible = {true} range ={true} onChange={changeAcreage}/>
-                    </div>
-                </div>
-                <ButtonStyle className="btn btn_green text-uppercase w-100" href="#" label="SEARCH"/>
+                <InputBase name ="newTitle" placeholder="Enter Title" onChange={handleChange}/>
+                <InputSelect placeholder="Categories" name="district" datas={[]} onChange={handleSelect}/>
+                <InputDatePicker style={{width: '100%', height: 48, marginBottom: 20}} name="dateFrom" placeholder="From date" onChange={onChange}/>
+                <InputDatePicker style={{width: '100%', height: 48, marginBottom: 20}} name="dateTo" placeholder ="To date" onChange={onChange}/>
+                <ButtonStyle className="btn btn_green text-uppercase w-100" href="#" label="SEARCH" onClick={filterSearch}/>
     </div>
     )
 }
