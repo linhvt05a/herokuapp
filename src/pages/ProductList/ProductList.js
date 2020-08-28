@@ -8,41 +8,18 @@ import { useDispatch, useSelector } from "react-redux";
 import { productListAction, productSignupAction, productIncentivesAction } from "../../store/action/index";
 
   const product_incentives = [
-    {
-    id:1, 
-    title: 'Thanh toán 30% căn hộ A01 - Royal Garden', 
-    time:' Từ: 02/03/2020 - Đến: 02/06/2020', 
-    pro1:'Giảm 2% giá trị',
-    pro2:'Tặng 1 lượng vàng 9999',
-    pro3:'Tặng gói bảo trì 1 năm căn hộ'
-  },
-  {
-    id:2, 
-    title: 'Thanh toán 30% căn hộ A01 - Royal Garden', 
-    time:' Từ: 02/03/2020 - Đến: 02/06/2020', 
-    pro1:'Giảm 2% giá trị',
-    pro2:'Tặng 1 lượng vàng 9999',
-    pro3:'Tặng gói bảo trì 1 năm căn hộ'
-  },
-  {
-    id:3, 
-    title: 'Thanh toán 30% căn hộ A01 - Royal Garden', 
-    time:' Từ: 02/03/2020 - Đến: 02/06/2020', 
-    pro1:'Giảm 2% giá trị',
-    pro2:'Tặng 1 lượng vàng 9999',
-    pro3:'Tặng gói bảo trì 1 năm căn hộ'
-  },
+    
   ]
 
 const ProductList = (props) => {
-  const[totalItem, setTotalItem] = useState(0)
-  const[currentPage, setCurrentPage] = useState(0)
-  const[totalPage, setTotalPage] = useState(0)
-  const[itemOnPage, setItemOnPage] = useState(0)
+  const[totalItem, setTotalItem] = useState(48)
+  const[currentPage, setCurrentPage] = useState(1)
+  const[totalPage, setTotalPage] = useState(48)
+  const[itemOnPage, setItemOnPage] = useState(10)
 
   const product = useSelector(state => state.productListReducer);
   const productListSuccess = product.productList.success
-  const productList = productListSuccess ? product.productList.detail : null;
+  const productList = productListSuccess ? product.productList.detail.list_product : null;
   const dispatch = useDispatch();
 
   const productIncentive = useSelector(state => state.productIncentiveReducer);
@@ -72,13 +49,12 @@ const ProductList = (props) => {
   return (
     <div className="save_product bg_grey">
       <div className="container container-sm container-md">
-        {/* striking apartment  */}
         <div className="striking_apartment label_filter">
           <CardHeader label="List of products" />
           <div className="row">
             <ProductContent data={productList} totalItem={totalItem} currentPage={currentPage} totalPage={totalPage} itemOnPage={itemOnPage}/>
             <ProductRightBar 
-                data ={productListIncentive} 
+                data ={product_incentives} 
                 showSignInModal={()=>setShowSignIn(true)}
                 handleSignUp={handleSignUp} 
                 handleChange={handleChangeSignup} 
@@ -87,7 +63,6 @@ const ProductList = (props) => {
             />
         </div>
         </div>
-        {/* end striking apartment  */}
       </div>
         <Modal visible={showSignInModal}>
             <ProductSignInModal 

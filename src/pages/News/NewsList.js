@@ -7,7 +7,7 @@ import { Trans } from "react-i18next";
 import Pagination from '../../components/common/Pagination';
 import { LoadDataPaging } from '../../utils/Utils';
 import { useDispatch, useSelector } from "react-redux";
-import { newsAction } from "../../store/action/index";
+import { newsAction, commonAction, newsFilterAction } from "../../store/action/index";
 
 const data = { img: 'project.jpg' }
 const newsLocal =
@@ -53,11 +53,11 @@ const News = () => {
     const newsListSuccess = news.newsList.success
     const newsList = newsListSuccess ? news.newsList.detail : null;
     const dispatch = useDispatch();
+    
 
     useEffect(() => {
         dispatch(newsAction.LoadNewsList({}));
     }, []);
-
     return (
         <div className="news">
             <div className="container container-sm container-md">

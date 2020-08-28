@@ -52,6 +52,8 @@ export const productService = {
         return api.handleRequest(url, requestOptions);
     },
 
+
+    //BEGIN SERVICE LINH
     productList() {
         const requestOptions = {
             method: 'GET',
@@ -63,10 +65,9 @@ export const productService = {
         return api.handleRequest(url, requestOptions);
     },
 
+    
     productSignup(payload) {
-
         const body ={payload}
-
         const requestOptions = {
             method: 'POST',
             body: body,
@@ -86,6 +87,8 @@ export const productService = {
         const url = api.getUrl(api.PRODUCT_INCENTIVE, params);
         return api.handleRequest(url, requestOptions); 
     }
+    //END SERVICE LINH
+    
 };
 
 

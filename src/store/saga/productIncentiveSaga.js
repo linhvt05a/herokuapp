@@ -7,8 +7,6 @@ export function* productIncentive(payload) {
     try {
         const response = yield productService.productIncentive(payload);
         response.success ? yield put({ type: productIncentivesAction.LOAD_LIST_SUCCESS, response }) : yield put({ type: productIncentivesAction.LOAD_LIST_FAILURE, response });
-
-        console.log(response);
     } catch (err) {
         yield put({ type: productIncentivesAction.LOAD_LIST_FAILURE, err });
     }

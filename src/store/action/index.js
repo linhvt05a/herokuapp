@@ -14,10 +14,11 @@ import productSignupAction from './productSignupAction'
 import productIncentivesAction from './productIncentivesAction'
 import contactAddAction from './contactAddAction'
 import juridicalSupportAction from './juridicalSupportAction'
+import newsFilterAction from './newsFilterAction';
 
 export {
   examAction, projectAction, productAction, visitSignupAction, promotionAction, commonAction,
   newsAction, newsDetailAction, hotNewsAction,transactionAction,
   productListAction, productSignupAction, productIncentivesAction, productDetailAction,
-  contactAddAction, juridicalSupportAction
+  contactAddAction, juridicalSupportAction, newsFilterAction
 }

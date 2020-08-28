@@ -35,5 +35,17 @@ export const newsService = {
         const params = {payload };
         const url = api.getUrl(api.HOT_NEWS, params);
         return api.handleRequest(url, requestOptions);
+    },
+
+    filterNews (payload){
+        const body = {}
+        const requestOptions = {
+            method: 'POST',
+            headers: api.getHeader(TOKEN),
+            body:body 
+        };
+
+        const url = api.getUrl(api.FILTER_NEWS);
+        return api.handleRequest(url, requestOptions);
     }
 };
