@@ -12,32 +12,31 @@ const OnMapPoligon = props => {
     useEffect(() => {
         dispatch(commonAction.loadProvinceList({ lang: "vi" }))
     }, [])
-
-    const [state, setState] = useState({
-        dataSubmit: { _city: null, _district: null, _status: null, range_area: null, range_price: null, project_sale_status: null },
-    })
     const province = useSelector(state => state.commonReducer);
     const isGetprovinceListSuccess = province.provinceList.success;
     const provinceList = isGetprovinceListSuccess ? province.provinceList.detail : null;
+    console.log("hhhh", provinceList);
+
+    const [statesubmit, setStateSubmit] = useState({
+        dataSubmit: { _city: null, _district: null, _status: null, range_area: null, range_price: null, project_sale_status: null },
+    })
 
     const HandleCity = (value) => {
         console.log(value);
-        setState({ ...state, dataSubmit: { _city: value } })
+        setStateSubmit({ ...statesubmit, dataSubmit: { _city: value } })
     }
     const HandleDistrict = (value) => {
-        setState({ ...state, dataSubmit: { _city: state.dataSubmit._city, _district: value  } })
+        setStateSubmit({ ...statesubmit, dataSubmit: { _district: value  } })
     }
     const HandleDStatus = (value) => {
-        setState({ ...state, dataSubmit: { _city: state.dataSubmit._city, _district: state.dataSubmit._district, _status: value  } })
+        setStateSubmit({ ...statesubmit, dataSubmit: { _status: value  } })
     }
     
     const changeAcreage =(e)=>{
-        setState({ ...state, dataSubmit: { _city: state.dataSubmit._city, _district: state.dataSubmit._district, _status: state.dataSubmit._status, 
-            range_area: { min: e[0], max: e[1] }  } })
+        setStateSubmit({ ...statesubmit, dataSubmit: { range_area: { min: e[0], max: e[1] } } })
     }
     const changePrice = (e) =>{
-        setState({ ...state, dataSubmit: { _city: state.dataSubmit._city, _district: state.dataSubmit._district, _status: state.dataSubmit._status, 
-            range_area: state.dataSubmit.range_area, range_price: { min: e[0], max: e[1] }  } })
+        setStateSubmit({ ...statesubmit, dataSubmit: { range_price: { min: e[0], max: e[1] }  } })
     }
 
     const listCheckbox = (data, checked) => {
@@ -57,7 +56,7 @@ const OnMapPoligon = props => {
                 }
             })
         }
-        setState({ ...state, dataSubmit: { project_sale_status: newList } })
+        setStateSubmit({ ...state, dataSubmit: { project_sale_status: newList } })
     }
     // useEffect(() => {
     //     dispatch(projectAction.loadProjectList({ 

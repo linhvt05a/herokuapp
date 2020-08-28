@@ -1,6 +1,7 @@
 import { all } from "redux-saga/effects";
 import examSaga from "./examSaga";
 import projectSaga from "./projectSaga"
+import commonSaga from "./commonSaga"
 import productSaga from "./productSaga"
 import visitRegisterSaga from './visitRegisterSaga'
 import promotionSaga from './promotionSaga'
@@ -16,7 +17,7 @@ import transactionSaga from './transactionSaga';
 
 function* allSaga() {
   yield all([
-    examSaga(), projectSaga(), productSaga(), visitRegisterSaga(), transactionSaga(),
+    examSaga(), projectSaga(), commonSaga(), productSaga(), visitRegisterSaga(), transactionSaga(),
     newsSaga(), promotionSaga(), newsDetailSaga(), hotNewsSaga(),
     productListSaga(), productSignupSaga(), productIncentiveSaga(),
     contactAddSaga(), juridicalSupportSaga()
