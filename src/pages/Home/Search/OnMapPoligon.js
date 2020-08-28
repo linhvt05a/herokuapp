@@ -57,7 +57,7 @@ const OnMapPoligon = props => {
         }
         setStateSubmit({ ...statesubmit, dataSubmit: { project_sale_status: newList } })
     }
-    console.log(statesubmit);
+    // console.log(statesubmit);
     // useEffect(() => {
     //     dispatch(projectAction.loadProjectList({ 
     //         province_id: state.dataSubmit._city, 
