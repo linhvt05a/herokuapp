@@ -16,7 +16,15 @@ L.Icon.Default.mergeOptions({
 
 function MapPoligon(props) {
     let { data } = props;
+    // data && data.map((item, index) => {
+    //     console.log(item);
+    // })
+
+    //https://blog.logrocket.com/how-to-use-react-leaflet/
+    //https://github.com/PaulLeCam/react-leaflet/blob/master/example/components/other-layers.js
+
     const position = [10.782504, 106.695931];
+    const center = [10.7344832607381, 106.748816638668];
     return (
         // data && data.map((item, index) => (
             
@@ -37,7 +45,12 @@ function MapPoligon(props) {
             /> */}
             <Marker position={position}>
                 <Popup>
-
+                    marker 1
+                </Popup>
+            </Marker>
+            <Marker position={center}>
+                <Popup>
+                    marker 2
                 </Popup>
             </Marker>
         </Map>
