@@ -6,6 +6,7 @@ import { useLocation } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { translate } from '../../../utils/Utils';
 import { DIRECTION_TYPE } from "./../../../contant";
+import { transactionAction } from '../../../store/action';
 
 const SideBarSort = (props) => {
         const { data } = props;
@@ -39,6 +40,10 @@ const SideBarSort = (props) => {
         const [priceTo, setPriceToState] = useState(null)
         const [acreageFrom, setAcreageFromState] = useState(null)
         const [acreageTo, setAcreageToState] = useState(null)
+
+        useEffect(() => {
+            dispatch(transactionAction.loadTransProductTypeList({}));
+        }, []);
 
         useEffect(() => {
             var projectTypeDatas =[{value: null, label: translate("project_all")}] 

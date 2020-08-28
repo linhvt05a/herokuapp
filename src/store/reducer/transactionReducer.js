@@ -1,7 +1,7 @@
 import { transactionAction, productAction } from '../action/index';
 
 const initialState = {
-    List: [],
+    List: {},
     productTypeList: {},
 };
 
@@ -32,7 +32,7 @@ export default (state = initialState, action) => {
         //         comingSoonProductList: action.response,
         //         isFetching: true,
         //     };
-        case productAction.PRODUCT_TYPE_LIST_SUCCESS:
+        case transactionAction.TRANS_PRODUCT_TYPE_SUCCESS:
             return {
                 ...state,
                 productTypeList: action.response,
