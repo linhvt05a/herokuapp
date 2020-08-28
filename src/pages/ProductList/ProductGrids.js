@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Trans } from 'react-i18next';
+import { IMAGE_URL } from "../../contant";
 
 const ProductGrids = (props) => {
     const{data} = props
@@ -20,7 +21,7 @@ const ProductRow = (props) =>{
           <figure className="image">
             <i className="liked active fas fa-heart" />
             <img
-              src={data.product_avatar_url}
+              src={data.product_avatar_url !="" ? data.product_avatar_url : IMAGE_URL +  "/images/no_data.png"}
               
             />
           </figure>
@@ -32,7 +33,7 @@ const ProductRow = (props) =>{
               <p className="price mb-0">{data.prices} tỷ</p>
             </div>
             <p className="address mb-0">
-                {data.priceDefine}
+                <Trans>Listed price (VND)</Trans>
               <i
                 className="noted fas fa-info-circle"
                 data-toggle="tooltip"

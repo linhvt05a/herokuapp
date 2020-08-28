@@ -22,7 +22,7 @@ const ProductList = (props) => {
   const productListIncentive = productIncentiveSuccess ? productIncentive.productIncentive.detail : null;
 
   useEffect(() => {
-      dispatch(productListAction.productList({page: 1, limit: 10}));
+      dispatch(productListAction.productList({page: 1, limit: 5}));
       dispatch(productIncentivesAction.productIncentive({}));
   }, []);
   
@@ -40,7 +40,7 @@ const ProductList = (props) => {
     dispatch(productSignupAction.productSignup({signupValues}))
   }
 function onPageChange (value) {
-  dispatch(productListAction.productList({value, limit: 6}))
+  dispatch(productListAction.productList({page: value, limit: 2}))
 }
   const [showSignInModal, setShowSignIn] = useState(false)
   return (
