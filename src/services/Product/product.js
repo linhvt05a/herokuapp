@@ -54,13 +54,14 @@ export const productService = {
 
 
     //BEGIN SERVICE LINH
-    productList() {
+    productList(payload) {
+        const{page, limit} = payload.params
         const requestOptions = {
             method: 'GET',
             headers: api.getHeader(TOKEN)
         };
 
-        const params = {  };
+        const params = { page, limit };
         const url = api.getUrl(api.PRODUCT_LIST, params);
         return api.handleRequest(url, requestOptions);
     },
