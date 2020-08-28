@@ -49,7 +49,7 @@ const TopBannerDetailTrans = (props) => {
                                 <div className="form-group">
                                     <Select className="form-control hasIcon icon_project" placeholder="Chọn dự án" onChange={onChangeProject} defaultValue={projectId.project_id} >
                                         <Select.Option disabled>Chọn dự án *</Select.Option>
-                                        <Select.Option value={1}>Royal Garden</Select.Option>
+                                        <Select.Option value={13}>Royal Garden</Select.Option>
                                         <Select.Option value={2}>Hà Nội</Select.Option>
                                         <Select.Option value={3}>Đà Nẵng</Select.Option>
                                         <Select.Option value={4}>Bình Dương</Select.Option>

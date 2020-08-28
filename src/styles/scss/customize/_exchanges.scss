@@ -4,7 +4,7 @@ $color_04: #999999;
 $color_05: #399b54;
 
 @mixin exchangesColors {
-    &.sales_status_02 {
+    &.sales_status_04 {
         .line {
             &--1 {
                 .right {
@@ -46,7 +46,7 @@ $color_05: #399b54;
             }
         }
     }
-    &.sales_status_03 {
+    &.sales_status_05 {
         .line {
             &--1 {
                 .right {
@@ -88,7 +88,7 @@ $color_05: #399b54;
             }
         }
     }
-    &.sales_status_04 {
+    &.sales_status_02 {
         .line {
             &--1 {
                 .right {
@@ -130,7 +130,7 @@ $color_05: #399b54;
             }
         }
     }
-    &.sales_status_05 {
+    &.sales_status_03 {
         .line {
             &--1 {
                 .right {
@@ -377,7 +377,7 @@ $color_05: #399b54;
                 padding-left: 10px;
                 padding-right: 10px;
                 min-height: 40px;
-                // cursor: pointer;
+                cursor: pointer;
                 font-size: 16px;
                 @include fw-medium;
             }
@@ -405,6 +405,16 @@ $color_05: #399b54;
             // width: calc((100% / 4) - 8px);
             margin-right: 8px;
             margin-bottom: 8px;
+            opacity: 1;
+            &.active {
+                opacity: 1;
+            }
+            &.hide {
+                opacity: 0.5;
+            }
+            &.isActive {
+                opacity: 1;
+            }
             @media (max-width: 767px) {
                 width: calc((100% / 2) - 8px);
             }
