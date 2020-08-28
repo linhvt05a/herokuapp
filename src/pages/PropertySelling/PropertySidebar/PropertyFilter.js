@@ -130,7 +130,7 @@ const PropertyFilter = (props) => {
                     </Form.Item>
                     <div className="sales_box--list_button">
                         <Link to="/" className="btn btn_green text-uppercase">MUA NGAY</Link>
-                        <Link to="/" className="btn btn_purple text-uppercase">CHÍNH SÁCH VAY</Link>
+                        <Link to="/loan-policy" className="btn btn_purple text-uppercase">CHÍNH SÁCH VAY</Link>
                     </div>
                 </Form>
             </div>

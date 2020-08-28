@@ -21,6 +21,7 @@ import User from "./pages/User/CustomerAccount";
 import Cart from "./pages/Cart/Cart";
 import ProductList from './pages/ProductList/ProductList';
 import PropertySelling from "./pages/PropertySelling/PropertySelling";
+import { LoanPolicy } from "./pages/LoanPolicy/LoanPolicy";
 
 const home_banner_url = './assets/images/project.jpg';
 const introduce_banner_url = './assets/images/project.jpg';
@@ -214,6 +215,11 @@ const MAIN = [
     {
         "path": "/property-selling/",
         "component": PropertySelling,
+        "banner_show": false
+    },
+    {
+        "path": "/loan-policy/",
+        "component": LoanPolicy,
         "banner_show": false
     },
 ];
