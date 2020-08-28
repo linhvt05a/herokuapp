@@ -55,7 +55,7 @@ const Elements = (props) => {
                     <hr />
                 </div>
                 <div className="col-12">
-                    <SliderRange />
+                    <SliderRange defaultValue={[40, 60]}/>
                 </div>
 
                 <div className="col-12 mt-3 mb-3">
@@ -69,7 +69,7 @@ const Elements = (props) => {
                         onCancel={handleCancel}
                         width="390px"
                     >
-                        <div className="modal-content">
+                        <div className="modal-content modal_special">
                             <div className="modal-header">
                                 <h5 className="modal-title" id="exampleModalLongTitle">Đăng ký tham quan</h5>
                             </div>
@@ -182,12 +182,12 @@ const Elements = (props) => {
                 </div>
 
                 <div className="col-12 mt-3">
-                    <ButtonStyle className="btn_white" value="btn_white" />
-                    <ButtonStyle className="btn_green" value="btn_green" />
-                    <ButtonStyle className="btn_purple" value="btn_purple" />
-                    <ButtonStyle className="btn_red" value="btn_red" />
-                    <ButtonStyle className="btn_red_outline" value="btn_red_outline" />
-                    <ButtonStyle className="btn_blue" value="btn_blue" />
+                    <ButtonStyle href="/#" className="btn_white" value="btn_white" />
+                    <ButtonStyle href="/#" className="btn_green" value="btn_green" />
+                    <ButtonStyle href="/#" className="btn_purple" value="btn_purple" />
+                    <ButtonStyle href="/#" className="btn_red" value="btn_red" />
+                    <ButtonStyle href="/#" className="btn_red_outline" value="btn_red_outline" />
+                    <ButtonStyle href="/#" className="btn_blue" value="btn_blue" />
                 </div>
 
                 <div className="col-12 mt-3">

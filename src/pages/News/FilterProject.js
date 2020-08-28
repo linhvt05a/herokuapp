@@ -39,7 +39,7 @@ const FilterProject = (props) =>{
 
     }
     const filterSearch = () =>{
-        console.log(newsTitle, dateFrom)
+    
         dispatch(newsFilterAction.filterNews({}))
     }
     return(
@@ -49,7 +49,7 @@ const FilterProject = (props) =>{
                 </div>
                 <InputBase name ="newTitle" placeholder="Enter Title" onChange={handleChange}/>
                 <InputSelect placeholder="Categories" name="district" datas={[]} onChange={handleSelect}/>
-                <InputDatePicker style={{width: '100%', height: 48, marginBottom: 20}} name="dateFrom" placeholder="From date" onChange={onChange}/>
+                <InputDatePicker style={{width: '100%', height: 48, marginBottom: 20}} name="dateFrom" placeholder="From date" onChange={onChange} />
                 <InputDatePicker style={{width: '100%', height: 48, marginBottom: 20}} name="dateTo" placeholder ="To date" onChange={onChange}/>
                 <ButtonStyle className="btn btn_green text-uppercase w-100" href="#" label="SEARCH" onClick={filterSearch}/>
     </div>

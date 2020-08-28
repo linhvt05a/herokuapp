@@ -8,14 +8,13 @@ import { LoadDataPaging } from '../../utils/Utils';
 
 const ProductContent = (props) => {
   const [grid, setGrid] = useState(true)
-
-  const{data, totalItem, currentPage, totalPage, itemOnPage} = props
+  const{data, limit, total_page, total_record, page, onPageChange} = props
     return (
         <div className="col-12 col-sm-12 col-lg-8">
-            {data && data.length > 0 ? 
+            {data && data.detail.list_product.length > 0 ? 
               <div className="showby">
               <div className="text">
-                <Trans>Total</Trans> {data.length} <Trans>products</Trans></div>
+                <Trans>Total</Trans> {data.detail.list_product.length} <Trans>products</Trans></div>
                 <div className="icons">
                     <ProductMode  content={<i className={grid == true ?  "icon active fas fa-th" :'icon fas fa-th' }></i>}  switchMode={()=> setGrid(true)}/>
                     <ProductMode content={<i className={grid == false ? "icon active fas fa-list" : 'icon fas fa-list'}></i>} switchMode={()=> setGrid(false)}/>
@@ -27,9 +26,9 @@ const ProductContent = (props) => {
               grid == true ? 
               <ProductGrids data ={data}/>
               :
-              <ProductTable /> 
+              <ProductTable data ={data}/> 
             }
-            <Pagination data={LoadDataPaging(totalItem, currentPage, totalPage, itemOnPage)}/>
+            <Pagination data={LoadDataPaging(total_record, page, total_page, limit)} onChange ={onPageChange}/>
           </div>
         
     );

@@ -5,6 +5,8 @@ import { ItemProjectName, ItemProjectProduct } from '../Item/index'
 
 const CardCartProductList = (props) => {
 
+    const { showPaymentProgressModal } = props
+
     return (
         <div className="col-12 col-sm-12 col-lg-8 main-cart__order">
             <div class="block select-check fw-bold bg_white">
@@ -16,8 +18,8 @@ const CardCartProductList = (props) => {
             </div>
             <ItemProjectName />
             <div className="block bg_white apartment">
-                <ItemProjectProduct />
-                <ItemProjectProduct />
+                <ItemProjectProduct showPaymentProgressModal={showPaymentProgressModal} />
+                <ItemProjectProduct showPaymentProgressModal={showPaymentProgressModal} />
             </div>
         </div>
     )

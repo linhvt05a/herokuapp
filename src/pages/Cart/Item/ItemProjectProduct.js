@@ -5,6 +5,12 @@ import { Trans } from 'react-i18next';
 
 const ItemProjectProduct = (props) => {
 
+    const { showPaymentProgressModal } = props
+
+    const showPaymentProgress = () => {
+        showPaymentProgressModal(true)
+    }
+
     return (
         <div className="block-more-apartment">
             <div className="block-show-apartment">
@@ -67,7 +73,7 @@ const ItemProjectProduct = (props) => {
                                     <div className="title_black">Thanh toán sớm 30%</div>
                                 </div>
                                 <div className="icon">
-                                    <i className="fas fa-money-bill-wave icon-money" />
+                                    <i className="fas fa-money-bill-wave icon-money" onClick={showPaymentProgress} />
                                 </div>
                             </div>
                             <div className="content_pay">

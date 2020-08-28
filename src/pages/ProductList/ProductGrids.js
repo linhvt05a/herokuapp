@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { Trans } from 'react-i18next';
+import { IMAGE_URL } from "../../contant";
 
 const ProductGrids = (props) => {
     const{data} = props
     return (
         <div className="striking_apartment--content">
         <div className="row">
-           { data && data.map((item, index)=><ProductRow data={item} key={index}/>)}
+           { data && data.detail.list_product.map((item, index)=><ProductRow data={item} key={index}/>)}
         </div>
       </div>   
     )
@@ -20,19 +21,19 @@ const ProductRow = (props) =>{
           <figure className="image">
             <i className="liked active fas fa-heart" />
             <img
-              src="./assets/images/house_highlight.jpg"
-              alt="Căn hộ Saigon Royal"
+              src={data.product_avatar_url !="" ? data.product_avatar_url : IMAGE_URL +  "/images/no_data.png"}
+              
             />
           </figure>
           <div className="heading">
             <div className="top">
               <a href="#" className="name">
-                {data.title}
+                {data.product_name}
               </a>
               <p className="price mb-0">{data.prices} tỷ</p>
             </div>
             <p className="address mb-0">
-                {data.priceDefine}
+                <Trans>Listed price (VND)</Trans>
               <i
                 className="noted fas fa-info-circle"
                 data-toggle="tooltip"
@@ -48,7 +49,7 @@ const ProductRow = (props) =>{
                 <p className="child mb-0">
                   <i className="icon far fa-object-ungroup" />
                   <span className="text">
-                    Diện tích :{data.acreage} ( m<sup>2</sup> )
+                    Diện tích :{data.product_acreage} ( m<sup>2</sup> )
                     <i
                       className="noted fas fa-info-circle"
                       data-toggle="tooltip"
@@ -62,19 +63,19 @@ const ProductRow = (props) =>{
               <div className="col-12 col-sm-6 col-md-6 pr-0 pb-1">
                 <p className="child mb-0">
                   <i className="icon fas fa-bed" />
-                  <span className="text">Phòng ngủ : {data.bedRoom}</span>
+                  <span className="text">Phòng ngủ : {data.product_total_bedroom}</span>
                 </p>
               </div>
               <div className="col-12 col-sm-6 col-md-6 pr-0 pb-1">
                 <p className="child mb-0">
                   <i className="icon fas fa-compass" />
-                  <span className="text">Hướng : {data.direction}</span>
+                  <span className="text">Hướng : {data.product_direction_name}</span>
                 </p>
               </div>
               <div className="col-12 col-sm-6 col-md-6 pr-0 pb-1">
                 <p className="child mb-0">
                   <i className="icon fas fa-restroom" />
-                  <span className="text">Nhà vệ sinh : {data.toilet}</span>
+                  <span className="text">Nhà vệ sinh : {data.product_total_bathroom}</span>
                 </p>
               </div>
             </div>

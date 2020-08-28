@@ -33,7 +33,7 @@ export default {
 
     
 
-    VISIT_REGISTER :"",
+    VISIT_REGISTER :"/api/main_web/v1/register_visit/",
 
     NEWS_LIST:"",
     NEWS_DETAIL:"",

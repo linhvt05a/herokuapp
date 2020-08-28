@@ -24,13 +24,11 @@ const Project = (props) => {
     
     useEffect(() => {
         if (window.location.pathname === "/project/selling") {
-            console.log("selling");
             dispatch(projectAction.loadProjectList({page: 1, limit: 6, project_sale_status: `[3]`}))
             setState({
                 projectStatus: 3
             })
         } else {
-            console.log("soon");
             dispatch(projectAction.loadProjectList({page: 1, limit: 6, project_sale_status: `[2]`}))
             setState({
                 projectStatus: 2
