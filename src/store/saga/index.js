@@ -20,7 +20,7 @@ function* allSaga() {
     examSaga(), projectSaga(), commonSaga(), productSaga(), visitRegisterSaga(), transactionSaga(),
     newsSaga(), promotionSaga(), newsDetailSaga(), hotNewsSaga(),
     productListSaga(), productSignupSaga(), productIncentiveSaga(),
-    contactAddSaga(), juridicalSupportSaga(), commonSaga(), newsFilterSaga()
+    contactAddSaga(), juridicalSupportSaga(), newsFilterSaga()
   ]);
 }
 

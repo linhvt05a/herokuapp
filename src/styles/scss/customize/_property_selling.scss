@@ -1,0 +1,26 @@
+.sales_policy {
+    &--wrap {}
+
+    &--calculator {
+        .select2-container {
+            box-sizing: border-box;
+            display: inline-block;
+            margin: 0;
+            position: relative;
+            vertical-align: middle;
+        }
+
+        .ant-form-item-label {
+            width: 309px;
+            text-align: left;
+            label {
+                font-weight: 500;
+                font-family: "HelveticaNeue-Medium";
+                font-size: 16px;
+                color: #0d0d0d;
+                margin-bottom: 5px;
+            }
+        }
+    }
+
+}

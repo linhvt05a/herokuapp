@@ -14,6 +14,12 @@ export default (state = initialState, action) => {
                 isFetching: true,
                 isLoadingList: false,
             };
+        case transactionAction.TRANSACTION_LIST_FAILURE:
+            return {
+                ...state,
+                List: action.err,
+                isFetching: false,
+            };
         default:
             return state;
     }

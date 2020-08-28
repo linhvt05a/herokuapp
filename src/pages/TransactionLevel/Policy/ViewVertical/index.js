@@ -46,8 +46,8 @@ export default class ViewVertical extends Component {
                     </div>
                     <div className="item">
                         <div className="heading">
-                            <span className="text-uppercase">TIỆN ÍCH</span>
-                            <span className="value text-uppercase">CĂN HỘ</span>
+                            <span className="text-uppercase"><Trans>TIỆN ÍCH</Trans></span>
+                            <span className="value text-uppercase"><Trans>CĂN HỘ</Trans></span>
                         </div>
                         <div className="list_style_02 pt-2">
                             {data.list_internal_utility.map((item,index) => (

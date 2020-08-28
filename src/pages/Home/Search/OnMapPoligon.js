@@ -17,26 +17,72 @@ const OnMapPoligon = props => {
     const provinceList = isGetprovinceListSuccess ? province.provinceList.detail : null;
 
     const [statesubmit, setStateSubmit] = useState({
-        dataSubmit: { _city: null, _district: null, _status: null, range_area: null, range_price: null, project_sale_status: null },
+        dataSubmit: { _city: null, _district: null, _status: null, 
+            range_area: { min: null, max: null }, 
+            range_price: { min: null, max: null }, 
+            project_sale_group_type: null },
     })
 
     const HandleCity = (value) => {
-        setStateSubmit({ ...statesubmit, dataSubmit: { _city: value } })
+        setStateSubmit({ ...statesubmit, 
+            dataSubmit: { 
+                _city: value, 
+                _district: null, 
+                _status: null, 
+                range_area: { min: null, max: null }, 
+                range_price: { min: null, max: null }, 
+                project_sale_group_type: null 
+            }
+        })
     }
     const HandleDistrict = (value) => {
-        setStateSubmit({ ...statesubmit, dataSubmit: { _district: value  } })
+        setStateSubmit({ ...statesubmit,
+            dataSubmit: { 
+                _city: statesubmit.dataSubmit._city, 
+                _district: value, 
+                _status: null, 
+                range_area: { min: null, max: null }, 
+                range_price: { min: null, max: null }, 
+                project_sale_group_type: null 
+            }
+        })
     }
     const HandleDStatus = (value) => {
-        setStateSubmit({ ...statesubmit, dataSubmit: { _status: value  } })
+        setStateSubmit({ ...statesubmit,
+            dataSubmit: { 
+                _city: statesubmit.dataSubmit._city, 
+                _district: statesubmit.dataSubmit._district, 
+                _status: value, 
+                range_area: { min: null, max: null }, 
+                range_price: { min: null, max: null }, 
+                project_sale_group_type: null 
+            }
+        })
     }
-    
     const changeAcreage =(e)=>{
-        setStateSubmit({ ...statesubmit, dataSubmit: { range_area: { min: e[0], max: e[1] } } })
+        setStateSubmit({ ...statesubmit,
+            dataSubmit: { 
+                _city: statesubmit.dataSubmit._city, 
+                _district: statesubmit.dataSubmit._district, 
+                _status: statesubmit.dataSubmit._status, 
+                range_area: { min: e[0], max: e[1] }, 
+                range_price: { min: null, max: null }, 
+                project_sale_group_type: null 
+            }
+        })
     }
     const changePrice = (e) =>{
-        setStateSubmit({ ...statesubmit, dataSubmit: { range_price: { min: e[0], max: e[1] }  } })
+        setStateSubmit({ ...statesubmit,
+            dataSubmit: { 
+                _city: statesubmit.dataSubmit._city, 
+                _district: statesubmit.dataSubmit._district, 
+                _status: statesubmit.dataSubmit._status, 
+                range_area: statesubmit.dataSubmit.range_area, 
+                range_price: { min: e[0], max: e[1] }, 
+                project_sale_group_type: null 
+            }
+        })
     }
-
     const listCheckbox = (data, checked) => {
         let newList = [];
         if(data === parseInt(data))
@@ -54,42 +100,36 @@ const OnMapPoligon = props => {
                 }
             })
         }
-        setStateSubmit({ ...statesubmit, dataSubmit: { project_sale_status: newList } })
+        setStateSubmit({ ...statesubmit,
+            dataSubmit: { 
+                _city: statesubmit.dataSubmit._city, 
+                _district: statesubmit.dataSubmit._district, 
+                _status: statesubmit.dataSubmit._status, 
+                range_area: statesubmit.dataSubmit.range_area, 
+                range_price: statesubmit.dataSubmit.range_price, 
+                project_sale_group_type: newList 
+            }
+        })
     }
     
-    // console.log(statesubmit);
-    // useEffect(() => {
-    //     dispatch(projectAction.loadProjectList({ 
-    //         province_id: state.dataSubmit._city, 
-    //         region_id: state.dataSubmit._district,
-    //         status_id: state.dataSubmit._status,
-    //         // area_min: state.dataSubmit.range_area.min,
-    //         // area_max: state.dataSubmit.range_area.max,
-    //         // money_min: state.dataSubmit.range_price.min,
-    //         // money_max: state.dataSubmit.range_price.max,
-    //         project_sale_status: state.project_sale_status
-    //     }))
-    // }, [])
-    // const search = useSelector(state => state.projectReducer);
-    // const isGetsearchListSuccess = search.projectList.success;
-    // const searchList = isGetsearchListSuccess ? search.projectList.detail : null;
-
-    const OnSearchProject =(e)=> {
-        // console.log(searchList);
-        // dispatch(projectAction.loadProjectList({ 
-        //     province_id: state.dataSubmit._city, 
-        //     region_id: state.dataSubmit._district,
-        //     status_id: state.dataSubmit._status,
-        //     area_min: state.dataSubmit.range_area.min,
-        //     area_max: state.dataSubmit.range_area.max,
-        //     money_min: state.dataSubmit.range_price.min,
-        //     money_max: state.dataSubmit.range_price.max,
-        //     project_sale_status: state.project_sale_status
-        // }))
-        // const search = useSelector(state => state.projectReducer);
-        // const isGetsearchListSuccess = search.projectList.success;
-        // const searchList = isGetsearchListSuccess ? search.projectList.detail : null;
+    const OnSearchProject = (e)=> {
+        dispatch(projectAction.loadProjectList({ 
+            province_id: statesubmit.dataSubmit._city, 
+            region_id: statesubmit.dataSubmit._district,
+            status_id: statesubmit.dataSubmit._status,
+            area_min: statesubmit.dataSubmit.range_area.min,
+            area_max: statesubmit.dataSubmit.range_area.max,
+            money_min: statesubmit.dataSubmit.range_price.min,
+            money_max: statesubmit.dataSubmit.range_price.max,
+            project_sale_group_type: statesubmit.dataSubmit.project_sale_group_type
+        })); 
+        
     }
+    const search = useSelector(state => state.projectReducer);
+    const isGetsearchListSuccess = search.projectList.success;
+    const searchList = isGetsearchListSuccess ? search.projectList.detail : null;
+    console.log(searchList);
+
     return (
         <div className={`map_search map_tab ${active.search || active.position || active.showhide ? "active" : "" }`}>
             <div className="container-fluid">
@@ -107,8 +147,8 @@ const OnMapPoligon = props => {
                         </span>
                     </div>
                     <div className={`map_custom_show_hide col-12 col-sm-12 col-md-12 col-xl-6 p-0 ${active.search ? "active" : "" }`}>
-                        {active.showhide ? <MapPoligon /> : ''}
-                        {active.search || active.position ? <MapPoligon /> : ''}
+                        {active.showhide ? <MapPoligon data={searchList}/> : ''}
+                        {active.search || active.position ? <MapPoligon data={searchList} /> : ''}
                         <span class="map_search--btn_exit" onClick={onHideSearch} style={{right: active.showhide ? "auto" : "-56px"}}>
                             <i class="fas fa-times"></i>
                         </span>
