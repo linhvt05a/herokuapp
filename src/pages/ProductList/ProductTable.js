@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { Trans } from 'react-i18next';
+import { formatCurrency } from "../../utils/Utils";
 
-const ProductTable = () => {
+const ProductTable = (props) => {
+  const{data, limit} = props
     return (
         <div className="project_item__list">
         <div className="table_original">
@@ -18,11 +20,13 @@ const ProductTable = () => {
                 </th>
               </tr>
             </thead>
-            <tbody style={{ maxHeight: 300 }}>
-              <ProductParent />
+           { data.detail.list_product && data.detail.list_product.map((item, index)=>
+            <tbody style={{ maxHeight: 300 }} key={index}>
+              <ProductParent data={item}/>
               <ProductChild />
               <RowChild />
             </tbody>
+           )}
           </table>
         </div>
       </div>
@@ -30,14 +34,15 @@ const ProductTable = () => {
     );
 }
 
-const ProductParent = () =>{
+const ProductParent = (props) =>{
+  const{data} = props
   return(
     <tr className="parent">
         <td colSpan={3} className="name border-bottom-none">
-          Royal Garden
+          {data.product_name}
         </td>
         <td className="name border-bottom-none">
-          13.280.000.000
+          {formatCurrency(data.product_estimate_price)}
         </td>
         <td className="border-bottom-none" />
         <td className="border-bottom-none" />

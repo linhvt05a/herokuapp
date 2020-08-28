@@ -76,6 +76,14 @@ const MAIN = [
         "banner_class": ''
     },
     {
+        "path": "/contact",
+        "component": Contact,
+        "banner_title": "contact_banner_title",
+        "banner_url": contact_banner_url,
+        "banner_show": true,
+        "banner_class": ''
+    },
+    {
         "path": "/productList",
         "component": ProductList,
         "banner_title": "contact_banner_title",
