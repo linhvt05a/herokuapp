@@ -1,8 +1,8 @@
-import { transactionAction } from '../action/index';
+import { transactionAction, productAction } from '../action/index';
 
 const initialState = {
     List: [],
-
+    productTypeList: {},
 };
 
 export default (state = initialState, action) => {
@@ -19,6 +19,24 @@ export default (state = initialState, action) => {
                 ...state,
                 List: action.err,
                 isFetching: false,
+            };
+        // case productAction.SELLING_PRODUCT_LIST_SUCCESS:
+        //     return {
+        //         ...state,
+        //         sellingProductList: action.response,
+        //         isFetching: true,
+        //     };
+        // case productAction.COMING_SOON_PRODUCT_LIST_SUCCESS:
+        //     return {
+        //         ...state,
+        //         comingSoonProductList: action.response,
+        //         isFetching: true,
+        //     };
+        case productAction.PRODUCT_TYPE_LIST_SUCCESS:
+            return {
+                ...state,
+                productTypeList: action.response,
+                isFetching: true,
             };
         default:
             return state;

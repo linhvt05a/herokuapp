@@ -7,8 +7,6 @@ export default class Policy extends Component {
     render() {
         const { data } = this.props;
 
-        console.log(data);
-
         return (
             data ?
                 <div className="project_item__detail">
