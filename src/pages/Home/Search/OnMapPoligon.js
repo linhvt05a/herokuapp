@@ -15,7 +15,6 @@ const OnMapPoligon = props => {
     const province = useSelector(state => state.commonReducer);
     const isGetprovinceListSuccess = province.provinceList.success;
     const provinceList = isGetprovinceListSuccess ? province.provinceList.detail : null;
-    console.log("hhhh", provinceList);
 
     const [statesubmit, setStateSubmit] = useState({
         dataSubmit: { _city: null, _district: null, _status: null, range_area: null, range_price: null, project_sale_status: null },
