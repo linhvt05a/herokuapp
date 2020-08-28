@@ -3,8 +3,7 @@ import Slider from "react-slick";
 
 export default class Responsive extends Component {
   render() {
-    const {dataImgs}= this.props; //dataImgs mẫu xem ở /ProductDetail/AccordionItem
-    console.log(dataImgs);
+    const {dataImgs}= this.props;
     
     const { settings } = this.props;
     return (

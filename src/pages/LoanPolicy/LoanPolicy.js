@@ -1,5 +1,6 @@
 import React from 'react';
 import MutiSlider from './../../components/common/MutiSlider';
+import { FloatingRates } from './FloatingRates';
 
 export const LoanPolicy = () => {
 
@@ -7,8 +8,8 @@ export const LoanPolicy = () => {
         dots: true,
         infinite: false,
         speed: 500,
-        slidesToShow: 4,
-        slidesToScroll: 4,
+        slidesToShow: 5,
+        slidesToScroll: 5,
         initialSlide: 0,
         responsive: [
           {
@@ -130,113 +131,7 @@ export const LoanPolicy = () => {
                                 <MutiSlider dataImgs={dataImgs} settings={settings}/>
                             </div>
                         </div>
-                        <div className="borrow__item aa">
-                            {/* <div class="filter_select borrow__filter">
-                                        <div class="text uni-text-6d30ab fw-bold">Dạng vay :
-                                        </div>
-                                        <div class="form-group filter_project">
-                                            <select class="js-select2" data-minimum-results-for-search="Infinity">
-                                                <option selected>Vay dư nợ giảm dần</option>
-                                                <option>Vay trả đều hàng tháng</option>
-                                            </select>
-                                        </div>
-                                    </div> */}
-                            <div className="borrow__title">
-                            <span className="d-flex align-items-center text-uppercase">
-                                Lãi thả nổi - Dư nợ giảm dần
-                                <i className="icon_info fas fa-info-circle" />
-                            </span>
-                            <span className="sub">Nhập các thông tin cần thiết, bạn sẽ biết ngay số tiền lãi cần trả
-                                hàng tháng.</span>
-                            </div>
-                            <div className="borrow__calculator">
-                            <div className="row">
-                                <div className="col-sm-12 col-md-6 col-lg-6">
-                                <div className="form-group">
-                                    <label className="label">
-                                    Số tiền cần vay
-                                    <span className="unit">(triệu vnd)</span>
-                                    </label>
-                                    <div className="pull-range">
-                                    <input type="number" className="range range04" data-slider-id="range04" data-slider-min={0} data-slider-max={2000} data-slider-step={100} data-slider-value={500} />
-                                    <div className="input-group">
-                                        <input type="number" className="form-control rangeValue04" />
-                                        <div className="input-group-append">
-                                        <span className="input-group-text">
-                                            triệu
-                                        </span>
-                                        </div>
-                                    </div>
-                                    </div>
-                                </div>
-                                <div className="form-group">
-                                    <label className="label">Lãi suất ưu đãi
-                                    <span className="unit">(%/năm)</span>
-                                    </label>
-                                    <input type="text" readOnly className="form-control hightlight" defaultValue={6.00} placeholder="--" />
-                                </div>
-                                <div className="form-group">
-                                    <label className="label">Lãi suất sau ưu đãi
-                                    <span className="unit">(%/năm)</span>
-                                    </label>
-                                    <input type="text" readOnly className="form-control hightlight" placeholder="--" />
-                                </div>
-                                </div>
-                                <div className="col-sm-12 col-md-6 col-lg-6">
-                                <div className="form-group">
-                                    <label className="label">Thời hạn vay
-                                    <span className="unit">(năm)</span>
-                                    </label>
-                                    <div className="pull-range">
-                                    <input type="number" className="range range02" data-slider-id="range02" data-slider-min={0} data-slider-max={50} data-slider-step={1} data-slider-value={0} />
-                                    <input type="number" className="form-control rangeValue02" />
-                                    </div>
-                                </div>
-                                <div className="form-group">
-                                    <label className="label">Thời hạn lãi suất ưu đãi
-                                    <span className="unit">(tháng)</span>
-                                    </label>
-                                    <div className="pull-range">
-                                    <input type="number" className="range range03" data-slider-id="range03" data-slider-min={0} data-slider-max={36} data-slider-step={1} data-slider-value={0} />
-                                    <input type="text" className="form-control  rangeValue03" />
-                                    </div>
-                                </div>
-                                <div className="form-group">
-                                    <label className="label">Ngày trả lãi</label>
-                                    <div className="date-picker">
-                                    <input type="text" placeholder="--" className="form-control js-datepicker" />
-                                    </div>
-                                </div>
-                                </div>
-                            </div>
-                            <div className="checkbox-paymentBeforeDeadline">
-                                <label className="checkbox-inline">
-                                <input name="checkbox-2" type="checkbox" className="checkbox-custom" />
-                                <span className="checkbox-custom-dummy" />
-                                Thanh toán trước hạn ?
-                                </label>
-                            </div>
-                            <div className="row paymentBeforeDeadline_01 d-none">
-                                <div className="col-sm-12 col-md-6 col-lg-6">
-                                <div className="form-group">
-                                    <label className="label">Thời gian dự tính thanh toán
-                                    <span className="unit">(tháng)</span>
-                                    </label>
-                                    <input type="text" className="form-control" />
-                                </div>
-                                </div>
-                                {/* <div class="col-sm-12 col-md-6 col-lg-6">
-                                                <div class="form-group">
-                                                    <label class="label">Phí thanh toán trước hạn
-                                                        <span class="unit">(%)</span>
-                                                    </label>
-                                                    <input type="text" value="3.0" readonly class="form-control">
-                                                </div>
-                                            </div> */}
-                            </div>
-                            <button className="btn btn_purple">Xem kết quả</button>
-                            </div>
-                        </div>
+                        <FloatingRates/>
                         </div>
                     </div>
                     <div className="col-12 col-sm-12 col-lg-4">
