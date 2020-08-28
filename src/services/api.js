@@ -16,7 +16,7 @@ export default {
     TRANSACTION_LIST: `/api/main_web/v1/infrastructure/product/trading_market/`,
 
     PROJECT_LIST: "/api/main_web/v1/project/",
-    PRODUCT_LIST:"",
+    PRODUCT_LIST:"/api/main_web/v1/infrastructure/product/list/",
     PRODUCT_SIGNUP:"",
     PRODUCT_INCENTIVE:"",
     HOT_PRODUCT_LIST: "/api/main_web/v1/infrastructure/product/highlight/list/",
@@ -42,6 +42,8 @@ export default {
     JURIDICAL_ADD:"",
     
     CONTACT_ADD : "",
+
+    FILTER_NEWS: "",
     
     PROMOTION_LIST:"",
 
