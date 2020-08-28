@@ -7,7 +7,7 @@ import { ListSelect, InputRange, ListCheckbox } from "./index";
 import { MapPoligon } from "../../../components/common/Map/index";
 
 const OnMapPoligon = props => {
-    let { active, onShowHide } = props;
+    let { active, onShowSearch, onHideSearch } = props;
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(commonAction.loadProvinceList({ lang: "vi" }))
@@ -102,13 +102,16 @@ const OnMapPoligon = props => {
                             <InputRange changePrice={changePrice} changeAcreage={changeAcreage}/>
                             <ListCheckbox OnSearchProject={OnSearchProject} OnCheckbox={listCheckbox}/>
                         </div>
-                        <span class="map_search--btn_exit" onClick={onShowHide} >
+                        <span class="map_search--btn_exit" onClick={onShowSearch} >
                             <i class="fas fa-times"></i>
                         </span>
                     </div>
                     <div className={`map_custom_show_hide col-12 col-sm-12 col-md-12 col-xl-6 p-0 ${active.search ? "active" : "" }`}>
                         {active.showhide ? <MapPoligon /> : ''}
-                        {active.search || active.position ? <MapPoligon /> : ''} 
+                        {active.search || active.position ? <MapPoligon /> : ''}
+                        <span class="map_search--btn_exit" onClick={onHideSearch} style={{right: active.showhide ? "auto" : "-56px"}}>
+                            <i class="fas fa-times"></i>
+                        </span>
                     </div>
                 </div>
             </div>

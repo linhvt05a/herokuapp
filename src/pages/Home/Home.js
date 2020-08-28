@@ -95,9 +95,13 @@ const Home = (props) => {
             dispatch(productAction.loadHotProductList({}));
         }
     }
-    const setShowHideSearch = () => {
+    const setShowSearch = () => {
         setState({...state, search: false, position: false, showhide: true})
     }
+    const setHideSearch = () => {
+        setState({...state, search: true, position: true, showhide: false})
+    }
+
     return (
         <div className="homePage">
             {/* block map  */}
@@ -108,7 +112,7 @@ const Home = (props) => {
                     </figure>
                     <LocationView HandlerPosition={handlerButtonPosition} HandlerSearch={handlerButtonSearch} />
                 </div>
-                <OnMapPoligon active={state} onShowHide={setShowHideSearch}/>
+                <OnMapPoligon active={state} onShowSearch={setShowSearch} onHideSearch={setHideSearch}/>
             </div>
 
             {/*end block map  */}
