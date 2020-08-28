@@ -5,7 +5,7 @@ import InputCheckbox from "../../../../components/base/Input/InputCheckbox";
 import { PROJECT_SALE_GROUP } from "../../../../contant";
 
 const ListCheckbox = (props) => {
-    let { data, OnSearchProject, listCheckbox } = props;
+    let { data, OnSearchProject, OnCheckbox } = props;
     // console.log(PROJECT_SALE_GROUP);
     const [state, setState] = useState({ checked: false });
     const [toggle, settoggleSearch] = useState(false);
@@ -18,10 +18,10 @@ const ListCheckbox = (props) => {
         else { newData[index] = { id: index, status: "" } }
         if(index === 0){
             setState({...state, checked: target.checked });
-            listCheckbox(data.length, target.checked)
+            OnCheckbox(data, target.checked)
         } else {
             setClick(newData)
-            listCheckbox(newData)
+            OnCheckbox(newData)
         }
     }
     return (
@@ -40,7 +40,7 @@ const ListCheckbox = (props) => {
                                 <li key={index}>
                                     <label onChange={event => checkboxOnChange(event.target, index)} 
                                         className={`checkbox-inline checkbox-black ${click.length > 0 ? click[index] && click[index].status : null} ${state.checked ? 'active': '' }`}>
-                                        <input name="checkbox-1" value={item.value} type="checkbox" className="checkbox-custom" />
+                                        <input name="checkbox-1" value={item.value === null ? "": item.value} type="checkbox" className="checkbox-custom" />
                                         <span className="checkbox-custom-dummy" /><Trans>{item.label}</Trans>
                                     </label>
                                 </li>
@@ -49,9 +49,9 @@ const ListCheckbox = (props) => {
                     </div>
                 </div>
             </div>
-            <Link className="btn btn_green" onClick={OnSearchProject}>
+            <a className="btn btn_green" onClick={OnSearchProject}>
                 TÌM KIẾM
-            </Link>
+            </a>
         </div>
     )
 }

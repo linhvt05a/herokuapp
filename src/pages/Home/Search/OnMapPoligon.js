@@ -55,8 +55,9 @@ const OnMapPoligon = props => {
                 }
             })
         }
-        setStateSubmit({ ...state, dataSubmit: { project_sale_status: newList } })
+        setStateSubmit({ ...statesubmit, dataSubmit: { project_sale_status: newList } })
     }
+    console.log(statesubmit);
     // useEffect(() => {
     //     dispatch(projectAction.loadProjectList({ 
     //         province_id: state.dataSubmit._city, 
@@ -101,7 +102,7 @@ const OnMapPoligon = props => {
                             <h2 className="heading">Tìm kiếm dự án theo</h2>
                             <ListSelect data={provinceList} HandleCity={HandleCity} HandleDistrict={HandleDistrict} HandleDStatus={HandleDStatus}/>
                             <InputRange changePrice={changePrice} changeAcreage={changeAcreage}/>
-                            <ListCheckbox OnSearchProject={OnSearchProject} listCheckbox={listCheckbox}/>
+                            <ListCheckbox OnSearchProject={OnSearchProject} OnCheckbox={listCheckbox}/>
                         </div>
                         <span class="map_search--btn_exit">
                             <i class="fas fa-times"></i>
