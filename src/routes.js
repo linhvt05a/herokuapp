@@ -20,6 +20,8 @@ import HotProduct from "./pages/Product/HotProduct";
 import User from "./pages/User/CustomerAccount";
 import Cart from "./pages/Cart/Cart";
 import ProductList from './pages/ProductList/ProductList';
+import PropertySelling from "./pages/PropertySelling/PropertySelling";
+import { LoanPolicy } from "./pages/LoanPolicy/LoanPolicy";
 
 const home_banner_url = './assets/images/project.jpg';
 const introduce_banner_url = './assets/images/project.jpg';
@@ -70,6 +72,14 @@ const MAIN = [
         "component": Introduce,
         "banner_title": "introduce_banner_title",
         "banner_url": introduce_banner_url,
+        "banner_show": true,
+        "banner_class": ''
+    },
+    {
+        "path": "/contact",
+        "component": Contact,
+        "banner_title": "contact_banner_title",
+        "banner_url": contact_banner_url,
         "banner_show": true,
         "banner_class": ''
     },
@@ -209,7 +219,17 @@ const MAIN = [
     //     "banner_title": "products_list_banner_title",
     //     "banner_url": product_banner_url,
     //     "banner_show": true
-    // }
+    // },
+    {
+        "path": "/property-selling/",
+        "component": PropertySelling,
+        "banner_show": false
+    },
+    {
+        "path": "/loan-policy/",
+        "component": LoanPolicy,
+        "banner_show": false
+    },
 ];
 
 export { MAIN }

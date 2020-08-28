@@ -29,18 +29,19 @@ class AccordionItem extends React.Component {
 
     return (
       <div
-        {...{
-          className: `floors ${opened && "active"}`,
+        {...{ className: "floors" }}
+      >
+        <div {...{
+          className: `floor`,
           onClick: () => {
             this.setState({ opened: !opened });
           }
-        }}
-      >
-        <div {...{ className: "floor" }}>
-          <span {...{ className: "floor-name" }}>{product_floor_or_lot_name}</span>
+        }}>
+          <span {...{ className: `floor-name ${opened ? 'active' : ''}` }}>{product_floor_or_lot_name}</span>
           <span className="floor-number"><i className="available">5</i>/15</span>
         </div>
-        <div {...{ className: "aparts" }}>
+
+        <div {...{ className: `aparts ${opened ? 'active' : 'gfg'}` }}>
           {
               list_product.map((item,index) => (
                 <div key={index} {...{ className: "apart" }}>

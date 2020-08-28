@@ -7,42 +7,14 @@ import {useFormSignup, useFormSignIn} from '../../components/base/ValidateInput/
 import { useDispatch, useSelector } from "react-redux";
 import { productListAction, productSignupAction, productIncentivesAction } from "../../store/action/index";
 
-  const product_incentives = [
-    {
-    id:1, 
-    title: 'Thanh toán 30% căn hộ A01 - Royal Garden', 
-    time:' Từ: 02/03/2020 - Đến: 02/06/2020', 
-    pro1:'Giảm 2% giá trị',
-    pro2:'Tặng 1 lượng vàng 9999',
-    pro3:'Tặng gói bảo trì 1 năm căn hộ'
-  },
-  {
-    id:2, 
-    title: 'Thanh toán 30% căn hộ A01 - Royal Garden', 
-    time:' Từ: 02/03/2020 - Đến: 02/06/2020', 
-    pro1:'Giảm 2% giá trị',
-    pro2:'Tặng 1 lượng vàng 9999',
-    pro3:'Tặng gói bảo trì 1 năm căn hộ'
-  },
-  {
-    id:3, 
-    title: 'Thanh toán 30% căn hộ A01 - Royal Garden', 
-    time:' Từ: 02/03/2020 - Đến: 02/06/2020', 
-    pro1:'Giảm 2% giá trị',
-    pro2:'Tặng 1 lượng vàng 9999',
-    pro3:'Tặng gói bảo trì 1 năm căn hộ'
-  },
-  ]
-
 const ProductList = (props) => {
-  const[totalItem, setTotalItem] = useState(0)
-  const[currentPage, setCurrentPage] = useState(0)
-  const[totalPage, setTotalPage] = useState(0)
-  const[itemOnPage, setItemOnPage] = useState(0)
-
   const product = useSelector(state => state.productListReducer);
   const productListSuccess = product.productList.success
-  const productList = productListSuccess ? product.productList.detail : null;
+  const productList = productListSuccess ? product.productList : null ;
+
+  const total_page = productList && productList != null ? productList.total_page : null
+  const total_record =productList && productList != null ? productList.total_record: null
+  const page = productList && productList != null ? productList.page: null
   const dispatch = useDispatch();
 
   const productIncentive = useSelector(state => state.productIncentiveReducer);
@@ -50,7 +22,7 @@ const ProductList = (props) => {
   const productListIncentive = productIncentiveSuccess ? productIncentive.productIncentive.detail : null;
 
   useEffect(() => {
-      dispatch(productListAction.productList({}));
+      dispatch(productListAction.productList({page: 1, limit: 10}));
       dispatch(productIncentivesAction.productIncentive({}));
   }, []);
   
@@ -67,16 +39,17 @@ const ProductList = (props) => {
   function register(){
     dispatch(productSignupAction.productSignup({signupValues}))
   }
-
+function onPageChange (value) {
+  dispatch(productListAction.productList({value, limit: 6}))
+}
   const [showSignInModal, setShowSignIn] = useState(false)
   return (
     <div className="save_product bg_grey">
       <div className="container container-sm container-md">
-        {/* striking apartment  */}
         <div className="striking_apartment label_filter">
           <CardHeader label="List of products" />
           <div className="row">
-            <ProductContent data={productList} totalItem={totalItem} currentPage={currentPage} totalPage={totalPage} itemOnPage={itemOnPage}/>
+            <ProductContent data={productList}  limit ={10} total_page={total_page} total_record={total_record} page={page} onPageChange ={onPageChange}/>
             <ProductRightBar 
                 data ={productListIncentive} 
                 showSignInModal={()=>setShowSignIn(true)}
@@ -87,7 +60,6 @@ const ProductList = (props) => {
             />
         </div>
         </div>
-        {/* end striking apartment  */}
       </div>
         <Modal visible={showSignInModal}>
             <ProductSignInModal 

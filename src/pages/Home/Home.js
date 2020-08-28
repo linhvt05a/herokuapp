@@ -64,7 +64,8 @@ const Home = (props) => {
     const [state, setState] = useState({
         projectStatus: 3,
         position: false,
-        search: false
+        search: false,
+        showhide: false,
     });
 
     useEffect(() => {
@@ -94,18 +95,24 @@ const Home = (props) => {
             dispatch(productAction.loadHotProductList({}));
         }
     }
+    const setShowSearch = () => {
+        setState({...state, search: false, position: false, showhide: true})
+    }
+    const setHideSearch = () => {
+        setState({...state, search: true, position: true, showhide: false})
+    }
 
     return (
         <div className="homePage">
             {/* block map  */}
             <div className="map">
-                <div className="map_origin" style={{display : state.position || state.search ? "none" : ""}}>
+                <div className="map_origin" style={{display : state.position || state.search || state.showhide ? "none" : ""}}>
                     <figure>
                         <MapHome />
                     </figure>
                     <LocationView HandlerPosition={handlerButtonPosition} HandlerSearch={handlerButtonSearch} />
                 </div>
-                <OnMapPoligon active={state}/>
+                <OnMapPoligon active={state} onShowSearch={setShowSearch} onHideSearch={setHideSearch}/>
             </div>
 
             {/*end block map  */}
@@ -140,7 +147,7 @@ const Home = (props) => {
                             }
                         </div>
                         <div className="text-center text-uppercase mt-3">
-                            <Link to="/#" className="btn btn_purple ml-auto mr-auto">
+                            <Link to="/productList" className="btn btn_purple ml-auto mr-auto">
                                 <Trans>see_all</Trans>
                             </Link>
                         </div>

@@ -83,6 +83,7 @@ const dataDemo = [
   
 ];
 
+
 class AccordionItem extends React.Component {
   state = {
     opened: true
@@ -103,6 +104,42 @@ class AccordionItem extends React.Component {
       },
       state: { opened }
     } = this;
+
+    const settings = {
+      dots: true,
+      infinite: false,
+      speed: 500,
+      slidesToShow: 4,
+      slidesToScroll: 4,
+      initialSlide: 0,
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            infinite: true,
+            dots: true
+          }
+        },
+        {
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2,
+            initialSlide: 2
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+      ]
+    };
+
     return (
       <div
         {...{
@@ -201,7 +238,7 @@ class AccordionItem extends React.Component {
                         paragraph.map((item,index) => (
                           <div className="col-sm-12 col-sm-12 col-md-12" key={index}>
                             <p key={index}>{item.content}</p>
-                            <MutiSlider dataImgs={dataImgs}/>
+                            <MutiSlider settings={settings} dataImgs={dataImgs}/>
                           </div>
                         ))
                       }

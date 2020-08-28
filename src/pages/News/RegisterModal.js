@@ -6,6 +6,8 @@ import { Trans } from 'react-i18next';
 import TextArea from '../../components/base/TextArea/TextArea'
 import {validateVisit} from '../../components/base/ValidateInput/ValidateInput'
 import {useFormVisit} from '../../components/base/ValidateInput/useForm'
+import { useDispatch, useSelector } from "react-redux";
+import { visitorAction} from "../../store/action/index";
 
 const project = [{value:"", label:'--Select--'},{value:1, label:'donalll'},{value:2, label:'cat'},{value:3, label:'dog'}]
 
@@ -14,9 +16,10 @@ const RegisterModal = (props) =>{
   const [showModal, setShowModal] = useState(false)
   const signValue = {visitName: '',visitMobile: '',visitSelect:'',visitContent:''}
   const {signValues, signErrors, handleChangeVisit, handleSelectVisit, handleSignVisit} = useFormVisit(signValue, visitRegister, validateVisit)
+  const dispatch = useDispatch()
 
   function visitRegister(){
-      console.log(signValues)
+      dispatch(visitorAction.visitorAdd({signValues}))
   }
 
   return (
