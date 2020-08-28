@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { useLocation } from "react-router-dom"
+import { useLocation } from "react-router-dom";
 import TopBannerDetail from "./Item/TopBannerDetail";
 import { CardProjectList } from './Layout/index';
 import { productAction } from "../../store/action/index";
-import { DIRECTION_TYPE } from "../../contant"
+import { DIRECTION_TYPE } from "../../contant";
+import { translate } from "../../utils/Utils"
 
 const ProjectDetail = (props) => {
 
@@ -38,7 +39,7 @@ const ProjectDetail = (props) => {
     }, []);
 
     useEffect(() => {
-        var projectTypeDatas =[{value: null, label: "project_all"}] 
+        var projectTypeDatas =[{value: null, label: translate("project_all")}] 
         if (productTypeList && productTypeList != null && productTypeList.length > 0) {
             for (var i = 0; i < productTypeList.length; i++) {
                 projectTypeDatas.push({value: productTypeList[i].architecture_id, label: productTypeList[i].architecture_name})
@@ -47,7 +48,7 @@ const ProjectDetail = (props) => {
         setFilterDataState({
             inputSelectDatas: [
                 {placeholder: "product_type", datas: projectTypeDatas, onChange: onProductTypeChange},
-                {placeholder: "house_direction", datas: DIRECTION_TYPE, onChange: onHouseDirectionChange}
+                {placeholder: "house_direction", datas: DIRECTION_TYPE, onChange: onHouseDirectionChange, trans: "trans"}
             ],
             sliderDatas: [
                 {label: "price_range", unit: "project_billions_dong", onChange: onPriceRangeChange, min: 0, max: 100},
