@@ -72,7 +72,7 @@ const MenuLeft = (props) => {
                     <li className="item-child">
                         <NavLink activeClassName="active"
                             className="item-child-link"
-                            to="/contact"
+                            to="/productList"
                         >
                             Liên hệ
                         </NavLink>

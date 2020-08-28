@@ -8,8 +8,7 @@ const ReplyComment = (props) =>{
   const [totalLike, setTotalLike] = useState(0)
   
   const increaseLike = () =>{
-      setLike(true)
-      setTotalLike(totalLike + 1)
+    
   }
     return (
         <div className="reply__child">
