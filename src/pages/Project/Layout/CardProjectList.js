@@ -2,7 +2,7 @@ import React from "react";
 import { ItemProduct } from "../../Home/Item/index";
 import HeadingFilter from '../../../components/common/HeadingFilter';
 import CardNoData from "../../../components/common/CardNoData";
-import { CardProjectFilter } from './index';
+import CardInputSliderFilter from '../../../components/common/CardInputSliderFilter';
 import Pagination from '../../../components/common/Pagination';
 import { LoadDataPaging } from '../../../utils/Utils';
 
@@ -37,7 +37,7 @@ const CardProjectList = (props) => {
                                 </div>
                         }
                             <div class="col-12 col-sm-12 col-lg-4">
-                                <CardProjectFilter title="project_filter" inputSelectDatas={inputSelectDatas} sliderDatas={sliderDatas} onFilterClick={onFilterClick} />
+                                <CardInputSliderFilter title="project_filter" inputSelectDatas={inputSelectDatas} sliderDatas={sliderDatas} onFilterClick={onFilterClick} />
                             </div>
                         </div> 
                 </div>
