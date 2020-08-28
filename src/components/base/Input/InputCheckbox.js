@@ -1,21 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react';
 import { Trans } from 'react-i18next';
 
 const InputCheckbox = (props) => {
-    const [state, setState] = React.useState({
+    const { label } = props;
+    const [state, setState] = useState({
         checked: false,
     });
-    const {label, checked } = props;
-    const checkboxOnChange = e => {
-        console.log(`checkbox = ${e.target.checked}`);
-        setState({
-            checked: e.target.checked,
-        });
+    const checkboxOnChange = (target) => {
+        setState({...state, checked: target.checked });
     }
     return (
-        <label onChange={checkboxOnChange} className={`checkbox-inline checkbox-black ${ state.checked ? 'active' : '' }`} type="checkbox">
-            <input name="checkbox-1" defaultValue={1} type="checkbox" className="checkbox-custom" />
-            <span className="checkbox-custom-dummy" />{label}
+        <label onChange={event => checkboxOnChange(event.target)} 
+            className={`checkbox-inline checkbox-black ${state.checked ? 'active': '' }`}>
+            <input name="checkbox-1" defaultValue={0} type="checkbox" className="checkbox-custom" />
+            <span className="checkbox-custom-dummy" /><Trans>{label}</Trans>
         </label>
     )
 }

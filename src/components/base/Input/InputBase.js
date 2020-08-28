@@ -18,7 +18,7 @@ const InputBase = (props) => {
                 }
                 <div className="input-group">
                                 <Input
-                                style={{height: 48, backgroundColor: background}}
+                                    style={{height: 48, backgroundColor: background}}
                                     addonAfter={addonAfter}
                                     addonBefore={addonBefore}
                                     onChange={onChange}

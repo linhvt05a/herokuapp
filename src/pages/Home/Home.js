@@ -68,12 +68,12 @@ const Home = (props) => {
     });
 
     useEffect(() => {
-        dispatch(projectAction.loadProjectList({project_sale_status: state.projectStatus}));
+        dispatch(projectAction.loadProjectList({project_sale_status: `[${state.projectStatus}]`}));
         dispatch(productAction.loadHotProductList({}));
     }, []);
 
     const onStatusClick = (e) => {
-        dispatch(projectAction.loadProjectList({project_sale_status: parseInt(e.target.name)}))
+        dispatch(projectAction.loadProjectList({project_sale_status: `[${parseInt(e.target.name)}]`}))
         setState({
             projectStatus: parseInt(e.target.name)
         });

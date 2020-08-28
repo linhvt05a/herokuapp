@@ -18,6 +18,7 @@ import Elements from "./pages/Elements/Elements";
 import Example from "./pages/Example";
 import HotProduct from "./pages/Product/HotProduct";
 import User from "./pages/User/CustomerAccount";
+import Cart from "./pages/Cart/Cart";
 import ProductList from './pages/ProductList/ProductList';
 import PropertySelling from "./pages/PropertySelling/PropertySelling";
 
@@ -37,6 +38,7 @@ const promotion_banner_url = './assets/images/project.jpg';
 const flashSaleList_banner_url = './assets/images/project.jpg';
 const elements_banner_url = './assets/images/project.jpg';
 const example_banner_url = './assets/images/project.jpg';
+const cart_banner_url = './assets/images/project.jpg';
 const product_banner_url = './assets/images/project.jpg';
 
 const MAIN = [
@@ -73,8 +75,8 @@ const MAIN = [
         "banner_class": ''
     },
     {
-        "path": "/contact",
-        "component": Contact,
+        "path": "/productList",
+        "component": ProductList,
         "banner_title": "contact_banner_title",
         "banner_url": contact_banner_url,
         "banner_show": true,
@@ -118,7 +120,7 @@ const MAIN = [
         "banner_class": ''
     },
     {
-        "path": "/NewsDetail",
+        "path": "/NewsDetail/:id",
         "component": NewsDetail,
         "banner_title": "newsDetail_banner_title",
         "banner_url": newsDetail_banner_url,
@@ -193,6 +195,13 @@ const MAIN = [
         "component": User,
         "banner_title": "customer_account_banner_title",
         "banner_url": recruitmentList_banner_url,
+        "banner_show": true
+    },
+    {
+        "path": "/cart",
+        "component": Cart,
+        "banner_title": "cart",
+        "banner_url": cart_banner_url,
         "banner_show": true
     },
     // {

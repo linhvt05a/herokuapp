@@ -24,12 +24,14 @@ const Project = (props) => {
     
     useEffect(() => {
         if (window.location.pathname === "/project/selling") {
-            dispatch(projectAction.loadProjectList({page: 1, limit: 6, project_sale_status: 3}))
+            console.log("selling");
+            dispatch(projectAction.loadProjectList({page: 1, limit: 6, project_sale_status: `[3]`}))
             setState({
                 projectStatus: 3
             })
         } else {
-            dispatch(projectAction.loadProjectList({page: 1, limit: 6, project_sale_status: 2}))
+            console.log("soon");
+            dispatch(projectAction.loadProjectList({page: 1, limit: 6, project_sale_status: `[2]`}))
             setState({
                 projectStatus: 2
             })
@@ -37,14 +39,14 @@ const Project = (props) => {
     }, []);
 
     const onStatusClick = (e) => {
-        dispatch(projectAction.loadProjectList({project_sale_status: parseInt(e.target.name)}))
+        dispatch(projectAction.loadProjectList({project_sale_status: `[${parseInt(e.target.name)}]`}))
         setState({
             projectStatus: parseInt(e.target.name)
         });
     }
 
     const onPageChange = (value) => {
-        dispatch(projectAction.loadProjectList({page: value, limit: 6, project_sale_status: state.projectStatus}));
+        dispatch(projectAction.loadProjectList({page: value, limit: 6, project_sale_status: `[${state.projectStatus}]`}));
     }
 
     return (

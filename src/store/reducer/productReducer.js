@@ -4,6 +4,7 @@ const initialState = {
     hotProductList: {},
     sellingProductList: {},
     comingSoonProductList: {},
+    productTypeList: {},
     isFetching: false,
 };
 
@@ -25,6 +26,12 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 comingSoonProductList: action.response,
+                isFetching: true,
+            };
+        case productAction.PRODUCT_TYPE_LIST_SUCCESS:
+            return {
+                ...state,
+                productTypeList: action.response,
                 isFetching: true,
             };
         default:

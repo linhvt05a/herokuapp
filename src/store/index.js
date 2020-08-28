@@ -1,7 +1,7 @@
 // import "regenerator-runtime/runtime";
 import { createStore, applyMiddleware, compose } from 'redux';
 import createSagaMiddleware from 'redux-saga';
-// import { NODE_ENV } from '../../env';
+import { NODE_ENV } from '../../env';
 
 import allReducer from './reducer';
 import rootSaga from './saga';
@@ -14,8 +14,7 @@ export default function createStoreWithMiddleware() {
 
   const enhancers = compose(
     applyMiddleware(...middleware),
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-    // window.devToolsExtension && NODE_ENV === 'dev' ? window.devToolsExtension() : f => f
+    window.devToolsExtension && NODE_ENV === 'dev' ? window.devToolsExtension() : f => f
   );
 
   // Create a store with the reducers and middleware

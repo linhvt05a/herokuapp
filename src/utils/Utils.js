@@ -131,6 +131,8 @@ function LoadDataPaging(total_record, page, total_page, limit) {
     }
     if(total_record === undefined || page === undefined || total_page === undefined || limit === undefined){
         return null;
+    } else if (total_record < 0 || page < 0 || total_page < 0 || limit < 0) {
+        return null;
     } else { return list; }
 }
 

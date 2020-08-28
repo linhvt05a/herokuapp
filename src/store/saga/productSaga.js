@@ -42,6 +42,17 @@ export function* comingSoonProductList(payload) {
     }
 }
 
+export function* productTypeList(payload) {
+    let { token } = payload.params
+
+    try {
+        const response = yield productService.getProductTypeList(token);
+        response.success ? yield put({ type: productAction.PRODUCT_TYPE_LIST_SUCCESS, response }) : yield put({ type: productAction.PRODUCT_TYPE_LIST_FAILURE, response });
+    } catch (err) {
+        yield put({ type: productAction.PRODUCT_TYPE_LIST_FAILURE, err });
+    }
+}
+
 export function* hotProductListWatcher() {
     yield takeLatest(productAction.HOT_PRODUCT_LIST_REQUEST, hotProductList);
 }
@@ -54,10 +65,15 @@ export function* comingSoonProductListWatcher() {
     yield takeLatest(productAction.COMING_SOON_PRODUCT_LIST_REQUEST, comingSoonProductList);
 }
 
+export function* productTypeListWatcher() {
+    yield takeLatest(productAction.PRODUCT_TYPE_LIST_REQUEST, productTypeList);
+}
+
 export default function* rootSaga() {
     yield all([
         fork(hotProductListWatcher),
         fork(sellingProductListWatcher),
         fork(comingSoonProductListWatcher),
+        fork(productTypeListWatcher),
     ]);
 }

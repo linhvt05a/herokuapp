@@ -86,18 +86,20 @@
         .heading{
             font-size: 22px;
             color: #6d30ab;
-            @include fw-medium;
             margin-bottom: 10px;
+            text-transform: uppercase;
+            @include fw-medium;
             @media(max-width: 767px){
                margin-bottom: 15px;
             }
             .sub{
-                display: block;
                 @include fw-light;
+                display: block;
                 font-style: italic;
                 color: #9a9a9a;
                 font-size: 14px;
                 margin-top: -3px;
+                text-transform: initial;
             }
         }
         .form-group{

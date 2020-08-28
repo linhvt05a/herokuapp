@@ -27,9 +27,9 @@ export default (state = initialState, action) => {
         case commonAction.STATUS_LIST_REQUEST:
             return { ...state, isFetching: false, statusList: { success: false, error: action.error } };
 
-        case commonAction.STATUS_LIST_SUCCESS:
+        case commonAction.MINMAX_LIST_SUCCESS:
             return { ...state, isFetching: false, minmaxList: action.response };
-        case commonAction.STATUS_LIST_REQUEST:
+        case commonAction.MINMAX_LIST_REQUEST:
             return { ...state, isFetching: false, minmaxList: { success: false, error: action.error } };
 
         default:
