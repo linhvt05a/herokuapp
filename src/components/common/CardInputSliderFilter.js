@@ -1,10 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { SliderRange } from '../../../components/base/Slider/index'
-import { InputSelect } from '../../../components/base/Select/index'
+import { SliderRange } from '../base/Slider/index'
+import { InputSelect } from '../base/Select/index'
 import { Trans } from 'react-i18next';
 
-const CardProjectFilter = (props) => {
+const CardInputSliderFilter = (props) => {
 
     const { title, inputSelectDatas, sliderDatas, onFilterClick } = props
 
@@ -41,4 +40,4 @@ const CardProjectFilter = (props) => {
     )
 }
 
-export default CardProjectFilter
+export default CardInputSliderFilter
