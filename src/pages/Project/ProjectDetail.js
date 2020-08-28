@@ -86,9 +86,11 @@ const ProjectDetail = (props) => {
 
     const onPageChange = (value) => {
         if (location.state.projectStatus === 3) {
-            dispatch(productAction.loadSellingProductList({page: value, limit: 6, project_id: location.state.projectId}));
+            dispatch(productAction.loadSellingProductList({page: value, limit: 6, project_id: location.state.projectId,
+                architecture_type_id: productType, direction_id: direction, price_from: priceFrom, price_to: priceTo, acreage_from: acreageFrom, acreage_to: acreageTo}));
         } else {
-            dispatch(productAction.loadComingSoonProductList({page: value, limit: 6, project_id: location.state.projectId}));
+            dispatch(productAction.loadComingSoonProductList({page: value, limit: 6, project_id: location.state.projectId,
+                architecture_type_id: productType, direction_id: direction, price_from: priceFrom, price_to: priceTo, acreage_from: acreageFrom, acreage_to: acreageTo}));
         }
     }
 
