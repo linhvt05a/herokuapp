@@ -122,15 +122,16 @@ function copyList(list) {
 }
 
 // Load data pagination
-function LoadDataPaging(totalItem, currentPage, totalPage, itemOnPage) {
+function LoadDataPaging(total_record, page, total_page, limit) {
     var list = {
-        totalItem: totalItem,
-        currentPage: currentPage,
-        totalPage: totalPage,
-        itemOnPage: itemOnPage
+        total_record: total_record,
+        page: page,
+        total_page: total_page,
+        limit: limit,
     }
-    console.log(list);
-    if(totalItem == undefined || currentPage == undefined || totalPage == undefined || itemOnPage == undefined){
+    if(total_record === undefined || page === undefined || total_page === undefined || limit === undefined){
+        return null;
+    } else if (total_record < 0 || page < 0 || total_page < 0 || limit < 0) {
         return null;
     } else { return list; }
 }

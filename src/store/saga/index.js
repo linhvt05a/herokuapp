@@ -12,9 +12,11 @@ import productSignupSaga from './productSignupSaga'
 import productIncentiveSaga from './productIncentiveSaga'
 import contactAddSaga from './contactAddSaga'
 import juridicalSupportSaga from './juridicalSupportSaga'
+import transactionSaga from './transactionSaga';
+
 function* allSaga() {
   yield all([
-    examSaga(), projectSaga(), productSaga(), visitRegisterSaga(), 
+    examSaga(), projectSaga(), productSaga(), visitRegisterSaga(), transactionSaga(),
     newsSaga(), promotionSaga(), newsDetailSaga(), hotNewsSaga(),
     productListSaga(), productSignupSaga(), productIncentiveSaga(),
     contactAddSaga(), juridicalSupportSaga()

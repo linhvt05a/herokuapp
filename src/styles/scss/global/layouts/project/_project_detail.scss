@@ -1,5 +1,4 @@
 .project_detail{
-
     &--filter{
         @include select2Element;
 
@@ -36,7 +35,6 @@
                 padding-left: 22px;
                 &::before{
                     position: absolute;
-                    font-family: "Font Awesome 5 Free";
                     font-size: 17px;
                     color: #6d30ab;
                     left: 0;
@@ -108,8 +106,103 @@
         .right{
         }
         .apartment_detail{
-            background-color: #fff;
             @include salesHeading();
+            .product_contact {
+                padding: 16px 30px;
+                h5 {
+                    font-weight: bold;
+                }
+                .address {
+                    font-size: 12px;
+                }
+                .contact_detail {
+                    margin: 0;
+                    padding: 0;
+                    .sns {
+                        span {
+                            margin-right: 10px;
+                        }
+                    }
+                    li {
+                        font-size: 16px;
+                        font-weight: bold;
+                        list-style: none;
+                        padding-left: 15px;
+                        position: relative;
+                        top: 0;
+                        left: 0;
+                        a {   
+                            margin: 0 4px;
+                        }
+                        .tel {
+                            font-size: 18px;
+                            font-weight: bold;
+                            color: #e94c4c;
+                        }
+                        &::before {
+                            position: absolute;
+                            content: "\f621";
+                            font-family: "Font Awesome 5 Free";
+                            font-weight: 900;
+                            font-size: 9px;
+                            color: #e94c4c;
+                            left: 0;
+                            top: 7px;
+                        }
+                    }
+                }
+                .policy_detail {
+                    i {
+                        color: #fb9334;
+                    }
+                    a {
+                        color: #fb9334;
+                        font-size: 16px;
+                        text-decoration: underline;
+                        padding: 0 10px;
+                    }
+                }
+            }
+            .compare_price {
+                font-family: HelveticaNeue;
+                display: inline-flex;
+                align-items: center;
+                .num {
+                    opacity: 0.65;
+                    font-size: 24px;
+                    line-height: 1.21;
+                    text-align: center;
+                    text-decoration: line-through;
+                    color: #ffffff;
+                    margin-right: 15px;
+                }
+                .discount_label {
+                    padding: 5px 2px;
+                    border-radius: 2px;
+                    background-color: #e94c4c;
+                    font-size: 14px;
+                    color: #ffffff;
+                    line-height: 1.14;
+                    text-decoration: none;
+                }
+            }
+            .info {
+                background: #ffffff;
+                margin-bottom: 40px;
+                padding-bottom: 30px;
+            }
+            .see_bank_list {
+                margin-top: 20px;
+                border: 1px solid #e94c4c;
+                text-align: center;
+                a {
+                    padding: 10px;
+                    display: block;
+                    color: #e94c4c;
+                    font-size: 14px;
+                    font-weight: bold;
+                }
+            }
             .info_1{ 
                 @include flexbox;
                 @include flex-wrap(wrap);
@@ -244,6 +337,64 @@
                     color: #e94c4c;
                 }
             }
+        }
+
+        .slider_in_tab {
+            position: relative;
+            .icon_like_down{
+                position: absolute;
+                top: 20px;
+                right: 24px;
+                @media(max-width:767px) {
+                    top: 10px;
+                    right: 15px;
+                }
+            }
+            .icon_like_down {
+                li {
+                    background: #333333;
+                    opacity: 0.5;
+                    color: #fff;
+                    .liked{
+                        &.active{
+                            color: #e9c301;
+                        }
+                    }
+                }
+            }
+            .timeline {
+                .sales_timeline--heading {
+                    position: absolute;
+                    left: 25px;
+                    .date_number {
+                        margin: 0;
+                    }
+                    @media(max-width:767px) {
+                        left: 82px;
+                    }
+                }
+            }
+            .promotion {
+                position: relative;
+                div {
+                    position: absolute;
+                    bottom: 111px;
+                    right: 0;
+                    z-index: 9;
+                    img {
+                        max-width: 140px;
+                    }
+                }
+            }
+            .apartment_slider {
+                .image_type{
+                    position: absolute;
+                    top: 20px;
+                    left: 160px;
+                }
+            }
+            
+        }
             .info_contact{
                 margin-bottom: 18px;
                 .address{
@@ -380,15 +531,6 @@
                     left: 15px;
                 }
             }
-            .icon_like_down{
-                position: absolute;
-                top: 20px;
-                right: 24px;
-                @media(max-width:767px) {
-                    top: 10px;
-                    right: 15px;
-                }
-            }
             .wrap{
                 height: 0;
                 visibility: hidden;
@@ -505,6 +647,7 @@
             .type_3d {}
             .type_ar {}
         }
+        
         .icon_like_down {
             li {
                 background: #333333;
@@ -553,4 +696,4 @@
         padding-top: 0;
     }
 
-}
+

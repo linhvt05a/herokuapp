@@ -1,11 +1,26 @@
-import { exampleService } from "./Example/example"
-import { projectService } from "./Project/project"
+
+
+//shipping
+import { exampleService } from "./Example/Example";
+import { productDetailService } from "./ProductDetail/product";
 import { productService } from "./Product/product"
-import {promotionService} from "./Promotion/promotion"
+import { projectService } from "./Project/project";
+import { transactionService } from "./Transaction/transaction";
+import { commonService } from "./Common/common";
+import {promotionService} from "./Promotion/promotion";
 import {newsService} from './News/news'
 import {contactService} from './Contact/ContactAdd'
 import {juridicalService} from './Juridical/juridical'
+
 export {
-    exampleService, projectService, productService, promotionService,
-    newsService, contactService, juridicalService
+    exampleService,
+    productService,
+    productDetailService,
+    projectService,
+    transactionService,
+    commonService,
+    promotionService,
+    newsService,
+    contactService, 
+    juridicalService
 }

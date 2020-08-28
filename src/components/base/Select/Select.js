@@ -4,7 +4,7 @@ import { Select, Form } from 'antd';
 
 
 const InputSelect = (props) => {
-    const { className, name, value,defaultValue, label,errors, style, datas, placeholder,validSelect, onChange, isClear, classNameGroup, trans, require, onSearch, disabled, titleClassName } = props;
+    const { className, name, value, defaultValue, label, errors, style, datas, placeholder, onChange, isClear, classNameGroup, trans, require, onSearch, disabled, titleClassName } = props;
     const { Option } = Select;
     return (
         <div className={className ? className : ''}>
