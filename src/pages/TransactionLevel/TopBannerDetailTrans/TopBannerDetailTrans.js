@@ -12,9 +12,7 @@ const TopBannerDetailTrans = (props) => {
     useEffect(() => {
         dispatch(transactionAction.TransactionLoadList({ project_id: 13, area_id: 1, block_id: 2 }))
     }, [])
-
-
-
+    
     const onChangeProject = (value) => {
         dispatch(transactionAction.TransactionLoadList({ project_id: value, area_id: areaId.area_id, block_id: blockId.block_id }))
         setProjectId({
@@ -35,7 +33,6 @@ const TopBannerDetailTrans = (props) => {
             block_id: value
         })
     }
-
 
     return (
         <div class="top_banner--detail d-flex align-items-end" style={{ backgroundImage: "url(../assets/images/banner_exchanges.png)" }}>
