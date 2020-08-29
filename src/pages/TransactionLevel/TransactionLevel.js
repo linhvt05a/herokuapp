@@ -8,12 +8,39 @@ import { DIRECTION_TYPE } from "./../../contant";
 
 
 const TransactionLevel = (props) => {
+    const dispatch = useDispatch();
 
+    //---TOP BANNER API ---
+    const [projectId, setProjectId] = useState({ project_id: 13 });
+    const [areaId, setAreaId] = useState({ area_id: 1 });
+    const [blockId, setBlockId] = useState({ block_id: 2 });
+
+    useEffect(() => {
+        dispatch(transactionAction.TransactionLoadList({ project_id: 13, area_id: 1, block_id: 2 }))
+    }, [])
+    
+    const onChangeProject = (value) => {
+        dispatch(transactionAction.TransactionLoadList({ project_id: value, area_id: areaId.area_id, block_id: blockId.block_id }))
+        setProjectId({
+            project_id: value
+        })
+    }
+    const onChangeArea = (value) => {
+        dispatch(transactionAction.TransactionLoadList({ project_id: projectId.project_id, area_id: value, block_id: blockId.block_id }))
+        setAreaId({
+            area_id: value
+        })
+    }
+    const onChangeBlock = (value) => {
+        dispatch(transactionAction.TransactionLoadList({ project_id: projectId.project_id, area_id: areaId.area_id, block_id: value }))
+        setBlockId({
+            block_id: value
+        })
+    }
+
+
+    // --- ITEM DETAIL API----
     const transtion = useSelector(state => state.transactionReducer);
-    // const isGetSellingProductListSuccess = product.sellingProductList.success;
-    // const sellingProductList = isGetSellingProductListSuccess ? product.sellingProductList : null;
-    // const isGetComingSoonProductListSuccess = product.comingSoonProductList.success;
-    // const comingSoonProductList = isGetComingSoonProductListSuccess ? product.comingSoonProductList : null;
     const isGetTransProductTypeListSuccess = transtion.transacProductTypeList.success;
     const transacProductTypeList = isGetTransProductTypeListSuccess ? transtion.transacProductTypeList.detail : null;
     
@@ -29,7 +56,6 @@ const TransactionLevel = (props) => {
     const [acreageFrom, setAcreageFromState] = useState(null)
     const [acreageTo, setAcreageToState] = useState(null)
 
-    const dispatch = useDispatch();
     useEffect(() => {
         dispatch(transactionAction.loadTransProductTypeList({}));
     }, []);
@@ -56,38 +82,39 @@ const TransactionLevel = (props) => {
     const onProductTypeChange = (value) => {
         setProductTypeState(value)
     }
-
     const onHouseDirectionChange = (value) => {
         setDirectionState(value)
     }
-
     const onPriceRangeChange = (value) => {
         setPriceFromState(value[0])
         setPriceToState(value[1])
     }
-
     const onAreaChange = (value) => {
         setAcreageFromState(value[0])
         setAcreageToState(value[1])
     }
-
     const onFilterClick = () => {
-        dispatch(transactionAction.loadTransactionFilterList({page: 1, limit: 6, project_id: location.state.projectId,
+        dispatch(transactionAction.TransactionLoadList({
+            project_id: projectId.project_id, area_id: areaId.area_id, block_id: blockId.block_id,
             architecture_type_id: productType, direction_id: direction, price_from: priceFrom, price_to: priceTo, acreage_from: acreageFrom, acreage_to: acreageTo}));
     }
-
     const onPageChange = (value) => {
-        dispatch(transactionAction.loadTransactionFilterList({page: value, limit: 6, project_id: location.state.projectId,
+        dispatch(transactionAction.TransactionLoadList({
+            project_id: projectId.project_id, area_id: areaId.area_id, block_id: blockId.block_id,
             architecture_type_id: productType, direction_id: direction, price_from: priceFrom, price_to: priceTo, acreage_from: acreageFrom, acreage_to: acreageTo}));
     }
 
     const data = useSelector(state => state.transactionReducer.transactionList.detail)
     return (
         <div className="projectDetailPage">
-            <TopBannerDetailTrans data={data} />
+            <TopBannerDetailTrans 
+                projectId={projectId}
+                areaId={areaId}
+                blockId={blockId}
+                onChangeBlock={onChangeBlock}
+                onChangeProject={onChangeProject}
+                onChangeArea={onChangeArea}/>
             <CardTransactionList
-                data={data}
-                limit={6}
                 data={data}
                 inputSelectDatas={filterDataState.inputSelectDatas}
                 sliderDatas={filterDataState.sliderDatas}

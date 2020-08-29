@@ -5,9 +5,9 @@ import { transactionAction, productAction } from '../action/index';
 
 
 export function* transactionList(payload) {
-    let { token, project_id, area_id, block_id } = payload.params
+    let { token, project_id, area_id, block_id, acreage_from, acreage_to, price_from, price_to, direction_id, architecture_type_id } = payload.params
     try {
-        const response = yield transactionService.list(token, project_id, area_id, block_id);
+        const response = yield transactionService.list(token, project_id, area_id, block_id, acreage_from, acreage_to, price_from, price_to, direction_id, architecture_type_id);
         response.success ? yield put({ type: transactionAction.TRANSACTION_LIST_SUCCESS, response }) : yield put({ type: transactionAction.TRANSACTION_LIST_FAILURE, response });
     } catch (err) {
         yield put({ type: transactionAction.TRANSACTION_LIST_FAILURE, err });

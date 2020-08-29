@@ -20,18 +20,6 @@ export default (state = initialState, action) => {
                 transactionList: action.err,
                 isFetching: false,
             };
-        case transactionAction.TRANSACTION_PRODUCT_LIST_SUCCESS:
-            return {
-                ...state,
-                transactionProductList: action.response,
-                isFetching: true,
-            };
-        // case productAction.COMING_SOON_PRODUCT_LIST_SUCCESS:
-        //     return {
-        //         ...state,
-        //         comingSoonProductList: action.response,
-        //         isFetching: true,
-        //     };
         case transactionAction.TRANS_PRODUCT_TYPE_SUCCESS:
             return {
                 ...state,

@@ -1,39 +1,8 @@
-import React, { useState, useEffect } from 'react';
 import { Form, Select } from 'antd';
-import { useDispatch } from 'react-redux';
-import { transactionAction } from '../../../store/action';
+import React from 'react';
 
 const TopBannerDetailTrans = (props) => {
-    const [projectId, setProjectId] = useState({ project_id: 13 });
-    const [areaId, setAreaId] = useState({ area_id: 1 });
-    const [blockId, setBlockId] = useState({ block_id: 2 });
-
-    const dispatch = useDispatch();
-    useEffect(() => {
-        dispatch(transactionAction.TransactionLoadList({ project_id: 13, area_id: 1, block_id: 2 }))
-    }, [])
-    
-    const onChangeProject = (value) => {
-        dispatch(transactionAction.TransactionLoadList({ project_id: value, area_id: areaId.area_id, block_id: blockId.block_id }))
-        setProjectId({
-            project_id: value
-        })
-    }
-
-    const onChangeArea = (value) => {
-        dispatch(transactionAction.TransactionLoadList({ project_id: projectId.project_id, area_id: value, block_id: blockId.block_id }))
-        setAreaId({
-            area_id: value
-        })
-    }
-
-    const onChangeBlock = (value) => {
-        dispatch(transactionAction.TransactionLoadList({ project_id: projectId.project_id, area_id: areaId.area_id, block_id: value }))
-        setBlockId({
-            block_id: value
-        })
-    }
-
+    const {projectId, areaId, blockId, onChangeProject, onChangeArea, onChangeBlock} = props;    
     return (
         <div class="top_banner--detail d-flex align-items-end" style={{ backgroundImage: "url(../assets/images/banner_exchanges.png)" }}>
             <div class="container container-sm container-md d-flex justify-content-center">

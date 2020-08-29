@@ -4,7 +4,7 @@ import FilterTransaction from './FilterTransaction';
 import SortAccordion from './SortAccordion';
 
 const SideBarRight = (props) => {
-        const { data, onFilterClick, inputSelectDatas, sliderDatas, limit, onPageChange } = props;
+        const { data, onFilterClick, inputSelectDatas, sliderDatas, onPageChange } = props;
 
         const [state, setState] = useState({
             active: false
