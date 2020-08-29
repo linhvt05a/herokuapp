@@ -22,13 +22,14 @@ const SideBarSort = (props) => {
         }
 
         const location = useLocation();
-        const product = useSelector(state => state.productReducer);
-        const isGetSellingProductListSuccess = product.sellingProductList.success;
-        const sellingProductList = isGetSellingProductListSuccess ? product.sellingProductList : null;
-        const isGetComingSoonProductListSuccess = product.comingSoonProductList.success;
-        const comingSoonProductList = isGetComingSoonProductListSuccess ? product.comingSoonProductList : null;
-        const isGetProductTypeListSuccess = product.productTypeList.success;
-        const productTypeList = isGetProductTypeListSuccess ? product.productTypeList.detail : null;
+        const transtion = useSelector(state => state.transactionReducer);
+        console.log(transtion);
+        // const isGetSellingProductListSuccess = product.sellingProductList.success;
+        // const sellingProductList = isGetSellingProductListSuccess ? product.sellingProductList : null;
+        // const isGetComingSoonProductListSuccess = product.comingSoonProductList.success;
+        // const comingSoonProductList = isGetComingSoonProductListSuccess ? product.comingSoonProductList : null;
+        const isGetTransProductTypeListSuccess = transtion.transacProductTypeList.success;
+        const transacProductTypeList = isGetTransProductTypeListSuccess ? transtion.transacProductTypeList.detail : null;
         const dispatch = useDispatch();
         const [filterDataState, setFilterDataState] = useState({
             inputSelectDatas: [],
@@ -46,15 +47,15 @@ const SideBarSort = (props) => {
         }, []);
 
         useEffect(() => {
-            var projectTypeDatas =[{value: null, label: translate("project_all")}] 
-            if (productTypeList && productTypeList != null && productTypeList.length > 0) {
-                for (var i = 0; i < productTypeList.length; i++) {
-                    projectTypeDatas.push({value: productTypeList[i].architecture_id, label: productTypeList[i].architecture_name})
+            var transProjectTypeDatas =[{value: null, label: translate("project_all")}] 
+            if (transacProductTypeList && transacProductTypeList != null && transacProductTypeList.length > 0) {
+                for (var i = 0; i < transacProductTypeList.length; i++) {
+                    transProjectTypeDatas.push({value: transacProductTypeList[i].architecture_id, label: transacProductTypeList[i].architecture_name})
                 }
             }
             setFilterDataState({
                 inputSelectDatas: [
-                    {placeholder: "product_type", datas: projectTypeDatas, onChange: onProductTypeChange},
+                    {placeholder: "product_type", datas: transProjectTypeDatas, onChange: onProductTypeChange},
                     {placeholder: "house_direction", datas: DIRECTION_TYPE, onChange: onHouseDirectionChange, trans: "trans"}
                 ],
                 sliderDatas: [
@@ -62,7 +63,7 @@ const SideBarSort = (props) => {
                     {label: "area", unit: "project_area_unit", onChange: onAreaChange, min: 0, max: 1000}
                 ]
             })
-        }, [productTypeList]);
+        }, [transacProductTypeList]);
 
         const onProductTypeChange = (value) => {
             setProductTypeState(value)

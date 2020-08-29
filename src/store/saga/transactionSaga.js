@@ -18,8 +18,8 @@ export function* transProductTypeList(payload) {
     let { token } = payload.params
 
     try {
-        const response = yield productService.getProductTypeList(token);
-        response.success ? yield put({ type: transactionAction.TRANS_PRODUCT_TYPE_SUCCESS, response }) : yield put({ type: productAction.PRODUCT_TYPE_LIST_FAILURE, response });
+        const response = yield transactionService.getProductTypeList(token);
+        response.success ? yield put({ type: transactionAction.TRANS_PRODUCT_TYPE_SUCCESS, response }) : yield put({ type: transactionAction.TRANS_PRODUCT_TYPE_FAILURE, response });
     } catch (err) {
         yield put({ type: transactionAction.TRANS_PRODUCT_TYPE_FAILURE, err });
     }
@@ -29,13 +29,13 @@ export function* transListlWatcher() {
     yield takeLatest(transactionAction.TRANSACTION_LIST_REQUEST, transactionList);
 }
 
-export function* productTypeListWatcher() {
+export function* transacProductTypeListWatcher() {
     yield takeLatest(transactionAction.TRANS_PRODUCT_TYPE_REQUEST, transProductTypeList);
 }
 
 export default function* rootSaga() {
     yield all([
         fork(transListlWatcher),
-        fork(productTypeListWatcher),
+        fork(transacProductTypeListWatcher),
     ]);
 }
