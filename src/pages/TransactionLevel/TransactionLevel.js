@@ -14,10 +14,36 @@ const TransactionLevel = (props) => {
     const [projectId, setProjectId] = useState({ project_id: 13 });
     const [areaId, setAreaId] = useState({ area_id: 1 });
     const [blockId, setBlockId] = useState({ block_id: 2 });
-
+    
     useEffect(() => {
         dispatch(transactionAction.TransactionLoadList({ project_id: 13, area_id: 1, block_id: 2 }))
     }, [])
+
+    //SELECT TOP_BANNER LIST
+    useEffect(() => {
+        dispatch(transactionAction.transLoadProjectNameList({project_id: 13}))
+    }, [])
+
+    useEffect(() => {
+        dispatch(transactionAction.transLoadAreaNameList({project_id:13}))
+    }, [])
+
+    useEffect(() => {
+        dispatch(transactionAction.transLoadBlockNameList({project_id:13}))
+    }, [])
+
+    const projectNameList = useSelector(state => state.transactionReducer);
+    const isGetTransProjectNameListSuccess = projectNameList.transacProjectNameList.success;
+    const transacProjectNameList = isGetTransProjectNameListSuccess ? projectNameList.transacProjectNameList.detail : null;
+    
+    const projectAreaList = useSelector(state => state.transactionReducer);
+    const isGetTransProjectAreaListSuccess = projectAreaList.transacAreaNameList.success;
+    const transacAreaNameList = isGetTransProjectAreaListSuccess ? projectAreaList.transacAreaNameList.detail : null;
+    
+    const projectBlockList = useSelector(state => state.transactionReducer);
+    const isGetTransProjectBlockListSuccess = projectBlockList.transacBlockNameList.success;
+    const transacBlockNameList = isGetTransProjectBlockListSuccess ? projectBlockList.transacBlockNameList.detail : null;
+    
     
     const onChangeProject = (value) => {
         dispatch(transactionAction.TransactionLoadList({ project_id: value, area_id: areaId.area_id, block_id: blockId.block_id }))
@@ -37,6 +63,8 @@ const TransactionLevel = (props) => {
             block_id: value
         })
     }
+
+   
 
 
     // --- ITEM DETAIL API----
@@ -107,7 +135,10 @@ const TransactionLevel = (props) => {
     const data = useSelector(state => state.transactionReducer.transactionList.detail)
     return (
         <div className="projectDetailPage">
-            <TopBannerDetailTrans 
+            <TopBannerDetailTrans
+                transacProjectNameList={transacProjectNameList} 
+                transacAreaNameList={transacAreaNameList}
+                transacBlockNameList={transacBlockNameList}
                 projectId={projectId}
                 areaId={areaId}
                 blockId={blockId}

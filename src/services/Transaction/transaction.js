@@ -23,4 +23,34 @@ export const transactionService = {
         const url = api.getUrl(api.PRODUCT_TYPE);
         return api.handleRequest(url, requestOptions);
     },
+
+    getProjectNameList(token, project_id) {
+        const requestOptions = {
+            method: 'GET',
+            headers: api.getHeader(TOKEN)
+        };
+        const params = { project_id }
+        const url = api.getUrl(api.PROJECT_NAME_LIST_SHORT, params);
+        return api.handleRequest(url, requestOptions);
+    },
+
+    getAreaNameList(token, project_id) {
+        const requestOptions = {
+            method: 'GET',
+            headers: api.getHeader(TOKEN)
+        };
+        const params = { project_id }
+        const url = api.getUrl(api.AREA_NAME_LIST_SHORT, params);
+        return api.handleRequest(url, requestOptions);
+    },
+
+    getBlockNameList(token, project_id) {
+        const requestOptions = {
+            method: 'GET',
+            headers: api.getHeader(TOKEN)
+        };
+        const params = { project_id }
+        const url = api.getUrl(api.BLOCK_NAME_LIST_SHORT, params);
+        return api.handleRequest(url, requestOptions);
+    },
 };
