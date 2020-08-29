@@ -9,9 +9,9 @@ const ItemProjectDetail = (props) => {
         <div className="item">
             <figure className="image">
                 <i className="liked active fas fa-heart" />
-                <img src="./assets/images/house_highlight.jpg" alt="Căn hộ Saigon Royal" />
+                <img src="../images/house_highlight.jpg" alt="Căn hộ Saigon Royal" />
                 <div className="sell_status promotion">Giảm <br /> 7%</div>
-                <img className="img_promotion" src="./assets/images/item_promotion.png" alt="Căn hộ Saigon Royal" />
+                <img className="img_promotion" src="../images/item_promotion.png" alt="Căn hộ Saigon Royal" />
             </figure>
             <div className="heading">
                 <div className="top">

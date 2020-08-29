@@ -4,7 +4,7 @@ export default class index extends Component {
     render() {
         return (
             <div>
-                <div className="top_banner--detail d-flex align-items-end" style={{ backgroundImage: 'url(./assets/images/banner_exchanges.png)' }}>
+                <div className="top_banner--detail d-flex align-items-end" style={{ backgroundImage: 'url(../images/banner_exchanges.png)' }}>
                     <div className="container container-sm container-md d-flex justify-content-center">
                         <div className="project_detail--filter column-3">
                             <div className="row">

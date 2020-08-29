@@ -6,7 +6,7 @@ const ProductNodata = () => {
         <div className="wrap">
           <figure className="img">
             <img
-              src="./assets/images/product_relative__null.png"
+              src="../images/product_relative__null.png"
               alt="Sản phẩm quan tâm"
             />
           </figure>

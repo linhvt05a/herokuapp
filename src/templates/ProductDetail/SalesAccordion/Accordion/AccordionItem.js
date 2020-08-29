@@ -11,7 +11,7 @@ const dataDemo = [
     paragraph : [
       {
         content: [
-          "./assets/images/living-room-area_01.jpg",
+          "../images/living-room-area_01.jpg",
           "https://via.placeholder.com/730x420",
           "https://via.placeholder.com/730x420",
           "https://via.placeholder.com/730x420",

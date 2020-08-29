@@ -1,0 +1,14 @@
+.ant-btn{
+    width: auto;
+    height: auto;
+    > span{
+        display: block;
+    }
+    &[disabled], &[disabled]:hover, &[disabled]:focus, &[disabled]:active {
+        color: rgba(0, 0, 0, 1); 
+        background: #bec8c8;
+        border-color: #bec8c8; 
+    }
+}
+
+

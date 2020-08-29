@@ -40,22 +40,22 @@ export const LoanPolicy = () => {
     };
     const dataImgs = [
         {
-            img: "./assets/images/bank02.jpg"
+            img: "../images/bank02.jpg"
         },
         {
-            img: "./assets/images/bank03.jpg"
+            img: "../images/bank03.jpg"
         },
         {
-            img: "./assets/images/bank04.jpg"
+            img: "../images/bank04.jpg"
         },
         {
-            img: "./assets/images/bank05.jpg"
+            img: "../images/bank05.jpg"
         },
         {
-            img: "./assets/images/bank06.jpg"
+            img: "../images/bank06.jpg"
         },
         {
-            img: "./assets/images/bank07.jpg"
+            img: "../images/bank07.jpg"
         }
     ];
     return (

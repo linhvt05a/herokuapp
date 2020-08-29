@@ -18,7 +18,7 @@ const ItemProjectProduct = (props) => {
                     <InputCheckboxViolet />
                     <figure className="block-img">
                         <i className="liked active fas fa-heart" />
-                        <img src="./assets/images/intro_project_6.jpg" className="img-fluid img" alt="Căn hộ Saigon Royal" />
+                        <img src="../images/intro_project_6.jpg" className="img-fluid img" alt="Căn hộ Saigon Royal" />
                         <span className="delete"><Trans>cart_delete_product</Trans></span>
                     </figure>
                 </div>

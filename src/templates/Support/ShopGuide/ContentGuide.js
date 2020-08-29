@@ -12,7 +12,7 @@ const guide = [
   guideMouse:'Sau đó click vào nút TÌM KIẾM',
   content:'Để đi bắt đầu tìm kiếm dựa trên những tiêu chí đã chọn ở trên.',
   webGuide:' Website sẽ hiển thị những dự án đúng với các tiêu chí bạn đã search.',
-  guideImage:'./assets/images/direction1.jpg'
+  guideImage:'../images/direction1.jpg'
 },
 {
   step:'2.2', 
@@ -23,7 +23,7 @@ const guide = [
   guideMouse:'Sau đó click vào nút TÌM KIẾM',
   content:'Để đi bắt đầu tìm kiếm dựa trên những tiêu chí đã chọn ở trên.',
   webGuide:' Website sẽ hiển thị những dự án đúng với các tiêu chí bạn đã search.',
-  guideImage:'./assets/images/direction1.jpg'
+  guideImage:'../images/direction1.jpg'
 },
 {
   step:'2.3', 
@@ -34,7 +34,7 @@ const guide = [
   guideMouse:'Sau đó click vào nút TÌM KIẾM',
   content:'Để đi bắt đầu tìm kiếm dựa trên những tiêu chí đã chọn ở trên.',
   webGuide:' Website sẽ hiển thị những dự án đúng với các tiêu chí bạn đã search.',
-  guideImage:'./assets/images/direction1.jpg'
+  guideImage:'../images/direction1.jpg'
 },
 {
   step:'2.4', 
@@ -45,7 +45,7 @@ const guide = [
   guideMouse:'Sau đó click vào nút TÌM KIẾM',
   content:'Để đi bắt đầu tìm kiếm dựa trên những tiêu chí đã chọn ở trên.',
   webGuide:' Website sẽ hiển thị những dự án đúng với các tiêu chí bạn đã search.',
-  guideImage:'./assets/images/direction1.jpg'
+  guideImage:'../images/direction1.jpg'
 }
 ]
 

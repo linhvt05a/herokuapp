@@ -11,7 +11,7 @@ const LeftContent = () => {
   return (
     <div className="col-sm-12 col-md-12 col-lg-7 col-xl-8">
       <div className="image_news">
-        <img src="./assets/images/news_detail_main.jpg" />
+        <img src="../images/news_detail_main.jpg" />
       </div>
       <div className="news_detail_title pb-4">
         <label>Qui trình mua bán thứ cấp (f2, f3,..) căn hộ Central Park</label>

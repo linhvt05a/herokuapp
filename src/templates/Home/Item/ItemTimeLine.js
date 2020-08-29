@@ -41,7 +41,7 @@ const ItemTimeLine = (props) => {
         <div className="sales_timeline">
             <div className="sales_timeline--heading">
                 <figure className="image">
-                    <img src="/assets/images/clock.png" />
+                    <img src="../images/clock.png" />
                 </figure>
                 <span className="label">Kết thúc trong</span>
                 <span className="date_number">2 ngày</span>

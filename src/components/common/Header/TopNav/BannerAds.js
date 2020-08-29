@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const BannerAds = (props) => {
     return (
         <Link to="/#">
-            <img src="../assets/images/mask-group-364.png" style={{width: "100%"}} />
+            <img src=".../images/mask-group-364.png" style={{width: "100%"}} />
         </Link>
     )
 }

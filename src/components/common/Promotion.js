@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 const data = [
     {
-        img: "./assets/images/item_promotion.png",
+        img: "../images/item_promotion.png",
         alt: "Khuyến Mãi Tháng 9"
     },
 ]

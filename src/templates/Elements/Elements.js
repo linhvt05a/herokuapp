@@ -279,7 +279,7 @@ const Elements = (props) => {
                     <div className="header_register form_logged">
                         <div className="header_register--heading">
                             <figure className="avatar">
-                                <img src="./assets/images/avatar_logged.jpg" alt="Trần Thị Thu Hoài" />
+                                <img src="../images/avatar_logged.jpg" alt="Trần Thị Thu Hoài" />
                             </figure>
                             <div className="info">
                                 <div className="name">Trần Thị Thu Hoài</div>

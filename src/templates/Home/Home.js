@@ -19,35 +19,35 @@ const news =
             title: 'Mở bán khu biệt thự cao cấp ở Quận 7 , Tp.HCM',
             description: 'Quỹ đất nội thành ngày càng khan hiếm, cộng với quá trình rà soát lại khiến thịtrường bất động sản lớn nhất nước rơi vào tình trạng cung giảm',
             time: '27/02/2020',
-            image: './assets/images/four-brown-wooden-chairs-2635038.jpg'
+            image: '../images/four-brown-wooden-chairs-2635038.jpg'
         },
         {
             id: 1,
             title: 'Mở bán khu biệt thự cao cấp ở Quận 7 , Tp.HCM',
             description: 'Quỹ đất nội thành ngày càng khan hiếm, cộng với quá trình rà soát lại khiến thịtrường bất động sản lớn nhất nước rơi vào tình trạng cung giảm',
             time: '27/02/2020',
-            image: './assets/images/four-brown-wooden-chairs-2635038.jpg'
+            image: '../images/four-brown-wooden-chairs-2635038.jpg'
         },
         {
             id: 2,
             title: 'Mở bán khu biệt thự cao cấp ở Quận 7 , Tp.HCM',
             description: 'Quỹ đất nội thành ngày càng khan hiếm, cộng với quá trình rà soát lại khiến thịtrường bất động sản lớn nhất nước rơi vào tình trạng cung giảm',
             time: '27/02/2020',
-            image: './assets/images/four-brown-wooden-chairs-2635038.jpg'
+            image: '../images/four-brown-wooden-chairs-2635038.jpg'
         },
         {
             id: 3,
             title: 'Mở bán khu biệt thự cao cấp ở Quận 7 , Tp.HCM',
             description: 'Quỹ đất nội thành ngày càng khan hiếm, cộng với quá trình rà soát lại khiến thịtrường bất động sản lớn nhất nước rơi vào tình trạng cung giảm',
             time: '27/02/2020',
-            image: './assets/images/four-brown-wooden-chairs-2635038.jpg'
+            image: '../images/four-brown-wooden-chairs-2635038.jpg'
         },
         {
             id: 4,
             title: 'Mở bán khu biệt thự cao cấp ở Quận 7 , Tp.HCM',
             description: 'Quỹ đất nội thành ngày càng khan hiếm, cộng với quá trình rà soát lại khiến thịtrường bất động sản lớn nhất nước rơi vào tình trạng cung giảm',
             time: '27/02/2020',
-            image: './assets/images/four-brown-wooden-chairs-2635038.jpg'
+            image: '../images/four-brown-wooden-chairs-2635038.jpg'
         },
         
     ]
@@ -319,7 +319,7 @@ const Home = (props) => {
                                             </Link>
                                             <figure className="qr_code">
                                                 <img
-                                                    src="./assets/images/qr_code.jpg"
+                                                    src="../images/qr_code.jpg"
                                                     alt="PLAY STORE"
                                                 />
                                             </figure>
@@ -341,7 +341,7 @@ const Home = (props) => {
                                             </Link>
                                             <figure className="qr_code">
                                                 <img
-                                                    src="./assets/images/qr_code.jpg"
+                                                    src="../images/qr_code.jpg"
                                                     alt="PLAY STORE"
                                                 />
                                             </figure>
@@ -353,7 +353,7 @@ const Home = (props) => {
                                 <figure className="app_managerment--right">
                                     <img
                                         className="w-100"
-                                        src="./assets/images/icon_phone.png"
+                                        src="../images/icon_phone.png"
                                         alt="Ứng dụng quản lý"
                                     />
                                 </figure>

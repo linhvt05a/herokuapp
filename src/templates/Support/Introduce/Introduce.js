@@ -15,25 +15,25 @@ class Introduce extends React.Component {
                                 <div className="introduce_overview--left js_introduce_overview">
                                     <div>
                                         <img
-                                            src="./assets/images/in_overview01.jpg"
+                                            src="../images/in_overview01.jpg"
                                             alt="Thành lập từ năm 1999"
                                         />
                                     </div>
                                     <div>
                                         <img
-                                            src="./assets/images/in_overview01.jpg"
+                                            src="../images/in_overview01.jpg"
                                             alt="Thành lập từ năm 1999"
                                         />
                                     </div>
                                     <div>
                                         <img
-                                            src="./assets/images/in_overview01.jpg"
+                                            src="../images/in_overview01.jpg"
                                             alt="Thành lập từ năm 1999"
                                         />
                                     </div>
                                     <div>
                                         <img
-                                            src="./assets/images/in_overview01.jpg"
+                                            src="../images/in_overview01.jpg"
                                             alt="Thành lập từ năm 1999"
                                         />
                                     </div>
@@ -182,7 +182,7 @@ class Introduce extends React.Component {
                             <div className="leadership">
                                 <div className="card">
                                     <div className="card-image">
-                                        <img alt="Ban lãnh đạo" src="./assets/images/company.jpg" />
+                                        <img alt="Ban lãnh đạo" src="../images/company.jpg" />
                                     </div>
                                     <div className="card_info">
                                         <h6 className="card_info_name">
@@ -195,7 +195,7 @@ class Introduce extends React.Component {
                                 </div>
                                 <div className="card">
                                     <div className="card-image">
-                                        <img alt="Chức vụ" src="./assets/images/intro_card_leader2.jpg" />
+                                        <img alt="Chức vụ" src="../images/intro_card_leader2.jpg" />
                                     </div>
                                     <div className="card_info">
                                         <h6 className="card_info_name">
@@ -208,7 +208,7 @@ class Introduce extends React.Component {
                                 </div>
                                 <div className="card">
                                     <div className="card-image">
-                                        <img alt="vvvv" src="./assets/images/intro_card_leader3.jpg" />
+                                        <img alt="vvvv" src="../images/intro_card_leader3.jpg" />
                                     </div>
                                     <div className="card_info">
                                         <h6 className="card_info_name">
@@ -221,7 +221,7 @@ class Introduce extends React.Component {
                                 </div>
                                 <div className="card">
                                     <div className="card-image">
-                                        <img alt="vvvv" src="./assets/images/intro_card_leader4.jpg" />
+                                        <img alt="vvvv" src="../images/intro_card_leader4.jpg" />
                                     </div>
                                     <div className="card_info">
                                         <h6 className="card_info_name">
@@ -234,7 +234,7 @@ class Introduce extends React.Component {
                                 </div>
                                 <div className="card">
                                     <div className="card-image">
-                                        <img alt="vvvv" src="./assets/images/intro_card_leader2.jpg" />
+                                        <img alt="vvvv" src="../images/intro_card_leader2.jpg" />
                                     </div>
                                     <div className="card_info">
                                         <h6 className="card_info_name">
@@ -247,7 +247,7 @@ class Introduce extends React.Component {
                                 </div>
                                 <div className="card">
                                     <div className="card-image">
-                                        <img alt="vvvv" src="./assets/images/intro_card_leader1.jpg" />
+                                        <img alt="vvvv" src="../images/intro_card_leader1.jpg" />
                                     </div>
                                     <div className="card_info">
                                         <h6 className="card_info_name">
@@ -260,7 +260,7 @@ class Introduce extends React.Component {
                                 </div>
                                 <div className="card">
                                     <div className="card-image">
-                                        <img alt="vvvv" src="./assets/images/intro_card_leader3.jpg" />
+                                        <img alt="vvvv" src="../images/intro_card_leader3.jpg" />
                                     </div>
                                     <div className="card_info">
                                         <h6 className="card_info_name">
@@ -303,7 +303,7 @@ class Introduce extends React.Component {
                                                 className="image"
                                                 style={{
                                                     backgroundImage:
-                                                        "url(./assets/images/project_list01.jpg)",
+                                                        "url(../images/project_list01.jpg)",
                                                 }}
                                             />
                                             <Link to="/#" className="name">
@@ -317,7 +317,7 @@ class Introduce extends React.Component {
                                                 className="image"
                                                 style={{
                                                     backgroundImage:
-                                                        "url(./assets/images/project_list02.jpg)",
+                                                        "url(../images/project_list02.jpg)",
                                                 }}
                                             />
                                             <Link to="/#" className="name">
@@ -331,7 +331,7 @@ class Introduce extends React.Component {
                                                 className="image"
                                                 style={{
                                                     backgroundImage:
-                                                        "url(./assets/images/project_list03.jpg)",
+                                                        "url(../images/project_list03.jpg)",
                                                 }}
                                             />
                                             <Link to="/#" className="name">
@@ -345,7 +345,7 @@ class Introduce extends React.Component {
                                                 className="image"
                                                 style={{
                                                     backgroundImage:
-                                                        "url(./assets/images/project_list04.jpg)",
+                                                        "url(../images/project_list04.jpg)",
                                                 }}
                                             />
                                             <Link to="/#" className="name">
@@ -359,7 +359,7 @@ class Introduce extends React.Component {
                                                 className="image"
                                                 style={{
                                                     backgroundImage:
-                                                        "url(./assets/images/project_list05.jpg)",
+                                                        "url(../images/project_list05.jpg)",
                                                 }}
                                             />
                                             <Link to="/#" className="name">
@@ -373,7 +373,7 @@ class Introduce extends React.Component {
                                                 className="image"
                                                 style={{
                                                     backgroundImage:
-                                                        "url(./assets/images/project_list01.jpg)",
+                                                        "url(../images/project_list01.jpg)",
                                                 }}
                                             />
                                             <Link to="/#" className="name">
@@ -400,22 +400,22 @@ class Introduce extends React.Component {
                             </div>
                             <div className="partner__slider">
                                 <Link to="/#" className="partner__logo">
-                                    <img alt="vvvv" src="./assets/images/partner_logo_2.jpg" />
+                                    <img alt="vvvv" src="../images/partner_logo_2.jpg" />
                                 </Link>
                                 <Link to="/#" className="partner__logo">
-                                    <img alt="vvvv" src="./assets/images/partner_logo.jpg" />
+                                    <img alt="vvvv" src="../images/partner_logo.jpg" />
                                 </Link>
                                 <Link to="/#" className="partner__logo">
-                                    <img alt="vvvv" src="./assets/images/partner_logo_2.jpg" />
+                                    <img alt="vvvv" src="../images/partner_logo_2.jpg" />
                                 </Link>
                                 <Link to="/#" className="partner__logo">
-                                    <img alt="vvvv" src="./assets/images/partner_logo.jpg" />
+                                    <img alt="vvvv" src="../images/partner_logo.jpg" />
                                 </Link>
                                 <Link to="/#" className="partner__logo">
-                                    <img alt="vvvv" src="./assets/images/partner_logo_2.jpg" />
+                                    <img alt="vvvv" src="../images/partner_logo_2.jpg" />
                                 </Link>
                                 <Link to="/#" className="partner__logo">
-                                    <img alt="vvvv" src="./assets/images/partner_logo.jpg" />
+                                    <img alt="vvvv" src="../images/partner_logo.jpg" />
                                 </Link>
                             </div>
                         </div>

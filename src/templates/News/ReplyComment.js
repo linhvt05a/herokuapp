@@ -25,7 +25,7 @@ const ChildAdmin = () =>{
   return(          
     <div className="child admin">
     <figure className="avatar">
-      <img src="./assets/images/avatar_logged.jpg" alt />
+      <img src="../images/avatar_logged.jpg" alt />
     </figure>
     <div className="box border-bottom-0">
       <div className="reply_name"><Trans>Sale department</Trans></div>
@@ -41,7 +41,7 @@ const ReplyBox = (props) =>{
   return(
     <div className="child">
     <figure className="avatar">
-      <img src="./assets/images/avatar_logged.jpg" alt />
+      <img src="../images/avatar_logged.jpg" alt />
     </figure>
     <div className="box">
       <div className="reply_name"><Trans>Sale department</Trans></div>
@@ -75,7 +75,7 @@ const ChildReply = () =>{
   return(
     <div className="child">
     <figure className="avatar">
-      <img src="./assets/images/avatar_logged.jpg" alt />
+      <img src="../images/avatar_logged.jpg" alt />
     </figure>
     <div className="box pb-0 border-bottom-0">
       <div className="reply_name"><Trans>Sale department</Trans></div>

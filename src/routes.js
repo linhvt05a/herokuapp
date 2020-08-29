@@ -23,24 +23,24 @@ import ProductList from './templates/ProductList/ProductList';
 import PropertySelling from "./templates/PolicyPayment/PropertySelling";
 import LoanPolicy from "./templates/LoanOnline/LoanPolicy";
 
-const home_banner_url = './assets/images/project.jpg';
-const introduce_banner_url = './assets/images/project.jpg';
-const contact_banner_url = './assets/images/project.jpg';
-const project_banner_url = './assets/images/project.jpg';
-const projectDetail_banner_url = './assets/images/tutorial_product.jpg';
-const news_banner_url = './assets/images/newspaper.jpg';
-const newsDetail_banner_url = './assets/images/newspaper.jpg';
-const recruitmentList_banner_url = './assets/images/recruitment.jpg';
-const recruitmentDetail_banner_url = './assets/images/recruitment.jpg';
-const transactionLevel_banner_url = './assets/images/project.jpg';
-const shoppingGuide_banner_url = './assets/images/project.jpg';
-const juridical_banner_url = './assets/images/juridical.jpg';
-const promotion_banner_url = './assets/images/project.jpg';
-const flashSaleList_banner_url = './assets/images/project.jpg';
-const elements_banner_url = './assets/images/project.jpg';
-const example_banner_url = './assets/images/project.jpg';
-const cart_banner_url = './assets/images/project.jpg';
-const product_banner_url = './assets/images/project.jpg';
+const home_banner_url = '../images/project.jpg';
+const introduce_banner_url = '../images/project.jpg';
+const contact_banner_url = '../images/project.jpg';
+const project_banner_url = '../images/project.jpg';
+const projectDetail_banner_url = '../images/tutorial_product.jpg';
+const news_banner_url = '../images/newspaper.jpg';
+const newsDetail_banner_url = '../images/newspaper.jpg';
+const recruitmentList_banner_url = '../images/recruitment.jpg';
+const recruitmentDetail_banner_url = '../images/recruitment.jpg';
+const transactionLevel_banner_url = '../images/project.jpg';
+const shoppingGuide_banner_url = '../images/project.jpg';
+const juridical_banner_url = '../images/juridical.jpg';
+const promotion_banner_url = '../images/project.jpg';
+const flashSaleList_banner_url = '../images/project.jpg';
+const elements_banner_url = '../images/project.jpg';
+const example_banner_url = '../images/project.jpg';
+const cart_banner_url = '../images/project.jpg';
+const product_banner_url = '../images/project.jpg';
 
 const MAIN = [
     {

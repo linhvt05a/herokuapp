@@ -13,7 +13,7 @@ class DownloadApp extends Component {
             </p>
           </Link>
           <figure className="qr_code">
-            <img src="./assets/images/qr_code.jpg" alt="PLAY STORE" />
+            <img src="../images/qr_code.jpg" alt="PLAY STORE" />
           </figure>
         </div>
         <div className="item">
@@ -25,7 +25,7 @@ class DownloadApp extends Component {
             </p>
           </Link>
           <figure className="qr_code">
-            <img src="./assets/images/qr_code.jpg" alt="PLAY STORE" />
+            <img src="../images/qr_code.jpg" alt="PLAY STORE" />
           </figure>
         </div>
       </div>

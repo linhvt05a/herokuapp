@@ -57,7 +57,7 @@ function Header() {
                                         aria-expanded={inHover}
                                     >
                                         <img
-                                            src="./assets/images/lang_vn.jpg"
+                                            src="../images/lang_vn.jpg"
                                             alt="languages 1"
                                         />
                                         <i className="icon_arrow fas fa-chevron-down" />
@@ -67,7 +67,7 @@ function Header() {
                                             <Link to="/#">
                                                 <img
                                                     alt="languages 2"
-                                                    src="./assets/images/lang_en.png"
+                                                    src="../images/lang_en.png"
                                                     width={16}
                                                     height={16}
                                                 />
@@ -78,7 +78,7 @@ function Header() {
                                             <Link to="/#">
                                                 <img
                                                     alt=""
-                                                    src="./assets/images/lang_china.png"
+                                                    src="../images/lang_china.png"
                                                     width={16}
                                                     height={16}
                                                 />

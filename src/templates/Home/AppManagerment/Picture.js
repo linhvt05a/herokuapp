@@ -7,7 +7,7 @@ class Picture extends Component {
         <figure className="app_managerment--right">
           <img
             className="w-100"
-            src="./assets/images/icon_phone.png"
+            src="../images/icon_phone.png"
             alt="Ứng dụng quản lý"
           />
         </figure>

@@ -16,11 +16,11 @@ return (
                     content={
                         selected === true ? 
                         <div className="active">
-                            <img src="./assets/images/review.png" />
+                            <img src="../images/review.png" />
                         </div>
                         : 
                         <div className="no_active">
-                            <img src="./assets/images/review_purple.png" />
+                            <img src="../images/review_purple.png" />
                         </div>
                     } 
                     guideLine="Guide customers to find products to buy."
@@ -33,11 +33,11 @@ return (
                     content={ 
                         selected == false ? 
                         <div className="no_actived">
-                            <img src="./assets/images/order_white.png" />
+                            <img src="../images/order_white.png" />
                         </div>
                         :
                         <div className="active">
-                            <img src="./assets/images/order.png" />
+                            <img src="../images/order.png" />
                         </div>
                     } 
                     guideLine ="Guide customers how to order products, discuss loan policy" 
