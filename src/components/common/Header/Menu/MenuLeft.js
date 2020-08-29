@@ -56,7 +56,7 @@ const MenuLeft = (props) => {
                     <li className="item-child">
                         <NavLink activeClassName="active"
                             className="item-child-link"
-                            to="/juridical"
+                            to="/legal"
                         >
                             Pháp lý
                         </NavLink>

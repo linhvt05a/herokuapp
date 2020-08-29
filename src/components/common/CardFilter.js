@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Trans } from "react-i18next";
-import {ButtonStyle, Sliders} from '../../components/base/index'
-import {InputSelect} from '../../components/base/Select/index';
+import {ButtonStyle, Sliders, SelectCustom} from '../../components/base'
 
 const CardFilter = (props) => {
   const {title1,title2, currency1, item1, item2, label, styleButton, data, data1, currency2, reverse,titleButton, tooltipVisible, range, onChange, placeholder, name, datas1, datas2} = props
@@ -11,10 +10,10 @@ const CardFilter = (props) => {
         <div className="searchProject__title">
             <Trans>{label}</Trans></div>
         <div className="form-group mt-3">
-          <InputSelect placeholder={placeholder} name={name} onChange={onChange} datas={datas1}/>
+          <SelectCustom placeholder={placeholder} name={name} onChange={onChange} datas={datas1}/>
         </div>
         <div className="form-group">
-          <InputSelect placeholder={placeholder} name={name} onChange={onChange} datas ={datas2}/>
+          <SelectCustom placeholder={placeholder} name={name} onChange={onChange} datas ={datas2}/>
         </div>
         <div className="map_search--range" >
           <div className="range_item price">

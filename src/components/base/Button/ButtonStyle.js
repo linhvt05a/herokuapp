@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 
 const ButtonStyle = (props) => {
     const {className, label, href, onClick} = props
-    return <Link to={href} onClick={onClick} className={className}><Trans>{label}</Trans></Link>
+    return <Link to={href ? href : ""} onClick={onClick} className={className}><Trans>{label}</Trans></Link>
 }
 
 export default ButtonStyle;
