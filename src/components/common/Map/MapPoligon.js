@@ -16,40 +16,16 @@ L.Icon.Default.mergeOptions({
 
 function MapPoligon(props) {
     let { data } = props;
-    // const createData = (project_name, lat, long, location) => {
-    //     return { project_name, lat, long, location }
-    // }
-
-    // const [state, setState] = useState({
-    //     data: []
-    // })
-
-    // if (data && data.length > 0) {
-    //     let newData = [];
-    //     data.map((item) => {
-    //         newData.push(createData(item.project_name, item.lat, item.long, item.location))
-    //     })
-    //     setState({ ...state, data: newData })
-    // }
-    // console.log(state);
-    // data && data.map((item, index) => {
-    //     console.log(item);
-    // })
 
     //https://blog.logrocket.com/how-to-use-react-leaflet/
     //https://github.com/PaulLeCam/react-leaflet/blob/master/example/components/other-layers.js
 
     const position = [10.782504, 106.695931];
-    const center = [10.7344832607381, 106.748816638668];
     return (
-        // data && data.map((item, index) => (
-            
-        // ))
         <Map 
             center={position} zoom={5} 
             style={{ height: "670px", zIndex: 0 }}
             attributionControl={false}
-            position={'topright'}
             // zoomControl={false}
             >   
                 <ReactLeafletGoogleLayer 

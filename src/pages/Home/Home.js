@@ -95,11 +95,15 @@ const Home = (props) => {
             dispatch(productAction.loadHotProductList({}));
         }
     }
-    const setShowSearch = () => {
-        setState({...state, search: false, position: false, showhide: true})
-    }
-    const setHideSearch = () => {
-        setState({...state, search: true, position: true, showhide: false})
+    const setHideSearch = (target) => {
+        console.log(state, target.className);
+        if(target.className.indexOf('active') > -1) {
+            target.className = "fas map_search--btn_exit fa-times"
+            setState({...state, search: false, position: false, showhide: true})
+        } else {
+            target.className = "fas map_search--btn_exit fa-times active"
+            setState({...state, search: true, position: true, showhide: false})
+        }
     }
 
     return (
@@ -112,7 +116,7 @@ const Home = (props) => {
                     </figure>
                     <LocationView HandlerPosition={handlerButtonPosition} HandlerSearch={handlerButtonSearch} />
                 </div>
-                <OnMapPoligon active={state} onShowSearch={setShowSearch} onHideSearch={setHideSearch}/>
+                <OnMapPoligon active={state} onHideSearch={setHideSearch}/>
             </div>
 
             {/*end block map  */}

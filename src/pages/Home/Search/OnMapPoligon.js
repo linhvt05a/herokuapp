@@ -111,6 +111,13 @@ const OnMapPoligon = props => {
             }
         })
     }
+    // useEffect(() => {
+    //     dispatch(projectAction.loadProjectList({ }));
+    // }, [])
+    const search = useSelector(state => state.projectReducer);
+    const isGetsearchListSuccess = search.projectList.success;
+    const searchList = isGetsearchListSuccess ? search.projectList.detail : null;
+    // console.log('uuu', searchList);
     
     const OnSearchProject = (e)=> {
         dispatch(projectAction.loadProjectList({ 
@@ -122,13 +129,9 @@ const OnMapPoligon = props => {
             money_min: statesubmit.dataSubmit.range_price.min,
             money_max: statesubmit.dataSubmit.range_price.max,
             project_sale_group_type: statesubmit.dataSubmit.project_sale_group_type
-        })); 
-        
+        }));
     }
-    const search = useSelector(state => state.projectReducer);
-    const isGetsearchListSuccess = search.projectList.success;
-    const searchList = isGetsearchListSuccess ? search.projectList.detail : null;
-    console.log(searchList);
+    
 
     return (
         <div className={`map_search map_tab ${active.search || active.position || active.showhide ? "active" : "" }`}>
@@ -142,15 +145,12 @@ const OnMapPoligon = props => {
                             <InputRange changePrice={changePrice} changeAcreage={changeAcreage}/>
                             <ListCheckbox OnSearchProject={OnSearchProject} OnCheckbox={listCheckbox}/>
                         </div>
-                        <span class="map_search--btn_exit" onClick={onShowSearch} >
-                            <i class="fas fa-times"></i>
-                        </span>
                     </div>
                     <div className={`map_custom_show_hide col-12 col-sm-12 col-md-12 col-xl-6 p-0 ${active.search ? "active" : "" }`}>
                         {active.showhide ? <MapPoligon data={searchList}/> : ''}
                         {active.search || active.position ? <MapPoligon data={searchList} /> : ''}
-                        <span class="map_search--btn_exit" onClick={onHideSearch} style={{right: active.showhide ? "auto" : "-56px"}}>
-                            <i class="fas fa-times"></i>
+                        <span>
+                            <i class="fas map_search--btn_exit fa-times" onClick={e => onHideSearch(e.target)} style={{right: "auto", padding: "15px 20px", cursor: "pointer" }}></i>
                         </span>
                     </div>
                 </div>
