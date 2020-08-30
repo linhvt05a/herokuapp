@@ -5,12 +5,15 @@ import ViewVertical from './ViewVertical';
 
 export default class Policy extends Component {
     render() {
-        const { data } = this.props;
-
+        const { data, projectName, blockName, areaName } = this.props;
         return (
             data ?
                 <div className="project_item__detail">
-                    <PolicyTitle />
+                    <PolicyTitle 
+                        projectName={projectName}
+                        blockName={blockName}
+                        areaName={areaName}
+                    />
                     <ViewVertical data={ data } />
                 </div>
                 : ""

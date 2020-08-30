@@ -14,12 +14,16 @@ const TransactionLevel = (props) => {
     const [projectId, setProjectId] = useState({ project_id: 13 });
     const [areaId, setAreaId] = useState({ area_id: 1 });
     const [blockId, setBlockId] = useState({ block_id: 2 });
+
+    const [projectName, setProjectName] = useState("Royal Garden");
+    const [areaName, setAreaName] = useState("VALLEN");
+    const [blockName, setBlockName] = useState("B");
     
     useEffect(() => {
         dispatch(transactionAction.TransactionLoadList({ project_id: 13, area_id: 1, block_id: 2 }))
     }, [])
 
-    //SELECT TOP_BANNER LIST
+    //---TOP_BANNER SELECT LIST---
     useEffect(() => {
         dispatch(transactionAction.transLoadProjectNameList({project_id: 13}))
     }, [])
@@ -45,26 +49,27 @@ const TransactionLevel = (props) => {
     const transacBlockNameList = isGetTransProjectBlockListSuccess ? projectBlockList.transacBlockNameList.detail : null;
     
     
-    const onChangeProject = (value) => {
+    const onChangeProject = (value, label) => {
         dispatch(transactionAction.TransactionLoadList({ project_id: value, area_id: areaId.area_id, block_id: blockId.block_id }))
         setProjectId({
             project_id: value
         })
+        setProjectName(label.children)
     }
-    const onChangeArea = (value) => {
+    const onChangeArea = (value, label) => {
         dispatch(transactionAction.TransactionLoadList({ project_id: projectId.project_id, area_id: value, block_id: blockId.block_id }))
         setAreaId({
             area_id: value
         })
+        setAreaName(label.children)
     }
-    const onChangeBlock = (value) => {
+    const onChangeBlock = (value, label) => {
         dispatch(transactionAction.TransactionLoadList({ project_id: projectId.project_id, area_id: areaId.area_id, block_id: value }))
         setBlockId({
             block_id: value
         })
-    }
-
-   
+        setBlockName(label.children)
+    }   
 
 
     // --- ITEM DETAIL API----
@@ -151,6 +156,9 @@ const TransactionLevel = (props) => {
                 sliderDatas={filterDataState.sliderDatas}
                 onFilterClick={onFilterClick}
                 onPageChange={onPageChange}
+                projectName={projectName}
+                blockName={blockName}
+                areaName={areaName}
             />
         </div>
     )

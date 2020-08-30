@@ -6,7 +6,6 @@ const TopBannerDetailTrans = (props) => {
         projectId, areaId, blockId, onChangeProject, onChangeArea, onChangeBlock,
         transacProjectNameList, transacAreaNameList, transacBlockNameList
     } = props;
-    console.log(transacBlockNameList);
     return (
         <div class="top_banner--detail d-flex align-items-end" style={{ backgroundImage: "url(../assets/images/banner_exchanges.png)" }}>
             <div class="container container-sm container-md d-flex justify-content-center">

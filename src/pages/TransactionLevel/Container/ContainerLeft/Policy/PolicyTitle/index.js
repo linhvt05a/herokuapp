@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 export default class PolicyTitle extends Component {
     render() {
+        const { projectName, blockName, areaName } = this.props;
         return (
             <div className="view_horizontal">
                 <div className="item">
@@ -10,7 +11,7 @@ export default class PolicyTitle extends Component {
                         <span className="text-uppercase">
                             DỰ ÁN
                         </span>
-                        <span className="value">Royal Garden</span>
+                        <span className="value">{projectName}</span>
                     </div>
                 </div>
                 <div className="item">
@@ -19,7 +20,7 @@ export default class PolicyTitle extends Component {
                         <span className="text-uppercase">
                             KHU
                         </span>
-                        <span className="value money">VALLEN</span>
+                        <span className="value money">{areaName}</span>
                     </div>
                 </div>
                 <div className="item">
@@ -28,7 +29,7 @@ export default class PolicyTitle extends Component {
                         <span className="text-uppercase">
                             KHỐI
                         </span>
-                        <span className="value times">B</span>
+                        <span className="value times">{blockName}</span>
                     </div>
                 </div>
             </div>
