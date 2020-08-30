@@ -7,7 +7,7 @@ import { ListSelect, InputRange, ListCheckbox } from "./index";
 import { MapPoligon } from "../../../components/common/Map/index";
 
 const OnMapPoligon = props => {
-    let { active, onShowSearch, onHideSearch } = props;
+    let { active, onHideSearch } = props;
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(commonAction.loadProvinceList({ lang: "vi" }))
@@ -111,13 +111,9 @@ const OnMapPoligon = props => {
             }
         })
     }
-    // useEffect(() => {
-    //     dispatch(projectAction.loadProjectList({ }));
-    // }, [])
     const search = useSelector(state => state.projectReducer);
     const isGetsearchListSuccess = search.projectList.success;
     const searchList = isGetsearchListSuccess ? search.projectList.detail : null;
-    // console.log('uuu', searchList);
     
     const OnSearchProject = (e)=> {
         dispatch(projectAction.loadProjectList({ 
@@ -132,7 +128,6 @@ const OnMapPoligon = props => {
         }));
     }
     
-
     return (
         <div className={`map_search map_tab ${active.search || active.position || active.showhide ? "active" : "" }`}>
             <div className="container-fluid">
@@ -150,7 +145,7 @@ const OnMapPoligon = props => {
                         {active.showhide ? <MapPoligon data={searchList}/> : ''}
                         {active.search || active.position ? <MapPoligon data={searchList} /> : ''}
                         <span>
-                            <i class="fas map_search--btn_exit fa-times" onClick={e => onHideSearch(e.target)} style={{right: "auto", padding: "15px 20px", cursor: "pointer" }}></i>
+                            <i class={`fas map_search--btn_exit ${active.search ? "fa-times" : "fa-search" }`} onClick={e => onHideSearch(e.target)} style={{right: "auto", padding: "15px 20px", cursor: "pointer" }}></i>
                         </span>
                     </div>
                 </div>
