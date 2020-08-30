@@ -5,17 +5,14 @@ import { Provider } from 'react-redux';
 import configureStore from './store';
 //components
 import Header from "./components/common/Header/Header";
-import Footer from "./components/common/Footer";
+import Footer from "./components/common/Footer/Footer";
 import Chat from "./components/common/Chat";
 
 //pages
 
-import { Error404 } from "./pages/Error"
 import Notifi from "./components/common/Notifi";
-import TopBanner from "./components/common/TopBanner";
 // import PageIndex from "./pages/index";
 
-import { MAIN, PATHS } from "./routes"
 import PagesWrapper from './Pages';
 
 

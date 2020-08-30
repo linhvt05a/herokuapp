@@ -9,22 +9,22 @@ const dataTabs = [
         content : [
           {
             txtTitle:'Tặng ngay cặp đồng hồ Casio khi mua sản phẩm Royal Garden',
-            img: "./assets/images/incentives.jpg",
+            img: "../images/incentives.jpg",
             date: "Từ: 02/03/2020  -  Đến: 02/06/2020"
           },
           {
             txtTitle:'Tặng ngay túi xách khi mua sản phẩm Royal Garden',
-            img: "./assets/images/incentives.jpg",
+            img: "../images/incentives.jpg",
             date: "Từ: 02/03/2020  -  Đến: 02/06/2020"
           },
           {
             txtTitle:'Tặng ngay Balo khi mua sản phẩm Royal Garden',
-            img: "./assets/images/incentives.jpg",
+            img: "../images/incentives.jpg",
             date: "Từ: 02/03/2020  -  Đến: 02/06/2020"
           },
           {
             txtTitle:'Tặng ngay Balo khi mua sản phẩm Royal Garden',
-            img: "./assets/images/incentives.jpg",
+            img: "../images/incentives.jpg",
             date: "Từ: 02/03/2020  -  Đến: 02/06/2020"
           }
         ]

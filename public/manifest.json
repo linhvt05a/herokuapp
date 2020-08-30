@@ -3,12 +3,12 @@
 	"name": "Sunny World",
 	"icons": [
 		{
-			"src": "assets/images/logo.jpg",
+			"src": "images/logo.jpg",
 			"type": "image/png",
 			"sizes": "938x322"
 		},
 		{
-			"src": "assets/images/logo.jpg",
+			"src": "images/logo.jpg",
 			"type": "image/png",
 			"sizes": "938x322"
 		}

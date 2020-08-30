@@ -1,0 +1,108 @@
+.introduce_overview{
+    .heading{
+        color: #fff;
+    }
+    &--right{
+        .ant-tabs{
+            color: #fff;
+            margin-bottom: 25px;
+        } 
+        .ant-tabs-nav-operations{
+            display: none !important;
+        }
+        .ant-tabs-nav::before{
+            display: none;
+        }
+        .ant-tabs-nav-list{
+            @include transform(none !important);
+            @include flex-wrap(wrap);
+        }
+        .ant-tabs-tab{
+            position: relative;
+            padding: 0;
+            background-color: transparent !important;
+            border: none !important;
+            @include justify-content(center);
+            @media(max-width:480px){
+                margin-left: 5px !important;
+                flex: 1;
+            }
+            &:not(:last-child){
+                position: relative;
+                &::after{
+                    position: absolute;
+                    content: '';
+                    width: 1px;
+                    height: 25px;
+                    right: 0;
+                    top: 50%;
+                    background-color: #fff;
+                    @include transform(translateY(-50%));
+                    @media(max-width: 500px){
+                        display: none;
+                    }
+                }
+            }
+            &::before{
+                position: absolute;
+                content: '';
+                width: 0%;
+                height: 2px;
+                background: #25b15f;
+                right: 0;
+                bottom: 0;
+                left: 50%;
+                @include transform(translateX(-50%));
+                @include transition(all 0.3s);
+                z-index: 1;
+            }
+            &.ant-tabs-tab-active, &:hover{
+                font-weight: 500;
+                &::before{
+                    width: 65%;
+                }
+            }
+            & .ant-tabs-tab-btn{
+                color: #fff;
+                padding: 0;
+                position: relative;
+                font-family: $HelveticaNeue-Medium;
+                text-transform: uppercase;
+                @media(max-width:480px){
+                    margin-right: 5px;
+                    font-size: 13px;
+                    text-align: center;
+                }
+               
+            }
+            
+        }
+        
+       
+        .ant-tabs-content-holder{
+            overflow-y: auto;
+            height: 305px;
+            padding-right: 5px;
+            @media(max-width: 767px){
+                min-width: 200px;
+                height: auto;
+            }
+            &::-webkit-scrollbar {
+                width: 4px;
+            }
+               
+            &::-webkit-scrollbar-track {
+                box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+            }
+               
+            &::-webkit-scrollbar-thumb {
+                background: #fff;
+                outline: 1px solid slategrey;
+            }
+        }
+    }
+}
+
+.partner__logo{
+    @include flex_center
+}

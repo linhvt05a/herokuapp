@@ -1,6 +1,6 @@
 import React from 'react';
 import { Modal } from 'antd';
-import { translate } from '../../../utils/Utils'
+import { translate } from '../../../functions/Utils'
 
 const CardModal = (props) => {
 

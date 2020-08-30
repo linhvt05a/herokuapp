@@ -1,6 +1,5 @@
 import React from 'react';
-import { SliderRange } from '../base/Slider/index'
-import { InputSelect } from '../base/Select/index'
+import { SliderRange, SelectCustom } from '../base'
 import { Trans } from 'react-i18next';
 
 const CardInputSliderFilter = (props) => {
@@ -15,8 +14,8 @@ const CardInputSliderFilter = (props) => {
             {
                 inputSelectDatas && inputSelectDatas.map((item, index) => (
                     index === 0 ?
-                    <InputSelect key={index} classNameGroup="form-group mt-3" placeholder={item.placeholder} datas={item.datas} onChange={item.onChange} trans={item.trans ? item.trans : undefined} /> :
-                    <InputSelect key={index} placeholder={item.placeholder} datas={item.datas} onChange={item.onChange} trans={item.trans ? item.trans : undefined} />
+                    <SelectCustom key={index} classNameGroup="form-group mt-3" placeholder={item.placeholder} datas={item.datas} onChange={item.onChange} trans={item.trans ? item.trans : undefined} /> :
+                    <SelectCustom key={index} placeholder={item.placeholder} datas={item.datas} onChange={item.onChange} trans={item.trans ? item.trans : undefined} />
                 ))
             }
             {

@@ -2,9 +2,9 @@
 import React, { useState, useEffect, useRef , useLayoutEffect} from 'react';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import configureStore from './store';
-import TopBanner from "./components/common/TopBanner";
+import TopBanner from "./components/common/Header/TopBanner";
 import { MAIN, PATHS } from "./routes"
-import { Error404 } from './pages/Error';
+import { Error404 } from './templates/ErrorPage';
 
 const Pages = () => {
 

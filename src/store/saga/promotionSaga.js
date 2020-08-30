@@ -5,7 +5,6 @@ import { promotionAction } from '../action';
 
 export function* promotionList(payload) {
 
-    console.log(payload);
     try {
         const response = yield promotionService.listPromotion(payload);
         response.success ? yield put({ type: promotionAction.PROMOTION_LIST_SUCCESS, response }) : yield put({ type: promotionAction.PROMOTION_LIST_FAILURE, response });

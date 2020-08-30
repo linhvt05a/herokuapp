@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Logo = (props) => {
     return (
         <Link className="header_logo" to="/">
-            <img src="./assets/images/logo.jpg" alt="Minerva" />
+            <img src="../images/logo.jpg" alt="Minerva" />
         </Link>
     )
 }

@@ -1,4 +1,4 @@
-const IMAGE_URL = "./assets"
+const IMAGE_URL = "../"
 
 const PROJECT_STATUS = [
     { value: 1, label: "home_waiting_sale" },
