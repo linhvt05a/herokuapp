@@ -41,10 +41,13 @@ const HeadingFilter = (props) => {
                 status &&
                 <div className="project_list--status text-uppercase">
                     <a name={3} className={projectStatus === 3 ? "status working active" : "status working"} onClick={onStatusClick}>
-                        <Trans>home_selling</Trans>
+                        <Trans>VAY THẢ NỔI</Trans>
                     </a>
                     <a name={2} className={projectStatus === 2 ? "status done active" : "status done"} onClick={onStatusClick}>
-                        <Trans>home_coming_soon</Trans>
+                        <Trans>VAY TRẢ GÓP ĐỀU</Trans>
+                    </a>
+                    <a name={2} className={projectStatus === 2 ? "status done active" : "status done"} onClick={onStatusClick}>
+                        <Trans>VAY DƯ NỢ BAN ĐẦU</Trans>
                     </a>
                 </div>
             }
