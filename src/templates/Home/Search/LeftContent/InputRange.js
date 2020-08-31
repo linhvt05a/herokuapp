@@ -20,7 +20,7 @@ const InputRange = (props) => {
         <div className="map_search--range">
             <div className="range_item price">
                 <label className="label">
-                    Phạm vi giá (tỷ đồng)
+                    <Trans>range_of_price</Trans>
                 </label>
                 <div className="slider-wrapper">
                     <SliderRange defaultValue={[minmaxList.price_min, minmaxList.price_max]} min={0} max={200000000000} range={true} changeRange={changePrice} />
@@ -28,7 +28,7 @@ const InputRange = (props) => {
             </div>
             <div className="range_item area">
                 <label className="label">
-                    Diện tích (m2)
+                    <Trans>range_of_area</Trans>
                 </label>
                 <div className="slider-wrapper">
                     <SliderRange defaultValue={[minmaxList.area_min, minmaxList.area_max]} min={0} max={1000000} range={true} changeRange={changeAcreage} />

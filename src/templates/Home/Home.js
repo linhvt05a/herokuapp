@@ -97,8 +97,7 @@ const Home = (props) => {
         }
     }
     const setHideSearch = (target) => {
-        console.log(state, target.className);
-        if(target.className.indexOf('active') > -1) {
+        if(target.className.indexOf('fa-times') > -1) {
             target.className = "fas map_search--btn_exit fa-search"
             setState({...state, search: false, position: false, showhide: true})
         } else {
