@@ -51,19 +51,17 @@ const SendInfo = (props) => {
             form : [
                 {
                     required: true, 
-                    message: 'Please input your user name!' ,
+                    message: 'Missing information require!' ,
                 }
             ],
-            placeholder: t('full_name')
         },
         phone : {
             form : [
                 {
                     required: true,
-                    message: 'Please input your phone number!',
+                    message: 'Missing information require!',
                 }
             ],
-            placeholder: t('phone_number'),
             type:'number'
         },
         email : {
@@ -74,20 +72,18 @@ const SendInfo = (props) => {
                 },
                 {
                     required: true,
-                    message: 'Please input your E-mail!',
+                    message: 'Missing information require!',
                 },
             ],
-            placeholder: t('email'),
             type:'email'
         },
         question : {
             form : [
                 {
                     required: true, 
-                    message: 'Please input your question!' 
+                    message: 'Missing information require!' 
                 }
             ],
-            placeholder: t('please_enter_the_content'),
             type:'text'
         },
     }
@@ -100,16 +96,16 @@ const SendInfo = (props) => {
                     onFinish={onSubmitInfo}
                     name="form-chat-info">
                     <FormItem className="form-group" name="fullname" rules={validatorInfo.fullname.form}>
-                        <Input placeholder={validatorInfo.fullname.placeholder} type={validatorInfo.fullname.type} className="form-control" />
+                        <Input placeholder={t('full_name')} type={validatorInfo.fullname.type} className="form-control" />
                     </FormItem>
                     <FormItem className="form-group" name="phone" rules={validatorInfo.phone.form}>
-                        <Input placeholder={validatorInfo.phone.placeholder} type={validatorInfo.phone.type} className="form-control" />
+                        <Input placeholder={t('phone_number')} type={validatorInfo.phone.type} className="form-control" />
                     </FormItem>
                     <FormItem className="form-group" name="email" rules={validatorInfo.email.form}>
-                        <Input placeholder={validatorInfo.email.placeholder} type={validatorInfo.email.type} className="form-control" />
+                        <Input placeholder={t('email')} type={validatorInfo.email.type} className="form-control" />
                     </FormItem>
                     <FormItem className="form-group" name="question" rules={validatorInfo.question.form}>
-                        <Input.TextArea placeholder={validatorInfo.question.placeholder} type={validatorInfo.question.type} className="form-control"  />
+                        <Input.TextArea placeholder={t('please_enter_the_content')} type={validatorInfo.question.type} className="form-control"  />
                     </FormItem>
                     <FormItem shouldUpdate className="text-center submit">
                         {() => {
