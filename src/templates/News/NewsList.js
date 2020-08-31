@@ -144,16 +144,16 @@ const RowNews = (props) => {
             <div className="row ">
                 <div className="col-sm-12 col-md-5 col-xl-5 d-flex">
                     <div className="news__card--img">
-                        <img src={props.data.image} />
+                        <img src={props.data.news_avatar} />
                     </div>
                 </div>
                 <div className="col-md-7 col-xl-7">
                     <div className="news__card--content">
                         <Link className="title" to={"/NewsDetail/" + props.data.id}>
-                            {props.data.title}
+                            {props.data.news_title}
                         </Link>
                         <div className="times">
-                            Ngày đăng : {props.data.time}
+                            Ngày đăng : {props.data.from_date}
                         </div>
                         <p className="contain">
                             {props.data.description}

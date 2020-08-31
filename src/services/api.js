@@ -42,7 +42,7 @@ export default {
 
     VISIT_REGISTER :"/api/main_web/v1/register_visit/",
 
-    NEWS_LIST:"",
+    NEWS_LIST:"/api/main_web/v1/news/",
     NEWS_DETAIL:"",
     HOT_NEWS : "",
     NEWS_CATEGORIES:"",
