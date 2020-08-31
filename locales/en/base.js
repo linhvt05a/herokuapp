@@ -14,5 +14,11 @@ export default {
     juridical_banner_title: "Juridical",
     promotion_banner_title: "Promotion",
     flashSaleList_banner_title: "Flash Sale List",
-    customer_account_banner_title: "Customer Account"
+    customer_account_banner_title: "Customer Account",
+
+
+    // languages 
+    lang_vi : 'VietNamese',
+    lang_en : 'English',
+    lang_cn : 'China',
 }

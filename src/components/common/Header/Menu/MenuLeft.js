@@ -1,15 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { Link, NavLink } from "react-router-dom";
+import { Trans } from "react-i18next";
+import {IMAGE_URL} from '../../../../contant'
+
+
 
 const MenuLeft = (props) => {
+    const {active} = props;
+
     const [inHoverNav, setHoverNav] = useState(false);
     return (
-        <ul className="header_menu">
+        <ul className={`header_menu ${active ? 'active' : ''}`}>
             <li className="logo item d-md-none">
                 <NavLink className="item-link" to="/">
                     <img
                         className="w-100"
-                        src="../images/logo.jpg"
+                        src={`${IMAGE_URL}images/logo.jpg`}
                         alt="Minerva"
                     />
                 </NavLink>
@@ -17,23 +23,23 @@ const MenuLeft = (props) => {
             </li>
             <li className="item mt-3 mt-md-0">
                 <NavLink exact activeClassName="active" className="item-link" to="/">
-                    TRANG CHỦ
+                    <Trans>header_menu_home</Trans>
                 </NavLink>
             </li>
             <li className="item">
                 <NavLink activeClassName="active" className="item-link" to="/project/selling"
                 >
-                    ĐANG BÁN
+                    <Trans>header_menu_selling</Trans>
                 </NavLink>
             </li>
             <li className="item">
                 <NavLink activeClassName="active" className="item-link" to="/project/coming_soon">
-                    SẮP BÁN
+                    <Trans>header_menu_willsell</Trans>
                 </NavLink>
             </li>
             <li className="item">
                 <NavLink activeClassName="active" className="item-link" to="/transactionLevel">
-                    SÀN GIAO DỊCH
+                    <Trans>header_menu_exchanges</Trans>
                 </NavLink>
             </li>
             <li className={`item hasChild dropdown d-none d-md-block ${inHoverNav ? "open": ''}`} >
@@ -42,7 +48,7 @@ const MenuLeft = (props) => {
                     className="item-link dropdown-toggle"
                     to="/support"
                 >
-                    HỔ TRỢ
+                    <Trans>header_menu_support</Trans>
                 </NavLink>
                 <ul className="header_menu--child dropdown-menu" onMouseLeave={() => setHoverNav(false)}>
                     <li className="item-child">
@@ -50,7 +56,7 @@ const MenuLeft = (props) => {
                             className="item-child-link"
                             to="/shoppingGuide"
                         >
-                            Hướng dẫn mua
+                            <Trans>header_menu_buying_guide</Trans>
                         </NavLink>
                     </li>
                     <li className="item-child">
@@ -58,7 +64,7 @@ const MenuLeft = (props) => {
                             className="item-child-link"
                             to="/legal"
                         >
-                            Pháp lý
+                            <Trans>header_menu_juridical</Trans>
                         </NavLink>
                     </li>
                     <li className="item-child">
@@ -66,7 +72,7 @@ const MenuLeft = (props) => {
                             className="item-child-link"
                             to="/news"
                         >
-                            Tin tức
+                            <Trans>header_menu_news</Trans>
                         </NavLink>
                     </li>
                     <li className="item-child">
@@ -74,7 +80,7 @@ const MenuLeft = (props) => {
                             className="item-child-link"
                             to="/contact"
                         >
-                            Liên hệ
+                            <Trans>header_menu_contact</Trans>
                         </NavLink>
                     </li>
                 </ul>
@@ -82,7 +88,7 @@ const MenuLeft = (props) => {
             <li className="item header_register-mb d-block d-md-none hasChild">
                 <Link className="item-link" to="/demo">
                     <i className="pr-1 fas fa-user-circle" />
-                    HỔ TRỢ
+                    <Trans>header_menu_support</Trans>
                 </Link>
                 <ul className="header_menu--child accordion">
                     <li className="item-child">
@@ -90,7 +96,7 @@ const MenuLeft = (props) => {
                             className="item-child-link"
                             to="/demo"
                         >
-                            Hướng dẫn mua
+                            <Trans>header_menu_buying_guide</Trans>
                         </Link>
                     </li>
                     <li className="item-child">
@@ -98,7 +104,7 @@ const MenuLeft = (props) => {
                             className="item-child-link"
                             to="/demo"
                         >
-                            Pháp lý
+                            <Trans>header_menu_juridical</Trans>
                         </Link>
                     </li>
                     <li className="item-child">
@@ -106,7 +112,7 @@ const MenuLeft = (props) => {
                             className="item-child-link"
                             to="/demo"
                         >
-                            Tin tức
+                            <Trans>header_menu_news</Trans>
                         </Link>
                     </li>
                     <li className="item-child">
@@ -114,21 +120,21 @@ const MenuLeft = (props) => {
                             className="item-child-link"
                             to="/demo"
                         >
-                            Liên hệ
+                            <Trans>header_menu_contact</Trans>
                         </Link>
                     </li>
                 </ul>
             </li>
             <li className="item">
                 <NavLink activeClassName="active" className="item-link" to="/promotion">
-                    KHUYẾN MÃI
-                    <img src="../images/gift.png" class="gift" />
+                    <Trans>header_menu_promotion</Trans>
+                    <img src={`${IMAGE_URL}images/gift.png`} class="gift" />
                 </NavLink>
             </li>
             <li className="item d-flex justify-content-between d-md-none">
                 <Link to="/#" className="item-link pr-0">
                     <i className="pr-1 fas fa-comments" />
-                    Tư vấn
+                    <Trans>header_menu_advisory</Trans>
                 </Link>
                 <div className="header_mb_ultilites d-flex justify-content-center align-items-center">
                     <Link to="/#" className="item-utility">
@@ -138,22 +144,22 @@ const MenuLeft = (props) => {
                         <i className="icon fas fa-cart-plus" />
                     </Link>
                     <div className="item-utility dropdown languages">
-                        <Link to="/demo">
-                            <img src="../images/lang_vn.jpg" alt="languages" />
+                        <button className="dropdown-toggle">
+                            <img src={`${IMAGE_URL}images/lang_vi.jpg`} alt="languages" />
                             <i className="icon_arrow fas fa-chevron-down" />
-                        </Link>
+                        </button>
                         <ul className="dropdown-menu pull-right">
                             <li>
-                                <Link to="/#">
-                                    <img src="../images/lang_en.png" width={16} height={16} />
+                                <button className="language_link">
+                                    <img src={`${IMAGE_URL}images/lang_en.jpg`} />
                                     <span>English</span>
-                                </Link>
+                                </button>
                             </li>
                             <li className="active">
-                                <Link to="/#">
-                                    <img src="../images/lang_china.png" width={16} height={16} />
+                                <button className="language_link">
+                                    <img src={`${IMAGE_URL}images/lang_china.jpg`} />
                                     <span>China</span>
-                                </Link>
+                                </button>
                             </li>
                         </ul>
                     </div>
