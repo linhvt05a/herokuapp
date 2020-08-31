@@ -4,7 +4,7 @@ const home = {
     search: "TÌM KIẾM",
     search_project_by: "Tìm kiếm dự án theo",
     range_of_price: "Phạm vi giá ( tỷ đồng )",
-    range_of_area: "Diện tích (m2)",
+    range_of_area: "Diện tích",
     province: "Tỉnh / thành phố",
     district: "Quận / huyện",
     select_progress: "Chọn tiến độ",

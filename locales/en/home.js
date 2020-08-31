@@ -4,7 +4,7 @@ export default {
     search: "SEARCH",
     search_project_by: "Search project by",
     range_of_price: "Range of price ( Billion VND)",
-    range_of_area: "Area (m2)",
+    range_of_area: "Area",
     province: "Province / City",
     district: "District",
     select_progress: "Select progress",

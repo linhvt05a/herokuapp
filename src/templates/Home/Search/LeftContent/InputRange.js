@@ -28,7 +28,7 @@ const InputRange = (props) => {
             </div>
             <div className="range_item area">
                 <label className="label">
-                    <Trans>range_of_area</Trans>
+                    <Trans>range_of_area</Trans> (m<sup>2</sup>)
                 </label>
                 <div className="slider-wrapper">
                     <SliderRange defaultValue={[minmaxList.area_min, minmaxList.area_max]} min={0} max={1000000} range={true} changeRange={changeAcreage} />
