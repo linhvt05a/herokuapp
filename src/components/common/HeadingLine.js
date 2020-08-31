@@ -44,7 +44,7 @@ const HeadingLine = (props) => {
                         <Trans>home_selling</Trans>
                     </a>
                     <a name={2} className={projectStatus === 2 ? "status done active" : "status done"} onClick={onStatusClick}>
-                        <Trans>home_comming_soon</Trans>
+                        <Trans>home_coming_soon</Trans>
                     </a>
                 </div>
             }
