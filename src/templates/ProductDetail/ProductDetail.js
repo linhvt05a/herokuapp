@@ -13,7 +13,7 @@ const ProductDetail = (props) => {
     const { id } = useParams();
     
     useEffect(() => {
-        dispatch(productDetailAction.ProductLoadList({ product_id:id, tab_include:`["detail","price","image","layout","document","history"]`}))
+        dispatch(productDetailAction.ProductDetailLoadList({ product_id:id, tab_include:`["detail","price","image","layout","document","history"]`}))
     }, [])
 
     const data = useSelector(state => state.productDetailReducer.List.detail);

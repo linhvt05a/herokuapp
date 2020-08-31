@@ -1,11 +1,11 @@
 const actions = {
 
-    PRODUCT_LOAD_LIST: name + 'PRODUCT_LOAD_LIST',
-    PRODUCT_LIST_FAILURE: name + 'PRODUCT_LIST_FAILURE',
-    PRODUCT_LIST_SUCCESS: name + 'PRODUCT_LIST_SUCCESS',
+    PRODUCT_DETAIL_LOAD_LIST: name + 'PRODUCT_DETAIL_LOAD_LIST',
+    PRODUCT_DETAIL_LIST_FAILURE: name + 'PRODUCT_DETAIL_LIST_FAILURE',
+    PRODUCT_DETAIL_LIST_SUCCESS: name + 'PRODUCT_DETAIL_LIST_SUCCESS',
 
-    ProductLoadList: (params) => ({
-        type: actions.PRODUCT_LOAD_LIST,
+    ProductDetailLoadList: (params) => ({
+        type: actions.PRODUCT_DETAIL_LOAD_LIST,
         params: params
     }),
 

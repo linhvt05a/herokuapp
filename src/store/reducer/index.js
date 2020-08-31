@@ -15,10 +15,11 @@ import contactReducer from './contactReducer'
 import juridicalSupportReducer from './juridicalSupportReducer'
 import newsFilterReducer from './newsFilterReducer'
 import visitorReducer from './visitorReducer'
+import productDetailReducer from './productDetailReducer'
 import { combineReducers } from 'redux';
 
 const allReducers = combineReducers({
-    examReducer, projectReducer, productReducer,commonReducer,transactionReducer,
+    examReducer, projectReducer, productReducer,commonReducer,transactionReducer,productDetailReducer,
     visitRegisterReducer, promotionReducer,
     newsReducer, newsDetailReducer, hotNewsReducer,
     productListReducer, productSignupReducer, productIncentiveReducer,
