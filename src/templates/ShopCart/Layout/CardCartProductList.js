@@ -5,7 +5,7 @@ import { ItemProjectName, ItemProjectProduct } from '../Item/index'
 
 const CardCartProductList = (props) => {
 
-    const { showPaymentProgressModal } = props
+    const { showPaymentProgressModal, showPromotionModal } = props
 
     return (
         <div className="col-12 col-sm-12 col-lg-8 main-cart__order">
@@ -18,8 +18,8 @@ const CardCartProductList = (props) => {
             </div>
             <ItemProjectName />
             <div className="block bg_white apartment">
-                <ItemProjectProduct showPaymentProgressModal={showPaymentProgressModal} />
-                <ItemProjectProduct showPaymentProgressModal={showPaymentProgressModal} />
+                <ItemProjectProduct showPaymentProgressModal={showPaymentProgressModal} showPromotionModal={showPromotionModal} />
+                <ItemProjectProduct showPaymentProgressModal={showPaymentProgressModal} showPromotionModal={showPromotionModal} />
             </div>
         </div>
     )

@@ -20,7 +20,6 @@ const Categories = (props)=>{
             )
         }
     </ul>
-    
     )
 }
 

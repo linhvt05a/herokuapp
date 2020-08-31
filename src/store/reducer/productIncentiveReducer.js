@@ -1,7 +1,8 @@
 import { productIncentivesAction } from '../action';
 
 const initialState = {
-    productIncentive: [{
+    productIncentive: {"success":true, "detail": [
+      {
         id:1, 
         title: 'Thanh toán 30% căn hộ A01 - Royal Garden', 
         time:' Từ: 02/03/2020 - Đến: 02/06/2020', 
@@ -24,7 +25,9 @@ const initialState = {
         pro1:'Giảm 2% giá trị',
         pro2:'Tặng 1 lượng vàng 9999',
         pro3:'Tặng gói bảo trì 1 năm căn hộ'
-      }]
+      }
+    ]
+  }
 
 };
 

@@ -17,13 +17,18 @@ import transactionSaga from './transactionSaga';
 import newsFilterSaga from './newsFilterSaga'
 import visitorSaga from './visitorSaga'
 import productDetailSaga from './productDetailSaga'
+import newsCategoriesSaga from './newsCategoriesSaga'
+import projectSelectSaga from './projectSelectSaga'
+import legalCategoriesSaga from './legalCategoriesSaga';
+import legalListSaga from './legalListSaga'
 function* allSaga() {
   yield all([
     examSaga(), projectSaga(), commonSaga(), productSaga(), visitRegisterSaga(), transactionSaga(),
     newsSaga(), promotionSaga(), newsDetailSaga(), hotNewsSaga(),
     productListSaga(), productSignupSaga(), productIncentiveSaga(),
     contactAddSaga(), juridicalSupportSaga(), newsFilterSaga(), visitorSaga(),
-    productDetailSaga()
+    productDetailSaga(), newsCategoriesSaga(), projectSelectSaga(), 
+    legalCategoriesSaga(), legalListSaga()
   ]);
 }
 

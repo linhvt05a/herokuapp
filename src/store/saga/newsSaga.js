@@ -7,6 +7,7 @@ export function* newsList(payload) {
     try {
         const response = yield newsService.newsList(payload);
         response.success ? yield put({ type: newsAction.LOAD_LIST_SUCCESS, response }) : yield put({ type: newsAction.LOAD_LIST_FAILURE, response });
+        console.log(response)
     } catch (err) {
         yield put({ type: newsAction.LOAD_LIST_FAILURE, err });
     }
