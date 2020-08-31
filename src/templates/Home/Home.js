@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { ItemHomeProject } from './Item/index'
 import { Trans } from "react-i18next";
-import CardNews from '../../components/common/CardNews'
 import { Link } from "react-router-dom";
+
+import CardNews from '../../components/common/CardNews'
+import CardOverView from '../../components/common/Overview'
 import HeadingLine from '../../components/common/HeadingLine'
-import { CardSaleFlash, CardOverView, CardHotProduct } from "./Layout/index";
+import CardNoData from '../../components/common/CardNoData';
+
+import { ItemHomeProject } from './Item/index'
+import { CardSaleFlash, CardHotProduct } from "./Layout/index";
 import { MapHome } from "../../components/common/Map/index";
 import { projectAction, productAction } from "../../store/action/index";
-import CardNoData from '../../components/common/CardNoData';
 import { LocationView, YourPosition } from "./Location/index";
 import { OnMapPoligon } from "./Search/index";
 

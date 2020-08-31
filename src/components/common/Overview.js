@@ -31,13 +31,10 @@ const OverView = (props) => {
             <div className="container container-sm container-md">
 
                 <h2 className="overview_heading">
-                    <Trans>Tổng quan Minerva</Trans>
+                    <Trans>introduce_overview_heading</Trans>
                     <span className="sub">
                         <Trans>
-                            Minerva phát triển các mảng bất động sản có áp
-                            dụng các công nghệ thông minh hiện nay. Giúp mọi
-                            người có cuộc sống thoải mái và tiện nghi với
-                            công nghệ
+                            introduce_overview_sub
                         </Trans>
                     </span>
                 </h2>

@@ -6,9 +6,10 @@ import base from './vi/base';
 import product_detail from './vi/product_detail';
 import transaction_level from './vi/transaction_level';
 import cart from './vi/cart';
+import introduce from './vi/introduce';
 
 const vi = {
-    ...home, ...promotion, ...project, ...product, ...base, ...product_detail, ...transaction_level, ...cart
+    ...home, ...promotion, ...project, ...product, ...base, ...product_detail, ...transaction_level, ...cart,...introduce
 }
 
 export default vi;
