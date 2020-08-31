@@ -16,4 +16,12 @@ export default {
     cart_product_provisional: "Sản phẩm tạm tính",
     cart_deposit_proceed: "Tiến hành đặt cọc",
     cart_listed_amount_total: "Tổng tiền niêm yết",
+    cart_deposit_amount: "Số tiền cọc",
+    cart_dong: "đồng",
+    cart_discount: "Được chiết khấu",
+    cart_discount_amount_1: "Số tiền chiết khấu",
+    cart_payment_amount: "Tổng tiền thanh toán",
+    cart_product_incentives: "Những ưu đãi khách hàng có được khi mua sản phẩm này như sau:",
+    cart_converted_to_money: "Quy đổi thành tiền",
+    cart_choose_the_form : "Bạn hãy chọn lại một hình thức:",
 }

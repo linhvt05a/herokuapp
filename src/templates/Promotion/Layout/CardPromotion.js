@@ -10,7 +10,23 @@ const CardPromotion = (props) => {
     const settings = {
         infinite: true,
         slidesToShow: 3,
-        slidesToScroll: 1
+        slidesToScroll: 1,
+        responsive: [
+            {
+                breakpoint: 991,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2
+                }
+            },
+            {
+                breakpoint: 767,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+        ]
     };
 
     return (
@@ -18,7 +34,7 @@ const CardPromotion = (props) => {
             <div className="container container-sm container-md">
                 <HeadingLine headerBodyClassName={headerBodyClassName} labelHeader={labelHeader} options={options ? options : undefined} readmore={readmore ? readmore : undefined} />
                 {
-                    banner ? <img src="/assets/images/sale_banner.png" style={{width: "100%", marginBottom: "40px"}}></img> : ""
+                    banner ? <img src="../images/sale_banner.png" style={{width: "100%", marginBottom: "40px"}}></img> : ""
                 }
                 <div className="striking_apartment--content">
                     {
