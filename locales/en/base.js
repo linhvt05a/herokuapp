@@ -23,5 +23,9 @@ export default {
     phone_number: "Phone number*",
     email: "Email*",
     please_enter_the_content: "Please enter the content*",
-    insert_content_and_enter_to_send: "Insert content and Enter to send"
+    insert_content_and_enter_to_send: "Insert content and Enter to send",
+    end_chat: "Do you want to end the conversation ?",
+    title_end_chat: "Do you really want to end the conversation with us.",
+    end_button: "End",
+    back_button: "Back"
 }

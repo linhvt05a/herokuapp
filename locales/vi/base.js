@@ -23,5 +23,9 @@ export default {
     phone_number: "Số điện thoại*",
     email: "Email*",
     please_enter_the_content: "Nội dung cần giải đáp*",
-    insert_content_and_enter_to_send: "Nhập nội dung và Enter để gửi"
+    insert_content_and_enter_to_send: "Nhập nội dung và Enter để gửi",
+    end_chat: "Bạn muốn kết thúc trò chuyện ?",
+    title_end_chat: "Bạn có thực sự muốn kết thúc cuộc trò chuyện với chúng tôi.",
+    end_button: "Kết thúc",
+    back_button: "Quay lại"
 }
