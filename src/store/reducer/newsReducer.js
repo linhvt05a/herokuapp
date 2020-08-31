@@ -1,7 +1,7 @@
 import {newsAction } from '../action';
 
 const initialState = {
-    newsList: [ {
+    newsList: [{
         id: 1,
         title: 'Mở bán khu biệt thự cao cấp ở Quận 7 , Tp.HCM',
         description: 'Quỹ đất nội thành ngày càng khan hiếm, cộng với quá trình rà soát lại khiến thịtrường bất động sản lớn nhất nước rơi vào tình trạng cung giảm',
