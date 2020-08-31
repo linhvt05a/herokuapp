@@ -6,7 +6,7 @@ import Slider from "react-slick";
 
 const CardNews = (props) => {
     const{data} = props
-    const latest_news = data.slice(0)
+    const latest_news = data
     const settings = {
         infinite: true,
         slidesToShow: 3,
