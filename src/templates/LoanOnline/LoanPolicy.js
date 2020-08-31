@@ -1,12 +1,11 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import HeadingFilter from '../../components/common/HeadingLine';
 import MutiSlider from '../../components/common/MutiSlider';
 import { FloatingRates } from './FloatingRates';
-import { SidebarRight } from './SidebarRight/SidebarRight';
 import { InputLoanNumber } from './LoanContainer/InputLoanNumber';
 import { InterestDebtForm } from './LoanContainer/InterestDebtForm';
-import HeadingFilter from '../../components/common/HeadingLine';
-import { useDispatch } from 'react-redux';
-import { loanPolicyAction } from "./../../store/action";
+import { SidebarRight } from './SidebarRight/SidebarRight';
 
 const LoanPolicy = () => {
 
