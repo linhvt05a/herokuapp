@@ -4,9 +4,9 @@ import { visitorAction } from '../action';
 
 
 export function* visitorAdd(payload) {
-
     try {
         const response = yield visitorService.visitorAdd(payload);
+        console.log(response)
         response.success ? yield put({ type: visitorAction.LOAD_LIST_SUCCESS, response }) : yield put({ type: visitorAction.LOAD_LIST_FAILURE, response });
     } catch (err) {
         yield put({ type: visitorAction.LOAD_LIST_FAILURE, err });

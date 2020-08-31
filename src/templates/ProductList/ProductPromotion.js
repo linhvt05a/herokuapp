@@ -4,7 +4,7 @@ import { Trans } from "react-i18next";
 const ProductPromotion = (props) => {
   const{data} = props
   return (
-    <div className="col-12 col-sm-12 col-md-6 col-lg-12">
+    <div className="col-12 col-sm-12 col-md-6 col-lg-12" style={{marginTop: 45}}>
       <div className="incentives mt-0">
         <div className="incentives__heading"><Trans>Incentives</Trans></div>
         <div className="tab-content">

@@ -4,7 +4,7 @@ import FilterTransaction from './FilterTransaction';
 import SortAccordion from './SortAccordion';
 
 const SideBarRight = (props) => {
-        const { data, onFilterClick, inputSelectDatas, sliderDatas, onPageChange } = props;
+        const { data, onFilterClick, inputSelectDatas, sliderDatas, onPageChange, blockName } = props;
 
         const [state, setState] = useState({
             active: false
@@ -21,7 +21,7 @@ const SideBarRight = (props) => {
                 <div className="col-12 col-sm-12 col-lg-4">
                     <div className="exchanges_filter">
                         <div className="heading">
-                            <span className="title">Sản phẩm khối B</span>
+                            <span className="title">Sản phẩm khối {blockName}</span>
                             <span className="icon_filter fas fa-filter" onClick={handleClick} />
                         </div>
                         <FilterTransaction isStatusActive={state.active}

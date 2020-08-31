@@ -1,0 +1,32 @@
+.header {
+    .languages{
+        button{
+            border: none;
+            background-color: transparent;
+            outline: none;
+            box-shadow: none;
+            width: 100%;
+        }
+        .language_link{
+            padding: 10px 15px;
+        }
+    }
+    .header_menu{
+        @include flex-wrap(wrap);
+        .logo {
+            .item-link::before{
+                display: none;
+            }
+        }
+    }
+    .header_border{
+        @include flex-wrap(wrap);
+        
+        @media (max-width: 767px){
+            height: auto !important;
+            transform: none !important;
+            height: auto !important;
+            opacity: 1 !important;
+        }
+    }
+}

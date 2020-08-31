@@ -16,4 +16,12 @@ export default {
     cart_product_provisional: "Product provisional",
     cart_deposit_proceed: "Deposit proceed",
     cart_listed_amount_total: "Listed amount total",
+    cart_deposit_amount: "Deposit amount",
+    cart_dong: "dong",
+    cart_discount: "Discount",
+    cart_discount_amount_1: "Discount amount",
+    cart_payment_amount: "Payment amount",
+    cart_product_incentives: "The incentives that customers get when buying this product are as follows:",
+    cart_converted_to_money: "Converted to money",
+    cart_choose_the_form : "Please select a form again:",
 }

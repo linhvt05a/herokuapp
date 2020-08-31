@@ -1,6 +1,6 @@
-import {Link} from "react-router-dom";
 import React from "react";
 import Slider from "react-slick";
+import { Trans } from "react-i18next";
 
 import Block03Slider from '../Slider/block03Slider';
 
@@ -75,7 +75,7 @@ const Block03 = (props) => {
             <div className="container container_block_leadership">
                 <div className="container container-sm container-md">
                     <h3 className="main_heading">
-                        <span>Ban lãnh đạo</span>
+                        <span> <Trans>introduce_leadership_heading</Trans></span>
                     </h3>
                     <div className="leadership">
                         <Slider {...block03Settings}>

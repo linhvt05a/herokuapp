@@ -5,6 +5,9 @@
     z-index: 6;
     max-width: 300px;
     width: 100%;
+    @media (max-width: 767px){
+        max-width: 245px;
+    }
     &__item{
         &:not(:last-child){
             margin-bottom: 10px;
@@ -27,6 +30,10 @@
         padding-left: 10px;
         max-height: 45px;
         overflow: hidden;
+        @media (max-width: 767px){
+            font-size: 12px;
+            max-height: 32px;
+        }
     }
     &__icon{
         width: 45px;
@@ -36,13 +43,19 @@
         @include flexbox;
         @include align-items(center);
         @include justify-content(center);
+        @media (max-width: 767px){
+            width: 30px;
+            height: 30px;
+        }
         img{
-            
             width: 100%;
         }
         &_img{
             max-width: 28px;
             margin: 0 auto; 
+            @media (max-width: 767px){
+                max-width: 18px;
+            }
         }
     }
 }

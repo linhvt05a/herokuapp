@@ -27,5 +27,11 @@ export default {
     end_chat: "Bạn muốn kết thúc trò chuyện ?",
     title_end_chat: "Bạn có thực sự muốn kết thúc cuộc trò chuyện với chúng tôi.",
     end_button: "Kết thúc",
-    back_button: "Quay lại"
+    back_button: "Quay lại",
+    save: "Lưu",
+
+    // languages 
+    lang_vi : 'Việt Nam',
+    lang_en : 'Tiếng Anh',
+    lang_cn : 'Tiếng Trung',
 }

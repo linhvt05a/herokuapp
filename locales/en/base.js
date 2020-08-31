@@ -27,5 +27,11 @@ export default {
     end_chat: "Do you want to end the conversation ?",
     title_end_chat: "Do you really want to end the conversation with us.",
     end_button: "End",
-    back_button: "Back"
+    back_button: "Back",
+    save: "Save",
+
+    // languages 
+    lang_vi : 'VietNamese',
+    lang_en : 'English',
+    lang_cn : 'China',
 }

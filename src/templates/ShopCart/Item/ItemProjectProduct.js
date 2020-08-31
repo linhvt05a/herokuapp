@@ -5,10 +5,14 @@ import { Trans } from 'react-i18next';
 
 const ItemProjectProduct = (props) => {
 
-    const { showPaymentProgressModal } = props
+    const { showPaymentProgressModal, showPromotionModal } = props
 
     const showPaymentProgress = () => {
         showPaymentProgressModal(true)
+    }
+
+    const showPromotion = () => {
+        showPromotionModal(true)
     }
 
     return (
@@ -86,7 +90,7 @@ const ItemProjectProduct = (props) => {
                                     </div>
                                 </div>
                                 <div className="icon">
-                                    <i className="fas fa-gift icon-gift" />
+                                    <i className="fas fa-gift icon-gift" onClick={showPromotion} />
                                 </div>
                             </div>
                         </div>
