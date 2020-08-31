@@ -1,15 +1,14 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+import { Trans } from "react-i18next";
 
 const NavLeft = (props) => {
     return (
         <div className="header_promotion">
             <div className="text">
                 <span className="highlight">
-                    Tin khuyến mãi
+                    <Trans>header_promotion_text_highlight</Trans>
                 </span>
-                : Mua căn hộ dự án VTP được giảm 5% trong
-                tháng 3. Chỉ cần nhập mã giảm giá VTP0190
+                <Trans>header_promotion_text</Trans>
             </div>
         </div>
     )

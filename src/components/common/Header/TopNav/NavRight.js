@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
+import { Trans } from "react-i18next";
+
 import i18n from '../../../../i18n';
 
 import {IMAGE_URL} from '../../../../contant'
@@ -23,7 +25,7 @@ const NavRight = (props) => {
             <li className="chat">
                 <Link to="/#" onClick={() => setShowAdvisory(!show)}>
                     <i className="fas fa-comments" />
-                    Tư vấn
+                    <Trans>header_menu_advisory</Trans>
                 </Link>
             </li>
             <li className="phone">
@@ -51,7 +53,7 @@ const NavRight = (props) => {
                                     alt="languages vietnamese"
                                     src={`${ IMAGE_URL }images/lang_vi.jpg`}
                                 />
-                                <span>Vietnamese</span>
+                                <span><Trans>lang_vi</Trans></span>
                             </button>
                         </li>
                         <li className={`${langCurrent == 'en' ? 'd-none' : '' }`} >
@@ -60,7 +62,7 @@ const NavRight = (props) => {
                                     alt="languages english"
                                     src={`${ IMAGE_URL }images/lang_en.jpg`}
                                 />
-                                <span>English</span>
+                                <span><Trans>lang_en</Trans></span>
                             </button>
                         </li  >
                         <li className={`${langCurrent == 'cn' ? 'd-none' : '' }`}>
@@ -69,7 +71,7 @@ const NavRight = (props) => {
                                     alt="languages china"
                                     src={`${ IMAGE_URL }images/lang_cn.jpg`}
                                 />
-                                <span>China</span>
+                                <span><Trans>lang_cn</Trans></span>
                             </button>
                         </li>
                     </ul>

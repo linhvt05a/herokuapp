@@ -16,4 +16,9 @@ export default {
     flashSaleList_banner_title: "Danh sách bán hàng nhanh",
     customer_account_banner_title: "Tài khoản khách hàng",
     save: "Lưu",
+
+    // languages 
+    lang_vi : 'Việt Nam',
+    lang_en : 'Tiếng Anh',
+    lang_cn : 'Tiếng Trung',
 }

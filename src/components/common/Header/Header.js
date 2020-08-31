@@ -13,8 +13,12 @@ function Header() {
     const [inHover, setHover] = useState(false);
     const [scrolling, setScrolling] = useState(false);
     const [scrollTop, setScrollTop] = useState(0);
+    const [isMBToggle, setMBToggle] = useState(false);
 
     useEffect(() => {
+
+        console.log(isMBToggle);
+
         const onScroll = e => {
           setScrollTop(e.target.documentElement.scrollTop);
           setScrolling(e.target.documentElement.scrollTop > scrollTop);
@@ -37,11 +41,14 @@ function Header() {
             <div className="container container-sm container-md">
                 <div className="header_wrap">
                     <Logo />
-                    <MenuLeft />
+                    <button class="mb_toggle" onClick={() => setMBToggle(!isMBToggle)}>
+                        <span></span>
+                    </button>
+                    <MenuLeft active={isMBToggle} />
                     <MenuRight />
                 </div>
             </div>
-            <div className="modal-background" />
+            <div className={`modal-background ${isMBToggle ? 'active' : ''}`} />
         </header>
     );
 }

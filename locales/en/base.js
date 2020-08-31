@@ -15,5 +15,14 @@ export default {
     promotion_banner_title: "Promotion",
     flashSaleList_banner_title: "Flash Sale List",
     customer_account_banner_title: "Customer Account",
+<<<<<<< HEAD
     save: "Save",
+=======
+
+
+    // languages 
+    lang_vi : 'VietNamese',
+    lang_en : 'English',
+    lang_cn : 'China',
+>>>>>>> dev_uyendo
 }
