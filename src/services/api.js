@@ -20,6 +20,8 @@ export default {
     
     PROJECT_LIST: "/api/main_web/v1/project/",
     PRODUCT_LIST:"/api/main_web/v1/infrastructure/product/list/",
+    PROJECT_SELECT:"",
+    
     PRODUCT_SIGNUP:"",
     PRODUCT_INCENTIVE:"",
     HOT_PRODUCT_LIST: "/api/main_web/v1/infrastructure/product/highlight/list/",
@@ -34,6 +36,8 @@ export default {
     STATUS_LIST: "/api/be/v1/common/project/status",
     MINMAX_LIST: "/api/main_web/v1/project/min_max",
 
+    LEGAL_CATEGORIES: "",
+    LEGAL_LIST: "",
     
 
     VISIT_REGISTER :"/api/main_web/v1/register_visit/",
@@ -41,6 +45,7 @@ export default {
     NEWS_LIST:"",
     NEWS_DETAIL:"",
     HOT_NEWS : "",
+    NEWS_CATEGORIES:"",
 
     JURIDICAL_ADD:"",
     

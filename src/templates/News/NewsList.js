@@ -1,33 +1,103 @@
 import React, { useState, useEffect} from "react";
 import { Link } from "react-router-dom";
 import TopBanner from "../../components/common/Header/TopBanner";
-import { Categories, FilterProject } from '../News/index'
+import { Categories, FilterProject, CommonMenu } from '../News/index'
 import RegisterModal from "./RegisterModal";
 import { Trans } from "react-i18next";
 import Pagination from '../../components/common/Pagination';
 import { LoadDataPaging } from '../../functions/Utils';
 import { useDispatch, useSelector } from "react-redux";
-import { newsAction, commonAction, newsFilterAction } from "../../store/action/index";
+import { newsAction, commonAction, newsFilterAction, newsCategoriesAction } from "../../store/action/index";
+import {CommonFilter} from '../News/index'
+import moment from 'moment';
 
-const data = { img: 'project.jpg' }
+const defaultValue = [{value:'', label:'Categories'}]
 
-
-const cateTitle = [{id:1, title:'Market'}, {id:2,title:'Department'},{id:3,title:'House'}, {id:4,title:'Analysis report'}, {id:5,title:'Category 01'}]
 const News = () => {
-    const[totalItem, setTotalItem] = useState(0)
-    const[currentPage, setCurrentPage] = useState(0)
-    const[totalPage, setTotalPage] = useState(0)
-    const[itemOnPage, setItemOnPage] = useState(0)
+    const[projectSelectList,setProjectList] = useState(null)
+    const[nameSearch, setName] = useState('')
+    const[cateID, setCateId] = useState('')
+    const[dateFrom, setDateFrom] = useState('')
+    const[dateTo, setDateTo] = useState('')
+    const [navigate, setNavigate] = useState({})
 
     const news = useSelector(state => state.newsReducer);
     const newsListSuccess = news.newsList.success
     const newsList = newsListSuccess ? news.newsList.detail : null;
+
+    const newRecord = newsListSuccess ? news.newsList : null
+
+    const newsCates = useSelector(state => state.newsCategoriesReducer);
+    const newsCateSuccess = newsCates.newsCate.success
+    const newsCategories = newsCateSuccess ? newsCates.newsCate.detail : null;
+
+    const projectSelect = useSelector(state => state.projectSelectReducer);
+    const projectSelectSuccess = projectSelect.projectList.success
+    const projectList = projectSelectSuccess ? projectSelect.projectList.detail : null;
+
+    const total_page = newRecord && newRecord != null ? newRecord.total_page : null
+    const total_record =newRecord && newRecord != null ? newRecord.total_record: null
+    const page = newRecord && newRecord != null ? newRecord.page: null
+    const limit = 0
     const dispatch = useDispatch();
     
+    const createData = (value, label) => {
+        return { value, label }
+    }
+
+    useEffect(() => {
+        if (projectList && projectList.length > 0) {
+            let newData = [];
+            projectList.map((item) => {
+                newData.push(createData(item.id, item.name))
+            })
+            setProjectList(newData)
+        }
+    }, [projectList]);
 
     useEffect(() => {
         dispatch(newsAction.LoadNewsList({}));
+        dispatch(newsCategoriesAction.newsCategories({}))
     }, []);
+
+    const onPageChange = (value) =>{
+        dispatch(newsAction.LoadNewsList({page: value, limit: 10}))
+    }
+    const handleChange = (e) =>{
+        const value = e.target.value
+        setName(value)
+    }
+
+    const changeSelect = (value) =>{
+        setCateId(value)
+    }
+
+    const changeDateFrom = (value) =>{
+        convertDateFrom(value)
+    }
+
+    const changeDateTo = (value) =>{
+        convertDateTo(value)
+    }
+
+    const handleFilter = () =>{
+        dispatch(newsFilterAction.filterNews({nameSearch, cateID, dateFrom, dateTo}))
+    }
+
+    function convertDateTo(value){
+        const date = moment(value).format('DD/MM/YYYY')
+        setDateTo(date)
+        return date
+    }
+    function convertDateFrom(value){
+        const date = moment(value).format('DD/MM/YYYY')
+        setDateFrom(date)
+        return date
+    }
+
+    const handleClick = (id) =>{
+        setNavigate(id)
+    }
     return (
         <div className="news">
             <div className="container container-sm container-md">
@@ -39,11 +109,26 @@ const News = () => {
                         <div className="row_content">
                             {newsList && newsList.map((news, index) => <RowNews data={news} key={news.id}/>)}
                         </div>
-                        <Pagination data={LoadDataPaging(totalItem, currentPage, totalPage, itemOnPage)} />
+                        <Pagination data={LoadDataPaging(total_record, page, total_page, limit)} onChange ={onPageChange}/>
                     </div>
                     <div className="col-md-12 col-lg-4 col-xl-4 col-right_news mb-sm-3 mb-0">
-                        <Categories cateTitle={cateTitle} label="Categories"/>
-                        <FilterProject />
+                        <CommonMenu 
+                            label="Categories" 
+                            dataMenu={newsCategories} 
+                            className="options mb-4 bg_white" onClick = {handleClick}
+                            navigate ={navigate}
+                        />
+                        <CommonFilter 
+                            title="Search for news" 
+                            placeholder="Enter Title"
+                            defaultValue = {cateID == "" ? defaultValue[0].label : ''}
+                            datas ={projectSelectList} 
+                            handleChange = {handleChange}
+                            changeSelect = {changeSelect}
+                            changeDateFrom ={changeDateFrom}
+                            changeDateTo={changeDateTo}
+                            handleFilter={handleFilter}
+                        />
                     </div>
                 </div>
             </div>

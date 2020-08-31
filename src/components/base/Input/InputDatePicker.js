@@ -14,7 +14,7 @@ const InputDatePicker = (props) =>{
         
     },[]);
 
-    const {placeholder, style, onChange, name, value} = props
+    const {placeholder, onChange, name, value} = props
     return(
         <DatePicker 
             defaultValue={moment(date, dateFormat)} 
@@ -22,7 +22,7 @@ const InputDatePicker = (props) =>{
             name={name} 
             format ={dateFormat} 
             placeholder={placeholder} 
-            style={style} 
+            style={{width: '100%', height: 48, marginBottom: 20}}
             onChange={onChange}
         />
     )

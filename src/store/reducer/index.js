@@ -16,6 +16,10 @@ import juridicalSupportReducer from './juridicalSupportReducer'
 import newsFilterReducer from './newsFilterReducer'
 import visitorReducer from './visitorReducer'
 import productDetailReducer from './productDetailReducer'
+import newsCategoriesReducer from './newsCategoriesReducer'
+import projectSelectReducer from './projectSelectReducer'
+import legalCategoriesReducer from './legalCategoriesReducer'
+import legalListReducer from './legalListReducer'
 import { combineReducers } from 'redux';
 
 const allReducers = combineReducers({
@@ -23,6 +27,8 @@ const allReducers = combineReducers({
     visitRegisterReducer, promotionReducer,
     newsReducer, newsDetailReducer, hotNewsReducer,
     productListReducer, productSignupReducer, productIncentiveReducer,
-    contactReducer, juridicalSupportReducer, newsFilterReducer, visitorReducer
+    contactReducer, juridicalSupportReducer, newsFilterReducer, visitorReducer,
+    newsCategoriesReducer, projectSelectReducer, 
+    legalCategoriesReducer, legalListReducer
 });
 export default allReducers; 

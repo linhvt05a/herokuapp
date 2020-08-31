@@ -7,52 +7,16 @@ import { Link } from "react-router-dom";
 import HeadingLine from '../../components/common/HeadingLine'
 import { CardSaleFlash, CardOverView, CardHotProduct } from "./Layout/index";
 import { MapHome } from "../../components/common/Map/index";
-import { projectAction, productAction } from "../../store/action/index";
+import { projectAction, productAction, hotNewsAction } from "../../store/action/index";
 import CardNoData from '../../components/common/CardNoData';
 import { LocationView, YourPosition } from "./Location/index";
 import { OnMapPoligon } from "./Search/index";
 
-const news =
-    [
-        {
-            id: 0,
-            title: 'Mở bán khu biệt thự cao cấp ở Quận 7 , Tp.HCM',
-            description: 'Quỹ đất nội thành ngày càng khan hiếm, cộng với quá trình rà soát lại khiến thịtrường bất động sản lớn nhất nước rơi vào tình trạng cung giảm',
-            time: '27/02/2020',
-            image: '../images/four-brown-wooden-chairs-2635038.jpg'
-        },
-        {
-            id: 1,
-            title: 'Mở bán khu biệt thự cao cấp ở Quận 7 , Tp.HCM',
-            description: 'Quỹ đất nội thành ngày càng khan hiếm, cộng với quá trình rà soát lại khiến thịtrường bất động sản lớn nhất nước rơi vào tình trạng cung giảm',
-            time: '27/02/2020',
-            image: '../images/four-brown-wooden-chairs-2635038.jpg'
-        },
-        {
-            id: 2,
-            title: 'Mở bán khu biệt thự cao cấp ở Quận 7 , Tp.HCM',
-            description: 'Quỹ đất nội thành ngày càng khan hiếm, cộng với quá trình rà soát lại khiến thịtrường bất động sản lớn nhất nước rơi vào tình trạng cung giảm',
-            time: '27/02/2020',
-            image: '../images/four-brown-wooden-chairs-2635038.jpg'
-        },
-        {
-            id: 3,
-            title: 'Mở bán khu biệt thự cao cấp ở Quận 7 , Tp.HCM',
-            description: 'Quỹ đất nội thành ngày càng khan hiếm, cộng với quá trình rà soát lại khiến thịtrường bất động sản lớn nhất nước rơi vào tình trạng cung giảm',
-            time: '27/02/2020',
-            image: '../images/four-brown-wooden-chairs-2635038.jpg'
-        },
-        {
-            id: 4,
-            title: 'Mở bán khu biệt thự cao cấp ở Quận 7 , Tp.HCM',
-            description: 'Quỹ đất nội thành ngày càng khan hiếm, cộng với quá trình rà soát lại khiến thịtrường bất động sản lớn nhất nước rơi vào tình trạng cung giảm',
-            time: '27/02/2020',
-            image: '../images/four-brown-wooden-chairs-2635038.jpg'
-        },
-        
-    ]
-
 const Home = (props) => {
+
+    const news = useSelector(state => state.newsReducer);
+    const newsListSuccess = news.newsList.success
+    const newsList = newsListSuccess ? news.newsList.detail : null;
 
     const project = useSelector(state => state.projectReducer);
     const product = useSelector(state => state.productReducer);
@@ -72,6 +36,7 @@ const Home = (props) => {
         // dispatch(projectAction.loadProjectList({project_sale_status: `[${state.projectStatus}]`}));
         dispatch(projectAction.loadProjectList({}));
         dispatch(productAction.loadHotProductList({}));
+       
     }, []);
 
     const onStatusClick = (e) => {
@@ -377,7 +342,7 @@ const Home = (props) => {
             {/* end app_managerment  */}
 
             {/* Latest news  */}
-            <CardNews data={news} />
+            <CardNews data={newsList} />
             {/* End Latest news  */}
         </div>
     )
