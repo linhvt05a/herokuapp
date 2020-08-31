@@ -1,12 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import { Tabs } from 'antd';
 import Parse from 'html-react-parser';
+import { Trans } from "react-i18next";
+
 
 import { DATA_INTRODUCE } from '../../../../contant'
-
-
 import Block01Slider from '../Slider/block01Slider';
 
 const Block01 = (props) => {
@@ -21,8 +20,6 @@ const Block01 = (props) => {
         slidesToScroll: 1,
         autoplay: true,
     };
-
-    console.log(DATA_INTRODUCE);
 
     const callback = (key) =>{
         // console.log(key);
@@ -46,7 +43,7 @@ const Block01 = (props) => {
                     <div className="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-5">
                         <div className="introduce_overview--right justify-content-center d-flex flex-column">
                             <h3 className="heading">
-                                Thành lập từ năm 1999
+                                <Trans>introduce_establish_text</Trans>
                             </h3>
 
                             <Tabs defaultActiveKey="1" type="card" onChange={callback}>

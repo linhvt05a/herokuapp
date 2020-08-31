@@ -1,6 +1,8 @@
 import {Link} from "react-router-dom";
 import React from "react";
 import Slider from "react-slick";
+import { Trans } from "react-i18next";
+
 
 import Block05Slider  from "../Slider/block05Slider";
 
@@ -50,10 +52,10 @@ const Block05 = (props) => {
     ]
 
     return (
-        <div className="partner">
+        <div className="partner bg_grey">
             <div className="container container-sm container-md">
                 <div className="partner__title text-center">
-                    Các đối tác
+                    <Trans>introduce_partner_heading</Trans>
                 </div>
                 <div className="partner__slider">
                     <Slider {...block05Settings}>
