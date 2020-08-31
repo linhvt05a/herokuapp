@@ -4,6 +4,8 @@ import Slider from "react-slick";
 import { Tabs } from 'antd';
 import Parse from 'html-react-parser';
 
+import { DATA_INTRODUCE } from '../../../../contant'
+
 
 import Block01Slider from '../Slider/block01Slider';
 
@@ -20,28 +22,7 @@ const Block01 = (props) => {
         autoplay: true,
     };
 
-    const datasImages = [
-        { image_url: './images/in_overview01.jpg', image_alt: "test" },
-        { image_url: './images/in_overview01.jpg', image_alt: "test" },
-        { image_url: './images/in_overview01.jpg', image_alt: "test" },
-        { image_url: './images/in_overview01.jpg', image_alt: "test" },
-        { image_url: './images/in_overview01.jpg', image_alt: "test" },
-    ]
-
-    const datasTabContent = [
-        { 
-            tab_label: 'Về chúng tôi',
-            tab_content: '<p>Được thành lập Tháng 4/2017. Công ty Minerva hoạt động trong lĩnh vực mua bán, cho thuê căn hộ, Shophouse thương mại, biệt thự tại Hồ Chí Minh với các dự án tại Bình Thạnh, Quận 1, Quận 2.<br>Với đội ngũ nhân sự cao cấp trong nhiều lĩnh vực, chúng tôi phát triển hệ thống phân phối bất động sản trực tuyến, cung cấp dịch vụ môi giới hoàn hảo, tạo ra một quá trình mua, bán, cho thuê</p><p class="mb-0">Bất động sản thông minh và hiệu suất cao, dựa trên sự kết hợp giữa công nghệ hiện đại và các chuyên viên tư vấn hàng đầu..</p>'
-        },
-        { 
-            tab_label: 'Tầm nhìn',
-            tab_content: '<p>Công ty Minerva hoạt động trong lĩnh vực mua bán, cho thuê căn hộ, Shophouse thương mại, biệt thự tại Hồ Chí Minh với các dự án tại Bình Thạnh, Quận 1, Quận 2.<br>Với đội ngũ nhân sự cao cấp trong nhiều lĩnh vực, chúng tôi phát triển hệ thống phân phối bất động sản trực tuyến, cung cấp dịch vụ môi giới hoàn hảo, tạo ra một quá trình mua, bán, cho thuê</p><p class="mb-0">Bất động sản thông minh và hiệu suất cao, dựa trên sự kết hợp giữa công nghệ hiện đại và các chuyên viên tư vấn hàng đầu..</p>'
-        },
-        { 
-            tab_label: 'Sứ mệnh',
-            tab_content: '<p>Bất động sản thông minh và hiệu suất cao, dựa trên sự kết hợp giữa công nghệ hiện đại và các chuyên viên tư vấn hàng đầu..</p>'
-        },
-    ]
+    console.log(DATA_INTRODUCE);
 
     const callback = (key) =>{
         // console.log(key);
@@ -54,9 +35,11 @@ const Block01 = (props) => {
                     <div className="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-7">
                         <div className="introduce_overview--left">
                             <Slider {...block01Settings}>
-                                {datasImages.length > 0 && datasImages.map((data, index) => {
-                                    return (<Block01Slider key={index} item={data} />)
-                                })}
+                                {
+                                    DATA_INTRODUCE.list_images.length > 0 ? DATA_INTRODUCE.list_images.map((data, index) => {
+                                        return (<Block01Slider key={index} item={data} />)
+                                    }) : null
+                                }
                             </Slider>
                         </div>
                     </div>
@@ -67,9 +50,11 @@ const Block01 = (props) => {
                             </h3>
 
                             <Tabs defaultActiveKey="1" type="card" onChange={callback}>
-                                { datasTabContent && datasTabContent.map((data, index) => {
-                                    return ( <TabPane tab={data.tab_label} key={index}> {Parse(data.tab_content)} </TabPane> )
-                                })}
+                                { 
+                                    DATA_INTRODUCE.tab_content ?  DATA_INTRODUCE.tab_content.map((data, index) => {
+                                        return ( <TabPane tab={data.tab_label} key={index}> {Parse(data.tab_content)} </TabPane> )
+                                    }) : null
+                                }
                             </Tabs>
 
                         </div>
