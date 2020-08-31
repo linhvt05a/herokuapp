@@ -159,7 +159,7 @@ function FormContact(props) {
                 <div className="header_register--heading">
                     <figure className="avatar">
                         <img
-                            src="./assets/images/avatar_logged.jpg"
+                            src="../images/avatar_logged.jpg"
                             alt="Trần Thị Thu Hoài"
                         />
                     </figure>

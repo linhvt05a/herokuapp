@@ -1,10 +1,9 @@
 import React from 'react';
 import { Trans } from 'react-i18next';
-import { Select, Form } from 'antd';
-
+import { Select } from 'antd';
 
 const InputSelect = (props) => {
-    const { className, name, value,defaultValue, label,errors, style, datas, placeholder,validSelect, onChange, isClear, classNameGroup, trans, require, onSearch, disabled, titleClassName } = props;
+    const { className, name, value, defaultValue, label, errors, style, datas, placeholder, onChange, isClear, classNameGroup, trans, require, onSearch, disabled, titleClassName } = props;
     const { Option } = Select;
     return (
         <div className={className ? className : ''}>
@@ -36,7 +35,6 @@ const InputSelect = (props) => {
                         })} /><br />
                         <span style={{color: 'red', fontSize: 12}}><Trans>{errors}</Trans></span>   
             </div>
-            
         </div>
     )
 }

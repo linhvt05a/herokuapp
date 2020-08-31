@@ -11,9 +11,44 @@ export default {
     LIMIT: 10,
 
     //EXAMPLE
-    // EXAMPLE_LIST: "https://pokeapi.co/api/v2/pokemon/ditto",
     EXAMPLE_LIST: "/api/be/v1/project/",
+    PRODUCT_DETAIL_LIST: `/api/main_web/v1/infrastructure/product/detail/`,
+    TRANSACTION_LIST: `/api/main_web/v1/infrastructure/product/trading_market/`,
+    AREA_NAME_LIST_SHORT: `/api/main_web/v1/infrastructure/area/list_short/`,
+    BLOCK_NAME_LIST_SHORT: `/api/main_web/v1/infrastructure/block/list_short/`,
+    PROJECT_NAME_LIST_SHORT: `/api/main_web/v1/infrastructure/product/selling/list/`,
+    
+    PROJECT_LIST: "/api/main_web/v1/project/",
+    PRODUCT_LIST:"/api/main_web/v1/infrastructure/product/list/",
+    PRODUCT_SIGNUP:"",
+    PRODUCT_INCENTIVE:"",
+    HOT_PRODUCT_LIST: "/api/main_web/v1/infrastructure/product/highlight/list/",
 
+    SELLING_PRODUCT_LIST: "/api/main_web/v1/infrastructure/product/selling/list/",
+    COMING_SOON_PRODUCT_LIST: "/api/main_web/v1/infrastructure/product/preparing_sell/list/",
+    PRODUCT_TYPE: "/api/main_web/v1/infrastructure/product/architecture/list/",
+
+    // COMMON 
+    PROVINCE_LIST: "/api/fe/v1/province",
+    DISTRICT_LIST: "/api/fe/v1/district",
+    STATUS_LIST: "/api/be/v1/common/project/status",
+    MINMAX_LIST: "/api/main_web/v1/project/min_max",
+
+    
+
+    VISIT_REGISTER :"/api/main_web/v1/register_visit/",
+
+    NEWS_LIST:"",
+    NEWS_DETAIL:"",
+    HOT_NEWS : "",
+
+    JURIDICAL_ADD:"",
+    
+    CONTACT_ADD : "",
+
+    FILTER_NEWS: "",
+    
+    PROMOTION_LIST:"",
 
     getHeader,
     getUrl,
@@ -23,4 +58,3 @@ export default {
 
     CONTENT_TYPE
 };
-

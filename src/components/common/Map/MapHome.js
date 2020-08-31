@@ -31,11 +31,11 @@ function MapHome(props) {
                 attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                 url=''
             /> */}
-            <Marker position={position}>
+            {/* <Marker position={position}>
                 <Popup>
                     popup <br/> Easily customizable.
                 </Popup>
-            </Marker>
+            </Marker> */}
         </Map>
     );
 }
