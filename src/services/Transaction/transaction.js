@@ -3,17 +3,54 @@ import { TOKEN } from '../../../env';
 
 export const transactionService = {
 
-    list(token, project_id = "", area_id = "", block_id="") {
+    list(token, project_id, area_id, block_id, acreage_from, acreage_to, price_from, price_to, direction_id, architecture_type_id) {
+        const requestOptions = {
+            method: 'GET',
+            headers: api.getHeader(TOKEN)
+        };
+        const params = { project_id, area_id, block_id, acreage_from, acreage_to, price_from, price_to, direction_id, architecture_type_id };
+        const url = api.getUrl(api.TRANSACTION_LIST, params);
+        console.log(url);
+        return api.handleRequest(url, requestOptions);
+    },
+
+    getProductTypeList(token) {
         const requestOptions = {
             method: 'GET',
             headers: api.getHeader(TOKEN)
         };
 
-        const params = { project_id, area_id, block_id };
-        const url = api.getUrl(api.TRANSACTION_LIST, params);
-        console.log(url);
+        const url = api.getUrl(api.PRODUCT_TYPE);
         return api.handleRequest(url, requestOptions);
-    }
+    },
 
+    getProjectNameList(token, project_id) {
+        const requestOptions = {
+            method: 'GET',
+            headers: api.getHeader(TOKEN)
+        };
+        const params = { project_id }
+        const url = api.getUrl(api.PROJECT_NAME_LIST_SHORT, params);
+        return api.handleRequest(url, requestOptions);
+    },
+
+    getAreaNameList(token, project_id) {
+        const requestOptions = {
+            method: 'GET',
+            headers: api.getHeader(TOKEN)
+        };
+        const params = { project_id }
+        const url = api.getUrl(api.AREA_NAME_LIST_SHORT, params);
+        return api.handleRequest(url, requestOptions);
+    },
+
+    getBlockNameList(token, project_id) {
+        const requestOptions = {
+            method: 'GET',
+            headers: api.getHeader(TOKEN)
+        };
+        const params = { project_id }
+        const url = api.getUrl(api.BLOCK_NAME_LIST_SHORT, params);
+        return api.handleRequest(url, requestOptions);
+    },
 };
-//  GET

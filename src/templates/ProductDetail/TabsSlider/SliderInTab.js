@@ -19,7 +19,6 @@ export default class SliderInTab extends Component {
     render() {
         const { nav1, nav2 } = this.state;
         const { itemImg }= this.props;
-        console.log(itemImg.length);
         const MAX_SLIDES = 5; 
         const infinite = itemImg? itemImg.length  > MAX_SLIDES : false;
         const settings = {
