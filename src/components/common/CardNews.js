@@ -62,28 +62,29 @@ const CardNews = (props) => {
 
 
 const NewsLoop = (props) =>{
+    const {item} = props
     return (
         <div class="latest_news--content">
             <div className="item " style={{ width: 354, marginLeft: 10}}>
                 <figure className="img">
                     <img
                         className="w-100"
-                        src={props.item.image}
+                        src={item.image}
                         alt="Mở bán khu biệt thự cao cấp ở Quận 7 , Tp.HCM"
                     />
                 </figure>
                 <div className="box">
                     <h4 className="name">
                         <a href="#" tabIndex={0}>
-                            {props.item.title}
+                            {item.title}
                         </a>
                     </h4>
                     <div className="des">
-                        {props.item.description}
+                        {item.description}
                     </div>
                     <span className="time">
                         <i className="icon far fa-clock" />
-                        {props.item.time}
+                        {item.time}
                     </span>
                 </div>
             </div>

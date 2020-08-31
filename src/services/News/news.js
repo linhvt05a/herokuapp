@@ -47,5 +47,16 @@ export const newsService = {
 
         const url = api.getUrl(api.FILTER_NEWS);
         return api.handleRequest(url, requestOptions);
+    },
+
+    newsCategories (payload) {
+        const requestOptions = {
+            method: 'GET',
+            headers: api.getHeader(TOKEN)
+        };
+
+        const params = {payload };
+        const url = api.getUrl(api.NEWS_CATEGORIES, params);
+        return api.handleRequest(url, requestOptions); 
     }
 };

@@ -3,7 +3,7 @@ import Pagination from "../../../components/common/Pagination";
 import { LoadDataPaging } from '../../../functions/Utils';
 
 const CollapseContent = (props) => {
-    const {data, isOpenCollapse, dataPaging} = props
+    const {data, isOpenCollapse, handleChangePage,limit, total_page, total_record,page} = props
   return (
     <div className="col-sm-12 col-md-7 col-lg-8 col-xl-8">
       <div className="juridical__content sales_collapse">
@@ -13,7 +13,7 @@ const CollapseContent = (props) => {
             <CollapseItem item={data} isOpen={checkOpen} isOpenCollapse={isOpenCollapse} key={index} openCollapse={()=>props.openCollapse(index)}/>
         )
         })}
-        <Pagination data={LoadDataPaging(18, 2, 5, 6)} />
+        <Pagination data={LoadDataPaging(total_record, page, total_page, limit)} onChange={handleChangePage}/>
       </div>
     </div>
   );
