@@ -3,17 +3,18 @@ import React, { useState, useEffect, useRef , useLayoutEffect} from 'react';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Provider } from 'react-redux';
 import configureStore from './store';
+
 //components
+import PagesWrapper from './Pages';
 import Header from "./components/common/Header/Header";
 import Footer from "./components/common/Footer/Footer";
-import Chat from "./components/common/Chat";
-
-//pages
-
 import Notification from "./components/common/Notification";
-// import PageIndex from "./pages/index";
+import Social from "./components/common/Social_fixed";
 
-import PagesWrapper from './Pages';
+
+const dataNotifications = [
+    'Căn hộ B6 - F02 của Dự Án Royal Garden vừa được bán Dự Án Royal Garden vừa được bán'
+]
 
 
 const App = () => {
@@ -23,12 +24,14 @@ const App = () => {
             <Router>
 
                 <Header />
-                <Notification />
+
+                <Notification datas={dataNotifications} />
 
                 <PagesWrapper />
 
                 <Footer />
-                <Chat />
+
+                <Social />
 
             </Router>
         </Provider>

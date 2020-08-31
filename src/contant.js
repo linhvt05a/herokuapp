@@ -1,4 +1,5 @@
 const IMAGE_URL = "../"
+const PHONE_NUMBER = "1900 - 123 - 456"
 
 const PROJECT_STATUS = [
     { value: 1, label: "home_waiting_sale" },
@@ -35,7 +36,9 @@ const DIRECTION_TYPE = [
 
 module.exports = {
     IMAGE_URL,
+    PHONE_NUMBER,
+
     PROJECT_STATUS,
     PROJECT_SALE_GROUP,
-    DIRECTION_TYPE
+    DIRECTION_TYPE,
 }
