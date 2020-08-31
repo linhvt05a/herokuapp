@@ -9,13 +9,16 @@
     top: 0;
     left: 0;
     z-index: 1;
+
     &.active {
         display: none;
+
         @media (max-width: 767px) {
             display: block;
         }
     }
 }
+
 .modal-dialog {
     @include flexbox;
     @include align-items(center);
@@ -23,18 +26,22 @@
     margin: 0 auto;
     opacity: 0;
     transition: all 0.3s;
+
     &.open {
         opacity: 1;
     }
 }
+
 .modal-content {
     border-radius: 0;
     border: none;
+
     @media (max-width: 480px) {
         width: 95%;
         margin: 0 auto;
     }
 }
+
 .modal-header {
     @include flexbox;
     @include align-items(center);
@@ -44,6 +51,7 @@
     background-size: 100% 100%;
     background-position: center center;
     background-repeat: no-repeat;
+
     .close {
         font-size: 22px;
         color: #ffffff;
@@ -59,16 +67,20 @@
         }
     }
 }
+
 .modal-title {
     @include fw-medium;
     font-size: 24px;
     color: #ffffff;
 }
+
 .modal-body {
     padding: 0;
 }
+
 .modal-backdrop {
     background-color: rgba(0, 0, 0, 0.65);
+
     &.show {
         opacity: 1;
     }
@@ -76,35 +88,117 @@
 
 .modal_special {
     box-shadow: 0 8px 5px 0 rgba(0, 0, 0, 0.13);
+
     .modal_label {
         font-size: 16px;
     }
+
     .modal_color_red {
         color: #e94c4c;
     }
+
     .modal_discount_input {
         display: flex;
     }
+
     .modal_txt_percent {
-        max-width: 15%;
+        max-width: 18%;
+        text-align: center;
     }
+
     .list_special_offers {
         display: flex;
         align-items: baseline;
         border-bottom: solid 1px #dee2e6;
         padding: 10px 0;
+
         .modal_icon_check {
             color: #51c471;
             margin-right: 10px;
         }
+
         .content_offers {
             font-size: 16px;
-            .link_change_money{
+            width: 100%;
+            .link_change_money {
                 text-decoration: underline;
                 font-size: 12px;
-               a{
-                color: #6d30ab;
-               }
+
+                a {
+                    color: #6d30ab;
+                }
+            }
+        }
+
+        .redemption_form {
+            display: none;
+            .title {
+                font-size: 12px;
+            }
+
+            .check_box_redemption {
+                display: flex;
+                font-size: 14px;
+                @media (max-width: 767px) {
+                    display: block;
+                }
+                .checkbox-inline {
+                    @include flex_center;
+                    flex-wrap: nowrap;
+                    justify-content: left;
+                    padding-left: 0;
+                    margin-bottom: 0;
+                    letter-spacing: 0.42px;
+                    color: #656565;
+
+                    &.active {
+                        .checkbox-custom-dummy {
+                            border-color: #6d30ab;
+
+                            &::after {
+                                left: 3px;
+                                top: 3px;
+                                border: none;
+                                width: 9px;
+                                height: 9px;
+                                border-radius: 50%;
+                                background-color: #6d30ab;
+                            }
+                        }
+                    }
+
+                    .checkbox-custom-dummy {
+                        width: 17px;
+                        height: 17px;
+                        border-radius: 50%;
+                        border: solid 1px #9a9a9a;
+                        background-color: #ffffff;
+                        position: relative;
+                        top: 0;
+                        margin-right: 7px;
+                    }
+                }
+                input{
+                    text-align: center;
+                    width: 50%;
+                    margin-left: 15px;
+                    @media (max-width: 767px) {
+                        width: 100%;
+                    }
+                }
+                .check_money{
+                    display: flex;
+                    padding-left: 30px;
+                    @media (max-width: 767px) {
+                        padding-left: 0;
+                    }
+                    .modal_color_red{
+                        height: 26px;
+                        max-width: 100px;
+                        width: 100%;
+                        font-size: 12px;
+                    }
+                }
             }
         }
     }

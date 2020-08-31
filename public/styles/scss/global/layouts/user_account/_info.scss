@@ -182,6 +182,11 @@
                margin-top: 5px;
             }
         }
+        .password_new_input{
+            @media(max-width:767px){
+                margin: 15px 0;
+            }
+        }
         .list_checkbox{
             height: 48px;
             @media(max-width:767px){
