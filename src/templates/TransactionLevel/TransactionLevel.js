@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { TopBannerDetailTrans } from "../TransactionLevel/TopBannerDetailTrans";
 import CardTransactionList from './Container/CardTransactionList';
 import { transactionAction } from '../../store/action';
-import { translate } from '../../utils/Utils';
 import { DIRECTION_TYPE } from "./../../contant";
 
 
@@ -94,7 +93,7 @@ const TransactionLevel = (props) => {
     }, []);
 
     useEffect(() => {
-        var transProjectTypeDatas =[{value: null, label: translate("project_all")}] 
+        var transProjectTypeDatas =[{value: null, label: "project_all"}] 
         if (transacProductTypeList && transacProductTypeList != null && transacProductTypeList.length > 0) {
             for (var i = 0; i < transacProductTypeList.length; i++) {
                 transProjectTypeDatas.push({value: transacProductTypeList[i].architecture_id, label: transacProductTypeList[i].architecture_name})

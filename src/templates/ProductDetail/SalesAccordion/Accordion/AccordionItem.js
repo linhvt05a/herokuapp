@@ -6,25 +6,7 @@ import MutiSlider from './../../../../components/common/MutiSlider';
 
 const dataImgs = [
   {
-<<<<<<< HEAD:src/templates/ProductDetail/SalesAccordion/Accordion/AccordionItem.js
-    id:2,
-    title: "Mặt bằng tầng và mặt bằng dự án",
-    paragraph : [
-      {
-        content: [
-          "../images/living-room-area_01.jpg",
-          "https://via.placeholder.com/730x420",
-          "https://via.placeholder.com/730x420",
-          "https://via.placeholder.com/730x420",
-          "https://via.placeholder.com/730x420",
-          "https://via.placeholder.com/730x420",
-          "https://via.placeholder.com/730x420",
-        ]
-      }
-    ]
-=======
       img: "./assets/images/bank02.jpg"
->>>>>>> dev_vanbui:src/pages/ProductDetail/SalesAccordion/Accordion/AccordionItem.js
   },
   {
       img: "./assets/images/bank03.jpg"

@@ -1,19 +1,14 @@
-<<<<<<< HEAD:src/templates/LoanOnline/LoanPolicy.js
 import React from 'react';
 import MutiSlider from '../../components/common/MutiSlider';
-=======
-import React, { useState, useEffect } from 'react';
-import MutiSlider from './../../components/common/MutiSlider';
->>>>>>> dev_vanbui:src/pages/LoanPolicy/LoanPolicy.js
 import { FloatingRates } from './FloatingRates';
 import { SidebarRight } from './SidebarRight/SidebarRight';
 import { InputLoanNumber } from './LoanContainer/InputLoanNumber';
 import { InterestDebtForm } from './LoanContainer/InterestDebtForm';
-import HeadingFilter from '../../components/common/HeadingFilter';
+import HeadingFilter from '../../components/common/HeadingLine';
 import { useDispatch } from 'react-redux';
 import { loanPolicyAction } from "./../../store/action";
 
-export const LoanPolicy = () => {
+const LoanPolicy = () => {
 
     const settings = {
         dots: true,
@@ -426,3 +421,4 @@ export const LoanPolicy = () => {
 
     )
 }
+export default LoanPolicy
