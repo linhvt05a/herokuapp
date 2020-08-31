@@ -14,10 +14,12 @@ const FilterTransaction = (props) =>{
         console.log('acreage',acreage)
     }
     const { isStatusActive } = props;
-    const { headerBodyClassName, labelHeader, datas, limit, onPageChange, inputSelectDatas, sliderDatas, onFilterClick } = props
+    console.log(isStatusActive);
+    
+    const { headerBodyClassName, labelHeader, datas, limit,  inputSelectDatas, sliderDatas, onFilterClick } = props
     return(
         <div {...{className:`searchProject ${isStatusActive && "active"}`}}>
-            <CardInputSliderFilter inputSelectDatas={inputSelectDatas} sliderDatas={sliderDatas} onPageChange={onPageChange} onFilterClick={onFilterClick} />
+            <CardInputSliderFilter inputSelectDatas={inputSelectDatas} sliderDatas={sliderDatas} onFilterClick={onFilterClick} />
         </div>
     )
 }
