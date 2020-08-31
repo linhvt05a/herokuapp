@@ -10,7 +10,7 @@ import Chat from "./components/common/Chat";
 
 //pages
 
-import Notifi from "./components/common/Notifi";
+import Notification from "./components/common/Notification";
 // import PageIndex from "./pages/index";
 
 import PagesWrapper from './Pages';
@@ -23,7 +23,7 @@ const App = () => {
             <Router>
 
                 <Header />
-                <Notifi />
+                <Notification />
 
                 <PagesWrapper />
 
