@@ -4,9 +4,9 @@ import { contactAddAction } from '../action';
 
 
 export function* contactAdd(payload) {
-    console.log(payload)
+    let { token, full_name, email, phone_number, content } = payload.params
     try {
-        const response = yield contactService.contactAdd(payload);
+        const response = yield contactService.contactAdd(token, full_name, email, phone_number, content);
         response.success ? yield put({ type: contactAddAction.LOAD_LIST_SUCCESS, response }) : yield put({ type: contactAddAction.LOAD_LIST_FAILURE, response });
     } catch (err) {
         yield put({ type: contactAddAction.LOAD_LIST_FAILURE, err });

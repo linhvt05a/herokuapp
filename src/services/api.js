@@ -44,7 +44,7 @@ export default {
 
     JURIDICAL_ADD:"",
     
-    CONTACT_ADD : "",
+    CONTACT_ADD : "/api/main_web/v1/counseling/add/",
 
     FILTER_NEWS: "",
     

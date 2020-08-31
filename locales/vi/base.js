@@ -14,5 +14,14 @@ export default {
     juridical_banner_title: "Pháp lý",
     promotion_banner_title: "Khuyến mãi",
     flashSaleList_banner_title: "Danh sách bán hàng nhanh",
-    customer_account_banner_title: "Tài khoản khách hàng"
+    customer_account_banner_title: "Tài khoản khách hàng",
+
+    //chat online
+    online_counseling: "Tư vấn trực tuyến",
+    start_chat: "Bắt đầu trò chuyện",
+    full_name: "Họ tên*",
+    phone_number: "Số điện thoại*",
+    email: "Email*",
+    please_enter_the_content: "Nội dung cần giải đáp*",
+    insert_content_and_enter_to_send: "Nhập nội dung và Enter để gửi"
 }

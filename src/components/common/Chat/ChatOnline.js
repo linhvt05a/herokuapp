@@ -1,7 +1,9 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Link } from "react-router-dom";
-
-import {SendInfo, StartChat, EndChat} from './chatBox'
+import { Trans } from 'react-i18next';
+import { useDispatch, useSelector } from "react-redux";
+import {SendInfo, StartChat, EndChat} from './chatBox';
+import { contactAddAction } from "../../../store/action/index";
 
 const ChatOnline = (props) => {
     // props 
@@ -47,6 +49,11 @@ const ChatOnline = (props) => {
         })
     }
 
+    const dispatch = useDispatch();
+    const contact = useSelector(state => state.contactReducer);
+    const contactAddSuccess = contact.contactAdd.success;
+    const contactList = contactAddSuccess ? contact.contactAdd.detail : null;
+
     //effect ACTIVE chat component
     useEffect(() => {
         if (active) {
@@ -64,6 +71,12 @@ const ChatOnline = (props) => {
     // on submit info 
     const onSubmitInfo = values => {
         // console.log('Success:', values);
+        dispatch(contactAddAction.contactAdd({
+            full_name: values.fullname,
+            email: values.email,
+            phone_number: values.phone,
+            content: values.question
+        }));
         setStartChat({
             ...show,
             sendInfo: false,
@@ -71,18 +84,16 @@ const ChatOnline = (props) => {
             endChat: false, 
             clearChat : true
         })
-
     };
-
 
     return (
         <div className={`chat_online chatOnline ${active ? "active" : ''}`}>
             <label className="chatLabel">
-                Tư vấn trực tuyến
+                <Trans>online_counseling</Trans>
                 <i onClick={set_EndChat} className={`close_chat fas fa-times-circle ${active ? "active" : ''}`} />
             </label>
-            <SendInfo active={show.sendInfo} onSubmitInfo={onSubmitInfo}/>
-            <StartChat active={show.startChat} clearChat={show.clearChat} setClear={()=>setStartChat({...show,clearChat:false})} />
+            <SendInfo data={<Trans>full_name</Trans>} active={show.sendInfo} onSubmitInfo={onSubmitInfo}/>
+            <StartChat dataContact={contactList} active={show.startChat} clearChat={show.clearChat} setClear={()=>setStartChat({...show,clearChat:false})} />
             <EndChat active={show.endChat} set_Exit={set_Exit} set_Back={set_Back} />
         </div>
     );

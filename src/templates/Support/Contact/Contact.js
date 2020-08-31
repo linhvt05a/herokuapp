@@ -7,8 +7,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { contactAddAction } from "../../../store/action/index";
 
 const Contact = (props) => {
-  const contactAdd = useSelector(state => state.contactReducer);
-  const contactAddSuccess = contactAdd.contactAdd.success
+  const contact = useSelector(state => state.contactReducer);
+  const contactAddSuccess = contact.contactAdd.success;
+  const contactList = contactAddSuccess ? contact.contactAdd.detail : null;
   const dispatch = useDispatch();
   const contactValue = {
 		contactName: '',
@@ -16,11 +17,17 @@ const Contact = (props) => {
     contactEmail:'',
     contactContent:''
   }
-  const {contactValues, contactErrors, handleChangeContact, handleContactRegister} = useFormContact(contactValue, contactRegister, validateContact)
+  const {contactValues, contactErrors, handleChangeContact, handleContactRegister} = useFormContact(contactValue, validateContact)
   
-  function contactRegister () {
-    dispatch(contactAddAction.contactAdd({contactValues}))
+  const ContactRegister = () => {
+    dispatch(contactAddAction.contactAdd({
+      full_name: "Võ Văn Dương",
+      email: "duongvv@minerva.vn",
+      phone_number: "0385381052",
+      content: "what is this?"
+    }))
   }
+  // console.log("contact", contactList);
   return (
     <div className="contact__page">
       <div className="container container-sm container-md">
@@ -31,7 +38,7 @@ const Contact = (props) => {
             contactValues={contactValues} 
             contactErrors={contactErrors} 
             handleChangeContact={handleChangeContact} 
-            handleContactRegister={handleContactRegister}
+            handleContactRegister={ContactRegister}
           />
         </div>
       </div>

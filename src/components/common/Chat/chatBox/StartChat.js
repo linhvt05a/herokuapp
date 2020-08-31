@@ -1,12 +1,13 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Input, Form, Upload, Button } from 'antd';
 import ColumnGroup from 'antd/lib/table/ColumnGroup';
+import { withTranslation,Trans } from 'react-i18next';
 
 const FormItem = Form.Item;
 const StartChat = (props) => {
 
     //props
-    const { active, setActive, clearChat, setClear } = props;
+    const { active, dataContact, setActive, clearChat, setClear, t} = props;
 
     //state
     const [emojiActive, setEmojiActive] = useState(false);
@@ -155,7 +156,7 @@ const StartChat = (props) => {
                         onFinish={onSubmitChat}
                         name="form-chat-online">
                         <FormItem name="message_item" >
-                            <Input className="typing" type="text" placeholder="Nhập nội dung và Enter để gửi" ref={refInputMessage} />
+                            <Input className="typing" type="text" placeholder={t('insert_content_and_enter_to_send')} ref={refInputMessage} />
                         </FormItem>
                     </Form>
 
@@ -189,7 +190,7 @@ const StartChat = (props) => {
     );
 }
 
-export default StartChat;
+export default withTranslation()(StartChat);
 
 
 

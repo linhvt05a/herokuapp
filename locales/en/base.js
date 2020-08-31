@@ -14,5 +14,14 @@ export default {
     juridical_banner_title: "Juridical",
     promotion_banner_title: "Promotion",
     flashSaleList_banner_title: "Flash Sale List",
-    customer_account_banner_title: "Customer Account"
+    customer_account_banner_title: "Customer Account",
+
+    //chat online
+    online_counseling: "Online counseling",
+    start_chat: "Start conversation",
+    full_name: "Full name*",
+    phone_number: "Phone number*",
+    email: "Email*",
+    please_enter_the_content: "Please enter the content*",
+    insert_content_and_enter_to_send: "Insert content and Enter to send"
 }

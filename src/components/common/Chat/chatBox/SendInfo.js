@@ -1,9 +1,10 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Link } from "react-router-dom";
+import { withTranslation,Trans } from 'react-i18next';
 import { Input, Form, Button, Spin } from 'antd';
-
+import { translate } from '../../../../functions/Utils'
 const SendInfo = (props) => {
-    const { active, setActive , onSubmitInfo} = props;
+    const { active, data,  setActive , onSubmitInfo, t} = props;
 
     //form
     const FormItem = Form.Item;
@@ -22,13 +23,16 @@ const SendInfo = (props) => {
 
         // set value init
         formInfo.setFieldsValue({
-            fullname: 'Bamboo',
-            phone:'09335656565',
-            email:'Bamboo@oo.oo',
-            question:'Bamboo is question!!!'
+            // fullname: 'Bamboo',
+            // phone:'09335656565',
+            // email:'Bamboo@oo.oo',
+            // question:'Bamboo is question!!!'
+            fullname: '',
+            phone:'',
+            email:'',
+            question:''
         });
     }, [props]);
-
 
     //submit fail
     const onSubmitInfoFailed = errorInfo => {
@@ -50,7 +54,7 @@ const SendInfo = (props) => {
                     message: 'Please input your user name!' ,
                 }
             ],
-            placeholder:"Họ tên*"
+            placeholder: t('full_name')
         },
         phone : {
             form : [
@@ -59,7 +63,7 @@ const SendInfo = (props) => {
                     message: 'Please input your phone number!',
                 }
             ],
-            placeholder:"Số điện thoại*",
+            placeholder: t('phone_number'),
             type:'number'
         },
         email : {
@@ -73,7 +77,7 @@ const SendInfo = (props) => {
                     message: 'Please input your E-mail!',
                 },
             ],
-            placeholder:"Email*",
+            placeholder: t('email'),
             type:'email'
         },
         question : {
@@ -83,7 +87,7 @@ const SendInfo = (props) => {
                     message: 'Please input your question!' 
                 }
             ],
-            placeholder:"Nội dung cần giải đáp *",
+            placeholder: t('please_enter_the_content'),
             type:'text'
         },
     }
@@ -115,7 +119,7 @@ const SendInfo = (props) => {
                                         formInfo.getFieldsError().filter(({ errors }) => errors.length).length
                                     }
                                 >
-                                    Bắt đầu trò chuyện
+                                    <Trans>start_chat</Trans>
                                 </Button>
                                 )
                         }}
@@ -125,4 +129,4 @@ const SendInfo = (props) => {
     );
 }
 
-export default SendInfo;
+export default withTranslation()(SendInfo);
