@@ -9,37 +9,9 @@ import ChatOnline from '../common/Chat/ChatOnline'
 const SocialFixed = (props) => {
 	const [showChat, setShowAdvisory] = useState(false);
 	const [showPhone, setShowPhoneNumber] = useState(false);
-	const SlideActions =  useRef();
-
-	const [scrolling, setScrolling] = useState(false);
-    const [scrollTop, setScrollTop] = useState(0);
-    const [scrollIconActive, setScrollIconActive] = useState(false);
 	const ScrollToTop = () => {
         window.scrollTo({top: 0, behavior: 'smooth'});
 	}
-	
-
-    useEffect(() => {
-
-		const heightBorder = document.getElementsByClassName('header_border')[0].clientHeight
-		console.log("1",heightBorder);
-		console.log("2",scrollTop);
-        const handleScroll = (e) => {
-			setScrollTop(e.target.documentElement.scrollTop);
-			setScrolling(e.target.documentElement.scrollTop > heightBorder);
-			if(scrollTop > heightBorder){
-				setScrollIconActive(!scrollIconActive)
-			}
-        }
-
-        window.addEventListener('scroll', handleScroll);
-		
-        return () => { 
-            window.removeEventListener('scroll', handleScroll) 
-			
-        }
-    },[scrollTop]);
-
 
 	return (
 		<>
@@ -61,7 +33,7 @@ const SocialFixed = (props) => {
                     </Link>
                 </li>
                 <li>
-                    <Link to="/#" className={`totop toTop ${scrollIconActive ? 'active' : ''}`} onClick={() => ScrollToTop()} >
+                    <Link to="/#" className={`totop toTop`} onClick={() => ScrollToTop()} >
                         <i className="icon fas fa-chevron-up" />
                     </Link>
                 </li>
