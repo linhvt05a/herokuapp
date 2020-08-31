@@ -10,18 +10,12 @@ import {
 const AutoCompleteOption = AutoComplete.Option;
 
 function Footer() {
-    const [show, setShowAdvisory] = useState(false);
-    const ScrollToTop = () => {
-        window.scrollTo({top: 0, behavior: 'smooth'});
-    }
-
     const [form] = Form.useForm();
+    const [autoCompleteResult, setAutoCompleteResult] = useState([]);
 
     const onFinish = values => {
         console.log('Received values of form: ', values);
     };
-
-    const [autoCompleteResult, setAutoCompleteResult] = useState([]);
 
     return (
         <footer className="footer">
@@ -192,26 +186,7 @@ function Footer() {
                         Bản quyền của Minerva năm 2020
                     </span>
                 </div>
-            </div>
-        
-            <ul className="footer_social">
-                <li>
-                    <Link to="/#" className="phone clickPhone">
-                        <i className="icon fas fa-phone-alt" />
-                        <i className="text">0909 123 456</i>
-                    </Link>
-                </li>
-                <li>
-                    <Link to="/#" className="chat startChatOnline" onClick={() => setShowAdvisory(!show)}>
-                        <i className="icon fas fa-comments" />
-                    </Link>
-                </li>
-                <li>
-                    <Link to="/#" className="totop toTop" onClick={() => ScrollToTop()}>
-                        <i className="icon fas fa-chevron-up" />
-                    </Link>
-                </li>
-            </ul>
+            </div>    
         </footer>
     );
 }

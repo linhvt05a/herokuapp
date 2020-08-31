@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, NavLink } from "react-router-dom";
 import { Trans } from "react-i18next";
-import Chat from "../Chat";
 import BannerAds from "./TopNav/BannerAds";
 import NavLeft from "./TopNav/NavLeft";
 import NavRight from "./TopNav/NavRight";
@@ -25,7 +24,6 @@ function Header() {
     }, [scrollTop]);
 
     return (
-        <>
         <header className={`header ${scrolling == true ? "fixed" : ''}`}>
             <div className="header_border">
                 <BannerAds />
@@ -101,8 +99,6 @@ function Header() {
             </div>
             <div className="modal-background" />
         </header>
-        <Chat active={show} />
-        </>
     );
 }
 

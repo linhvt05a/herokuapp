@@ -2,15 +2,12 @@ import React from "react";
 import { IMAGE_URL } from '../../contant';
 
 const Notification = (props) => {
-
-    const dataNoti = [
-        'Căn hộ B6 - F02 của Dự Án Royal Garden vừa được bán Dự Án Royal Garden vừa được bán'
-    ]
+    const {datas} = props;
 
     return (
         <div className="notifi">
             {
-                (dataNoti && dataNoti.length > 0) ? dataNoti.map((value, key) => {
+                (datas && datas.length > 0) ? datas.map((value, key) => {
                     return (
                         <div className="notifi__item" key={key}>
                             <div className="notifi__wrap">

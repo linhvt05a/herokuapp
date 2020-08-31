@@ -1,0 +1,116 @@
+.social_fixed {
+    @include flexbox;
+    @include flex-direction(column);
+    @include transition(all 0.3s);
+    position: fixed;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    bottom: 20px;
+    right: 20px;
+    z-index: 13;
+    &.active{
+        bottom: 425px;
+        @media(max-width:767px){
+            bottom: 360px;
+        }
+    }
+    li{
+        margin-left: auto;
+        margin-bottom: 12px;
+        @media(max-width: 767px){
+            margin-bottom: 5px;
+        }
+    }
+    a {
+        @include flexbox;
+        &:hover {
+            color: #ffffff;
+            text-decoration: none;
+        }
+    }
+    .icon {
+        @include flex_center;
+        font-size: 21px;
+        font-weight: 900;
+        color: #f3f4f9;
+        width: 51px;
+        height: 51px;
+        border-radius: 50%;
+        text-decoration: none;
+        border: solid 1px transparent;
+        @media(max-width: 767px){
+            font-size: 18px;
+            width: 40px;
+            height: 40px;
+        }
+    }
+    .phone{
+        @include align-items(center);
+        border-radius: 88px;
+
+
+
+        &.active{
+            background-color: #e94c4c;
+            .icon{
+                color: #e94c4c;
+                background-color: #fff;
+            }
+            .text{
+                visibility: visible;
+                padding: 0 20px;
+                display: block;
+                @media(max-width:767px){
+                    padding: 0;
+                    padding-right: 15px;
+                    padding-left: 10px;
+                }
+            }
+        }
+        .text{
+            @include transition(width 0.3s);
+            @include flex(1);
+            padding: 0;
+            color: #ffffff;
+            font-size: 28px;
+            font-weight: 500;
+            font-style: normal;
+            visibility: hidden;
+            width: 100%;
+            display: none;
+
+            @media(max-width:767px){
+                font-size: 20px;
+            }
+        }
+        .icon{
+            background-color: #e94c4c;
+            &::before{
+                -moz-animation: chatSidebar 0.8s linear infinite;
+                -webkit-animation: chatSidebar 0.8s linear infinite;
+                -ms-animation: chatSidebar 0.8s linear infinite;
+                animation: chatSidebar 0.8s linear infinite;
+            }
+        }
+    }
+    .chat{
+        .icon{
+            background-color: #51c471;
+            &::before{
+                -moz-animation: phoneSidebar 2s linear infinite;
+                -webkit-animation: phoneSidebar 2s linear infinite;
+                -ms-animation: phoneSidebar 2s linear infinite;
+                animation: phoneSidebar 2s linear infinite;
+            }
+        }
+    }
+    .totop{
+        .icon{
+            background-color: #fff;
+            border: solid 1px #6d30ab;
+            color: #6d30ab;
+            font-size: 22px;
+        }
+    }
+}
