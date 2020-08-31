@@ -135,7 +135,7 @@ const OnMapPoligon = props => {
                     <div className="col-12 col-sm-12 col-md-12 col-xl-6 p-0 bg_image justify-content-center flex-column" 
                         style={{display: active.search ? "block" : "none" }}>
                         <div className="map_search--content_home">
-                            <h2 className="heading">Tìm kiếm dự án theo</h2>
+                            <h2 className="heading"><Trans>search_project_by</Trans></h2>
                             <ListSelect data={provinceList} HandleCity={HandleCity} HandleDistrict={HandleDistrict} HandleDStatus={HandleDStatus}/>
                             <InputRange changePrice={changePrice} changeAcreage={changeAcreage}/>
                             <ListCheckbox OnSearchProject={OnSearchProject} OnCheckbox={listCheckbox}/>

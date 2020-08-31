@@ -71,17 +71,17 @@ const ListSelect = (props) => {
         <div className="row">
             <div className="col-12 col-sm-12 col-md-4">
                 <div className="form-group">
-                    <SelectCustom placeholder="Tỉnh/Thành Phố" datas={state.dataCity} onChange={onChangeCity} />
+                    <SelectCustom placeholder={<Trans>province</Trans>} datas={state.dataCity} onChange={onChangeCity} />
                 </div>
             </div>
             <div className="col-12 col-sm-12 col-md-4">
                 <div className="form-group">
-                    <SelectCustom placeholder="Quận/Huyện" datas={state.dataDistrict} onChange={onChangeDistrict}/>
+                    <SelectCustom placeholder={<Trans>district</Trans>} datas={state.dataDistrict} onChange={onChangeDistrict}/>
                 </div>
             </div>
             <div className="col-12 col-sm-12 col-md-4">
                 <div className="form-group">
-                    <SelectCustom placeholder="Chọn tiến độ" datas={state.dataStatus} onChange={onChangeStatus}/>
+                    <SelectCustom placeholder={<Trans>select_progress</Trans>} datas={state.dataStatus} onChange={onChangeStatus}/>
                 </div>
             </div>
         </div>

@@ -1,58 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { ItemHomeProject } from './Item/index'
 import { Trans } from "react-i18next";
-import CardNews from '../../components/common/CardNews'
 import { Link } from "react-router-dom";
+
+import CardNews from '../../components/common/CardNews'
+import CardOverView from '../../components/common/Overview'
 import HeadingLine from '../../components/common/HeadingLine'
-import { CardSaleFlash, CardOverView, CardHotProduct } from "./Layout/index";
+import CardNoData from '../../components/common/CardNoData';
+
+import { ItemHomeProject } from './Item/index'
+import { CardSaleFlash, CardHotProduct } from "./Layout/index";
 import { MapHome } from "../../components/common/Map/index";
 import { projectAction, productAction } from "../../store/action/index";
-import CardNoData from '../../components/common/CardNoData';
+
+
 import { LocationView, YourPosition } from "./Location/index";
 import { OnMapPoligon } from "./Search/index";
 
-const news =
-    [
-        {
-            id: 0,
-            title: 'Mở bán khu biệt thự cao cấp ở Quận 7 , Tp.HCM',
-            description: 'Quỹ đất nội thành ngày càng khan hiếm, cộng với quá trình rà soát lại khiến thịtrường bất động sản lớn nhất nước rơi vào tình trạng cung giảm',
-            time: '27/02/2020',
-            image: '../images/four-brown-wooden-chairs-2635038.jpg'
-        },
-        {
-            id: 1,
-            title: 'Mở bán khu biệt thự cao cấp ở Quận 7 , Tp.HCM',
-            description: 'Quỹ đất nội thành ngày càng khan hiếm, cộng với quá trình rà soát lại khiến thịtrường bất động sản lớn nhất nước rơi vào tình trạng cung giảm',
-            time: '27/02/2020',
-            image: '../images/four-brown-wooden-chairs-2635038.jpg'
-        },
-        {
-            id: 2,
-            title: 'Mở bán khu biệt thự cao cấp ở Quận 7 , Tp.HCM',
-            description: 'Quỹ đất nội thành ngày càng khan hiếm, cộng với quá trình rà soát lại khiến thịtrường bất động sản lớn nhất nước rơi vào tình trạng cung giảm',
-            time: '27/02/2020',
-            image: '../images/four-brown-wooden-chairs-2635038.jpg'
-        },
-        {
-            id: 3,
-            title: 'Mở bán khu biệt thự cao cấp ở Quận 7 , Tp.HCM',
-            description: 'Quỹ đất nội thành ngày càng khan hiếm, cộng với quá trình rà soát lại khiến thịtrường bất động sản lớn nhất nước rơi vào tình trạng cung giảm',
-            time: '27/02/2020',
-            image: '../images/four-brown-wooden-chairs-2635038.jpg'
-        },
-        {
-            id: 4,
-            title: 'Mở bán khu biệt thự cao cấp ở Quận 7 , Tp.HCM',
-            description: 'Quỹ đất nội thành ngày càng khan hiếm, cộng với quá trình rà soát lại khiến thịtrường bất động sản lớn nhất nước rơi vào tình trạng cung giảm',
-            time: '27/02/2020',
-            image: '../images/four-brown-wooden-chairs-2635038.jpg'
-        },
-        
-    ]
-
 const Home = (props) => {
+
+    const news = useSelector(state => state.newsReducer);
+    const newsListSuccess = news.newsList.success
+    const newsList = newsListSuccess ? news.newsList.detail : null;
 
     const project = useSelector(state => state.projectReducer);
     const product = useSelector(state => state.productReducer);
@@ -72,6 +41,7 @@ const Home = (props) => {
         // dispatch(projectAction.loadProjectList({project_sale_status: `[${state.projectStatus}]`}));
         dispatch(projectAction.loadProjectList({}));
         dispatch(productAction.loadHotProductList({}));
+       
     }, []);
 
     const onStatusClick = (e) => {
@@ -97,8 +67,7 @@ const Home = (props) => {
         }
     }
     const setHideSearch = (target) => {
-        console.log(state, target.className);
-        if(target.className.indexOf('active') > -1) {
+        if(target.className.indexOf('fa-times') > -1) {
             target.className = "fas map_search--btn_exit fa-search"
             setState({...state, search: false, position: false, showhide: true})
         } else {
@@ -377,7 +346,7 @@ const Home = (props) => {
             {/* end app_managerment  */}
 
             {/* Latest news  */}
-            <CardNews data={news} />
+            <CardNews data={newsList} />
             {/* End Latest news  */}
         </div>
     )

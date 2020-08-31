@@ -104,7 +104,18 @@
                 display: none;
             }
         }
-
+        .language_link {
+            @include flexbox;
+            @include align-items(center);
+            padding: 10px 20px;
+            color: #8d929a;
+            font-family: $HelveticaNeue-Light;
+            img {
+                margin-right: 7px;
+                width: 100%;
+                max-width: 25px;
+            }
+        }
         li {
             display: block;
             border-bottom: 1px solid #ebebeb;
@@ -114,18 +125,7 @@
                 background: rgba(235, 235, 235, 0.9);
                 color: #737881;
             }
-            a {
-                @include flexbox;
-                @include align-items(center);
-                padding: 10px 20px;
-                color: #8d929a;
-                font-family: $HelveticaNeue-Light;
-                img {
-                    margin-right: 7px;
-                    width: 100%;
-                    max-width: 25px;
-                }
-            }
+
         }
     }
 

@@ -45,3 +45,13 @@ a[href^="https://maps.google.com/maps"]{display:none !important}
 .gmnoprint div {
     background:none !important;
 }
+.search_option-toggle {
+    &.active{
+        &::after {
+            display: none;
+        }
+    }
+}
+.map_origin--content .list_button a {
+    text-transform: uppercase;
+}

@@ -5,7 +5,7 @@ import { Trans } from 'react-i18next';
 const CardInputSliderFilter = (props) => {
 
     const { title, inputSelectDatas, sliderDatas, onFilterClick } = props
-
+    
     return(
         <div className="searchProject">
             <div className="searchProject__title">

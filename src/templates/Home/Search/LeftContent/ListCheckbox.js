@@ -30,7 +30,7 @@ const ListCheckbox = (props) => {
                 <div className="search_option-header">
                     <div className={`search_option-toggle ${toggle ? "active" : ""}`} onClick={() => settoggleSearch(!toggle)} />
                     <p className="search_option-title">
-                        Lựa chọn loại hình bất động sản
+                        <Trans>select_type_of_real_estate</Trans>
                     </p>
                 </div>
                 <div className="search_option-content">
@@ -50,7 +50,7 @@ const ListCheckbox = (props) => {
                 </div>
             </div>
             <a className="btn btn_green" onClick={OnSearchProject}>
-                TÌM KIẾM
+                <Trans>search</Trans>
             </a>
         </div>
     )

@@ -14,7 +14,7 @@ const ReplyComment = (props) =>{
         <div className="reply__child">
           <div className="reply__child--list">
             <ReplyBox like={like} onClickLike ={increaseLike} totalLike={totalLike}/>
-            <ChildAdmin />
+            {/* <ChildAdmin /> */}
           </div>
       </div>
     
@@ -65,7 +65,7 @@ const ReplyBox = (props) =>{
           <i className="text">{totalLike}</i>
         </div>
       </div>
-      <ChildReply />
+      {/* <ChildReply /> */}
     </div>
   </div>
   )

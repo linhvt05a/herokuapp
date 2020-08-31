@@ -27,6 +27,7 @@ const CardTransactionList = (props) => {
                        sliderDatas={sliderDatas}
                        onPageChange={onPageChange}
                        onFilterClick={onFilterClick}
+                       blockName={blockName}
                     />
                 </div>
             </div>

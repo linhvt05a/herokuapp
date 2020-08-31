@@ -1,4 +1,5 @@
 const IMAGE_URL = "../"
+const PHONE_NUMBER = "1900 - 123 - 456"
 
 const PROJECT_STATUS = [
     { value: 1, label: "home_waiting_sale" },
@@ -33,9 +34,38 @@ const DIRECTION_TYPE = [
     { value: 8, label: "north_west" },
 ]
 
+const DATA_INTRODUCE = {
+    list_images : [
+        { image_url: './images/in_overview01.jpg', image_alt: "test" },
+        { image_url: './images/in_overview01.jpg', image_alt: "test" },
+        { image_url: './images/in_overview01.jpg', image_alt: "test" },
+        { image_url: './images/in_overview01.jpg', image_alt: "test" },
+        { image_url: './images/in_overview01.jpg', image_alt: "test" },
+    ],
+    
+    tab_content : [
+        { 
+            tab_label: 'Về chúng tôi',
+            tab_content: '<p>Được thành lập Tháng 4/2017. Công ty Minerva hoạt động trong lĩnh vực mua bán, cho thuê căn hộ, Shophouse thương mại, biệt thự tại Hồ Chí Minh với các dự án tại Bình Thạnh, Quận 1, Quận 2.<br>Với đội ngũ nhân sự cao cấp trong nhiều lĩnh vực, chúng tôi phát triển hệ thống phân phối bất động sản trực tuyến, cung cấp dịch vụ môi giới hoàn hảo, tạo ra một quá trình mua, bán, cho thuê</p><p class="mb-0">Bất động sản thông minh và hiệu suất cao, dựa trên sự kết hợp giữa công nghệ hiện đại và các chuyên viên tư vấn hàng đầu..</p>'
+        },
+        { 
+            tab_label: 'Tầm nhìn',
+            tab_content: '<p>Công ty Minerva hoạt động trong lĩnh vực mua bán, cho thuê căn hộ, Shophouse thương mại, biệt thự tại Hồ Chí Minh với các dự án tại Bình Thạnh, Quận 1, Quận 2.<br>Với đội ngũ nhân sự cao cấp trong nhiều lĩnh vực, chúng tôi phát triển hệ thống phân phối bất động sản trực tuyến, cung cấp dịch vụ môi giới hoàn hảo, tạo ra một quá trình mua, bán, cho thuê</p><p class="mb-0">Bất động sản thông minh và hiệu suất cao, dựa trên sự kết hợp giữa công nghệ hiện đại và các chuyên viên tư vấn hàng đầu..</p>'
+        },
+        { 
+            tab_label: 'Sứ mệnh',
+            tab_content: '<p>Bất động sản thông minh và hiệu suất cao, dựa trên sự kết hợp giữa công nghệ hiện đại và các chuyên viên tư vấn hàng đầu..</p>'
+        },
+    ]
+}
+
+
 module.exports = {
     IMAGE_URL,
+    PHONE_NUMBER,
+
     PROJECT_STATUS,
     PROJECT_SALE_GROUP,
-    DIRECTION_TYPE
+    DIRECTION_TYPE,
+    DATA_INTRODUCE
 }

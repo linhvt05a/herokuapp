@@ -130,11 +130,6 @@ const TransactionLevel = (props) => {
             project_id: projectId.project_id, area_id: areaId.area_id, block_id: blockId.block_id,
             architecture_type_id: productType, direction_id: direction, price_from: priceFrom, price_to: priceTo, acreage_from: acreageFrom, acreage_to: acreageTo}));
     }
-    const onPageChange = (value) => {
-        dispatch(transactionAction.TransactionLoadList({
-            project_id: projectId.project_id, area_id: areaId.area_id, block_id: blockId.block_id,
-            architecture_type_id: productType, direction_id: direction, price_from: priceFrom, price_to: priceTo, acreage_from: acreageFrom, acreage_to: acreageTo}));
-    }
 
     const data = useSelector(state => state.transactionReducer.transactionList.detail)
     return (
@@ -154,7 +149,6 @@ const TransactionLevel = (props) => {
                 inputSelectDatas={filterDataState.inputSelectDatas}
                 sliderDatas={filterDataState.sliderDatas}
                 onFilterClick={onFilterClick}
-                onPageChange={onPageChange}
                 projectName={projectName}
                 blockName={blockName}
                 areaName={areaName}
