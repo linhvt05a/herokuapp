@@ -69,7 +69,8 @@ const Home = (props) => {
     });
 
     useEffect(() => {
-        dispatch(projectAction.loadProjectList({project_sale_status: `[${state.projectStatus}]`}));
+        // dispatch(projectAction.loadProjectList({project_sale_status: `[${state.projectStatus}]`}));
+        dispatch(projectAction.loadProjectList({}));
         dispatch(productAction.loadHotProductList({}));
     }, []);
 
@@ -95,12 +96,23 @@ const Home = (props) => {
             dispatch(productAction.loadHotProductList({}));
         }
     }
-    const setShowSearch = () => {
-        setState({...state, search: false, position: false, showhide: true})
+    const setHideSearch = (target) => {
+        console.log(state, target.className);
+        if(target.className.indexOf('active') > -1) {
+            target.className = "fas map_search--btn_exit fa-search"
+            setState({...state, search: false, position: false, showhide: true})
+        } else {
+            target.className = "fas map_search--btn_exit fa-times active"
+            setState({...state, search: true, position: true, showhide: false})
+        }
     }
-    const setHideSearch = () => {
-        setState({...state, search: true, position: true, showhide: false})
-    }
+
+    var newListProject = []
+    projectList && projectList.length > 0 && projectList.map((item, index) => {
+        if(item.project_sale_status === 3){
+            newListProject.push(item)
+        }
+    })
 
     return (
         <div className="homePage">
@@ -112,7 +124,7 @@ const Home = (props) => {
                     </figure>
                     <LocationView HandlerPosition={handlerButtonPosition} HandlerSearch={handlerButtonSearch} />
                 </div>
-                <OnMapPoligon active={state} onShowSearch={setShowSearch} onHideSearch={setHideSearch}/>
+                <OnMapPoligon active={state} onHideSearch={setHideSearch}/>
             </div>
 
             {/*end block map  */}
@@ -131,7 +143,7 @@ const Home = (props) => {
                         <HeadingLine headerBodyClassName="project_list--heading" labelHeader="project_list" status onStatusClick={onStatusClick} projectStatus={state.projectStatus} />
                         <div className="row project_list--content project_tab--content">
                             {
-                                (projectList && projectList.length > 0) ? projectList.map((item, index) => (
+                                (newListProject && newListProject.length > 0) ? newListProject.map((item, index) => (
                                     index < 7 &&
                                     <ItemHomeProject
                                     key={index}
