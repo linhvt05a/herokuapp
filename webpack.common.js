@@ -10,7 +10,7 @@ module.exports = {
     // entry: './src/index.js',
     entry: {
         libs: './src/index.js',
-        m_main: './src/styles/scss/main.scss'
+        m_main: './public/styles/scss/main.scss'
     },
     module: {
         rules: [

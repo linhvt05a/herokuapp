@@ -15,8 +15,12 @@ L.Icon.Default.mergeOptions({
 });
 
 function MapPoligon(props) {
+    let { data } = props;
     const position = [10.782504, 106.695931];
     return (
+        // data && data.map((item, index) => (
+            
+        // ))
         <Map 
             center={position} zoom={18} 
             style={{ height: "670px", zIndex: 0 }}
@@ -32,9 +36,9 @@ function MapPoligon(props) {
                 url=''
             /> */}
             <Marker position={position}>
-                {/* <Popup>
+                <Popup>
 
-                </Popup> */}
+                </Popup>
             </Marker>
         </Map>
     );

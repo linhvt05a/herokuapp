@@ -1,44 +1,46 @@
-// import * as Login from './pages/Login';
-import Home from "./pages/Home/Home";
-import Contact from "./pages/Contact/Contact";
-import Project from "./pages/Project/Project";
-import ProjectDetail from "./pages/Project/ProjectDetail";
-import ProductDetail from "./pages/ProductDetail/ProductDetail";
-import Introduce from "./pages/Introduce/Introduce";
-import News from "./pages/News/NewsList";
-import NewsDetail from "./pages/News/NewsDetail";
-import RecruitmentList from "./pages/Recruitment/RecruitmentList";
-import RecruitmentDetail from "./pages/Recruitment/RecruitmentDetail";
-import TransactionLevel from "./pages/TransactionLevel/TransactionLevel";
-import ShoppingGuide from "./pages/ShoppingGuide/ShoppingGuide";
-import Juridical from "./pages/Juridical/Juridical";
-import Promotion from './pages/Promotion/Promotion';
-import FlashSaleList from './pages/Promotion/FlashSaleList';
-import Elements from "./pages/Elements/Elements";
-import Example from "./pages/Example";
-import HotProduct from "./pages/Product/HotProduct";
-import User from "./pages/User/CustomerAccount";
-import Cart from "./pages/Cart/Cart";
-import ProductList from './pages/ProductList/ProductList';
+// import * as Login from './templates/Login';
+import Home from "./templates/Home/Home";
+import Contact from "./templates/Support/Contact/Contact";
+import Project from "./templates/Project/Project";
+import ProjectDetail from "./templates/Project/ProjectDetail";
+import ProductDetail from "./templates/ProductDetail/ProductDetail";
+import Introduce from "./templates/Support/Introduce/Introduce";
+import News from "./templates/News/NewsList";
+import NewsDetail from "./templates/News/NewsDetail";
+import RecruitmentList from "./templates/Support/Recruitment/RecruitmentList";
+import RecruitmentDetail from "./templates/Support/Recruitment/RecruitmentDetail";
+import TransactionLevel from "./templates/TransactionLevel/TransactionLevel";
+import ShoppingGuide from "./templates/Support/ShopGuide/ShoppingGuide";
+import Legal from "./templates/Support/Legal/Juridical";
+import Promotion from './templates/Promotion/Promotion';
+import FlashSaleList from './templates/Promotion/FlashSaleList';
+import Elements from "./templates/Elements/Elements";
+import Example from "./templates/Example";
+import HotProduct from "./templates/Product/HotProduct";
+import Account from "./templates/Account/CustomerAccount";
+import Cart from "./templates/ShopCart/Cart";
+import ProductList from './templates/ProductList/ProductList';
+import PropertySelling from "./templates/PolicyPayment/PropertySelling";
+import LoanPolicy from "./templates/LoanOnline/LoanPolicy";
 
-const home_banner_url = './assets/images/project.jpg';
-const introduce_banner_url = './assets/images/project.jpg';
-const contact_banner_url = './assets/images/project.jpg';
-const project_banner_url = './assets/images/project.jpg';
-const projectDetail_banner_url = './assets/images/tutorial_product.jpg';
-const news_banner_url = './assets/images/newspaper.jpg';
-const newsDetail_banner_url = './assets/images/newspaper.jpg';
-const recruitmentList_banner_url = './assets/images/recruitment.jpg';
-const recruitmentDetail_banner_url = './assets/images/recruitment.jpg';
-const transactionLevel_banner_url = './assets/images/project.jpg';
-const shoppingGuide_banner_url = './assets/images/project.jpg';
-const juridical_banner_url = './assets/images/juridical.jpg';
-const promotion_banner_url = './assets/images/project.jpg';
-const flashSaleList_banner_url = './assets/images/project.jpg';
-const elements_banner_url = './assets/images/project.jpg';
-const example_banner_url = './assets/images/project.jpg';
-const cart_banner_url = './assets/images/project.jpg';
-const product_banner_url = './assets/images/project.jpg';
+const home_banner_url = '../images/project.jpg';
+const introduce_banner_url = '../images/project.jpg';
+const contact_banner_url = '../images/project.jpg';
+const project_banner_url = '../images/project.jpg';
+const projectDetail_banner_url = '../images/tutorial_product.jpg';
+const news_banner_url = '../images/newspaper.jpg';
+const newsDetail_banner_url = '../images/newspaper.jpg';
+const recruitmentList_banner_url = '../images/recruitment.jpg';
+const recruitmentDetail_banner_url = '../images/recruitment.jpg';
+const transactionLevel_banner_url = '../images/project.jpg';
+const shoppingGuide_banner_url = '../images/project.jpg';
+const juridical_banner_url = '../images/juridical.jpg';
+const promotion_banner_url = '../images/project.jpg';
+const flashSaleList_banner_url = '../images/project.jpg';
+const elements_banner_url = '../images/project.jpg';
+const example_banner_url = '../images/project.jpg';
+const cart_banner_url = '../images/project.jpg';
+const product_banner_url = '../images/project.jpg';
 
 const MAIN = [
     {
@@ -167,8 +169,8 @@ const MAIN = [
         "banner_class": ''
     },
     {
-        "path": "/juridical",
-        "component": Juridical,
+        "path": "/legal",
+        "component": Legal,
         "banner_title": "juridical_banner_title",
         "banner_url": juridical_banner_url,
         "banner_show": true,
@@ -198,8 +200,8 @@ const MAIN = [
         "banner_show": true
     },
     {
-        "path": "/user",
-        "component": User,
+        "path": "/account",
+        "component": Account,
         "banner_title": "customer_account_banner_title",
         "banner_url": recruitmentList_banner_url,
         "banner_show": true
@@ -217,7 +219,17 @@ const MAIN = [
     //     "banner_title": "products_list_banner_title",
     //     "banner_url": product_banner_url,
     //     "banner_show": true
-    // }
+    // },
+    {
+        "path": "/property-selling/",
+        "component": PropertySelling,
+        "banner_show": false
+    },
+    {
+        "path": "/loan-policy/",
+        "component": LoanPolicy,
+        "banner_show": false
+    },
 ];
 
 export { MAIN }

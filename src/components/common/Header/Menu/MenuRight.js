@@ -8,7 +8,7 @@ const MenuRight = (props) => {
         <div className="header_actions d-none d-md-flex">
             <div className="item">
                 <Link to="/#" className="link">
-                    <img src="../assets/images/live_stream.png" className="live_stream" />
+                    <img src="../images/live_stream.png" className="live_stream" />
                 </Link>
                 <Link to="/#" className="link">
                     <span className="icon">

@@ -8,7 +8,7 @@ const Notifi = (props) => {
                 <div className="notifi__wrap">
                     <figure className="notifi__icon">
                         <span className="notifi__icon_img">
-                            <img src="./assets/images/bullhorn.svg" alt="Căn hộ B6 - F01 của Dự Án Royal Garden vừa được bán" />
+                            <img src="../images/bullhorn.svg" alt="Căn hộ B6 - F01 của Dự Án Royal Garden vừa được bán" />
                             </span>
                     </figure>
                     <div className="notifi__text">
@@ -20,7 +20,7 @@ const Notifi = (props) => {
                 <div className="notifi__wrap">
                     <figure className="notifi__icon">
                         <span className="notifi__icon_img">
-                            <img src="./assets/images/bullhorn.svg" alt="Căn hộ B6 - F01 của Dự Án Royal Garden vừa được bán" />
+                            <img src="../images/bullhorn.svg" alt="Căn hộ B6 - F01 của Dự Án Royal Garden vừa được bán" />
                             </span>
                     </figure>
                     <div className="notifi__text">

@@ -1,0 +1,65 @@
+.chat_online {
+    .send_info {
+        display: none;
+        .submit{
+            margin-bottom: 0;
+        }
+        &.active{
+            display: block;
+        }
+        textarea{
+            height: 84px !important;
+        }
+        input {
+            margin-bottom: 0;
+        }
+    }
+    .start_chat {
+        display: none;
+        &.active{
+            display: block;
+        }
+    }
+    .submit button {
+        min-width: 150px;
+    }
+    .list_emoji span{
+        color: #000;
+    }
+    .chat--input {
+        .typing{
+            outline: none;
+            box-shadow: none;
+            color:#000;
+        }
+        .media{
+            @include flexbox;
+            @include align-items(center)
+        }
+        .ant-row{
+            margin-bottom: 0;
+        }
+        
+        * div, form{
+          height: 100%;  
+        }
+    }
+    .chat--box{
+        overflow-y:scroll;
+        @include justify-content(flex-start)
+    }
+
+    .ant-upload-list{
+        display: none;
+    }
+    .ant-upload.ant-upload-select-picture-card {
+        width: auto;
+        float: none;
+        border: none;
+        background: transparent;
+        margin: 0;
+        > .ant-upload{
+        
+        }
+    }
+}

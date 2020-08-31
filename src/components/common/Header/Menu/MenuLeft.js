@@ -9,7 +9,7 @@ const MenuLeft = (props) => {
                 <NavLink className="item-link" to="/">
                     <img
                         className="w-100"
-                        src="./assets/images/logo.jpg"
+                        src="../images/logo.jpg"
                         alt="Minerva"
                     />
                 </NavLink>
@@ -56,7 +56,7 @@ const MenuLeft = (props) => {
                     <li className="item-child">
                         <NavLink activeClassName="active"
                             className="item-child-link"
-                            to="/juridical"
+                            to="/legal"
                         >
                             Pháp lý
                         </NavLink>
@@ -122,7 +122,7 @@ const MenuLeft = (props) => {
             <li className="item">
                 <NavLink activeClassName="active" className="item-link" to="/promotion">
                     KHUYẾN MÃI
-                    <img src="../assets/images/gift.png" class="gift" />
+                    <img src="../images/gift.png" class="gift" />
                 </NavLink>
             </li>
             <li className="item d-flex justify-content-between d-md-none">
@@ -139,19 +139,19 @@ const MenuLeft = (props) => {
                     </Link>
                     <div className="item-utility dropdown languages">
                         <Link to="/demo">
-                            <img src="./assets/images/lang_vn.jpg" alt="languages" />
+                            <img src="../images/lang_vn.jpg" alt="languages" />
                             <i className="icon_arrow fas fa-chevron-down" />
                         </Link>
                         <ul className="dropdown-menu pull-right">
                             <li>
                                 <Link to="/#">
-                                    <img src="./assets/images/lang_en.png" width={16} height={16} />
+                                    <img src="../images/lang_en.png" width={16} height={16} />
                                     <span>English</span>
                                 </Link>
                             </li>
                             <li className="active">
                                 <Link to="/#">
-                                    <img src="./assets/images/lang_china.png" width={16} height={16} />
+                                    <img src="../images/lang_china.png" width={16} height={16} />
                                     <span>China</span>
                                 </Link>
                             </li>
