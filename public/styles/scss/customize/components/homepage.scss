@@ -1,0 +1,44 @@
+.map_custom_show_hide {
+    flex: 0 0 100%;
+    max-width: 100%;
+    &.active{
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+.custom_popup_map {
+    margin-bottom: 28px;
+    .leaflet-popup-content-wrapper{
+        border-radius: 0;
+        .leaflet-popup-content {
+            margin: 8px 10px;
+            font-weight: 500;
+            font-stretch: normal;
+            font-style: normal;
+            letter-spacing: normal;
+            text-align: center;
+            color: #6d30ab;
+        }
+    }
+}
+.leaflet-marker-pane {
+    img {
+        height: auto !important;
+    }
+}
+.leaflet-left {
+    right: 0;
+    left: auto;
+    .leaflet-control {
+        margin-right: 10px;
+    }
+}
+a[href^="http://maps.google.com/maps"]{display:none !important}
+a[href^="https://maps.google.com/maps"]{display:none !important}
+
+.gmnoprint a, .gmnoprint span, .gm-style-cc {
+    display:none;
+}
+.gmnoprint div {
+    background:none !important;
+}
