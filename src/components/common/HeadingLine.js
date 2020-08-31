@@ -41,13 +41,10 @@ const HeadingLine = (props) => {
                 status &&
                 <div className="project_list--status text-uppercase">
                     <a name={3} className={projectStatus === 3 ? "status working active" : "status working"} onClick={onStatusClick}>
-                        <Trans>VAY THẢ NỔI</Trans>
+                        <Trans>home_selling</Trans>
                     </a>
                     <a name={2} className={projectStatus === 2 ? "status done active" : "status done"} onClick={onStatusClick}>
-                        <Trans>VAY TRẢ GÓP ĐỀU</Trans>
-                    </a>
-                    <a name={2} className={projectStatus === 2 ? "status done active" : "status done"} onClick={onStatusClick}>
-                        <Trans>VAY DƯ NỢ BAN ĐẦU</Trans>
+                        <Trans>home_comming_soon</Trans>
                     </a>
                 </div>
             }
