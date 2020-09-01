@@ -19,6 +19,40 @@
     margin-bottom: 15px;
   }
 }
+.form_signInUp .icon_star {
+  margin-top: 5px;
+  color: #d1d1d1;
+  text-align: center;
+  position: relative;
+}
+.form_signInUp .icon_star::before {
+  position: absolute;
+  content: "";
+  background-color: #d1d1d1;
+  height: 1px;
+  width: 35%;
+  right: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.form_signInUp .icon_star::after {
+  position: absolute;
+  content: "";
+  background-color: #d1d1d1;
+  height: 1px;
+  width: 35%;
+  left: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.form_signInUp .text_register_link a {
+  font-size: 14px;
+  text-decoration: none;
+}
+.form_signInUp .text_register_link span {
+  text-decoration: underline;
+  font-size: 16px;
+}
 
 .btn_signIn {
   max-width: 175px;

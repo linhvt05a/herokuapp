@@ -377,7 +377,14 @@
                 left: 155px;
                 @media(max-width:767px) {
                     top: 10px;
-                    left: 15px;
+                }
+                @media(max-width:474px) {
+                    display: block;
+                }
+                li{
+                    @media(max-width:474px) {
+                        margin-top: 5px;
+                    }
                 }
             }
             .icon_like_down{
@@ -519,6 +526,9 @@
         }
         .sales_timeline--heading{
             left: 25px;
+            @media (max-width: 768px) {
+                left: 75px;
+            }
         }
     }
 
