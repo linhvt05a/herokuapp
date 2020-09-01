@@ -26,9 +26,17 @@ export default {
     insert_content_and_enter_to_send: "Insert content and Enter to send",
     end_chat: "Do you want to end the conversation ?",
     title_end_chat: "Do you really want to end the conversation with us.",
-    end_button: "End",
-    back_button: "Back",
-    save: "Save",
+
+
+
+    // end_button: "End",
+    // back_button: "Back",
+    // save: "Save",
+
+    //button
+    button_end:"End",
+    button_back: "Back",
+    button_save: "Save",
 
     // languages 
     lang_vi : 'VietNamese',

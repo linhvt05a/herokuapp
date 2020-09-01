@@ -20,13 +20,13 @@ const RowNews = (props) =>{
   return(
     <div className="item ">
     <div className="image">
-      <img src={data.hotImage} />
+      <img src={data.news_avatar} />
     </div>
     <div className="title">
       <a className="name" href="#">
-       {data.title}
+       {data.news_title}
       </a>
-      <div className="time">Ngày đăng : {data.postTime}</div>
+      <div className="time">Ngày đăng : {data.from_date}</div>
     </div>
   </div>
   )

@@ -26,14 +26,14 @@ const RightContent = (props) => {
     }
 
     useEffect(() => {
-        if (projectList && projectList.length > 0) {
+        if (newsCategories && newsCategories.length > 0) {
             let newData = [];
-            projectList.map((item) => {
-                newData.push(createData(item.id, item.name))
+            newsCategories.map((item) => {
+                newData.push(createData(item.category_id, item.category_name))
             })
             setProjectList(newData)
         }
-    }, [projectList]);
+    }, [newsCategories]);
     const onClick = (id) =>{
         setNavigate(id)
     }

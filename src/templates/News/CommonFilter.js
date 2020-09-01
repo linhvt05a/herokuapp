@@ -12,7 +12,7 @@ const CommonFilter = (props) => {
             <InputBase name ={name} placeholder={placeholder} onChange={handleChange}/>
             <SelectCustom defaultValue={defaultValue} datas={datas} onChange ={changeSelect}/>
             <InputDatePicker   onChange={changeDateFrom}/>
-            <InputDatePicker  onChange={changeDateTo}/>
+            <InputDatePicker   onChange={changeDateTo}/>
             <ButtonStyle className="btn btn_green text-uppercase w-100" href="#" label="SEARCH" onClick = {handleFilter}/>
         </div>
     )

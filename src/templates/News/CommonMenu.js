@@ -4,6 +4,7 @@ import {InputBase} from '../../components/base/index'
 
 const CommonMenu = (props) =>{
   const{label, dataMenu, onClick, navigate, className} = props
+  
     return(
           <div className= {className}>
             <ul className="options__menu">
@@ -14,9 +15,9 @@ const CommonMenu = (props) =>{
               </label>
               {dataMenu && dataMenu.map((item, index)=>
                 <li className="options__menu-item" key={index}>
-                  <a className={navigate === item.id ? "active": ''} onClick={()=>onClick(item.id)}>
+                  <a className={navigate === item.category_id ? "active": ''} onClick={()=>onClick(item.category_id)}>
                     <i className="icon fas fa-angle-right mr-2" />
-                      <Trans>{item.title}</Trans>
+                      <Trans>{item.category_name}</Trans>
                   </a>
                 </li>
               ) }

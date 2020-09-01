@@ -16,10 +16,10 @@ const EndChat = (props) => {
             </div>
             <div className="list_btn">
                 <Link to="/#" className="btn btn_red end_chat_all" onClick={set_Exit}>
-                    <Trans>end_button</Trans>
+                    <Trans>button_end</Trans>
                 </Link>
                 <Link to="/#" className="btn btn_green end_chat_back" onClick={set_Back}>
-                    <Trans>back_button</Trans>
+                    <Trans>button_back</Trans>
                 </Link>
             </div>
         </div>

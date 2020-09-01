@@ -43,9 +43,11 @@ export default {
     VISIT_REGISTER :"/api/main_web/v1/register_visit/",
 
     NEWS_LIST:"/api/main_web/v1/news/",
-    NEWS_DETAIL:"",
+    NEWS_DETAIL:"/api/main_web/v1/news/detail/",
     HOT_NEWS : "",
-    NEWS_CATEGORIES:"",
+    NEWS_CATEGORIES:"/api/main_web/v1/news/category/",
+    NEWS_ADD_COMMENT:"/api/main_web/v1/news/comment/create/",
+    NEWS_COMMENT_LIST:"api/main_web/v1/news/comment/",
 
     JURIDICAL_ADD:"",
     
