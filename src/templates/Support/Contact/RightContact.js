@@ -59,7 +59,7 @@ const RightContact= (props) => {
 
     return(
         <div className="col-12 col-sm-12 col-md-12 col-lg-6 col-right pt-5 pt-lg-0">
-            <h2 className="heading"><Trans>Contact</Trans></h2>
+            <h2 className="heading"><Trans>contact</Trans></h2>
             <Form noValidate 
                 form={formInfo}
                 onFinish={onSubmitInfo}
@@ -84,7 +84,7 @@ const RightContact= (props) => {
                                     formInfo.getFieldsError().filter(({ errors }) => errors.length).length
                                 }
                             >
-                                <Trans>SEND MESSAGE</Trans>
+                                <Trans>send_message</Trans>
                             </Button>
                             )
                     }}

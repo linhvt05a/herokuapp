@@ -29,6 +29,10 @@ export default {
     end_button: "Kết thúc",
     back_button: "Quay lại",
     save: "Lưu",
+    
+    // send contact
+    contact: "Liên lạc",
+    send_message: "GỬI TIN NHẮN",
 
     // languages 
     lang_vi : 'Việt Nam',

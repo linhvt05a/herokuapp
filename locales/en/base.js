@@ -30,6 +30,10 @@ export default {
     back_button: "Back",
     save: "Save",
 
+    // send contact
+    contact: "Contact",
+    send_message: "SEND MESSAGE",
+
     // languages 
     lang_vi : 'VietNamese',
     lang_en : 'English',
