@@ -6,6 +6,7 @@ import { newsDetailAction, hotNewsAction } from "../../store/action/index";
 
 
 const NewsDetail = (props) => {
+ 
   const newsDetail = useSelector(state => state.newsDetailReducer);
   const newsDetailSuccess = newsDetail.newsDetail.success
   const listDetail = newsDetailSuccess ? newsDetail.newsDetail.detail : null;
@@ -18,12 +19,14 @@ const NewsDetail = (props) => {
   const newsCates = useSelector(state => state.newsCategoriesReducer);
   const newsCateSuccess = newsCates.newsCate.success
   const newsCategories = newsCateSuccess ? newsCates.newsCate.detail : null;
-
+  const news_id = 141
   useEffect(() => {
-      dispatch(newsDetailAction.LoadNewsDetail({}));
+    
+      dispatch(newsDetailAction.LoadNewsDetail({news_id: news_id}));
       dispatch(hotNewsAction.hotNewsList({}));
+      
   }, []);
-
+  console.log(props)
   return (
     <div className="news_detail">
       <div className="container container-sm container-md">

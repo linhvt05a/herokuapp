@@ -16,12 +16,13 @@ export const newsService = {
     },
 
     newsDetail(payload){
+        const {news_id} = payload.params
         const requestOptions = {
             method: 'GET',
             headers: api.getHeader(TOKEN)
         };
 
-        const params = {payload };
+        const params = {news_id};
         const url = api.getUrl(api.NEWS_DETAIL, params);
         return api.handleRequest(url, requestOptions);
     },
