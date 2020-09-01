@@ -16,9 +16,6 @@ function Header() {
     const [isMBToggle, setMBToggle] = useState(false);
 
     useEffect(() => {
-
-        console.log(isMBToggle);
-
         const onScroll = e => {
           setScrollTop(e.target.documentElement.scrollTop);
           setScrolling(e.target.documentElement.scrollTop > scrollTop);

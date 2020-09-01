@@ -18,7 +18,7 @@ const home = {
     project_list: "Danh sách dự án",
     see_all: "Xem tất cả",
     house_highlight: "Căn hộ nổi bật nhất",
-    hot_product: "Sản phẩm nổi bất nhất",
+    hot_product: "Sản phẩm nổi bật nhất",
     home_detail_button_title: "Chi tiết",
     home_product_button_title: "Sản phẩm",
     home_aparment: "Aparment",

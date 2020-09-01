@@ -7,7 +7,8 @@ const Cart = (props) => {
 
     const [state, setState] = useState({
         paymentProgressModalVisible: false,
-        promotionModalVisible: false
+        promotionModalVisible: false,
+        accountModalVisible: true
     });
 
     const showPaymentProgressModal = (isShow) => {
@@ -24,11 +25,19 @@ const Cart = (props) => {
         })
     }
 
+    const showAccountModal = (isShow) => {
+        setState({
+            ...state,
+            accountModalVisible: isShow
+        })
+    }
+
     const getPaymentProgressData = (data) => {
         setState({
             ...state,
             paymentProgressModalVisible: false
         })
+        console.log("data", data);
         // data lay duoc sau khi luu
     }
 
@@ -36,6 +45,14 @@ const Cart = (props) => {
         setState({
             ...state,
             promotionModalVisible: false
+        })
+        // data lay duoc sau khi luu
+    }
+
+    const getAccountData = (data) => {
+        setState({
+            ...state,
+            accountModalVisible: false
         })
         // data lay duoc sau khi luu
     }
@@ -53,6 +70,7 @@ const Cart = (props) => {
             </div>
             <ModalCustom visible={state.paymentProgressModalVisible} widthModal="400px" showPaymentProgressModal={showPaymentProgressModal} dataOutput={getPaymentProgressData} />
             <ModalCustom visible={state.promotionModalVisible} widthModal="400px" showPromotionModal={showPromotionModal} dataOutput={getPromotionData} />
+            <ModalCustom visible={state.accountModalVisible} widthModal="360px" showAccountModal={showAccountModal} dataOutput={getAccountData} />
         </div>
     )
 }

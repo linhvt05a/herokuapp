@@ -50,7 +50,7 @@ const CardCartSummary = (props) => {
                         </div>
                     </div>
                     <div className="text-center mt-2">
-                        <a href="#" className="btn btn_purple text-uppercase"><Trans>cart_deposit_proceed</Trans></a>
+                        <a className="btn btn_purple text-uppercase"><Trans>cart_deposit_proceed</Trans></a>
                     </div>
                 </div>
             </div>

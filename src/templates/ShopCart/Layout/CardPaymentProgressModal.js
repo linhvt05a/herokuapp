@@ -5,25 +5,44 @@ import { Input, Select } from 'antd'
 const CardPaymentProgressModal = (props) => {
 
     const { onSaveClick, clearData, isClearData } = props
-    const [selectedData, setSelectedData] = useState(null)
+    const [state, setState] = useState({
+        paymentProgress: null,
+        paymentPolicy: null
+    })
 
     useEffect(() => {
-        setSelectedData(1)
+        setState({
+            paymentProgress: 1,
+            paymentPolicy: 1
+        })
     }, [])
 
     useEffect(() => {
         if (isClearData) {
-            setSelectedData(1)
+            setState({
+                paymentProgress: 1,
+                paymentPolicy: 1
+            })
             clearData()
         }
     }, [isClearData])
 
-    const getSelectedData = (value) => {
-        setSelectedData(value)
+    const getSelectedPaymentProgressData = (value) => {
+        setState({
+            ...state,
+            paymentProgress: value
+        })
+    }
+
+    const getSelectedPaymentPolicyData = (value) => {
+        setState({
+            ...state,
+            paymentPolicy: value
+        })
     }
 
     const onSave = () => {
-        onSaveClick(selectedData)
+        onSaveClick(state)
     }
 
     return (
@@ -34,13 +53,21 @@ const CardPaymentProgressModal = (props) => {
             <div className="modal-body m_slider save_product--modal-signin">
                 <div className="form form_signInUp">
                     <div className="form-group">
+                        <label className="col-form-label fw-medium modal_label_pay "><Trans>cart_payment_policy</Trans></label>
+                        <Select className="form-control" value={state.paymentPolicy} onChange={getSelectedPaymentPolicyData}>
+                            <Select.Option value={1}>Chính sách thanh toán A</Select.Option>
+                            <Select.Option value={2}>Chính sách thanh toán B</Select.Option>
+                            <Select.Option value={3}>Chính sách thanh toán C</Select.Option>
+                        </Select>
+                    </div>
+                    <div className="form-group">
                         <label className="col-form-label fw-medium modal_label_pay "><Trans>cart_deposit_amount</Trans>
                         <span className="fw-normal"> (<Trans>cart_dong</Trans>)</span></label>
-                        <Input disabled value="100.000.000" type="text" className="form-form-control modal_color_red" />
+                        <Input disabled value="100.000.000" type="text" className="form-control modal_color_red" /> 
                     </div>
                     <div className="form-group">
                         <label className="col-form-label fw-medium modal_label_pay "><Trans>cart_payment_progress</Trans></label>
-                        <Select className="form-control" value={selectedData} onChange={getSelectedData}>
+                        <Select className="form-control" value={state.paymentProgress} onChange={getSelectedPaymentProgressData}>
                             <Select.Option value={1}>Thanh toán sớm 20%</Select.Option>
                             <Select.Option value={2}>Thanh toán sớm 30%</Select.Option>
                             <Select.Option value={3}>Thanh toán sớm 40%</Select.Option>
@@ -56,12 +83,12 @@ const CardPaymentProgressModal = (props) => {
                     <div className="form-group">
                         <label className="col-form-label fw-medium modal_label_pay"><Trans>cart_discount_amount_1</Trans>
                         <span className="fw-normal"> (<Trans>cart_dong</Trans>)</span></label>
-                        <Input disabled value="150.000.000" type="text" className="form-form-control modal_color_red" />
+                        <Input disabled value="150.000.000" type="text" className="form-control modal_color_red" />
                     </div>
                     <div className="form-group">
                         <label className="col-form-label fw-medium modal_label_pay"><Trans>cart_payment_amount</Trans>
                         <span className="fw-normal "> (<Trans>cart_dong</Trans>)</span></label>
-                        <Input disabled value="2.850.000.000" type="text" className="form-form-control modal_color_red" />
+                        <Input disabled value="2.850.000.000" type="text" className="form-control modal_color_red" />
                     </div>
                     <div className="form-group mb-0 text-center">
                         <a className="btn btn_green btn_signIn text-uppercase" onClick={onSave}>
