@@ -31,10 +31,6 @@ const News = () => {
     const newsCateSuccess = newsCates.newsCate.success
     const newsCategories = newsCateSuccess ? newsCates.newsCate.detail : null;
 
-    const projectSelect = useSelector(state => state.projectSelectReducer);
-    const projectSelectSuccess = projectSelect.projectList.success
-    const projectList = projectSelectSuccess ? projectSelect.projectList.detail : null;
-
     const total_page = newRecord && newRecord != null ? newRecord.total_page : null
     const total_record =newRecord && newRecord != null ? newRecord.total_record: null
     const page = newRecord && newRecord != null ? newRecord.page: null
@@ -46,14 +42,14 @@ const News = () => {
     }
 
     useEffect(() => {
-        if (projectList && projectList.length > 0) {
+        if (newsCategories && newsCategories.length > 0) {
             let newData = [];
-            projectList.map((item) => {
-                newData.push(createData(item.id, item.name))
+            newsCategories.map((item) => {
+                newData.push(createData(item.category_id, item.category_name))
             })
             setProjectList(newData)
         }
-    }, [projectList]);
+    }, [newsCategories]);
 
     useEffect(() => {
         dispatch(newsAction.LoadNewsList({}));
@@ -81,23 +77,25 @@ const News = () => {
     }
 
     const handleFilter = () =>{
-        dispatch(newsFilterAction.filterNews({nameSearch, cateID, dateFrom, dateTo}))
+        dispatch(newsAction.LoadNewsList({nameSearch, cateID, dateFrom, dateTo}))
     }
 
     function convertDateTo(value){
-        const date = moment(value).format('DD/MM/YYYY')
+        const date = moment(value).format('YYYY-MM-DD')
         setDateTo(date)
         return date
     }
     function convertDateFrom(value){
-        const date = moment(value).format('DD/MM/YYYY')
+        const date = moment(value).format('YYYY-MM-DD')
         setDateFrom(date)
         return date
     }
 
     const handleClick = (id) =>{
         setNavigate(id)
+        dispatch(newsAction.LoadNewsList({category_id: id}))
     }
+    
     return (
         <div className="news">
             <div className="container container-sm container-md">
@@ -138,9 +136,10 @@ const News = () => {
 }
 
 const RowNews = (props) => {
+    const{data} = props
     return (
         <div className="card" >
-            <Link to={"/NewsDetail/" + props.data.id} className="link"></Link>
+            <Link to={"/NewsDetail/" + data.news_id} className="link"></Link>
             <div className="row ">
                 <div className="col-sm-12 col-md-5 col-xl-5 d-flex">
                     <div className="news__card--img">
@@ -149,14 +148,14 @@ const RowNews = (props) => {
                 </div>
                 <div className="col-md-7 col-xl-7">
                     <div className="news__card--content">
-                        <Link className="title" to={"/NewsDetail/" + props.data.id}>
+                        <Link  className="title" to={"/NewsDetail/" + data.news_id}>
                             {props.data.news_title}
                         </Link>
                         <div className="times">
-                            Ngày đăng : {props.data.from_date}
+                            Ngày đăng : {data.from_date}
                         </div>
                         <p className="contain">
-                            {props.data.description}
+                            {data.description}
                         </p>
                     </div>
                 </div>

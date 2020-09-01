@@ -21,12 +21,15 @@ import projectSelectAction from './projectSelectAction'
 import legalCategoriesAction from './legalCategoriesAction'
 import legalListAction from './legalListAction'
 // import accountAction from './accountAction'
+import commentNewsAction from './commentNewsAction'
+import newsCommentListAction from './newsCommentListAction'
+
 export {
   examAction, projectAction, productAction, visitSignupAction, promotionAction, commonAction,
   newsAction, newsDetailAction, hotNewsAction,transactionAction,
   productListAction, productSignupAction, productIncentivesAction, productDetailAction,
   contactAddAction, juridicalSupportAction, newsFilterAction, visitorAction,
   newsCategoriesAction, projectSelectAction, 
-  legalCategoriesAction, legalListAction,
   // accountAction,
+  legalCategoriesAction, legalListAction, commentNewsAction, newsCommentListAction
 }

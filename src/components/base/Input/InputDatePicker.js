@@ -2,7 +2,7 @@ import React, { useState, useEffect} from "react";
 import { DatePicker, Space } from 'antd';
 import moment from 'moment';
 
-const dateFormat = 'DD/MM/YYYY';
+const  dateFormat = "DD/MM/YYYY"
 const InputDatePicker = (props) =>{
     const [date, setDate] = useState(new Date())
     

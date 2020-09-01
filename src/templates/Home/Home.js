@@ -11,7 +11,7 @@ import CardNoData from '../../components/common/CardNoData';
 import { ItemHomeProject } from './Item/index'
 import { CardSaleFlash, CardHotProduct } from "./Layout/index";
 import { MapHome } from "../../components/common/Map/index";
-import { projectAction, productAction } from "../../store/action/index";
+import { projectAction, productAction, newsAction } from "../../store/action/index";
 
 
 import { LocationView, YourPosition } from "./Location/index";
@@ -41,6 +41,7 @@ const Home = (props) => {
         // dispatch(projectAction.loadProjectList({project_sale_status: `[${state.projectStatus}]`}));
         dispatch(projectAction.loadProjectList({}));
         dispatch(productAction.loadHotProductList({}));
+        dispatch(newsAction.LoadNewsList({limit: 3}))
        
     }, []);
 

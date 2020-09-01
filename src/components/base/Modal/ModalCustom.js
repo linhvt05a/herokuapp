@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Modal } from 'antd';
-import { CardPaymentProgressModal, CardPromotionModal } from '../../../templates/ShopCart/Layout'
+import { CardPaymentProgressModal, CardPromotionModal, CardAccountModal } from '../../../templates/ShopCart/Layout'
 
 
 const ModalCustom = (props) => {
 
-    const { visible, widthModal, showPaymentProgressModal, showPromotionModal, dataInput, dataOutput } = props
+    const { visible, widthModal, showPaymentProgressModal, showPromotionModal, showAccountModal, dataInput, dataOutput } = props
     const [isClearData, setClearData] = useState(false)
 
     const handleCancel = () => {
@@ -14,6 +14,8 @@ const ModalCustom = (props) => {
             showPaymentProgressModal(false);
         } else if (showPromotionModal) {
             showPromotionModal(false)
+        } else if (showAccountModal) {
+            showAccountModal(false)
         }
     };
 
@@ -35,6 +37,11 @@ const ModalCustom = (props) => {
             {
                 showPromotionModal &&
                 <CardPromotionModal onSaveClick={dataOutput} clearData={afterClearData} isClearData={isClearData} />
+            }
+
+            {
+                showAccountModal &&
+                <CardAccountModal clearData={afterClearData} isClearData={isClearData} />
             }
 
         </Modal>

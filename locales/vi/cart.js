@@ -24,4 +24,10 @@ export default {
     cart_product_incentives: "Những ưu đãi khách hàng có được khi mua sản phẩm này như sau:",
     cart_converted_to_money: "Quy đổi thành tiền",
     cart_choose_the_form : "Bạn hãy chọn lại một hình thức:",
+    cart_payment_policy: "Chính sách thanh toán",
+    cart_account: "Tài khoản của tôi",
+    cart_login: "Đăng nhập",
+    cart_forgot_password: "Quên mật khẩu",
+    cart_email: "Email",
+    cart_password: "Mật khẩu"
 }

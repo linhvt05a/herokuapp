@@ -13,7 +13,7 @@ const CardCartProductList = (props) => {
                 <InputCheckboxViolet />
                 <span class="title-project"><Trans>cart_select_all</Trans> (5 <Trans>cart_products</Trans>)</span>
                 <div class="icon-trash">
-                    <a href="#" class="fas fa-trash-alt"></a>
+                    <a href="#" class="fas fa-trash-alt icon-trash"></a>
                 </div>
             </div>
             <ItemProjectName />

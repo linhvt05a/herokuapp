@@ -11,9 +11,9 @@ const InputCheckboxViolet = (props) => {
         });
     }
     return (
-        <label onChange={checkboxOnChange} className="check-all" type="checkbox">
-            <input defaultValue={1} type="checkbox" />
-            <span className="checkmark" />
+        <label onChange={checkboxOnChange} className={state.checked ? "checkbox-inline style_02 active" : "checkbox-inline style_02"} type="checkbox">
+            <input className="checkbox-custom" defaultValue={1} type="checkbox" />
+            <span className="checkbox-custom-dummy" />
         </label>
     )
 }

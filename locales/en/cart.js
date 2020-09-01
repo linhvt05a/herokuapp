@@ -24,4 +24,10 @@ export default {
     cart_product_incentives: "The incentives that customers get when buying this product are as follows:",
     cart_converted_to_money: "Converted to money",
     cart_choose_the_form : "Please select a form again:",
+    cart_payment_policy: "Payment policy",
+    cart_account: "My account",
+    cart_login: "Login",
+    cart_forgot_password: "Forgot password",
+    cart_email: "Email",
+    cart_password: "Password"
 }

@@ -1,15 +1,16 @@
-import { hotNewsAction } from '../action';
+import { newsCommentListAction } from '../action';
 
 const initialState = {
-    hotNewsList: []
-}
+    commentList: [],
+
+};
 
 export default (state = initialState, action) => {
     switch (action.type) {
-        case hotNewsAction.LOAD_LIST_SUCCESS:
+        case newsCommentListAction.LOAD_LIST_SUCCESS:
             return {
                 ...state,
-                hotNewsList: action.response,
+                commentList: action.response,
                 isFetching: true,
                 isLoadingList: false,
             };

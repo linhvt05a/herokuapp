@@ -9,13 +9,13 @@ const CardPromotionModal = (props) => {
     const [isShowConvert, setShowConvert] = useState(null)
 
     useEffect(() => {
-        setSelectedData(1)
+        setSelectedData(null)
         setShowConvert(false)
     }, [])
 
     useEffect(() => {
         if (isClearData) {
-            setSelectedData(1)
+            setSelectedData(null)
             clearData()
         }
     }, [isClearData])
@@ -26,6 +26,10 @@ const CardPromotionModal = (props) => {
 
     const onShowConvertClick = () => {
         setShowConvert(true)
+    }
+
+    const onFormChange = (e) => {
+        setSelectedData(e.target.value);
     }
 
     return (
@@ -60,11 +64,11 @@ const CardPromotionModal = (props) => {
                                 </div>
                                 <div className="redemption_form" style={{display: isShowConvert ? "block" : "none"}}>
                                     <div className="title color_656565"><i><Trans>cart_choose_the_form</Trans></i></div>
-                                    <Radio.Group className="check_box_redemption">
-                                        <Radio value={1}>Quà tặng</Radio>
+                                    <Radio.Group onChange={onFormChange} value={selectedData} className="check_box_redemption">
+                                        <Radio className="checkbox-inline style_04" value={1}>Quà tặng</Radio>
                                         <Radio value={2}>
                                             Tiền
-                                            <Input disabled value="150.000.000" type="text" className="form-form-control modal_color_red" />
+                                            <Input disabled value="150.000.000" type="text" className="form-control modal_color_red" />
                                         </Radio>
                                     </Radio.Group>
                                 </div>
@@ -73,7 +77,7 @@ const CardPromotionModal = (props) => {
                     </div>
                     <div className="form-group mb-0 text-center">
                         <a className="btn btn_green btn_signIn text-uppercase" onClick={onSave}>
-                            <Trans>save</Trans>
+                            <Trans>button_save</Trans>
                         </a>
                     </div>
                 </div>
