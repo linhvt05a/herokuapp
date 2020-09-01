@@ -421,40 +421,6 @@ $color_05: #399b54;
                 padding-left: 15px;
             }
 
-            .gadgets_around{
-                padding-left: 11px;
-                position: relative;
-                &::before {
-                    content: "";
-                    background-color: transparent;
-                    position: absolute;
-                    width: 5px;
-                    left: 0;
-                    margin-top: 2px;
-                    height: 11px;
-                    border-bottom: 2px solid #51c471;
-                    border-right: 2px solid #51c471;
-                    @include transform(rotate(45deg));
-                }
-            }
-            .gadgets_around_no{
-                padding-left: 11px;
-                position: relative;
-                &::before {
-                    content: "";
-                    background-color: transparent;
-                    position: absolute;
-                    width: 5px;
-                    left: 0;
-                    margin-top: 2px;
-                    height: 11px;
-                    border-bottom: 2px solid #999999;
-                    border-right: 2px solid #999999;
-                    @include transform(rotate(45deg));
-                }
-            }
-
-
         }
 
     }

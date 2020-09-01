@@ -156,6 +156,50 @@ main {
             }
         }
     }
+    //check HAVE gadgets_around 04_San_giao_dich
+    &_03 {
+        &--item {
+            margin-bottom: 7px;
+            padding-left: 15px;
+            position: relative;
+            font-size: 14px;
+            color: #0d0d0d;
+            line-height: normal;
+
+            &::before {
+                position: absolute;
+                content: "\f00c";
+                font-family: "Font Awesome 5 Free";
+                font-weight: 900;
+                font-size: 12px;
+                color: #51c471;
+                left: 0;
+            }
+        }
+    }
+    //check HAVEN'T gadgets_around 04_San_giao_dich
+    &_04 {
+        &--item {
+            margin-bottom: 7px;
+            padding-left: 15px;
+            position: relative;
+
+            font-size: 14px;
+            color: #0d0d0d;
+
+            line-height: normal;
+
+            &::before {
+                position: absolute;
+                content: "\f00c";
+                font-family: "Font Awesome 5 Free";
+                font-weight: 900;
+                font-size: 12px;
+                color: #999999;
+                left: 0;
+            }
+        }
+    }
 }
 
 /*sales_collapse*/

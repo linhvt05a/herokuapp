@@ -257,7 +257,10 @@
     //10_01_Gio_hang_list
     .select-check {
         display: flex;
-
+        align-items: center;
+        .style_02{
+            padding-left: 35px ;
+        }
         .title-project {
             display: flex;
             align-items: center;
@@ -343,7 +346,9 @@
             @media (max-width: 1199px) {
                 width: 100%;
             }
-
+            .style_02{
+                padding-left: 35px ;
+            }
             .block-img {
                 position: relative;
                 height: 86%;
@@ -443,7 +448,7 @@
                 }
 
                 .price {
-                    margin-left: auto;
+                    margin-left: auto !important;
                     margin: 5px 0;
                     &__item {
                         flex-direction: column;
@@ -531,6 +536,7 @@
                         }
 
                         .icon-money {
+                            cursor: pointer;
                             border: 1px solid #fb9334;
                             margin: 1px;
                             padding: 8px 9px;
@@ -539,6 +545,7 @@
                         }
 
                         .icon-gift {
+                            cursor: pointer;
                             border: 1px solid #25b15f;
                             margin: 1px;
                             padding: 8px 11px;
@@ -596,7 +603,7 @@
                     content: "";
                     position: absolute;
                     height: 56%;
-                    margin-left: -10px;
+                    margin-left: -9px;
                     border-left: 2px solid #e0e0e0;
 
                     @media (max-width: 767px) {
@@ -611,59 +618,6 @@
         }
 
 
-    }
-
-
-
-    .check-all {
-        position: relative;
-        cursor: pointer;
-        padding-left: 40px;
-        margin: auto;
-
-        @media (max-width: 767px) {
-            padding-left: 25px;
-        }
-
-        input {
-            position: absolute;
-            opacity: 0;
-            cursor: pointer;
-            height: 0;
-            width: 0;
-        }
-
-        input:checked~.checkmark {
-            background: #6d30ab;
-        }
-
-        input:checked~.checkmark::after {
-            display: block;
-        }
-
-        .checkmark {
-            position: absolute;
-            top: 50%;
-            left: 0;
-            width: 20px;
-            height: 20px;
-            background: white;
-            border: 1px solid #656565;
-            overflow: hidden;
-
-            &::after {
-                content: "";
-                position: absolute;
-                display: none;
-                top: 50%;
-                left: 50%;
-                width: 5px;
-                height: 11px;
-                border: solid white;
-                border-width: 0 2px 2px 0;
-                transform: translate(-50%, -50%) rotate(45deg);
-            }
-        }
     }
 
     //end 10_01_Gio_hang_list
