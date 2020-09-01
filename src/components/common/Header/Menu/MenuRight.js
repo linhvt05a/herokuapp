@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Link, NavLink } from "react-router-dom";
-import FormContact from "../../FormContact";
+import { Link } from "react-router-dom";
+import { FormUser } from "../../../../templates/Account/index";
 
 const MenuRight = (props) => {
     const [inHoverProfile, setHoverProfile] = useState(false);
@@ -23,14 +23,13 @@ const MenuRight = (props) => {
                 </Link>
             </div>
             <div className={`item dropdown ${inHoverProfile ? "open": ''}`}>
-                <Link className="link"
+                <Link to="/demo" className="link"
                     onMouseEnter={() => setHoverProfile(true)}
-                    to="/demo"
                     aria-expanded={inHoverProfile}>
                     <i className="icon user fas fa-user-circle" />
                 </Link>
                 <div className="dropdown-menu" onMouseLeave={() => setHoverProfile(false)}>
-                    <FormContact />
+                    <FormUser />
                 </div>
             </div>
         </div>

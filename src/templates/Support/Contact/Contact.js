@@ -20,14 +20,6 @@ const Contact = (props) => {
   }
   const {contactValues, contactErrors, handleChangeContact, handleContactRegister} = useFormContact(contactValue, validateContact)
   
-  // const ContactRegister = () => {
-  //   dispatch(contactAddAction.contactAdd({
-  //     full_name: "Võ Văn Dương",
-  //     email: "duongvv@minerva.vn",
-  //     phone_number: "0385381052",
-  //     content: "what is this?"
-  //   }))
-  // }
   const ContactRegister = values => {
     // console.log('Success:', values);
     dispatch(contactAddAction.contactAdd({
