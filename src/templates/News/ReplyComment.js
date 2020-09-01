@@ -4,17 +4,12 @@ import { Trans } from 'react-i18next';
 
 
 const ReplyComment = (props) =>{
-  const [like, setLike] = useState(false)
-  const [totalLike, setTotalLike] = useState(0)
-  
-  const increaseLike = () =>{
-    
-  }
+  const {commentList} = props
+ 
     return (
         <div className="reply__child">
           <div className="reply__child--list">
-            <ReplyBox like={like} onClickLike ={increaseLike} totalLike={totalLike}/>
-            {/* <ChildAdmin /> */}
+            {commentList && commentList.map((comment, index)=> <ReplyBox  data={comment} key={index}/>)}
           </div>
       </div>
     
@@ -37,53 +32,62 @@ const ChildAdmin = () =>{
 }
 
 const ReplyBox = (props) =>{
-  const {like, onClickLike, totalLike} = props
+  const {data} = props
   return(
     <div className="child">
     <figure className="avatar">
-      <img src="../images/avatar_logged.jpg" alt />
+      <img src={data.customer_avatar} alt />
     </figure>
     <div className="box">
-      <div className="reply_name"><Trans>Sale department</Trans></div>
+      <div className="reply_name"><Trans>{data.customer_name}</Trans></div>
       <div className="reply_text">
-        Cảm ơn bạn rất nhiều,đã quan tâm đến dự án căn hộ của VTP
-        chúng tôi, hiện tại dự án đang được bán tại các chi nhánh
-        chính và đại lý liên doanh với chúng tôi. Cụ thể đại lý
-        203 đường 2/3,phường 10, quận 10, Tp.HCM
+       <Trans>{data.comment_content}</Trans>
       </div>
       <div className="reply_social">
         <div className="reply_item time">
           <i className="icon far fa-clock" />
-          <i className="text">9:00 - 27/02/2020</i>
+          <i className="text">{data.created_at}</i>
         </div>
         <div className="reply_item cmt">
           <i className="icon fas fa-comments" />
-          <i className="text">Thảo luận</i>
+          <i className="text"><Trans>Comment</Trans></i>
         </div>
-        <div className={like ? "reply_item like active" : "reply_item like"}>
-          <i className="icon fas fa-thumbs-up active" onClick ={onClickLike}/>
-          <i className="text">{totalLike}</i>
+        <div className="reply_item like active">
+          <i className="icon fas fa-thumbs-up active" />
+          <i className="text">{data.total_like}</i>
         </div>
       </div>
-      {/* <ChildReply /> */}
+        {data && data.child_list.map((datas, index)=><ChildReply data={datas} key={index}/>)}
     </div>
   </div>
   )
 }
 
-const ChildReply = () =>{
+const ChildReply = (props) =>{
+  const {data} = props
   return(
     <div className="child">
     <figure className="avatar">
-      <img src="../images/avatar_logged.jpg" alt />
+      <img src={data.customer_avatar}  />
     </figure>
     <div className="box pb-0 border-bottom-0">
-      <div className="reply_name"><Trans>Sale department</Trans></div>
+      <div className="reply_name"><Trans>{data.customer_name}</Trans></div>
       <div className="reply_text">
-        Cảm ơn bạn rất nhiều,đã quan tâm đến dự án căn hộ của
-        VTP chúng tôi, hiện tại dự án đang được bán tại các
-        chi nhánh chính và đại lý liên doanh với chúng tôi. Cụ
-        thể đại lý 203 đường 2/3,phường 10, quận 10, Tp.HCM
+       <Trans>{data.comment_content}</Trans>
+      </div>
+      <div className="reply_social">
+        <div className="reply_item time">
+          <i className="icon far fa-clock" />
+          <i className="text">{data.created_at}</i>
+        </div>
+        <div className="reply_item cmt">
+          <i className="icon fas fa-comments" />
+          <i className="text"><Trans>Comment</Trans></i>
+        </div>
+        <div className="reply_item like active">
+          <i className="icon fas fa-thumbs-up active" />
+          <i className="text">{data.total_like}</i>
+        </div>
       </div>
     </div>
   </div>

@@ -59,5 +59,28 @@ export const newsService = {
         const params = {payload };
         const url = api.getUrl(api.NEWS_CATEGORIES, params);
         return api.handleRequest(url, requestOptions); 
+    },
+
+    commentAdd (payload){
+        const {news_id, comment} = payload.params
+        const body = {news_id, comment}
+        const requestOptions = {
+            method: 'POST',
+            headers: api.getHeader(TOKEN),
+            body:body 
+        };
+        const url = api.getUrl(api.NEWS_ADD_COMMENT);
+        return api.handleRequest(url, requestOptions);
+    },
+    commentList (payload){
+        const {news_id} = payload.params
+        const requestOptions = {
+            method: 'GET',
+            headers: api.getHeader(TOKEN)
+        };
+
+        const params = {news_id };
+        const url = api.getUrl(api.NEWS_COMMENT_LIST, params);
+        return api.handleRequest(url, requestOptions);   
     }
 };

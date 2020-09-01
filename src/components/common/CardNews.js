@@ -6,7 +6,6 @@ import Slider from "react-slick";
 
 const CardNews = (props) => {
     const{data} = props
-    const latest_news = data
     const settings = {
         infinite: true,
         slidesToShow: 3,
@@ -30,7 +29,7 @@ const CardNews = (props) => {
                 </a>
             </div>
             <Slider {...settings}>
-                {latest_news && latest_news.map((data)=> <NewsLoop item={data} key ={data.id}/>)}
+                {data && data.map((data)=> <NewsLoop item={data} key ={data.id}/>)}
             </Slider>
             </div>
     </div>
@@ -69,22 +68,22 @@ const NewsLoop = (props) =>{
                 <figure className="img">
                     <img
                         className="w-100"
-                        src={item.image}
+                        src={item.news_avatar}
                         alt="Mở bán khu biệt thự cao cấp ở Quận 7 , Tp.HCM"
                     />
                 </figure>
                 <div className="box">
                     <h4 className="name">
-                        <a href="#" tabIndex={0}>
-                            {item.title}
-                        </a>
+                        <Link to={"/NewsDetail/" + item.news_id} tabIndex={0}>
+                            {item.news_title}
+                        </Link>
                     </h4>
                     <div className="des">
                         {item.description}
                     </div>
                     <span className="time">
                         <i className="icon far fa-clock" />
-                        {item.time}
+                        {item.from_date}
                     </span>
                 </div>
             </div>

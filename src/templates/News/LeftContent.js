@@ -1,7 +1,8 @@
-import Parser from 'html-react-parser';
-import React, { Component } from "react";
-import { SocialNetwork, Comment, ReplyComment } from "./index";
 
+import React, { useState } from "react";
+import { SocialNetwork, Comment, ReplyComment } from "./index";
+import Parser from 'html-react-parser';
+import { Trans } from "react-i18next";
 
 const social = [
     {id: 1, icon : 'fab fa-facebook-square', href:'/promotion'},
@@ -10,52 +11,53 @@ const social = [
 ]
 
 const LeftContent = (props) => {
-  const {data} = props
+  const{listDetail, addComment, handleChange,commentList} = props
   return (
     <div className="col-sm-12 col-md-12 col-lg-7 col-xl-8">
       <div className="image_news">
-        <img src={data?.news_avatar} />
+        <img src={listDetail?.news_avatar}/>
       </div>
       <div className="news_detail_title pb-4">
-        <label>{data?.news_title}</label>
+        <label>{listDetail?.news_title}</label>
         <div className="news_connect">
           <div className="news_connect--time">
             <div className="title">
-              <i className="far fa-clock" /> Ngày đăng: {data?.from_date}
+              <i className="far fa-clock" /> Ngày đăng: {listDetail?.from_date}
             </div>
           </div>
           <SocialNetwork social={social} />
         </div>
       </div>
-        <RowContent data={data}/>
-        <Comment />
-        <TotalComment label="COMMENT" title="comment"/>
-        <ReplyComment />
+        <RowContent listDetail={listDetail}/>
+        <Comment addComment={addComment} handleChange={handleChange}/>
+        <TotalComment label="COMMENT" title="comment" commentList={commentList}/>
+        <ReplyComment commentList={commentList}/>
     </div>
   );
 };
 
 const TotalComment = (props) =>{
+  const{commentList} = props
     return(
         <div className="comment onSignIn">
         <div className="comment_title">{props.label}</div>
         <div className="comment_number">
-                Có
-        <span className="text_e94c4c"> 3 </span>
+                <Trans>Total</Trans>
+        <span className="text_e94c4c"> {commentList && commentList.length} </span>
             {props.title}
         </div>
       </div>
     )
 }
 const RowContent = (props) =>{
-  const {data} = props
-  
-   return(
+    const {listDetail} = props
+    const htmlParse = listDetail ? listDetail.content : null
+    return(
         <div className="content_detail">
         <p>
-          {data?.description}
+          {listDetail?.description}
         </p>
-        
+          {Parser(htmlParse ? htmlParse : "" )}
       </div>
       
     )

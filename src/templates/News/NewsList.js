@@ -98,6 +98,7 @@ const News = () => {
     const handleClick = (id) =>{
         setNavigate(id)
     }
+    
     return (
         <div className="news">
             <div className="container container-sm container-md">
@@ -150,7 +151,7 @@ const RowNews = (props) => {
                 </div>
                 <div className="col-md-7 col-xl-7">
                     <div className="news__card--content">
-                        <Link className="title" to={"/NewsDetail/" + data.news_id}>
+                        <Link  className="title" to={"/NewsDetail/" + data.news_id}>
                             {props.data.news_title}
                         </Link>
                         <div className="times">

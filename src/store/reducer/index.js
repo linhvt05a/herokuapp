@@ -20,6 +20,8 @@ import newsCategoriesReducer from './newsCategoriesReducer'
 import projectSelectReducer from './projectSelectReducer'
 import legalCategoriesReducer from './legalCategoriesReducer'
 import legalListReducer from './legalListReducer'
+import commentNewsReducer from './commentNewsReducer'
+import newsCommentListReducer from './newsCommentListReducer'
 import { combineReducers } from 'redux';
 
 const allReducers = combineReducers({
@@ -29,6 +31,6 @@ const allReducers = combineReducers({
     productListReducer, productSignupReducer, productIncentiveReducer,
     contactReducer, juridicalSupportReducer, newsFilterReducer, visitorReducer,
     newsCategoriesReducer, projectSelectReducer, 
-    legalCategoriesReducer, legalListReducer
+    legalCategoriesReducer, legalListReducer, commentNewsReducer,newsCommentListReducer
 });
 export default allReducers; 

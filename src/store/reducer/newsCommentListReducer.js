@@ -1,16 +1,16 @@
-import { newsCategoriesAction } from '../action';
+import { newsCommentListAction } from '../action';
 
 const initialState = {
-    newsCate: [],
-   
-}
+    commentList: [],
+
+};
 
 export default (state = initialState, action) => {
     switch (action.type) {
-        case newsCategoriesAction.LOAD_LIST_SUCCESS:
+        case newsCommentListAction.LOAD_LIST_SUCCESS:
             return {
                 ...state,
-                newsCate: action.response,
+                commentList: action.response,
                 isFetching: true,
                 isLoadingList: false,
             };
