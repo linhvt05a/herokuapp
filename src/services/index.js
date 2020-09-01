@@ -12,6 +12,7 @@ import {newsService} from './News/news'
 import {contactService} from './Contact/ContactAdd'
 import {juridicalService} from './Juridical/juridical'
 import {visitorService} from './Visitor/visitor'
+import { accountService } from './Account/account'
 export {
     exampleService,
     productService,
@@ -23,5 +24,6 @@ export {
     newsService,
     contactService, 
     juridicalService,
-    visitorService
+    visitorService,
+    accountService
 }

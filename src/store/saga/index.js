@@ -21,6 +21,7 @@ import newsCategoriesSaga from './newsCategoriesSaga'
 import projectSelectSaga from './projectSelectSaga'
 import legalCategoriesSaga from './legalCategoriesSaga';
 import legalListSaga from './legalListSaga'
+// import accountSaga from './accountSaga'
 function* allSaga() {
   yield all([
     examSaga(), projectSaga(), commonSaga(), productSaga(), visitRegisterSaga(), transactionSaga(),
@@ -28,7 +29,8 @@ function* allSaga() {
     productListSaga(), productSignupSaga(), productIncentiveSaga(),
     contactAddSaga(), juridicalSupportSaga(), newsFilterSaga(), visitorSaga(),
     productDetailSaga(), newsCategoriesSaga(), projectSelectSaga(), 
-    legalCategoriesSaga(), legalListSaga()
+    legalCategoriesSaga(), legalListSaga(),
+    // accountSaga()
   ]);
 }
 

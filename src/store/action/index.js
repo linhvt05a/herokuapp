@@ -20,11 +20,13 @@ import newsCategoriesAction from './newsCategoriesAction'
 import projectSelectAction from './projectSelectAction'
 import legalCategoriesAction from './legalCategoriesAction'
 import legalListAction from './legalListAction'
+// import accountAction from './accountAction'
 export {
   examAction, projectAction, productAction, visitSignupAction, promotionAction, commonAction,
   newsAction, newsDetailAction, hotNewsAction,transactionAction,
   productListAction, productSignupAction, productIncentivesAction, productDetailAction,
   contactAddAction, juridicalSupportAction, newsFilterAction, visitorAction,
   newsCategoriesAction, projectSelectAction, 
-  legalCategoriesAction, legalListAction
+  legalCategoriesAction, legalListAction,
+  // accountAction,
 }

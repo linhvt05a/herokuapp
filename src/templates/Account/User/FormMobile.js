@@ -5,35 +5,38 @@ import { Login, ForgotPass, Registry, Logout } from '../index';
 
 const FormMobile = (props) => {
     let { active } = props;
+    const [login, setLogin] = useState(false);
+    const [registry, setRegistry] = useState(false);
+    const [forgotpass, setForgotpass] = useState(false);
     return (
         <ul className={`header_menu--child mt-0 accordion ${active ? "active": ""}`}>
             <li className="register_select">
-                <div className="item-child-link accordion-toggle d-flex justify-content-between align-items-center">
+                <div onClick={() => setLogin(!login)} className={`item-child-link accordion-toggle d-flex justify-content-between align-items-center ${login ? "active" : ""}`}>
                     Đăng nhập
-                    <i className="icon_plus fas fa-plus" />
+                    <i className="icon_plus fas fa-plus"/>
                 </div>
                 {/* form_register signin */}
-                <div className="header_register form_register accordion-inner">
+                <div className={`header_register form_register accordion-inner ${login ? "show" : ""}`}>
                     <Login />
                 </div>
             </li>
             <li className="register_select">
-                <div className="item-child-link accordion-toggle d-flex justify-content-between align-items-center">
+                <div onClick={() => setRegistry(!registry)} className={`item-child-link accordion-toggle d-flex justify-content-between align-items-center ${registry ? "active" : ""}`}>
                     Đăng ký
                     <i className="icon_plus fas fa-plus" />
                 </div>
                 {/* form_register signup*/}
-                <div className="header_register form_register accordion-inner">
+                <div className={`header_register form_register accordion-inner ${registry ? "show" : ""}`}>
                     <Registry />
                 </div>
             </li>
             <li className="register_select">
-                <div className="item-child-link accordion-toggle d-flex justify-content-between align-items-center">
+                <div onClick={() => setForgotpass(!forgotpass)} className={`item-child-link accordion-toggle d-flex justify-content-between align-items-center ${forgotpass ? "active" : ""}`}>
                     Quên mật khẩu
                     <i className="icon_plus fas fa-plus" />
                 </div>
                 {/* form_forgot */}
-                <div className="header_register form_forgot accordion-inner">
+                <div className={`header_register form_register accordion-inner ${forgotpass ? "show" : ""}`}>
                     <ForgotPass />
                 </div>
             </li>

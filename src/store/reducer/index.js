@@ -20,7 +20,9 @@ import newsCategoriesReducer from './newsCategoriesReducer'
 import projectSelectReducer from './projectSelectReducer'
 import legalCategoriesReducer from './legalCategoriesReducer'
 import legalListReducer from './legalListReducer'
+// import accountReducer from './accountReducer'
 import { combineReducers } from 'redux';
+
 
 const allReducers = combineReducers({
     examReducer, projectReducer, productReducer,commonReducer,transactionReducer,productDetailReducer,
@@ -29,6 +31,7 @@ const allReducers = combineReducers({
     productListReducer, productSignupReducer, productIncentiveReducer,
     contactReducer, juridicalSupportReducer, newsFilterReducer, visitorReducer,
     newsCategoriesReducer, projectSelectReducer, 
-    legalCategoriesReducer, legalListReducer
+    legalCategoriesReducer, legalListReducer,
+    // accountReducer
 });
 export default allReducers; 
