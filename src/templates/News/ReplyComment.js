@@ -4,19 +4,21 @@ import { Trans } from 'react-i18next';
 
 
 const ReplyComment = (props) =>{
-  const {commentList} = props
+  const {commentList, addChildComment, sendChildComment, handleChange} = props
  
     return (
         <div className="reply__child">
           <div className="reply__child--list">
-            {commentList && commentList.map((comment, index)=> <ReplyBox  data={comment} key={index}/>)}
+            {commentList && commentList.map((comment, index)=> <ReplyBox addChildComment={()=>addChildComment(comment.comment_id)} data={comment} key={index}/>)}
           </div>
+          <ChildAdmin sendChildComment={sendChildComment} handleChange={handleChange}/>
       </div>
     
     );
 }
 
-const ChildAdmin = () =>{
+const ChildAdmin = (props) =>{
+  const{sendChildComment, handleChange} = props
   return(          
     <div className="child admin">
     <figure className="avatar">
@@ -24,15 +26,20 @@ const ChildAdmin = () =>{
     </figure>
     <div className="box border-bottom-0">
       <div className="reply_name"><Trans>Sale department</Trans></div>
-      <TextArea width={660} placeholder="Your comment"/>
-      <ButtonStyle className="btn btn_purple btn_send" label="SEND" />
+      <TextArea width={660} placeholder="Your comment" handleChange={handleChange}/>
+      <ButtonStyle className="btn btn_purple btn_send" label="SEND" onClick={sendChildComment}/>
     </div>
   </div>
   )
 }
 
 const ReplyBox = (props) =>{
-  const {data} = props
+  const[parentLike, setLikes] = useState(false)
+
+  const {data, addChildComment} = props
+  const handleLike = () =>{
+    setLikes(!parentLike)
+  }
   return(
     <div className="child">
     <figure className="avatar">
@@ -50,11 +57,11 @@ const ReplyBox = (props) =>{
         </div>
         <div className="reply_item cmt">
           <i className="icon fas fa-comments" />
-          <i className="text"><Trans>Comment</Trans></i>
+          <i className="text" onClick={addChildComment}><Trans>Comment</Trans></i>
         </div>
-        <div className="reply_item like active">
+        <div className={parentLike ?"reply_item like active":  "reply_item like" } onClick={handleLike}>
           <i className="icon fas fa-thumbs-up active" />
-          <i className="text">{data.total_like}</i>
+          <i className="text">{parentLike === true ? data.total_like + 1 : data.total_like}</i>
         </div>
       </div>
         {data && data.child_list.map((datas, index)=><ChildReply data={datas} key={index}/>)}
@@ -65,6 +72,12 @@ const ReplyBox = (props) =>{
 
 const ChildReply = (props) =>{
   const {data} = props
+  const [childLike, setChildLikes] = useState(false)
+
+  const handleChildLikes = () =>{
+    setChildLikes(!childLike)
+  }
+  
   return(
     <div className="child">
     <figure className="avatar">
@@ -84,9 +97,9 @@ const ChildReply = (props) =>{
           <i className="icon fas fa-comments" />
           <i className="text"><Trans>Comment</Trans></i>
         </div>
-        <div className="reply_item like active">
+        <div className={childLike ? "reply_item like active" :"reply_item like"} onClick={handleChildLikes}>
           <i className="icon fas fa-thumbs-up active" />
-          <i className="text">{data.total_like}</i>
+          <i className="text">{childLike === true ? data.total_like + 1: data.total_like}</i>
         </div>
       </div>
     </div>

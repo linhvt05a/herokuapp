@@ -11,7 +11,7 @@ const social = [
 ]
 
 const LeftContent = (props) => {
-  const{listDetail, addComment, handleChange,commentList} = props
+  const{listDetail, addComment, handleChange,commentList, addChildComment, sendChildComment, childContent} = props
   return (
     <div className="col-sm-12 col-md-12 col-lg-7 col-xl-8">
       <div className="image_news">
@@ -22,7 +22,8 @@ const LeftContent = (props) => {
         <div className="news_connect">
           <div className="news_connect--time">
             <div className="title">
-              <i className="far fa-clock" /> Ngày đăng: {listDetail?.from_date}
+              <i className="far fa-clock" /> 
+                <Trans>Create at</Trans>: {listDetail?.from_date}
             </div>
           </div>
           <SocialNetwork social={social} />
@@ -31,7 +32,7 @@ const LeftContent = (props) => {
         <RowContent listDetail={listDetail}/>
         <Comment addComment={addComment} handleChange={handleChange}/>
         <TotalComment label="COMMENT" title="comment" commentList={commentList}/>
-        <ReplyComment commentList={commentList}/>
+        <ReplyComment commentList={commentList} addChildComment={addChildComment} sendChildComment={sendChildComment} handleChange={childContent}/>
     </div>
   );
 };

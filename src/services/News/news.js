@@ -3,15 +3,16 @@ import { TOKEN } from '../../../env';
 import { newsDetailAction } from '../../store/action';
 
 export const newsService = {
+  
     newsList(payload) {
+        const {news_sort, nameSearch, cateID, dateFrom, dateTo, category_id} = payload.params
         const requestOptions = {
             method: 'GET',
             headers: api.getHeader(TOKEN)
         };
 
-        const params = {payload };
+        const params = {news_sort: news_sort, news_title:nameSearch,category_news_id: cateID, from_date:dateFrom, to_date:dateTo, category_id: category_id};
         const url = api.getUrl(api.NEWS_LIST, params);
-        console.log(url);
         return api.handleRequest(url, requestOptions);
     },
 
@@ -62,8 +63,8 @@ export const newsService = {
     },
 
     commentAdd (payload){
-        const {news_id, comment} = payload.params
-        const body = {news_id, comment}
+        const {news_id, comment, parent} = payload.params
+        const body = {news_id, comment, parent}
         const requestOptions = {
             method: 'POST',
             headers: api.getHeader(TOKEN),

@@ -31,10 +31,6 @@ const News = () => {
     const newsCateSuccess = newsCates.newsCate.success
     const newsCategories = newsCateSuccess ? newsCates.newsCate.detail : null;
 
-    const projectSelect = useSelector(state => state.projectSelectReducer);
-    const projectSelectSuccess = projectSelect.projectList.success
-    const projectList = projectSelectSuccess ? projectSelect.projectList.detail : null;
-
     const total_page = newRecord && newRecord != null ? newRecord.total_page : null
     const total_record =newRecord && newRecord != null ? newRecord.total_record: null
     const page = newRecord && newRecord != null ? newRecord.page: null
@@ -46,14 +42,14 @@ const News = () => {
     }
 
     useEffect(() => {
-        if (projectList && projectList.length > 0) {
+        if (newsCategories && newsCategories.length > 0) {
             let newData = [];
-            projectList.map((item) => {
-                newData.push(createData(item.id, item.name))
+            newsCategories.map((item) => {
+                newData.push(createData(item.category_id, item.category_name))
             })
             setProjectList(newData)
         }
-    }, [projectList]);
+    }, [newsCategories]);
 
     useEffect(() => {
         dispatch(newsAction.LoadNewsList({}));
@@ -81,22 +77,23 @@ const News = () => {
     }
 
     const handleFilter = () =>{
-        dispatch(newsFilterAction.filterNews({nameSearch, cateID, dateFrom, dateTo}))
+        dispatch(newsAction.LoadNewsList({nameSearch, cateID, dateFrom, dateTo}))
     }
 
     function convertDateTo(value){
-        const date = moment(value).format('DD/MM/YYYY')
+        const date = moment(value).format('YYYY-MM-DD')
         setDateTo(date)
         return date
     }
     function convertDateFrom(value){
-        const date = moment(value).format('DD/MM/YYYY')
+        const date = moment(value).format('YYYY-MM-DD')
         setDateFrom(date)
         return date
     }
 
     const handleClick = (id) =>{
         setNavigate(id)
+        dispatch(newsAction.LoadNewsList({category_id: id}))
     }
     
     return (
