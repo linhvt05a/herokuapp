@@ -22,7 +22,7 @@ const Home = (props) => {
     const news = useSelector(state => state.newsReducer);
     const newsListSuccess = news.newsList.success
     const newsList = newsListSuccess ? news.newsList.detail : null;
-
+    
     const project = useSelector(state => state.projectReducer);
     const product = useSelector(state => state.productReducer);
     const isGetProjectListSuccess = project.projectList.success;
@@ -41,7 +41,7 @@ const Home = (props) => {
         // dispatch(projectAction.loadProjectList({project_sale_status: `[${state.projectStatus}]`}));
         dispatch(projectAction.loadProjectList({}));
         dispatch(productAction.loadHotProductList({}));
-        dispatch(newsAction.LoadNewsList({limit: 3}))
+        dispatch(newsAction.LoadNewsList({}))
        
     }, []);
 
