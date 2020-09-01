@@ -142,42 +142,6 @@
                 @media (max-width: 767px) {
                     display: block;
                 }
-                .checkbox-inline {
-                    @include flex_center;
-                    flex-wrap: nowrap;
-                    justify-content: left;
-                    padding-left: 0;
-                    margin-bottom: 0;
-                    letter-spacing: 0.42px;
-                    color: #656565;
-
-                    &.active {
-                        .checkbox-custom-dummy {
-                            border-color: #6d30ab;
-
-                            &::after {
-                                left: 3px;
-                                top: 3px;
-                                border: none;
-                                width: 9px;
-                                height: 9px;
-                                border-radius: 50%;
-                                background-color: #6d30ab;
-                            }
-                        }
-                    }
-
-                    .checkbox-custom-dummy {
-                        width: 17px;
-                        height: 17px;
-                        border-radius: 50%;
-                        border: solid 1px #9a9a9a;
-                        background-color: #ffffff;
-                        position: relative;
-                        top: 0;
-                        margin-right: 7px;
-                    }
-                }
                 input{
                     text-align: center;
                     width: 50%;

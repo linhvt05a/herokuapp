@@ -19,19 +19,49 @@
         }
     }
 
-    // .icon_star {
-    //     margin: 10px 0;
-    //     color: #d1d1d1;
-    //     text-align: center;
-    //     i {
-    //         &::after,
-    //         &:before {
-    //             // width: 9px;
-    //             // height: 2px;
-    //             // background-color: #6d30ab;
-    //         }
-    //     }
-    // }
+
+    .icon_star {
+        margin-top: 5px;
+        color: #d1d1d1;
+        text-align: center;
+        position: relative;
+
+
+        &::before {
+            position: absolute;
+            content: '';
+            background-color: #d1d1d1;
+            height: 1px;
+            width: 35%;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        &::after {
+            position: absolute;
+            content: '';
+            background-color: #d1d1d1;
+            height: 1px;
+            width: 35%;
+            left: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+    }
+
+    .text_register_link {
+        a {
+            font-size: 14px;
+            text-decoration: none;
+        }
+
+        span {
+            text-decoration: underline;
+            font-size: 16px;
+        }
+    }
 }
 
 .btn_signIn {
