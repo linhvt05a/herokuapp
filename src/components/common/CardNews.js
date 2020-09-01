@@ -29,7 +29,7 @@ const CardNews = (props) => {
                 </a>
             </div>
             <Slider {...settings}>
-                {data && data.map((data)=> <NewsLoop item={data} key ={data.id}/>)}
+                {data && data.map((news, index)=> <NewsLoop item={news} key={index}/>)}
             </Slider>
             </div>
     </div>
