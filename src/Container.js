@@ -1,14 +1,16 @@
 //libs
-import React, { useState, useEffect, useRef , useLayoutEffect} from 'react';
+import React, { useState, useEffect, useRef, useLayoutEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import configureStore from './store';
 import TopBanner from "./components/common/Header/TopBanner";
 import { MAIN, PATHS } from "./routes"
 import { Error404 } from './templates/ErrorPage';
+import { I18nextProvider } from 'react-i18next';
+import i18n from './i18n'
 
-const Pages = () => {
+const Container = () => {
 
-    const [dimensions, setDimensions] = React.useState({ 
+    const [dimensions, setDimensions] = React.useState({
         height: 50,
     })
     useEffect(() => {
@@ -17,18 +19,18 @@ const Pages = () => {
                 height: document.getElementsByClassName('header')[0].clientHeight
             })
         }
-       
+
         window.addEventListener('resize', handleResize);
         window.addEventListener('load', handleResize);
-        return () => { 
-            window.removeEventListener('resize', handleResize) 
-            window.removeEventListener('load', handleResize) 
+        return () => {
+            window.removeEventListener('resize', handleResize)
+            window.removeEventListener('load', handleResize)
         }
-    },[]);
+    }, []);
 
     return (
-       
-            <div className="page_wrapper" style={{ paddingTop: dimensions.height }}>
+        <I18nextProvider i18n={i18n}>
+            <div className="page_container" style={{ paddingTop: dimensions.height }}>
 
                 <Switch >
                     {MAIN.map((data, idx) => (
@@ -37,12 +39,12 @@ const Pages = () => {
                             <data.component />
                         </Route>
                     ))}
-                    <Route component={Error404 } />
+                    <Route component={Error404} />
                 </Switch>
-            
-            </div>
 
+            </div>
+        </I18nextProvider>
     );
 }
 
-export default Pages;
+export default Container;

@@ -73,7 +73,7 @@ const CardPromotionModal = (props) => {
                     </div>
                     <div className="form-group mb-0 text-center">
                         <a className="btn btn_green btn_signIn text-uppercase" onClick={onSave}>
-                            <Trans>save</Trans>
+                            <Trans>button_save</Trans>
                         </a>
                     </div>
                 </div>
