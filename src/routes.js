@@ -22,6 +22,9 @@ import Cart from "./templates/ShopCart/Cart";
 import ProductList from './templates/ProductList/ProductList';
 import PropertySelling from "./templates/PolicyPayment/PropertySelling";
 import LoanPolicy from "./templates/LoanOnline/LoanPolicy";
+import CustomerInfo from "./templates/ShopCart/CustomerInfo";
+import ConfirmOrderInfo from "./templates/ShopCart/ConfirmOrderInfo";
+import DepositPayment from "./templates/ShopCart/DepositPayment";
 
 const home_banner_url = '../images/project.jpg';
 const introduce_banner_url = '../images/project.jpg';
@@ -229,6 +232,27 @@ const MAIN = [
         "path": "/loan-policy/",
         "component": LoanPolicy,
         "banner_show": false
+    },
+    {
+        "path": "/cart/customer_info",
+        "component": CustomerInfo,
+        "banner_title": "cart",
+        "banner_url": cart_banner_url,
+        "banner_show": true
+    },
+    {
+        "path": "/cart/confirm_order_info",
+        "component": ConfirmOrderInfo,
+        "banner_title": "cart",
+        "banner_url": cart_banner_url,
+        "banner_show": true
+    },
+    {
+        "path": "/cart/deposit_payment",
+        "component": DepositPayment,
+        "banner_title": "cart",
+        "banner_url": cart_banner_url,
+        "banner_show": true
     },
 ];
 

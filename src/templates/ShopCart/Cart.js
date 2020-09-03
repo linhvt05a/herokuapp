@@ -8,7 +8,7 @@ const Cart = (props) => {
     const [state, setState] = useState({
         paymentProgressModalVisible: false,
         promotionModalVisible: false,
-        accountModalVisible: true
+        accountModalVisible: false
     });
 
     const showPaymentProgressModal = (isShow) => {
@@ -65,7 +65,9 @@ const Cart = (props) => {
                 </h2>
                 <div className="row">
                     <CardCartProductList showPaymentProgressModal={showPaymentProgressModal} showPromotionModal={showPromotionModal} />
-                    <CardCartSummary />
+                    <div className="col-12 col-sm-12 col-lg-4">
+                        <CardCartSummary extend />
+                    </div>
                 </div>
             </div>
             <ModalCustom visible={state.paymentProgressModalVisible} widthModal="400px" showPaymentProgressModal={showPaymentProgressModal} dataOutput={getPaymentProgressData} />

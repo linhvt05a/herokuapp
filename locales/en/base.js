@@ -37,6 +37,9 @@ export default {
     button_end:"End",
     button_back: "Back",
     button_save: "Save",
+    button_confirm: "Confirm",
+    button_delete: "Delete",
+    button_edit: "Edit",
 
     // languages 
     lang_vi : 'VietNamese',
