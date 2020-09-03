@@ -54,6 +54,7 @@ const RowContent = (props) =>{
     const {listDetail} = props
     const htmlParse = listDetail ? listDetail.content : null
     return(
+      
         <div className="content_detail">
         <p>
           {listDetail?.description}

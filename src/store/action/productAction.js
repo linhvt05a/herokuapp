@@ -20,6 +20,18 @@ const actions = {
     PRODUCT_TYPE_LIST_FAILURE: productTypeList + '_FAILURE',
     PRODUCT_TYPE_LIST_SUCCESS: productTypeList + '_SUCCESS',
 
+    PRODUCT_INCENTIVE_LIST_REQUEST: 'PRODUCT_INCENTIVE_LIST_REQUEST',
+    PRODUCT_INCENTIVE_LIST_FAILURE: 'PRODUCT_INCENTIVE_LIST_FAILURE',
+    PRODUCT_INCENTIVE_LIST_SUCCESS: 'PRODUCT_INCENTIVE_LIST_SUCCESS',
+
+    PRODUCT_FAVORITE_LIST_REQUEST: 'PRODUCT_FAVORITE_LIST_REQUEST',
+    PRODUCT_FAVORITE_LIST_FAILURE: 'PRODUCT_FAVORITE_LIST_FAILURE',
+    PRODUCT_FAVORITE_LIST_SUCCESS: 'PRODUCT_FAVORITE_LIST_SUCCESS',
+
+    PRODUCT_SIGNUP_REQUEST: 'PRODUCT_SIGNUP_REQUEST',
+    PRODUCT_SIGNUP_FAILURE: 'PRODUCT_SIGNUP_FAILURE',
+    PRODUCT_SIGNUP_SUCCESS: 'PRODUCT_SIGNUP_SUCCESS',
+
     loadHotProductList: (params) => ({
         type: actions.HOT_PRODUCT_LIST_REQUEST,
         params: params
@@ -40,5 +52,21 @@ const actions = {
         params: params
     }),
 
+    // linh action 
+    productIncentive: (params) => ({
+        type: actions.PRODUCT_INCENTIVE_LIST_REQUEST,
+        params: params
+    }),
+
+    productFavoriteList: (params) => ({
+        type: actions.PRODUCT_FAVORITE_LIST_REQUEST,
+        params: params
+    }),
+
+    productSignup: (params) => ({
+        type: actions.PRODUCT_SIGNUP_REQUEST,
+        params: params
+    }),
+// end linh action
 };
 export default actions;

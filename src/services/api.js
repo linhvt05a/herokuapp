@@ -12,15 +12,17 @@ export default {
 
     //EXAMPLE
     EXAMPLE_LIST: "/api/be/v1/project/",
+
     PRODUCT_DETAIL_LIST: `/api/main_web/v1/infrastructure/product/detail/`,
+    PRODUCT_FAVORITE_LIST:"/api/main_web/v1/infrastructure/product/favorite/list/",
+
     TRANSACTION_LIST: `/api/main_web/v1/infrastructure/product/trading_market/`,
     AREA_NAME_LIST_SHORT: `/api/main_web/v1/infrastructure/area/list_short/`,
     BLOCK_NAME_LIST_SHORT: `/api/main_web/v1/infrastructure/block/list_short/`,
     PROJECT_NAME_LIST_SHORT: `/api/main_web/v1/infrastructure/product/selling/list/`,
     
     PROJECT_LIST: "/api/main_web/v1/project/",
-    PRODUCT_LIST:"/api/main_web/v1/infrastructure/product/list/",
-    PROJECT_SELECT:"",
+
     
     PRODUCT_SIGNUP:"",
     PRODUCT_INCENTIVE:"",

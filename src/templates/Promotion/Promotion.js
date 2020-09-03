@@ -6,26 +6,28 @@ import { CardSaleFlash } from '../Home/Layout/index'
 import { Trans } from 'react-i18next';
 import { LoadDataPaging } from '../../functions/Utils';
 import { useDispatch, useSelector } from "react-redux";
-import { promotionAction } from "../../store/action/index";
+import { promotionAction , newsAction} from "../../store/action/index";
 
 const Promotion = () => {
-    const promotion = useSelector(state => state.promotionReducer);
-    const promotionListSuccess = promotion.promotionList.success
-    const promotionList = promotionListSuccess ? promotion.promotionList.detail : null;
+    const promotions = useSelector(state => state.newsReducer);
+    const promotionsSuccess = promotions.newsList.success
+    const promotionList = promotionsSuccess ? promotions.newsList.detail : null;
+
     const dispatch = useDispatch();
 
-    const promotionRecord = promotionListSuccess ? promotion.promotionList: null
+    const promotionRecord = promotionsSuccess ? promotions.newsList: null
+
     const total_page = promotionRecord && promotionRecord != null ? promotionRecord.total_page : null
     const total_record = promotionRecord && promotionRecord != null ? promotionRecord.total_record: null
     const page = promotionRecord && promotionRecord != null ? promotionRecord.page: null
     const limit = 0
 
     useEffect(() => {
-        dispatch(promotionAction.loadPromotionList({}));
+        dispatch(newsAction.LoadNewsList({category_news_group: 4}))
     }, []);
 
 const handleChangePage = (value) =>{
-    dispatch(promotionAction.loadPromotionList({page:value, limit: limit}))
+    dispatch(newsAction.LoadNewsList({page: value, limit: 5, category_news_group: 4}))
 }
     return (
         <div className="homePage">
@@ -64,16 +66,16 @@ const RowPromotion = (props) => {
         <div className="col-12 col-sm-12 col-md-6 col-lg-4 d-flex flex-column">
             <div className="item h-100">
                 <figure className="img">
-                    <img className="w-100" src={data.image} />
+                    <img className="w-100" src={data.news_avatar} />
                 </figure>
                 <div className="box">
                     <h4 className="name">
-                        <a href="#"><Trans>{data.name}</Trans></a>
+                        <a href="#"><Trans>{data.news_title}</Trans></a>
                     </h4>
-                    <div className="des"><Trans>{data.des}</Trans></div>
+                    <div className="des"><Trans>{data.description}</Trans></div>
                     <span className="time">
                         <i className="icon far fa-clock" />
-                            <Trans>From:</Trans> {data.timeFrom} - <Trans>To: </Trans>{data.timeTo}
+                            <Trans>From:</Trans> {data.from_date} - <Trans>To: </Trans>{data.to_date}
                     </span>
                 </div>
             </div>
