@@ -22,7 +22,7 @@ const Home = (props) => {
     const news = useSelector(state => state.newsReducer);
     const newsListSuccess = news.newsList.success
     const newsList = newsListSuccess ? news.newsList.detail : null;
-    
+    console.log(newsList)
     const project = useSelector(state => state.projectReducer);
     const product = useSelector(state => state.productReducer);
     const isGetProjectListSuccess = project.projectList.success;

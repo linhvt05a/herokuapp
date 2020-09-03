@@ -2,8 +2,8 @@ import api from '../api';
 import { TOKEN } from '../../../env';
 
 
-export const juridicalService = {
-    juridicalAdd(payload) {
+export const legalService = {
+    legalForm(payload) {
         const body = {payload}
         const requestOptions = {
             method: 'POST',
@@ -14,7 +14,7 @@ export const juridicalService = {
         return api.handleRequest(url, requestOptions);
     },
 
-    legalCates(payload) {
+    legalCategories(payload) {
         const requestOptions = {
             method: 'GET',
             headers: api.getHeader(TOKEN),

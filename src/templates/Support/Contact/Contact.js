@@ -4,14 +4,14 @@ import {LeftContent, RightContent} from './index'
 import {useFormContact} from '../../../components/base/ValidateInput/useForm'
 import {validateContact} from '../../../components/base/ValidateInput/ValidateInput';
 import { useDispatch, useSelector } from "react-redux";
-import { contactAddAction } from "../../../store/action/index";
+// import { contactAddAction } from "../../../store/action/index";
 import RightContact from "./RightContact";
 
 const Contact = (props) => {
-  const contact = useSelector(state => state.contactReducer);
-  const contactAddSuccess = contact.contactAdd.success;
-  const contactList = contactAddSuccess ? contact.contactAdd.detail : null;
-  const dispatch = useDispatch();
+  // const contact = useSelector(state => state.contactReducer);
+  // const contactAddSuccess = contact.contactAdd.success;
+  // const contactList = contactAddSuccess ? contact.contactAdd.detail : null;
+  // const dispatch = useDispatch();
   const contactValue = {
 		contactName: '',
     contactMobile: '',
@@ -28,15 +28,15 @@ const Contact = (props) => {
   //     content: "what is this?"
   //   }))
   // }
-  const ContactRegister = values => {
-    // console.log('Success:', values);
-    dispatch(contactAddAction.contactAdd({
-        full_name: values.fullname,
-        email: values.email,
-        phone_number: values.phone,
-        content: values.question
-    }));
-  };
+  // const ContactRegister = values => {
+  //   // console.log('Success:', values);
+  //   dispatch(contactAddAction.contactAdd({
+  //       full_name: values.fullname,
+  //       email: values.email,
+  //       phone_number: values.phone,
+  //       content: values.question
+  //   }));
+  // };
   console.log("contact", contactList);
   return (
     <div className="contact__page">
