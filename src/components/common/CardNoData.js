@@ -1,6 +1,6 @@
 import React from 'react';
 import { Trans } from 'react-i18next';
-
+import {IMAGE_URL} from '../../contant';
 
 const CardNoData = (props) => {
 
@@ -8,7 +8,7 @@ const CardNoData = (props) => {
         <div className="card-body">
             <div className="no_data">
                 <figure className="image">
-                    <img src="/assets/images/no_data.png" />
+                    <img src={`${ IMAGE_URL }images/no_data.png`} />
                 </figure>
                 <span className="text"><Trans>no_data</Trans></span>
             </div>

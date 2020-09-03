@@ -30,7 +30,7 @@ export const transactionService = {
             headers: api.getHeader(TOKEN)
         };
         const params = { project_id }
-        const url = api.getUrl(api.PROJECT_NAME_LIST_SHORT, params);
+        const url = api.getUrl(api.PROJECT_LIST_SHORT, params);
         return api.handleRequest(url, requestOptions);
     },
 
@@ -40,7 +40,7 @@ export const transactionService = {
             headers: api.getHeader(TOKEN)
         };
         const params = { project_id }
-        const url = api.getUrl(api.AREA_NAME_LIST_SHORT, params);
+        const url = api.getUrl(api.AREA_LIST_SHORT, params);
         return api.handleRequest(url, requestOptions);
     },
 
@@ -50,7 +50,7 @@ export const transactionService = {
             headers: api.getHeader(TOKEN)
         };
         const params = { project_id }
-        const url = api.getUrl(api.BLOCK_NAME_LIST_SHORT, params);
+        const url = api.getUrl(api.BLOCK_LIST_SHORT, params);
         return api.handleRequest(url, requestOptions);
     },
 };

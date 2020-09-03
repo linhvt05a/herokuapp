@@ -1,81 +1,88 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from "react-redux";
-import { TopBannerDetailTrans } from "../TransactionLevel/TopBannerDetailTrans";
-import CardTransactionList from './Container/CardTransactionList';
+
 import { transactionAction } from '../../store/action';
 import { DIRECTION_TYPE } from "./../../contant";
-
+import TopBannerFilter from "./TopBannerFilter";
+import TransactionContent from './Container/TransactionContent';
 
 const TransactionLevel = (props) => {
     const dispatch = useDispatch();
-
-    //---TOP BANNER API ---
-    const [projectId, setProjectId] = useState({ project_id: 13 });
-    const [areaId, setAreaId] = useState({ area_id: 1 });
-    const [blockId, setBlockId] = useState({ block_id: 2 });
-
-    const [projectName, setProjectName] = useState("Royal Garden");
-    const [areaName, setAreaName] = useState("VALLEN");
-    const [blockName, setBlockName] = useState("B");
-    
-    useEffect(() => {
-        dispatch(transactionAction.TransactionLoadList({ project_id: 13, area_id: 1, block_id: 2 }))
-    }, [])
-
-    //---TOP_BANNER SELECT LIST---
-    useEffect(() => {
-        dispatch(transactionAction.transLoadProjectNameList({project_id: 13}))
-    }, [])
+    const [projectInfoInit, setProjectInfoInit] = useState({
+        projectId: 13,
+        projectName: "Royal Garden",
+        areaId: 1,
+        areaName: "VALLEN",
+        blockId: 2,
+        blockName: "B"
+    })
 
     useEffect(() => {
-        dispatch(transactionAction.transLoadAreaNameList({project_id:13}))
-    }, [])
-
-    useEffect(() => {
-        dispatch(transactionAction.transLoadBlockNameList({project_id:13}))
+        dispatch(transactionAction.TransactionLoadList({
+            project_id: projectInfoInit.projectId,
+            area_id: projectInfoInit.areaId,
+            block_id: projectInfoInit.blockId
+        }));
+        dispatch(transactionAction.transLoadProjectNameList({ project_id: projectInfoInit.projectId }))
+        dispatch(transactionAction.transLoadAreaNameList({ project_id: projectInfoInit.projectId }))
+        dispatch(transactionAction.transLoadBlockNameList({ project_id: projectInfoInit.projectId }))
     }, [])
 
     const projectNameList = useSelector(state => state.transactionReducer);
-    const isGetTransProjectNameListSuccess = projectNameList.transacProjectNameList.success;
-    const transacProjectNameList = isGetTransProjectNameListSuccess ? projectNameList.transacProjectNameList.detail : null;
-    
-    const projectAreaList = useSelector(state => state.transactionReducer);
-    const isGetTransProjectAreaListSuccess = projectAreaList.transacAreaNameList.success;
-    const transacAreaNameList = isGetTransProjectAreaListSuccess ? projectAreaList.transacAreaNameList.detail : null;
-    
-    const projectBlockList = useSelector(state => state.transactionReducer);
-    const isGetTransProjectBlockListSuccess = projectBlockList.transacBlockNameList.success;
-    const transacBlockNameList = isGetTransProjectBlockListSuccess ? projectBlockList.transacBlockNameList.detail : null;
-    
-    
-    const onChangeProject = (value, label) => {
-        dispatch(transactionAction.TransactionLoadList({ project_id: value, area_id: areaId.area_id, block_id: blockId.block_id }))
-        setProjectId({
-            project_id: value
+
+    let { transacProjectNameList, transacAreaNameList, transacBlockNameList, error } = projectNameList;
+    transacProjectNameList = transacProjectNameList.detail ? transacProjectNameList.detail : null;
+    transacAreaNameList = transacAreaNameList.detail ? transacAreaNameList.detail : null;
+    transacBlockNameList = transacBlockNameList.detail ? transacBlockNameList.detail : null;
+
+    console.log('projectNameList:', projectNameList);
+
+    const onChangeProject = (props) => {
+        console.log('project_id:', props);
+        dispatch(transactionAction.TransactionLoadList({
+            project_id: props,
+            area_id: projectInfoInit.areaId,
+            block_id: projectInfoInit.blockId
+        }))
+        setProjectInfoInit({
+            ...projectInfoInit,
+            project_id: projectInfoInit.projectId,
+            project_name: projectInfoInit.projectName
         })
-        setProjectName(label.children)
     }
-    const onChangeArea = (value, label) => {
-        dispatch(transactionAction.TransactionLoadList({ project_id: projectId.project_id, area_id: value, block_id: blockId.block_id }))
-        setAreaId({
-            area_id: value
+    const onChangeArea = (props) => {
+        console.log('area_id:', props);
+        dispatch(transactionAction.TransactionLoadList({
+            project_id: projectInfoInit.projectId,
+            area_id: props,
+            block_id: projectInfoInit.blockId
+        }))
+        setProjectInfoInit({
+            ...projectInfoInit,
+            area_id: projectInfoInit.areaId,
+            area_name: projectInfoInit.areaName
         })
-        setAreaName(label.children)
     }
-    const onChangeBlock = (value, label) => {
-        dispatch(transactionAction.TransactionLoadList({ project_id: projectId.project_id, area_id: areaId.area_id, block_id: value }))
-        setBlockId({
-            block_id: value
+    const onChangeBlock = (props) => {
+        console.log('block_id:', props);
+        dispatch(transactionAction.TransactionLoadList({
+            project_id: projectId.projectId,
+            area_id: areaId.areaId,
+            block_id: props
+        }))
+        setProjectInfoInit({
+            ...projectInfoInit,
+            block_id: projectInfoInit.blockId,
+            block_name: projectInfoInit.blockName
         })
-        setBlockName(label.children)
-    }   
+    }
 
 
     // --- ITEM DETAIL API----
     const transtion = useSelector(state => state.transactionReducer);
     const isGetTransProductTypeListSuccess = transtion.transacProductTypeList.success;
     const transacProductTypeList = isGetTransProductTypeListSuccess ? transtion.transacProductTypeList.detail : null;
-    
+
     const [filterDataState, setFilterDataState] = useState({
         inputSelectDatas: [],
         sliderDatas: []
@@ -93,20 +100,25 @@ const TransactionLevel = (props) => {
     }, []);
 
     useEffect(() => {
-        var transProjectTypeDatas =[{value: null, label: "project_all"}] 
+        var transProjectTypeDatas = [{ value: null, label: "project_all" }]
         if (transacProductTypeList && transacProductTypeList != null && transacProductTypeList.length > 0) {
             for (var i = 0; i < transacProductTypeList.length; i++) {
-                transProjectTypeDatas.push({value: transacProductTypeList[i].architecture_id, label: transacProductTypeList[i].architecture_name})
+                transProjectTypeDatas.push(
+                    {
+                        value: transacProductTypeList[i].architecture_id,
+                        label: transacProductTypeList[i].architecture_name
+                    }
+                )
             }
         }
         setFilterDataState({
             inputSelectDatas: [
-                {placeholder: "product_type", datas: transProjectTypeDatas, onChange: onProductTypeChange},
-                {placeholder: "house_direction", datas: DIRECTION_TYPE, onChange: onHouseDirectionChange, trans: "trans"}
+                { placeholder: "product_type", datas: transProjectTypeDatas, onChange: onProductTypeChange },
+                { placeholder: "house_direction", datas: DIRECTION_TYPE, onChange: onHouseDirectionChange, trans: "trans" }
             ],
             sliderDatas: [
-                {label: "price_range", unit: "project_billions_dong", onChange: onPriceRangeChange, min: 0, max: 100},
-                {label: "area", unit: "project_area_unit", onChange: onAreaChange, min: 0, max: 1000}
+                { label: "price_range", unit: "project_billions_dong", onChange: onPriceRangeChange, min: 0, max: 100 },
+                { label: "area", unit: "project_area_unit", onChange: onAreaChange, min: 0, max: 1000 }
             ]
         })
     }, [transacProductTypeList]);
@@ -127,32 +139,39 @@ const TransactionLevel = (props) => {
     }
     const onFilterClick = () => {
         dispatch(transactionAction.TransactionLoadList({
-            project_id: projectId.project_id, area_id: areaId.area_id, block_id: blockId.block_id,
-            architecture_type_id: productType, direction_id: direction, price_from: priceFrom, price_to: priceTo, acreage_from: acreageFrom, acreage_to: acreageTo}));
+            project_id: projectInfoInit.projectId,
+            area_id: projectInfoInit.areaId,
+            block_id: projectInfoInit.blockId,
+            architecture_type_id: productType,
+            direction_id: direction,
+            price_from: priceFrom,
+            price_to: priceTo,
+            acreage_from: acreageFrom,
+            acreage_to: acreageTo
+        }));
     }
 
-    const data = useSelector(state => state.transactionReducer.transactionList.detail)
+    const dataFilter = useSelector(state => state.transactionReducer.transactionList.detail)
     return (
         <div className="projectDetailPage">
-            <TopBannerDetailTrans
-                transacProjectNameList={transacProjectNameList} 
+            <TopBannerFilter
+                projectInfoInit={projectInfoInit}
+                transacProjectNameList={transacProjectNameList}
                 transacAreaNameList={transacAreaNameList}
                 transacBlockNameList={transacBlockNameList}
-                projectId={projectId}
-                areaId={areaId}
-                blockId={blockId}
                 onChangeBlock={onChangeBlock}
                 onChangeProject={onChangeProject}
-                onChangeArea={onChangeArea}/>
-            <CardTransactionList
-                data={data}
-                inputSelectDatas={filterDataState.inputSelectDatas}
-                sliderDatas={filterDataState.sliderDatas}
-                onFilterClick={onFilterClick}
-                projectName={projectName}
-                blockName={blockName}
-                areaName={areaName}
-            />
+                onChangeArea={onChangeArea} />
+            {
+                <TransactionContent
+                    projectInfoInit={projectInfoInit}
+                    dataFilter={dataFilter}
+                    inputSelectDatas={filterDataState.inputSelectDatas}
+                    sliderDatas={filterDataState.sliderDatas}
+                    onFilterClick={onFilterClick}
+                    error={error}
+                />
+            }
         </div>
     )
 }
