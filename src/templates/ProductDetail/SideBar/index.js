@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Insentives from './../../../components/common/Incentives';
+import PolicyAdvice from './../../../components/common/PolicyAdvice';
 import Info from './Info';
 
 
@@ -9,7 +9,7 @@ const SiderBar = (props) => {
             dataInfo ?
             <div className="apartment_detail">
                 <Info dataInfo={dataInfo} />
-                <Insentives />
+                {/* <Insentives /> */}
             </div>
             : ""
         )        

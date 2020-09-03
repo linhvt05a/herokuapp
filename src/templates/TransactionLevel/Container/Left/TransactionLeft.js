@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Trans } from 'react-i18next';
 
 import ProjectPosition from './ProjectPosition';
-import ProjectUltilities from './ProjectUltilities';
 import Exchanges from './Exchanges';
 
 const TransactionLeft = (props) => {
@@ -12,7 +11,6 @@ const TransactionLeft = (props) => {
         <>
             <div className="project_item__detail">
                 {projectInfoInit ? <ProjectPosition data={projectInfoInit} /> : ''}
-                {dataFilter ? <ProjectUltilities data={dataFilter} /> : ''}
             </div>
             {dataFilter ? <Exchanges data={dataFilter} /> : ''}
 

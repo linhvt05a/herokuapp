@@ -21,3 +21,14 @@
     &-light{}
     &-dark{}
 }
+.card-nodata-alert{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    background-color: #fff;
+    width: 100%;
+    
+    img{
+        padding: 10% 20%;
+    }
+}

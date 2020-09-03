@@ -10,11 +10,11 @@ const TransactionLevel = (props) => {
     const dispatch = useDispatch();
     const [projectInfoInit, setProjectInfoInit] = useState({
         projectId: 13,
-        projectName: "Royal Garden",
+        projectName: "VTP Building",
         areaId: 1,
         areaName: "VALLEN",
         blockId: 2,
-        blockName: "B"
+        blockName: "A1(QC TEST)"
     })
 
     useEffect(() => {
