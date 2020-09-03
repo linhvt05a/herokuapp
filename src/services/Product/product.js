@@ -54,7 +54,7 @@ export const productService = {
 
 
     //BEGIN SERVICE LINH
-    productList(payload) {
+    productFavoriteList(payload) {
         const{page, limit} = payload.params
         const requestOptions = {
             method: 'GET',

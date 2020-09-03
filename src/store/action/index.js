@@ -5,14 +5,11 @@ import productDetailAction from "./productDetailAction";
 import transactionAction from "./transactionAction";
 import newsAction from './newsAction'
 import promotionAction from './promotionAction'
-import visitSignupAction from './visitSignupAction'
 import commonAction from "./commonAction";
-import contactAddAction from './contactAddAction'
-import juridicalSupportAction from './juridicalSupportAction'
-import visitorAction from './visitorAction'
+import legalAction from './legalAction'
 
 export {
-  examAction, projectAction, productAction, visitSignupAction, promotionAction, commonAction,
+  examAction, projectAction, productAction, promotionAction, commonAction,
   newsAction,transactionAction, productDetailAction,
-  contactAddAction, juridicalSupportAction, visitorAction
+  legalAction
 }
