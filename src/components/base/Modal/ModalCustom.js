@@ -29,7 +29,7 @@ const ModalCustom = (props) => {
             onCancel={handleCancel}
             width={widthModal}>
 
-            {/* {
+            {
                 showPaymentProgressModal &&
                 <CardPaymentProgressModal onSaveClick={dataOutput} clearData={afterClearData} isClearData={isClearData} />
             }
@@ -37,7 +37,7 @@ const ModalCustom = (props) => {
             {
                 showPromotionModal &&
                 <CardPromotionModal onSaveClick={dataOutput} clearData={afterClearData} isClearData={isClearData} />
-            } */}
+            }
 
             {
                 showAccountModal &&
