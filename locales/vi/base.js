@@ -29,6 +29,9 @@ export default {
     end_button: "Kết thúc",
     back_button: "Quay lại",
     save: "Lưu",
+    button_confirm: "Xác nhận",
+    button_delete: "Xoá",
+    button_edit: "Sửa",
 
     // languages 
     lang_vi : 'Việt Nam',
