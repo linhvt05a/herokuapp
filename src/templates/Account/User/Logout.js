@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Trans } from "react-i18next";
 
 const Logout = (props) => {
-    
+    let { showprofile } = props;
     return (
         <div className="header_register form_logged d-none">
             <div className="header_register--heading">

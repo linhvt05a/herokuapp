@@ -1,12 +1,13 @@
 import { accountAction } from '../action/index';
 
 const initialState = {
-    login: [],
+    login: {},
     registry: [],
     forgotPassword: [],
     changePassword: [],
     profile: [],
     updateProfile: [],
+
     isFetching: false
 };
 

@@ -5,9 +5,9 @@ import { accountAction } from '../action/index';
 
 // login
 export function* login(payload) {
-    let { token } = payload
+    let { username, password } = payload.params
     try {
-        const response = yield accountService.login(token);
+        const response = yield accountService.login( username, password );
         response.success ? yield put({ type: accountAction.LOGIN_SUCCESS, response }) : yield put({ type: accountAction.LOGIN_FAILURE, response });
     } catch (err) {
         yield put({ type: accountAction.LOGIN_FAILURE, err });
@@ -17,7 +17,7 @@ export function* loginWatcher() {
     yield takeLatest(accountAction.LOGIN_REQUEST, login);
 }
 
-registry
+// registry
 export function* registry(payload) {
     let { token } = payload.params
     try {
@@ -90,8 +90,8 @@ export function* updateProfileWatcher() {
 // root Saga
 export default function* rootSaga() {
     yield all([
-        fork(login),
-        // fork(registryWatcher),
+        fork(loginWatcher),
+        fork(registryWatcher),
         fork(forgotPasswordWatcher),
         fork(changePasswordWatcher),
         fork(profileWatcher),

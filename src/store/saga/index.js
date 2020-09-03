@@ -21,7 +21,7 @@ import newsCategoriesSaga from './newsCategoriesSaga'
 import projectSelectSaga from './projectSelectSaga'
 import legalCategoriesSaga from './legalCategoriesSaga';
 import legalListSaga from './legalListSaga'
-// import accountSaga from './accountSaga'
+import accountSaga from './accountSaga'
 import commentNewsSaga from './commentNewsSaga'
 import newsCommentListSaga from './newsCommentListSaga'
 function* allSaga() {
@@ -31,7 +31,7 @@ function* allSaga() {
     productListSaga(), productSignupSaga(), productIncentiveSaga(),
     contactAddSaga(), juridicalSupportSaga(), newsFilterSaga(), visitorSaga(),
     productDetailSaga(), newsCategoriesSaga(), projectSelectSaga(), 
-    // accountSaga()
+    accountSaga(),
     legalCategoriesSaga(), legalListSaga(), commentNewsSaga(), newsCommentListSaga()
   ]);
 }

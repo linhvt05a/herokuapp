@@ -30,3 +30,14 @@
         }
     }
 }
+#form-login {
+    .form-group {
+        .form-control {
+            height: 50px;
+        }
+    }
+    .errors {
+        color: #ff4d4f;
+        text-align: center;
+    }
+}

@@ -1,16 +1,42 @@
 import api from '../api';
 import { TOKEN } from '../../../env';
 
-export const commonService = {
+export const accountService = {
 
-    login(token) {
+    // login(token) {
+    //     const requestOptions = {
+    //         method: 'GET',
+    //         headers: api.getHeader(TOKEN)
+    //     };
+    //     const params = { };
+    //     const url = api.getUrl(api.LOGIN, params);
+    //     return api.handleRequest(url, requestOptions);
+    // },
+
+    login(username, password) {
+        const token = btoa(username + ":" + password);
+        const body = { username, password }
+    
         const requestOptions = {
-            method: 'GET',
-            headers: api.getHeader(TOKEN)
+            method: 'POST',
+            headers: api.getHeader(token, api.CONTENT_TYPE, 'Basic'),
+            body: body
         };
-        const params = { };
-        const url = api.getUrl(api.LOGIN, params);
-        return api.handleRequest(url, requestOptions);
+    
+        const url = api.getUrl(api.LOGIN)
+        return api.handleRequest(url, requestOptions)
+            .then(data => {
+                if (data) {
+                    // store user details and basic auth credentials in local storage
+                    localStorage.setItem('user', JSON.stringify(data['detail']));
+                }
+                return data;
+            });
+    },
+    
+    logout() {
+        // remove user from local storage to log user out
+        localStorage.removeItem('user');
     },
 
     registry(token) {

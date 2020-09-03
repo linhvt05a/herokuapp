@@ -20,7 +20,7 @@ import newsCategoriesAction from './newsCategoriesAction'
 import projectSelectAction from './projectSelectAction'
 import legalCategoriesAction from './legalCategoriesAction'
 import legalListAction from './legalListAction'
-// import accountAction from './accountAction'
+import accountAction from './accountAction'
 import commentNewsAction from './commentNewsAction'
 import newsCommentListAction from './newsCommentListAction'
 
@@ -30,6 +30,6 @@ export {
   productListAction, productSignupAction, productIncentivesAction, productDetailAction,
   contactAddAction, juridicalSupportAction, newsFilterAction, visitorAction,
   newsCategoriesAction, projectSelectAction, 
-  // accountAction,
+  accountAction,
   legalCategoriesAction, legalListAction, commentNewsAction, newsCommentListAction
 }

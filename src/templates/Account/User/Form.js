@@ -5,9 +5,18 @@ import { Login, ForgotPass, Registry, Logout } from '../index';
 
 const Form = (props) => {
     const [tab, setTab] = useState(0);
+    const [state, setState] = useState({
+        showprofile: 0
+    });
     const showTap = (active) => {
         setTab(active)
     }
+    const LoginSuccess = (success) => {
+        if(success === 1) {
+            setState({ showprofile: 1 })
+        }
+    }
+
     return (
         <>
             {/* form_register */}
@@ -34,7 +43,7 @@ const Form = (props) => {
                 </ul>
                 <div className="tab-content">
                     <div className={`tab-pane fade ${tab == 0 ? "show active": ""}`} id="pills-login">
-                        <Login showTap={showTap}/>
+                        <Login showTap={showTap} handleLoginSuccess={LoginSuccess}/>
                     </div>
                     <div className={`tab-pane fade ${tab == 1 ? "show active": ""}`} id="pills-signup">
                         <Registry />
@@ -49,7 +58,7 @@ const Form = (props) => {
                 <ForgotPass />
             </div>
             {/* form_logged */}
-            <Logout />
+            <Logout showprofile={state.showprofile} />
         </>
     );
 }
