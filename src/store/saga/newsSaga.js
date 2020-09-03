@@ -4,7 +4,6 @@ import { newsAction } from '../action';
 
 
 export function* newsList(payload) {
-    console.log(payload)
     try {
         const response = yield newsService.newsList(payload);
         response.success ? yield put({ type: newsAction.LOAD_LIST_SUCCESS, response }) : yield put({ type: newsAction.LOAD_LIST_FAILURE, response });
