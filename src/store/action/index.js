@@ -7,9 +7,10 @@ import newsAction from './newsAction'
 import promotionAction from './promotionAction'
 import commonAction from "./commonAction";
 import legalAction from './legalAction'
+import contactAddAction from './contactAddAction'
 
 export {
   examAction, projectAction, productAction, promotionAction, commonAction,
   newsAction,transactionAction, productDetailAction,
-  legalAction
+  legalAction, contactAddAction
 }

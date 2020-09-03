@@ -4,13 +4,21 @@ import { TOKEN } from '../../../env';
 export const newsService = {
   
     newsList(payload) {
-        const {news_sort, nameSearch, cateID, dateFrom, dateTo, category_id, category_news_group} = payload.params
+        console.log(payload.params)
+        const {news_sort,news_title,categoriesID,fromDate,toDate, nameSearch, cateID, dateFrom, dateTo, category_id, category_news_group} = payload.params
         const requestOptions = {
             method: 'GET',
             headers: api.getHeader(TOKEN)
         };
 
-        const params = {news_sort: news_sort, news_title:nameSearch,category_news_id: cateID, from_date:dateFrom, to_date:dateTo, category_id: category_id, category_news_group};
+        const params = { 
+            news_sort, news_title:nameSearch ,
+            category_news_id: cateID ,
+            from_date:dateFrom,
+            to_date:dateTo, 
+            category_id: category_id , 
+            category_news_group
+        };
         const url = api.getUrl(api.NEWS_LIST, params);
         return api.handleRequest(url, requestOptions);
     },

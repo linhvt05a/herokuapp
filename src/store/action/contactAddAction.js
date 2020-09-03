@@ -1,9 +1,9 @@
-const contactAdd = 'CONTACT_ADD_';
+
 const actions = {
 
-    LOAD_LIST: contactAdd + 'LIST_REQUEST',
-    LOAD_LIST_FAILURE: contactAdd + 'LIST_FAILURE',
-    LOAD_LIST_SUCCESS: contactAdd + 'LIST_SUCCESS',
+    CONTACT_ADD_REQUEST: 'CONTACT_ADD_REQUEST',
+    CONTACT_ADD_FAILURE: 'CONTACT_ADD_FAILURE',
+    CONTACT_ADD_SUCCESS: 'CONTACT_ADD_SUCCESS',
 
     contactAdd: (params) => ({
         type: actions.LOAD_LIST,

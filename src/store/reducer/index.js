@@ -8,6 +8,7 @@ import commonReducer from './commonReducer'
 import transactionReducer from './transactionReducer'
 import productDetailReducer from './productDetailReducer'
 import legalReducer from './legalReducer'
+import contactAddReducer from './contactAddReducer'
 import { combineReducers } from 'redux';
 
 
@@ -16,6 +17,6 @@ const allReducers = combineReducers({
     productReducer,commonReducer,
     transactionReducer,productDetailReducer,
     promotionReducer,legalReducer,
-    newsReducer,
+    newsReducer,contactAddReducer
 });
 export default allReducers; 

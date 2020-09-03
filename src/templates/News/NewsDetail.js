@@ -2,9 +2,8 @@ import React, { useState, useEffect } from "react";
 import CardHeader from '../../components/common/CardHeader'
 import {LeftContent, RightContent} from './index'
 import { useDispatch, useSelector } from "react-redux";
-import { newsDetailAction, hotNewsAction,newsAction, commentNewsAction, newsCommentListAction } from "../../store/action/index";
-import {Link} from 'react-router-dom'
-
+import {newsAction} from "../../store/action/index";
+import moment from 'moment';
 const NewsDetail = (props) => {
   const [comment, setComment] = useState('')
   const[parentID, setParentID] = useState('')
@@ -14,20 +13,20 @@ const NewsDetail = (props) => {
   const[dateFrom, setDateFrom] = useState('')
   const[dateTo, setDateTo] = useState('')
   const[isFilter,setFilter] = useState(false)
-
-  const newsDetail = useSelector(state => state.newsDetailReducer);
+  const [dataSearch, setDataFilter] = useState('')
+  const newsDetail = useSelector(state => state.newsReducer);
   const newsDetailSuccess = newsDetail.newsDetail.success
   const listDetail = newsDetailSuccess ? newsDetail.newsDetail.detail : null;
  
   const dispatch = useDispatch();
 
-  const newsCates = useSelector(state => state.newsCategoriesReducer);
-  const newsCateSuccess = newsCates.newsCate.success
-  const newsCategories = newsCateSuccess ? newsCates.newsCate.detail : null;
+  const newsCates = useSelector(state => state.newsReducer);
+  const newsCateSuccess = newsCates.newsCategories.success
+  const newsCategories = newsCateSuccess ? newsCates.newsCategories.detail : null;
 
-  const newsComment = useSelector(state => state.newsCommentListReducer);
-  const newsCommentSuccess = newsComment.commentList.success
-  const commentList = newsCommentSuccess ? newsComment.commentList.detail : null;
+  const newsComment = useSelector(state => state.newsReducer);
+  const newsCommentSuccess = newsComment.newsCommentList.success
+  const commentList = newsCommentSuccess ? newsComment.newsCommentList.detail : null;
   
   const hotNews = useSelector(state => state.newsReducer);
   const hotNewsSuccess = hotNews.newsList.success
@@ -41,16 +40,15 @@ const NewsDetail = (props) => {
 
   useEffect(() => {
       dispatch(newsAction.LoadNewsList({news_sort: news_sort}))
-      dispatch(newsDetailAction.LoadNewsDetail({news_id: news_id}));
-      
-      dispatch(newsCommentListAction.commentList({news_id: news_id}))
+      dispatch(newsAction.LoadNewsDetail({news_id: news_id}));
+      dispatch(newsAction.commentList({news_id: news_id}))
       
   }, []);
 
  const addComment = (e) =>{
   e.preventDefault()
   if(comment !== ""){
-    dispatch(commentNewsAction.addComment({news_id: news_id, comment: comment}))
+    dispatch(newsAction.addComment({news_id: news_id, comment: comment}))
   }else {
     return false
   }
@@ -66,7 +64,7 @@ const NewsDetail = (props) => {
 
  const sendChildComment = (e) =>{
    e.preventDefault()
-    dispatch(commentNewsAction.addComment({news_id: news_id, comment: childContent, parent: parentID}))
+    dispatch(newsAction.addComment({news_id: news_id, comment: childContent, parent: parentID}))
  }
 
  const changeChildContent = (e)=>{
@@ -75,12 +73,8 @@ const NewsDetail = (props) => {
  }
 
  const handleFilter = () =>{
-   setFilter(true)
-   if(isFilter){
-    dispatch(newsAction.LoadNewsList({nameSearch: nameSearch,cateID : cateID, dateFrom: dateFrom, dateTo: dateTo}));
-   }
- 
-}
+  
+ }
 
 const handleChangeNewsTitle = (e) =>{
   const value = e.target.value
@@ -112,8 +106,7 @@ function convertDateFrom(value){
     <div className="news_detail">
       <div className="container container-sm container-md">
             <CardHeader label="News"/>
-        <div className={isFilter === true ? "row" : "row row_detail"}>
-        {isFilter === false && 
+        <div className="row row_detail">
         <LeftContent 
               listDetail ={listDetail} 
               sendChildComment={sendChildComment} 
@@ -123,9 +116,10 @@ function convertDateFrom(value){
               addComment={addComment} 
               handleChange={handleChange}
             />
-          }
-          {isFilter === true && <div class="col-sm-12 col-md-12 col-lg-8 col-xl-8"> <RowNews datas={newsList}/></div>}
+          
+          
             <RightContent 
+              paramsSearch ={cateID, nameSearch, dateTo, dateFrom}
               data={hotList} 
               cateID={cateID} 
               changeDateTo={changeDateTo} 
@@ -134,6 +128,7 @@ function convertDateFrom(value){
               changeSelect={changeSelect} 
               handleFilter={handleFilter} 
               newsCategories={newsCategories} 
+
             />
         </div>
       </div>
@@ -141,41 +136,4 @@ function convertDateFrom(value){
   );
 };
 
-const RowNews = (props) =>{
-  const {datas} = props
-  return(
-        <div className="row_content">
-        {datas && datas.length > 0 ? datas && datas.map((item, index)=>
-            <div className="card" >
-            <Link  className="link"></Link>
-            <div className="row ">
-                <div className="col-sm-12 col-md-5 col-xl-5 d-flex">
-                    <div className="news__card--img">
-                        <img src={item.news_avatar}/>
-                    </div>
-                </div>
-                <div className="col-md-7 col-xl-7">
-                    <div className="news__card--content">
-                        <Link  className="title" >
-                            {item.news_title}
-                        </Link>
-                        <div className="times">
-                            Ngày đăng : {datas?.from_date}
-                        </div>
-                        <p className="contain">
-                            {item.description}
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    
-      ) : <div>nodata</div>
-    }
-    </div>
-   
-      
-  
-  )
-}
 export default NewsDetail;

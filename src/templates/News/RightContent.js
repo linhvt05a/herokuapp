@@ -6,7 +6,7 @@ import moment from 'moment';
 const defaultValue = [{value:"" , label:'Categories'}]
 
 const RightContent = (props) => {
-    const{data,  newsCategories, handleFilter,cateID, handleChange, changeDateTo, changeDateFrom, changeSelect} = props
+    const{data, paramsSearch, newsCategories, handleFilter,cateID, handleChange, changeDateTo, changeDateFrom, changeSelect} = props
     const[projectSelectList,setProjectList] = useState(null)
     const dispatch = useDispatch();
     const [navigate, setNavigate] = useState({})
@@ -53,6 +53,7 @@ const RightContent = (props) => {
                             changeDateFrom ={changeDateFrom}
                             changeDateTo={changeDateTo}
                             handleFilter={handleFilter}
+                            paramsSearch={paramsSearch}
                     />
                 </div>
             </div>

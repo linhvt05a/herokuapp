@@ -8,7 +8,7 @@ const CardNews = (props) => {
     const{data} = props
     const settings = {
         infinite: true,
-        slidesToShow: 3,
+        slidesPerRow: 3,
         slidesToScroll: 1,
         autoplay: true,
         nextArrow: <NextArrow />,
@@ -31,6 +31,7 @@ const CardNews = (props) => {
             <Slider {...settings}>
                 {data && data.map((news, index)=> <NewsLoop item={news} key={index}/>)}
             </Slider>
+                
             </div>
     </div>
     

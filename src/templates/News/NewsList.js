@@ -1,5 +1,5 @@
 import React, { useState, useEffect} from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import TopBanner from "../../components/common/Header/TopBanner";
 import { Categories, FilterProject, CommonMenu } from '../News/index'
 import RegisterModal from "./RegisterModal";
@@ -7,13 +7,14 @@ import { Trans } from "react-i18next";
 import Pagination from '../../components/common/Pagination';
 import { LoadDataPaging } from '../../functions/Utils';
 import { useDispatch, useSelector } from "react-redux";
-import { newsAction, commonAction, newsFilterAction, newsCategoriesAction } from "../../store/action/index";
+import { newsAction } from "../../store/action/index";
 import {CommonFilter} from '../News/index'
 import moment from 'moment';
 
 const defaultValue = [{value:'', label:'Categories'}]
 
-const News = () => {
+const News = (props) => {
+    const location = useLocation()
     const[projectSelectList,setProjectList] = useState(null)
     const[nameSearch, setName] = useState('')
     const[cateID, setCateId] = useState('')
@@ -24,12 +25,11 @@ const News = () => {
     const news = useSelector(state => state.newsReducer);
     const newsListSuccess = news.newsList.success
     const newsList = newsListSuccess ? news.newsList.detail : null;
-
     const newRecord = newsListSuccess ? news.newsList : null
 
-    const newsCates = useSelector(state => state.newsCategoriesReducer);
-    const newsCateSuccess = newsCates.newsCate.success
-    const newsCategories = newsCateSuccess ? newsCates.newsCate.detail : null;
+    const newsCates = useSelector(state => state.newsReducer);
+    const newsCateSuccess = newsCates.newsCategories.success
+    const newsCategories = newsCateSuccess ? newsCates.newsCategories.detail : null;
 
     const total_page = newRecord && newRecord != null ? newRecord.total_page : null
     const total_record =newRecord && newRecord != null ? newRecord.total_record: null
@@ -50,10 +50,15 @@ const News = () => {
             setProjectList(newData)
         }
     }, [newsCategories]);
-
+   
+    // const news_title = location.state.paramsSearch[0].nameSearch
+    // const categoriesID = location.state.paramsSearch[0].cateID
+    // const fromDate = location.state.paramsSearch[0].dateFrom
+    // const toDate = location.state.paramsSearch[0].dateTo
     useEffect(() => {
-        dispatch(newsAction.LoadNewsList({}));
-        dispatch(newsCategoriesAction.newsCategories({}))
+        console.log(location.state)
+        dispatch(newsAction.LoadNewsList({}))
+        dispatch(newsAction.newsCategories({}))
     }, []);
 
     const onPageChange = (value) =>{
