@@ -2,6 +2,7 @@ import React, {useState, useEffect } from "react";
 import CardHeader from "../../components/common/CardHeader";
 import {ProductRightBar, ProductContent, ProductSignInModal} from './index'
 import {Modal} from 'antd'
+import ModalCustom from '../../components/base/Modal/ModalCustom'
 import {validateSignup, validateLogin} from '../../components/base/ValidateInput/ValidateInput'
 import {useFormSignup, useFormSignIn} from '../../components/base/ValidateInput/useForm'
 import { useDispatch, useSelector } from "react-redux";
@@ -61,15 +62,7 @@ function onPageChange (value) {
         </div>
         </div>
       </div>
-        <Modal visible={showSignInModal}>
-            <ProductSignInModal 
-              closeModal={()=> setShowSignIn(false)} 
-              handleSignIn={handleSignIn} 
-              handleChangeSignIn={handleChangeSignIn} 
-              signValues={signInValues} 
-              signInErrors={signInErrors}
-            />
-        </Modal>
+      <ModalCustom showAccountModal={showSignInModal} visible={showSignInModal} widthModal="400px"/>
     </div>
   );
 };
