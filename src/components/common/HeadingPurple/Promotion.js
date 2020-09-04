@@ -9,7 +9,7 @@ function convertDate(value){
 }
 const HeadingPurplePromotion = (props) => {
 	const { data, heading } = props;
-
+	console.log(data);
 	return (
 		<>
 			<div class="heading_purple">
@@ -19,7 +19,7 @@ const HeadingPurplePromotion = (props) => {
 			<div className="card border-0 mt-0">
 				<div className="card-body">
 					{
-						data && data.list_promotion_policy.length > 0 ? data.list_promotion_policy.map((value, index) => {
+						data.length > 0 ? data.map((value, index) => {
 							return (
 								<div className="incentives__user" key={index}>
 									<div className="heading">

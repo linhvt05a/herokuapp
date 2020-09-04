@@ -55,7 +55,8 @@ const Exchanges = (props) => {
                                 </div>
                             </div>
                             <div className="exchanges_apartment--content">
-                                {console.log(activeIndex),
+                                {
+                                // console.log(activeIndex),
                                     item.list_product && item.list_product != null && item.list_product.length > 0 ?
                                         item.list_product.map((item_p, i) => (
                                             <div key={i}
