@@ -6,7 +6,7 @@ const BlockPromotionPolicy = (props) => {
     console.log(data);
     return (
         <div className={className}>
-            { data.length > 0 ? <HeadingPurplePromotion className={className} data={data} heading={heading} /> : ''}
+            { data.length > 0 ? <HeadingPurplePromotion data={data} heading={heading} /> : ''}
         </div>
     )
 }

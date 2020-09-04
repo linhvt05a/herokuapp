@@ -5,7 +5,7 @@ const BlockInternalUtility = (props) => {
     const { data, heading, className } = props;
     return (
         <div className={className}>
-            { data.length > 0 ? <HeadingPurpleUltilities className={className} data={data} heading={heading} /> : ''}
+            { data.length > 0 ? <HeadingPurpleUltilities data={data} heading={heading} /> : ''}
         </div>
     )
 }
