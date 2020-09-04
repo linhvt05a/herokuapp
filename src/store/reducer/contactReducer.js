@@ -17,9 +17,9 @@ export default (state = initialState, action) => {
             };
 
         case contactAddAction.ADVISORY_SUCCESS:
-            return { ...state, isFetching: false, login: action.response };
+            return { ...state, isFetching: false, advisoryAdd: action.response };
         case contactAddAction.ADVISORY_REQUEST:
-            return { ...state, isFetching: false, login: { success: false, error: action.error } };
+            return { ...state, isFetching: false, advisoryAdd: { success: false, error: action.error } };
         default:
             return state;
     }

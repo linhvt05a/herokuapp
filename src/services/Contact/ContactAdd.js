@@ -11,5 +11,15 @@ export const contactService = {
         };
         const url = api.getUrl(api.CONTACT_ADD);
         return api.handleRequest(url, requestOptions);
+    },
+    advisoryAdd(token, fullname, email, question) {
+        const body = { fullname, email, question }
+        const requestOptions = {
+            method: 'POST',
+            headers: api.getHeader(TOKEN),
+            body: body
+        };
+        const url = api.getUrl(api.ADVISORY_ADD);
+        return api.handleRequest(url, requestOptions);
     }
 };

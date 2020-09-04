@@ -3,31 +3,33 @@ import { Link } from "react-router-dom";
 import { Trans } from "react-i18next";
 
 const Logout = (props) => {
-    let { showprofile } = props;
+    let { success, handleLogout, user } = props;
     return (
-        <div className="header_register form_logged d-none">
+        success && success != null ?
+        <div className={`header_register form_logged ${success != null ? "": "d-none" }`} style={{ maxWidth: "360px" }}>
             <div className="header_register--heading">
                 <figure className="avatar">
                     <img
-                        src="../images/avatar_logged.jpg"
-                        alt="Trần Thị Thu Hoài"
+                        src={success.avatar_url}
+                        alt={success.full_name}
                     />
                 </figure>
                 <div className="info">
                     <div className="name">
-                        Trần Thị Thu Hoài
+                        {success.full_name}
                     </div>
                     <div className="mail">
-                        thutran1975@gmail.com
+                        {success.username}
                     </div>
                 </div>
             </div>
             <div className="form_logged--action">
-                <Link to="/#" className="action">
+                <a className="action" onClick={handleLogout}>
                     Đăng xuất
-                </Link>
+                </a>
             </div>
         </div>
+        : ''
     );
 };
 export default Logout;

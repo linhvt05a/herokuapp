@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { Trans } from "react-i18next";
 import { Input, Form, Button } from 'antd';
+import { accountAction } from "../../../store/action/index";
 
 const Login = (props) => {
-    let { showTap, onSubmitLogin, success } = props;
+    let { showTap, success } = props;
     const [formInfo] = Form.useForm();
+    const dispatch = useDispatch();
     
     const validatorInfo = {
         username : {
@@ -27,9 +30,15 @@ const Login = (props) => {
     }
 
     formInfo.setFieldsValue({
-        username: '',
-        password: '',
+        username: 'customer@minerva.vn',
+        password: '123',
     });
+
+    const onSubmitLogin = value => {
+        console.log(value);
+        // dispatch(accountAction.loadLogin({ username: "customer@minerva.vn", password: "123" }));
+        dispatch(accountAction.loadLogin({ username: value.username, password: value.password }))
+    }
     
     return (
         <div className="form form_signInUp">
@@ -56,7 +65,7 @@ const Login = (props) => {
                             )
                     }}
                 </Form.Item>
-                <div className="errors" style={{display: success ? "block" : "none"}}><Trans>user_pass_false</Trans></div>
+                {/* <div className="errors" style={{display: success != null ? "none" : "block"}}><Trans>user_pass_false</Trans></div> */}
             </Form>
             <div className="form-group mb-0 text-center">
                 <Link onClick={event => showTap(3)}

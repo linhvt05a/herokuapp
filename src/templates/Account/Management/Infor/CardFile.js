@@ -96,10 +96,16 @@ const CardFile = (props) => {
     };
 
     const updateProfile = () => {
-        console.log('iii');
-
         dispatch(accountAction.loadUpdateCustomer({
-            name: state.customer_name
+            email: state.customer_email,
+            name: state.customer_name,
+            // birthday: state.customer_birthday,
+            address: state.address._address,
+            province: state.address._province, 
+            district: state.address._district, 
+            ward: state.address._ward, 
+            phone: state.customer_mobile, 
+            gender: state.gender
         }));
     }
 

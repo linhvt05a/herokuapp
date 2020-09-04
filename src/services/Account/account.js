@@ -91,7 +91,6 @@ export const accountService = {
 
     updateCustomer(token, avatar, email, name, birthday, address, province, district, ward, phone, gender, workplace ) {
         const body = { avatar, email, name, birthday, address, province, district, ward, phone, gender, workplace }
-        console.log(body);
         const requestOptions = {
             method: 'POST',
             headers: api.getHeader(TOKEN),

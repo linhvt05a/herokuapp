@@ -45,23 +45,31 @@ const Advisory = (props) => {
     }
     
     formInfo.setFieldsValue({
-        fullname: '',
-        email:'',
-        question:''
+        fullname: 'Tuan',
+        email:'tuan@gmail.com',
+        question:'tư vấn cho tôi đi'
     });
-
+    const dispatch = useDispatch();
     const advisory = useSelector(state => state.contactReducer);
     const advisoryAddSuccess = advisory.advisoryAdd.success;
     const advisoryList = advisoryAddSuccess ? advisory.advisoryAdd.detail : null;
-    console.log(advisoryList);
-    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(contactAddAction.loadAdvisory({
+            name:"Nguyen duy",
+            email:"abc@gmail.com",
+            content:"Tư vấn cho tôi đi"
+        }));
+    }, [])
+    console.log('list', advisoryList);
+    
     const onSubmitAdvisory = (values) => {
         console.log('Success:', values);
-        dispatch(contactAddAction.loadAdvisory({
-            full_name: values.fullname,
-            email: values.email,
-            content: values.question
-        }));
+        // dispatch(contactAddAction.loadAdvisory({
+        //     full_name: values.fullname,
+        //     email: values.email,
+        //     content: values.question
+        // }));
     }
 
     return (

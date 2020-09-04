@@ -10,30 +10,24 @@ const Form = (props) => {
     const dispatch = useDispatch();
     const [tab, setTab] = useState(0);
     const [state, setState] = useState({
-        success: false
+        loginSuccess: false
     });
     const showTap = (active) => {
         setTab(active)
     }
-    // const login = useSelector(state => state.accountReducer);
-    // const isLoginSuccess = login.login.success;
-    // const respon = isLoginSuccess ? login.login.detail : null;
-    const LoginSuccess = value => {
-        console.log(value);
-        // dispatch(accountAction.loadLogin({ username: "customer@minerva.vn", password: "123" }));
-        // dispatch(accountAction.loadLogin({ username: value.username, password: value.password }))
+    const logout = () => {
+        localStorage.removeItem('user');
     }
-    // if(respon != null){
-    //     setState({ success: true })
-    // }
+    const login = useSelector(state => state.accountReducer);
+    const isLoginSuccess = login.login.success;
+    const respon = isLoginSuccess ? login.login.detail : null;
+    const user = localStorage.getItem('user');
 
     return (
         <>
             {/* form_register */}
-            <div className="header_register form_register">
-                <ul
-                    className="nav header_register--heading"
-                    role="tablist">
+            <div className={`header_register form_register ${respon != null ? "d-none": ""}`}>
+                <ul className="nav header_register--heading" role="tablist">
                     <li className="nav-item">
                         <Link 
                             onClick={event => showTap(0)}
@@ -53,7 +47,7 @@ const Form = (props) => {
                 </ul>
                 <div className="tab-content">
                     <div className={`tab-pane fade ${tab == 0 ? "show active": ""}`} id="pills-login">
-                        <Login showTap={showTap} onSubmitLogin={LoginSuccess} success={state.success} />
+                        <Login showTap={showTap} success={respon} />
                     </div>
                     <div className={`tab-pane fade ${tab == 1 ? "show active": ""}`} id="pills-signup">
                         <Registry />
@@ -68,7 +62,7 @@ const Form = (props) => {
                 <ForgotPass />
             </div>
             {/* form_logged */}
-            <Logout success={state.success} />
+            <Logout success={respon} handleLogout={logout} user={user} />
         </>
     );
 }

@@ -63,6 +63,7 @@ export default {
     JURIDICAL_ADD:"",
     
     CONTACT_ADD : "/api/main_web/v1/counseling/add/",
+    ADVISORY_ADD : "/api/main_web/v1/advisory/create_advisory/",
 
     FILTER_NEWS: "",
     
