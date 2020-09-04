@@ -54,22 +54,13 @@ const SearchProduct = (props) => {
 
     return (
         <div className="project_page--filter project_page--filter_exchanges">
-            <div className="map_search--content pd_search_content">
-                <div className="top_title_filter">
-                    <h5 className="fw-bold uni-text-6d30ab text-uppercase">Tìm kiếm sản phẩm</h5>
-                    <span className="color_e94c4c delete_search fw-medium">Xóa tìm kiếm</span>
-                </div>
-
-
-                <CardInputSliderFilter 
-                    title="project_filter" 
-                    inputSelectDatas={filterDataState.inputSelectDatas} 
-                    sliderDatas={filterDataState.sliderDatas} 
-                    onFilterClick={onFilterClick}
-                    filterWhite
-                />
-
-            </div>
+            <CardInputSliderFilter 
+                title="project_filter" 
+                inputSelectDatas={filterDataState.inputSelectDatas} 
+                sliderDatas={filterDataState.sliderDatas} 
+                onFilterClick={onFilterClick}
+                filterWhite
+            />
         </div>
     )
 }

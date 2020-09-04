@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import PolicyAdvice from './../../../components/common/PolicyAdvice';
 import Info from './Info';
 
 
