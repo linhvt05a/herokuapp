@@ -119,7 +119,10 @@ function convertDateFrom(value){
           
           
             <RightContent 
-              paramsSearch ={cateID, nameSearch, dateTo, dateFrom}
+              paramsSearch ={cateID}
+              titleNews = {nameSearch}
+              dateFrom ={dateFrom}
+              dateTo = {dateTo}
               data={hotList} 
               cateID={cateID} 
               changeDateTo={changeDateTo} 

@@ -4,7 +4,6 @@ import { newsAction } from '../action';
 
 
 export function* newsList(payload) {
-    console.log(payload)
     try {
         const response = yield newsService.newsList(payload);
         response.success ? yield put({ type: newsAction.NEWS_LIST_SUCCESS, response }) : yield put({ type: newsAction.NEWS_LIST_FAILURE, response });
@@ -41,6 +40,7 @@ export function* newsHotList(payload) {
 }
 
 export function* newsCommentAdd(payload) {
+    console.log(payload)
     try {
         const response = yield newsService.newsCommentAdd(payload);
         response.success ? yield put({ type: newsAction.NEWS_COMMENT_ADD_SUCCESS, response }) : yield put({ type: newsAction.NEWS_COMMENT_ADD_FAILURE, response });

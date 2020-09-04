@@ -16,8 +16,8 @@ const ProductContent = (props) => {
               <div className="text">
                 <Trans>Total</Trans> {data.detail.list_product.length} <Trans>products</Trans></div>
                 <div className="icons">
-                    <ProductMode  content={<i className={grid == true ?  "icon active fas fa-th" :'icon fas fa-th' }></i>}  switchMode={()=> setGrid(true)}/>
-                    <ProductMode content={<i className={grid == false ? "icon active fas fa-list" : 'icon fas fa-list'}></i>} switchMode={()=> setGrid(false)}/>
+                    {/* <ProductMode  content={<i className={grid == true ?  "icon active fas fa-th" :'icon fas fa-th' }></i>}  switchMode={()=> setGrid(true)}/>
+                    <ProductMode content={<i className={grid == false ? "icon active fas fa-list" : 'icon fas fa-list'}></i>} switchMode={()=> setGrid(false)}/> */}
                 </div>
             </div>:
             <ProductNodata />
@@ -34,11 +34,11 @@ const ProductContent = (props) => {
     );
 }
 
-const ProductMode = (props) =>{
-  return(
-      <a onClick={props.switchMode}>
-          {props.content}
-      </a>
-  )
-}
+// const ProductMode = (props) =>{
+//   return(
+//       <a onClick={props.switchMode}>
+//           {props.content}
+//       </a>
+//   )
+// }
 export default ProductContent

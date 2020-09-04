@@ -2,13 +2,14 @@ import React, { useState , useEffect} from "react";
 import CardHeader from '../../../components/common/CardHeader'
 import {TopRightBar, CollapseContent} from './index'
 import { useDispatch, useSelector } from "react-redux";
-import { legalListAction } from "../../../store/action/index";
+import { legalAction } from "../../../store/action/index";
 
-const Juridical = ()=> {
-  const legalList = useSelector(state => state.legalListReducer);
+const Juridical = (props)=> {
+  const dispatch = useDispatch();
+  const legalList = useSelector(state => state.legalReducer);
   const newsListSuccess = legalList.legalList.success
   const listLegal = newsListSuccess ? legalList.legalList.detail : null;
-  const dispatch = useDispatch();
+
   const legalRecord = newsListSuccess ? legalList.legalList : null;
 
   const total_page = legalRecord && legalRecord != null ? legalRecord.total_page : null
@@ -17,15 +18,16 @@ const Juridical = ()=> {
     const limit = 0
 
   useEffect(() => {
-    dispatch(legalListAction.legalList({}))
+    dispatch(legalAction.legalList({}))
 }, []);
   const[isOpenCollapse, setOpenCollapse] = useState({})
       const openCollapse = (index) =>{
         setOpenCollapse(prevState => ({...prevState, [index]: !Boolean(prevState[index])}))
 }
 const handleChangePage = (value)=>{
-  dispatch(legalListAction.legalList({page:value, limit:limit}))
+  dispatch(legalAction.legalList({page:value, limit:limit}))
 }
+
         return (
             <div className="juridical">
             <div className="container container-sm container-md">

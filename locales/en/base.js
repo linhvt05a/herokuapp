@@ -47,6 +47,7 @@ export default {
     button_confirm: "Confirm",
     button_delete: "Delete",
     button_edit: "Edit",
+    button_delete_filter: "Delete Filter",
 
     // languages 
     lang_vi : 'VietNamese',

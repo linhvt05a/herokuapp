@@ -32,6 +32,7 @@ export default {
     button_confirm: "Xác nhận",
     button_delete: "Xoá",
     button_edit: "Sửa",
+    button_delete_filter: "Xoá tìm kiếm",
 
 
     text_from : 'Từ',

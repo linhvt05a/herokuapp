@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { Trans } from 'react-i18next';
-import {InputBase} from '../../components/base/index'
 
 const CommonMenu = (props) =>{
-  const{label, dataMenu, onClick, navigate, className} = props
+  const{label, dataMenu, onClick, navigate, className, disableDisplay} = props
   
     return(
           <div className= {className}>
@@ -22,7 +21,7 @@ const CommonMenu = (props) =>{
                 </li>
               ) }
             </ul>
-           {/* <Search label="Search"/> */}
+           {disableDisplay && <Search label="Search"/>}
           </div>
     )
 }
@@ -30,10 +29,15 @@ const CommonMenu = (props) =>{
 const Search = (props) =>{
   return(
     <div className="options__search">
-    <div className="text">{props.label}</div>
+    <div className="text"><Trans>{props.label}</Trans></div>
     <i className="icon fas fa-search" />
     <div className="search form-group">
-      <InputBase name= "search" />
+            <input
+              type="text"
+              className="w-100 form-control"
+              placeholder="Nhập nội dung"
+            />
+          
     </div>
   </div>
   )

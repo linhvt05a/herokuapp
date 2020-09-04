@@ -2,8 +2,33 @@ import { legalAction } from "../action";
 
 const initialState = {
   legalFormSupport: [],
-  legalCategories: [],
-  legalList: [],
+  legalCategories: {success : true, detail:
+    [{category_id:1, category_name:'Transaction rules'},{category_id:2, category_name:'Sale contract'},{category_id:3, category_name:'Other'}]
+  },
+  legalList: {
+    success: true,
+    detail: [
+      {
+        id: 1,
+        title: "Terms and conditions and transaction",
+      },
+      {
+        id: 2,
+        title: "Terms and conditions and transaction",
+      },
+      {
+        id: 3,
+        title: "Terms and conditions and transaction",
+      },
+      {
+        id: 4,
+        title: "Terms and conditions and transaction",
+      },
+    ],
+    total_page: 20,
+    total_record: 40,
+    page: 1,
+  },
 };
 
 export default (state = initialState, action) => {
