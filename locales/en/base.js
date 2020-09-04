@@ -27,6 +27,11 @@ export default {
     end_chat: "Do you want to end the conversation ?",
     title_end_chat: "Do you really want to end the conversation with us.",
 
+    text_from : 'From',
+    text_to : 'To',
+
+    //heading
+    heading_policy_advice : 'Chính sách ưu đãi',
 
 
     // end_button: "End",

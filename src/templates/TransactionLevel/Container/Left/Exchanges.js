@@ -9,7 +9,7 @@ const Exchanges = (props) => {
         setActiveIndex(status)
     }
 
-    console.log('Exchanges', data);
+    // console.log('Exchanges', data);
 
     return (
         (data && data.list_floor_or_lot != null && data.list_floor_or_lot.length > 0) ?

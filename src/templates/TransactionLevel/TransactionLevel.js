@@ -35,7 +35,7 @@ const TransactionLevel = (props) => {
     transacAreaNameList = transacAreaNameList.detail ? transacAreaNameList.detail : null;
     transacBlockNameList = transacBlockNameList.detail ? transacBlockNameList.detail : null;
 
-    console.log('projectNameList:', projectNameList);
+    // console.log('projectNameList:', projectNameList);
 
     const onChangeProject = (props) => {
         console.log('project_id:', props);

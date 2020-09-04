@@ -1,15 +1,15 @@
 import React from 'react';
 import { Trans } from 'react-i18next';
-import TransactionLeft from './Left/TransactionLeft';
-import TransactionRight from './Right/TransactionRight';
+import TransactionLeft from './Left';
+import TransactionRight from './Right';
 import CardNoData from '../../../components/common/CardNoData';
 
 
 const CardTransactionList = (props) => {
     
     const { dataFilter, projectInfoInit, error } = props
-    console.log('dataFilter', dataFilter);
-    console.log('error', error);
+    // console.log('dataFilter', dataFilter);
+    // console.log('error', error);
     return (
            
             <div className="exchanges bg_grey">

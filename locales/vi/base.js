@@ -33,6 +33,13 @@ export default {
     button_delete: "Xoá",
     button_edit: "Sửa",
 
+
+    text_from : 'Từ',
+    text_to : 'Đến',
+
+    //heading
+    heading_policy_advice : 'Policy Advice',
+
     // languages 
     lang_vi : 'Việt Nam',
     lang_en : 'Tiếng Anh',

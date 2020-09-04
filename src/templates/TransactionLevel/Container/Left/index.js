@@ -3,6 +3,7 @@ import { Trans } from 'react-i18next';
 
 import ProjectPosition from './ProjectPosition';
 import Exchanges from './Exchanges';
+import SearchProduct from './SearchProduct';
 
 const TransactionLeft = (props) => {
     const { dataFilter, projectInfoInit } = props;
@@ -12,6 +13,9 @@ const TransactionLeft = (props) => {
             <div className="project_item__detail">
                 {projectInfoInit ? <ProjectPosition data={projectInfoInit} /> : ''}
             </div>
+
+            <SearchProduct />
+
             {dataFilter ? <Exchanges data={dataFilter} /> : ''}
 
         </>
