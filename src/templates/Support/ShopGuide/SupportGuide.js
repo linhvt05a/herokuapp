@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Trans } from "react-i18next";
+import CardNoData from '../../../components/common/CardNoData';
 
 const SupportGuide = (props) => {
-  
   return (
     <li className="nav-item">
       <a className= {props.active} onClick={props.onSelectItem}>

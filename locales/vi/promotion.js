@@ -1,5 +1,6 @@
 const home = {
-    hot_promotion: "Khuyến mãi hấp dẫn"
+    hot_promotion: "Khuyến mãi hấp dẫn",
+    Offers_and_promotions:"Ưu đãi và khuyến mãi"
 }
 
 export default home;
