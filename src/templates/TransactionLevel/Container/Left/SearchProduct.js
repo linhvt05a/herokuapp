@@ -33,8 +33,8 @@ const SearchProduct = (props) => {
                 {placeholder: "house_direction", datas: DIRECTION_TYPE, onChange: onHouseDirectionChange, trans: "trans"}
             ],
             sliderDatas: [
-                {label: "price_range", unit: "project_billions_dong", onChange: onPriceRangeChange, min: 0, max: 100},
-                {label: "area", unit: "project_area_unit", onChange: onAreaChange, min: 0, max: 1000}
+                {label: "price_range", unit: "project_billions_dong", onAfterChange: onPriceRangeChange, min: 0, max: 100},
+                {label: "area", unit: "project_area_unit", onAfterChange: onAreaChange, min: 0, max: 1000}
             ]
         })
     },[])
@@ -65,7 +65,8 @@ const SearchProduct = (props) => {
                     title="project_filter" 
                     inputSelectDatas={filterDataState.inputSelectDatas} 
                     sliderDatas={filterDataState.sliderDatas} 
-                    onFilterClick={onFilterClick} 
+                    onFilterClick={onFilterClick}
+                    filterWhite
                 />
 
             </div>
