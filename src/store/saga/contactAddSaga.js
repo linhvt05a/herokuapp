@@ -18,12 +18,10 @@ export function* contactAddWatcher() {
 }
 
 export function* advisoryAdd(payload) {
-    console.log(payload);
-    let { token, fullname, email, question } = payload.params
+    let { token, name, email, content } = payload.params
     try {
-        const response = yield contactService.advisoryAdd(token, fullname, email, question);
+        const response = yield contactService.advisoryAdd(token, name, email, content);
         response.success ? yield put({ type: contactAddAction.ADVISORY_SUCCESS, response }) : yield put({ type: contactAddAction.ADVISORY_FAILURE, response });
-        console.log("dđ", response);
     } catch (err) {
         yield put({ type: contactAddAction.ADVISORY_FAILURE, err });
     }

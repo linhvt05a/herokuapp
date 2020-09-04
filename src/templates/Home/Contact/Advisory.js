@@ -45,31 +45,21 @@ const Advisory = (props) => {
     }
     
     formInfo.setFieldsValue({
-        fullname: 'Tuan',
-        email:'tuan@gmail.com',
-        question:'tư vấn cho tôi đi'
+        email: "",
+        fullname: "",
+        question: "",
     });
     const dispatch = useDispatch();
     const advisory = useSelector(state => state.contactReducer);
     const advisoryAddSuccess = advisory.advisoryAdd.success;
     const advisoryList = advisoryAddSuccess ? advisory.advisoryAdd.detail : null;
 
-    useEffect(() => {
-        dispatch(contactAddAction.loadAdvisory({
-            name:"Nguyen duy",
-            email:"abc@gmail.com",
-            content:"Tư vấn cho tôi đi"
-        }));
-    }, [])
-    console.log('list', advisoryList);
-    
     const onSubmitAdvisory = (values) => {
-        console.log('Success:', values);
-        // dispatch(contactAddAction.loadAdvisory({
-        //     full_name: values.fullname,
-        //     email: values.email,
-        //     content: values.question
-        // }));
+        dispatch(contactAddAction.loadAdvisory({
+            name: values.fullname,
+            email: values.email,
+            content: values.question
+        }));
     }
 
     return (
@@ -115,11 +105,13 @@ const Advisory = (props) => {
                             </FormItem>
                         </div>
                     </Form>
-                    <div className="contact--footer">
-                        <span className="noti">
-                            Cảm ơn, hẹn gặp lại trong hộp thư đến của bạn!
-                        </span>
-                    </div>
+                    { advisoryList && advisoryList != null ? 
+                        <div className="contact--footer">
+                            <span className="noti">
+                                Cảm ơn, hẹn gặp lại trong hộp thư đến của bạn!
+                            </span>
+                        </div>: ""
+                    }
                 </div>
             </div>
         </div>

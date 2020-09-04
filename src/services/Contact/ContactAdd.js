@@ -12,8 +12,9 @@ export const contactService = {
         const url = api.getUrl(api.CONTACT_ADD);
         return api.handleRequest(url, requestOptions);
     },
-    advisoryAdd(token, fullname, email, question) {
-        const body = { fullname, email, question }
+
+    advisoryAdd(token, name, email, content) {
+        const body = { name, email, content }
         const requestOptions = {
             method: 'POST',
             headers: api.getHeader(TOKEN),
