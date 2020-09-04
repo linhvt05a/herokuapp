@@ -14,16 +14,13 @@ const initialState = {
       },
       {
         id: 2,
-        title: "Terms and conditions and transaction",
+        title: "Disclaimer",
       },
       {
         id: 3,
-        title: "Terms and conditions and transaction",
+        title: " Other rules of the transaction",
       },
-      {
-        id: 4,
-        title: "Terms and conditions and transaction",
-      },
+      
     ],
     total_page: 20,
     total_record: 40,

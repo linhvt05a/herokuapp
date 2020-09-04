@@ -44,7 +44,7 @@ const TotalComment = (props) =>{
         <div className="comment_title">{props.label}</div>
         <div className="comment_number">
                 <Trans>Total</Trans>
-        <span className="text_e94c4c"> {commentList && commentList.length} </span>
+        <span className="text_e94c4c" style={{color:'red'}}> {commentList && commentList.length} </span>
             {props.title}
         </div>
       </div>
