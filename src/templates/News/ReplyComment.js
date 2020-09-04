@@ -1,7 +1,7 @@
 import React, { Component, useState } from 'react';
 import {TextArea, ButtonStyle} from '../../components/base/index'
 import { Trans } from 'react-i18next';
-
+import moment from 'moment';
 
 const ReplyComment = (props) =>{
   const {commentList, addChildComment, sendChildComment, handleChange} = props
@@ -53,7 +53,7 @@ const ReplyBox = (props) =>{
       <div className="reply_social">
         <div className="reply_item time">
           <i className="icon far fa-clock" />
-          <i className="text">{data.created_at}</i>
+          <i className="text">{convertDate(data.created_at)}</i>
         </div>
         <div className="reply_item cmt">
           <i className="icon fas fa-comments" />
@@ -69,7 +69,10 @@ const ReplyBox = (props) =>{
   </div>
   )
 }
-
+function convertDate(value){
+	const date = moment().format("DD/MM/YYYY")
+	return date
+}
 const ChildReply = (props) =>{
   const {data} = props
   const [childLike, setChildLikes] = useState(false)
