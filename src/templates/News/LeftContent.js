@@ -3,13 +3,16 @@ import React, { useState } from "react";
 import { SocialNetwork, Comment, ReplyComment } from "./index";
 import Parser from 'html-react-parser';
 import { Trans } from "react-i18next";
-
+import moment from 'moment'
 const social = [
     {id: 1, icon : 'fab fa-facebook-square', href:'/promotion'},
     {id: 2, icon : 'fab fa-youtube', href:'/support'}, 
     {id: 3, icon : 'fab fa-twitter', href:'/project/selling'}
 ]
-
+function convertDate(value){
+	const date = moment().format("DD/MM/YYYY")
+	return date
+}
 const LeftContent = (props) => {
   const{listDetail, addComment, handleChange,commentList, addChildComment, sendChildComment, childContent} = props
   return (
@@ -23,7 +26,7 @@ const LeftContent = (props) => {
           <div className="news_connect--time">
             <div className="title">
               <i className="far fa-clock" /> 
-                <Trans>Create at</Trans>: {listDetail?.from_date}
+                <Trans>Create at</Trans>: {convertDate(listDetail?.from_date)}
             </div>
           </div>
           <SocialNetwork social={social} />

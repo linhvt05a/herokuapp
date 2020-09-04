@@ -61,9 +61,9 @@ const Exchanges = (props) => {
                                             <div key={i}
                                                 className={"exchanges_apartment--child" + (
                                                     item_p.product_status_id == 2 ? " sales_status_02" :
-                                                        item_p.product_status_id == 3 ? " sales_status_03" :
-                                                            item_p.product_status_id == 4 ? " sales_status_04" :
-                                                                item_p.product_status_id == 5 ? " sales_status_05" : " sales_status_02") +
+                                                    item_p.product_status_id == 3 ? " sales_status_03" :
+                                                    item_p.product_status_id == 4 ? " sales_status_04" :
+                                                    item_p.product_status_id == 5 ? " sales_status_05" : " sales_status_02") +
                                                     (activeIndex[index] != -1 ? activeIndex[index] == item_p.product_status_id ? " show" : " hide" : " show")}
                                             >
                                                 <div className="line line--1">

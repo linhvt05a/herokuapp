@@ -46,6 +46,10 @@ export default {
     //heading
     heading_policy_advice : 'Policy Advice',
 
+    // send contact
+    contact: "Liên lạc",
+    send_message: "GỬI TIN NHẮN",
+
     // languages 
     lang_vi : 'Việt Nam',
     lang_en : 'Tiếng Anh',

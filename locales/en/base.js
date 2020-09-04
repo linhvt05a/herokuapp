@@ -49,6 +49,10 @@ export default {
     button_edit: "Edit",
     button_delete_filter: "Delete Filter",
 
+    // send contact
+    contact: "Contact",
+    send_message: "SEND MESSAGE",
+
     // languages 
     lang_vi : 'VietNamese',
     lang_en : 'English',

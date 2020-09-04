@@ -9,8 +9,10 @@ import commonAction from "./commonAction";
 import legalAction from './legalAction'
 import contactAddAction from './contactAddAction'
 import visitorAction from './visitorAction'
+import accountAction from './accountAction'
 export {
   examAction, projectAction, productAction, promotionAction, commonAction,
   newsAction,transactionAction, productDetailAction,
-  legalAction, contactAddAction, visitorAction
+  legalAction, contactAddAction, visitorAction,
+  accountAction
 }

@@ -31,6 +31,20 @@ export function* districtListlWatcher() {
     yield takeLatest(commonAction.DISTRICT_LIST_REQUEST, districtList);
 }
 
+// Get list Ward
+export function* wardList(payload) {
+    let { token, district_id } = payload.params
+    try {
+        const response = yield commonService.wardList(token, district_id);
+        response.success ? yield put({ type: commonAction.WARD_LIST_SUCCESS, response }) : yield put({ type: commonAction.WARD_LIST_FAILURE, response });
+    } catch (err) {
+        yield put({ type: commonAction.WARD_LIST_FAILURE, err });
+    }
+}
+export function* wardlWatcher() {
+    yield takeLatest(commonAction.WARD_LIST_REQUEST, wardList);
+}
+
 // Get list Status
 export function* statusList(payload) {
     let { token } = payload.params
@@ -64,6 +78,7 @@ export default function* rootSaga() {
     yield all([
         fork(provinceListlWatcher),
         fork(districtListlWatcher),
+        fork(wardlWatcher),
         fork(statusListlWatcher),
         fork(minmaxListlWatcher)
     ]);

@@ -1,4 +1,3 @@
-
 import examReducer from "./examReducer";
 import productReducer from "./productReducer";
 import promotionReducer from './promotionReducer'
@@ -11,6 +10,7 @@ import legalReducer from './legalReducer'
 import contactAddReducer from './contactAddReducer'
 import visitorReducer from './visitorReducer'
 import { combineReducers } from 'redux';
+import accountReducer from './accountReducer';
 
 
 const allReducers = combineReducers({
@@ -19,6 +19,7 @@ const allReducers = combineReducers({
     transactionReducer,productDetailReducer,
     promotionReducer,legalReducer,
     newsReducer,contactAddReducer,
-    visitorReducer
+    visitorReducer,
+    accountReducer
 });
 export default allReducers; 

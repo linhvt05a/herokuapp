@@ -17,8 +17,23 @@ export function* contactAddWatcher() {
     yield takeLatest(contactAddAction.CONTACT_ADD_REQUEST, contactAdd);
 }
 
+export function* advisoryAdd(payload) {
+    let { token, name, email, content } = payload.params
+    try {
+        const response = yield contactService.advisoryAdd(token, name, email, content);
+        response.success ? yield put({ type: contactAddAction.ADVISORY_SUCCESS, response }) : yield put({ type: contactAddAction.ADVISORY_FAILURE, response });
+    } catch (err) {
+        yield put({ type: contactAddAction.ADVISORY_FAILURE, err });
+    }
+}
+
+export function* advisoryAddWatcher() {
+    yield takeLatest(contactAddAction.ADVISORY_REQUEST, advisoryAdd);
+}
+
 export default function* rootSaga() {
     yield all([
         fork(contactAddWatcher),
+        fork(advisoryAddWatcher)
     ]);
 }
