@@ -24,16 +24,16 @@ const Exchanges = (props) => {
                                     <Trans>Tổng số sản phẩm:</Trans> {item.total_product}
                                 </div>
                             </div>
-                            <div className="filter sales_status_cart_bg_03" onClick={(e) => this.handleClick(e, '05')}>
+                            <div className="filter sales_status_cart_bg_03" onClick={(e) => handleClick('05')}>
                                 <Trans>Đã bán:</Trans> {item.total_sold_product}
                             </div>
-                            <div className="filter sales_status_cart_bg_02" onClick={(e) => this.handleClick(e, '04')}>
+                            <div className="filter sales_status_cart_bg_02" onClick={(e) => handleClick('04')}>
                                 <Trans>Đặt cọc:</Trans> {item.total_booking_product}
                             </div>
-                            <div className="filter sales_status_cart_bg_05" onClick={(e) => this.handleClick(e, '03')}>
+                            <div className="filter sales_status_cart_bg_05" onClick={(e) => handleClick('03')}>
                                 <Trans>Đang bán:</Trans> {item.total_selling_product}
                             </div>
-                            <div className="filter sales_status_cart_bg_04" onClick={(e) => this.handleClick(e, '02')}>
+                            <div className="filter sales_status_cart_bg_04" onClick={(e) => handleClick('02')}>
                                 <Trans>Chưa bán:</Trans> {item.total_not_sold_yet_product}
                             </div>
                         </div>
