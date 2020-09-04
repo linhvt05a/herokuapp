@@ -1,13 +1,28 @@
 import React, { useState } from 'react';
-import BlockPolicyAdvice from './BlockPolicyAdvice';
+import BlockPromotionPolicy from './BlockPromotionPolicy';
+import BlockInternalUtility from './BlockInternalUtility';
+import BlockBankPolicy from './BlockBankPolicy';
 
 const TransactionRight = (props) => {
     const { data } = props;
-
-    console.log('data',data);
-
+    console.log('ffff', data);
     return (
-        <BlockPolicyAdvice data={data.list_promotion_policy} heading='heading_policy_advice' />
+        <>
+            <BlockPromotionPolicy 
+                data={data.list_promotion_policy} 
+                heading='heading_policy_advice' 
+            />
+            <BlockBankPolicy 
+                className='mt-5'
+                data={data.info_banking_policy} 
+                heading='heading_banking_policy' 
+            />
+            <BlockInternalUtility 
+                className='mt-5'
+                data={data.list_internal_utility} 
+                heading='heading_internal_utility' 
+            />
+        </>
     )
 }
 

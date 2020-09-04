@@ -400,24 +400,6 @@ $color_05: #399b54;
             }
         }
 
-        .list_policy {
-            display: flex;
-            justify-content: space-between;
-
-            @media (max-width: 374px) {
-                display: block;
-            }
-
-            .title_policy {
-                font-size: 12px;
-            }
-
-            .money_number {
-                padding-left: 15px;
-            }
-
-        }
-
     }
     .title_product_list{
         margin-bottom: 20px;
