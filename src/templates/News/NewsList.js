@@ -115,7 +115,7 @@ const News = (props) => {
         <div className="news">
             <div className="container container-sm container-md">
                 <h3 className="main_heading" style={{ marginTop: 85 }}>
-                    <span><Trans>NEWS</Trans></span>
+                    <span><Trans>news_title</Trans></span>
                 </h3>
                 <div className="row">
                     <div className="col-sm-12 col-md-12 col-lg-8 col-xl-8">
@@ -128,14 +128,14 @@ const News = (props) => {
                     </div>
                     <div className="col-md-12 col-lg-4 col-xl-4 col-right_news mb-sm-3 mb-0">
                         <CommonMenu 
-                            label="Categories" 
+                            label="news_categories" 
                             dataMenu={newsCategories} 
                             className="options mb-4 bg_white" onClick = {handleClick}
                             navigate ={navigate}
                         />
                         <CommonFilter 
-                            title="Search for news" 
-                            placeholder="Enter Title"
+                            title="news_filter" 
+                            placeholder="news_placeholder"
                             defaultValue = {cateID == "" ? defaultValue[0].label : ''}
                             datas ={projectSelectList} 
                             handleChange = {handleChange}
