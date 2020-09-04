@@ -33,6 +33,7 @@ export default {
     // COMMON 
     PROVINCE_LIST: "/api/fe/v1/province",
     DISTRICT_LIST: "/api/fe/v1/district",
+    WARD_LIST: "/api/fe/v1/ward",
     STATUS_LIST: "/api/be/v1/common/project/status",
     MINMAX_LIST: "/api/main_web/v1/project/min_max",
 
@@ -43,6 +44,7 @@ export default {
     CHANGE_PASSWORD: "/api/main_web/v1/user/password/change/",
     PROFILE: "/api/main_web/v1/user/profile/",
     UPDATE_PROFILE: "/api/main_web/v1/user/profile/update/",
+    UPDATE_CUSTOMER: "/api/main_web/v1/customer/edit/",
 
 
     LEGAL_CATEGORIES: "",

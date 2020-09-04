@@ -23,6 +23,16 @@ export const commonService = {
         return api.handleRequest(url, requestOptions);
     },
 
+    wardList(token, district_id) {
+        const requestOptions = {
+            method: 'GET',
+            headers: api.getHeader(TOKEN)
+        };
+        const params = { district_id };
+        const url = api.getUrl(api.WARD_LIST, params);
+        return api.handleRequest(url, requestOptions);
+    },
+
     statusList(token) {
         const requestOptions = {
             method: 'GET',

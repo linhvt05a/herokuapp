@@ -4,6 +4,7 @@ const forgotPassword = 'FORGOT_PASSWORD';
 const changePassword = 'CHANGE_PASSWORD';
 const profile = 'PROFILE';
 const updateProfile = 'UPDATE_PROFILE';
+const updateCustomer = 'UPDATE_CUSTOMER';
 
 const actions = {
 
@@ -30,6 +31,10 @@ const actions = {
     UPDATE_PROFILE_REQUEST: updateProfile + '_REQUEST',
     UPDATE_PROFILE_FAILURE: updateProfile + '_FAILURE',
     UPDATE_PROFILE_SUCCESS: updateProfile + '_SUCCESS',
+
+    UPDATE_CUSTOMER_REQUEST: updateCustomer + '_REQUEST',
+    UPDATE_CUSTOMER_FAILURE: updateCustomer + '_FAILURE',
+    UPDATE_CUSTOMER_SUCCESS: updateCustomer + '_SUCCESS',
 
     loadLogin: (params) => ({
         type: actions.LOGIN_REQUEST,
@@ -58,6 +63,11 @@ const actions = {
 
     loadUpdateProfile: (params) => ({
         type: actions.UPDATE_PROFILE_REQUEST,
+        params: params
+    }),
+
+    loadUpdateCustomer: (params) => ({
+        type: actions.UPDATE_CUSTOMER_REQUEST,
         params: params
     }),
 

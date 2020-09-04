@@ -5,6 +5,7 @@ import { Heading, Label, ChangePass } from "../../index";
 import { Alert, Input, Select, Row, Col, Group, Radio } from 'antd';
 import { accountAction, commonAction } from "../../../../store/action/index";
 import { SelectCustom } from '../../../../components/base';
+import InputDatePicker from '../../../../components/base/Input/InputDatePicker';
 
 const CardFile = (props) => {
     let { data } = props
@@ -20,6 +21,13 @@ const CardFile = (props) => {
 
     const [state, setState] = useState({
         passActive: 0,
+        customer_name: "",
+        customer_birthday: "",
+        customer_title: "",
+        customer_mobile: "",
+        customer_email: "",
+        customer_business: "",
+        gender: "",
         address: { _province: 0, _district: "", _ward: "", _address: "" },
         dataProvince: [],
         dataDistrict: [],
@@ -75,16 +83,32 @@ const CardFile = (props) => {
     // console.log(state );
     
     const radioOnChange = e => {
-        setState({
-            value: e.target.value,
-        });
+        setState({ ...state, gender: e.target.value })
     };
+    const onChangeDate = (name, value) => {
+        setState({ ...state, customer_birthday: value })
+    }
     const changePassword = () => {
         setState({...state, passActive: 1});
     };
     const handelOnBack = () => {
         setState({...state, passActive: 0});
     };
+
+    const updateProfile = () => {
+        console.log('iii');
+
+        dispatch(accountAction.loadUpdateCustomer({
+            name: state.customer_name
+        }));
+    }
+
+    const isupdate = useSelector(state => state.accountReducer);
+    const updateSuccess = isupdate.updateCustomer.success
+    const update = updateSuccess ? isupdate.updateCustomer.detail : null;
+
+    console.log(update);
+
     return (
         <div class="col-12 col-sm-12 col-md-12 col-lg-8">
             <Alert message="Một số thông tin của bạn vẫn còn thiếu. Xin bạn vui lòng cập nhật !" type="warning" showIcon closable />
@@ -95,7 +119,8 @@ const CardFile = (props) => {
                     <div class="form-group row align-items-center">
                         <Label icon="fa-envelope" text="Email" />
                         <div class="col-12 col-sm-12 col-md-9">
-                            <Input type="text" placeholder="Email" value={data.email} className="form-control" />
+                            <Input type="text" placeholder="Email" defaultValue={data.email}
+                            onChange={(value => setState({ ...state, customer_email: value.target.value }))} className="form-control" />
                         </div>
                     </div>
                     <div class="form-group row align-items-center">
@@ -103,7 +128,7 @@ const CardFile = (props) => {
                         <div class="col-12 col-sm-12 col-md-9">
                             <div class="row w-100 pwd_current">
                                 <div class="col-12 justify-content-start d-flex align-items-center flex-column flex-sm-row">
-                                    <Input.Password type="password" placeholder="Password" value="thutran1975@gmail.com" className="form-control" />
+                                    <Input.Password type="password" placeholder="Password" defaultValue="thutran1975@gmail.com" className="form-control" />
                                     <div class="text_pwd text_changepwd text-nowrap" onClick={changePassword}>Đổi mật khẩu</div>
                                 </div>
                             </div>
@@ -118,14 +143,16 @@ const CardFile = (props) => {
                     <div class="form-group row align-items-center">
                         <Label icon="fa-envelope" text="Họ tên" />
                         <div class="col-12 col-sm-12 col-md-9">
-                            <Input type="text" value={data.name} className="form-control" /> 
+                            <Input type="text" defaultValue={data.name}
+                            onChange={(value => setState({ ...state, customer_name: value.target.value }))} className="form-control" /> 
                         </div>
                     </div>
                     <div class="form-group row align-items-center">
                         <Label icon="fa-calendar-alt" text="Ngày sinh" />
                         <div class="col-12 col-sm-12 col-md-9">
                             <div class="date-picker">
-                                <input type="text" value={data.birthday} placeholder="---" class="form-control js-datepicker"/>
+                                <InputDatePicker style={{width: '100%', height: 48 }} defaultValue={data.birthday}  
+                                name="dateFrom" placeholder="From date" onChange={onChangeDate}/>
                             </div>
                         </div>
                     </div>
@@ -134,7 +161,8 @@ const CardFile = (props) => {
                         <div class="col-12 col-sm-12 col-md-9">
                             <div class="row">
                                 <div class="col-6">
-                                    <Input type="text" value={data.full_address} placeholder="---" className="form-control" /> 
+                                    <Input type="text" defaultValue={data.full_address} placeholder="---" className="form-control" 
+                                    onChange={(value => setState({ ...state, address: { _province: state.address._province, _district: state.address._district, _ward: state.address._ward, _address: value.target.value } }))} /> 
                                 </div>
                                 <div class="col-6">
                                     <SelectCustom placeholder={<Trans>province</Trans>} datas={state.dataProvince} 
@@ -156,13 +184,14 @@ const CardFile = (props) => {
                     <div class="form-group row align-items-center">
                         <Label icon="fa-phone-alt" text="Số điện thoại" />
                         <div class="col-12 col-sm-12 col-md-9">
-                            <Input type="text" value={data.mobile} placeholder="---" className="form-control" />
+                            <Input type="number" defaultValue={data.mobile} placeholder="---" className="form-control" 
+                            onChange={(value => setState({ ...state, customer_mobile: value.target.value }))} />
                         </div>
                     </div>
                     <div class="form-group row align-items-center">
                         <Label icon="fa-venus-mars" text="Giới tính" />
                         <div class="col-12 col-sm-12 col-md-9">
-                            <Radio.Group onChange={radioOnChange} value={state.value} style={{display: "flex"}}>
+                            <Radio.Group onChange={radioOnChange} defaultValue={state.value} style={{display: "flex"}}>
                                 <Radio value={1}>Nam</Radio>
                                 <Radio value={2}>Nữ</Radio>
                                 <Radio value={3}>Khác</Radio>
@@ -172,13 +201,14 @@ const CardFile = (props) => {
                     <div class="form-group row align-items-center">
                         <Label icon="fa-user-graduate" text="Nghề nghiệp" />
                         <div class="col-12 col-sm-12 col-md-9 d-flex align-items-center">
-                            <Input type="text" value={data.department_name} placeholder="---" className="form-control" />
+                            <Input type="text" defaultValue={data.department_name} placeholder="---" className="form-control" 
+                            onChange={(value => setState({ ...state, customer_business: value.target.value }))} />
                         </div>
                     </div>
                 </div>
             </div>
             <div class="text-right">
-                <a href="#" class="btn btn_purple text-uppercase">
+                <a class="btn btn_purple text-uppercase" onClick={updateProfile}>
                     cập nhật
                 </a>
             </div>

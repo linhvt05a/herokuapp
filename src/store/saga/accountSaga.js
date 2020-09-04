@@ -87,6 +87,20 @@ export function* updateProfileWatcher() {
     yield takeLatest(accountAction.UPDATE_PROFILE_REQUEST, updateProfile);
 }
 
+// update profile
+export function* updateCustomer(payload) {
+    let { token, avatar, email, name, birthday, address, province, district, ward, phone, gender, workplace } = payload.params
+    try {
+        const response = yield accountService.updateCustomer(token, avatar, email, name, birthday, address, province, district, ward, phone, gender, workplace);
+        response.success ? yield put({ type: accountAction.UPDATE_CUSTOMER_SUCCESS, response }) : yield put({ type: accountAction.UPDATE_CUSTOMER_FAILURE, response });
+    } catch (err) {
+        yield put({ type: accountAction.UPDATE_CUSTOMER_FAILURE, err });
+    }
+}
+export function* updateCustomerWatcher() {
+    yield takeLatest(accountAction.UPDATE_CUSTOMER_REQUEST, updateCustomer);
+}
+
 // root Saga
 export default function* rootSaga() {
     yield all([
@@ -95,6 +109,7 @@ export default function* rootSaga() {
         fork(forgotPasswordWatcher),
         fork(changePasswordWatcher),
         fork(profileWatcher),
-        fork(updateProfileWatcher)
+        fork(updateProfileWatcher),
+        fork(updateCustomerWatcher),
     ]);
 }

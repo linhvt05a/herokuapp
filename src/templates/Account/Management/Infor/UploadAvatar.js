@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Trans } from "react-i18next";
 
 const UploadAvatar = (props) => {
+    let { avatar } = props;
+    console.log(avatar);
     return (
         <div class="avatar">
             <div class="avatar__image">

@@ -15,7 +15,7 @@ const TabInformation = (props) => {
     const profileSuccess = isprofile.profile.success
     const profile = profileSuccess ? isprofile.profile.detail : null;
 
-    // console.log(profile);
+    console.log(profile);
     return (
         <div class="tab-pane fade active show" id="tab_01" role="tabpanel" aria-labelledby="tab_01">
             {profile && profile != null ?

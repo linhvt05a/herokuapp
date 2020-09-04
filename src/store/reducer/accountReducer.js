@@ -7,6 +7,7 @@ const initialState = {
     changePassword: [],
     profile: [],
     updateProfile: [],
+    updateCustomer: [],
 
     isFetching: false
 };
@@ -43,6 +44,11 @@ export default (state = initialState, action) => {
             return { ...state, isFetching: false, updateProfile: action.response };
         case accountAction.UPDATE_PROFILE_REQUEST:
             return { ...state, isFetching: false, updateProfile: { success: false, error: action.error } };
+
+        case accountAction.UPDATE_CUSTOMER_SUCCESS:
+            return { ...state, isFetching: false, updateCustomer: action.response };
+        case accountAction.UPDATE_CUSTOMER_REQUEST:
+            return { ...state, isFetching: false, updateCustomer: { success: false, error: action.error } };
 
         default:
             return state;
