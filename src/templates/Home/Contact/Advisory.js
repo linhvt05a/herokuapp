@@ -50,7 +50,7 @@ const Advisory = (props) => {
         question: "",
     });
     const dispatch = useDispatch();
-    const advisory = useSelector(state => state.contactReducer);
+    const advisory = useSelector(state => state.contactAddReducer);
     const advisoryAddSuccess = advisory.advisoryAdd.success;
     const advisoryList = advisoryAddSuccess ? advisory.advisoryAdd.detail : null;
 

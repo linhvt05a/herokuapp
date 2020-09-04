@@ -3,7 +3,7 @@ import { Input, Form, Button } from 'antd';
 import { withTranslation,Trans } from 'react-i18next';
 
 const RightContact= (props) => {
-    let { t } = props;
+    let { t, onSubmitInfo } = props;
     const FormItem = Form.Item;
     const [formInfo] = Form.useForm();
 
@@ -56,9 +56,9 @@ const RightContact= (props) => {
         question:''
     });
 
-    const onSubmitInfo = (values) =>{
-        console.log(values)
-    }
+    // const onSubmitInfo = (values) =>{
+    //     console.log(values)
+    // }
     return(
         <div className="col-12 col-sm-12 col-md-12 col-lg-6 col-right pt-5 pt-lg-0">
             <h2 className="heading"><Trans>contact</Trans></h2>

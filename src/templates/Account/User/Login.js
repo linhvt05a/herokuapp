@@ -68,10 +68,10 @@ const Login = (props) => {
                 {/* <div className="errors" style={{display: success != null ? "none" : "block"}}><Trans>user_pass_false</Trans></div> */}
             </Form>
             <div className="form-group mb-0 text-center">
-                <Link onClick={event => showTap(3)}
+                <a onClick={event => showTap(3)}
                     className="text-forgot forgotPassword">
                     <Trans>forfot_pass</Trans>
-                </Link>
+                </a>
             </div>
         </div>
     );

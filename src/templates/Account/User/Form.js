@@ -29,20 +29,18 @@ const Form = (props) => {
             <div className={`header_register form_register ${respon != null ? "d-none": ""}`}>
                 <ul className="nav header_register--heading" role="tablist">
                     <li className="nav-item">
-                        <Link 
-                            onClick={event => showTap(0)}
+                        <a onClick={event => showTap(0)}
                             className={`nav-link ${tab == 0 ? "active": ""}`}
                             id="pills-signin-tab">
                             ĐĂNG NHẬP
-                        </Link>
+                        </a>
                     </li>
                     <li className="nav-item">
-                        <Link
-                            onClick={event => showTap(1)}
+                        <a onClick={event => showTap(1)}
                             className={`nav-link ${tab == 1 ? "active": ""}`}
                             id="pills-signup-tab">
                             ĐĂNG KÝ
-                        </Link>
+                        </a>
                     </li>
                 </ul>
                 <div className="tab-content">

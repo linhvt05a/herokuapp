@@ -3,6 +3,7 @@ import TopBanner from "../../../components/common/Header/TopBanner";
 import {LeftContent, RightContent} from './index'
 import { useDispatch, useSelector } from "react-redux";
 import RightContact from "./RightContact";
+import { contactAddAction } from "../../../store/action/index";
 
 const Contact = (props) => {
   const contact = useSelector(state => state.contactReducer);
@@ -32,7 +33,7 @@ const Contact = (props) => {
       <div className="container container-sm container-md">
         <div className="row">
           <LeftContent />
-          <RightContact />
+          <RightContact onSubmitInfo={ContactRegister}/>
         </div>
       </div>
     </div>
