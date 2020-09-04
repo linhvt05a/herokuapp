@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 import { Trans } from 'react-i18next';
 import CardNoData from '../CardNoData';
+import moment from 'moment'
 
-
+function convertDate(value){
+	const date = moment().format("DD/MM/YYYY")
+	return date
+}
 const HeadingPurplePromotion = (props) => {
 	const { data, heading } = props;
 
@@ -15,7 +19,7 @@ const HeadingPurplePromotion = (props) => {
 			<div className="card border-0 mt-0">
 				<div className="card-body">
 					{
-						data ? data.map((value, index) => {
+						data && data.list_promotion_policy.length > 0 ? data.list_promotion_policy.map((value, index) => {
 							return (
 								<div className="incentives__user" key={index}>
 									<div className="heading">
@@ -24,9 +28,9 @@ const HeadingPurplePromotion = (props) => {
 										</span>
 										<span className="date">
 											<i className="icon far fa-clock pr-1" />
-											<Trans>text_from</Trans>: {value.promotion_policy_start_date}
+											<Trans>text_from</Trans>: {convertDate(value.promotion_policy_start_date)}
 											<i className="pl-1 pr-1">-</i>
-											<Trans>text_to</Trans>: {value.promotion_policy_end_date}
+											<Trans>text_to</Trans>: {convertDate(value.promotion_policy_end_date)}
 										</span>
 									</div>
 									<div className="list">
