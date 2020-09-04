@@ -8,9 +8,9 @@ import promotionAction from './promotionAction'
 import commonAction from "./commonAction";
 import legalAction from './legalAction'
 import contactAddAction from './contactAddAction'
-
+import visitorAction from './visitorAction'
 export {
   examAction, projectAction, productAction, promotionAction, commonAction,
   newsAction,transactionAction, productDetailAction,
-  legalAction, contactAddAction
+  legalAction, contactAddAction, visitorAction
 }

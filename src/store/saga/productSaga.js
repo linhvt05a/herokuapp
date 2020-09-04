@@ -65,7 +65,6 @@ export function* productFavoriteList() {
     }
 }
 export function* productIncentive(payload) {
-
     try {
         const response = yield productService.productIncentive(payload);
         response.success ? yield put({ type: productAction.PRODUCT_INCENTIVE_LIST_SUCCESS, response }) : yield put({ type: productAction.PRODUCT_INCENTIVE_LIST_FAILURE, response });
@@ -75,9 +74,10 @@ export function* productIncentive(payload) {
 }
 
 export function* productSignup(payload) {
-
+    console.log(payload)
     try {
         const response = yield productService.productSignup(payload);
+        console.log(response)
         response.success ? yield put({ type: productAction.PRODUCT_SIGNUP_SUCCESS, response }) : yield put({ type: productAction.PRODUCT_SIGNUP_FAILURE, response });
     } catch (err) {
         yield put({ type: productAction.PRODUCT_SIGNUP_FAILURE, err });

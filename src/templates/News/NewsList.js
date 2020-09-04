@@ -55,9 +55,19 @@ const News = (props) => {
     // const categoriesID = location.state.paramsSearch[0].cateID
     // const fromDate = location.state.paramsSearch[0].dateFrom
     // const toDate = location.state.paramsSearch[0].dateTo
+   
+   
     useEffect(() => {
-        console.log(location.state)
-        dispatch(newsAction.LoadNewsList({}))
+        if(location.state && location.state !== null){
+            const cateID = location.state.paramsSearch
+            const nameSearch = location.state.titleNews
+            const dateFrom = location.state.dateFrom
+            const dateTo = location.state.dateTo
+            dispatch(newsAction.LoadNewsList({cateID, nameSearch, dateFrom, dateTo}))
+        }else{
+            dispatch(newsAction.LoadNewsList({}))
+        }
+       
         dispatch(newsAction.newsCategories({}))
     }, []);
 
@@ -110,7 +120,7 @@ const News = (props) => {
                 <div className="row">
                     <div className="col-sm-12 col-md-12 col-lg-8 col-xl-8">
                         <div className="row_content">
-                            {newsList && newsList.map((news, index) => <RowNews data={news} key={news.id}/>)}
+                            {newsList && newsList.map((news, index) => <RowNews data={news} key={index}/>)}
                         </div>
                         <Pagination data={LoadDataPaging(total_record, page, total_page, limit)} onChange ={onPageChange}/>
                     </div>

@@ -76,13 +76,14 @@ export const productService = {
         const url = api.getUrl(api.PRODUCT_SIGNUP);
         return api.handleRequest(url, requestOptions);
     },
-    productIncentive(){
+    productIncentive(project_id,area_id,block_id){
+        
         const requestOptions = {
             method: 'GET',
             headers: api.getHeader(TOKEN)
         };
 
-        const params = {  };
+        const params = { project_id :13,area_id: 1,block_id : 2};
         const url = api.getUrl(api.PRODUCT_INCENTIVE, params);
         return api.handleRequest(url, requestOptions); 
     }
