@@ -3,6 +3,8 @@ import { Tooltip } from 'antd';
 import { Trans } from "react-i18next";
 import { formatCurrency } from "../../../functions/Utils";
 import { IMAGE_URL } from "../../../contant";
+import CardNoData from "../../../components/common/CardNoData";
+
 
 const ItemProduct = (props) => {
 
@@ -12,7 +14,10 @@ const ItemProduct = (props) => {
         <div className="item">
             <figure className="image">
                 <i className="liked active fas fa-heart" />
-                <img src={data.product_avatar_url != "" ? data.product_avatar_url : IMAGE_URL + "/images/no_data.png"} alt={data.product_name} />
+
+                <CardNoData />
+
+                {/* <img src={data.product_avatar_url != "" ? data.product_avatar_url : IMAGE_URL + "/images/no_data.png"} alt={data.product_name} /> */}
                 <div className="sell_status promotion"><Trans>product_off</Trans> <br /> 7%</div>
                 <img className="img_promotion" src={IMAGE_URL + "/images/item_promotion.png"} alt={data.product_name} />
             </figure>

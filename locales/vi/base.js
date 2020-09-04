@@ -29,7 +29,18 @@ export default {
     end_button: "Kết thúc",
     back_button: "Quay lại",
     save: "Lưu",
-    
+    button_confirm: "Xác nhận",
+    button_delete: "Xoá",
+    button_edit: "Sửa",
+    button_delete_filter: "Xoá tìm kiếm",
+
+
+    text_from : 'Từ',
+    text_to : 'Đến',
+
+    //heading
+    heading_policy_advice : 'Policy Advice',
+
     // send contact
     contact: "Liên lạc",
     send_message: "GỬI TIN NHẮN",

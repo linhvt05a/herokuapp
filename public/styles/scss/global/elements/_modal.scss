@@ -123,10 +123,6 @@
             .link_change_money {
                 text-decoration: underline;
                 font-size: 12px;
-
-                a {
-                    color: #6d30ab;
-                }
             }
         }
 
@@ -164,6 +160,15 @@
                     }
                 }
             }
+        }
+    }
+    
+}
+.text_register_link{
+    br{
+        display: none;
+        @media (max-width: 374px) {
+            display: block;
         }
     }
 }

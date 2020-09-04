@@ -1,5 +1,5 @@
 import api from '../api';
-import { TOKEN } from '../../../env';
+import { TOKEN, TOKEN_TEST } from '../../../env';
 
 export const productService = {
 
@@ -54,37 +54,36 @@ export const productService = {
 
 
     //BEGIN SERVICE LINH
-    productList(payload) {
-        const{page, limit} = payload.params
+    productFavoriteList(TOKEN_TEST) {
         const requestOptions = {
             method: 'GET',
-            headers: api.getHeader(TOKEN)
+            headers: api.getHeader(TOKEN_TEST)
         };
 
-        const params = { page, limit };
-        const url = api.getUrl(api.PRODUCT_LIST, params);
+        const url = api.getUrl(api.PRODUCT_FAVORITE_LIST);
         return api.handleRequest(url, requestOptions);
     },
 
     
     productSignup(payload) {
+        const {} = payload.params
         const body ={payload}
         const requestOptions = {
             method: 'POST',
             body: body,
             headers: api.getHeader(TOKEN)
         };
-        console.log(body)
         const url = api.getUrl(api.PRODUCT_SIGNUP);
         return api.handleRequest(url, requestOptions);
     },
-    productIncentive(){
+    productIncentive(project_id,area_id,block_id){
+        
         const requestOptions = {
             method: 'GET',
             headers: api.getHeader(TOKEN)
         };
 
-        const params = {  };
+        const params = { project_id :13,area_id: 1,block_id : 2};
         const url = api.getUrl(api.PRODUCT_INCENTIVE, params);
         return api.handleRequest(url, requestOptions); 
     }

@@ -73,9 +73,26 @@
             }
         }
 
-        .map_search--range .label{
+        .map_search--range .label {
             color: #0d0d0d;
         }
+    }
+
+    &--filter_exchanges {
+        transform: unset;
+
+        .top_title_filter {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            @media(max-width: 374px) {
+                display: block;
+            }
+            span {
+                text-decoration: underline;
+            }
+        }
+
     }
 
     &--list {}
@@ -222,7 +239,13 @@
         }
     }
 }
-
+.pd_search_content{
+    padding-left: 24px;
+    padding-right: 24px;
+}
+.mr_search_range{
+    margin-right: 15px;
+}
 .map_search--range {
     margin-bottom: 30px;
 

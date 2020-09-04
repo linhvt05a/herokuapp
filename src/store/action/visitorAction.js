@@ -1,12 +1,10 @@
-const visitorAdd = 'VISITOR_';
 const actions = {
+    VISITOR_REQUEST: 'VISITOR_REQUEST',
+    VISITOR_FAILURE: 'VISITOR_FAILURE',
+    VISITOR_SUCCESS: 'VISITOR_SUCCESS',
 
-    LOAD_LIST: visitorAdd + 'LIST_REQUEST',
-    LOAD_LIST_FAILURE: visitorAdd + 'LIST_FAILURE',
-    LOAD_LIST_SUCCESS: visitorAdd + 'LIST_SUCCESS',
-
-    visitorAdd: (params) => ({
-        type: actions.LOAD_LIST,
+    visitorForm: (params) => ({
+        type: actions.VISITOR_REQUEST,
         params: params
     }),
 

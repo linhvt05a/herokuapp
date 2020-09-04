@@ -2,28 +2,29 @@ import React, {useState, useEffect } from "react";
 import CardHeader from "../../components/common/CardHeader";
 import {ProductRightBar, ProductContent, ProductSignInModal} from './index'
 import {Modal} from 'antd'
+import ModalCustom from '../../components/base/Modal/ModalCustom'
 import {validateSignup, validateLogin} from '../../components/base/ValidateInput/ValidateInput'
 import {useFormSignup, useFormSignIn} from '../../components/base/ValidateInput/useForm'
 import { useDispatch, useSelector } from "react-redux";
-import { productListAction, productSignupAction, productIncentivesAction } from "../../store/action/index";
+import { productAction} from "../../store/action/index";
 
 const ProductList = (props) => {
-  const product = useSelector(state => state.productListReducer);
-  const productListSuccess = product.productList.success
-  const productList = productListSuccess ? product.productList : null ;
+  const product = useSelector(state => state.productReducer);
+  const productListSuccess = product.productFavoriteList.success
+  const productList = productListSuccess ? product.productFavoriteList : null ;
 
   const total_page = productList && productList != null ? productList.total_page : null
   const total_record =productList && productList != null ? productList.total_record: null
   const page = productList && productList != null ? productList.page: null
   const dispatch = useDispatch();
 
-  const productIncentive = useSelector(state => state.productIncentiveReducer);
+  const productIncentive = useSelector(state => state.productReducer);
   const productIncentiveSuccess = productIncentive.productIncentive.success
   const productListIncentive = productIncentiveSuccess ? productIncentive.productIncentive.detail : null;
 
   useEffect(() => {
-      dispatch(productListAction.productList({page: 1, limit: 5}));
-      dispatch(productIncentivesAction.productIncentive({}));
+      dispatch(productAction.productFavoriteList({page: 1, limit: 5}));
+      dispatch(productAction.productIncentive({}));
   }, []);
   
   const signupValue = {fullName: '', emailSignup: '', passwordSignup: '', rePass:''}
@@ -37,10 +38,10 @@ const ProductList = (props) => {
     const password = signupValues.passwordSignIn
   }
   function register(){
-    dispatch(productSignupAction.productSignup({signupValues}))
+    dispatch(productAction.productSignup({signupValues}))
   }
 function onPageChange (value) {
-  dispatch(productListAction.productList({page: value, limit: 2}))
+  dispatch(productAction.productFavoriteList({page: value, limit: 2}))
 }
   const [showSignInModal, setShowSignIn] = useState(false)
   return (
@@ -61,15 +62,7 @@ function onPageChange (value) {
         </div>
         </div>
       </div>
-        <Modal visible={showSignInModal}>
-            <ProductSignInModal 
-              closeModal={()=> setShowSignIn(false)} 
-              handleSignIn={handleSignIn} 
-              handleChangeSignIn={handleChangeSignIn} 
-              signValues={signInValues} 
-              signInErrors={signInErrors}
-            />
-        </Modal>
+      <ModalCustom showAccountModal={showSignInModal} visible={showSignInModal} widthModal="400px"/>
     </div>
   );
 };

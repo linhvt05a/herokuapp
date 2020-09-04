@@ -1,15 +1,16 @@
 import { visitorAction } from '../action';
 
 const initialState = {
-    visitorAdd: []
+    visitorForm: [],
+
 };
 
 export default (state = initialState, action) => {
     switch (action.type) {
-        case visitorAction.LOAD_LIST_SUCCESS:
+        case visitorAction.VISITOR_SUCCESS:
             return {
                 ...state,
-                visitorAdd: action.response,
+                visitorForm: action.response,
                 isFetching: true,
                 isLoadingList: false,
             };

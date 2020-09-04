@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Pagination from "../../../components/common/Pagination";
 import { LoadDataPaging } from '../../../functions/Utils';
+import { Trans } from "react-i18next";
 
 const CollapseContent = (props) => {
     const {data, isOpenCollapse, handleChangePage,limit, total_page, total_record,page} = props
@@ -20,14 +21,14 @@ const CollapseContent = (props) => {
 };
 
 const CollapseItem = (props) => {
-    const{isOpenCollapse, item, isOpen} = props
+    const{isOpenCollapse,openCollapse, item, isOpen} = props
 
   return (
     <div className={isOpen ? "card show" : "card"}>
         <div className="card-header">
-            <h2 className="title">{props.item.title}</h2>
+            <h2 className="title"><Trans>{item.title}</Trans></h2>
             <div className="icon_action">
-            <i className="icon_collapse fas fa-plus" onClick={props.openCollapse}/>
+            <i className="icon_collapse fas fa-plus" onClick={openCollapse}/>
         </div>
       </div>
       <CollapseToggle isOpenCollapse={isOpenCollapse} item={item}/>

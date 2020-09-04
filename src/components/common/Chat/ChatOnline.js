@@ -50,7 +50,7 @@ const ChatOnline = (props) => {
     }
 
     const dispatch = useDispatch();
-    const contact = useSelector(state => state.contactReducer);
+    const contact = useSelector(state => state.contactAddReducer);
     const contactAddSuccess = contact.contactAdd.success;
     const contactList = contactAddSuccess ? contact.contactAdd.detail : null;
 

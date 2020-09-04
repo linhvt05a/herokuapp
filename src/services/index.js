@@ -10,7 +10,7 @@ import { commonService } from "./Common/common";
 import {promotionService} from "./Promotion/promotion";
 import {newsService} from './News/news'
 import {contactService} from './Contact/ContactAdd'
-import {juridicalService} from './Juridical/juridical'
+import {legalService} from './Legal/legal'
 import {visitorService} from './Visitor/visitor'
 import { accountService } from './Account/account'
 export {
@@ -23,7 +23,7 @@ export {
     promotionService,
     newsService,
     contactService, 
-    juridicalService,
-    visitorService,
-    accountService
+    accountService,
+    legalService,
+    visitorService
 }

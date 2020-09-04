@@ -6,6 +6,7 @@ const initialState = {
     transacProjectNameList: {},
     transacAreaNameList: {},
     transacBlockNameList: {},
+    error : false
 };
 
 export default (state = initialState, action) => {
@@ -16,12 +17,15 @@ export default (state = initialState, action) => {
                 transactionList: action.response,
                 isFetching: true,
                 isLoadingList: false,
+                error : false
             };
         case transactionAction.TRANSACTION_LIST_FAILURE:
+            console.log(33);
             return {
                 ...state,
                 transactionList: action.err,
                 isFetching: false,
+                error: true
             };
         case transactionAction.TRANS_PRODUCT_TYPE_SUCCESS:
             return {

@@ -12,18 +12,20 @@ export default {
 
     //EXAMPLE
     EXAMPLE_LIST: "/api/be/v1/project/",
+
     PRODUCT_DETAIL_LIST: `/api/main_web/v1/infrastructure/product/detail/`,
+    PRODUCT_FAVORITE_LIST:"/api/main_web/v1/infrastructure/product/favorite/list/",
+
     TRANSACTION_LIST: `/api/main_web/v1/infrastructure/product/trading_market/`,
-    AREA_NAME_LIST_SHORT: `/api/main_web/v1/infrastructure/area/list_short/`,
-    BLOCK_NAME_LIST_SHORT: `/api/main_web/v1/infrastructure/block/list_short/`,
-    PROJECT_NAME_LIST_SHORT: `/api/main_web/v1/infrastructure/product/selling/list/`,
+    AREA_LIST_SHORT: `/api/main_web/v1/infrastructure/area/list_short/`,
+    BLOCK_LIST_SHORT: `/api/main_web/v1/infrastructure/block/list_short/`,
+    PROJECT_LIST_SHORT: `/api/main_web/v1/infrastructure/product/selling/list/`,
     
     PROJECT_LIST: "/api/main_web/v1/project/",
-    PRODUCT_LIST:"/api/main_web/v1/infrastructure/product/list/",
-    PROJECT_SELECT:"",
+
     
     PRODUCT_SIGNUP:"",
-    PRODUCT_INCENTIVE:"",
+    PRODUCT_INCENTIVE:"/api/main_web/v1/infrastructure/product/trading_market/",
     HOT_PRODUCT_LIST: "/api/main_web/v1/infrastructure/product/highlight/list/",
 
     SELLING_PRODUCT_LIST: "/api/main_web/v1/infrastructure/product/selling/list/",
@@ -60,7 +62,7 @@ export default {
     NEWS_ADD_COMMENT:"/api/main_web/v1/news/comment/create/",
     NEWS_COMMENT_LIST:"api/main_web/v1/news/comment/",
 
-    JURIDICAL_ADD:"",
+    LEGAL_FORM:"",
     
     CONTACT_ADD : "/api/main_web/v1/counseling/add/",
     ADVISORY_ADD : "/api/main_web/v1/advisory/create_advisory/",

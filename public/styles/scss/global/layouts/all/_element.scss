@@ -156,6 +156,7 @@ main {
             }
         }
     }
+
     //check HAVE gadgets_around 04_San_giao_dich
     &_03 {
         &--item {
@@ -177,6 +178,7 @@ main {
             }
         }
     }
+
     //check HAVEN'T gadgets_around 04_San_giao_dich
     &_04 {
         &--item {
@@ -2326,5 +2328,43 @@ main {
 
     img {
         width: 100%;
+    }
+}
+
+.heading_purple {
+    background-image: linear-gradient(106deg, #6d30ab 7%, #4a3bcc 93%);
+    padding: 20px;
+
+    @media (max-width: 767px) {
+        padding: 10px 20px;
+    }
+
+    .title {
+        font-size: 21px;
+        @include fw-medium;
+        color: #ffffff;
+
+        br {
+            display: none;
+
+            @media (min-width: 992px) and (max-width: 1199px) {
+                display: block;
+            }
+
+            @media (max-width: 375px) {
+                display: block;
+            }
+        }
+    }
+    .icon_filter {
+        font-size: 20px;
+        color: #ffffff;
+        cursor: pointer;
+
+        &.active {
+            &::before {
+                content: "\f057";
+            }
+        }
     }
 }
