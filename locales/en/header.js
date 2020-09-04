@@ -16,6 +16,8 @@ export default {
 
     // login
     login: "Login",
+    logout: "Logout",
+    registry: "Sign in",
     forfot_pass: "Forgot password",
     user_pass_false: "Account or password is incorrect",
 

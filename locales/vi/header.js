@@ -16,6 +16,8 @@ export default {
 
     // login
     login: "Đăng nhập",
+    logout: "Đăng xuất",
+    registry: "Đăng ký",
     forfot_pass: "Quên mật khẩu",
     user_pass_false: "Tài khoản hoặc mật khẩu không chính xác",
     

@@ -25,7 +25,7 @@ const Logout = (props) => {
             </div>
             <div className="form_logged--action">
                 <a className="action" onClick={handleLogout}>
-                    Đăng xuất
+                    <Trans>logout</Trans>
                 </a>
             </div>
         </div>

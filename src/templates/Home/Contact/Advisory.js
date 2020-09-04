@@ -108,7 +108,7 @@ const Advisory = (props) => {
                     { advisoryList && advisoryList != null ? 
                         <div className="contact--footer">
                             <span className="noti">
-                                Cảm ơn, hẹn gặp lại trong hộp thư đến của bạn!
+                                <Trans>home_message_advisory</Trans>
                             </span>
                         </div>: ""
                     }
