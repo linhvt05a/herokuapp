@@ -70,16 +70,16 @@ const Advisory = (props) => {
                         <i className=" fas fa-phone-alt" />
                     </div>
                     <div className="text">
-                        Liên hệ và tư vấn qua số điện thoại
+                        <Trans>home_title_advisory</Trans>
                     </div>
-                    <div className="phone">1900 - 123 -456</div>
+                    <div className="phone">1900 - 123 - 456</div>
                 </div>
                 <div className="contact--right">
                     <Form noValidate 
                         form={formInfo}
                         onFinish={onSubmitAdvisory}
                         name="form-advisory">
-                        <label className="label">Tư vấn miễn phí</label>
+                        <label className="label"><Trans>home_advisory</Trans></label>
                         <div className="row">
                             <FormItem className="col-12 col-sm-6 form-group" name="fullname" rules={validatorInfo.fullname.form}>
                                 <Input placeholder={t('full_name')} type={validatorInfo.fullname.type} className="form-control" />
