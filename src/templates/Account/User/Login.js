@@ -1,18 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { Trans } from "react-i18next";
 import { Input, Form, Button } from 'antd';
-import { accountAction } from "../../../store/action/index";
 
 const Login = (props) => {
-    let { showTap, handleLoginSuccess } = props;
-    const dispatch = useDispatch();
+    let { showTap, onSubmitLogin, success } = props;
     const [formInfo] = Form.useForm();
-    const [state, setState] = useState({
-        errors: false,
-        success: 0
-    })
     
     const validatorInfo = {
         username : {
@@ -35,23 +28,8 @@ const Login = (props) => {
 
     formInfo.setFieldsValue({
         username: '',
-        password:'',
+        password: '',
     });
-
-    const onSubmitLogin = (value) => {
-        console.log(value);
-            // dispatch(accountAction.loadLogin({ username: "customer@minerva.vn", password: "123" }))
-        dispatch(accountAction.loadLogin({ username: value.username, password: value.password }))
-        if(respon === null){
-            setState({ errors: true })
-        } else { 
-            setState({ success: 1 })
-        }
-        handleLoginSuccess(state.success)
-    }
-    const login = useSelector(state => state.accountReducer);
-    const isLoginSuccess = login.login.success;
-    const respon = isLoginSuccess ? login.login.detail : null;
     
     return (
         <div className="form form_signInUp">
@@ -78,7 +56,7 @@ const Login = (props) => {
                             )
                     }}
                 </Form.Item>
-                <div className="errors" style={{display: state.errors ? "block" : "none"}}><Trans>user_pass_false</Trans></div>
+                <div className="errors" style={{display: success ? "block" : "none"}}><Trans>user_pass_false</Trans></div>
             </Form>
             <div className="form-group mb-0 text-center">
                 <Link onClick={event => showTap(3)}

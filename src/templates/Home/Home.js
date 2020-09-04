@@ -17,6 +17,8 @@ import { projectAction, productAction, newsAction } from "../../store/action/ind
 import { LocationView, YourPosition } from "./Location/index";
 import { OnMapPoligon } from "./Search/index";
 
+import Advisory from "./Contact/Advisory";
+
 const Home = (props) => {
 
     const news = useSelector(state => state.newsReducer);
@@ -139,56 +141,7 @@ const Home = (props) => {
             {/* end project_list  */}
 
             {/* contact  */}
-            <div className="container container-sm container-md">
-                <div className="contact">
-                    <div className="contact--left">
-                        <div className="icon_phone">
-                            <i className=" fas fa-phone-alt" />
-                        </div>
-                        <div className="text">
-                            Liên hệ và tư vấn qua số điện thoại
-                        </div>
-                        <div className="phone">1900 - 123 -456</div>
-                    </div>
-                    <div className="contact--right">
-                        <form>
-                            <label className="label">Tư vấn miễn phí</label>
-                            <div className="row">
-                                <div className="col-12 col-sm-6 form-group">
-                                    <input
-                                        type="text"
-                                        className="form-control"
-                                        placeholder="Họ tên"
-                                    />
-                                </div>
-                                <div className="col-12 col-sm-6 form-group">
-                                    <input
-                                        type="text"
-                                        className="form-control"
-                                        placeholder="Email"
-                                    />
-                                </div>
-                                <div className="col-12 form-group">
-                                    <textarea
-                                        placeholder="Nội dung"
-                                        className="form-control"
-                                        defaultValue={""}
-                                    />
-                                </div>
-                            </div>
-                        </form>
-                        <div className="contact--footer">
-                            <Link to="/" className="btn btn_green">
-                                GỬI TIN NHẤN
-                            </Link>
-                            <span className="noti">
-                                Cảm ơn, hẹn gặp lại trong hộp thư đến của
-                                bạn!
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <Advisory />
             {/* end contact  */}
 
             {/* striking apartment  */}

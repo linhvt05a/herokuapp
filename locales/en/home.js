@@ -7,6 +7,7 @@ export default {
     range_of_area: "Area",
     province: "Province / City",
     district: "District",
+    ward: "Ward",
     select_progress: "Select progress",
     select_type_of_real_estate: "Select type of real estate",
     flash_sale: "Flash sale",

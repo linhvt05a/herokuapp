@@ -1,21 +1,31 @@
 import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
 import { Trans } from "react-i18next";
 import { Login, ForgotPass, Registry, Logout } from '../index';
+import { accountAction } from "../../../store/action/index";
+
 
 const Form = (props) => {
+    const dispatch = useDispatch();
     const [tab, setTab] = useState(0);
     const [state, setState] = useState({
-        showprofile: 0
+        success: false
     });
     const showTap = (active) => {
         setTab(active)
     }
-    const LoginSuccess = (success) => {
-        if(success === 1) {
-            setState({ showprofile: 1 })
-        }
+    // const login = useSelector(state => state.accountReducer);
+    // const isLoginSuccess = login.login.success;
+    // const respon = isLoginSuccess ? login.login.detail : null;
+    const LoginSuccess = value => {
+        console.log(value);
+        // dispatch(accountAction.loadLogin({ username: "customer@minerva.vn", password: "123" }));
+        // dispatch(accountAction.loadLogin({ username: value.username, password: value.password }))
     }
+    // if(respon != null){
+    //     setState({ success: true })
+    // }
 
     return (
         <>
@@ -43,7 +53,7 @@ const Form = (props) => {
                 </ul>
                 <div className="tab-content">
                     <div className={`tab-pane fade ${tab == 0 ? "show active": ""}`} id="pills-login">
-                        <Login showTap={showTap} handleLoginSuccess={LoginSuccess}/>
+                        <Login showTap={showTap} onSubmitLogin={LoginSuccess} success={state.success} />
                     </div>
                     <div className={`tab-pane fade ${tab == 1 ? "show active": ""}`} id="pills-signup">
                         <Registry />
@@ -58,7 +68,7 @@ const Form = (props) => {
                 <ForgotPass />
             </div>
             {/* form_logged */}
-            <Logout showprofile={state.showprofile} />
+            <Logout success={state.success} />
         </>
     );
 }

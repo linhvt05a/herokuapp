@@ -2,6 +2,8 @@ import { contactAddAction } from '../action';
 
 const initialState = {
     contactAdd: [],
+    advisoryAdd: [],
+    isFetching: false,
 };
 
 export default (state = initialState, action) => {
@@ -13,6 +15,11 @@ export default (state = initialState, action) => {
                 isFetching: true,
                 isLoadingList: false,
             };
+
+        case contactAddAction.ADVISORY_SUCCESS:
+            return { ...state, isFetching: false, login: action.response };
+        case contactAddAction.ADVISORY_REQUEST:
+            return { ...state, isFetching: false, login: { success: false, error: action.error } };
         default:
             return state;
     }

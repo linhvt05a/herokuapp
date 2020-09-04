@@ -7,6 +7,7 @@ const home = {
     range_of_area: "Diện tích",
     province: "Tỉnh / thành phố",
     district: "Quận / huyện",
+    ward: "Khu vực",
     select_progress: "Chọn tiến độ",
     select_type_of_real_estate: "Lựa chọn loại hình bất động sản",
     flash_sale: "Sale chớp nhoáng",

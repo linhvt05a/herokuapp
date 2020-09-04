@@ -3,6 +3,7 @@ import { commonAction } from '../action/index';
 const initialState = {
     provinceList: [],
     districtList: [],
+    wardList: [],
     statusList: [],
     minmaxList: [],
 
@@ -21,6 +22,11 @@ export default (state = initialState, action) => {
             return { ...state, isFetching: false, districtList: action.response };
         case commonAction.DISTRICT_LIST_REQUEST:
             return { ...state, isFetching: false, districtList: { success: false, error: action.error } };
+
+        case commonAction.WARD_LIST_SUCCESS:
+            return { ...state, isFetching: false, wardList: action.response };
+        case commonAction.WARD_LIST_REQUEST:
+            return { ...state, isFetching: false, wardList: { success: false, error: action.error } };
 
         case commonAction.STATUS_LIST_SUCCESS:
             return { ...state, isFetching: false, statusList: action.response };
