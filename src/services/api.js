@@ -42,7 +42,7 @@ export default {
     // ACCOUNT
     LOGIN: "/api/main_web/v1/login/",
     // REGISTRY: "",
-    FORGOT_PASSWORD: "api/main_web/v1/user/forgot_password/",
+    FORGOT_PASSWORD: "/api/main_web/v1/user/forgot_password/",
     CHANGE_PASSWORD: "/api/main_web/v1/user/password/change/",
     PROFILE: "/api/main_web/v1/user/profile/",
     UPDATE_PROFILE: "/api/main_web/v1/user/profile/update/",

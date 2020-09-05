@@ -49,12 +49,12 @@ export const accountService = {
         return api.handleRequest(url, requestOptions);
     },
 
-    forgotPassword(token) {
+    forgotPassword(token, email) {
         const requestOptions = {
-            method: 'GET',
+            method: 'POST',
             headers: api.getHeader(TOKEN)
         };
-        const params = { };
+        const params = { email };
         const url = api.getUrl(api.FORGOT_PASSWORD, params);
         return api.handleRequest(url, requestOptions);
     },

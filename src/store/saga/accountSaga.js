@@ -33,9 +33,9 @@ export function* registryWatcher() {
 
 // forgot Password
 export function* forgotPassword(payload) {
-    let { token } = payload.params
+    let { email } = payload.params
     try {
-        const response = yield accountService.forgotPassword(token);
+        const response = yield accountService.forgotPassword(email);
         response.success ? yield put({ type: accountAction.FORGOT_PASSWORD_SUCCESS, response }) : yield put({ type: accountAction.FORGOT_PASSWORD_FAILURE, response });
     } catch (err) {
         yield put({ type: accountAction.FORGOT_PASSWORD_FAILURE, err });
