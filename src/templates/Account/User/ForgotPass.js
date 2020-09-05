@@ -41,9 +41,7 @@ const ForgotPass = (props) => {
     return (
         <div className="form form_signInUp">
             <div className="form-group form_forgot--info">
-                Hãy điền thông tin email của bạn để
-                <br />
-                chúng tôi lấy lại mật khẩu
+                <Trans>user_forgot_content</Trans>
             </div>
             <Form noValidate 
                 form={formInfo}
@@ -60,7 +58,7 @@ const ForgotPass = (props) => {
                                     formInfo.getFieldsError().filter(({ errors }) => errors.length).length
                                 }
                             >
-                                <Trans>GỬI</Trans>
+                                <Trans>send</Trans>
                             </Button>
                             )
                     }}
