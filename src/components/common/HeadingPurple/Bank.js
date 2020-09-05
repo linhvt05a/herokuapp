@@ -37,18 +37,18 @@ const HeadingPurpleBank = (props) => {
 						<div class="col-md-6 col-sm-12 col-xs-12 pl-0">
 							<p class="list_style_01--item">
 								<span className="heading">
-									<Trans>maximum_loan_money</Trans>(đồng)
+									<Trans>maximum_loan_money</Trans> ({data.maximum_loan_limit_money_master_unit_name})
 							</span>
 								<span class="value d-block fw-normal uni-text-0d0d0d">
-									{data.minimum_loan_period_unit_name ? data.minimum_loan_period_unit_name : 'null'}
+									{data.maximum_loan_limit_money ? data.maximum_loan_limit_money : 'null'}
 								</span>
 							</p>
 							<p class="list_style_01--item">
 								<span className="heading">
-									<Trans>maximum_loan_time</Trans>
+									<Trans>maximum_loan_time</Trans> ({data.maximum_loan_period_unit_name})
 								</span>
 								<span class="value d-block fw-normal uni-text-0d0d0d">
-									{data.minimum_loan_period ? data.minimum_loan_period : 'null'}
+									{data.maximum_loan_period ? data.maximum_loan_period : 'null'}
 								</span>
 							</p>
 

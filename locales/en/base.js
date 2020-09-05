@@ -31,9 +31,9 @@ export default {
     text_to : 'To',
 
     //heading
-    heading_policy_advice : 'Chính sách ưu đãi',
-    heading_internal_utility : 'Tiện ích xung quanh',
-    heading_banking_policy : 'Chính sách vay',
+    heading_policy_advice : 'Incentives',
+    heading_internal_utility : 'Gadgets around',
+    heading_banking_policy : 'Loan policy',
 
 
     // end_button: "End",
