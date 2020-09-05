@@ -21,12 +21,12 @@ const Form = (props) => {
     const login = useSelector(state => state.accountReducer);
     const isLoginSuccess = login.login.success;
     const respon = isLoginSuccess ? login.login.detail : null;
-    const user = localStorage.getItem('user');
+    const user = JSON.parse(localStorage.getItem('user'));
 
     return (
         <>
             {/* form_register */}
-            <div className={`header_register form_register ${respon != null ? "d-none": ""}`}>
+            <div className={`header_register form_register ${user != null ? "d-none": ""}`}>
                 <ul className="nav header_register--heading" role="tablist">
                     <li className="nav-item">
                         <a onClick={event => showTap(0)}

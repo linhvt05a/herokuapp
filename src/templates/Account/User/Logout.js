@@ -5,21 +5,21 @@ import { Trans } from "react-i18next";
 const Logout = (props) => {
     let { success, handleLogout, user } = props;
     return (
-        success && success != null ?
-        <div className={`header_register form_logged ${success != null ? "": "d-none" }`} style={{ maxWidth: "360px" }}>
+        user && user != null ?
+        <div className={`header_register form_logged ${user != null ? "": "d-none" }`} style={{ maxWidth: "360px" }}>
             <div className="header_register--heading">
                 <figure className="avatar">
                     <img
-                        src={success.avatar_url}
-                        alt={success.full_name}
+                        src={user.avatar_url}
+                        alt={user.full_name}
                     />
                 </figure>
                 <div className="info">
                     <div className="name">
-                        {success.full_name}
+                        {user.full_name}
                     </div>
                     <div className="mail">
-                        {success.username}
+                        {user.username}
                     </div>
                 </div>
             </div>
