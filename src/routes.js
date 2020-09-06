@@ -30,7 +30,7 @@ const home_banner_url = '../images/project.jpg';
 const introduce_banner_url = '../images/project.jpg';
 const contact_banner_url = '../images/project.jpg';
 const project_banner_url = '../images/project.jpg';
-const projectDetail_banner_url = '../images/tutorial_product.jpg';
+const projectDetail_banner_url = '../images/project.jpg';
 const news_banner_url = '../images/newspaper.jpg';
 const newsDetail_banner_url = '../images/newspaper.jpg';
 const recruitmentList_banner_url = '../images/recruitment.jpg';
@@ -91,6 +91,14 @@ const MAIN = [
         "component": ProductList,
         "banner_title": "contact_banner_title",
         "banner_url": contact_banner_url,
+        "banner_show": true,
+        "banner_class": ''
+    },
+    {
+        "path": "/product/:id",
+        "component": ProductDetail,
+        "banner_title": "project_banner_title",
+        "banner_url": project_banner_url,
         "banner_show": true,
         "banner_class": ''
     },

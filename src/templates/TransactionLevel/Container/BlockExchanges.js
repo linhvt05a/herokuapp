@@ -24,8 +24,6 @@ const BlockExchanges = (props) => {
         setActiveIndex(temp)
     }
 
-    console.log('Exchanges', data);
-
     return (
 
         <div className="exchanges_apartment">

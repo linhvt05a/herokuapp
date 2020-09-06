@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import HeadingLine from '../../../components/common/HeadingLine'
 import TopBanner from "../../../components/common/Header/TopBanner";
 
 class RecruitmentList extends React.Component {
@@ -51,24 +51,7 @@ class RecruitmentList extends React.Component {
                 {/* striking apartment  */}
                 <div className="recruitment label_filter bg_grey">
                     <div className="container container-sm container-md">
-                        <div className="label_filter--heading">
-                            <h3 className="main_heading">
-                                <span>Vị trí đang tuyển</span>
-                            </h3>
-                            <div className="filter_select">
-                                <div className="text">Lọc theo :</div>
-                                <div className="form-group filter_project">
-                                    <select
-                                        className="js-select2"
-                                        data-minimum-results-for-search="Infinity"
-                                    >
-                                        <option selected>Mới nhất</option>
-                                        <option>Đang tuyển</option>
-                                        <option>Đã tuyển</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
+                        <HeadingLine headerBodyClassName="label_filter--heading" labelHeader="Vị trí đang tuyển" options trans/>
                         <div className="recruitment--content">
                             <div className="row">
                                 <div className="col-12 col-sm-12 col-md-6 col-lg-4 d-flex flex-column">

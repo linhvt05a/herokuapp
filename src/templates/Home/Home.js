@@ -11,7 +11,7 @@ import CardNoData from '../../components/common/CardNoData';
 import { ItemHomeProject } from './Item/index'
 import { CardSaleFlash, CardHotProduct } from "./Layout/index";
 import { MapHome } from "../../components/common/Map/index";
-import { projectAction, productAction, newsAction } from "../../store/action/index";
+import { projectAction, newsAction } from "../../store/action/index";
 
 
 import { LocationView, YourPosition } from "./Location/index";
@@ -24,13 +24,9 @@ const Home = (props) => {
     const news = useSelector(state => state.newsReducer);
     const newsListSuccess = news.newsList.success
     const newsList = newsListSuccess ? news.newsList.detail : null;
-    console.log(newsList)
     const project = useSelector(state => state.projectReducer);
-    const product = useSelector(state => state.productReducer);
     const isGetProjectListSuccess = project.projectList.success;
     const projectList = isGetProjectListSuccess ? project.projectList.detail : null;
-    const isGetHotProductListSuccess = product.hotProductList.success;
-    const hotProductList = isGetHotProductListSuccess ? product.hotProductList : null;
     const dispatch = useDispatch();
     const [state, setState] = useState({
         projectStatus: 3,
@@ -42,7 +38,6 @@ const Home = (props) => {
     useEffect(() => {
         // dispatch(projectAction.loadProjectList({project_sale_status: `[${state.projectStatus}]`}));
         dispatch(projectAction.loadProjectList({}));
-        dispatch(productAction.loadHotProductList({}));
         dispatch(newsAction.LoadNewsList({}))
        
     }, []);
@@ -62,13 +57,6 @@ const Home = (props) => {
         setState({...state, search: true})
     }
 
-    const onProjectGroupFilterChange = (value) => {
-        if (value != null) {
-            dispatch(productAction.loadHotProductList({list_product_type_id: `[${value}]`}));
-        } else {
-            dispatch(productAction.loadHotProductList({}));
-        }
-    }
     const setHideSearch = (target) => {
         if(target.className.indexOf('fa-times') > -1) {
             target.className = "fas map_search--btn_exit fa-search"
@@ -101,7 +89,7 @@ const Home = (props) => {
 
             {/*end block map  */}
 
-            <CardSaleFlash headerBodyClassName="label_filter--heading" labelHeader="flash_sale" datas={["a", "iu", "e", "vl", "wa", "di"]} readmore timeLine />
+            <CardSaleFlash headerBodyClassName="label_filter--heading" labelHeader="flash_sale" readmore timeLine />
 
             {/* block over  */}
             <CardOverView />
@@ -145,7 +133,7 @@ const Home = (props) => {
             {/* end contact  */}
 
             {/* striking apartment  */}
-            <CardHotProduct headerBodyClassName="label_filter--heading" labelHeader="hot_product" datas={hotProductList} options onFilterChange={onProjectGroupFilterChange} />
+            <CardHotProduct headerBodyClassName="label_filter--heading" labelHeader="hot_product" options />
             {/* end striking apartment  */}
 
             {/* app_managerment  */}

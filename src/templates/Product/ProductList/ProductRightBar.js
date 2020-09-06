@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {ProductForm, ProductPromotion} from './index'
-import Promotion from '../../components/common/HeadingPurple/Promotion'
+import Promotion from '../../../components/common/HeadingPurple/Promotion'
 const ProductRightBar = (props) =>{
   const{data, showSignInModal, handleSignUp, handleChange, values, errors} = props
     return(

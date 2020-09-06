@@ -152,6 +152,20 @@ const TransactionLevel = (props) => {
         setAcreageToState(value[1])
     }
 
+    const onDeleteFilterClick = () => {
+        dispatch(transactionAction.TransactionLoadList({
+            project_id: projectInfoInit.projectId,
+            area_id: projectInfoInit.areaId,
+            block_id: projectInfoInit.blockId
+        }));
+        setProductTypeState(null);
+        setDirectionState(null);
+        setPriceFromState(null);
+        setPriceToState(null);
+        setAcreageFromState(null);
+        setAcreageToState(null);
+    }
+
     const dataFilter = useSelector(state => state.transactionReducer.transactionList.detail)
     return (
         <div className="projectDetailPage">
@@ -173,6 +187,7 @@ const TransactionLevel = (props) => {
                     onHouseDirectionChange={onHouseDirectionChange}
                     onPriceRangeChange={onPriceRangeChange}
                     onAreaChange={onAreaChange}
+                    onDeleteFilterClick={onDeleteFilterClick}
                 />
             }
         </div>

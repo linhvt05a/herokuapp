@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Trans } from 'react-i18next';
-import { formatCurrency } from "../../functions/Utils";
+import { formatCurrency } from "../../../functions/Utils";
 
 const ProductTable = (props) => {
   const{data, limit} = props

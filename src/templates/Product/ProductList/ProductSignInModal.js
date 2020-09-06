@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import CardHeader from '../../components/common/CardHeader'
-import {InputBase, ButtonStyle} from '../../components/base/index'
+import CardHeader from '../../../components/common/CardHeader'
+import {InputBase, ButtonStyle} from '../../../components/base/index'
 import { Trans } from "react-i18next";
 
 const ProductSignInModal = (props) => {

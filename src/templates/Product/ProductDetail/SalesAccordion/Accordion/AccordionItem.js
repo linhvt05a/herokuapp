@@ -2,7 +2,7 @@ import Parser from 'html-react-parser';
 import React from 'react';
 import { Trans } from 'react-i18next';
 import SliderInTab from '../../TabsSlider/SliderInTab';
-import MutiSlider from './../../../../components/common/MutiSlider';
+import MutiSlider from '../../../../../components/common/MutiSlider';
 
 const dataImgs = [
   {

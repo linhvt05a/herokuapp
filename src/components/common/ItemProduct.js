@@ -1,9 +1,10 @@
 import React from "react";
 import { Tooltip } from 'antd';
 import { Trans } from "react-i18next";
-import { formatCurrency } from "../../../functions/Utils";
-import { IMAGE_URL } from "../../../contant";
-import CardNoData from "../../../components/common/CardNoData";
+import { formatCurrency } from "../../functions/Utils";
+import { IMAGE_URL } from "../../contant";
+import CardNoData from "./CardNoData";
+import { Link } from 'react-router-dom'
 
 
 const ItemProduct = (props) => {
@@ -23,7 +24,7 @@ const ItemProduct = (props) => {
             </figure>
             <div className="heading">
                 <div className="top">
-                    <a href="#" className="name">{data.product_name}</a>
+                    <Link to={"/product/" + data.product_id} className="name">{data.product_name}</Link>
                 </div>
                 <p className="address mb-0"><Trans>product_the_selling_price_is_listed</Trans> ({data.product_estimate_price_unit_name})
                     <Tooltip title={data.product_estimate_price_unit_name}>

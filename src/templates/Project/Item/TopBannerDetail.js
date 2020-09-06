@@ -22,7 +22,7 @@ const TopBannerDetail = (props) => {
     }
 
     return (
-        <div class="top_banner--detail d-flex align-items-end" style={{backgroundImage: "url(.../images/VAP-tt-nha-dat-tang.jpg)"}}>
+        <div class="top_banner--detail d-flex align-items-end" style={{backgroundImage: "url(../images/VAP-tt-nha-dat-tang.jpg)"}}>
             <div class="container container-sm container-md">
                 <div class="project_detail--filter">
                     <div class="row">

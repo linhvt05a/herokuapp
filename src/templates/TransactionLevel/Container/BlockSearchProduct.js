@@ -3,7 +3,7 @@ import CardInputSliderFilter from '../../../components/common/CardInputSliderFil
 
 const BlockSearchProduct = (props) => {
 
-    const { onProductTypeChange, onHouseDirectionChange, onPriceRangeChange, onAreaChange } = props
+    const { onProductTypeChange, onHouseDirectionChange, onPriceRangeChange, onAreaChange, onDeleteFilterClick } = props
 
     return (
         <div className="project_page--filter project_page--filter_exchanges">
@@ -15,6 +15,7 @@ const BlockSearchProduct = (props) => {
                 onHouseDirectionChange={onHouseDirectionChange}
                 onPriceRangeChange={onPriceRangeChange}
                 onAreaChange={onAreaChange}
+                onDeleteFilterClick={onDeleteFilterClick}
             />
         </div>
     )

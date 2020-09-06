@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Trans } from "react-i18next";
-import {ButtonStyle, InputBase} from '../../components/base/index'
+import {ButtonStyle, InputBase} from '../../../components/base/index'
 
 const ProductForm = (props) => {
   const {showSignInModal, handleSignUp, handleChange, values, errors} = props

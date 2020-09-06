@@ -31,7 +31,7 @@ const handleChangePage = (value) =>{
 }
     return (
         <div className="homePage">
-            <CardSaleFlash headerBodyClassName="label_filter--heading" labelHeader="flash_sale" datas={["a", "iu", "e", "vl", "wa", "di"]} banner readmore timeLine />
+            <CardSaleFlash headerBodyClassName="label_filter--heading" labelHeader="flash_sale" banner readmore timeLine />
             <div className="overview" >
                 <div className="container container-sm container-md">
                     <h2 className="overview_heading">

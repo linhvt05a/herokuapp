@@ -58,12 +58,12 @@ function Footer() {
                                     <div className="col-6 col-sm-5">
                                         <ul className="style_01">
                                             <li>
-                                                <Link to="/project">
+                                                <Link to="/project/selling">
                                                     Danh sách dự án
                                                 </Link>
                                             </li>
                                             <li>
-                                                <Link to="/">
+                                                <Link to="/hot-product">
                                                     Sản phẩm nổi bật
                                                 </Link>
                                             </li>
