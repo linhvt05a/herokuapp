@@ -1,12 +1,11 @@
 import React, {useState, useEffect } from "react";
-import CardHeader from "../../components/common/CardHeader";
+import CardHeader from "../../../components/common/CardHeader";
 import {ProductRightBar, ProductContent, ProductSignInModal} from './index'
-import {Modal} from 'antd'
-import ModalCustom from '../../components/base/Modal/ModalCustom'
-import {validateSignup, validateLogin} from '../../components/base/ValidateInput/ValidateInput'
-import {useFormSignup, useFormSignIn} from '../../components/base/ValidateInput/useForm'
+import ModalCustom from '../../../components/base/Modal/ModalCustom'
+import {validateSignup, validateLogin} from '../../../components/base/ValidateInput/ValidateInput'
+import {useFormSignup, useFormSignIn} from '../../../components/base/ValidateInput/useForm'
 import { useDispatch, useSelector } from "react-redux";
-import { productAction} from "../../store/action/index";
+import { productAction} from "../../../store/action/index";
 
 const ProductList = (props) => {
   const product = useSelector(state => state.productReducer);

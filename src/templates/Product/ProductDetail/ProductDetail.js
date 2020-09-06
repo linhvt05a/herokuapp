@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import TabsSlider from './TabsSlider';
 import SideBar from './SideBar/Info';
 import SalesAccordion from './SalesAccordion';
-import { productDetailAction } from "../../store/action";
+import { productDetailAction } from "../../../store/action";
 import { useParams } from 'react-router-dom';
 
 const ProductDetail = (props) => {

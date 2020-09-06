@@ -1,30 +1,37 @@
 // import * as Login from './templates/Login';
+import Elements from "./templates/Elements/Elements";
+import Example from "./templates/Example";
+
 import Home from "./templates/Home/Home";
-import Contact from "./templates/Support/Contact/Contact";
+
 import Project from "./templates/Project/Project";
 import ProjectDetail from "./templates/Project/ProjectDetail";
-import ProductDetail from "./templates/ProductDetail/ProductDetail";
-import Introduce from "./templates/Support/Introduce/Introduce";
+
+import ProductDetail from "./templates/Product/ProductDetail/ProductDetail";
+import ProductList from './templates/Product/ProductList/ProductList';
+import HotProduct from "./templates/Product/HotProduct";
+
 import News from "./templates/News/NewsList";
 import NewsDetail from "./templates/News/NewsDetail";
+
 import RecruitmentList from "./templates/Support/Recruitment/RecruitmentList";
 import RecruitmentDetail from "./templates/Support/Recruitment/RecruitmentDetail";
+
 import TransactionLevel from "./templates/TransactionLevel/TransactionLevel";
 import ShoppingGuide from "./templates/Support/ShopGuide/ShoppingGuide";
 import Legal from "./templates/Support/Legal/Juridical";
 import Promotion from './templates/Promotion/Promotion';
 import FlashSaleList from './templates/Promotion/FlashSaleList';
-import Elements from "./templates/Elements/Elements";
-import Example from "./templates/Example";
-import HotProduct from "./templates/Product/HotProduct";
+
 import Account from "./templates/Account/CustomerAccount";
 import Cart from "./templates/ShopCart/Cart";
-import ProductList from './templates/ProductList/ProductList';
 import PropertySelling from "./templates/PolicyPayment/PropertySelling";
 import LoanPolicy from "./templates/LoanOnline/LoanPolicy";
 import CustomerInfo from "./templates/ShopCart/CustomerInfo";
 import ConfirmOrderInfo from "./templates/ShopCart/ConfirmOrderInfo";
 import DepositPayment from "./templates/ShopCart/DepositPayment";
+import Introduce from "./templates/Support/Introduce/Introduce";
+import Contact from "./templates/Support/Contact/Contact";
 
 const home_banner_url = '../images/project.jpg';
 const introduce_banner_url = '../images/project.jpg';

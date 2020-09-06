@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import SliderInTab from "./SliderInTab";
 import TabContent from './TabContent';
-import TimeLine from '../../../components/common/TimeLine';
-import Promotion from '../../../components/common/Promotion';
-import IconLikeDown from '../../../components/common/IconLikeDown';
+import TimeLine from '../../../../components/common/TimeLine';
+import Promotion from '../../../../components/common/Promotion';
+import IconLikeDown from '../../../../components/common/IconLikeDown';
 
 class TabsWraper extends Component {
   constructor() {
