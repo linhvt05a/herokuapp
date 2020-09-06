@@ -9,7 +9,7 @@ function convertDate(value){
 }
 const HeadingPurplePromotion = (props) => {
 	const { data, heading } = props;
-	console.log(data);
+	// console.log(data);
 	return (
 		<>
 			<div class="heading_purple">

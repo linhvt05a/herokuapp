@@ -23,10 +23,10 @@ const NavRight = (props) => {
     return (
         <ul className="header_contact d-none d-md-flex">
             <li className="chat">
-                <Link to="/#" onClick={() => setShowAdvisory(!show)}>
+                <p className="mb-0 cursor-pointer" onClick={() => setShowAdvisory(!show)}>
                     <i className="fas fa-comments" />
                     <Trans>header_menu_advisory</Trans>
-                </Link>
+                </p>
             </li>
             <li className="phone">
                 <Link to="/#">

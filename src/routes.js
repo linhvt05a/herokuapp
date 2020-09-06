@@ -103,7 +103,7 @@ const MAIN = [
         "banner_class": ''
     },
     {
-        "path": "/project/coming_soon",
+        "path": "/project/coming-soon",
         "component": Project,
         "banner_title": "project_banner_title",
         "banner_url": project_banner_url,
@@ -119,11 +119,6 @@ const MAIN = [
         "banner_class": ''
     },
     {
-        "path": "/product-detail/:id",
-        "component": ProductDetail,
-        "banner_show": false
-    },
-    {
         "path": "/news",
         "component": News,
         "banner_title": "news_banner_title",
@@ -132,7 +127,7 @@ const MAIN = [
         "banner_class": ''
     },
     {
-        "path": "/news-detail/:id",
+        "path": "/news/:id",
         "component": NewsDetail,
         "banner_title": "newsDetail_banner_title",
         "banner_url": newsDetail_banner_url,
@@ -140,7 +135,7 @@ const MAIN = [
         "banner_class": ''
     },
     {
-        "path": "/recruitmentList",
+        "path": "/recruitment",
         "component": RecruitmentList,
         "banner_title": "recruitmentList_banner_title",
         "banner_url": recruitmentList_banner_url,
@@ -148,7 +143,7 @@ const MAIN = [
         "banner_class": ''
     },
     {
-        "path": "/recruitmentDetail",
+        "path": "/recruitment/:id",
         "component": RecruitmentDetail,
         "banner_title": "recruitmentDetail_banner_title",
         "banner_url": recruitmentDetail_banner_url,
@@ -156,7 +151,7 @@ const MAIN = [
         "banner_class": ''
     },
     {
-        "path": "/transaction-level",
+        "path": "/exchanges",
         "component": TransactionLevel,
         "banner_title": "transactionLevel_banner_title",
         "banner_url": transactionLevel_banner_url,

@@ -75,7 +75,7 @@ const NewsLoop = (props) =>{
                 </figure>
                 <div className="box">
                     <h4 className="name">
-                        <Link to={"/news-detail/" + item.news_id} tabIndex={0}>
+                        <Link to={"/news/" + item.news_id} tabIndex={0}>
                             {item.news_title}
                         </Link>
                     </h4>

@@ -33,12 +33,12 @@ const MenuLeft = (props) => {
                 </NavLink>
             </li>
             <li className="item">
-                <NavLink activeClassName="active" className="item-link" to="/project/coming_soon">
+                <NavLink activeClassName="active" className="item-link" to="/project/coming-soon">
                     <Trans>header_menu_willsell</Trans>
                 </NavLink>
             </li>
             <li className="item">
-                <NavLink activeClassName="active" className="item-link" to="/transaction-level">
+                <NavLink activeClassName="active" className="item-link" to="/exchanges">
                     <Trans>header_menu_exchanges</Trans>
                 </NavLink>
             </li>
@@ -54,7 +54,7 @@ const MenuLeft = (props) => {
                     <li className="item-child">
                         <NavLink activeClassName="active"
                             className="item-child-link"
-                            to="/shoppingGuide"
+                            to="/shopping-guide"
                         >
                             <Trans>header_menu_buying_guide</Trans>
                         </NavLink>

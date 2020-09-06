@@ -23,7 +23,7 @@ const Exchanges = (props) => {
         setActiveIndex(temp)
     }
 
-    console.log('Exchanges', data);
+    // console.log('Exchanges', data);
 
     return (
 
