@@ -115,7 +115,7 @@ const News = (props) => {
         <div className="news">
             <div className="container container-sm container-md">
                 <h3 className="main_heading" style={{ marginTop: 85 }}>
-                    <span><Trans>NEWS</Trans></span>
+                    <span><Trans>news_title</Trans></span>
                 </h3>
                 <div className="row">
                     <div className="col-sm-12 col-md-12 col-lg-8 col-xl-8">
@@ -128,14 +128,14 @@ const News = (props) => {
                     </div>
                     <div className="col-md-12 col-lg-4 col-xl-4 col-right_news mb-sm-3 mb-0">
                         <CommonMenu 
-                            label="Categories" 
+                            label="news_categories" 
                             dataMenu={newsCategories} 
                             className="options mb-4 bg_white" onClick = {handleClick}
                             navigate ={navigate}
                         />
                         <CommonFilter 
-                            title="Search for news" 
-                            placeholder="Enter Title"
+                            title="news_filter" 
+                            placeholder="news_placeholder"
                             defaultValue = {cateID == "" ? defaultValue[0].label : ''}
                             datas ={projectSelectList} 
                             handleChange = {handleChange}
@@ -157,7 +157,7 @@ const RowNews = (props) => {
    
         return (
             <div className="card" >
-                <Link to={"/NewsDetail/" + data.news_id} className="link"></Link>
+                <Link to={"/news/" + data.news_id} className="link"></Link>
                 <div className="row ">
                     <div className="col-sm-12 col-md-5 col-xl-5 d-flex">
                         <div className="news__card--img">
@@ -166,7 +166,7 @@ const RowNews = (props) => {
                     </div>
                     <div className="col-md-7 col-xl-7">
                         <div className="news__card--content">
-                            <Link  className="title" to={"/NewsDetail/" + data.news_id}>
+                            <Link  className="title" to={"/news/" + data.news_id}>
                                 {data.news_title}
                             </Link>
                             <div className="times">

@@ -5,7 +5,6 @@ import BlockBankPolicy from './BlockBankPolicy';
 
 const TransactionRight = (props) => {
     const { data } = props;
-    console.log('ffff', data);
     return (
         <>
             <BlockPromotionPolicy 

@@ -39,7 +39,7 @@ const Registry = (props) => {
                     to="/demo"
                     className="btn btn_green btn_signIn text-uppercase"
                 >
-                    ĐĂNG KÝ
+                    <Trans>registry</Trans>
                 </Link>
             </div>
         </div>

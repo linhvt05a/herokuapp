@@ -131,7 +131,7 @@ const Home = (props) => {
                             }
                         </div>
                         <div className="text-center text-uppercase mt-3">
-                            <Link to="/productList" className="btn btn_purple ml-auto mr-auto">
+                            <Link to="/product" className="btn btn_purple ml-auto mr-auto">
                                 <Trans>see_all</Trans>
                             </Link>
                         </div>

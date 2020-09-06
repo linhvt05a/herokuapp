@@ -33,12 +33,12 @@ const MenuLeft = (props) => {
                 </NavLink>
             </li>
             <li className="item">
-                <NavLink activeClassName="active" className="item-link" to="/project/coming_soon">
+                <NavLink activeClassName="active" className="item-link" to="/project/coming-soon">
                     <Trans>header_menu_willsell</Trans>
                 </NavLink>
             </li>
             <li className="item">
-                <NavLink activeClassName="active" className="item-link" to="/transactionLevel">
+                <NavLink activeClassName="active" className="item-link" to="/exchanges">
                     <Trans>header_menu_exchanges</Trans>
                 </NavLink>
             </li>
@@ -54,7 +54,7 @@ const MenuLeft = (props) => {
                     <li className="item-child">
                         <NavLink activeClassName="active"
                             className="item-child-link"
-                            to="/shoppingGuide"
+                            to="/shopping-guide"
                         >
                             <Trans>header_menu_buying_guide</Trans>
                         </NavLink>
@@ -92,7 +92,7 @@ const MenuLeft = (props) => {
                 </a>
                 <ul className={`header_menu--child accordion ${clickMenuSupport ? "active" : ""}`}>
                     <li className="item-child">
-                        <Link className="item-child-link" to="/shoppingGuide">
+                        <Link className="item-child-link" to="/shopping-guide">
                             <Trans>header_menu_buying_guide</Trans>
                         </Link>
                     </li>

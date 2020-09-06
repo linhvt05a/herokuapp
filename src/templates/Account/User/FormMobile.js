@@ -12,7 +12,7 @@ const FormMobile = (props) => {
         <ul className={`header_menu--child mt-0 accordion ${active ? "active": ""}`}>
             <li className="register_select">
                 <div onClick={() => setLogin(!login)} className={`item-child-link accordion-toggle d-flex justify-content-between align-items-center ${login ? "active" : ""}`}>
-                    Đăng nhập
+                    <Trans>login</Trans>
                     <i className="icon_plus fas fa-plus"/>
                 </div>
                 {/* form_register signin */}
@@ -22,7 +22,7 @@ const FormMobile = (props) => {
             </li>
             <li className="register_select">
                 <div onClick={() => setRegistry(!registry)} className={`item-child-link accordion-toggle d-flex justify-content-between align-items-center ${registry ? "active" : ""}`}>
-                    Đăng ký
+                    <Trans>registry</Trans>
                     <i className="icon_plus fas fa-plus" />
                 </div>
                 {/* form_register signup*/}
@@ -32,7 +32,7 @@ const FormMobile = (props) => {
             </li>
             <li className="register_select">
                 <div onClick={() => setForgotpass(!forgotpass)} className={`item-child-link accordion-toggle d-flex justify-content-between align-items-center ${forgotpass ? "active" : ""}`}>
-                    Quên mật khẩu
+                    <Trans>forfot_pass</Trans>
                     <i className="icon_plus fas fa-plus" />
                 </div>
                 {/* form_forgot */}

@@ -1,9 +1,10 @@
 import React from 'react'
 import { Input, Form } from 'antd';
-import { Trans } from 'react-i18next';
+import { Trans, useTranslation} from 'react-i18next';
 
 const InputBase = (props) => {
     const { className, top, background, titleClassName,errors, name, value, label, addonAfter, addonBefore, placeholder, onChange, require, disabled, maxLength, type, ...attr  } = props;
+    const { t } = useTranslation("dsdasdasdasd");
     return (
         <div className={className ? className : ''}>
             <div className="form-group">
@@ -37,4 +38,4 @@ const InputBase = (props) => {
 
 
 
-export default InputBase;
+export default  (InputBase) ;

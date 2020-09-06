@@ -87,7 +87,7 @@ const MAIN = [
         "banner_class": ''
     },
     {
-        "path": "/productList",
+        "path": "/product",
         "component": ProductList,
         "banner_title": "contact_banner_title",
         "banner_url": contact_banner_url,
@@ -103,7 +103,7 @@ const MAIN = [
         "banner_class": ''
     },
     {
-        "path": "/project/coming_soon",
+        "path": "/project/coming-soon",
         "component": Project,
         "banner_title": "project_banner_title",
         "banner_url": project_banner_url,
@@ -119,11 +119,6 @@ const MAIN = [
         "banner_class": ''
     },
     {
-        "path": "/product-detail/:id",
-        "component": ProductDetail,
-        "banner_show": false
-    },
-    {
         "path": "/news",
         "component": News,
         "banner_title": "news_banner_title",
@@ -132,7 +127,7 @@ const MAIN = [
         "banner_class": ''
     },
     {
-        "path": "/NewsDetail/:id",
+        "path": "/news/:id",
         "component": NewsDetail,
         "banner_title": "newsDetail_banner_title",
         "banner_url": newsDetail_banner_url,
@@ -140,7 +135,7 @@ const MAIN = [
         "banner_class": ''
     },
     {
-        "path": "/recruitmentList",
+        "path": "/recruitment",
         "component": RecruitmentList,
         "banner_title": "recruitmentList_banner_title",
         "banner_url": recruitmentList_banner_url,
@@ -148,7 +143,7 @@ const MAIN = [
         "banner_class": ''
     },
     {
-        "path": "/recruitmentDetail",
+        "path": "/recruitment/:id",
         "component": RecruitmentDetail,
         "banner_title": "recruitmentDetail_banner_title",
         "banner_url": recruitmentDetail_banner_url,
@@ -156,7 +151,7 @@ const MAIN = [
         "banner_class": ''
     },
     {
-        "path": "/transactionlevel",
+        "path": "/exchanges",
         "component": TransactionLevel,
         "banner_title": "transactionLevel_banner_title",
         "banner_url": transactionLevel_banner_url,
@@ -164,7 +159,7 @@ const MAIN = [
         "banner_class": ''
     },
     {
-        "path": "/shoppingGuide",
+        "path": "/shopping-guide",
         "component": ShoppingGuide,
         "banner_title": "shoppingGuide_banner_title",
         "banner_url": shoppingGuide_banner_url,
@@ -196,7 +191,7 @@ const MAIN = [
         "banner_class": ''
     },
     {
-        "path": "/hot_product/list",
+        "path": "/hot-product",
         "component": HotProduct,
         "banner_title": "product_hot_product_banner_title",
         "banner_url": product_banner_url,
@@ -216,39 +211,32 @@ const MAIN = [
         "banner_url": cart_banner_url,
         "banner_show": true
     },
-    // {
-    //     "path": "/productList",
-    //     "component": ProductList,
-    //     "banner_title": "products_list_banner_title",
-    //     "banner_url": product_banner_url,
-    //     "banner_show": true
-    // },
     {
-        "path": "/property-selling/",
+        "path": "/property-selling",
         "component": PropertySelling,
         "banner_show": false
     },
     {
-        "path": "/loan-policy/",
+        "path": "/loan-policy",
         "component": LoanPolicy,
         "banner_show": false
     },
     {
-        "path": "/cart/customer_info",
+        "path": "/cart/customer-info",
         "component": CustomerInfo,
         "banner_title": "cart",
         "banner_url": cart_banner_url,
         "banner_show": true
     },
     {
-        "path": "/cart/confirm_order_info",
+        "path": "/cart/confirm-order-info",
         "component": ConfirmOrderInfo,
         "banner_title": "cart",
         "banner_url": cart_banner_url,
         "banner_show": true
     },
     {
-        "path": "/cart/deposit_payment",
+        "path": "/cart/deposit-payment",
         "component": DepositPayment,
         "banner_title": "cart",
         "banner_url": cart_banner_url,

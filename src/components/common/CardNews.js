@@ -21,10 +21,10 @@ const CardNews = (props) => {
         <div className="container container-sm container-md">
             <div className="latest_news--heading">
                 <h3 className="main_heading">
-                <Trans><span>LATEST NEWS</span></Trans>
+                <span><Trans>home_latest_news</Trans></span>
                 </h3>
                 <a href="/news" className="readmore">
-                    <Trans><span>READ MORE</span></Trans>
+                    <span><Trans>home_latest_news_read_more</Trans></span>
                     <i className="icon fas fa-angle-double-right" />
                 </a>
             </div>
@@ -75,7 +75,7 @@ const NewsLoop = (props) =>{
                 </figure>
                 <div className="box">
                     <h4 className="name">
-                        <Link to={"/NewsDetail/" + item.news_id} tabIndex={0}>
+                        <Link to={"/news/" + item.news_id} tabIndex={0}>
                             {item.news_title}
                         </Link>
                     </h4>

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
 import { FormUser } from "../../../../templates/Account/index";
+import { IMAGE_URL } from '../../../../contant';
 
 const MenuRight = (props) => {
     const [inHoverProfile, setHoverProfile] = useState(false);
@@ -8,7 +9,7 @@ const MenuRight = (props) => {
         <div className="header_actions d-none d-md-flex">
             <div className="item">
                 <Link to="/#" className="link">
-                    <img src="../images/live_stream.png" className="live_stream" />
+                    <img src={`${IMAGE_URL}images/live_stream.png`} className="live_stream" />
                 </Link>
                 <Link to="/#" className="link">
                     <span className="icon">
