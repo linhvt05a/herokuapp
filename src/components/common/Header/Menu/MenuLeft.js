@@ -43,13 +43,12 @@ const MenuLeft = (props) => {
                 </NavLink>
             </li>
             <li className={`item hasChild dropdown d-none d-md-block ${inHoverNav ? "open": ''}`} >
-                <NavLink activeClassName="active"
+                <div activeClassName="active"
                     onMouseEnter={() => setHoverNav(true)}
-                    className="item-link dropdown-toggle"
-                    to="/support"
+                    className="item-link dropdown-toggle cursor-pointer"
                 >
                     <Trans>header_menu_support</Trans>
-                </NavLink>
+                </div>
                 <ul className="header_menu--child dropdown-menu" onMouseLeave={() => setHoverNav(false)}>
                     <li className="item-child">
                         <NavLink activeClassName="active"
@@ -123,10 +122,10 @@ const MenuLeft = (props) => {
                 </ul>
             </li>
             <li className="item">
-                <NavLink activeClassName="active" className="item-link" to="/promotion">
+                <NavLink activeClassName="active" className="item-link mr-0" to="/promotion">
                     <Trans>header_menu_promotion</Trans>
-                    <img src={`${IMAGE_URL}images/gift.png`} class="gift" />
                 </NavLink>
+                <img src={`${IMAGE_URL}images/gift.png`} class="gift" />
             </li>
             <li className="item d-flex justify-content-between d-md-none">
                 <Link to="/#" className="item-link pr-0">

@@ -18,6 +18,9 @@
                 display: none;
             }
         }
+        .item-link::after{
+            top: 3px;
+        }
     }
     .header_border{
         @include flex-wrap(wrap);
