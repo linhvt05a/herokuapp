@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ProjectPosition = (props) => {
+const BlockProjectPosition = (props) => {
     const {data} = props;
     // console.log('ProjectPosition', dataPosition);
     return (
@@ -35,4 +35,4 @@ const ProjectPosition = (props) => {
         </div>
     )
 }
-export default ProjectPosition
+export default BlockProjectPosition

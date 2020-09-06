@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import HeadingPurpleBank from '../../../../components/common/HeadingPurple/Bank';
+import {Bank} from '../../../components/common/HeadingPurple';
 
 const BlockBankPolicy = (props) => {
     const { data, heading, className } = props;
     return (
         <div className={className}>
-            <HeadingPurpleBank data={data} heading={heading} />
+            { data && data.info_banking_policy ? <Bank data={data.info_banking_policy} heading={heading} /> : ''}
         </div>
     )
 }

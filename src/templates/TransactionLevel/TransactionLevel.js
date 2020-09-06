@@ -2,9 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from "react-redux";
 
 import { transactionAction } from '../../store/action';
-import { DIRECTION_TYPE } from "./../../contant";
 import TopBannerFilter from "./TopBannerFilter";
-import TransactionContent from './Container/TransactionContent';
+import TransactionContent from './Container/Main';
 
 const TransactionLevel = (props) => {
     const dispatch = useDispatch();
@@ -83,11 +82,6 @@ const TransactionLevel = (props) => {
     const isGetTransProductTypeListSuccess = transtion.transacProductTypeList.success;
     const transacProductTypeList = isGetTransProductTypeListSuccess ? transtion.transacProductTypeList.detail : null;
 
-    const [filterDataState, setFilterDataState] = useState({
-        inputSelectDatas: [],
-        sliderDatas: []
-    })
-
     const [productType, setProductTypeState] = useState(null)
     const [direction, setDirectionState] = useState(null)
     const [priceFrom, setPriceFromState] = useState(null)
@@ -99,45 +93,50 @@ const TransactionLevel = (props) => {
         dispatch(transactionAction.loadTransProductTypeList({}));
     }, []);
 
-    useEffect(() => {
-        var transProjectTypeDatas = [{ value: null, label: "project_all" }]
-        if (transacProductTypeList && transacProductTypeList != null && transacProductTypeList.length > 0) {
-            for (var i = 0; i < transacProductTypeList.length; i++) {
-                transProjectTypeDatas.push(
-                    {
-                        value: transacProductTypeList[i].architecture_id,
-                        label: transacProductTypeList[i].architecture_name
-                    }
-                )
-            }
-        }
-        setFilterDataState({
-            inputSelectDatas: [
-                { placeholder: "product_type", datas: transProjectTypeDatas, onChange: onProductTypeChange },
-                { placeholder: "house_direction", datas: DIRECTION_TYPE, onChange: onHouseDirectionChange, trans: "trans" }
-            ],
-            sliderDatas: [
-                { label: "price_range", unit: "project_billions_dong", onChange: onPriceRangeChange, min: 0, max: 100 },
-                { label: "area", unit: "project_area_unit", onChange: onAreaChange, min: 0, max: 1000 }
-            ]
-        })
-    }, [transacProductTypeList]);
-
     const onProductTypeChange = (value) => {
+        dispatch(transactionAction.TransactionLoadList({
+            project_id: projectInfoInit.projectId,
+            area_id: projectInfoInit.areaId,
+            block_id: projectInfoInit.blockId,
+            architecture_type_id: value,
+            direction_id: direction,
+            price_from: priceFrom,
+            price_to: priceTo,
+            acreage_from: acreageFrom,
+            acreage_to: acreageTo
+        }));
         setProductTypeState(value)
     }
     const onHouseDirectionChange = (value) => {
+        dispatch(transactionAction.TransactionLoadList({
+            project_id: projectInfoInit.projectId,
+            area_id: projectInfoInit.areaId,
+            block_id: projectInfoInit.blockId,
+            architecture_type_id: productType,
+            direction_id: value,
+            price_from: priceFrom,
+            price_to: priceTo,
+            acreage_from: acreageFrom,
+            acreage_to: acreageTo
+        }));
         setDirectionState(value)
     }
     const onPriceRangeChange = (value) => {
+        dispatch(transactionAction.TransactionLoadList({
+            project_id: projectInfoInit.projectId,
+            area_id: projectInfoInit.areaId,
+            block_id: projectInfoInit.blockId,
+            architecture_type_id: productType,
+            direction_id: direction,
+            price_from: value[0],
+            price_to: value[1],
+            acreage_from: acreageFrom,
+            acreage_to: acreageTo
+        }));
         setPriceFromState(value[0])
         setPriceToState(value[1])
     }
     const onAreaChange = (value) => {
-        setAcreageFromState(value[0])
-        setAcreageToState(value[1])
-    }
-    const onFilterClick = () => {
         dispatch(transactionAction.TransactionLoadList({
             project_id: projectInfoInit.projectId,
             area_id: projectInfoInit.areaId,
@@ -146,9 +145,11 @@ const TransactionLevel = (props) => {
             direction_id: direction,
             price_from: priceFrom,
             price_to: priceTo,
-            acreage_from: acreageFrom,
-            acreage_to: acreageTo
+            acreage_from: value[0],
+            acreage_to: value[1]
         }));
+        setAcreageFromState(value[0])
+        setAcreageToState(value[1])
     }
 
     const dataFilter = useSelector(state => state.transactionReducer.transactionList.detail)
@@ -166,10 +167,12 @@ const TransactionLevel = (props) => {
                 <TransactionContent
                     projectInfoInit={projectInfoInit}
                     dataFilter={dataFilter}
-                    inputSelectDatas={filterDataState.inputSelectDatas}
-                    sliderDatas={filterDataState.sliderDatas}
-                    onFilterClick={onFilterClick}
                     error={error}
+                    
+                    onProductTypeChange={onProductTypeChange}
+                    onHouseDirectionChange={onHouseDirectionChange}
+                    onPriceRangeChange={onPriceRangeChange}
+                    onAreaChange={onAreaChange}
                 />
             }
         </div>

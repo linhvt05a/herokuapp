@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Trans } from 'react-i18next';
-import CardNoData from '../../../../components/common/CardNoData';
+import CardNoData from '../../../components/common/CardNoData';
+import { formatCurrency } from "../../../functions/Utils";
 
-const Exchanges = (props) => {
+const BlockExchanges = (props) => {
     const { data } = props;
     const [activeIndex, setActiveIndex] = useState([])
 
@@ -23,7 +24,7 @@ const Exchanges = (props) => {
         setActiveIndex(temp)
     }
 
-    // console.log('Exchanges', data);
+    console.log('Exchanges', data);
 
     return (
 
@@ -89,7 +90,8 @@ const Exchanges = (props) => {
                                                     </div>
                                                 </div>
                                                 <div className="line line--4">
-                                                    <div className="left">{item_p.product_estimate_price}</div>
+                                                    <div className="left">
+                                                        {formatCurrency(item_p.product_estimate_price)}</div>
                                                     <div className="right">{item_p.product_estimate_price_unit_name}</div>
                                                 </div>
                                             </div>
@@ -105,4 +107,4 @@ const Exchanges = (props) => {
     )
 }
 
-export default Exchanges;
+export default BlockExchanges;

@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import HeadingPurplePromotion from '../../../../components/common/HeadingPurple/Promotion';
+import {Promotion} from '../../../components/common/HeadingPurple';
 
 const BlockPromotionPolicy = (props) => {
     const { data, heading, className } = props;
     return (
         <div className={className}>
-            { data.length > 0 ? <HeadingPurplePromotion data={data} heading={heading} /> : ''}
+            { data && data.list_promotion_policy && data.list_promotion_policy.length > 0 ? <Promotion data={data.list_promotion_policy} heading={heading} /> : ''}
         </div>
     )
 }

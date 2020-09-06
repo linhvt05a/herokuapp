@@ -43,12 +43,12 @@ const MenuLeft = (props) => {
                 </NavLink>
             </li>
             <li className={`item hasChild dropdown d-none d-md-block ${inHoverNav ? "open": ''}`} >
-                <div activeClassName="active"
+                <NavLink to="/" activeClassName="active"
                     onMouseEnter={() => setHoverNav(true)}
                     className="item-link dropdown-toggle cursor-pointer"
                 >
                     <Trans>header_menu_support</Trans>
-                </div>
+                </NavLink>
                 <ul className="header_menu--child dropdown-menu" onMouseLeave={() => setHoverNav(false)}>
                     <li className="item-child">
                         <NavLink activeClassName="active"
