@@ -1,10 +1,34 @@
-import React from 'react';
-import { SliderRange, SelectCustom } from '../base'
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from "react-redux";
+import { SliderRange, SelectCustom } from '../base';
 import { Trans } from 'react-i18next';
+import { productAction } from "../../store/action/index";
+import { DIRECTION_TYPE } from "../../contant";
+import { translate } from '../../functions/Utils'
 
 const CardInputSliderFilter = (props) => {
 
-    const { title, inputSelectDatas, sliderDatas, onFilterClick, filterWhite } = props
+    const { title, onProductTypeChange, onHouseDirectionChange, onPriceRangeChange, onAreaChange, filterWhite } = props
+    const product = useSelector(state => state.productReducer);
+    const isGetProductTypeListSuccess = product.productTypeList.success;
+    const productTypeList = isGetProductTypeListSuccess ? product.productTypeList.detail : null;
+    const dispatch = useDispatch();
+
+    const [productTypeMapDatas, setProductTypeMapDatasState] = useState(null)
+
+    useEffect(() => {
+        dispatch(productAction.loadProductTypeList({}));
+    }, []);
+
+    useEffect(() => {
+        var projectTypeDatas =[{value: null, label: translate("project_all")}] 
+        if (productTypeList && productTypeList != null && productTypeList.length > 0) {
+            for (var i = 0; i < productTypeList.length; i++) {
+                projectTypeDatas.push({value: productTypeList[i].architecture_id, label: productTypeList[i].architecture_name})
+            }
+        }
+        setProductTypeMapDatasState(projectTypeDatas)
+    }, [productTypeList]);
     
     return(
         <div className={filterWhite ? "map_search--content pd_search_content" : "searchProject"} style={filterWhite ? {maxWidth: "100%"} : undefined}>
@@ -21,59 +45,57 @@ const CardInputSliderFilter = (props) => {
             {
                 filterWhite ?
                 <div className="row">
-                    {
-                        inputSelectDatas && inputSelectDatas.map((item, index) => (
-                            <SelectCustom key={index} className="col-12 col-sm-12 col-md-6" placeholder={item.placeholder} datas={item.datas} onChange={item.onChange} trans={item.trans ? item.trans : undefined} />
-                        ))
-                    }
+                    <SelectCustom className="col-12 col-sm-12 col-md-6" placeholder="product_type" datas={productTypeMapDatas} onChange={onProductTypeChange} />
+                    <SelectCustom className="col-12 col-sm-12 col-md-6" placeholder="house_direction" datas={DIRECTION_TYPE} onChange={onHouseDirectionChange} trans />
                 </div> :
-                inputSelectDatas && inputSelectDatas.map((item, index) => (
-                    index === 0 ?
-                    <SelectCustom key={index} classNameGroup="form-group mt-3" placeholder={item.placeholder} datas={item.datas} onChange={item.onChange} trans={item.trans ? item.trans : undefined} /> :
-                    <SelectCustom key={index} placeholder={item.placeholder} datas={item.datas} onChange={item.onChange} trans={item.trans ? item.trans : undefined} />
-                ))
+                [
+                    <SelectCustom key={1} classNameGroup="form-group mt-3" placeholder="product_type" datas={productTypeMapDatas} onChange={onProductTypeChange} />,
+                    <SelectCustom key={2} placeholder="house_direction" datas={DIRECTION_TYPE} onChange={onHouseDirectionChange} trans />
+                ]
             }
-            {
-            sliderDatas &&
-                <div className={filterWhite ? "map_search--range mr_search_range" : "map_search--range"}>
-                    {
-                        filterWhite ?
-                        <div className="row">
-                            {
-                                sliderDatas.map((item, index) => (
-                                    <div className="col-12 col-sm-12 col-md-6" key={index}>
-                                        <div className="range_item price">
-                                            <label className="label">
-                                                <Trans>{item.label}</Trans>
-                                                {
-                                                    item.label.length > 10 ? <br /> : " "
-                                                }
-                                                <i>(<Trans>{item.unit}</Trans>)</i>
-                                            </label>
-                                            <SliderRange defaultValue={[0, 0]} onAfterChange={item.onAfterChange} min={item.min} max={item.max} />
-                                        </div>
-                                    </div>
-                                ))
-                            }
-                        </div> :
-                        sliderDatas.map((item, index) => (
-                            <div className="range_item price" key={index}>
+            <div className={filterWhite ? "map_search--range mr_search_range" : "map_search--range"}>
+                {
+                    filterWhite ?
+                    <div className="row">
+                        <div className="col-12 col-sm-12 col-md-6">
+                            <div className="range_item price">
                                 <label className="label">
-                                    <Trans>{item.label}</Trans>
-                                    {
-                                        item.label.length > 10 ? <br /> : " "
-                                    }
-                                    <i>(<Trans>{item.unit}</Trans>)</i>
+                                    <Trans>price_range</Trans>
+                                    <br />
+                                    <i>(<Trans>project_billions_dong</Trans>)</i>
                                 </label>
-                                <SliderRange defaultValue={[0, 0]} changeRange={item.onChange} min={item.min} max={item.max} />
+                                <SliderRange defaultValue={[0, 0]} onAfterChange={onPriceRangeChange} min={0} max={100} />
                             </div>
-                        ))
-                    }
-                </div>
-            }
-            {
-                !filterWhite && <a className="btn btn_green text-uppercase w-100" onClick={onFilterClick}><Trans>filter</Trans></a>
-            }
+                        </div>
+                        <div className="col-12 col-sm-12 col-md-6">
+                            <div className="range_item price">
+                                <label className="label">
+                                    <Trans>area</Trans>
+                                    <i>(<Trans>project_area_unit</Trans>)</i>
+                                </label>
+                                <SliderRange defaultValue={[0, 0]} onAfterChange={onAreaChange} min={0} max={1000} />
+                            </div>
+                        </div>
+                    </div> :
+                    [
+                        <div className="range_item price" key={3}>
+                            <label className="label">
+                                <Trans>price_range</Trans>
+                                <br />
+                                <i>(<Trans>project_billions_dong</Trans>)</i>
+                            </label>
+                            <SliderRange defaultValue={[0, 0]} onAfterChange={onPriceRangeChange} min={0} max={100} />
+                        </div>,
+                        <div className="range_item price" key={4}>
+                            <label className="label">
+                                <Trans>area</Trans>
+                                <i>(<Trans>project_area_unit</Trans>)</i>
+                            </label>
+                            <SliderRange defaultValue={[0, 0]} onAfterChange={onAreaChange} min={0} max={1000} />
+                        </div>
+                    ]
+                }
+            </div>
         </div>
     )
 }
