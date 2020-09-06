@@ -37,7 +37,7 @@ const CardHotProduct = (props) => {
                     {
                         options &&
                         <div className="text-center text-uppercase">
-                            <Link to="/hot_product/list" className="btn btn_purple"><Trans>see_all</Trans></Link>
+                            <Link to="/hot-product" className="btn btn_purple"><Trans>see_all</Trans></Link>
                         </div>
                     }
                     {
