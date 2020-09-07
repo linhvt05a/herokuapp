@@ -42,7 +42,6 @@ const NavRight = (props) => {
                         onMouseEnter={() => setHover(true)}
                         aria-expanded={inHover}>
                         <ImgLanguageSelected data={langCurrent} />
-
                         <i className="icon_arrow fas fa-chevron-down" />
                     </button>
                     <ul className="dropdown-menu pull-right" >

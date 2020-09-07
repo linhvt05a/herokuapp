@@ -72,7 +72,7 @@ const OnMapPoligon = props => {
         }
         setStateSubmit({ 
             ...statesubmit,
-            project_sale_group_type: newList 
+            project_sale_group_type: `[${newList}]`
         })
     }
     const search = useSelector(state => state.projectReducer);
@@ -88,7 +88,7 @@ const OnMapPoligon = props => {
             area_max: statesubmit.range_area[1],
             money_min: statesubmit.range_price[0],
             money_max: statesubmit.range_price[1],
-            project_sale_group_type: statesubmit.project_sale_group_type
+            project_sale_status: statesubmit.project_sale_group_type
         }));
     }
     
@@ -101,7 +101,7 @@ const OnMapPoligon = props => {
                         <div className="map_search--content_home">
                             <h2 className="heading"><Trans>search_project_by</Trans></h2>
                             <ListSelect data={provinceList} HandleCity={HandleCity} HandleDistrict={HandleDistrict} HandleDStatus={HandleDStatus}/>
-                            <InputRange 
+                            <InputRange
                                 changePrice={changePrice}
                                 valueArea={statesubmit.range_area} 
                                 valuePrice={statesubmit.range_price} 
