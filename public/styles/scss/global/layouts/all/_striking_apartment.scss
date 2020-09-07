@@ -1,15 +1,17 @@
-.striking_apartment{
-    &--content{
-        .item{
+.striking_apartment {
+    &--content {
+        .item {
             padding: 18px;
             padding-bottom: 20px;
             margin-bottom: 45px;
             position: relative;
             @include transition(all 0.2s ease);
-            @media (max-width: 767px){
+
+            @media (max-width: 767px) {
                 margin-bottom: 20px;
             }
-            &::before{
+
+            &::before {
                 position: absolute;
                 content: '';
                 background-color: #fff;
@@ -20,30 +22,37 @@
                 bottom: 0;
                 @include transition(all 0.2s ease);
             }
-            &:hover{
-                @include box-shadow( 0 0 30px 0 rgba(0,0,0,0.12));
-                img{
+
+            &:hover {
+                @include box-shadow(0 0 30px 0 rgba(0, 0, 0, 0.12));
+
+                img {
                     @include transform(scale(1.11));
                 }
-                &::before{
+
+                &::before {
                     height: 100%;
                 }
-                .actions{
+
+                .actions {
                     opacity: 1;
                     visibility: visible;
                 }
             }
         }
-        .image{
+
+        .image {
             max-height: 265px;
             overflow: hidden;
             position: relative;
             @include flex_center;
-            img{
+
+            img {
                 width: 100%;
                 @include transition(.3s ease-out all);
             }
-            .type{
+
+            .type {
                 background-color: #5480f9;
                 color: #ffffff;
                 font-size: 14px;
@@ -52,7 +61,8 @@
                 left: 0;
                 bottom: 0;
             }
-            .liked{
+
+            .liked {
                 position: absolute;
                 right: 15px;
                 top: 15px;
@@ -67,18 +77,21 @@
                 color: #ffffff;
                 z-index: 3;
                 cursor: pointer;
-                &.active{
+
+                &.active {
                     color: #e9c301;
                 }
             }
 
         }
-        .noted{
+
+        .noted {
             font-size: 10px;
             color: #6d30ab;
             padding-left: 3px;
         }
-        .heading{
+
+        .heading {
             padding-bottom: 15px;
             padding-top: 15px;
             margin-bottom: 15px;
@@ -86,13 +99,23 @@
             position: relative;
             border-bottom: 1px solid #E0E0E0;
             line-height: normal;
-            .name{
+
+            .name {
                 font-size: 20px;
                 @include fw-medium;
                 color: #0d0d0d;
                 margin-bottom: 0;
             }
-            .address{
+
+            .name_project {
+                font-size: 15px;
+                margin-top: 2px;
+                margin-bottom: 5px;
+                font-weight: normal;
+                color: #0d0d0d;
+            }
+
+            .address {
                 color: #9a9a9a;
                 font-size: 12px;
                 font-style: italic;
@@ -100,56 +123,70 @@
                 display: flex;
                 align-items: center;
             }
-            .top{
+
+            .top {
                 @include flexbox;
                 align-items: center;
                 justify-content: space-between;
                 margin-bottom: 0;
             }
-            .price{
+
+            .price {
                 font-size: 20px;
                 color: #e94c4c;
             }
-            
+
         }
-        .details{
+
+        .details {
             z-index: 1;
             position: relative;
             @include flexbox;
             @include flex_wrap(wrap);
-           
-            .child{
-                flex: 1;
-                @media(max-width:480px){
+            justify-content: space-between;
+            .child {
+
+                @media(max-width:480px) {
                     flex: 50%;
                     text-align: left !important;
                 }
-                &:not(:first-child){
+                @media (min-width: 992px) and (max-width: 1199px){
+                    flex: 50%;
+                    text-align: left !important;
+                }
+
+                &:not(:first-child) {
                     text-align: center;
                 }
-                &:first-child{
+
+                &:first-child {
                     white-space: nowrap;
                 }
             }
-            .icon{
+
+            .icon {
                 color: #9ea9bb;
                 font-size: 15px;
                 padding-right: 4px;
             }
-            .fa-money-bill-wave{
+
+            .fa-money-bill-wave {
                 font-size: 13px;
             }
-            .text{
+
+            .text {
                 font-size: 14px;
                 color: #0d0d0d;
                 letter-spacing: -0.5px;
             }
-            .price{
+
+            .price {
                 color: #e94c4c;
-                font-style:normal
+                font-style: normal
             }
         }
-        .link{
+
+        .link {
             position: absolute;
             left: 0;
             right: 0;
@@ -158,10 +195,12 @@
             height: 100%;
             z-index: 2;
         }
-        .btn{
+
+        .btn {
             min-width: 160px;
         }
-        .actions{
+
+        .actions {
             @include flex_center;
             // -webkit-backdrop-filter: blur(2px);
             // backdrop-filter: blur(2px);
@@ -170,16 +209,16 @@
             width: 100%;
             height: 100%;
             top: 50%;
-            
+
             left: 0;
             z-index: 1;
-            
+
             opacity: 0;
             visibility: hidden;
             @include transform(translateY(-50%));
             @include transition(all 0.3s ease);
 
-            .btn{
+            .btn {
                 max-width: 140px;
                 min-width: auto;
                 padding: 12px 15px;
@@ -187,55 +226,66 @@
                 margin-right: 10px;
             }
         }
-        .price{
+
+        .price {
             position: relative;
             margin-top: 5px;
-            &__label{
+
+            &__label {
                 font-size: 14px;
                 color: #0d0d0d;
             }
-            &__wrap{
+
+            &__wrap {
                 @include flexbox;
                 @include flex_wrap(wrap);
                 @include align-items(center);
                 @include justify-content(space-between);
             }
-            &__item{
+
+            &__item {
                 line-height: normal;
-                .btn{
+
+                .btn {
                     min-width: 110px;
                     padding: 10px;
                     margin-top: 5px;
                 }
             }
-            &__discount{
+
+            &__discount {
                 @include fw-medium;
                 font-size: 26px;
                 color: #e94c4c;
             }
-            &__origin{
+
+            &__origin {
                 font-size: 16px;
                 color: #e94c4c;
             }
-            .value{
+
+            .value {
                 font-size: 18px;
                 color: #9a9a9a;
                 text-decoration: line-through;
                 padding-right: 10px;
             }
-            .noted{
+
+            .noted {
                 font-size: 10px;
                 color: #6d30ab;
             }
         }
-        .img_promotion{
+
+        .img_promotion {
             position: absolute;
             right: 0;
             bottom: 0;
             max-width: 140px;
             width: 100%;
         }
-        .slick-arrow{
+
+        .slick-arrow {
             position: absolute;
             opacity: 1;
             width: 42px;
@@ -243,7 +293,8 @@
             background-color: rgba(0, 0, 0, 0.45);
             z-index: 1;
             top: 45%;
-            &::before{
+
+            &::before {
                 position: absolute;
                 font-size: 29px;
                 color: #fff;
@@ -252,19 +303,23 @@
                 opacity: 1;
                 top: 50%;
                 left: 50%;
-                @include transform(translate(-50%,-50%));
+                @include transform(translate(-50%, -50%));
             }
 
         }
-        .slick-prev{
+
+        .slick-prev {
             left: 0;
-            &::before{
+
+            &::before {
                 content: "\f104";
             }
         }
-        .slick-next{
+
+        .slick-next {
             right: 0;
-            &::before{
+
+            &::before {
 
                 content: "\f105";
             }

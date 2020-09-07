@@ -4,7 +4,7 @@ import { Trans } from 'react-i18next';
 
 const CardCartSummary = (props) => {
 
-    const { extend } = props
+    const { extend, visible, showPaymentProgressModal } = props
 
     return (
         <div className="cart-expenses mb-45 ">
@@ -37,25 +37,25 @@ const CardCartSummary = (props) => {
             {
                 extend &&
                 <div className="temporary-product bg_white">
-                <div className="temporary-product__title fw-bold uni-text-6d30ab">
-                    <Trans>cart_product_provisional</Trans> (20)
+                    <div className="temporary-product__title fw-bold uni-text-6d30ab">
+                        <Trans>cart_product_provisional</Trans> (20)
                 </div>
-                <div className="temporary-product__product">
-                    <div className="pd_scroll">
-                        <ul>
-                            <li>
-                                <div className="temporary-product__list">
-                                    <span className="temporary-product__department">Căn hộ B6 - F01</span>
-                                    <span className="temporary-product__price fw-bold">1.333.677.000</span>
-                                </div>
-                            </li>
-                        </ul>
+                    <div className="temporary-product__product">
+                        <div className="pd_scroll">
+                            <ul>
+                                <li>
+                                    <div className="temporary-product__list">
+                                        <span className="temporary-product__department">Căn hộ B6 - F01</span>
+                                        <span className="temporary-product__price fw-bold">1.333.677.000</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div className="text-center mt-2">
+                        <a className="btn btn_purple text-uppercase" onClick={() => showPaymentProgressModal(!visible)}><Trans>cart_deposit_proceed</Trans></a>
                     </div>
                 </div>
-                <div className="text-center mt-2">
-                    <a className="btn btn_purple text-uppercase"><Trans>cart_deposit_proceed</Trans></a>
-                </div>
-            </div>
             }
         </div>
     )

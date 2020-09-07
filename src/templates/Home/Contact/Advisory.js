@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import {withTranslation ,Trans } from "react-i18next";
+import { withTranslation, Trans } from "react-i18next";
 import { Link } from "react-router-dom";
 import { contactAddAction } from "../../../store/action/index";
 import { Input, Form, Button } from 'antd';
@@ -10,18 +10,18 @@ const Advisory = (props) => {
     let { t } = props;
     const FormItem = Form.Item;
     const [formInfo] = Form.useForm();
-    
+
     const validatorInfo = {
-        fullname : {
-            form : [
+        fullname: {
+            form: [
                 {
-                    required: true, 
-                    message: 'Missing information require!' ,
+                    required: true,
+                    message: 'Missing information require!',
                 }
             ],
         },
-        email : {
-            form : [
+        email: {
+            form: [
                 {
                     type: 'email',
                     message: 'The input is not valid E-mail!',
@@ -31,24 +31,27 @@ const Advisory = (props) => {
                     message: 'Missing information require!',
                 },
             ],
-            type:'email'
+            type: 'email'
         },
-        question : {
-            form : [
+        question: {
+            form: [
                 {
-                    required: true, 
-                    message: 'Missing information require!' 
+                    required: true,
+                    message: 'Missing information require!'
                 }
             ],
-            type:'text'
+            type: 'text'
         },
     }
-    
-    formInfo.setFieldsValue({
-        email: "",
-        fullname: "",
-        question: "",
-    });
+
+    useEffect(() => {
+        formInfo.setFieldsValue({
+            email: "",
+            fullname: "",
+            question: "",
+        });
+    }, []);
+
     const dispatch = useDispatch();
     const advisory = useSelector(state => state.contactAddReducer);
     const advisoryAddSuccess = advisory.advisoryAdd.success;
@@ -75,7 +78,7 @@ const Advisory = (props) => {
                     <div className="phone">1900 - 123 - 456</div>
                 </div>
                 <div className="contact--right">
-                    <Form noValidate 
+                    <Form noValidate
                         form={formInfo}
                         onFinish={onSubmitAdvisory}
                         name="form-advisory">
@@ -88,29 +91,29 @@ const Advisory = (props) => {
                                 <Input placeholder={t('email')} type={validatorInfo.email.type} className="form-control" />
                             </FormItem>
                             <FormItem className="col-12 form-group" name="question" rules={validatorInfo.question.form}>
-                                <Input.TextArea placeholder={t('please_enter_the_content')} type={validatorInfo.question.type} className="form-control"  />
+                                <Input.TextArea placeholder={t('please_enter_the_content')} type={validatorInfo.question.type} className="form-control" />
                             </FormItem>
                             <FormItem shouldUpdate className="text-center submit contact--footer" style={{ padding: "0 15px" }}>
                                 {() => {
                                     return (
-                                        <Button className="btn btn_green" htmlType="Submit" style={{float: "left"}}
+                                        <Button className="btn btn_green" htmlType="Submit" style={{ float: "left" }}
                                             disabled={
                                                 formInfo.getFieldsError().filter(({ errors }) => errors.length).length
                                             }
                                         >
                                             <Trans>send_message</Trans>
                                         </Button>
-                                        )
+                                    )
                                 }}
                             </FormItem>
                         </div>
                     </Form>
-                    { advisoryList && advisoryList != null ? 
+                    {advisoryList && advisoryList != null ?
                         <div className="contact--footer">
                             <span className="noti">
                                 <Trans>home_message_advisory</Trans>
                             </span>
-                        </div>: ""
+                        </div> : ""
                     }
                 </div>
             </div>

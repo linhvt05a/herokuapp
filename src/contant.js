@@ -1,5 +1,5 @@
 const IMAGE_URL = "../"
-const IMAGE_LOGO = "http://superapp.minerva.vn:9210/static/img/default_image_minerva.png"
+const IMAGE_LOGO = "../images/default_image_minerva.png"
 const PHONE_NUMBER = "1900 - 123 - 456"
 
 const PROJECT_STATUS = [

@@ -19,7 +19,7 @@ const ItemProjectProduct = (props) => {
         <div className="block-more-apartment">
             <div className="block-show-apartment">
                 <div className="apartment__img-area">
-                    <InputCheckboxViolet />
+                    <InputCheckboxViolet checked={props.checked} onChange={props.onChange} />
                     <figure className="block-img">
                         <i className="liked active fas fa-heart" />
                         <img src="../images/intro_project_6.jpg" className="img-fluid img" alt="Căn hộ Saigon Royal" />
@@ -66,7 +66,7 @@ const ItemProjectProduct = (props) => {
                                 </p>
                                 <p className="child mb-0 icon-description">
                                     <i className="icon fas fa-bed" />
-                                        <span className="text">2</span>
+                                    <span className="text">2</span>
                                 </p>
                             </div>
                             <div className="content_pay">

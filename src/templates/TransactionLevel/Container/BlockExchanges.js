@@ -24,6 +24,8 @@ const BlockExchanges = (props) => {
         setActiveIndex(temp)
     }
 
+    // console.log('exchange:', data);
+
     return (
 
         <div className="exchanges_apartment">
@@ -41,35 +43,31 @@ const BlockExchanges = (props) => {
                                             <Trans>product_total</Trans>: {item.total_product}
                                         </div>
                                     </div>
-                                    <div className="filter sales_status_cart_bg_03" onClick={(e) => handleClick(5, index)}>
+                                    <div className="filter sales_status_cart_bg_05" onClick={() => handleClick(5, index)}>
                                         <Trans>product_status_sold</Trans>: {item.total_sold_product}
                                     </div>
-                                    <div className="filter sales_status_cart_bg_02" onClick={(e) => handleClick(4, index)}>
+                                    <div className="filter sales_status_cart_bg_04" onClick={() => handleClick(4, index)}>
                                         <Trans>product_status_deposit</Trans>: {item.total_booking_product}
                                     </div>
-                                    <div className="filter sales_status_cart_bg_05" onClick={(e) => handleClick(3, index)}>
+                                    <div className="filter sales_status_cart_bg_03" onClick={() => handleClick(3, index)}>
                                         <Trans>product_status_selling</Trans>: {item.total_selling_product}
                                     </div>
-                                    <div className="filter sales_status_cart_bg_04" onClick={(e) => handleClick(2, index)}>
+                                    <div className="filter sales_status_cart_bg_02" onClick={() => handleClick(2, index)}>
                                         <Trans>product_status_not_yet_sold</Trans>: {item.total_not_sold_yet_product}
                                     </div>
                                 </div>
                                 <div className="exchanges_apartment--content">
                                     {
-                                    // console.log(activeIndex),
+                                        console.log(index),
                                         item.list_product && item.list_product != null && item.list_product.length > 0 ?
                                             item.list_product.map((item_p, i) => (
                                                 <div key={i}
-                                                    className={"exchanges_apartment--child" + (
-                                                        item_p.product_status_id == 2 ? " sales_status_02" :
-                                                        item_p.product_status_id == 3 ? " sales_status_03" :
-                                                        item_p.product_status_id == 4 ? " sales_status_04" :
-                                                        item_p.product_status_id == 5 ? " sales_status_05" : " sales_status_02") +
-                                                        (activeIndex[index] != -1 ? activeIndex[index] == item_p.product_status_id ? " show" : " hide" : " show")}
+                                                    className={"exchanges_apartment--child sdfa sales_status_0" + item_p.product_status_id  +
+                                                        (activeIndex[index] != -1 ? activeIndex[index] == item_p.product_status_id ? " unShaded" : " shaded" : " unShaded")}
                                                 >
                                                     <div className="line line--1">
-                                                        <div className="left"><a href="#" className="link">{item_p.product_name}</a></div>
-                                                        <div className="right">{item_p.product_architecture_type_name}</div>
+                                                        <div className="left"><a href={`product/` + item_p.product_id} className="link">{item_p.product_name}</a></div>
+                                                        <div className="right">{item_p.product_architecture_type_name ? item_p.product_architecture_type_name : '-'}</div>
                                                     </div>
                                                     <div className="line line--2">
                                                         <div className="left">{item_p.product_acreage} {item_p.product_acreage_unit_name} </div>
@@ -80,22 +78,34 @@ const BlockExchanges = (props) => {
                                                             <div className="w-50 d-flex align-items-center">
                                                                 <span className="icon w-100 fas fa-user-clock">
                                                                     <i className="number">
-                                                                        {item_p.product_total_watcher > 9 ? (item_p.product_total_watcher + '+') : item_p.product_total_watcher}
+                                                                        {item_p.product_total_watcher > 9 ? (9 + '+') : item_p.product_total_watcher}
                                                                     </i>
                                                                 </span>
                                                             </div>
                                                             <div className="w-50 d-flex align-items-center">
                                                                 <span className="icon w-100 fas fa-heart">
                                                                     <i className="number">
-                                                                        {item_p.product_total_lover > 9 ? (item_p.product_total_lover + '+') : item_p.product_total_lover}
+                                                                        {item_p.product_total_lover > 9 ? (9 + '+') : item_p.product_total_lover}
                                                                     </i>
                                                                 </span>
                                                             </div>
                                                         </div>
                                                         <div className="right">
-                                                            <span className="direction">
-                                                                {item_p.product_direction_name ? item_p.product_direction_name : 'Null'}
-                                                            </span>
+                                                            {   
+                                                                item_p.list_product_direction && item_p.list_product_direction.length > 0 
+                                                                    ? item_p.list_product_direction.map((value, index) =>{
+                                                                        return ( 
+                                                                            <div key={index}>
+                                                                                <span className="direction">
+                                                                                    {value.product_direction_name}
+                                                                                </span>
+                                                                                { (index + 1) ===  item_p.list_product_direction.length ? '' : '-'}
+                                                                            </div> 
+                                                                        )
+                                                                    })
+                                                                    : '-'
+                                                            }
+                                                            
                                                         </div>
                                                     </div>
                                                     <div className="line line--4">

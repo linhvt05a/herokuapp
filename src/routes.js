@@ -25,14 +25,18 @@ import FlashSaleList from './templates/Promotion/FlashSaleList';
 import PromotionList from './templates/Promotion/PromotionList';
 
 import Account from "./templates/Account/CustomerAccount";
-import Cart from "./templates/ShopCart/Cart";
+
 import PropertySelling from "./templates/PolicyPayment/PropertySelling";
 import LoanPolicy from "./templates/LoanOnline/LoanPolicy";
+
+import Introduce from "./templates/Support/Introduce/Introduce";
+import Contact from "./templates/Support/Contact/Contact";
+//shipping Cart
+import Cart from "./templates/ShopCart/Cart";
 import CustomerInfo from "./templates/ShopCart/CustomerInfo";
 import ConfirmOrderInfo from "./templates/ShopCart/ConfirmOrderInfo";
 import DepositPayment from "./templates/ShopCart/DepositPayment";
-import Introduce from "./templates/Support/Introduce/Introduce";
-import Contact from "./templates/Support/Contact/Contact";
+import OrderInfo from "./templates/ShopCart/OrderInfo"
 
 const home_banner_url = '../images/project.jpg';
 const introduce_banner_url = '../images/project.jpg';
@@ -108,7 +112,7 @@ const MAIN = [
         "component": ProductDetail,
         "banner_title": "project_banner_title",
         "banner_url": project_banner_url,
-        "banner_show": true,
+        "banner_show": false,
         "banner_class": ''
     },
     {
@@ -255,6 +259,13 @@ const MAIN = [
     {
         "path": "/cart/deposit-payment",
         "component": DepositPayment,
+        "banner_title": "cart",
+        "banner_url": cart_banner_url,
+        "banner_show": true
+    },
+    {
+        "path": "/cart/orderinfo",
+        "component": OrderInfo,
         "banner_title": "cart",
         "banner_url": cart_banner_url,
         "banner_show": true

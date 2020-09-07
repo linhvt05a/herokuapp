@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Modal } from 'antd';
-import { CardPaymentProgressModal, CardPromotionModal, CardAccountModal } from '../../../templates/ShopCart/Layout'
+import { CardPaymentProgressModal, CardPromotionModal, CardAccountModal, CardNotificationModal } from '../../../templates/ShopCart/Layout'
 
 
 const ModalCustom = (props) => {
 
-    const { visible, widthModal, showPaymentProgressModal, showPromotionModal, showAccountModal, dataInput, dataOutput } = props
+    const { visible, widthModal, showPaymentProgressModal, showPromotionModal, showAccountModal, showNotification, dataOutput, onNext } = props
     const [isClearData, setClearData] = useState(false)
 
     const handleCancel = () => {
@@ -16,32 +16,39 @@ const ModalCustom = (props) => {
             showPromotionModal(false)
         } else if (showAccountModal) {
             showAccountModal(false)
+        } else if (showNotification) {
+            showNotification(false)
         }
     };
 
     const afterClearData = () => {
         setClearData(false)
     }
-
+    let status = true
     return (
         <Modal
             visible={visible}
             onCancel={handleCancel}
-            width={widthModal}>
+            style={{ maxWidth: widthModal }}>
 
             {
                 showPaymentProgressModal &&
-                <CardPaymentProgressModal onSaveClick={dataOutput} clearData={afterClearData} isClearData={isClearData} />
+                <CardPaymentProgressModal onSaveClick={dataOutput} clearData={afterClearData} isClearData={isClearData} onNext={onNext} />
             }
-            
+
             {
                 showPromotionModal &&
-                <CardPromotionModal onSaveClick={dataOutput} clearData={afterClearData} isClearData={isClearData} />
+                <CardPromotionModal onSaveClick={dataOutput} clearData={afterClearData} isClearData={isClearData} onNext={onNext} />
             }
 
             {
                 showAccountModal &&
-                <CardAccountModal clearData={afterClearData} isClearData={isClearData} />
+                <CardAccountModal clearData={afterClearData} isClearData={isClearData} onNext={onNext} />
+            }
+
+            {
+                showNotification &&
+                <CardNotificationModal status={status} onNext={() => { return status ? null : showNotification(false) }} />
             }
 
         </Modal>

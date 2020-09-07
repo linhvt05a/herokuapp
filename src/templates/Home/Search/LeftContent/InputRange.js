@@ -6,7 +6,7 @@ import { SliderRange } from "../../../../components/base";
 import { commonAction } from "../../../../store/action";
 
 const InputRange = (props) => {
-    let { active, changePrice, changeAcreage } = props;
+    let { active, valueArea, valuePrice, changePrice, changeAcreage } = props;
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(commonAction.loadMinMaxList({}))
@@ -23,7 +23,7 @@ const InputRange = (props) => {
                     <Trans>range_of_price</Trans>
                 </label>
                 <div className="slider-wrapper">
-                    <SliderRange defaultValue={[minmaxList.price_min, minmaxList.price_max]} min={0} max={200000000000} range={true} changeRange={changePrice} />
+                    <SliderRange data={valuePrice} defaultValue={[minmaxList.price_min, minmaxList.price_max]} min={0} max={200000000000} range={true} changeRange={changePrice} />
                 </div>
             </div>
             <div className="range_item area">
@@ -31,7 +31,7 @@ const InputRange = (props) => {
                     <Trans>range_of_area</Trans> (m<sup>2</sup>)
                 </label>
                 <div className="slider-wrapper">
-                    <SliderRange defaultValue={[minmaxList.area_min, minmaxList.area_max]} min={0} max={1000000} range={true} changeRange={changeAcreage} />
+                    <SliderRange data={valueArea} defaultValue={[minmaxList.area_min, minmaxList.area_max]} min={0} max={1000000} range={true} changeRange={changeAcreage} />
                 </div>
             </div>
         </div>

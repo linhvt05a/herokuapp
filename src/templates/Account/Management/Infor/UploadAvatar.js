@@ -17,7 +17,7 @@ const UploadAvatar = (props) => {
             };
             reader.readAsDataURL(file);
         }
-        handleUploadAvatar(file.name);
+        handleUploadAvatar(file);
     }
     return (
         <div class="avatar">
@@ -30,7 +30,7 @@ const UploadAvatar = (props) => {
                     <img class="uploaded_avatar" src={avatar} alt="avatar" ref={uploadedImage}/>
                 </div>
 
-                <input class="upload" type="file" accept="image/*" onChange={handleImageUpload} ref={imageUploader} />
+                <input class="upload" type="file" accept="image/x-png,image/gif,image/jpeg,image/jpg" onChange={handleImageUpload} ref={imageUploader} />
             </div>
             <div class={`upload_again ${avatar == null ? "d-none" : ""}`}>
                 <i class="icon fas fa-camera-retro"></i>
