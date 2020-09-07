@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Trans } from 'react-i18next';
+import { formatCurrency } from '../../../../functions/Utils';
 
 const Exchanges = (props) => {
-    const {data} = props;
-    const {activeIndex, setActiveIndex} = useState(null)
+    const { data } = props;
+    const { activeIndex, setActiveIndex } = useState(null)
 
     const handleClick = (status) => {
         setActiveIndex(status)
@@ -38,44 +39,44 @@ const Exchanges = (props) => {
                             </div>
                         </div>
                         <div className="exchanges_apartment--content">
-                        {
-                            item.list_product && item.list_product !=null && item.list_product.length >0 ?
-                            item.list_product.map((item_p, i) => (
-                                <div key={i} 
-                                    className={"exchanges_apartment--child" + (
-                                        item_p.product_status_id == 2 ? " sales_status_02" :
-                                        item_p.product_status_id == 3 ? " sales_status_03" :
-                                        item_p.product_status_id == 4 ? " sales_status_04" :
-                                        item_p.product_status_id == 5 ? " sales_status_05" : " sales_status_02") + 
-                                        (activeIndex == null ? "" : activeIndex == item_p.product_status_id ? " show":" hide")}>
-                                    <div className="line line--1">
-                                        <div className="left"><a href="#" className="link">{item_p.product_name}</a></div>
-                                        <div className="right">{item_p.product_architecture_type_name}</div>
-                                    </div>
-                                    <div className="line line--2">
-                                        <div className="left">{item_p.product_acreage} {item_p.product_acreage_unit_name} </div>
-                                        <div className="right">{item_p.product_total_bathroom}</div>
-                                    </div>
-                                    <div className="line line--3">
-                                        <div className="left">
-                                            <span className="icon fas fa-user-clock">
-                                                <i className="number">{item_p.product_total_watcher}</i>
-                                            </span>
-                                            <span className="icon fas fa-heart">
-                                                <i className="number">{item_p.product_total_lover}+</i>
-                                            </span>
+                            {
+                                item.list_product && item.list_product != null && item.list_product.length > 0 ?
+                                    item.list_product.map((item_p, i) => (
+                                        <div key={i}
+                                            className={"exchanges_apartment--child" + (
+                                                item_p.product_status_id == 2 ? " sales_status_02" :
+                                                    item_p.product_status_id == 3 ? " sales_status_03" :
+                                                        item_p.product_status_id == 4 ? " sales_status_04" :
+                                                            item_p.product_status_id == 5 ? " sales_status_05" : " sales_status_02") +
+                                                (activeIndex == null ? "" : activeIndex == item_p.product_status_id ? " show" : " hide")}>
+                                            <div className="line line--1">
+                                                <div className="left"><a href="#" className="link">{item_p.product_name}</a></div>
+                                                <div className="right">{item_p.product_architecture_type_name}</div>
+                                            </div>
+                                            <div className="line line--2">
+                                                <div className="left">{item_p.product_acreage} {item_p.product_acreage_unit_name} </div>
+                                                <div className="right">{item_p.product_total_bathroom}</div>
+                                            </div>
+                                            <div className="line line--3">
+                                                <div className="left">
+                                                    <span className="icon fas fa-user-clock">
+                                                        <i className="number">{item_p.product_total_watcher}</i>
+                                                    </span>
+                                                    <span className="icon fas fa-heart">
+                                                        <i className="number">{item_p.product_total_lover}+</i>
+                                                    </span>
+                                                </div>
+                                                <div className="right">
+                                                    <Trans>{item_p.product_direction_id == 1 ? "ĐB" : item_p.product_direction_id == 2 ? "TN" : item_p.product_direction_id == 3 ? "DN" : item_p.product_direction_id == 4 ? "TB" : "TB"}</Trans>
+                                                </div>
+                                            </div>
+                                            <div className="line line--4">
+                                                <div className="left">{formatCurrency(item_p.product_estimate_price)}</div>
+                                                <div className="right">{item_p.product_estimate_price_unit_name}</div>
+                                            </div>
                                         </div>
-                                        <div className="right">
-                                            <Trans>{item_p.product_direction_id == 1 ? "ĐB" : item_p.product_direction_id == 2 ? "TN" : item_p.product_direction_id == 3 ? "DN" : item_p.product_direction_id == 4 ? "TB" : "TB"}</Trans>
-                                        </div>
-                                    </div>
-                                    <div className="line line--4">
-                                        <div className="left">{item_p.product_estimate_price}</div>
-                                        <div className="right">{item_p.product_estimate_price_unit_name}</div>
-                                    </div>
-                                </div> 
-                            )): ""
-                        }
+                                    )) : ""
+                            }
                         </div>
                     </div>
 

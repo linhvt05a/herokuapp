@@ -31,17 +31,17 @@ const ModalCustom = (props) => {
 
             {
                 showPaymentProgressModal &&
-                <CardPaymentProgressModal onSaveClick={dataOutput} clearData={afterClearData} isClearData={isClearData} />
+                <CardPaymentProgressModal onSaveClick={dataOutput} clearData={afterClearData} isClearData={isClearData} onNext={() => showPromotionModal(true)} />
             }
-            
+
             {
                 showPromotionModal &&
-                <CardPromotionModal onSaveClick={dataOutput} clearData={afterClearData} isClearData={isClearData} />
+                <CardPromotionModal onSaveClick={dataOutput} clearData={afterClearData} isClearData={isClearData} onNext={() => showAccountModal(true)} />
             }
 
             {
                 showAccountModal &&
-                <CardAccountModal clearData={afterClearData} isClearData={isClearData} />
+                <CardAccountModal clearData={afterClearData} isClearData={isClearData} onNext={() => showAccountModal(false)} />
             }
 
         </Modal>

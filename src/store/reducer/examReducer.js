@@ -2,7 +2,7 @@ import { examAction } from '../action';
 
 const initialState = {
     List: [],
-
+    showChat: false
 };
 
 export default (state = initialState, action) => {
@@ -14,6 +14,11 @@ export default (state = initialState, action) => {
                 isFetching: true,
                 isLoadingList: false,
             };
+        case examAction.LOAD_CHAT:
+            return {
+                ...state,
+                showChat: !action.params
+            }
         default:
             return state;
     }

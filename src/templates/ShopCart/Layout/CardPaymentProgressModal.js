@@ -62,8 +62,8 @@ const CardPaymentProgressModal = (props) => {
                     </div>
                     <div className="form-group">
                         <label className="col-form-label fw-medium modal_label_pay "><Trans>cart_deposit_amount</Trans>
-                        <span className="fw-normal"> (<Trans>cart_dong</Trans>)</span></label>
-                        <Input disabled value="100.000.000" type="text" className="form-control modal_color_red" /> 
+                            <span className="fw-normal"> (<Trans>cart_dong</Trans>)</span></label>
+                        <Input disabled value="100.000.000" type="text" className="form-control modal_color_red" />
                     </div>
                     <div className="form-group">
                         <label className="col-form-label fw-medium modal_label_pay "><Trans>cart_payment_progress</Trans></label>
@@ -82,12 +82,12 @@ const CardPaymentProgressModal = (props) => {
                     </div>
                     <div className="form-group">
                         <label className="col-form-label fw-medium modal_label_pay"><Trans>cart_discount_amount_1</Trans>
-                        <span className="fw-normal"> (<Trans>cart_dong</Trans>)</span></label>
+                            <span className="fw-normal"> (<Trans>cart_dong</Trans>)</span></label>
                         <Input disabled value="150.000.000" type="text" className="form-control modal_color_red" />
                     </div>
                     <div className="form-group">
                         <label className="col-form-label fw-medium modal_label_pay"><Trans>cart_payment_amount</Trans>
-                        <span className="fw-normal "> (<Trans>cart_dong</Trans>)</span></label>
+                            <span className="fw-normal "> (<Trans>cart_dong</Trans>)</span></label>
                         <Input disabled value="2.850.000.000" type="text" className="form-control modal_color_red" />
                     </div>
                     <div className="form-group mb-0 text-center">

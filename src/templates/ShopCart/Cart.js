@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Trans } from 'react-i18next';
-import { CardCartProductList, CardCartSummary } from './Layout/index'
-import ModalCustom from '../../components/base/Modal/ModalCustom'
+import { CardCartProductList, CardCartSummary } from './Layout/index';
+import ModalCustom from '../../components/base/Modal/ModalCustom';
 
 const Cart = (props) => {
 
@@ -14,21 +14,27 @@ const Cart = (props) => {
     const showPaymentProgressModal = (isShow) => {
         setState({
             ...state,
-            paymentProgressModalVisible: isShow
+            paymentProgressModalVisible: isShow,
+            promotionModalVisible: false,
+            accountModalVisible: false
         })
     }
 
     const showPromotionModal = (isShow) => {
         setState({
             ...state,
-            promotionModalVisible: isShow
+            paymentProgressModalVisible: false,
+            promotionModalVisible: isShow,
+            accountModalVisible: false
         })
     }
 
     const showAccountModal = (isShow) => {
         setState({
             ...state,
-            accountModalVisible: isShow
+            accountModalVisible: isShow,
+            promotionModalVisible: false,
+            accountModalVisible: false
         })
     }
 
@@ -66,7 +72,7 @@ const Cart = (props) => {
                 <div className="row">
                     <CardCartProductList showPaymentProgressModal={showPaymentProgressModal} showPromotionModal={showPromotionModal} />
                     <div className="col-12 col-sm-12 col-lg-4">
-                        <CardCartSummary extend />
+                        <CardCartSummary extend showPaymentProgressModal={showPaymentProgressModal} visible={state.paymentProgressModalVisible} />
                     </div>
                 </div>
             </div>
