@@ -1,12 +1,11 @@
 import React from "react";
-import TopBanner from "../../../components/common/Header/TopBanner";
 import {LeftContent, RightContent} from './index'
 import { useDispatch, useSelector } from "react-redux";
 import RightContact from "./RightContact";
 import { contactAddAction } from "../../../store/action/index";
 
 const Contact = (props) => {
-  const contact = useSelector(state => state.contactReducer);
+  const contact = useSelector(state => state.contactAddReducer);
   const contactAddSuccess = contact.contactAdd.success;
   const contactList = contactAddSuccess ? contact.contactAdd.detail : null;
   const dispatch = useDispatch();
@@ -16,7 +15,7 @@ const Contact = (props) => {
     contactEmail:'',
     contactContent:''
   }
-  const {contactValues, contactErrors, handleChangeContact, handleContactRegister} = useFormContact(contactValue, validateContact)
+  // const {contactValues, contactErrors, handleChangeContact, handleContactRegister} = useFormContact(contactValue, validateContact)
   
   const ContactRegister = values => {
     // console.log('Success:', values);
