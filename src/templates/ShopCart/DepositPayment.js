@@ -1,9 +1,22 @@
 import React from 'react';
 import { Trans } from 'react-i18next';
 import { CardCartSummary, CardCollapseProductList, CardPayments } from './Layout'
+import { useHistory } from 'react-router-dom';
 
 const DepositPayment = (props) => {
+    let history = useHistory();
 
+    const [checked, setChecked] = React.useState({
+        credit: false,
+        debit: false,
+        transfer: false
+    })
+    const disableConfirm = () => {
+        if (checked.credit || checked.debit || checked.transfer) {
+            return false
+        }
+        return true
+    }
     return (
         <div className="main-cart bg_grey">
             <div className="container container-sm container-md">
@@ -11,10 +24,14 @@ const DepositPayment = (props) => {
                     <span><Trans>cart_deposit_payment</Trans></span>
                 </h2>
                 <div className="row">
-                <div className="col-12 col-sm-12 col-lg-8 main-cart__payment mb-4">
-                        <CardPayments />
+                    <div className="col-12 col-sm-12 col-lg-8 main-cart__payment mb-4">
+                        <CardPayments checked={checked} setChecked={setChecked} />
                         <div class="text-right mt-2">
-                            <a class="btn btn_purple text-uppercase"><Trans>button_confirm</Trans></a>
+                            <button
+                                class="btn btn_purple text-uppercase"
+                                disabled={disableConfirm()}
+                                onClick={() => history.push("/cart/orderinfo")}
+                            ><Trans>button_confirm</Trans></button>
                         </div>
                     </div>
                     <div className="col-12 col-sm-12 col-lg-4">
