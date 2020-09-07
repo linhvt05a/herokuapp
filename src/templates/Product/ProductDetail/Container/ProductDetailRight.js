@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Trans } from 'react-i18next';
-import {formatCurrency} from '../../../../functions/Utils'
+import { formatCurrency } from '../../../../functions/Utils'
 import { IMAGE_URL } from '../../../../contant'
 
 
@@ -16,16 +16,17 @@ const ProductDetailRight = (props) => {
                     <span class="text">Giá niêm yết (đồng)
                         <i class="icon_info fas fa-info-circle"></i>
                     </span>
-                    {/* <span className="number">
-                        {formatCurrency(parseInt(item.price)) + item.price_unit_name}
-                    </span> 
+                    <span className="number">
+                        {formatCurrency(parseInt(data.product_estimate_price))}{data.product_estimate_price_master_unit}
+                    </span>
                     <span className="number_origin">
-                        <i className="number_origin_price">{item.estimate_price}{item.price_unit_name}</i>
-                        <i className="number_origin_percent">
-                            Giảm 
-                            <Trans> &nbsp;</Trans>{item.estimate_price && item.price ? 100 - ((item.price) / (item.estimate_price)) * 100 : 0}<Trans></Trans>%
+                        <i className="number_origin_price">
+                            {formatCurrency(parseInt(data.product_estimate_price))}{data.product_estimate_price_master_unit}
                         </i>
-                    </span> */}
+                        <i className="number_origin_percent">
+                            Giảm {data.product_sale_promotion}{data.product_sale_promotion_master_unit}
+                        </i>
+                    </span>
                 </div>
 
                 <div className="info_1">
@@ -44,7 +45,7 @@ const ProductDetailRight = (props) => {
                     <div className="item">
                         <span className="title"><Trans>Diện tích</Trans><i className="icon_info fas fa-info-circle" /></span>
                         <span className="number acreage">
-                        {formatCurrency(parseInt(data.area_m2_total))}
+                            {formatCurrency(parseInt(data.area_m2_total))}
                         </span>
                         <span className="unit">
                             <Trans>( m<sup>2</sup> )</Trans>
@@ -55,20 +56,20 @@ const ProductDetailRight = (props) => {
                             <Trans>Hướng</Trans>
                         </span>
                         <div className="number direction">
-                            { 
-                               data.list_direction && data.list_direction.length > 0 ? data.list_direction.map((item, index) => {
+                            {
+                                data.list_direction && data.list_direction.length > 0 ? data.list_direction.map((item, index) => {
                                     return (
                                         <span key={index}>
-                                            <i style={{fontStyle:"normal"}}> {item.direction_name} </i>
+                                            <i style={{ fontStyle: "normal" }}> {item.direction_name} </i>
                                             {(index + 1) === data.list_direction.length ? '' : '-'}
                                         </span>
                                     )
-                                }): ''
+                                }) : ''
                             }
                         </div>
                     </div>
                 </div>
-                
+
                 <div className="info_contact">
                     <div className="info_contact_apart">
                         {data.project_name}

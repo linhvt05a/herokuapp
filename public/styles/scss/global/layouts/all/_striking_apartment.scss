@@ -145,20 +145,7 @@
             @include flex_wrap(wrap);
             justify-content: space-between;
             .child {
-
-                @media(max-width:480px) {
-                    flex: 50%;
-                    text-align: left !important;
-                }
-                @media (min-width: 992px) and (max-width: 1199px){
-                    flex: 50%;
-                    text-align: left !important;
-                }
-
-                &:not(:first-child) {
-                    text-align: center;
-                }
-
+                flex: 50%;
                 &:first-child {
                     white-space: nowrap;
                 }
@@ -257,6 +244,8 @@
                 @include fw-medium;
                 font-size: 26px;
                 color: #e94c4c;
+                display: flex;
+                align-items: center;
             }
 
             &__origin {

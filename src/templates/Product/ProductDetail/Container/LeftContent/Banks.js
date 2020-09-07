@@ -49,24 +49,24 @@ const Banks = (props) => {
     }
 
     return (
-        <CardCollapse title='Banks' {...props}>
-      
-                Các ngân hàng đầy uy tính đã liên kết với chúng tôi trong việc cho bạn vay những khoản tiền phù hợp, để mua những sản phẩm của chúng tôi :
-                <div className="bank_linked">
-                    <Slider {...settings}>
-                        {
-                            data && data.map((value, key) => {
-                                return (
-                                    <div key={key} className="bank_linked__item">
-                                        <img src={value.img} alt="bank_linked" />
-                                    </div>
-                                )
-                            })
-                        }
-                    </Slider>
+        <CardCollapse title='Ngân hàng hổ trợ liên kết' {...props}>
 
-                </div>
-                
+            Các ngân hàng đầy uy tính đã liên kết với chúng tôi trong việc cho bạn vay những khoản tiền phù hợp, để mua những sản phẩm của chúng tôi :
+            <div className="bank_linked">
+                <Slider {...settings}>
+                    {
+                        data && data.map((value, key) => {
+                            return (
+                                <div key={key} className="bank_linked__item">
+                                    <img src={value.img} alt="bank_linked" />
+                                </div>
+                            )
+                        })
+                    }
+                </Slider>
+
+            </div>
+
         </CardCollapse>
     )
 }

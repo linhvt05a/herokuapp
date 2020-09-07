@@ -8,26 +8,26 @@ import { Banks, Ground, Introduce, Position, ImagesFirst, Ultilities } from './L
 const ProductDetailLeft = (props) => {
     const { data } = props;
 
-    const [ show, setShow] = useState({
-        position : false,
-        ground : false,
-        introduce : false,
-        banks : false,
-        ultilities : false,
-    }) 
+    const [show, setShow] = useState({
+        position: false,
+        ground: false,
+        introduce: false,
+        banks: false,
+        ultilities: false,
+    })
 
     console.log('ProductDetailLeft', data);
 
     return (
         data ?
-            <>  
+            <>
                 <ImagesFirst data={data} />
                 <div className="description">{data.description ? Parser(data.description) : ''}</div>
-                <Position data={data} active={show.position} onClick={()=>setShow({...show, position : !show.position})} />
-                <Ground data={data} active={show.ground}  onClick={()=>setShow({...show, ground : !show.ground})} />
-                <Introduce data={data} active={show.introduce}  onClick={()=>setShow({...show, introduce : !show.introduce})} />
-                <Ultilities data={data} active={show.ultilities}  onClick={()=>setShow({...show, ultilities : !show.ultilities})} />
-                <Banks data={data} active={show.banks}  onClick={()=>setShow({...show, banks : !show.banks})} />
+                <Position data={data} />
+                <Ground data={data} />
+                <Introduce data={data} />
+                <Ultilities data={data} />
+                <Banks data={data} />
             </>
             : <CardNoData />
     )

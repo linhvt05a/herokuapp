@@ -12,13 +12,13 @@ import { useParams } from 'react-router-dom';
 
 
 const ProductDetail = (props) => {
-    
+
     const dispatch = useDispatch();
 
     const { id } = useParams();
-    
+
     useEffect(() => {
-        dispatch(productDetailAction.ProductDetailLoadList({ product_id:id, tab_include:`["detail","price","image","layout","document","history"]`}))
+        dispatch(productDetailAction.ProductDetailLoadList({ product_id: id, tab_include: `["detail","price","image","layout","document","history"]` }))
     }, [])
 
     const data = useSelector(state => state.productDetailReducer.List.detail);
@@ -27,10 +27,10 @@ const ProductDetail = (props) => {
         data ?
             <div className="project_detail--apartment bg_grey">
                 <div className="container container-sm container-md">
-                    <h2 className="main_heading"><span>{data.address_house}</span></h2>
+                    <h2 className="main_heading"><span>{data.product_name}</span></h2>
                     <div className="row">
                         <div className="col-12 col-sm-12 col-lg-8">
-                            <ProductDetailLeft  data={data} />
+                            <ProductDetailLeft data={data} />
                         </div>
                         <div className="col-12 col-sm-12 col-lg-4">
                             <ProductDetailRight data={data} />
@@ -38,7 +38,7 @@ const ProductDetail = (props) => {
                     </div>
                 </div>
             </div>
-        : ""
+            : ""
     )
 }
 export default ProductDetail;

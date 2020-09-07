@@ -10,7 +10,8 @@
 .apartment_slider-for{
     background-color: #eee;
     .slick-track{
-        @include align-items(center)
+        @include align-items(center);
+        max-height: 500px;
     }
 }
 .apartment_slider-nav{
