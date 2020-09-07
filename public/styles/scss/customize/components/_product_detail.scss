@@ -20,6 +20,12 @@
     }
 }
 
+.apartment_slider{
+    .card-body{
+        background-color: #fff;
+    }
+}
+
 .no_flashsale{
     &.apartment_slider .image_type{
         left: 0;

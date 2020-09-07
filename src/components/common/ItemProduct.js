@@ -16,7 +16,7 @@ const ItemProduct = (props) => {
             <figure className="image">
                 {
                     data.product_love_flag == true && <i className="liked fas fa-heart" />
-}
+                }
                 {
                     data.product_avatar_url != ""
                         ? <img src={data.product_avatar_url} alt={data.product_name} />
@@ -44,29 +44,29 @@ const ItemProduct = (props) => {
                 <p className="child mb-0">
                     <i className="icon fas fa-compass" />
                     <span className="text">
-                        {data.product_direction_name}
+                        {data.product_direction_name ? data.product_direction_name : '-'}
                     </span>
                 </p>
                 <p className="child mb-0">
                     <i className="icon fas fa-bed" />
                     <span className="text">
-                        {data.product_total_bedroom}
+                        {data.product_total_bedroom ? data.product_total_bedroom : '-'}
                     </span>
                 </p>
                 {
                     data.project_group_type === 1 ?
-                    <p className="child mb-0">
-                        <i className="icon fas fa-restroom" />
-                        <span className="text">
-                            {data.product_total_bathroom}
-                        </span>
-                    </p> :
-                    <p className="child mb-0">
-                        <i className=" icon fas fa-expand-arrows-alt" />
-                        <span className="text">
-                            {data.product_total_bathroom}
-                        </span>
-                    </p>
+                        <p className="child mb-0">
+                            <i className="icon fas fa-restroom" />
+                            <span className="text">
+                                {data.product_total_bathroom ? data.product_total_bathroom : '-'}
+                            </span>
+                        </p> :
+                        <p className="child mb-0">
+                            <i className=" icon fas fa-expand-arrows-alt" />
+                            <span className="text">
+                                {data.product_total_bathroom ? data.product_total_bathroom : '-'}
+                            </span>
+                        </p>
                 }
             </div>
             <div className="price">

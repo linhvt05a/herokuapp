@@ -18,8 +18,11 @@
                 display: none;
             }
         }
-        .item-link::after{
-            top: 3px;
+        .item-link{
+            text-decoration: none !important;
+            &::after{
+                top: 3px;
+            }
         }
     }
     .header_border{
