@@ -8,7 +8,7 @@ import { SelectCustom } from '../../../../components/base';
 import InputDatePicker from '../../../../components/base/Input/InputDatePicker';
 
 const CardFile = (props) => {
-    let { data } = props
+    let { data, avatarUpload } = props
     const dispatch = useDispatch();
     const locationStore = useSelector(state => state.commonReducer);
     const createData = (value, label) => {
@@ -17,7 +17,6 @@ const CardFile = (props) => {
     useEffect(() => {
         dispatch(commonAction.loadProvinceList({ lang: "vi" }))
     }, [])
-    const province = useSelector(state => state.commonReducer);
 
     const [state, setState] = useState({
         passActive: 0,
@@ -31,7 +30,7 @@ const CardFile = (props) => {
         address: { _province: 0, _district: "", _ward: "", _address: "" },
         dataProvince: [],
         dataDistrict: [],
-        dataWard: []
+        dataWard: [],
     });
 
     useEffect(() => {
@@ -79,8 +78,6 @@ const CardFile = (props) => {
     const onChangeWard = (value) => {
         setState({ ...state, address: { _province: state.address._province, _district: state.address._district, _ward: value, _address: "" } })
     }
-
-    // console.log(state );
     
     const radioOnChange = e => {
         setState({ ...state, gender: e.target.value })
@@ -99,12 +96,13 @@ const CardFile = (props) => {
         dispatch(accountAction.loadUpdateCustomer({
             email: state.customer_email,
             name: state.customer_name,
+            avatar: avatarUpload,
             // birthday: state.customer_birthday,
             address: state.address._address,
             province: state.address._province, 
             district: state.address._district, 
             ward: state.address._ward, 
-            phone: state.customer_mobile, 
+            // phone: state.customer_mobile, 
             gender: state.gender
         }));
     }
@@ -112,8 +110,6 @@ const CardFile = (props) => {
     const isupdate = useSelector(state => state.accountReducer);
     const updateSuccess = isupdate.updateCustomer.success
     const update = updateSuccess ? isupdate.updateCustomer.detail : null;
-
-    console.log(update);
 
     return (
         <div class="col-12 col-sm-12 col-md-12 col-lg-8">
