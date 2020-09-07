@@ -22,6 +22,7 @@ import ShoppingGuide from "./templates/Support/ShopGuide/ShoppingGuide";
 import Legal from "./templates/Support/Legal/Juridical";
 import Promotion from './templates/Promotion/Promotion';
 import FlashSaleList from './templates/Promotion/FlashSaleList';
+import PromotionList from './templates/Promotion/PromotionList';
 
 import Account from "./templates/Account/CustomerAccount";
 import Cart from "./templates/ShopCart/Cart";
@@ -46,7 +47,8 @@ const transactionLevel_banner_url = '../images/project.jpg';
 const shoppingGuide_banner_url = '../images/project.jpg';
 const juridical_banner_url = '../images/juridical.jpg';
 const promotion_banner_url = '../images/project.jpg';
-const flashSaleList_banner_url = '../images/project.jpg';
+const flashSaleList_banner_url = '../images/flashsale.png';
+const promotionList_banner_url = '../images/sale_banner.png';
 const elements_banner_url = '../images/project.jpg';
 const example_banner_url = '../images/project.jpg';
 const cart_banner_url = '../images/project.jpg';
@@ -200,7 +202,7 @@ const MAIN = [
     {
         "path": "/flashsale",
         "component": FlashSaleList,
-        "banner_title": "flashSaleList_banner_title",
+        "banner_title": "",
         "banner_url": flashSaleList_banner_url,
         "banner_show": true,
         "banner_class": ''
@@ -256,6 +258,14 @@ const MAIN = [
         "banner_title": "cart",
         "banner_url": cart_banner_url,
         "banner_show": true
+    },
+    {
+        "path": "/promotion-list",
+        "component": PromotionList,
+        "banner_title": "",
+        "banner_url": promotionList_banner_url,
+        "banner_show": true,
+        "banner_class": ''
     },
 ];
 

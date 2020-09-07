@@ -11,23 +11,22 @@ const ItemProduct = (props) => {
 
     const { data } = props
 
+    console.log("data", data);
     return (
         <div className="item">
             <figure className="image">
-                <i className="liked active fas fa-heart" />
+                {
+                    data.product_love_flag == true && <i className="liked fas fa-heart" />
+                }
                 <img src={data.product_avatar_url != "" ? data.product_avatar_url : IMAGE_LOGO} alt={data.product_name} />
-                <div className="sell_status promotion"><Trans>product_off</Trans> <br /> 7%</div>
+                <div className="sell_status promotion"><Trans>product_off</Trans> <br /> %</div>
                 <img className="img_promotion" src={IMAGE_URL + "/images/item_promotion.png"} alt={data.product_name} />
             </figure>
             <div className="heading">
                 <div className="top">
                     <Link to={"/product/" + data.product_id} className="name">{data.product_name}</Link>
                 </div>
-                <p className="address mb-0"><Trans>product_the_selling_price_is_listed</Trans> ({data.product_estimate_price_unit_name})
-                    <Tooltip title={data.product_estimate_price_unit_name}>
-                        <i className="noted fas fa-info-circle" />
-                    </Tooltip>
-                </p>
+                <p className="address mb-0">{data.product_address}</p>
             </div>
             <div className="details">
                 <p className="child mb-0">
@@ -51,12 +50,21 @@ const ItemProduct = (props) => {
                         {data.product_total_bedroom}
                     </span>
                 </p>
-                <p className="child mb-0">
-                    <i className="icon fas fa-restroom" />
-                    <span className="text">
-                        {data.product_total_bathroom}
-                    </span>
-                </p>
+                {
+                    data.project_group_type === 1 ?
+                    <p className="child mb-0">
+                        <i className="icon fas fa-restroom" />
+                        <span className="text">
+                            {data.product_total_bathroom}
+                        </span>
+                    </p> :
+                    <p className="child mb-0">
+                        <i className=" icon fas fa-expand-arrows-alt" />
+                        <span className="text">
+                            {data.product_total_bathroom}
+                        </span>
+                    </p>
+                }
             </div>
             <div className="price">
                 <div className="price__label">
