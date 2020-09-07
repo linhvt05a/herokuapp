@@ -4,5 +4,6 @@ export default {
     product_the_selling_price_is_listed: "The selling price is listed",
     product_listed_price: "Listed price",
     product_buy_now: "Buy now",
-    product_off: "Off"
+    product_off: "Off",
+    product_filter: "Search Product"
 }

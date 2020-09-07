@@ -3,5 +3,14 @@ export default {
     minimum_loan_time :'Minimum loan period',
     maximum_loan_money :'Maximum loan',
     maximum_loan_time :'Maximum loan period',
-    text_bank : 'bank'
+    text_bank : 'bank',
+    exchanges_heading : 'Exchanges',
+    filter_text_project : 'Project',
+    filter_text_block : 'Block',
+    filter_text_area : 'Area',
+    product_total:'Total product',
+    product_status_sold:'Sold',
+    product_status_selling:'Selling',
+    product_status_deposit:'Deposit',
+    product_status_not_yet_sold:'Not yet sold',
 }
