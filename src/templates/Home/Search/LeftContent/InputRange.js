@@ -6,7 +6,7 @@ import { SliderRange } from "../../../../components/base";
 import { commonAction } from "../../../../store/action";
 
 const InputRange = (props) => {
-    let { active, valueArea, valuePrice, changePrice, changeAcreage } = props;
+    let { active, classRange, valueArea, valuePrice, changePrice, changeAcreage } = props;
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(commonAction.loadMinMaxList({}))
@@ -17,8 +17,8 @@ const InputRange = (props) => {
 
     return (
         minmaxList && minmaxList != null ?
-        <div className="map_search--range">
-            <div className="range_item price">
+        <div className="map_search--range" style={{ display: classRange ? "flex" : "block" }}>
+            <div className={`range_item price ${classRange ? classRange : "" }`}>
                 <label className="label">
                     <Trans>range_of_price</Trans>
                 </label>
@@ -26,7 +26,7 @@ const InputRange = (props) => {
                     <SliderRange data={valuePrice} defaultValue={[minmaxList.price_min, minmaxList.price_max]} min={0} max={200000000000} range={true} changeRange={changePrice} />
                 </div>
             </div>
-            <div className="range_item area">
+            <div className={`range_item area ${classRange ? classRange : "" }`} >
                 <label className="label">
                     <Trans>range_of_area</Trans> (m<sup>2</sup>)
                 </label>

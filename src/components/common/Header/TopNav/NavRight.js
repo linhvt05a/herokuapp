@@ -44,7 +44,7 @@ const NavRight = (props) => {
                         aria-expanded={inHover}>
                         <ImgLanguageSelected data={langCurrent} />
                         
-                        <i className="icon_arrow fas fa-chevron-down" />
+                        <i className="icon_arrow fas fa-chevron-down" />                  
                     </button>
                     <ul className="dropdown-menu pull-right" >
                         <li className={`${langCurrent == 'vi' ? 'd-none' : '' }`} >

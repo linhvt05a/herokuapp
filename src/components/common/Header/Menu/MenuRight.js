@@ -5,6 +5,9 @@ import { IMAGE_URL } from '../../../../contant';
 
 const MenuRight = (props) => {
     const [inHoverProfile, setHoverProfile] = useState(false);
+    const user = JSON.parse(localStorage.getItem('user'));
+    console.log(user);
+    
     return (
         <div className="header_actions d-none d-md-flex">
             <div className="item">
@@ -24,10 +27,16 @@ const MenuRight = (props) => {
                 </Link>
             </div>
             <div className={`item dropdown ${inHoverProfile ? "open": ''}`}>
-                <Link to="/demo" className="link"
+                <Link to="/account" className="link"
                     onMouseEnter={() => setHoverProfile(true)}
                     aria-expanded={inHoverProfile}>
-                    <i className="icon user fas fa-user-circle" />
+                    {   
+                        user != null ? 
+                        <img src={user.avatar_url} className="avatarLogin" /> : 
+                        user != null && user.avatar_url == null ?
+                        <img src={`${IMAGE_URL}images/favicon.png`} className="avatarLogin" /> :
+                        <i className="icon user fas fa-user-circle" />
+                    }
                 </Link>
                 <div className="dropdown-menu" onMouseLeave={() => setHoverProfile(false)}>
                     <FormUser />
