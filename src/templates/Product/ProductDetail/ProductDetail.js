@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
+import Parser from 'html-react-parser';
+import ProductDetailRight from './Container/ProductDetailRight';
+import ProductDetailLeft from './Container/ProductDetailLeft';
+
 import TabsSlider from './TabsSlider';
-import SideBar from './SideBar/Info';
+
 import SalesAccordion from './SalesAccordion';
 import { productDetailAction } from "../../../store/action";
 import { useParams } from 'react-router-dom';
+
 
 const ProductDetail = (props) => {
     
@@ -20,32 +25,15 @@ const ProductDetail = (props) => {
 
     return (
         data ?
-            <div className="album py-5 bg-light">
-                <div className="container">
+            <div className="project_detail--apartment bg_grey">
+                <div className="container container-sm container-md">
+                    <h2 className="main_heading"><span>{data.address_house}</span></h2>
                     <div className="row">
-                        <div className="product_detail--apartment bg_grey">
-                            <div className="container container-sm container-md">
-                                <h2 className="main_heading"><span>{data.address_house}</span></h2>
-                                <div className="row">
-                                    <div className="col-12 col-sm-12 col-lg-8">
-                                        {
-                                            data.dataImg || data.layout ?
-                                            <div className="slider_in_tab">
-                                                <TabsSlider dataImg={data.image} dataLayout={data.layout} />
-                                            </div>
-                                            :""
-                                        }
-                                        
-                                        <div className="description">
-                                            <div>{data.description}</div>
-                                        </div>
-                                        <SalesAccordion data={data} />
-                                    </div>
-                                    <div className="col-12 col-sm-12 col-lg-4">
-                                        <SideBar dataInfo={data} />
-                                    </div>
-                                </div>
-                            </div>
+                        <div className="col-12 col-sm-12 col-lg-8">
+                            <ProductDetailLeft  data={data} />
+                        </div>
+                        <div className="col-12 col-sm-12 col-lg-4">
+                            <ProductDetailRight data={data} />
                         </div>
                     </div>
                 </div>

@@ -4,37 +4,28 @@ import {formatCurrency} from '../../../../functions/Utils'
 import { IMAGE_URL } from '../../../../contant'
 
 
-const Info = (props) => {
-    const { dataInfo } = props;
+const ProductDetailRight = (props) => {
+    const { data } = props;
 
-    console.log(dataInfo);
+    // console.log(data);
 
     return (
-        dataInfo ?
+        data ?
             <div className="apartment_detail">
                 <div class="sales_heading">
                     <span class="text">Giá niêm yết (đồng)
                         <i class="icon_info fas fa-info-circle"></i>
                     </span>
-                    {/* {
-                        dataInfo.price ?
-                        dataInfo.price.map((item, index) => (
-                            console.log(1,item),
-                            <div key={index}>
-                                <span className="number">
-                                    {formatCurrency(parseInt(item.price)) + item.price_unit_name}
-                                </span> 
-                                <span className="number_origin">
-                                    <i className="number_origin_price">{item.estimate_price}{item.price_unit_name}</i>
-                                    <i className="number_origin_percent">
-                                        Giảm 
-                                        <Trans> &nbsp;</Trans>{item.estimate_price && item.price ? 100 - ((item.price) / (item.estimate_price)) * 100 : 0}<Trans></Trans>%
-                                    </i>
-                                </span>
-                            </div>
-                        )) : null
-                    } */}
-
+                    {/* <span className="number">
+                        {formatCurrency(parseInt(item.price)) + item.price_unit_name}
+                    </span> 
+                    <span className="number_origin">
+                        <i className="number_origin_price">{item.estimate_price}{item.price_unit_name}</i>
+                        <i className="number_origin_percent">
+                            Giảm 
+                            <Trans> &nbsp;</Trans>{item.estimate_price && item.price ? 100 - ((item.price) / (item.estimate_price)) * 100 : 0}<Trans></Trans>%
+                        </i>
+                    </span> */}
                 </div>
 
                 <div className="info_1">
@@ -44,7 +35,7 @@ const Info = (props) => {
                             <i className="icon_info fas fa-info-circle" />
                         </span>
                         <span className="number water">
-                            {formatCurrency(parseInt(dataInfo.price_m2_use))}
+                            {formatCurrency(parseInt(data.price_m2_use))}
                         </span>
                         <span className="unit">
                             <Trans>( đồng/m<sup>2</sup> )</Trans>
@@ -53,7 +44,7 @@ const Info = (props) => {
                     <div className="item">
                         <span className="title"><Trans>Diện tích</Trans><i className="icon_info fas fa-info-circle" /></span>
                         <span className="number acreage">
-                        {formatCurrency(parseInt(dataInfo.area_m2_total))}
+                        {formatCurrency(parseInt(data.area_m2_total))}
                         </span>
                         <span className="unit">
                             <Trans>( m<sup>2</sup> )</Trans>
@@ -63,16 +54,25 @@ const Info = (props) => {
                         <span className="title">
                             <Trans>Hướng</Trans>
                         </span>
-                        <span className="number direction">
-                            { dataInfo.list_direction ? dataInfo.list_direction.map((item, key) => { item }) : '-' }
-                        </span>
+                        <div className="number direction">
+                            { 
+                               data.list_direction && data.list_direction.length > 0 ? data.list_direction.map((item, index) => {
+                                    return (
+                                        <span key={index}>
+                                            <i style={{fontStyle:"normal"}}> {item.direction_name} </i>
+                                            {(index + 1) === data.list_direction.length ? '' : '-'}
+                                        </span>
+                                    )
+                                }): ''
+                            }
+                        </div>
                     </div>
                 </div>
                 
                 <div className="info_contact">
                     <div className="info_contact_apart">
-                        {dataInfo.project_name}
-                        <span className="address">{dataInfo.project_full_address}</span>
+                        {data.project_name}
+                        <span className="address">{data.project_full_address}</span>
                     </div>
                     <ul className="info_contact_support">
                         <li className="info_contact_item">
@@ -101,7 +101,7 @@ const Info = (props) => {
                     <table>
                         <tbody>
                             {
-                                dataInfo.detail.map((item, index) => {
+                                data.detail.map((item, index) => {
                                     return (
                                         <tr key={index}>
                                             <td className="icon">
@@ -129,4 +129,4 @@ const Info = (props) => {
     )
 }
 
-export default Info;
+export default ProductDetailRight;

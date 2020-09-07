@@ -2,7 +2,7 @@ import Parser from 'html-react-parser';
 import React from 'react';
 import { Trans } from 'react-i18next';
 import SliderInTab from '../TabsSlider/SliderInTab';
-import MutiSlider from '../../../../components/common/MutiSlider';
+import {SliderSimple} from '../../../../components/common/Sliders';
 
 const dataImgs = [
 	{
@@ -171,7 +171,7 @@ class AccordionItem extends React.Component {
 												itemdata.paragraph.map((item, index) => (
 													<div className="col-sm-12 col-sm-12 col-md-12" key={index}>
 														<p key={index}>{item.content}</p>
-														<MutiSlider settings={settings} dataImgs={dataImgs} />
+														<SliderSimple settings={settings} data={dataImgs} />
 													</div>
 												))
 											}
