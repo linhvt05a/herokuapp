@@ -101,28 +101,38 @@ const Home = (props) => {
                 <div className="project_list project_tab">
                     <div className="container container-sm container-md">
                         <HeadingLine headerBodyClassName="project_list--heading" labelHeader="project_list" status onStatusClick={onStatusClick} projectStatus={state.projectStatus} />
-                        <div className="row project_list--content project_tab--content">
+                        
                             {
-                                (newListProject && newListProject.length > 0) ? newListProject.map((item, index) => (
-                                    index < 7 &&
-                                    <ItemHomeProject
-                                    key={index}
-                                    data={item}
-                                    projectStatus={state.projectStatus}
-                                    bodyClassName={
-                                        index === 0 ? "col col-12 col-sm-6 col-md-7 col-xl-7" :
-                                        index === 1 ? "col col-12 col-sm-6 col-md-5 col-xl-5" :
-                                        (index === 2 || index === 3 || index === 4) ? "col col-12 col-sm-4 col-md-4 col-xl-4" :
-                                        "col col-12 col-sm-6 col-md-6 col-xl-6"
-                                    } />
-                                )) : <CardNoData />
+                                (newListProject && newListProject.length > 0) ?
+                                <>
+                                    <div className="row project_list--content project_tab--content">
+                                        {
+                                            newListProject.map((item, index) => (
+                                                index < 7 &&
+                                                <ItemHomeProject
+                                                key={index}
+                                                data={item}
+                                                projectStatus={state.projectStatus}
+                                                bodyClassName={
+                                                    index === 0 ? "col col-12 col-sm-6 col-md-7 col-xl-7" :
+                                                    index === 1 ? "col col-12 col-sm-6 col-md-5 col-xl-5" :
+                                                    (index === 2 || index === 3 || index === 4) ? "col col-12 col-sm-4 col-md-4 col-xl-4" :
+                                                    "col col-12 col-sm-6 col-md-6 col-xl-6"
+                                                } />
+                                            ))
+                                        }
+                                    </div>
+                                    {
+                                        newListProject.length > 7 &&
+                                        <div className="text-center text-uppercase mt-3">
+                                            <Link to={state.projectStatus === 3 ? "/project/selling" : "/project/coming-soon"} className="btn btn_purple ml-auto mr-auto">
+                                                <Trans>see_all</Trans>
+                                            </Link>
+                                        </div>
+                                    }
+                                </> : <CardNoData />
                             }
-                        </div>
-                        <div className="text-center text-uppercase mt-3">
-                            <Link to="/product" className="btn btn_purple ml-auto mr-auto">
-                                <Trans>see_all</Trans>
-                            </Link>
-                        </div>
+                        
                     </div>
                 </div>
             }

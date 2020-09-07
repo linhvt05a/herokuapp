@@ -6,7 +6,7 @@ import {BlockBankPolicy, BlockExchanges, BlockInternalUtility, BlockProjectPosit
 
 const TransactionContent = (props) => {
     
-    const { dataFilter, projectInfoInit, error , onProductTypeChange, onHouseDirectionChange, onPriceRangeChange, onAreaChange, onDeleteFilterClick } = props
+    const { dataFilter, projectInfoInit, error , onFilterChange, onDeleteFilterClick } = props
     
     // console.log(dataFilter);
 
@@ -24,10 +24,7 @@ const TransactionContent = (props) => {
                                 </div>
 
                                 <BlockSearchProduct
-                                    onProductTypeChange={onProductTypeChange}
-                                    onHouseDirectionChange={onHouseDirectionChange}
-                                    onPriceRangeChange={onPriceRangeChange}
-                                    onAreaChange={onAreaChange}
+                                    onFilterChange={onFilterChange}
                                     onDeleteFilterClick={onDeleteFilterClick}
                                 />
  

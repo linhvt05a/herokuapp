@@ -1,4 +1,5 @@
 const IMAGE_URL = "../"
+const IMAGE_LOGO = "http://superapp.minerva.vn:9210/static/img/default_image_minerva.png"
 const PHONE_NUMBER = "1900 - 123 - 456"
 
 const PROJECT_STATUS = [
@@ -10,7 +11,7 @@ const PROJECT_STATUS = [
 ]
 
 const PROJECT_SALE_GROUP = [
-    { value: null, label: "home_all" },
+    { value: 0, label: "home_all" },
     { value: 1, label: "home_aparment" },
     { value: 2, label: "home_duplex" },
     { value: 3, label: "home_officetel" },
@@ -23,7 +24,7 @@ const PROJECT_SALE_GROUP = [
 ]
 
 const DIRECTION_TYPE = [
-    { value: null, label: "project_all" },
+    { value: 0, label: "project_all" },
     { value: 1, label: "east" },
     { value: 2, label: "west" },
     { value: 3, label: "south" },
@@ -62,6 +63,7 @@ const DATA_INTRODUCE = {
 
 module.exports = {
     IMAGE_URL,
+    IMAGE_LOGO,
     PHONE_NUMBER,
 
     PROJECT_STATUS,

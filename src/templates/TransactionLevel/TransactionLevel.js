@@ -82,74 +82,22 @@ const TransactionLevel = (props) => {
     const isGetTransProductTypeListSuccess = transtion.transacProductTypeList.success;
     const transacProductTypeList = isGetTransProductTypeListSuccess ? transtion.transacProductTypeList.detail : null;
 
-    const [productType, setProductTypeState] = useState(null)
-    const [direction, setDirectionState] = useState(null)
-    const [priceFrom, setPriceFromState] = useState(null)
-    const [priceTo, setPriceToState] = useState(null)
-    const [acreageFrom, setAcreageFromState] = useState(null)
-    const [acreageTo, setAcreageToState] = useState(null)
-
     useEffect(() => {
         dispatch(transactionAction.loadTransProductTypeList({}));
     }, []);
 
-    const onProductTypeChange = (value) => {
-        dispatch(transactionAction.TransactionLoadList({
-            project_id: projectInfoInit.projectId,
-            area_id: projectInfoInit.areaId,
-            block_id: projectInfoInit.blockId,
-            architecture_type_id: value,
-            direction_id: direction,
-            price_from: priceFrom,
-            price_to: priceTo,
-            acreage_from: acreageFrom,
-            acreage_to: acreageTo
-        }));
-        setProductTypeState(value)
-    }
-    const onHouseDirectionChange = (value) => {
-        dispatch(transactionAction.TransactionLoadList({
-            project_id: projectInfoInit.projectId,
-            area_id: projectInfoInit.areaId,
-            block_id: projectInfoInit.blockId,
-            architecture_type_id: productType,
-            direction_id: value,
-            price_from: priceFrom,
-            price_to: priceTo,
-            acreage_from: acreageFrom,
-            acreage_to: acreageTo
-        }));
-        setDirectionState(value)
-    }
-    const onPriceRangeChange = (value) => {
+    const onFilterChange = (productType, direction, price, acreage) => {
         dispatch(transactionAction.TransactionLoadList({
             project_id: projectInfoInit.projectId,
             area_id: projectInfoInit.areaId,
             block_id: projectInfoInit.blockId,
             architecture_type_id: productType,
             direction_id: direction,
-            price_from: value[0],
-            price_to: value[1],
-            acreage_from: acreageFrom,
-            acreage_to: acreageTo
+            price_from: price[0],
+            price_to: price[1],
+            acreage_from: acreage[0],
+            acreage_to: acreage[1]
         }));
-        setPriceFromState(value[0])
-        setPriceToState(value[1])
-    }
-    const onAreaChange = (value) => {
-        dispatch(transactionAction.TransactionLoadList({
-            project_id: projectInfoInit.projectId,
-            area_id: projectInfoInit.areaId,
-            block_id: projectInfoInit.blockId,
-            architecture_type_id: productType,
-            direction_id: direction,
-            price_from: priceFrom,
-            price_to: priceTo,
-            acreage_from: value[0],
-            acreage_to: value[1]
-        }));
-        setAcreageFromState(value[0])
-        setAcreageToState(value[1])
     }
 
     const onDeleteFilterClick = () => {
@@ -158,12 +106,6 @@ const TransactionLevel = (props) => {
             area_id: projectInfoInit.areaId,
             block_id: projectInfoInit.blockId
         }));
-        setProductTypeState(null);
-        setDirectionState(null);
-        setPriceFromState(null);
-        setPriceToState(null);
-        setAcreageFromState(null);
-        setAcreageToState(null);
     }
 
     const dataFilter = useSelector(state => state.transactionReducer.transactionList.detail)
@@ -183,10 +125,7 @@ const TransactionLevel = (props) => {
                     dataFilter={dataFilter}
                     error={error}
                     
-                    onProductTypeChange={onProductTypeChange}
-                    onHouseDirectionChange={onHouseDirectionChange}
-                    onPriceRangeChange={onPriceRangeChange}
-                    onAreaChange={onAreaChange}
+                    onFilterChange={onFilterChange}
                     onDeleteFilterClick={onDeleteFilterClick}
                 />
             }

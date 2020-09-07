@@ -40,7 +40,7 @@ const ListCheckbox = (props) => {
                                 <li key={index}>
                                     <label onChange={event => checkboxOnChange(event.target, index)} 
                                         className={`checkbox-inline checkbox-black ${click.length > 0 ? click[index] && click[index].status : null} ${state.checked ? 'active': '' }`}>
-                                        <input name="checkbox-1" value={item.value === null ? "": item.value} type="checkbox" className="checkbox-custom" />
+                                        <input name="checkbox-1" value={item.value === 0 ? "": item.value} type="checkbox" className="checkbox-custom" />
                                         <span className="checkbox-custom-dummy" /><Trans>{item.label}</Trans>
                                     </label>
                                 </li>

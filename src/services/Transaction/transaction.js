@@ -10,7 +10,6 @@ export const transactionService = {
         };
         const params = { project_id, area_id, block_id, acreage_from, acreage_to, price_from, price_to, direction_id, architecture_type_id };
         const url = api.getUrl(api.TRANSACTION_LIST, params);
-        console.log(url);
         return api.handleRequest(url, requestOptions);
     },
 
