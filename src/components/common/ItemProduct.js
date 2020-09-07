@@ -16,6 +16,7 @@ const ItemProduct = (props) => {
             <figure className="image">
                 {
                     data.product_love_flag == true && <i className="liked fas fa-heart" />
+}
                 {
                     data.product_avatar_url != ""
                         ? <img src={data.product_avatar_url} alt={data.product_name} />
