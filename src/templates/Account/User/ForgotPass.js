@@ -9,10 +9,10 @@ const ForgotPass = (props) => {
     let { active } = props;
     const [formInfo] = Form.useForm();
     const dispatch = useDispatch();
-    
+
     const validatorInfo = {
-        email : {
-            form : [
+        email: {
+            form: [
                 {
                     type: 'email',
                     message: 'The input is not valid E-mail!',
@@ -24,10 +24,11 @@ const ForgotPass = (props) => {
             ],
         },
     }
-
-    formInfo.setFieldsValue({
-        email: 'customer@minerva.vn',
-    });
+    useEffect(() => {
+        formInfo.setFieldsValue({
+            email: 'customer@minerva.vn',
+        });
+    }, [])
 
     const handleForgotPass = value => {
         console.log(value);
@@ -37,13 +38,13 @@ const ForgotPass = (props) => {
     const forgotPass = useSelector(state => state.accountReducer);
     const isforgotPassSuccess = forgotPass.forgotPassword.success;
     const respon = isforgotPassSuccess ? forgotPass.forgotPassword.detail : null;
-    
+
     return (
         <div className="form form_signInUp">
             <div className="form-group form_forgot--info">
                 <Trans>user_forgot_content</Trans>
             </div>
-            <Form noValidate 
+            <Form noValidate
                 form={formInfo}
                 onFinish={handleForgotPass}
                 name="form-forgot-pass">
@@ -53,14 +54,14 @@ const ForgotPass = (props) => {
                 <Form.Item shouldUpdate className="form-group mb-0 text-center submit">
                     {() => {
                         return (
-                            <Button className="btn btn_green btn_signIn text-uppercase mb-0" htmlType="Submit" style={{width: "175px"}}
+                            <Button className="btn btn_green btn_signIn text-uppercase mb-0" htmlType="Submit" style={{ width: "175px" }}
                                 disabled={
                                     formInfo.getFieldsError().filter(({ errors }) => errors.length).length
                                 }
                             >
                                 <Trans>send</Trans>
                             </Button>
-                            )
+                        )
                     }}
                 </Form.Item>
             </Form>

@@ -2,15 +2,16 @@ import React, { useState } from 'react';
 import { Trans } from 'react-i18next';
 import { CardCartProductList, CardCartSummary } from './Layout/index';
 import ModalCustom from '../../components/base/Modal/ModalCustom';
+import { useHistory } from "react-router-dom";
 
 const Cart = (props) => {
-
+    let history = useHistory();
+    const user = JSON.parse(localStorage.getItem('user'));
     const [state, setState] = useState({
         paymentProgressModalVisible: false,
         promotionModalVisible: false,
         accountModalVisible: false
     });
-
     const showPaymentProgressModal = (isShow) => {
         setState({
             ...state,
@@ -34,32 +35,32 @@ const Cart = (props) => {
             ...state,
             accountModalVisible: isShow,
             promotionModalVisible: false,
-            accountModalVisible: false
+            paymentProgressModalVisible: false
         })
     }
 
     const getPaymentProgressData = (data) => {
-        setState({
-            ...state,
-            paymentProgressModalVisible: false
-        })
+        // setState({
+        //     ...state,
+        //     paymentProgressModalVisible: false
+        // })
         console.log("data", data);
         // data lay duoc sau khi luu
     }
 
     const getPromotionData = (data) => {
-        setState({
-            ...state,
-            promotionModalVisible: false
-        })
+        // setState({
+        //     ...state,
+        //     promotionModalVisible: false
+        // })
         // data lay duoc sau khi luu
     }
 
     const getAccountData = (data) => {
-        setState({
-            ...state,
-            accountModalVisible: false
-        })
+        // setState({
+        //     ...state,
+        //     accountModalVisible: false
+        // })
         // data lay duoc sau khi luu
     }
 
@@ -76,9 +77,29 @@ const Cart = (props) => {
                     </div>
                 </div>
             </div>
-            <ModalCustom visible={state.paymentProgressModalVisible} widthModal="400px" showPaymentProgressModal={showPaymentProgressModal} dataOutput={getPaymentProgressData} />
-            <ModalCustom visible={state.promotionModalVisible} widthModal="400px" showPromotionModal={showPromotionModal} dataOutput={getPromotionData} />
-            <ModalCustom visible={state.accountModalVisible} widthModal="360px" showAccountModal={showAccountModal} dataOutput={getAccountData} />
+            {state.paymentProgressModalVisible &&
+                <ModalCustom
+                    visible={state.paymentProgressModalVisible}
+                    widthModal="400px"
+                    showPaymentProgressModal={showPaymentProgressModal}
+                    onNext={() => showPromotionModal(true)}
+                    dataOutput={getPaymentProgressData} />}
+
+            {state.promotionModalVisible &&
+                <ModalCustom
+                    visible={state.promotionModalVisible}
+                    widthModal="400px"
+                    showPromotionModal={showPromotionModal}
+                    onNext={() => history.push("/cart/customer-info")}
+                    dataOutput={getPromotionData} />}
+            {/* {state.accountModalVisible &&
+                <ModalCustom
+                    visible={state.accountModalVisible}
+                    widthModal="360px"
+                    showAccountModal={showAccountModal}
+                    onNext={() => history.push("/cart/customer-info")}
+                    dataOutput={getAccountData} />} */}
+
         </div>
     )
 }

@@ -995,7 +995,20 @@ main {
         }
     }
 }
-
+.ant-upload-list-picture-card{
+    @include align-items(center);
+    display: inline-flex;
+    background-color: #ffffff;
+    margin-right: 5px;
+    margin-top: 13px;
+   .ant-upload-list-item-error{
+    border-color:#e0e0e0;
+    margin-right: 5px;
+    img {
+           width: 100%;
+        }
+   }
+}
 .reply {
     &__master {
         .text {

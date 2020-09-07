@@ -4,7 +4,7 @@ import { Input, Select } from 'antd'
 
 const CardPaymentProgressModal = (props) => {
 
-    const { onSaveClick, clearData, isClearData } = props
+    const { onSaveClick, clearData, isClearData, onNext } = props
     const [state, setState] = useState({
         paymentProgress: null,
         paymentPolicy: null
@@ -42,7 +42,8 @@ const CardPaymentProgressModal = (props) => {
     }
 
     const onSave = () => {
-        onSaveClick(state)
+        onSaveClick(state);
+        onNext()
     }
 
     return (
@@ -92,7 +93,7 @@ const CardPaymentProgressModal = (props) => {
                     </div>
                     <div className="form-group mb-0 text-center">
                         <a className="btn btn_green btn_signIn text-uppercase" onClick={onSave}>
-                            <Trans>button_save</Trans>
+                            <Trans>save</Trans>
                         </a>
                     </div>
                 </div>

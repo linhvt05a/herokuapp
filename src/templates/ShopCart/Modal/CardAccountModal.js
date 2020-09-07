@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { Input, Form, Button } from 'antd';
+import { translate } from '../../../functions/Utils';
 
 const CardAccountModal = (props) => {
-
-    const { clearData, isClearData } = props
+    const { clearData, isClearData, onNext } = props
     const [formInfo] = Form.useForm();
     const { t } = useTranslation()
 
@@ -48,6 +48,7 @@ const CardAccountModal = (props) => {
 
     const onSubmitInfo = (values) => {
         console.log('Success:', values);
+        onNext()
     };
 
     return (
@@ -88,7 +89,7 @@ const CardAccountModal = (props) => {
                                 <i className="fas fa-bahai" />
                             </div>
                             <div className="text_register_link text-center">
-                                <a href="#"> Bạn chưa có tài khoản vậy hãy <span> <br /> Đăng ký</span> </a>
+                                <a href="#"> Bạn chưa có tài khoản vậy hãy <span> <br /> {translate("registry")}</span> </a>
                             </div>
                         </div>
                         <div className="form-group mb-0 text-center">
