@@ -25,7 +25,7 @@ const CardHotProduct = (props) => {
     }, []);
 
     const onProjectGroupFilterChange = (value) => {
-        if (value != null) {
+        if (value != 0) {
             dispatch(productAction.loadHotProductList({list_product_type_id: `[${value}]`}));
         } else {
             dispatch(productAction.loadHotProductList({}));
