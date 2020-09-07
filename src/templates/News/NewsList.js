@@ -21,7 +21,7 @@ const News = (props) => {
     const[dateFrom, setDateFrom] = useState('')
     const[dateTo, setDateTo] = useState('')
     const [navigate, setNavigate] = useState({})
-
+    const [catesId, setId] = useState('')
     const news = useSelector(state => state.newsReducer);
     const newsListSuccess = news.newsList.success
     const newsList = newsListSuccess ? news.newsList.detail : null;
@@ -51,19 +51,15 @@ const News = (props) => {
         }
     }, [newsCategories]);
    
-    // const news_title = location.state.paramsSearch[0].nameSearch
-    // const categoriesID = location.state.paramsSearch[0].cateID
-    // const fromDate = location.state.paramsSearch[0].dateFrom
-    // const toDate = location.state.paramsSearch[0].dateTo
-   
-   
     useEffect(() => {
         if(location.state && location.state !== null){
             const cateID = location.state.paramsSearch
             const nameSearch = location.state.titleNews
             const dateFrom = location.state.dateFrom
             const dateTo = location.state.dateTo
-            dispatch(newsAction.LoadNewsList({cateID, nameSearch, dateFrom, dateTo}))
+            const category_id = location.state.category_id
+            setId(category_id)
+            dispatch(newsAction.LoadNewsList({cateID, nameSearch, dateFrom, dateTo, category_id}))
         }else{
             dispatch(newsAction.LoadNewsList({}))
         }
@@ -110,7 +106,6 @@ const News = (props) => {
         setNavigate(id)
         dispatch(newsAction.LoadNewsList({category_id: id}))
     }
-    
     return (
         <div className="news">
             <div className="container container-sm container-md">
@@ -132,6 +127,8 @@ const News = (props) => {
                             dataMenu={newsCategories} 
                             className="options mb-4 bg_white" onClick = {handleClick}
                             navigate ={navigate}
+                            catesId={catesId}
+                            linkTo ="/news"
                         />
                         <CommonFilter 
                             title="news_filter" 

@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import { Trans } from 'react-i18next';
+import {Link} from 'react-router-dom'
 
 const CommonMenu = (props) =>{
-  const{label, dataMenu, onClick, navigate, className, disableDisplay} = props
-  
+  const{label, dataMenu, onClick, navigate, className, disableDisplay, catesId, linkTo} = props
     return(
           <div className= {className}>
             <ul className="options__menu">
@@ -14,10 +14,13 @@ const CommonMenu = (props) =>{
               </label>
               {dataMenu && dataMenu.map((item, index)=>
                 <li className="options__menu-item" key={index}>
-                  <a className={navigate === item.category_id ? "active": ''} onClick={()=>onClick(item.category_id)}>
+                  <Link className={catesId === item.category_id || navigate === item.category_id ? "active": ''} 
+                        to={{ pathname: linkTo, state:{category_id: item.category_id}}} 
+                        onClick={()=>onClick(item.category_id)}
+                  >
                     <i className="icon fas fa-angle-right mr-2" />
                       <Trans>{item.category_name}</Trans>
-                  </a>
+                  </Link>
                 </li>
               ) }
             </ul>
@@ -27,17 +30,23 @@ const CommonMenu = (props) =>{
 }
 
 const Search = (props) =>{
+
+    const detectKey = (e)=>{
+      const value = e.target.value
+      if(e.key === 'Enter'){
+        console.log(value)
+      }
+  }
   return(
     <div className="options__search">
     <div className="text"><Trans>{props.label}</Trans></div>
     <i className="icon fas fa-search" />
-    <div className="search form-group">
+    <div className="search form-group" onKeyPress={detectKey}>
             <input
               type="text"
               className="w-100 form-control"
               placeholder="Nhập nội dung"
             />
-          
     </div>
   </div>
   )

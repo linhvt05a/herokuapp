@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {Link} from 'react-router-dom'
 import { Trans } from "react-i18next";
 import Slider from "react-slick";
-
+import  moment from 'moment'
 
 const CardNews = (props) => {
     const{data} = props
@@ -60,7 +60,10 @@ const CardNews = (props) => {
     }
 }
 
-
+function convertDate(value){
+    const date = moment().format('DD/MM/YYYY')
+    return date
+}
 const NewsLoop = (props) =>{
     const {item} = props
     return (
@@ -84,7 +87,7 @@ const NewsLoop = (props) =>{
                     </div>
                     <span className="time">
                         <i className="icon far fa-clock" />
-                        {item.from_date}
+                        {convertDate(item.from_date)}
                     </span>
                 </div>
             </div>
