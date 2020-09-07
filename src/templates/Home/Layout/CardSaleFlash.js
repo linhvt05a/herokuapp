@@ -75,7 +75,7 @@ const CardSaleFlash = (props) => {
                     banner ? <img src="../images/flashsale.png" style={{width: "100%", marginBottom: "40px"}}></img> : ""
                 }
                 {
-                    timeLine ? <ItemTimeLine datas={['2020-08-20T13:20:00', '2020-08-20T14:20:00', '2020-08-20T15:00:00', '2020-08-20T15:20:00', '2020-08-20T16:20:00']} /> : ""
+                    timeLine ? <ItemTimeLine datas={['2020-09-08T09:00:00', '2020-09-08T12:00:00', '2020-09-08T14:30:00', '2020-09-08T16:00:00', '2020-09-08T18:30:00']} /> : ""
                 }
                 <div className="striking_apartment--content jsSalesQuick">
                     {

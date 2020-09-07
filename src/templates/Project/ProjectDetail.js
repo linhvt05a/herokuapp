@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 import TopBannerDetail from "./Item/TopBannerDetail";
@@ -15,6 +15,11 @@ const ProjectDetail = (props) => {
     const comingSoonProductList = isGetComingSoonProductListSuccess ? product.comingSoonProductList : null;
     const dispatch = useDispatch();
 
+    const [productType, setProductTypeState] = useState(null)
+    const [direction, setDirectionState] = useState(null)
+    const [price, setPriceState] = useState([])
+    const [acreage, setAcreageState] = useState([])
+
     useEffect(() => {
         if (location.state.projectStatus === 3) {
             dispatch(productAction.loadSellingProductList({page: 1, limit: 6, project_id: location.state.projectId}));
@@ -23,23 +28,27 @@ const ProjectDetail = (props) => {
         }
     }, []);
 
-    const onFilterChange = (productType, direction, price, acreage) => {
+    const onFilterChange = (productTypeData, directionData, priceData, acreageData) => {
         if (location.state.projectStatus === 3) {
             dispatch(productAction.loadSellingProductList({page: 1, limit: 6, project_id: location.state.projectId,
-                architecture_type_id: productType, direction_id: direction, price_from: price[0], price_to: price[1], acreage_from: acreage[0], acreage_to: acreage[1]}));
+                architecture_type_id: productTypeData, direction_id: directionData, price_from: priceData[0], price_to: priceData[1], acreage_from: acreageData[0], acreage_to: acreageData[1]}));
         } else {
             dispatch(productAction.loadComingSoonProductList({page: 1, limit: 6, project_id: location.state.projectId,
-                architecture_type_id: productType, direction_id: direction, price_from: price[0], price_to: price[1], acreage_from: acreage[0], acreage_to: acreage[1]}));
+                architecture_type_id: productTypeData, direction_id: directionData, price_from: priceData[0], price_to: priceData[1], acreage_from: acreageData[0], acreage_to: acreageData[1]}));
         }
+        setProductTypeState(productTypeData);
+        setDirectionState(directionData);
+        setPriceState(priceData);
+        setAcreageState(acreageData);
     }
 
     const onPageChange = (value) => {
         if (location.state.projectStatus === 3) {
             dispatch(productAction.loadSellingProductList({page: value, limit: 6, project_id: location.state.projectId,
-                architecture_type_id: productType, direction_id: direction, price_from: priceFrom, price_to: priceTo, acreage_from: acreageFrom, acreage_to: acreageTo}));
+                architecture_type_id: productType, direction_id: direction, price_from: price[0], price_to: price[1], acreage_from: acreage[0], acreage_to: acreage[1]}));
         } else {
             dispatch(productAction.loadComingSoonProductList({page: value, limit: 6, project_id: location.state.projectId,
-                architecture_type_id: productType, direction_id: direction, price_from: priceFrom, price_to: priceTo, acreage_from: acreageFrom, acreage_to: acreageTo}));
+                architecture_type_id: productType, direction_id: direction, price_from: price[0], price_to: price[1], acreage_from: acreage[0], acreage_to: acreage[1]}));
         }
     }
 
