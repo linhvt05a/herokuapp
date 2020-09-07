@@ -27,6 +27,13 @@ export default {
     end_chat: "Do you want to end the conversation ?",
     title_end_chat: "Do you really want to end the conversation with us.",
 
+    text_from : 'From',
+    text_to : 'To',
+
+    //heading
+    heading_policy_advice : 'Incentives',
+    heading_internal_utility : 'Gadgets around',
+    heading_banking_policy : 'Loan policy',
 
 
     // end_button: "End",
@@ -40,6 +47,11 @@ export default {
     button_confirm: "Confirm",
     button_delete: "Delete",
     button_edit: "Edit",
+    button_delete_filter: "Delete Filter",
+
+    // send contact
+    contact: "Contact",
+    send_message: "SEND MESSAGE",
 
     // languages 
     lang_vi : 'VietNamese',

@@ -25,7 +25,7 @@ export default {
 
     
     PRODUCT_SIGNUP:"",
-    PRODUCT_INCENTIVE:"",
+    PRODUCT_INCENTIVE:"/api/main_web/v1/infrastructure/product/trading_market/",
     HOT_PRODUCT_LIST: "/api/main_web/v1/infrastructure/product/highlight/list/",
 
     SELLING_PRODUCT_LIST: "/api/main_web/v1/infrastructure/product/selling/list/",
@@ -35,8 +35,19 @@ export default {
     // COMMON 
     PROVINCE_LIST: "/api/fe/v1/province",
     DISTRICT_LIST: "/api/fe/v1/district",
+    WARD_LIST: "/api/fe/v1/ward",
     STATUS_LIST: "/api/be/v1/common/project/status",
     MINMAX_LIST: "/api/main_web/v1/project/min_max",
+
+    // ACCOUNT
+    LOGIN: "/api/main_web/v1/login/",
+    // REGISTRY: "",
+    FORGOT_PASSWORD: "/api/main_web/v1/user/forgot_password/",
+    CHANGE_PASSWORD: "/api/main_web/v1/user/password/change/",
+    PROFILE: "/api/main_web/v1/user/profile/",
+    UPDATE_PROFILE: "/api/main_web/v1/user/profile/update/",
+    UPDATE_CUSTOMER: "/api/main_web/v1/customer/edit/",
+
 
     LEGAL_CATEGORIES: "",
     LEGAL_LIST: "",
@@ -51,9 +62,10 @@ export default {
     NEWS_ADD_COMMENT:"/api/main_web/v1/news/comment/create/",
     NEWS_COMMENT_LIST:"api/main_web/v1/news/comment/",
 
-    JURIDICAL_ADD:"",
+    LEGAL_FORM:"",
     
     CONTACT_ADD : "/api/main_web/v1/counseling/add/",
+    ADVISORY_ADD : "/api/main_web/v1/advisory/create_advisory/",
 
     FILTER_NEWS: "",
     

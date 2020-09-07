@@ -8,7 +8,7 @@ const JuridicalSearch = (props)=>{
         <div className="text"><Trans>{props.label}</Trans></div>
         <i className="icon fas fa-search" />
         <div className="search form-group">
-        <input
+        <InputBase
             type="text"
             className="w-100 form-control"
             placeholder="Nhập nội dung"

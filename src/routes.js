@@ -1,36 +1,43 @@
 // import * as Login from './templates/Login';
+import Elements from "./templates/Elements/Elements";
+import Example from "./templates/Example";
+
 import Home from "./templates/Home/Home";
-import Contact from "./templates/Support/Contact/Contact";
+
 import Project from "./templates/Project/Project";
 import ProjectDetail from "./templates/Project/ProjectDetail";
-import ProductDetail from "./templates/ProductDetail/ProductDetail";
-import Introduce from "./templates/Support/Introduce/Introduce";
+
+import ProductDetail from "./templates/Product/ProductDetail/ProductDetail";
+import ProductList from './templates/Product/ProductList/ProductList';
+import HotProduct from "./templates/Product/HotProduct";
+
 import News from "./templates/News/NewsList";
 import NewsDetail from "./templates/News/NewsDetail";
+
 import RecruitmentList from "./templates/Support/Recruitment/RecruitmentList";
 import RecruitmentDetail from "./templates/Support/Recruitment/RecruitmentDetail";
+
 import TransactionLevel from "./templates/TransactionLevel/TransactionLevel";
 import ShoppingGuide from "./templates/Support/ShopGuide/ShoppingGuide";
 import Legal from "./templates/Support/Legal/Juridical";
 import Promotion from './templates/Promotion/Promotion';
 import FlashSaleList from './templates/Promotion/FlashSaleList';
-import Elements from "./templates/Elements/Elements";
-import Example from "./templates/Example";
-import HotProduct from "./templates/Product/HotProduct";
+
 import Account from "./templates/Account/CustomerAccount";
 import Cart from "./templates/ShopCart/Cart";
-import ProductList from './templates/ProductList/ProductList';
 import PropertySelling from "./templates/PolicyPayment/PropertySelling";
 import LoanPolicy from "./templates/LoanOnline/LoanPolicy";
 import CustomerInfo from "./templates/ShopCart/CustomerInfo";
 import ConfirmOrderInfo from "./templates/ShopCart/ConfirmOrderInfo";
 import DepositPayment from "./templates/ShopCart/DepositPayment";
+import Introduce from "./templates/Support/Introduce/Introduce";
+import Contact from "./templates/Support/Contact/Contact";
 
 const home_banner_url = '../images/project.jpg';
 const introduce_banner_url = '../images/project.jpg';
 const contact_banner_url = '../images/project.jpg';
 const project_banner_url = '../images/project.jpg';
-const projectDetail_banner_url = '../images/tutorial_product.jpg';
+const projectDetail_banner_url = '../images/project.jpg';
 const news_banner_url = '../images/newspaper.jpg';
 const newsDetail_banner_url = '../images/newspaper.jpg';
 const recruitmentList_banner_url = '../images/recruitment.jpg';
@@ -87,10 +94,18 @@ const MAIN = [
         "banner_class": ''
     },
     {
-        "path": "/productList",
+        "path": "/product",
         "component": ProductList,
         "banner_title": "contact_banner_title",
         "banner_url": contact_banner_url,
+        "banner_show": true,
+        "banner_class": ''
+    },
+    {
+        "path": "/product/:id",
+        "component": ProductDetail,
+        "banner_title": "project_banner_title",
+        "banner_url": project_banner_url,
         "banner_show": true,
         "banner_class": ''
     },
@@ -103,7 +118,7 @@ const MAIN = [
         "banner_class": ''
     },
     {
-        "path": "/project/coming_soon",
+        "path": "/project/coming-soon",
         "component": Project,
         "banner_title": "project_banner_title",
         "banner_url": project_banner_url,
@@ -119,11 +134,6 @@ const MAIN = [
         "banner_class": ''
     },
     {
-        "path": "/product-detail/:id",
-        "component": ProductDetail,
-        "banner_show": false
-    },
-    {
         "path": "/news",
         "component": News,
         "banner_title": "news_banner_title",
@@ -132,7 +142,7 @@ const MAIN = [
         "banner_class": ''
     },
     {
-        "path": "/NewsDetail/:id",
+        "path": "/news/:id",
         "component": NewsDetail,
         "banner_title": "newsDetail_banner_title",
         "banner_url": newsDetail_banner_url,
@@ -140,7 +150,7 @@ const MAIN = [
         "banner_class": ''
     },
     {
-        "path": "/recruitmentList",
+        "path": "/recruitment",
         "component": RecruitmentList,
         "banner_title": "recruitmentList_banner_title",
         "banner_url": recruitmentList_banner_url,
@@ -148,7 +158,7 @@ const MAIN = [
         "banner_class": ''
     },
     {
-        "path": "/recruitmentDetail",
+        "path": "/recruitment/:id",
         "component": RecruitmentDetail,
         "banner_title": "recruitmentDetail_banner_title",
         "banner_url": recruitmentDetail_banner_url,
@@ -156,7 +166,7 @@ const MAIN = [
         "banner_class": ''
     },
     {
-        "path": "/transactionlevel",
+        "path": "/exchanges",
         "component": TransactionLevel,
         "banner_title": "transactionLevel_banner_title",
         "banner_url": transactionLevel_banner_url,
@@ -164,7 +174,7 @@ const MAIN = [
         "banner_class": ''
     },
     {
-        "path": "/shoppingGuide",
+        "path": "/shopping-guide",
         "component": ShoppingGuide,
         "banner_title": "shoppingGuide_banner_title",
         "banner_url": shoppingGuide_banner_url,
@@ -196,7 +206,7 @@ const MAIN = [
         "banner_class": ''
     },
     {
-        "path": "/hot_product/list",
+        "path": "/hot-product",
         "component": HotProduct,
         "banner_title": "product_hot_product_banner_title",
         "banner_url": product_banner_url,
@@ -216,39 +226,32 @@ const MAIN = [
         "banner_url": cart_banner_url,
         "banner_show": true
     },
-    // {
-    //     "path": "/productList",
-    //     "component": ProductList,
-    //     "banner_title": "products_list_banner_title",
-    //     "banner_url": product_banner_url,
-    //     "banner_show": true
-    // },
     {
-        "path": "/property-selling/",
+        "path": "/property-selling",
         "component": PropertySelling,
         "banner_show": false
     },
     {
-        "path": "/loan-policy/",
+        "path": "/loan-policy",
         "component": LoanPolicy,
         "banner_show": false
     },
     {
-        "path": "/cart/customer_info",
+        "path": "/cart/customer-info",
         "component": CustomerInfo,
         "banner_title": "cart",
         "banner_url": cart_banner_url,
         "banner_show": true
     },
     {
-        "path": "/cart/confirm_order_info",
+        "path": "/cart/confirm-order-info",
         "component": ConfirmOrderInfo,
         "banner_title": "cart",
         "banner_url": cart_banner_url,
         "banner_show": true
     },
     {
-        "path": "/cart/deposit_payment",
+        "path": "/cart/deposit-payment",
         "component": DepositPayment,
         "banner_title": "cart",
         "banner_url": cart_banner_url,

@@ -18,6 +18,9 @@
                 display: none;
             }
         }
+        .item-link::after{
+            top: 3px;
+        }
     }
     .header_border{
         @include flex-wrap(wrap);
@@ -28,5 +31,16 @@
             height: auto !important;
             opacity: 1 !important;
         }
+    }
+}
+#form-login {
+    .form-group {
+        .form-control {
+            height: 50px;
+        }
+    }
+    .errors {
+        color: #ff4d4f;
+        text-align: center;
     }
 }

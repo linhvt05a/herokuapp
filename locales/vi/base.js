@@ -32,6 +32,23 @@ export default {
     button_confirm: "Xác nhận",
     button_delete: "Xoá",
     button_edit: "Sửa",
+    button_delete_filter: "Xoá tìm kiếm",
+
+
+    //heading
+    heading_policy_advice : 'Chính sách ưu đãi',
+    heading_internal_utility : 'Tiện ích xung quanh',
+    heading_banking_policy : 'Chính sách vay',
+
+    text_from : 'Từ',
+    text_to : 'Đến',
+
+    //heading
+    heading_policy_advice : 'Policy Advice',
+
+    // send contact
+    contact: "Liên lạc",
+    send_message: "GỬI TIN NHẮN",
 
     // languages 
     lang_vi : 'Việt Nam',

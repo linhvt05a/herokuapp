@@ -3,7 +3,7 @@ import { Trans } from 'react-i18next';
 import {InputBase, InputDatePicker, SelectCustom, ButtonStyle} from '../../components/base/index'
 
 const CommonFilter = (props) => {
-    const {handleChange,changeSelect, changeDateFrom,defaultValue, changeDateTo, handleFilter,name,datas,paramsSearch, title, placeholder} = props
+    const {handleChange,dateFrom, dateTo, changeSelect, changeDateFrom,defaultValue,titleNews, changeDateTo, handleFilter,name,datas,paramsSearch, title, placeholder} = props
     return (
         <div className="searchProject">
             <div className="searchProject__title" style={{marginBottom: 20}}>
@@ -13,7 +13,11 @@ const CommonFilter = (props) => {
             <SelectCustom defaultValue={defaultValue} datas={datas} onChange ={changeSelect}/>
             <InputDatePicker   onChange={changeDateFrom}/>
             <InputDatePicker   onChange={changeDateTo}/>
-            <ButtonStyle className="btn btn_green text-uppercase w-100" href="/news" paramsSearch={paramsSearch} label="SEARCH" onClick = {handleFilter}/>
+            <ButtonStyle className="btn btn_green text-uppercase w-100" href="/news" 
+            dateFrom={dateFrom} dateTo={dateTo} 
+            paramsSearch={paramsSearch} 
+            titleNews={titleNews} 
+            label="news_title_search_btn" onClick = {handleFilter}/>
         </div>
     )
 }

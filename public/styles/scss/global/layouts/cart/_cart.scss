@@ -258,9 +258,11 @@
     .select-check {
         display: flex;
         align-items: center;
-        .style_02{
-            padding-left: 35px ;
+
+        .style_02 {
+            padding-left: 35px;
         }
+
         .title-project {
             display: flex;
             align-items: center;
@@ -346,9 +348,11 @@
             @media (max-width: 1199px) {
                 width: 100%;
             }
-            .style_02{
-                padding-left: 35px ;
+
+            .style_02 {
+                padding-left: 35px;
             }
+
             .block-img {
                 position: relative;
                 height: 86%;
@@ -445,6 +449,7 @@
                 .price {
                     margin-left: auto !important;
                     margin: 5px 0;
+
                     &__item {
                         flex-direction: column;
                         margin-left: auto;
@@ -471,6 +476,8 @@
                             padding-right: 12px;
                         }
                     }
+
+                    
                 }
             }
 

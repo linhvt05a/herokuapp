@@ -1,0 +1,14 @@
+.heading_purple--list{
+    .heading{
+        font-size: 12px;
+    }
+    .list_style_01--item{
+        padding-left: 12px;
+        &::before{
+            font-size: 7px;
+        }
+    }
+}
+.exchanges_apartment--child{
+    width: calc((100% / 2) - 8px);
+}

@@ -13,4 +13,13 @@ export default {
     header_menu_juridical : 'Pháp lý',
     header_menu_news : 'Tin tức',
     header_menu_contact : 'Liên hệ',
+
+    // login
+    login: "Đăng nhập",
+    logout: "Đăng xuất",
+    registry: "Đăng ký",
+    forfot_pass: "Quên mật khẩu",
+    user_pass_false: "Tài khoản hoặc mật khẩu không chính xác",
+    user_forgot_content: "Hãy điền thông tin email của bạn để chúng tôi lấy lại mật khẩu",
+    send: 'GỬI'
 }

@@ -1,26 +1,90 @@
-import React, { useState } from 'react';
-import {TextArea, ButtonStyle, InputBase} from '../../../components/base'
-import {validateRequest} from '../../../components/base/ValidateInput/ValidateInput';
-import {supportForm} from '../../../components/base/ValidateInput/useForm'
-import { useDispatch, useSelector } from "react-redux";
-import { juridicalSupportAction } from "../../../store/action/index";
+import React from 'react';
+import { withTranslation,Trans } from 'react-i18next';
+import { useDispatch } from "react-redux";
+import { Input, Form, Button } from 'antd';
+import {legalAction} from '../../../store/action/index'
 
 const JuridicalBox =(props) =>{
-    const requestValue =  {requestName:'', requestEmail:'',requestContent:''} 
-    const {questionValues, questionErrors, handleRequest, handleChangeReq} = supportForm(requestValue, sendRequest, validateRequest)
-    const dispatch = useDispatch(); 
-function sendRequest () {
-    dispatch(juridicalSupportAction.juridicalSupport({questionValues}))
+    let { t } = props;
+    const FormItem = Form.Item;
+    const [formInfo] = Form.useForm();
+    const dispatch = useDispatch()
+    const onSubmitInfo = (values) =>{
+       dispatch(legalAction.legalFormSupport({values}))
+    }
+const validatorInfo = {
+    fullname : {
+        form : [
+            {
+                required: true, 
+                message: 'Missing information require!' ,
+            }
+        ],
+    },
+    phone : {
+        form : [
+            {
+                required: true,
+                message: 'Missing information require!',
+            }
+        ],
+        type:'number'
+    },
+    email : {
+        form : [
+            {
+                type: 'email',
+                message: 'The input is not valid E-mail!',
+            },
+            {
+                required: true,
+                message: 'Missing information require!',
+            },
+        ],
+        type:'email'
+    },
+    question : {
+        form : [
+            {
+                required: true, 
+                message: 'Missing information require!' 
+            }
+        ],
+        type:'text'
+    },
 }
     return (
         <div className="juridical__advisory">
-            <div className="juridical__advisory--title mb-2">{props.title}</div>
-                <InputBase placeholder="Full name *" name="requestName" top={10} value={questionValues.requestName} errors={questionErrors.requestName} onChange={handleChangeReq}/>
-                <InputBase placeholder="Email *" name="requestEmail" top={10} value={questionValues.requestEmail} errors={questionErrors.requestEmail} onChange={handleChangeReq}/>
-                <TextArea placeholder="Content *" className="w-100 mt-2" name="requestContent"  value={questionValues.requestContent} errors={questionErrors.requestContent} handleChange={handleChangeReq}/>
-                <ButtonStyle className="btn btn_green text-uppercase w-100" label="Submit a question" onClick ={handleRequest}/>
+            <div className="juridical__advisory--title mb-2"></div>
+            <Form noValidate 
+                form={formInfo}
+                onFinish={onSubmitInfo}
+                name="form-chat-info">
+                <FormItem className="form-group" name="fullname" rules={validatorInfo.fullname.form}>
+                    <Input placeholder={t('full_name')} type={validatorInfo.fullname.type} name="fullName" className="form-control" />
+                </FormItem>
+                <FormItem className="form-group" name="email" rules={validatorInfo.email.form} >
+                    <Input placeholder={t('email')} type={validatorInfo.email.type} name="emailName" className="form-control" />
+                </FormItem>
+                <FormItem className="form-group" name="question" rules={validatorInfo.question.form}>
+                    <Input.TextArea placeholder={t('please_enter_the_content')} type={validatorInfo.question.type} name="questionName" className="form-control"  />
+                </FormItem>
+                <FormItem shouldUpdate className="text-center submit">
+                    {() => {
+                        return (
+                            <Button className="btn btn_green" htmlType="Submit"
+                                disabled={
+                                    formInfo.getFieldsError().filter(({ errors }) => errors.length).length
+                                }
+                            >
+                                <Trans>SEND MESSAGE</Trans>
+                            </Button>
+                            )
+                    }}
+                </FormItem>
+            </Form>
         </div>
     )
   }
 
-export default JuridicalBox
+export default withTranslation() (JuridicalBox)

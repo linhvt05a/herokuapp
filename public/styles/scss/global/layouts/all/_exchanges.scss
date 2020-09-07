@@ -253,12 +253,6 @@ $color_05: #399b54;
                 @include fw-medium;
                 color: #ffffff;
             }
-
-            .policy_loan_title {
-                font-size: 21px;
-
-            }
-
             br {
                 display: none;
 
@@ -283,9 +277,8 @@ $color_05: #399b54;
                 }
             }
         }
-        .heading_left{
-            justify-content: unset;
-        }
+
+        
         .wrap {
             padding: 20px 25px;
             padding-right: 10px;
@@ -405,24 +398,6 @@ $color_05: #399b54;
             .map_search--range .range_item label {
                 color: #0d0d0d;
             }
-        }
-
-        .list_policy {
-            display: flex;
-            justify-content: space-between;
-
-            @media (max-width: 374px) {
-                display: block;
-            }
-
-            .title_policy {
-                font-size: 12px;
-            }
-
-            .money_number {
-                padding-left: 15px;
-            }
-
         }
 
     }
@@ -658,7 +633,6 @@ $color_05: #399b54;
         }
     }
 }
-
 .sales_status_cart {
     display: flex;
     align-items: center;

@@ -8,7 +8,7 @@ import transaction_level from './en/transaction_level';
 import cart from './en/cart';
 import introduce from './en/introduce';
 import header from './en/header';
-
+import news from './en/news'
 const en = {
     ...home, 
     ...promotion, 
@@ -19,7 +19,8 @@ const en = {
     ...transaction_level, 
     ...cart, 
     ...introduce,
-    ...header
+    ...header,
+    ...news
 }
 
 export default en;

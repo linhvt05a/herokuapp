@@ -14,4 +14,12 @@ export default {
     header_menu_news : 'News',
     header_menu_contact : 'Contact',
 
+    // login
+    login: "Login",
+    logout: "Logout",
+    registry: "Sign in",
+    forfot_pass: "Forgot password",
+    user_pass_false: "Account or password is incorrect",
+    user_forgot_content: "Please enter your email information so we can retrieve your password",
+    send: 'SEND'
 }

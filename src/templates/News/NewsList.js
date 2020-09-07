@@ -10,7 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { newsAction } from "../../store/action/index";
 import {CommonFilter} from '../News/index'
 import moment from 'moment';
-
+import CardNoData from '../../components/common/CardNoData'
 const defaultValue = [{value:'', label:'Categories'}]
 
 const News = (props) => {
@@ -55,9 +55,19 @@ const News = (props) => {
     // const categoriesID = location.state.paramsSearch[0].cateID
     // const fromDate = location.state.paramsSearch[0].dateFrom
     // const toDate = location.state.paramsSearch[0].dateTo
+   
+   
     useEffect(() => {
-        console.log(location.state)
-        dispatch(newsAction.LoadNewsList({}))
+        if(location.state && location.state !== null){
+            const cateID = location.state.paramsSearch
+            const nameSearch = location.state.titleNews
+            const dateFrom = location.state.dateFrom
+            const dateTo = location.state.dateTo
+            dispatch(newsAction.LoadNewsList({cateID, nameSearch, dateFrom, dateTo}))
+        }else{
+            dispatch(newsAction.LoadNewsList({}))
+        }
+       
         dispatch(newsAction.newsCategories({}))
     }, []);
 
@@ -105,25 +115,27 @@ const News = (props) => {
         <div className="news">
             <div className="container container-sm container-md">
                 <h3 className="main_heading" style={{ marginTop: 85 }}>
-                    <span><Trans>NEWS</Trans></span>
+                    <span><Trans>news_title</Trans></span>
                 </h3>
                 <div className="row">
                     <div className="col-sm-12 col-md-12 col-lg-8 col-xl-8">
-                        <div className="row_content">
-                            {newsList && newsList.map((news, index) => <RowNews data={news} key={news.id}/>)}
+                       <div className="row_content">
+                            {newsList && newsList.length > 0 ? newsList.map((news, index) => <RowNews data={news} key={index}/>):
+                                <CardNoData />
+                            }
                         </div>
                         <Pagination data={LoadDataPaging(total_record, page, total_page, limit)} onChange ={onPageChange}/>
                     </div>
                     <div className="col-md-12 col-lg-4 col-xl-4 col-right_news mb-sm-3 mb-0">
                         <CommonMenu 
-                            label="Categories" 
+                            label="news_categories" 
                             dataMenu={newsCategories} 
                             className="options mb-4 bg_white" onClick = {handleClick}
                             navigate ={navigate}
                         />
                         <CommonFilter 
-                            title="Search for news" 
-                            placeholder="Enter Title"
+                            title="news_filter" 
+                            placeholder="news_placeholder"
                             defaultValue = {cateID == "" ? defaultValue[0].label : ''}
                             datas ={projectSelectList} 
                             handleChange = {handleChange}
@@ -142,32 +154,33 @@ const News = (props) => {
 
 const RowNews = (props) => {
     const{data} = props
-    return (
-        
-        <div className="card" >
-            <Link to={"/NewsDetail/" + data.news_id} className="link"></Link>
-            <div className="row ">
-                <div className="col-sm-12 col-md-5 col-xl-5 d-flex">
-                    <div className="news__card--img">
-                        <img src={data.news_avatar} />
-                    </div>
-                </div>
-                <div className="col-md-7 col-xl-7">
-                    <div className="news__card--content">
-                        <Link  className="title" to={"/NewsDetail/" + data.news_id}>
-                            {data.news_title}
-                        </Link>
-                        <div className="times">
-                            Ngày đăng : {data.from_date}
+   
+        return (
+            <div className="card" >
+                <Link to={"/news/" + data.news_id} className="link"></Link>
+                <div className="row ">
+                    <div className="col-sm-12 col-md-5 col-xl-5 d-flex">
+                        <div className="news__card--img">
+                            <img src={data.news_avatar} />
                         </div>
-                        <p className="contain">
-                            {data.description}
-                        </p>
+                    </div>
+                    <div className="col-md-7 col-xl-7">
+                        <div className="news__card--content">
+                            <Link  className="title" to={"/news/" + data.news_id}>
+                                {data.news_title}
+                            </Link>
+                            <div className="times">
+                                Ngày đăng : {data.from_date}
+                            </div>
+                            <p className="contain">
+                                {data.description}
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    )
-}
+        )
+    }
+
 
 export default News;

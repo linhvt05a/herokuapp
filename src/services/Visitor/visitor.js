@@ -2,7 +2,6 @@ import api from '../api';
 import { TOKEN } from '../../../env';
 
 export const visitorService = {
-
     visitorAdd(payload) {
         const {visitContent,visitMobile,visitName,visitSelect} = payload.params.signValues
         const body = {

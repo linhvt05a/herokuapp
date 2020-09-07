@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Link, NavLink } from "react-router-dom";
 import { Trans } from "react-i18next";
+import { FormUserMobile } from '../../../../templates/Account/index';
 import {IMAGE_URL} from '../../../../contant'
 
-
-
 const MenuLeft = (props) => {
-    const {active} = props;
-
+    const {active, hideMBToggle} = props;
+    const [clickMenuSupport, setMenuSupport] = useState(false);
+    const [clickMenuLogin, setMenuLogin] = useState(false);
     const [inHoverNav, setHoverNav] = useState(false);
     return (
         <ul className={`header_menu ${active ? 'active' : ''}`}>
@@ -19,7 +19,7 @@ const MenuLeft = (props) => {
                         alt="Minerva"
                     />
                 </NavLink>
-                <i className="icon-close">×</i>
+                <i className="icon-close" onClick={hideMBToggle} style={{cursor: "pointer"}}>×</i>
             </li>
             <li className="item mt-3 mt-md-0">
                 <NavLink exact activeClassName="active" className="item-link" to="/">
@@ -33,28 +33,26 @@ const MenuLeft = (props) => {
                 </NavLink>
             </li>
             <li className="item">
-                <NavLink activeClassName="active" className="item-link" to="/project/coming_soon">
+                <NavLink activeClassName="active" className="item-link" to="/project/coming-soon">
                     <Trans>header_menu_willsell</Trans>
                 </NavLink>
             </li>
             <li className="item">
-                <NavLink activeClassName="active" className="item-link" to="/transactionLevel">
+                <NavLink activeClassName="active" className="item-link" to="/exchanges">
                     <Trans>header_menu_exchanges</Trans>
                 </NavLink>
             </li>
             <li className={`item hasChild dropdown d-none d-md-block ${inHoverNav ? "open": ''}`} >
-                <NavLink activeClassName="active"
-                    onMouseEnter={() => setHoverNav(true)}
-                    className="item-link dropdown-toggle"
-                    to="/support"
+                <div onMouseEnter={() => setHoverNav(true)}
+                    className="item-link dropdown-toggle cursor-pointer"
                 >
                     <Trans>header_menu_support</Trans>
-                </NavLink>
+                </div>
                 <ul className="header_menu--child dropdown-menu" onMouseLeave={() => setHoverNav(false)}>
                     <li className="item-child">
                         <NavLink activeClassName="active"
                             className="item-child-link"
-                            to="/shoppingGuide"
+                            to="/shopping-guide"
                         >
                             <Trans>header_menu_buying_guide</Trans>
                         </NavLink>
@@ -86,23 +84,20 @@ const MenuLeft = (props) => {
                 </ul>
             </li>
             <li className="item header_register-mb d-block d-md-none hasChild">
-                <Link className="item-link" to="/demo">
+                <a className={`item-link ${clickMenuSupport ? "active" : ""}`} onClick={() => setMenuSupport(!clickMenuSupport)}>
                     <i className="pr-1 fas fa-user-circle" />
                     <Trans>header_menu_support</Trans>
-                </Link>
-                <ul className="header_menu--child accordion">
+                </a>
+                <ul className={`header_menu--child accordion ${clickMenuSupport ? "active" : ""}`}>
                     <li className="item-child">
-                        <Link
-                            className="item-child-link"
-                            to="/demo"
-                        >
+                        <Link className="item-child-link" to="/shopping-guide">
                             <Trans>header_menu_buying_guide</Trans>
                         </Link>
                     </li>
                     <li className="item-child">
                         <Link
                             className="item-child-link"
-                            to="/demo"
+                            to="/legal"
                         >
                             <Trans>header_menu_juridical</Trans>
                         </Link>
@@ -110,7 +105,7 @@ const MenuLeft = (props) => {
                     <li className="item-child">
                         <Link
                             className="item-child-link"
-                            to="/demo"
+                            to="/news"
                         >
                             <Trans>header_menu_news</Trans>
                         </Link>
@@ -118,7 +113,7 @@ const MenuLeft = (props) => {
                     <li className="item-child">
                         <Link
                             className="item-child-link"
-                            to="/demo"
+                            to="/contact"
                         >
                             <Trans>header_menu_contact</Trans>
                         </Link>
@@ -126,10 +121,10 @@ const MenuLeft = (props) => {
                 </ul>
             </li>
             <li className="item">
-                <NavLink activeClassName="active" className="item-link" to="/promotion">
+                <NavLink activeClassName="active" className="item-link mr-0" to="/promotion">
                     <Trans>header_menu_promotion</Trans>
-                    <img src={`${IMAGE_URL}images/gift.png`} class="gift" />
                 </NavLink>
+                <img src={`${IMAGE_URL}images/gift.png`} class="gift" />
             </li>
             <li className="item d-flex justify-content-between d-md-none">
                 <Link to="/#" className="item-link pr-0">
@@ -172,111 +167,11 @@ const MenuLeft = (props) => {
                 </Link>
             </li>
             <li className="item header_register-mb d-block d-md-none hasChild">
-                <Link className="item-link" to="/demo">
+                <Link className={`item-link ${clickMenuLogin ? "active" : ""}`} onClick={() => setMenuLogin(!clickMenuLogin)} to="/demo">
                     <i className="pr-1 fas fa-user-circle" />
                     Đăng ký / Đăng nhập
                 </Link>
-                <ul className="header_menu--child mt-0 accordion">
-                    <li className="register_select">
-                        <div className="item-child-link accordion-toggle d-flex justify-content-between align-items-center">
-                            Đăng nhập
-                            <i className="icon_plus fas fa-plus" />
-                        </div>
-                        {/* form_register signin */}
-                        <div className="header_register form_register accordion-inner">
-                            <div className="form form_signInUp">
-                                <div className="form-group">
-                                    <input
-                                        type="text"
-                                        placeholder="Email"
-                                        className="form-control"
-                                    />
-                                </div>
-                                <div className="form-group">
-                                    <input
-                                        type="password"
-                                        placeholder="Mật khẩu"
-                                        className="form-control"
-                                    />
-                                </div>
-                                <div className="form-group mb-0 text-center">
-                                    <Link
-                                        to="/demo"
-                                        className="btn btn_green btn_signIn text-uppercase"
-                                    >
-                                        ĐĂNG NHẬP
-                                    </Link>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li className="register_select">
-                        <div className="item-child-link accordion-toggle d-flex justify-content-between align-items-center">
-                            Đăng ký
-                            <i className="icon_plus fas fa-plus" />
-                        </div>
-                        {/* form_register signup*/}
-                        <div className="header_register form_register accordion-inner">
-                            <div className="form form_signInUp">
-                                <div className="form-group">
-                                    <input
-                                        type="text"
-                                        placeholder="Họ tên"
-                                        className="form-control"
-                                    />
-                                </div>
-                                <div className="form-group">
-                                    <input
-                                        type="text"
-                                        placeholder="Email"
-                                        className="form-control"
-                                    />
-                                </div>
-                                <div className="form-group">
-                                    <input
-                                        type="password"
-                                        placeholder="Mật khẩu"
-                                        className="form-control"
-                                    />
-                                </div>
-                                <div className="form-group">
-                                    <input
-                                        type="password"
-                                        placeholder="Nhập lại mật khẩu"
-                                        className="form-control"
-                                    />
-                                </div>
-                                <div className="form-group mb-0 text-center">
-                                    <Link to="/demo" className="btn btn_green btn_signIn text-uppercase">
-                                        ĐĂNG KÝ
-                                    </Link>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li className="register_select">
-                        <div className="item-child-link accordion-toggle d-flex justify-content-between align-items-center">
-                            Quên mật khẩu
-                            <i className="icon_plus fas fa-plus" />
-                        </div>
-                        {/* form_forgot */}
-                        <div className="header_register form_forgot accordion-inner">
-                            <div className="form form_signInUp">
-                                <div className="form-group form_forgot--info">
-                                    Hãy điền thông tin email của bạn để
-                                    <br />
-                                    chúng tôi lấy lại mật khẩu
-                                </div>
-                                <div className="form-group">
-                                    <input type="text" placeholder="Email" className="form-control"/>
-                                </div>
-                                <div className="form-group mb-0 text-center">
-                                    <Link to="/demo" className="btn btn_green btn_signIn text-uppercase mb-0">GỬI</Link>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
+                <FormUserMobile active={clickMenuLogin} />
             </li>
         </ul>
     )

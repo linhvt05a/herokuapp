@@ -55,3 +55,8 @@ a[href^="https://maps.google.com/maps"]{display:none !important}
 .map_origin--content .list_button a {
     text-transform: uppercase;
 }
+#form-advisory {
+    .form-group {
+        padding: 0 15px;
+    }
+}

@@ -7,7 +7,7 @@ import { Trans } from 'react-i18next';
 import { LoadDataPaging } from '../../functions/Utils';
 import { useDispatch, useSelector } from "react-redux";
 import { promotionAction , newsAction} from "../../store/action/index";
-
+import moment from 'moment'
 const Promotion = () => {
     const promotions = useSelector(state => state.newsReducer);
     const promotionsSuccess = promotions.newsList.success
@@ -31,11 +31,11 @@ const handleChangePage = (value) =>{
 }
     return (
         <div className="homePage">
-            <CardSaleFlash headerBodyClassName="label_filter--heading" labelHeader="flash_sale" datas={["a", "iu", "e", "vl", "wa", "di"]} banner readmore timeLine />
+            <CardSaleFlash headerBodyClassName="label_filter--heading" labelHeader="flash_sale" banner readmore timeLine />
             <div className="overview" >
                 <div className="container container-sm container-md">
                     <h2 className="overview_heading">
-                        <Trans>Offers and promotions</Trans>
+                        <Trans>Offers_and_promotions</Trans>
                 <span className="sub">
                     <Trans>
                         Here we provide customers with information about the program.
@@ -75,12 +75,15 @@ const RowPromotion = (props) => {
                     <div className="des"><Trans>{data.description}</Trans></div>
                     <span className="time">
                         <i className="icon far fa-clock" />
-                            <Trans>From:</Trans> {data.from_date} - <Trans>To: </Trans>{data.to_date}
+                            <Trans>From:</Trans> {convertDate(data.from_date)} - <Trans>To: </Trans>{convertDate(data.to_date)}
                     </span>
                 </div>
             </div>
         </div>
     )
 }
-
+function convertDate(value){
+    const date = moment(value).format('DD-MM-YYYY')
+    return date
+}
 export default Promotion

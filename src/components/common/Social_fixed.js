@@ -8,17 +8,12 @@ import { examAction } from "../../store/action"
 import ChatOnline from '../common/Chat/ChatOnline'
 
 const SocialFixed = (props) => {
-	// const [showChat, setShowAdvisory] = useState(false);
+	const [showChat, setShowAdvisory] = useState(false);
 	const [showPhone, setShowPhoneNumber] = useState(false);
 	const ScrollToTop = () => {
 		window.scrollTo({ top: 0, behavior: 'smooth' });
 	}
-	const setShowAdvisory = () => {
-		dispatch(examAction.loadChat(showChat))
-	}
-	const dispatch = useDispatch();
-	const chat = useSelector(state => state.examReducer);
-	let { showChat } = chat
+
 	return (
 		<>
 			<ul className={`social_fixed ${showChat ? "active" : ''}`}>
@@ -34,7 +29,7 @@ const SocialFixed = (props) => {
 				}
 
 				<li>
-					<Link to="/#" className="chat startChatOnline" onClick={() => setShowAdvisory()}>
+					<Link to="/#" className="chat startChatOnline" onClick={() => setShowAdvisory(!showChat)}>
 						<i className="icon fas fa-comments" />
 					</Link>
 				</li>

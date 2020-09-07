@@ -11,24 +11,22 @@ import CardNoData from '../../components/common/CardNoData';
 import { ItemHomeProject } from './Item/index'
 import { CardSaleFlash, CardHotProduct } from "./Layout/index";
 import { MapHome } from "../../components/common/Map/index";
-import { projectAction, productAction, newsAction } from "../../store/action/index";
+import { projectAction, newsAction } from "../../store/action/index";
 
 
 import { LocationView, YourPosition } from "./Location/index";
 import { OnMapPoligon } from "./Search/index";
+
+import Advisory from "./Contact/Advisory";
 
 const Home = (props) => {
 
     const news = useSelector(state => state.newsReducer);
     const newsListSuccess = news.newsList.success
     const newsList = newsListSuccess ? news.newsList.detail : null;
-    console.log(newsList)
     const project = useSelector(state => state.projectReducer);
-    const product = useSelector(state => state.productReducer);
     const isGetProjectListSuccess = project.projectList.success;
     const projectList = isGetProjectListSuccess ? project.projectList.detail : null;
-    const isGetHotProductListSuccess = product.hotProductList.success;
-    const hotProductList = isGetHotProductListSuccess ? product.hotProductList : null;
     const dispatch = useDispatch();
     const [state, setState] = useState({
         projectStatus: 3,
@@ -40,7 +38,6 @@ const Home = (props) => {
     useEffect(() => {
         // dispatch(projectAction.loadProjectList({project_sale_status: `[${state.projectStatus}]`}));
         dispatch(projectAction.loadProjectList({}));
-        dispatch(productAction.loadHotProductList({}));
         dispatch(newsAction.LoadNewsList({}))
        
     }, []);
@@ -60,13 +57,6 @@ const Home = (props) => {
         setState({...state, search: true})
     }
 
-    const onProjectGroupFilterChange = (value) => {
-        if (value != null) {
-            dispatch(productAction.loadHotProductList({list_product_type_id: `[${value}]`}));
-        } else {
-            dispatch(productAction.loadHotProductList({}));
-        }
-    }
     const setHideSearch = (target) => {
         if(target.className.indexOf('fa-times') > -1) {
             target.className = "fas map_search--btn_exit fa-search"
@@ -99,7 +89,7 @@ const Home = (props) => {
 
             {/*end block map  */}
 
-            <CardSaleFlash headerBodyClassName="label_filter--heading" labelHeader="flash_sale" datas={["a", "iu", "e", "vl", "wa", "di"]} readmore timeLine />
+            <CardSaleFlash headerBodyClassName="label_filter--heading" labelHeader="flash_sale" readmore timeLine />
 
             {/* block over  */}
             <CardOverView />
@@ -129,7 +119,7 @@ const Home = (props) => {
                             }
                         </div>
                         <div className="text-center text-uppercase mt-3">
-                            <Link to="/productList" className="btn btn_purple ml-auto mr-auto">
+                            <Link to="/product" className="btn btn_purple ml-auto mr-auto">
                                 <Trans>see_all</Trans>
                             </Link>
                         </div>
@@ -139,60 +129,11 @@ const Home = (props) => {
             {/* end project_list  */}
 
             {/* contact  */}
-            <div className="container container-sm container-md">
-                <div className="contact">
-                    <div className="contact--left">
-                        <div className="icon_phone">
-                            <i className=" fas fa-phone-alt" />
-                        </div>
-                        <div className="text">
-                            Liên hệ và tư vấn qua số điện thoại
-                        </div>
-                        <div className="phone">1900 - 123 -456</div>
-                    </div>
-                    <div className="contact--right">
-                        <form>
-                            <label className="label">Tư vấn miễn phí</label>
-                            <div className="row">
-                                <div className="col-12 col-sm-6 form-group">
-                                    <input
-                                        type="text"
-                                        className="form-control"
-                                        placeholder="Họ tên"
-                                    />
-                                </div>
-                                <div className="col-12 col-sm-6 form-group">
-                                    <input
-                                        type="text"
-                                        className="form-control"
-                                        placeholder="Email"
-                                    />
-                                </div>
-                                <div className="col-12 form-group">
-                                    <textarea
-                                        placeholder="Nội dung"
-                                        className="form-control"
-                                        defaultValue={""}
-                                    />
-                                </div>
-                            </div>
-                        </form>
-                        <div className="contact--footer">
-                            <Link to="/" className="btn btn_green">
-                                GỬI TIN NHẤN
-                            </Link>
-                            <span className="noti">
-                                Cảm ơn, hẹn gặp lại trong hộp thư đến của
-                                bạn!
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <Advisory />
             {/* end contact  */}
 
             {/* striking apartment  */}
-            <CardHotProduct headerBodyClassName="label_filter--heading" labelHeader="hot_product" datas={hotProductList} options onFilterChange={onProjectGroupFilterChange} />
+            <CardHotProduct headerBodyClassName="label_filter--heading" labelHeader="hot_product" options />
             {/* end striking apartment  */}
 
             {/* app_managerment  */}

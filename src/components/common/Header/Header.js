@@ -7,6 +7,7 @@ import NavRight from "./TopNav/NavRight";
 import Logo from "./Menu/Logo";
 import MenuLeft from "./Menu/MenuLeft";
 import MenuRight from "./Menu/MenuRight";
+import { Hidden } from '@material-ui/core';
 
 function Header() {
     const [show, setShowAdvisory] = useState(false);
@@ -23,6 +24,10 @@ function Header() {
         window.addEventListener("scroll", onScroll);
         return () => window.removeEventListener("scroll", onScroll);
     }, [scrollTop]);
+
+    const hideMBToggle = () => {
+        setMBToggle(false)
+    }
 
     return (
         <header className={`header ${scrolling == true ? "fixed" : ''}`}>
@@ -41,7 +46,7 @@ function Header() {
                     <button class="mb_toggle" onClick={() => setMBToggle(!isMBToggle)}>
                         <span></span>
                     </button>
-                    <MenuLeft active={isMBToggle} />
+                    <MenuLeft active={isMBToggle} hideMBToggle={hideMBToggle} />
                     <MenuRight />
                 </div>
             </div>

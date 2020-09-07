@@ -8,7 +8,7 @@ import { LoadDataPaging } from '../../../functions/Utils';
 
 const CardProjectList = (props) => {
 
-    const { headerBodyClassName, labelHeader, datas, limit, onPageChange, inputSelectDatas, sliderDatas, onFilterClick } = props
+    const { headerBodyClassName, labelHeader, datas, limit, onPageChange, onProductTypeChange, onHouseDirectionChange, onPriceRangeChange, onAreaChange } = props
 
     return (
         <div className="project_detail--list bg_grey sales_quick">
@@ -37,7 +37,12 @@ const CardProjectList = (props) => {
                                 </div>
                         }
                             <div class="col-12 col-sm-12 col-lg-4">
-                                <CardInputSliderFilter title="project_filter" inputSelectDatas={inputSelectDatas} sliderDatas={sliderDatas} onFilterClick={onFilterClick} />
+                                <CardInputSliderFilter
+                                    title="project_filter"
+                                    onProductTypeChange={onProductTypeChange}
+                                    onHouseDirectionChange={onHouseDirectionChange}
+                                    onPriceRangeChange={onPriceRangeChange}
+                                    onAreaChange={onAreaChange} />
                             </div>
                         </div> 
                 </div>

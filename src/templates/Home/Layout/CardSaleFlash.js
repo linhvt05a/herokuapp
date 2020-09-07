@@ -1,15 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { ItemTimeLine } from "../Item/index";
-import { ItemPromotion } from "../../Promotion/Item/index";
-import HeadingLine from '../../../components/common/HeadingLine'
+import { ItemProduct } from "../../Home/Item";
+import HeadingLine from '../../../components/common/HeadingLine';
 import CardNoData from "../../../components/common/CardNoData";
 import Slider from "react-slick";
 import Pagination from '../../../components/common/Pagination';
 import { LoadDataPaging } from '../../../functions/Utils';
+import { productAction } from "../../../store/action/index";
 
 const CardSaleFlash = (props) => {
 
-    const { headerBodyClassName, labelHeader, datas, banner, detail, options, readmore, timeLine } = props
+    const { headerBodyClassName, labelHeader, banner, detail, options, readmore, timeLine } = props
+
+    const product = useSelector(state => state.productReducer);
+    const isGetHotProductListSuccess = product.hotProductList.success;
+    const datas = isGetHotProductListSuccess ? product.hotProductList : null;
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(productAction.loadHotProductList({}));
+    }, []);
+
     const settings = {
         infinite: true,
         slidesToShow: 3,
@@ -44,21 +56,21 @@ const CardSaleFlash = (props) => {
                 }
                 <div className="striking_apartment--content jsSalesQuick">
                     {
-                        (datas && datas.length > 0) ?
+                        (datas && datas.detail && datas.detail.list_product && datas.detail.list_product != null && datas.detail.list_product.length > 0) ?
                             detail ?
                                 <div className="row">
                                     {
-                                        datas.map((item, index) => (
+                                        datas.detail.list_product.map((item, index) => (
                                             <div key={index} className="col-12 col-sm-12 col-md-6 col-lg-4 mb-3">
-                                                <ItemPromotion data={item} detail />
+                                                <ItemProduct data={item} detail />
                                             </div>
                                         ))
                                     }
                                 </div> :
                                 <Slider {...settings}>
                                     {
-                                        datas.map((item, index) => (
-                                            <ItemPromotion key={index} data={item} />
+                                        datas.detail.list_product.map((item, index) => (
+                                            <ItemProduct key={index} data={item} />
                                         ))
                                     }
                                 </Slider> :

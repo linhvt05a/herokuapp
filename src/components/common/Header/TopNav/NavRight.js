@@ -1,17 +1,14 @@
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import { Trans } from "react-i18next";
-import { useDispatch, useSelector } from "react-redux";
-import { examAction } from "../../../../store/action"
 import i18n from '../../../../i18n';
 
 import { IMAGE_URL } from '../../../../contant'
-import { lang } from 'moment';
 
 
 const NavRight = (props) => {
     const [inHover, setHover] = useState(false);
-    // const [show, setShowAdvisory] = useState(false);
+    const [show, setShowAdvisory] = useState(false);
 
     const langCurrent = localStorage.getItem('language')
     // console.log(langCurrent);
@@ -20,19 +17,15 @@ const NavRight = (props) => {
         localStorage.setItem('language', lng);
         i18n.changeLanguage(lng);
     }
-    const setShowAdvisory = () => {
-        dispatch(examAction.loadChat(showChat))
-    }
-    const dispatch = useDispatch();
-    const chat = useSelector(state => state.examReducer);
-    let { showChat } = chat
+
+
     return (
         <ul className="header_contact d-none d-md-flex">
             <li className="chat">
-                <Link to="/#" onClick={() => setShowAdvisory()}>
+                <p className="mb-0 cursor-pointer" onClick={() => setShowAdvisory(!show)}>
                     <i className="fas fa-comments" />
                     <Trans>header_menu_advisory</Trans>
-                </Link>
+                </p>
             </li>
             <li className="phone">
                 <Link to="/#">
