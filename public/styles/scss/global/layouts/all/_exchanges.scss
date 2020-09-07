@@ -1,7 +1,7 @@
-$color_02: #f1ab21;
-$color_03: #e94c4c;
-$color_04: #999999;
-$color_05: #399b54;
+$color_04: #f1ab21; //đặt
+$color_05: #e94c4c; //đã bán
+$color_02: #999999; //not yet sell
+$color_03: #399b54; //đang bán
 
 @mixin exchangesColors {
     &.sales_status_02 {
@@ -655,23 +655,23 @@ $color_05: #399b54;
     }
 
     &_02 {
-        border: solid 1px #f1ab21;
-        color: #f1ab21;
+        border: solid 1px $color_02;
+        color: $color_02;
     }
 
     &_03 {
-        border: solid 1px #e94c4c;
-        color: #e94c4c;
+        border: solid 1px $color_03;
+        color: $color_03;
     }
 
     &_04 {
-        border: solid 1px #999999;
-        color: #999999;
+        border: solid 1px $color_04;
+        color: $color_04;
     }
 
     &_05 {
-        border: solid 1px #399b54;
-        color: #399b54;
+        border: solid 1px $color_05;
+        color: $color_05;
     }
 
     &_06 {
@@ -684,19 +684,19 @@ $color_05: #399b54;
     }
 
     &_bg_02 {
-        background-color: #f1ab21;
+        background-color: $color_02;
     }
 
     &_bg_03 {
-        background-color: #e94c4c;
+        background-color: $color_03;
     }
 
     &_bg_04 {
-        background-color: #999999;
+        background-color: $color_04;
     }
 
     &_bg_05 {
-        background-color: #399b54;
+        background-color: $color_05;
     }
 
     &_bg_06 {
@@ -724,19 +724,19 @@ $color_05: #399b54;
     }
 
     &_bb_02 {
-        border-color: #f1ab21 !important;
+        border-color: $color_04 !important;
     }
 
     &_bb_03 {
-        border-color: #e94c4c !important;
+        border-color: $color_03 !important;
     }
 
     &_bb_04 {
-        border-color: #999999 !important;
+        border-color: $color_02 !important;
     }
 
     &_bb_05 {
-        border-color: #399b54 !important;
+        border-color: $color_05 !important;
     }
 
     &_bb_06 {

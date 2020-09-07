@@ -3,5 +3,14 @@ export default {
     minimum_loan_time :'Thời gian vay tối thiểu',
     maximum_loan_money :'Tiền vay tối đa',
     maximum_loan_time :'Thời gian vay tối đa',
-    text_bank : 'ngân hàng'
+    text_bank : 'ngân hàng',
+    exchanges_heading : 'Sàn giao dịch',
+    filter_text_project : 'Dự án',
+    filter_text_block : 'Khối',
+    filter_text_area : 'Khu',
+    product_total:'Tổng số SP',
+    product_status_sold:'Đã bán',
+    product_status_selling:'Đang bán',
+    product_status_deposit:'Đặt cọc',
+    product_status_not_yet_sold:'Chưa bán',
 }

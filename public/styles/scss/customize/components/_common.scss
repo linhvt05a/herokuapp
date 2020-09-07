@@ -1,8 +1,52 @@
 .cursor-pointer{
     cursor: pointer;
 }
+.logo_default{
+    max-width: 145px;
+    margin:25px auto;
+}
+a:hover{
+    text-decoration: underline !important;
+}
 
-.striking_apartment--content .card-body{
-    background-color: #fff;
-    border: 1px solid #ededf4;
+
+.exchanges_apartment{
+    overflow-x:auto;
+    &--wrap{
+        overflow: auto;
+    }
+    &--item{
+        min-width: 665px;
+    }
+    &--heading {
+        .filter{
+            min-height: 41px !important;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    }
+    &--child{
+        .number{
+            background-color: #e94c4c !important;
+        }
+        .direction{
+
+        }
+        .right{
+            @include flexbox;
+            @include flex-wrap(wrap);
+            @include justify-content(center);
+        }
+        .line .number{
+            top: -12px !important;
+        }
+    }
+}
+.striking_apartment--content {
+    .card-body,.image{
+        min-height: 250px;
+        background-color: #fff;
+        border: 1px solid #ededf4;
+    }
+    
 }

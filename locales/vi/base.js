@@ -54,4 +54,6 @@ export default {
     lang_vi : 'Việt Nam',
     lang_en : 'Tiếng Anh',
     lang_cn : 'Tiếng Trung',
+
+    text_timeline_the_end : 'kết thúc trong'
 }

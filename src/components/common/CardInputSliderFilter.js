@@ -8,21 +8,24 @@ import { translate } from '../../functions/Utils'
 
 const CardInputSliderFilter = (props) => {
 
-    const { title, onProductTypeChange, onHouseDirectionChange, onPriceRangeChange, onAreaChange, onDeleteFilterClick, filterWhite } = props
+    const { title, onFilterChange, onDeleteFilterClick, filterWhite } = props
     const product = useSelector(state => state.productReducer);
     const isGetProductTypeListSuccess = product.productTypeList.success;
     const productTypeList = isGetProductTypeListSuccess ? product.productTypeList.detail : null;
     const dispatch = useDispatch();
 
     const [productTypeMapDatas, setProductTypeMapDatasState] = useState(null)
-    const [isClear, setClearDatasState] = useState(false)
+    const [productType, setProductTypeState] = useState(null)
+    const [direction, setDirectionState] = useState(null)
+    const [price, setPriceState] = useState([])
+    const [acreage, setAcreageState] = useState([])
 
     useEffect(() => {
         dispatch(productAction.loadProductTypeList({}));
     }, []);
 
     useEffect(() => {
-        var projectTypeDatas =[{value: null, label: translate("project_all")}] 
+        var projectTypeDatas =[{value: 0, label: translate("project_all")}] 
         if (productTypeList && productTypeList != null && productTypeList.length > 0) {
             for (var i = 0; i < productTypeList.length; i++) {
                 projectTypeDatas.push({value: productTypeList[i].architecture_id, label: productTypeList[i].architecture_name})
@@ -31,8 +34,37 @@ const CardInputSliderFilter = (props) => {
         setProductTypeMapDatasState(projectTypeDatas)
     }, [productTypeList]);
 
+    const onProductTypeChange = (value) => {
+        setProductTypeState(value);
+        onFilterChange(value, direction, price, acreage);
+    }
+
+    const onHouseDirectionChange = (value) => {
+        setDirectionState(value);
+        onFilterChange(productType, value, price, acreage);
+    }
+
+    const onAfterPriceRangeChange = (value) => {
+        onFilterChange(productType, direction, value, acreage);
+    }
+
+    const onAfterAreaChange = (value) => {
+        onFilterChange(productType, direction, price, value);
+    }
+
+    const onPriceRangeChange = (value) => {
+        setPriceState(value);
+    }
+
+    const onAreaChange = (value) => {
+        setAcreageState(value);
+    }
+
     const actionDeleteFilter = () => {
-        setClearDatasState(true)
+        setProductTypeState(null);
+        setDirectionState(null);
+        setPriceState([]);
+        setAcreageState([]);
         onDeleteFilterClick();
     }
     
@@ -51,12 +83,12 @@ const CardInputSliderFilter = (props) => {
             {
                 filterWhite ?
                 <div className="row">
-                    <SelectCustom className="col-12 col-sm-12 col-md-6" placeholder="product_type" datas={productTypeMapDatas} onChange={onProductTypeChange} isClear={isClear} />
-                    <SelectCustom className="col-12 col-sm-12 col-md-6" placeholder="house_direction" datas={DIRECTION_TYPE} onChange={onHouseDirectionChange} isClear={isClear} trans />
+                    <SelectCustom className="col-12 col-sm-12 col-md-6" placeholder="product_type" value={productType} datas={productTypeMapDatas} onChange={onProductTypeChange} />
+                    <SelectCustom className="col-12 col-sm-12 col-md-6" placeholder="house_direction" value={direction} datas={DIRECTION_TYPE} onChange={onHouseDirectionChange} trans />
                 </div> :
                 [
-                    <SelectCustom key={1} classNameGroup="form-group mt-3" placeholder="product_type" datas={productTypeMapDatas} onChange={onProductTypeChange} isClear={isClear} />,
-                    <SelectCustom key={2} placeholder="house_direction" datas={DIRECTION_TYPE} onChange={onHouseDirectionChange} isClear={isClear} trans />
+                    <SelectCustom key={1} classNameGroup="form-group mt-3" placeholder="product_type" value={productType} datas={productTypeMapDatas} onChange={onProductTypeChange} />,
+                    <SelectCustom key={2} placeholder="house_direction" value={direction} datas={DIRECTION_TYPE} onChange={onHouseDirectionChange} trans />
                 ]
             }
             <div className={filterWhite ? "map_search--range mr_search_range" : "map_search--range"}>
@@ -70,7 +102,7 @@ const CardInputSliderFilter = (props) => {
                                     <br />
                                     <i>(<Trans>project_billions_dong</Trans>)</i>
                                 </label>
-                                <SliderRange defaultValue={[0, 0]} onAfterChange={onPriceRangeChange} min={0} max={100} isClear={isClear} />
+                                <SliderRange data={price} changeRange={onPriceRangeChange} onAfterChange={onAfterPriceRangeChange} min={0} max={100} />
                             </div>
                         </div>
                         <div className="col-12 col-sm-12 col-md-6">
@@ -79,7 +111,7 @@ const CardInputSliderFilter = (props) => {
                                     <Trans>area</Trans>
                                     <i>(<Trans>project_area_unit</Trans>)</i>
                                 </label>
-                                <SliderRange defaultValue={[0, 0]} onAfterChange={onAreaChange} min={0} max={1000} isClear={isClear} />
+                                <SliderRange data={acreage} changeRange={onAreaChange} onAfterChange={onAfterAreaChange} min={0} max={1000} />
                             </div>
                         </div>
                     </div> :
@@ -90,14 +122,14 @@ const CardInputSliderFilter = (props) => {
                                 <br />
                                 <i>(<Trans>project_billions_dong</Trans>)</i>
                             </label>
-                            <SliderRange defaultValue={[0, 0]} onAfterChange={onPriceRangeChange} min={0} max={100} isClear={isClear} />
+                            <SliderRange data={price} changeRange={onPriceRangeChange} onAfterChange={onAfterPriceRangeChange} min={0} max={100} />
                         </div>,
                         <div className="range_item price" key={4}>
                             <label className="label">
                                 <Trans>area</Trans>
                                 <i>(<Trans>project_area_unit</Trans>)</i>
                             </label>
-                            <SliderRange defaultValue={[0, 0]} onAfterChange={onAreaChange} min={0} max={1000} isClear={isClear} />
+                            <SliderRange data={acreage} changeRange={onAreaChange} onAfterChange={onAfterAreaChange} min={0} max={1000} />
                         </div>
                     ]
                 }

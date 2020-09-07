@@ -3,26 +3,19 @@ import { Slider } from 'antd';
 
 const SliderRange = (props) => {
 
-    let { defaultValue, min, max, changeRange, onAfterChange, tooltipVisible, isClear } = props;
-
-    const [value, setValueState] = useState([0, 0])
-
-    const onAfterDataChange = (data) => {
-        setValueState(data);
-        onAfterChange(data);
-    }
+    let { defaultValue, data, min, max, range, changeRange, onAfterChange, tooltipVisible } = props;
     
     return (
         <Slider
             className="w-100"
-            range
-            defaultValue={defaultValue}
+            defaultValue={defaultValue ? defaultValue : [0, 0]}
+            range={range ? range : true}
             min={min}
             max={max}
             onChange={changeRange}
-            onAfterChange={data => onAfterDataChange(data)}
+            onAfterChange={onAfterChange}
             tooltipVisible={(tooltipVisible && tooltipVisible === false) ? false : true}
-            value={isClear ? [0, 0] : value} />
+            value={(data && data.length === 0) ? [0, 0] : data} />
     )
 }
 
