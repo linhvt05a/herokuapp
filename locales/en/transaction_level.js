@@ -12,5 +12,5 @@ export default {
     product_status_sold:'Sold',
     product_status_selling:'Selling',
     product_status_deposit:'Deposit',
-    product_status_not_yet_sold:'Not yet sold',
+    product_status_not_yet_sold:'Not sold yet',
 }
