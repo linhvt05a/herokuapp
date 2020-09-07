@@ -58,15 +58,15 @@ const CardCustomerInfo = (props) => {
                             </div>
                         </div>
                         <div className="col-12 col-sm-6">
-                        <div className="form-group">
-                            <label className="label">
-                                <Trans>cart_province_city</Trans>
-                                <span className="star"> *</span>
-                            </label>
-                            <Select className="js-select2 form-control">
-                                <Select.Option value={1}>Hồ Chí Minh</Select.Option>
-                            </Select>
-                        </div>
+                            <div className="form-group">
+                                <label className="label">
+                                    <Trans>cart_province_city</Trans>
+                                    <span className="star"> *</span>
+                                </label>
+                                <Select className="js-select2 form-control">
+                                    <Select.Option value={1}>Hồ Chí Minh</Select.Option>
+                                </Select>
+                            </div>
                         </div>
                         <div className="col-12 col-sm-6">
                             <div className="form-group">
@@ -121,7 +121,7 @@ const CardCustomerInfo = (props) => {
                 </div>
             </div>
             <div className="text-right mt-2">
-                <a className="btn btn_purple text-uppercase"><Trans>button_confirm</Trans></a>
+                <a className="btn btn_purple text-uppercase" onClick={props.onNext}><Trans>button_confirm</Trans></a>
             </div>
         </div>
     )

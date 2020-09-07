@@ -11,16 +11,39 @@ import { productAction } from "../../../store/action/index";
 
 const CardSaleFlash = (props) => {
 
-    const { headerBodyClassName, labelHeader, banner, detail, options, readmore, timeLine } = props
+    const { headerBodyClassName, labelHeader, limit, banner, detail, options, readmore, timeLine } = props
 
     const product = useSelector(state => state.productReducer);
     const isGetHotProductListSuccess = product.hotProductList.success;
     const datas = isGetHotProductListSuccess ? product.hotProductList : null;
     const dispatch = useDispatch();
+    const [projectGroupId, setProjectGroupId] = useState(null);
 
     useEffect(() => {
-        dispatch(productAction.loadHotProductList({}));
+        if (detail) {
+            dispatch(productAction.loadHotProductList({page: 1, limit: limit}));    
+        } else {
+            dispatch(productAction.loadHotProductList({}));
+        }
     }, []);
+
+    const onProjectGroupFilterChange = (value) => {
+        if (value != 0) {
+            dispatch(productAction.loadHotProductList({page: 1, limit: limit, list_product_type_id: `[${value}]`}));
+            setProjectGroupId(value);
+        } else {
+            dispatch(productAction.loadHotProductList({page: 1, limit: limit}));
+            setProjectGroupId(null);
+        }
+    }
+
+    const onPageChange = (value) => {
+        if (projectGroupId != null) {
+            dispatch(productAction.loadHotProductList({page: value, limit: limit, list_product_type_id: `[${projectGroupId}]`}));
+        } else {
+            dispatch(productAction.loadHotProductList({page: value, limit: limit}));
+        }
+    }
 
     const settings = {
         infinite: true,
@@ -47,7 +70,7 @@ const CardSaleFlash = (props) => {
     return (
         <div className="project_detail--list bg_grey sales_quick">
             <div className="container container-sm container-md">
-                <HeadingLine headerBodyClassName={headerBodyClassName} labelHeader={labelHeader} options={options ? options : undefined} readmore={readmore ? readmore : undefined} link="/flashsale" trans />
+                <HeadingLine headerBodyClassName={headerBodyClassName} labelHeader={labelHeader} options={options ? options : undefined} readmore={readmore ? readmore : undefined} link="/flashsale" onChange={onProjectGroupFilterChange} trans />
                 {
                     banner ? <img src="../images/flashsale.png" style={{width: "100%", marginBottom: "40px"}}></img> : ""
                 }
@@ -78,8 +101,8 @@ const CardSaleFlash = (props) => {
                     }
                 </div>
                 {
-                    detail &&
-                    <Pagination data={LoadDataPaging(18, 2, 5, 6)} />
+                    (detail && datas) &&
+                    <Pagination data={LoadDataPaging(datas.total_record, datas.page, datas.total_page, limit)} onChange={onPageChange} />
                 }
             </div>
         </div>

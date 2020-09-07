@@ -55,7 +55,7 @@ const handleChangePage = (value) =>{
                     </div>
                 </div>
             </div>
-            <CardPromotion headerBodyClassName="label_filter--heading" labelHeader="hot_promotion" datas={["a", "iu", "e", "vl", "wa", "di"]} banner readmore />
+            <CardPromotion headerBodyClassName="label_filter--heading" labelHeader="hot_promotion" banner readmore />
         </div>
     )
 }

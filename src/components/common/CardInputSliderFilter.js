@@ -109,7 +109,7 @@ const CardInputSliderFilter = (props) => {
                             <div className="range_item price">
                                 <label className="label">
                                     <Trans>area</Trans>
-                                    <i>(<Trans>project_area_unit</Trans>)</i>
+                                    <i> (<Trans>project_area_unit</Trans>)</i>
                                 </label>
                                 <SliderRange data={acreage} changeRange={onAreaChange} onAfterChange={onAfterAreaChange} min={0} max={1000} />
                             </div>
@@ -127,7 +127,7 @@ const CardInputSliderFilter = (props) => {
                         <div className="range_item price" key={4}>
                             <label className="label">
                                 <Trans>area</Trans>
-                                <i>(<Trans>project_area_unit</Trans>)</i>
+                                <i> (<Trans>project_area_unit</Trans>)</i>
                             </label>
                             <SliderRange data={acreage} changeRange={onAreaChange} onAfterChange={onAfterAreaChange} min={0} max={1000} />
                         </div>

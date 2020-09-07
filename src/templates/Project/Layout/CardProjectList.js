@@ -38,7 +38,7 @@ const CardProjectList = (props) => {
                         }
                             <div class="col-12 col-sm-12 col-lg-4">
                                 <CardInputSliderFilter
-                                    title="project_filter"
+                                    title="product_filter"
                                     onFilterChange={onFilterChange} />
                             </div>
                         </div> 
