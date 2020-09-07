@@ -8,7 +8,7 @@ const BlockSearchProduct = (props) => {
     return (
         <div className="project_page--filter project_page--filter_exchanges">
             <CardInputSliderFilter 
-                title="project_filter" 
+                title="product_filter" 
                 filterWhite
                 
                 onProductTypeChange={onProductTypeChange}
