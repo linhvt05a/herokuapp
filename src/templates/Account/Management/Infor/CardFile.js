@@ -6,6 +6,7 @@ import { Alert, Input, Select, Row, Col, Group, Radio } from 'antd';
 import { accountAction, commonAction } from "../../../../store/action/index";
 import { SelectCustom } from '../../../../components/base';
 import InputDatePicker from '../../../../components/base/Input/InputDatePicker';
+import moment from 'moment';
 
 const CardFile = (props) => {
     let { data, avatarUpload } = props
@@ -83,7 +84,11 @@ const CardFile = (props) => {
         setState({ ...state, gender: e.target.value })
     };
     const onChangeDate = (name, value) => {
-        setState({ ...state, customer_birthday: value })
+        const dateFormat = "YYYY-MM-DD";
+        const formatSend = moment(value).format(dateFormat);
+        setState({ ...state, customer_birthday: formatSend })
+
+        console.log(formatSend, value);
     }
     const changePassword = () => {
         setState({...state, passActive: 1});
@@ -94,9 +99,9 @@ const CardFile = (props) => {
 
     const updateProfile = () => {
         dispatch(accountAction.loadUpdateCustomer({
+            avatar: avatarUpload,
             email: state.customer_email,
             name: state.customer_name,
-            avatar: avatarUpload,
             // birthday: state.customer_birthday,
             address: state.address._address,
             province: state.address._province, 
@@ -110,6 +115,8 @@ const CardFile = (props) => {
     const isupdate = useSelector(state => state.accountReducer);
     const updateSuccess = isupdate.updateCustomer.success
     const update = updateSuccess ? isupdate.updateCustomer.detail : null;
+
+    console.log(state);
 
     return (
         <div class="col-12 col-sm-12 col-md-12 col-lg-8">
@@ -128,13 +135,13 @@ const CardFile = (props) => {
                     <div class="form-group row align-items-center">
                         <Label icon="fa-lock" text="Mật khẩu" />
                         <div class="col-12 col-sm-12 col-md-9">
-                            <div class="row w-100 pwd_current">
+                            <div class={`row w-100 pwd_current ${state.passActive === 1 ? "d-none" : ""}`}>
                                 <div class="col-12 justify-content-start d-flex align-items-center flex-column flex-sm-row">
                                     <Input.Password type="password" placeholder="Password" defaultValue="thutran1975@gmail.com" className="form-control" />
                                     <div class="text_pwd text_changepwd text-nowrap" onClick={changePassword}>Đổi mật khẩu</div>
                                 </div>
                             </div>
-                            <ChangePass passActive={state.passActive} handelOnBack={handelOnBack}/>
+                            <ChangePass showpass={state.passActive} handelOnBack={handelOnBack}/>
                         </div>
                     </div>
                 </div>
