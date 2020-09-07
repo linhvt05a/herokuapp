@@ -15,7 +15,11 @@ const ItemProduct = (props) => {
         <div className="item">
             <figure className="image">
                 <i className="liked active fas fa-heart" />
-                <img src={data.product_avatar_url != "" ? data.product_avatar_url : IMAGE_LOGO} alt={data.product_name} />
+                {
+                    data.product_avatar_url != ""
+                        ? <img src={data.product_avatar_url} alt={data.product_name} />
+                        : <img className="logo_default" src={IMAGE_LOGO} alt={data.product_name} />
+                }
                 <div className="sell_status promotion"><Trans>product_off</Trans> <br /> 7%</div>
                 <img className="img_promotion" src={IMAGE_URL + "/images/item_promotion.png"} alt={data.product_name} />
             </figure>

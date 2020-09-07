@@ -106,7 +106,7 @@ const MAIN = [
         "component": ProductDetail,
         "banner_title": "project_banner_title",
         "banner_url": project_banner_url,
-        "banner_show": true,
+        "banner_show": false,
         "banner_class": ''
     },
     {

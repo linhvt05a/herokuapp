@@ -57,4 +57,8 @@ export default {
     lang_vi : 'VietNamese',
     lang_en : 'English',
     lang_cn : 'China',
+
+    text_timeline_the_end : 'The end at'
+
+
 }

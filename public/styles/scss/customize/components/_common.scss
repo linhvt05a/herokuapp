@@ -1,6 +1,15 @@
 .cursor-pointer{
     cursor: pointer;
 }
+.logo_default{
+    max-width: 145px;
+    margin:25px auto;
+}
+a:hover{
+    text-decoration: underline !important;
+}
+
+
 .exchanges_apartment{
     overflow-x:auto;
     &--wrap{
@@ -33,7 +42,11 @@
         }
     }
 }
-.striking_apartment--content .card-body{
-    background-color: #fff;
-    border: 1px solid #ededf4;
+.striking_apartment--content {
+    .card-body,.image{
+        min-height: 250px;
+        background-color: #fff;
+        border: 1px solid #ededf4;
+    }
+    
 }

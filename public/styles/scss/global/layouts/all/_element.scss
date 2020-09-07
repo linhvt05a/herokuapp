@@ -127,11 +127,12 @@ main {
                 top: 3px;
             }
         }
+
         .value {
             color: #0d0d0d;
         }
     }
-    
+
     &_02 {
         &--item {
             margin-bottom: 7px;
@@ -154,9 +155,11 @@ main {
                 top: 3px;
             }
         }
-        .unactive{
+
+        .unactive {
             color: #9a9a9a;
-            &::before{
+
+            &::before {
                 color: #9a9a9a;
             }
         }
@@ -2316,6 +2319,7 @@ main {
             }
         }
     }
+
     .icon_filter {
         font-size: 20px;
         color: #ffffff;
@@ -2327,4 +2331,29 @@ main {
             }
         }
     }
+}
+
+//tooltip custom
+.tooltip{
+    &.show{
+        opacity: 1;
+    }
+}
+.tooltip-inner {
+    color: #111;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    
+}
+.tooltip.bs-tooltip-top .arrow:before {
+    border-top-color: #e0e0e0;
+}
+.tooltip.bs-tooltip-right .arrow:before {
+    border-right-color: #e0e0e0;
+}
+.tooltip.bs-tooltip-bottom .arrow:before {
+    border-bottom-color: #e0e0e0;
+}
+.tooltip.bs-tooltip-left .arrow:before {
+    border-left-color: #e0e0e0;
 }

@@ -1,4 +1,5 @@
 const IMAGE_URL = "../"
+const IMAGE_LOGO = "../images/default_image_minerva.png"
 const PHONE_NUMBER = "1900 - 123 - 456"
 
 const PROJECT_STATUS = [
@@ -62,6 +63,7 @@ const DATA_INTRODUCE = {
 
 module.exports = {
     IMAGE_URL,
+    IMAGE_LOGO,
     PHONE_NUMBER,
 
     PROJECT_STATUS,
