@@ -116,7 +116,7 @@ const CardFile = (props) => {
     const updateSuccess = isupdate.updateCustomer.success
     const update = updateSuccess ? isupdate.updateCustomer.detail : null;
 
-    console.log(state);
+    // console.log(state);
 
     return (
         <div class="col-12 col-sm-12 col-md-12 col-lg-8">

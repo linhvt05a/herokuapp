@@ -6,7 +6,6 @@ import { IMAGE_URL } from '../../../../contant';
 const MenuRight = (props) => {
     const [inHoverProfile, setHoverProfile] = useState(false);
     const user = JSON.parse(localStorage.getItem('user'));
-    console.log(user);
     
     return (
         <div className="header_actions d-none d-md-flex">
