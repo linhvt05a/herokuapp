@@ -8,7 +8,10 @@ import Slider from './Slider';
 
 const ImagesFirst = (props) => {
     const { data } = props;
-
+        console.log(data)
+    const saveProduct = () =>{
+        
+    }
     return (
         <div className="apartment_slider">
             <div className="sales_timeline--heading">
@@ -24,7 +27,7 @@ const ImagesFirst = (props) => {
                     <i className="fas fa-download" />
                 </li>
                 <li>
-                    <i className="liked active fas fa-heart" />
+                    <i className="liked active fas fa-heart" onClick={saveProduct}/>
                 </li>
             </ul>
 
