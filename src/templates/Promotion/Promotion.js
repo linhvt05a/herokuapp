@@ -7,7 +7,8 @@ import { Trans } from 'react-i18next';
 import { LoadDataPaging } from '../../functions/Utils';
 import { useDispatch, useSelector } from "react-redux";
 import { promotionAction , newsAction} from "../../store/action/index";
-import moment from 'moment'
+import { convertDateShow } from "../../functions/Utils";
+
 const Promotion = () => {
     const promotions = useSelector(state => state.newsReducer);
     const promotionsSuccess = promotions.newsList.success
@@ -75,15 +76,12 @@ const RowPromotion = (props) => {
                     <div className="des"><Trans>{data.description}</Trans></div>
                     <span className="time">
                         <i className="icon far fa-clock" />
-                            <Trans>From:</Trans> {convertDate(data.from_date)} - <Trans>To: </Trans>{convertDate(data.to_date)}
+                            <Trans>From:</Trans> {convertDateShow(data.from_date)} - <Trans>To: </Trans>{convertDateShow(data.to_date)}
                     </span>
                 </div>
             </div>
         </div>
     )
 }
-function convertDate(value){
-    const date = moment(value).format('DD-MM-YYYY')
-    return date
-}
+
 export default Promotion

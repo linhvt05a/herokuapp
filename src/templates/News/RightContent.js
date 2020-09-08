@@ -36,7 +36,7 @@ const RightContent = (props) => {
                 {/*Menu*/}
                 <div className="col-sm-12 col-md-12 col-lg-12 col-xl-12">
 					<div className="card">
-                        <CommonMenu label="Categories" navigate={navigate} dataMenu={newsCategories} onClick={onClick} className="options mb-4 bg_grey"/>
+                        <CommonMenu label="Categories"  navigate={navigate} dataMenu={newsCategories} onClick={onClick} className="options mb-4 bg_grey"/>
                     </div>
                 </div>
                 {/*Hot News*/}
