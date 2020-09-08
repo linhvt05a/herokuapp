@@ -48,7 +48,7 @@ const handleChangePage = (value) =>{
                     <div className="latest_news p-0 ">
                         <div className="container container-sm container-md tab-content">
                             <div className="latest_news--content tab-pane fade active show" id="home">
-                               {promotionList && promotionList.lenth > 0 ? 
+                               {promotionList && promotionList.length > 0 ? 
                                 <div className="row">
                                     {promotionList && promotionList.map((item, index)=><RowPromotion data ={item} key={index} index={item.id}/>)}  
                                 </div>:<CardNoData /> }
