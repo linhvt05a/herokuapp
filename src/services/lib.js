@@ -52,15 +52,30 @@ function getUrl(url, data = {}) {
 }
 
 
-function getHeader(token, content_type = CONTENT_TYPE, auth_type = 'Bearer') {
-    console.log('Token', token);
+function getHeader(token, content_type = CONTENT_TYPE, auth_type = 'Basic') {
+    console.log('data', token, content_type, auth_type);
     var auth = auth_type + ' ' + token;
-    var authHasToken = {}
-    token ? authHasToken = {'Authorization': auth} : authHasToken = ''
-    var headers = {
-        authHasToken,
-        'MNV-encode': MNV_ENCODE,
+    token ? auth : auth = '';
+
+    // var check = localStorage.getItem('user');
+    // console.log('user:',check);
+    var headers;
+
+    if(token){
+        headers = {
+            'Authorization':auth,
+            'MNV-encode': MNV_ENCODE,
+        }
+    }else{
+        headers = {
+            'MNV-encode': MNV_ENCODE,
+        }
     }
+
+    
+
+    console.log('headers',headers);
+
     if (content_type && content_type !== '') {
         headers['content_type'] = content_type
     }
