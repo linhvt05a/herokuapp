@@ -5,6 +5,7 @@ const initialState = {
   sellingProductList: {},
   comingSoonProductList: {},
   productTypeList: {},
+  productDetailList: {},
   productIncentive:[],
   productFavoriteList: [],
   productSignup: [],
@@ -35,6 +36,12 @@ export default (state = initialState, action) => {
       return {
         ...state,
         productTypeList: action.response,
+        isFetching: true,
+      };
+    case productAction.PRODUCT_DETAIL_LIST_SUCCESS:            
+      return {
+        ...state,
+        productDetailList: action.response,
         isFetching: true,
       };
 //linh add 

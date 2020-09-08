@@ -2,14 +2,15 @@
 
 import React, { Component } from 'react'
 import { Trans } from 'react-i18next';
-import CardCollapse from '../../component/CardCollapse';
+import CardCollapseGreenCircle from '../../../../components/common/CardCollapseGreenCircle';
+
 
 
 const Position = (props) => {
     const { data } = props;
 
     return (
-        <CardCollapse title='Vị trí' {...props}>
+        <CardCollapseGreenCircle title='Vị trí' {...props}>
 
             <div className="list_style_01">
                 <div className="row">
@@ -49,7 +50,7 @@ const Position = (props) => {
                 </div>
             </div>
 
-        </CardCollapse>
+        </CardCollapseGreenCircle>
     )
 }
 

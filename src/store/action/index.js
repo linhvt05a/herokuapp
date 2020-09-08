@@ -1,7 +1,6 @@
 import examAction from "./examAction";
 import productAction from "./productAction";
 import projectAction from "./projectAction";
-import productDetailAction from "./productDetailAction";
 import transactionAction from "./transactionAction";
 import newsAction from './newsAction'
 import promotionAction from './promotionAction'
@@ -12,7 +11,7 @@ import visitorAction from './visitorAction'
 import accountAction from './accountAction'
 export {
   examAction, projectAction, productAction, promotionAction, commonAction,
-  newsAction,transactionAction, productDetailAction,
+  newsAction,transactionAction,
   legalAction, contactAddAction, visitorAction,
   accountAction
 }
