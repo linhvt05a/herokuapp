@@ -17,7 +17,7 @@ const ProductDetailRight = (props) => {
                         <i class="icon_info fas fa-info-circle"></i>
                     </span>
                     <span className="number">
-                        {formatCurrency(parseInt(data.product_estimate_price))}{data.product_estimate_price_master_unit}
+                        {formatCurrency(parseInt(data.product_sale_price))}{data.product_sale_price_master_unit}
                     </span>
                     <span className="number_origin">
                         <i className="number_origin_price">
@@ -109,7 +109,7 @@ const ProductDetailRight = (props) => {
                                                 <i class="icon_label fas fa-couch"></i>
                                             </td>
                                             <td className="name">
-                                                <Trans>{item.name} ( {item.area_unit_name} )</Trans>
+                                                {item.name} ( {item.area_unit_name} )
                                             </td>
                                             <td className="number">
                                                 {item.area}

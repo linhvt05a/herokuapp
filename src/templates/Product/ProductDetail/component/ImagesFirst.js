@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import { Trans } from 'react-i18next';
 import { IMAGE_URL } from '../../../../contant';
 import Slider from './Slider';
+import TimeLineClock from '../../../../components/common/Timeline/TimeLineClock';
 
 
 
@@ -11,13 +12,9 @@ const ImagesFirst = (props) => {
 
     return (
         <div className="apartment_slider">
-            <div className="sales_timeline--heading">
-                <figure className="image">
-                    <img src={`${IMAGE_URL}images/clock.png`} alt="Sale chớp nhoáng" />
-                </figure>
-                <span className="label">Kết thúc trong</span>
-                <span className="date_number">00 : 20 : 35</span>
-            </div>
+            <TimeLineClock>
+                00 : 20 : 35
+            </TimeLineClock>
 
             <ul className="icon_like_down">
                 <li>

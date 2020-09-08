@@ -4,9 +4,6 @@ import Parser from 'html-react-parser';
 import ProductDetailRight from './Container/ProductDetailRight';
 import ProductDetailLeft from './Container/ProductDetailLeft';
 
-import TabsSlider from './TabsSlider';
-
-import SalesAccordion from './SalesAccordion';
 import { productAction } from "../../../store/action";
 import { useParams } from 'react-router-dom';
 
