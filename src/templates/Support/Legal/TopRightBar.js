@@ -4,12 +4,9 @@ import {JuridicalBox} from './index'
 import { useDispatch, useSelector } from "react-redux";
 import { legalAction } from "../../../store/action/index";
 
-const TopRightBar = () =>{
+const TopRightBar = (props) =>{
+    const{handleClick,navigate} = props
     const dispatch = useDispatch();
-    const[navigate, setNavigate] = useState('')
-    const handleClick = (id) =>{
-        setNavigate(id)
-    }
     const legalCates = useSelector(state => state.legalReducer);
     const legalCateSuccess = legalCates.legalCategories.success
     const legalCategories = legalCateSuccess ? legalCates.legalCategories.detail : null;

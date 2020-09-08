@@ -33,4 +33,27 @@ export const legalService = {
         const url = api.getUrl(api.LEGAL_LIST, params);
         return api.handleRequest(url, requestOptions);
     },
+
+    legalFilter(payload) {
+        const body = {payload}
+        const requestOptions = {
+            method: 'POST',
+            headers: api.getHeader(TOKEN),
+            body: body
+        };
+        const url = api.getUrl(api.LEGAL_FILTER);
+        return api.handleRequest(url, requestOptions);
+    },
+
+    legalSearch(payload) {
+        const body = {payload}
+        const requestOptions = {
+            method: 'POST',
+            headers: api.getHeader(TOKEN),
+            body: body
+        };
+        const url = api.getUrl(api.LEGAL_FILTER);
+        return api.handleRequest(url, requestOptions);
+    },
+
 };

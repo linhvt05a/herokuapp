@@ -4,7 +4,7 @@ import { TOKEN } from '../../../env';
 export const newsService = {
   
     newsList(payload) {
-        const {news_sort,news_title,categoriesID,fromDate,toDate, nameSearch, cateID, dateFrom, dateTo, category_id, category_news_group} = payload.params
+        const {news_sort, nameSearch, cateID, dateFrom, dateTo, category_id, category_news_group} = payload.params
         const requestOptions = {
             method: 'GET',
             headers: api.getHeader(TOKEN)
