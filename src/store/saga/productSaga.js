@@ -53,6 +53,19 @@ export function* productTypeList(payload) {
         yield put({ type: productAction.PRODUCT_TYPE_LIST_FAILURE, err });
     }
 }
+
+export function* productDetailList(payload) {
+    let tab_include = payload.params.tab_include;
+    let {product_id } = payload.params;
+    let { token } = payload.params
+    try {
+        const response = yield productService.productDetailList(token, product_id, tab_include);
+        response.success ? yield put({ type: productAction.PRODUCT_DETAIL_LIST_SUCCESS, response }) : yield put({ type: productAction.PRODUCT_DETAIL_LIST_FAILURE, response });
+    } catch (err) {
+        yield put({ type: productAction.PRODUCT_DETAIL_LIST_FAILURE, err });
+    }
+}
+
 //linh add saga
 
 export function* productFavoriteList() {
@@ -113,6 +126,9 @@ export function* comingSoonProductListWatcher() {
 export function* productTypeListWatcher() {
     yield takeLatest(productAction.PRODUCT_TYPE_LIST_REQUEST, productTypeList);
 }
+export function* productDetailListlWatcher() {
+    yield takeLatest(productAction.PRODUCT_DETAIL_LIST_REQUEST, productDetailList);
+}
 
 export default function* rootSaga() {
     yield all([
@@ -122,6 +138,7 @@ export default function* rootSaga() {
         fork(productTypeListWatcher),
         fork(productFavoriteListWatcher),
         fork(productIncentiveListWatcher),
-        fork(productSignupWatcher)
+        fork(productSignupWatcher),
+        fork(productDetailListlWatcher)
     ]);
 }

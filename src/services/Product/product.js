@@ -52,6 +52,17 @@ export const productService = {
         return api.handleRequest(url, requestOptions);
     },
 
+    productDetailList(token, product_id = "", tab_include = []) {
+        const requestOptions = {
+            method: 'GET',
+            headers: api.getHeader(TOKEN)
+        };
+
+        const params = { product_id, tab_include };
+        
+        const url = api.getUrl(api.PRODUCT_DETAIL_LIST, params);
+        return api.handleRequest(url, requestOptions);
+    },
 
     //BEGIN SERVICE LINH
     productFavoriteList(TOKEN_TEST) {
