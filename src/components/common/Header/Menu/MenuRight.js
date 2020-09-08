@@ -13,7 +13,7 @@ const MenuRight = (props) => {
                 <Link to="/#" className="link">
                     <img src={`${IMAGE_URL}images/live_stream.png`} className="live_stream" />
                 </Link>
-                <Link to="/#" className="link">
+                <Link to="/productFavorite" className="link">
                     <span className="icon">
                         <i className="heart far fa-heart" />
                         <i className="number">4</i>
