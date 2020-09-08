@@ -3,7 +3,7 @@ import { Trans } from 'react-i18next';
 import Parser from 'html-react-parser';
 
 import CardNoData from '../../../../components/common/CardNoData'
-import { Banks, Ground, Introduce, Position, ImagesFirst, Ultilities } from './LeftContent';
+import { Banks, Ground, Introduce, Position, ImagesFirst, Ultilities } from '../component';
 
 const ProductDetailLeft = (props) => {
     const { data } = props;

@@ -2,14 +2,14 @@
 
 import React, { Component } from 'react'
 import { Trans } from 'react-i18next';
-import CardCollapse from '../../component/CardCollapse';
+import CardCollapseGreenCircle from '../../../../components/common/CardCollapseGreenCircle';
 
 
 const Ultilities = (props) => {
     const { data } = props;
 
     return (
-        <CardCollapse title='Tiện ích nội khu' {...props}>
+        <CardCollapseGreenCircle title='Tiện ích nội khu' {...props}>
             <div className="list_style_02">
                 <div className="row">
                     <div className="col-12 col-sm-6 col-sm-6 col-md-4">
@@ -32,7 +32,7 @@ const Ultilities = (props) => {
                     </div>
                 </div>
             </div>
-        </CardCollapse>
+        </CardCollapseGreenCircle>
     )
 }
 
