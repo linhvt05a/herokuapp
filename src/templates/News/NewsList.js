@@ -52,14 +52,15 @@ const News = (props) => {
     }, [newsCategories]);
    
     useEffect(() => {
+       
         if(location.state && location.state !== null){
             const cateID = location.state.paramsSearch
             const nameSearch = location.state.titleNews
-            const dateFrom = location.state.dateFrom
             const dateTo = location.state.dateTo
             const category_id = location.state.category_id
             setId(category_id)
-            dispatch(newsAction.LoadNewsList({cateID, nameSearch, dateFrom, dateTo, category_id}))
+            const dateFrom = location.state.dateFrom
+            dispatch(newsAction.LoadNewsList({cateID, nameSearch,dateFrom, dateTo, category_id}))
         }else{
             dispatch(newsAction.LoadNewsList({}))
         }

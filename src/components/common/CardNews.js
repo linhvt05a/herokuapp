@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { Trans } from "react-i18next";
 import Slider from "react-slick";
 import { convertDateShow } from "../../functions/Utils";
+import CardNoData from './CardNoData';
 
 
 const CardNews = (props) => {
@@ -29,10 +30,12 @@ const CardNews = (props) => {
                         <i className="icon fas fa-angle-double-right" />
                     </a>
                 </div>
+               {data && data.length > 0 ?
                 <Slider {...settings}>
                     {data && data.map((news, index) => <NewsLoop item={news} key={index} />)}
-                </Slider>
-
+                </Slider>:
+                <CardNoData />
+                }
             </div>
         </div>
 

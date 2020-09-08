@@ -93,12 +93,12 @@ const changeDateTo = (value) =>{
 }
 
 function convertDateTo(value){
-  const date = moment(value).format('DD/MM/YYYY')
+  const date = moment(value).format('YYYY/MM/DD')
   setDateTo(date)
   return date
 }
 function convertDateFrom(value){
-  const date = moment(value).format('DD/MM/YYYY')
+  const date = moment(value).format('YYYY/MM/DD')
   setDateFrom(date)
   return date
 }
