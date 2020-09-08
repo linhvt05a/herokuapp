@@ -116,6 +116,20 @@ export function* uploadImageWatcher() {
     yield takeLatest(accountAction.IMAGE_REQUEST, uploadImage);
 }
 
+// check email
+export function* emailCheck(payload) {
+    let {email} = payload.params
+    try {
+        const response = yield accountService.emailCheck(email);
+        response.success ? yield put({ type: accountAction.EMAIL_CHECK_SUCCESS, response }) : yield put({ type: accountAction.EMAIL_CHECK_FAILURE, response });
+    } catch (err) {
+        yield put({ type: accountAction.EMAIL_CHECK_FAILURE, err });
+    }
+}
+export function* emailCheckWatcher() {
+    yield takeLatest(accountAction.EMAIL_CHECK_REQUEST, emailCheck);
+}
+
 // root Saga
 export default function* rootSaga() {
     yield all([
@@ -127,5 +141,6 @@ export default function* rootSaga() {
         fork(updateProfileWatcher),
         fork(updateCustomerWatcher),
         fork(uploadImageWatcher),
+        fork(emailCheckWatcher),
     ]);
 }

@@ -41,6 +41,10 @@ const actions = {
     IMAGE_FAILURE: updateImage + '_FAILURE',
     IMAGE_SUCCESS: updateImage + '_SUCCESS',
 
+    EMAIL_CHECK_REQUEST: 'EMAIL_CHECK_REQUEST',
+    EMAIL_CHECK_FAILURE: 'EMAIL_CHECK_FAILURE',
+    EMAIL_CHECK_SUCCESS: 'EMAIL_CHECK_SUCCESS',
+
     loadLogin: (params) => ({
         type: actions.LOGIN_REQUEST,
         params: params
@@ -78,6 +82,11 @@ const actions = {
 
     loadImage: (params) => ({
         type: actions.IMAGE_REQUEST,
+        params: params
+    }),
+
+    loadCheckEmail: (params) => ({
+        type: actions.EMAIL_CHECK_REQUEST,
         params: params
     }),
 

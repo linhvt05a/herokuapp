@@ -19,7 +19,7 @@ const ChangePass = (props) => {
     const change = useSelector(state => state.accountReducer);
     const changeSuccess = change.changePassword.success
     const changepass = changeSuccess ? change.changePassword.detail : null;
-    console.log(changepass);
+    // console.log(changepass);
     return (
         <div class={`pwd_new justify-content-start align-items-center flex-column flex-sm-row ${showpass === 0 ? "d-none" : "d-flex"}`} >
             <div class="row">

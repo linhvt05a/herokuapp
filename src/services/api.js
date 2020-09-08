@@ -47,6 +47,7 @@ export default {
     PROFILE: "/api/main_web/v1/user/profile/",
     UPDATE_PROFILE: "/api/main_web/v1/user/profile/update/",
     UPDATE_CUSTOMER: "/api/main_web/v1/customer/edit/",
+    CHECK_EMAIL: "/api/main_web/v1/customer/check_email/",
 
 
     LEGAL_CATEGORIES: "",

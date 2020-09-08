@@ -11,6 +11,7 @@ import moment from 'moment';
 const CardFile = (props) => {
     let { data, avatarUpload } = props
     const dispatch = useDispatch();
+    const [mail, setMail] = useState(false);
     const locationStore = useSelector(state => state.commonReducer);
     const createData = (value, label) => {
         return { value, label }
@@ -97,6 +98,17 @@ const CardFile = (props) => {
         setState({...state, passActive: 0});
     };
 
+    const emailInputBlur = (value) => {
+        dispatch(accountAction.loadCheckEmail({
+            email: value.target.value
+        }));
+        setMail(true);
+    };
+
+    const ismail = useSelector(state => state.accountReducer);
+    const mailSuccess = ismail.emailCheck.success
+    const email = mailSuccess ? ismail.emailCheck.detail : null;
+
     const updateProfile = () => {
         dispatch(accountAction.loadUpdateCustomer({
             avatar: avatarUpload,
@@ -116,8 +128,6 @@ const CardFile = (props) => {
     const updateSuccess = isupdate.updateCustomer.success
     const update = updateSuccess ? isupdate.updateCustomer.detail : null;
 
-    console.log(state);
-
     return (
         <div class="col-12 col-sm-12 col-md-12 col-lg-8">
             <Alert message="Một số thông tin của bạn vẫn còn thiếu. Xin bạn vui lòng cập nhật !" type="warning" showIcon closable />
@@ -129,7 +139,14 @@ const CardFile = (props) => {
                         <Label icon="fa-envelope" text="Email" />
                         <div class="col-12 col-sm-12 col-md-9">
                             <Input type="text" placeholder="Email" defaultValue={data.email}
+                            onBlur={emailInputBlur}
                             onChange={(value => setState({ ...state, customer_email: value.target.value }))} className="form-control" />
+                            { mail ? mailSuccess ?
+                                <span style={{color: "#ff4d4f" }}>Email không tồn tại!</span>:
+                                <span style={{color: "#ff4d4f" }}>Email đã tồn tại!</span> :''
+                            }
+                            
+                            
                         </div>
                     </div>
                     <div class="form-group row align-items-center">

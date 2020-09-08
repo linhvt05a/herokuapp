@@ -103,6 +103,17 @@ export const accountService = {
         return api.handleRequest(url, requestOptions);
     },
 
+    emailCheck(email) {
+        const body = { email }
+        const requestOptions = {
+            method: 'POST',
+            headers: api.getHeader(TOKEN),
+            body: body
+        };
+        const url = api.getUrl(api.CHECK_EMAIL);
+        return api.handleRequest(url, requestOptions);
+    },
+
     uploadFile(file) {
         let file_name = file.name
         let file_size = file.size

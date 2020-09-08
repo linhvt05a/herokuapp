@@ -27,7 +27,6 @@ const TabInformation = (props) => {
         dispatch(accountAction.loadImage({ image: avatarName }))
         setState({ avatar: img })
     }
-    
     // console.log('hhhh', img, state.avatar);
     return (
         <div class={`tab-pane fade ${activeTab === 0 ? "active show": ""}`} id="tab_01" role="tabpanel" aria-labelledby="tab_01">
