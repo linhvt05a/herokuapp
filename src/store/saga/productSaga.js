@@ -2,7 +2,7 @@
 import { put, takeLatest, all, fork } from "redux-saga/effects";
 import { productService } from "../../services/index";
 import { productAction } from '../action/index';
-import {TOKEN_TEST } from '../../../env';
+import {TOKEN } from '../../../env';
 
 export function* hotProductList(payload) {
     let { token, page, limit, project_id, area_id, block_id, project_status_id, province_id, district_id, list_product_type_id, number_of_bedroom,
@@ -68,9 +68,10 @@ export function* productDetailList(payload) {
 
 //linh add saga
 
-export function* productFavoriteList() {
+export function* productFavoriteList(payload) {
+    let {token}=payload.params  ;
     try {
-        const response = yield productService.productFavoriteList(TOKEN_TEST);
+        const response = yield productService.productFavoriteList(token);
         response.success ? yield put({ type: productAction.PRODUCT_FAVORITE_LIST_SUCCESS, response }) : yield put({ type: productAction.PRODUCT_FAVORITE_LIST_FAILURE, response });
         console.log(response)
     } catch (err) {
