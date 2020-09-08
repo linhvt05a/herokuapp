@@ -101,6 +101,20 @@ export function* updateCustomerWatcher() {
     yield takeLatest(accountAction.UPDATE_CUSTOMER_REQUEST, updateCustomer);
 }
 
+// upload image
+export function* uploadImage(payload) {
+    let { token, image } = payload.params
+    try {
+        const response = yield accountService.uploadFile( image );
+        response.success ? yield put({ type: accountAction.IMAGE_SUCCESS, response }) : yield put({ type: accountAction.IMAGE_FAILURE, response });
+    } catch (err) {
+        yield put({ type: accountAction.IMAGE_FAILURE, err });
+    }
+}
+export function* uploadImageWatcher() {
+    yield takeLatest(accountAction.IMAGE_REQUEST, uploadImage);
+}
+
 // root Saga
 export default function* rootSaga() {
     yield all([
@@ -111,5 +125,6 @@ export default function* rootSaga() {
         fork(profileWatcher),
         fork(updateProfileWatcher),
         fork(updateCustomerWatcher),
+        fork(uploadImageWatcher),
     ]);
 }

@@ -98,5 +98,28 @@ export const accountService = {
         };
         const url = api.getUrl(api.UPDATE_CUSTOMER);
         return api.handleRequest(url, requestOptions);
-    }
+    },
+
+    uploadFile(file) {
+        let file_name = file.name
+        let file_size = file.size
+        let server_file_name = Date.now() + file_name
+        let server_url = api.CLOUD_SERVER_PATH + server_file_name
+    
+        const headers = {
+            'Content-Length': file_size,
+            'access-key': api.CLOUD_SERVER_ACCESS_KEY,
+            'secret-key': api.CLOUD_SERVER_SECRET_KEY,
+        }
+        const requestOptions = {
+            method: 'PUT',
+            headers: headers,
+            body: file
+        };
+    
+        console.log(headers,file)
+        console.log(server_url);
+        // return api.handleRequest(url, requestOptions);
+        return api.handleRequest(server_url, requestOptions);
+    },
 };

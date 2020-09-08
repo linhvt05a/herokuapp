@@ -1,31 +1,42 @@
 import React, { Component } from 'react'
 import { Trans } from 'react-i18next';
-import Contact from './Contact'
+import {formatCurrency} from '../../../../functions/Utils'
+import { IMAGE_URL } from '../../../../contant'
+
 
 const Info = (props) => {
     const { dataInfo } = props;
 
+    console.log(dataInfo);
+
     return (
         dataInfo ?
             <div className="apartment_detail">
-                <div className="sales_heading">
-                    <span className="text">Giá niêm yết
-                        <i className="icon_info fas fa-info-circle" />
+                <div class="sales_heading">
+                    <span class="text">Giá niêm yết (đồng)
+                        <i class="icon_info fas fa-info-circle"></i>
                     </span>
-                    
-                {
-                    dataInfo.price ?
-                    dataInfo.price.map((item, index) => (
-                        <div key={index}>
-                            <span className="number">{item.price}<Trans>{item.price}</Trans></span> &nbsp;
-                            <p className="compare_price">
-                                <span className="num">{item.estimate_price}<Trans>&nbsp;{item.price_unit_name}</Trans></span>
-                                <span className="discount_label"><Trans> &nbsp;</Trans>{item.estimate_price && item.price ? 100 - ((item.price) / (item.estimate_price)) * 100 : 0}<Trans></Trans>%</span>
-                            </p>
-                        </div>
-                    )) : null
-                }
+                    {/* {
+                        dataInfo.price ?
+                        dataInfo.price.map((item, index) => (
+                            console.log(1,item),
+                            <div key={index}>
+                                <span className="number">
+                                    {formatCurrency(parseInt(item.price)) + item.price_unit_name}
+                                </span> 
+                                <span className="number_origin">
+                                    <i className="number_origin_price">{item.estimate_price}{item.price_unit_name}</i>
+                                    <i className="number_origin_percent">
+                                        Giảm 
+                                        <Trans> &nbsp;</Trans>{item.estimate_price && item.price ? 100 - ((item.price) / (item.estimate_price)) * 100 : 0}<Trans></Trans>%
+                                    </i>
+                                </span>
+                            </div>
+                        )) : null
+                    } */}
+
                 </div>
+
                 <div className="info_1">
                     <div className="item">
                         <span className="title">
@@ -33,7 +44,7 @@ const Info = (props) => {
                             <i className="icon_info fas fa-info-circle" />
                         </span>
                         <span className="number water">
-                            {dataInfo.price_m2_use}
+                            {formatCurrency(parseInt(dataInfo.price_m2_use))}
                         </span>
                         <span className="unit">
                             <Trans>( đồng/m<sup>2</sup> )</Trans>
@@ -42,7 +53,7 @@ const Info = (props) => {
                     <div className="item">
                         <span className="title"><Trans>Diện tích</Trans><i className="icon_info fas fa-info-circle" /></span>
                         <span className="number acreage">
-                            {dataInfo.area_m2_total}
+                        {formatCurrency(parseInt(dataInfo.area_m2_total))}
                         </span>
                         <span className="unit">
                             <Trans>( m<sup>2</sup> )</Trans>
@@ -53,14 +64,39 @@ const Info = (props) => {
                             <Trans>Hướng</Trans>
                         </span>
                         <span className="number direction">
-                            {
-                                dataInfo.list_direction ? dataInfo.list_direction.map((item, key) => { item }) : null
-                            }
+                            { dataInfo.list_direction ? dataInfo.list_direction.map((item, key) => { item }) : '-' }
                         </span>
                     </div>
                 </div>
+                
+                <div className="info_contact">
+                    <div className="info_contact_apart">
+                        {dataInfo.project_name}
+                        <span className="address">{dataInfo.project_full_address}</span>
+                    </div>
+                    <ul className="info_contact_support">
+                        <li className="info_contact_item">
+                            <i className="icon_fa fas fa-star-of-life" />
+                            <span>Hotline tư vấn:</span>
+                            <span className="text_phone"> <br /> <span className="pd-left">012 345 567 89</span></span>
+                        </li>
+                        <li className="info_contact_item">
+                            <i className="icon_fa fas fa-star-of-life" /> Liên hệ qua mạng xã hội :
+                            <span className="icon"><br />
+                                <span className="pd-left">
+                                    <img className="icon_skype" src={IMAGE_URL + "images/icon_skype.svg"} alt="icon_skype" />
+                                    <img className="icon_messenger" src={IMAGE_URL + "images/icon_messenger.jpg"} alt="icon_messenger" />
+                                </span>
+                            </span>
+                        </li>
+                    </ul>
+                    <a href="#" className="info_contact_link">
+                        <i className="icon_file fas fa-file-alt" />
+                        Chi tiết chính sách bán hàng
+                    </a>
+                </div>
+
                 <div className="info_2 pb-4">
-                    <Contact dataInfo={dataInfo} />
                     <div className="heading">Thông tin chi tiết</div>
                     <table>
                         <tbody>

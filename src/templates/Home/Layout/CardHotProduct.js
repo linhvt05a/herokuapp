@@ -11,7 +11,7 @@ import { productAction } from "../../../store/action/index";
 
 const CardHotProduct = (props) => {
 
-    const { headerBodyClassName, labelHeader, limit, detail, options, onPageChange } = props
+    const { headerBodyClassName, labelHeader, location, limit, detail, options } = props
 
     const product = useSelector(state => state.productReducer);
     const isGetHotProductListSuccess = product.hotProductList.success;
@@ -21,16 +21,34 @@ const CardHotProduct = (props) => {
     const [projectGroupId, setProjectGroupId] = useState(null);
 
     useEffect(() => {
-        dispatch(productAction.loadHotProductList({}));
-    }, []);
-
-    const onProjectGroupFilterChange = (value) => {
-        if (value != null) {
-            dispatch(productAction.loadHotProductList({list_product_type_id: `[${value}]`}));
+        if (detail) {
+            if (location.state && location.state.projectGroupId && location.state.projectGroupId != null && location.state.projectGroupId != 0) {
+                dispatch(productAction.loadHotProductList({page: 1, limit: limit, list_product_type_id: `[${location.state.projectGroupId}]`}));
+                setProjectGroupId(location.state.projectGroupId)
+            } else {
+                dispatch(productAction.loadHotProductList({page: 1, limit: limit}));
+            }
         } else {
             dispatch(productAction.loadHotProductList({}));
         }
-        setProjectGroupId(value);
+    }, [location]);
+
+    const onProjectGroupFilterChange = (value) => {
+        if (value != 0) {
+            dispatch(productAction.loadHotProductList({list_product_type_id: `[${value}]`}));
+            setProjectGroupId(value);
+        } else {
+            dispatch(productAction.loadHotProductList({}));
+            setProjectGroupId(null);
+        }
+    }
+
+    const onPageChange = (value) => {
+        if (projectGroupId != null) {
+            dispatch(productAction.loadHotProductList({page: value, limit: limit, list_product_type_id: `[${projectGroupId}]`}));
+        } else {
+            dispatch(productAction.loadHotProductList({page: value, limit: limit}));
+        }
     }
 
     return (

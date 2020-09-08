@@ -5,6 +5,7 @@ const changePassword = 'CHANGE_PASSWORD';
 const profile = 'PROFILE';
 const updateProfile = 'UPDATE_PROFILE';
 const updateCustomer = 'UPDATE_CUSTOMER';
+const updateImage = 'UPDATE_IMAGE';
 
 const actions = {
 
@@ -35,6 +36,10 @@ const actions = {
     UPDATE_CUSTOMER_REQUEST: updateCustomer + '_REQUEST',
     UPDATE_CUSTOMER_FAILURE: updateCustomer + '_FAILURE',
     UPDATE_CUSTOMER_SUCCESS: updateCustomer + '_SUCCESS',
+
+    IMAGE_REQUEST: updateImage + '_REQUEST',
+    IMAGE_FAILURE: updateImage + '_FAILURE',
+    IMAGE_SUCCESS: updateImage + '_SUCCESS',
 
     loadLogin: (params) => ({
         type: actions.LOGIN_REQUEST,
@@ -68,6 +73,11 @@ const actions = {
 
     loadUpdateCustomer: (params) => ({
         type: actions.UPDATE_CUSTOMER_REQUEST,
+        params: params
+    }),
+
+    loadImage: (params) => ({
+        type: actions.IMAGE_REQUEST,
         params: params
     }),
 

@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { Trans } from "react-i18next";
 import Slider from "react-slick";
-import  moment from 'moment'
+import { convertDateShow } from "../../functions/Utils";
+
 
 const CardNews = (props) => {
-    const{data} = props
+    const { data } = props
     const settings = {
         infinite: true,
         slidesPerRow: 3,
@@ -15,60 +16,57 @@ const CardNews = (props) => {
         prevArrow: <PrevArrow />
 
     }
-    
-    return(
+
+    return (
         <div className="latest_news bg_grey">
-        <div className="container container-sm container-md">
-            <div className="latest_news--heading">
-                <h3 className="main_heading">
-                <span><Trans>home_latest_news</Trans></span>
-                </h3>
-                <a href="/news" className="readmore">
-                    <span><Trans>home_latest_news_read_more</Trans></span>
-                    <i className="icon fas fa-angle-double-right" />
-                </a>
+            <div className="container container-sm container-md">
+                <div className="latest_news--heading">
+                    <h3 className="main_heading">
+                        <span><Trans>home_latest_news</Trans></span>
+                    </h3>
+                    <a href="/news" className="readmore">
+                        <span><Trans>home_latest_news_read_more</Trans></span>
+                        <i className="icon fas fa-angle-double-right" />
+                    </a>
+                </div>
+                <Slider {...settings}>
+                    {data && data.map((news, index) => <NewsLoop item={news} key={index} />)}
+                </Slider>
+
             </div>
-            <Slider {...settings}>
-                {data && data.map((news, index)=> <NewsLoop item={news} key={index}/>)}
-            </Slider>
-                
-            </div>
-    </div>
-    
+        </div>
+
     )
 
     function NextArrow(props) {
         const { className, style, onClick } = props;
         return (
-        <div
-            className={className}
-            style={{ ...style,  display: "block",backgroundColor:'gray' }}
-            onClick={onClick}
-        />
+            <div
+                className={className}
+                style={{ ...style, display: "block", backgroundColor: 'gray' }}
+                onClick={onClick}
+            />
         );
     }
 
     function PrevArrow(props) {
         const { className, style, onClick } = props;
         return (
-        <div
-            className={className}
-            style={{ ...style, display: "block", backgroundColor:'gray'}}
-            onClick={onClick}
-        />
+            <div
+                className={className}
+                style={{ ...style, display: "block", backgroundColor: 'gray' }}
+                onClick={onClick}
+            />
         );
     }
 }
 
-function convertDate(value){
-    const date = moment().format('DD/MM/YYYY')
-    return date
-}
-const NewsLoop = (props) =>{
-    const {item} = props
+
+const NewsLoop = (props) => {
+    const { item } = props
     return (
         <div class="latest_news--content">
-            <div className="item " style={{ width: 354, marginLeft: 10}}>
+            <div className="item " style={{ width: 354, marginLeft: 10 }}>
                 <figure className="img">
                     <img
                         className="w-100"
@@ -87,12 +85,12 @@ const NewsLoop = (props) =>{
                     </div>
                     <span className="time">
                         <i className="icon far fa-clock" />
-                        {convertDate(item.from_date)}
+                        {convertDateShow(item.from_date)}
                     </span>
                 </div>
             </div>
         </div>
-    
+
     )
 }
 

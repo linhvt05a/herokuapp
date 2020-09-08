@@ -37,13 +37,15 @@ const ListCheckbox = (props) => {
                     <div className="search_option-content-inner">
                         <ul className="list-inline list-inline-sm list_checkbox_while">
                             {PROJECT_SALE_GROUP.length > 0 && PROJECT_SALE_GROUP.map((item, index) => (
+                                item.value != 0 ?
                                 <li key={index}>
                                     <label onChange={event => checkboxOnChange(event.target, index)} 
                                         className={`checkbox-inline checkbox-black ${click.length > 0 ? click[index] && click[index].status : null} ${state.checked ? 'active': '' }`}>
-                                        <input name="checkbox-1" value={item.value === null ? "": item.value} type="checkbox" className="checkbox-custom" />
+                                        <input name="checkbox-1" value={item.value === 0 ? "": item.value} type="checkbox" className="checkbox-custom" />
                                         <span className="checkbox-custom-dummy" /><Trans>{item.label}</Trans>
                                     </label>
                                 </li>
+                                :''
                             ))}
                         </ul>
                     </div>

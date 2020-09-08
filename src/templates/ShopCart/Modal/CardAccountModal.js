@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { Input, Form, Button } from 'antd';
+import { translate } from '../../../functions/Utils';
 
 const CardAccountModal = (props) => {
-
-    const { clearData, isClearData } = props
+    const { clearData, isClearData, onNext } = props
     const [formInfo] = Form.useForm();
     const { t } = useTranslation()
-    
+
     useEffect(() => {
         if (isClearData) {
             clearData()
@@ -32,15 +32,15 @@ const CardAccountModal = (props) => {
         password: {
             form: [
                 {
-                    required: true, 
-                    message: 'Missing information require!' 
+                    required: true,
+                    message: 'Missing information require!'
                 }
             ],
             type: 'password',
             placeholder: t("cart_password"),
         },
     }
-    
+
     formInfo.setFieldsValue({
         email: '',
         password: ''
@@ -48,18 +48,19 @@ const CardAccountModal = (props) => {
 
     const onSubmitInfo = (values) => {
         console.log('Success:', values);
+        onNext()
     };
 
     return (
         <div className="modal-content modal_special">
             <div className="modal-header">
                 <h5 className="modal-title">
-                {t('cart_account')}</h5>
+                    {t('cart_account')}</h5>
             </div>
-           <div className="tab-content">
+            <div className="tab-content">
                 <div className="tab-pane fade show active">
                     <div className="form form_signInUp">
-                        <Form noValidate 
+                        <Form noValidate
                             form={formInfo}
                             onFinish={onSubmitInfo}
                             name="form-chat-info">
@@ -83,6 +84,14 @@ const CardAccountModal = (props) => {
                                 }}
                             </Form.Item>
                         </Form>
+                        <div>
+                            <div className="icon_star text-center">
+                                <i className="fas fa-bahai" />
+                            </div>
+                            <div className="text_register_link text-center">
+                                <a href="#"> Bạn chưa có tài khoản vậy hãy <span> <br /> {translate("registry")}</span> </a>
+                            </div>
+                        </div>
                         <div className="form-group mb-0 text-center">
                             <a className="text-forgot">
                                 {t('cart_forgot_password')}

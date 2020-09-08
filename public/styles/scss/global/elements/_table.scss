@@ -89,6 +89,7 @@
 
 
 }
+
 .table_purple {
     overflow-x: auto;
 
@@ -115,5 +116,62 @@
     td {
         padding: 14px 10px;
         border-bottom: 1px solid rgba(154, 154, 154, 0.44);
+    }
+}
+
+.table_detail_pay {
+    margin: 20px 0;
+
+    @media (max-width: 991px) {
+        overflow-x: auto;
+    }
+
+    table {
+        text-align: center;
+        width: 100%;
+        min-width: 800px;
+        // table-layout: fixed;
+    }
+    tbody {
+        // display: block;
+        // overflow: auto;
+        // width: calc(100% - 15px);
+    }
+    tr {
+        // display: table;
+        // width: calc(100% - 17px);
+    }
+
+    th {
+        color: #6d30ab;
+        background-color: rgba(109, 48, 171, 0.15);
+        font-size: 16px;
+        padding: 20px 5px;
+        border: 2px solid #6d30ab;
+        font-weight: bold;
+
+    }
+
+    td {
+        padding: 20px 10px;
+        font-size: 16px;
+        font-weight: 500;
+        border: 2px solid #6d30ab;
+    }
+
+    .bottom_table {
+        table {
+            background-color: #6d30ab;
+            border: none;
+        }
+
+        th {
+            color: #fff;
+            font-size: 20px;
+        }
+
+        td {
+            border: none;
+        }
     }
 }

@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import { Link } from "react-router-dom";
 import { Trans } from 'react-i18next';
 import { useDispatch, useSelector } from "react-redux";
-import {SendInfo, StartChat, EndChat} from './chatBox';
+import { SendInfo, StartChat, EndChat } from './chatBox';
 import { contactAddAction } from "../../../store/action/index";
 
 const ChatOnline = (props) => {
@@ -15,7 +15,7 @@ const ChatOnline = (props) => {
         startChat: false,
         endChat: false,
         loading: false,
-        clearChat : false
+        clearChat: false
     });
 
     //end chat
@@ -50,8 +50,8 @@ const ChatOnline = (props) => {
     }
 
     const dispatch = useDispatch();
-    const contact = useSelector(state => state.contactAddReducer);
-    const contactAddSuccess = contact.contactAdd.success;
+    const contact = useSelector(state => state.contactReducer);
+    const contactAddSuccess = contact && contact.contactAdd.success;
     const contactList = contactAddSuccess ? contact.contactAdd.detail : null;
 
     //effect ACTIVE chat component
@@ -67,7 +67,7 @@ const ChatOnline = (props) => {
 
     }, [active])
 
-    
+
     // on submit info 
     const onSubmitInfo = values => {
         // console.log('Success:', values);
@@ -81,8 +81,8 @@ const ChatOnline = (props) => {
             ...show,
             sendInfo: false,
             startChat: true,
-            endChat: false, 
-            clearChat : true
+            endChat: false,
+            clearChat: true
         })
     };
 
@@ -92,9 +92,10 @@ const ChatOnline = (props) => {
                 <Trans>online_counseling</Trans>
                 <i onClick={set_EndChat} className={`close_chat fas fa-times-circle ${active ? "active" : ''}`} />
             </label>
-            <SendInfo data={<Trans>full_name</Trans>} active={show.sendInfo} onSubmitInfo={onSubmitInfo}/>
-            <StartChat dataContact={contactList} active={show.startChat} clearChat={show.clearChat} setClear={()=>setStartChat({...show,clearChat:false})} />
-            <EndChat active={show.endChat} set_Exit={set_Exit} set_Back={set_Back} />
+            {active && <SendInfo data={<Trans>full_name</Trans>} active={show.sendInfo} onSubmitInfo={onSubmitInfo} />}
+            {active && <StartChat dataContact={contactList} active={show.startChat} clearChat={show.clearChat} setClear={() => setStartChat({ ...show, clearChat: false })} />}
+            {active && <EndChat active={show.endChat} set_Exit={set_Exit} set_Back={set_Back} />}
+
         </div>
     );
 }

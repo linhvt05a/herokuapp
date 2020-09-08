@@ -18,9 +18,17 @@ const TabInformation = (props) => {
     const isprofile = useSelector(state => state.accountReducer);
     const profileSuccess = isprofile.profile.success
     const profile = profileSuccess ? isprofile.profile.detail : null;
+
+    const isimg = useSelector(state => state.accountReducer);
+    const imageSuccess = isimg.uploadImage.success
+    const img = imageSuccess ? isimg.uploadImage.detail : null;
+
     const handleUploadAvatar = (avatarName) => {
-        setState({ avatar: avatarName })
+        dispatch(accountAction.loadImage({ image: avatarName }))
+        setState({ avatar: img })
     }
+    
+    // console.log('hhhh', img, state.avatar);
     return (
         <div class="tab-pane fade active show" id="tab_01" role="tabpanel" aria-labelledby="tab_01">
             {profile && profile != null ?

@@ -22,16 +22,21 @@ import ShoppingGuide from "./templates/Support/ShopGuide/ShoppingGuide";
 import Legal from "./templates/Support/Legal/Juridical";
 import Promotion from './templates/Promotion/Promotion';
 import FlashSaleList from './templates/Promotion/FlashSaleList';
+import PromotionList from './templates/Promotion/PromotionList';
 
 import Account from "./templates/Account/CustomerAccount";
-import Cart from "./templates/ShopCart/Cart";
+
 import PropertySelling from "./templates/PolicyPayment/PropertySelling";
 import LoanPolicy from "./templates/LoanOnline/LoanPolicy";
+
+import Introduce from "./templates/Support/Introduce/Introduce";
+import Contact from "./templates/Support/Contact/Contact";
+//shipping Cart
+import Cart from "./templates/ShopCart/Cart";
 import CustomerInfo from "./templates/ShopCart/CustomerInfo";
 import ConfirmOrderInfo from "./templates/ShopCart/ConfirmOrderInfo";
 import DepositPayment from "./templates/ShopCart/DepositPayment";
-import Introduce from "./templates/Support/Introduce/Introduce";
-import Contact from "./templates/Support/Contact/Contact";
+import OrderInfo from "./templates/ShopCart/OrderInfo"
 
 const home_banner_url = '../images/project.jpg';
 const introduce_banner_url = '../images/project.jpg';
@@ -46,7 +51,8 @@ const transactionLevel_banner_url = '../images/project.jpg';
 const shoppingGuide_banner_url = '../images/project.jpg';
 const juridical_banner_url = '../images/juridical.jpg';
 const promotion_banner_url = '../images/project.jpg';
-const flashSaleList_banner_url = '../images/project.jpg';
+const flashSaleList_banner_url = '../images/flashsale.png';
+const promotionList_banner_url = '../images/sale_banner.png';
 const elements_banner_url = '../images/project.jpg';
 const example_banner_url = '../images/project.jpg';
 const cart_banner_url = '../images/project.jpg';
@@ -106,7 +112,7 @@ const MAIN = [
         "component": ProductDetail,
         "banner_title": "project_banner_title",
         "banner_url": project_banner_url,
-        "banner_show": true,
+        "banner_show": false,
         "banner_class": ''
     },
     {
@@ -200,7 +206,7 @@ const MAIN = [
     {
         "path": "/flashsale",
         "component": FlashSaleList,
-        "banner_title": "flashSaleList_banner_title",
+        "banner_title": "",
         "banner_url": flashSaleList_banner_url,
         "banner_show": true,
         "banner_class": ''
@@ -256,6 +262,21 @@ const MAIN = [
         "banner_title": "cart",
         "banner_url": cart_banner_url,
         "banner_show": true
+    },
+    {
+        "path": "/cart/orderinfo",
+        "component": OrderInfo,
+        "banner_title": "cart",
+        "banner_url": cart_banner_url,
+        "banner_show": true
+    },
+    {
+        "path": "/promotion-list",
+        "component": PromotionList,
+        "banner_title": "",
+        "banner_url": promotionList_banner_url,
+        "banner_show": true,
+        "banner_class": ''
     },
 ];
 

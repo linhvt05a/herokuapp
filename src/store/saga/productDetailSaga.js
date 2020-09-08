@@ -12,8 +12,6 @@ export function* productDetailList(payload) {
     try {
         const response = yield productDetailService.list(token, product_id, tab_include);
         response.success ? yield put({ type: productDetailAction.PRODUCT_DETAIL_LIST_SUCCESS, response }) : yield put({ type: productDetailAction.PRODUCT_LIST_FAILURE, response });
-
-        console.log(response);
     } catch (err) {
         yield put({ type: productDetailAction.PRODUCT_DETAIL_LIST_FAILURE, err });
     }

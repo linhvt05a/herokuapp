@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import HeadingFilter from '../../components/common/HeadingLine';
-import MutiSlider from '../../components/common/MutiSlider';
+import {SliderSimple} from '../../components/common/Sliders'
+
 import { FloatingRates } from './FloatingRates';
 import { InputLoanNumber } from './LoanContainer/InputLoanNumber';
 import { InterestDebtForm } from './LoanContainer/InterestDebtForm';
@@ -140,7 +141,7 @@ const LoanPolicy = () => {
                             </i>
                             </div>
                             <div className="borrow__banks borrowBanks">
-                                <MutiSlider dataImgs={dataImgs} settings={settings}/>
+                                <SliderSimple dataImgs={dataImgs} settings={settings}/>
                             </div>
                         </div>
                         <FloatingRates/>
@@ -195,7 +196,7 @@ const LoanPolicy = () => {
                             </i>
                             </div>
                             <div className="borrow__banks borrowBanks">
-                                <MutiSlider settings={settings} dataImgs={dataImgs}/>
+                                <SliderSimple settings={settings} data={dataImgs}/>
                             </div>
                         </div>
                         <div className="borrow__item">
@@ -351,7 +352,7 @@ const LoanPolicy = () => {
                             </i>
                             </div>
                             <div className="borrow__banks borrowBanks">
-                                <MutiSlider settings={settings} dataImgs={dataImgs}/>
+                                <SliderSimple settings={settings} data={dataImgs}/>
                             </div>
                         </div>
                         <InterestDebtForm/>

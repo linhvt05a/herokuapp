@@ -17,70 +17,40 @@ const OnMapPoligon = props => {
     const provinceList = isGetprovinceListSuccess ? province.provinceList.detail : null;
 
     const [statesubmit, setStateSubmit] = useState({
-        dataSubmit: { _city: null, _district: null, _status: null, 
-            range_area: { min: null, max: null }, 
-            range_price: { min: null, max: null }, 
-            project_sale_group_type: null },
+        _city: null, _district: null, _status: null, 
+        range_area: [], 
+        range_price: [], 
+        project_sale_group_type: null
     })
 
     const HandleCity = (value) => {
-        setStateSubmit({ ...statesubmit, 
-            dataSubmit: { 
-                _city: value, 
-                _district: null, 
-                _status: null, 
-                range_area: { min: null, max: null }, 
-                range_price: { min: null, max: null }, 
-                project_sale_group_type: null 
-            }
+        setStateSubmit({ 
+            ...statesubmit, 
+            _city: value, 
         })
     }
     const HandleDistrict = (value) => {
-        setStateSubmit({ ...statesubmit,
-            dataSubmit: { 
-                _city: statesubmit.dataSubmit._city, 
-                _district: value, 
-                _status: null, 
-                range_area: { min: null, max: null }, 
-                range_price: { min: null, max: null }, 
-                project_sale_group_type: null 
-            }
+        setStateSubmit({ 
+            ...statesubmit,
+            _district: value, 
         })
     }
     const HandleDStatus = (value) => {
-        setStateSubmit({ ...statesubmit,
-            dataSubmit: { 
-                _city: statesubmit.dataSubmit._city, 
-                _district: statesubmit.dataSubmit._district, 
-                _status: value, 
-                range_area: { min: null, max: null }, 
-                range_price: { min: null, max: null }, 
-                project_sale_group_type: null 
-            }
+        setStateSubmit({ 
+            ...statesubmit,
+            _status: value,
         })
     }
     const changeAcreage =(e)=>{
-        setStateSubmit({ ...statesubmit,
-            dataSubmit: { 
-                _city: statesubmit.dataSubmit._city, 
-                _district: statesubmit.dataSubmit._district, 
-                _status: statesubmit.dataSubmit._status, 
-                range_area: { min: e[0], max: e[1] }, 
-                range_price: { min: null, max: null }, 
-                project_sale_group_type: null 
-            }
+        setStateSubmit({
+            ...statesubmit,
+            range_area: e, 
         })
     }
     const changePrice = (e) =>{
-        setStateSubmit({ ...statesubmit,
-            dataSubmit: { 
-                _city: statesubmit.dataSubmit._city, 
-                _district: statesubmit.dataSubmit._district, 
-                _status: statesubmit.dataSubmit._status, 
-                range_area: statesubmit.dataSubmit.range_area, 
-                range_price: { min: e[0], max: e[1] }, 
-                project_sale_group_type: null 
-            }
+        setStateSubmit({
+            ...statesubmit,
+            range_price: e, 
         })
     }
     const listCheckbox = (data, checked) => {
@@ -100,15 +70,9 @@ const OnMapPoligon = props => {
                 }
             })
         }
-        setStateSubmit({ ...statesubmit,
-            dataSubmit: { 
-                _city: statesubmit.dataSubmit._city, 
-                _district: statesubmit.dataSubmit._district, 
-                _status: statesubmit.dataSubmit._status, 
-                range_area: statesubmit.dataSubmit.range_area, 
-                range_price: statesubmit.dataSubmit.range_price, 
-                project_sale_group_type: newList 
-            }
+        setStateSubmit({ 
+            ...statesubmit,
+            project_sale_group_type: `[${newList}]`
         })
     }
     const search = useSelector(state => state.projectReducer);
@@ -117,14 +81,14 @@ const OnMapPoligon = props => {
     
     const OnSearchProject = (e)=> {
         dispatch(projectAction.loadProjectList({ 
-            province_id: statesubmit.dataSubmit._city, 
-            region_id: statesubmit.dataSubmit._district,
-            status_id: statesubmit.dataSubmit._status,
-            area_min: statesubmit.dataSubmit.range_area.min,
-            area_max: statesubmit.dataSubmit.range_area.max,
-            money_min: statesubmit.dataSubmit.range_price.min,
-            money_max: statesubmit.dataSubmit.range_price.max,
-            project_sale_group_type: statesubmit.dataSubmit.project_sale_group_type
+            province_id: statesubmit._city, 
+            region_id: statesubmit._district,
+            status_id: statesubmit._status,
+            area_min: statesubmit.range_area[0],
+            area_max: statesubmit.range_area[1],
+            money_min: statesubmit.range_price[0],
+            money_max: statesubmit.range_price[1],
+            project_sale_status: statesubmit.project_sale_group_type
         }));
     }
     
@@ -137,7 +101,12 @@ const OnMapPoligon = props => {
                         <div className="map_search--content_home">
                             <h2 className="heading"><Trans>search_project_by</Trans></h2>
                             <ListSelect data={provinceList} HandleCity={HandleCity} HandleDistrict={HandleDistrict} HandleDStatus={HandleDStatus}/>
-                            <InputRange changePrice={changePrice} changeAcreage={changeAcreage}/>
+                            <InputRange
+                                changePrice={changePrice}
+                                valueArea={statesubmit.range_area} 
+                                valuePrice={statesubmit.range_price} 
+                                changeAcreage={changeAcreage}
+                            />
                             <ListCheckbox OnSearchProject={OnSearchProject} OnCheckbox={listCheckbox}/>
                         </div>
                     </div>
