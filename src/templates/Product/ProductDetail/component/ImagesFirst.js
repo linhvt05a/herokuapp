@@ -1,9 +1,8 @@
 
 import React, { Component } from 'react'
 import { Trans } from 'react-i18next';
-import { IMAGE_URL } from '../../../../../contant';
-import { SliderNavFor, SliderSimple } from '../../../../../components/common/Sliders'
-import Slider from '../../component/Slider';
+import { IMAGE_URL } from '../../../../contant';
+import Slider from './Slider';
 
 
 
