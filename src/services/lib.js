@@ -53,9 +53,12 @@ function getUrl(url, data = {}) {
 
 
 function getHeader(token, content_type = CONTENT_TYPE, auth_type = 'Bearer') {
+    console.log('Token', token);
     var auth = auth_type + ' ' + token;
+    var authHasToken = {}
+    token ? authHasToken = {'Authorization': auth} : authHasToken = ''
     var headers = {
-        'Authorization': auth,
+        authHasToken,
         'MNV-encode': MNV_ENCODE,
     }
     if (content_type && content_type !== '') {

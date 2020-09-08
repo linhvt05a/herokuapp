@@ -17,7 +17,7 @@ const Juridical = (props)=> {
     const total_record =legalRecord && legalRecord != null ? legalRecord.total_record: null
     const page = legalRecord && legalRecord != null ? legalRecord.page: null
     const limit = 0
-
+    
   useEffect(() => {
     dispatch(legalAction.legalList({}))
 }, []);

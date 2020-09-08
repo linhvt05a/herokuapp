@@ -51,8 +51,8 @@ export default {
 
     LEGAL_CATEGORIES: "",
     LEGAL_LIST: "",
+    LEGAL_FILTER:"",
     
-
     VISIT_REGISTER :"/api/main_web/v1/register_visit/",
 
     NEWS_LIST:"/api/main_web/v1/news/",

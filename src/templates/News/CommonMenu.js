@@ -1,6 +1,7 @@
 import React, { Component, useState } from 'react';
 import { Trans } from 'react-i18next';
 import {Link} from 'react-router-dom'
+import CardNoData from '../../components/common/CardNoData';
 
 const CommonMenu = (props) =>{
   const{label, dataMenu, onClick, navigate, className, disableDisplay, catesId, linkTo} = props
@@ -12,7 +13,7 @@ const CommonMenu = (props) =>{
                   {label}
               </Trans>
               </label>
-              {dataMenu && dataMenu.map((item, index)=>
+              {dataMenu && dataMenu .length > 0 ? dataMenu.map((item, index)=>
                 <li className="options__menu-item" key={index}>
                   <Link className={catesId === item.category_id || navigate === item.category_id ? "active": ''} 
                         to={{ pathname: linkTo, state:{category_id: item.category_id}}} 
@@ -22,7 +23,7 @@ const CommonMenu = (props) =>{
                       <Trans>{item.category_name}</Trans>
                   </Link>
                 </li>
-              ) }
+              ) : <CardNoData />}
             </ul>
            {disableDisplay && <Search label="Search"/>}
           </div>

@@ -13,9 +13,14 @@ const actions = {
     LEGAL_FORM_FAILURE: 'LEGAL_FORM_FAILURE',
     LEGAL_FORM_SUCCESS: 'LEGAL_FORM_SUCCESS',
 
-    LEGAL_FILTER_REQUEST: 'LEGAL_FILTER_REQUEST',
-    LEGAL_FILTER_FAILURE: 'LEGAL_FILTER_FAILURE',
-    LEGAL_FILTER_SUCCESS: 'LEGAL_FILTER_SUCCESS',
+    LEGAL_FILTER_BY_CATEGORIES_REQUEST: 'LEGAL_FILTER_BY_CATEGORIES_REQUEST',
+    LEGAL_FILTER_BY_CATEGORIES_FAILURE: 'LEGAL_FILTER_BY_CATEGORIES_FAILURE',
+    LEGAL_FILTER_BY_CATEGORIES_SUCCESS: 'LEGAL_FILTER_BY_CATEGORIES_SUCCESS',
+
+    LEGAL_SEARCH_BY_KEY_REQUEST: 'LEGAL_SEARCH_BY_KEY_REQUEST',
+    LEGAL_SEARCH_BY_KEY_FAILURE: 'LEGAL_SEARCH_BY_KEY_FAILURE',
+    LEGAL_SEARCH_BY_KEY_SUCCESS: 'LEGAL_SEARCH_BY_KEY_SUCCESS',
+
     legalCates: (params) => ({
         type: actions.LEGAL_CATEGORIES_LIST_REQUEST,
         params: params
@@ -27,6 +32,16 @@ const actions = {
     }),
     legalFormSupport: (params) => ({
         type: actions.LEGAL_FORM_REQUEST,
+        params: params
+    }),
+
+    legalFilter: (params) => ({
+        type: actions.LEGAL_FILTER_BY_CATEGORIES_REQUEST,
+        params: params
+    }),
+
+    legalSearch: (params) => ({
+        type: actions.LEGAL_SEARCH_BY_KEY_REQUEST,
         params: params
     }),
 

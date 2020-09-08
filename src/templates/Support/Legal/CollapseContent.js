@@ -11,7 +11,7 @@ const CollapseContent = (props) => {
       <div className="juridical__content sales_collapse">
         {data && data.map((data, index)=>{
             return(
-              <CardCollapseGreenCircle title="Terms and conditions and transaction">
+              <CardCollapseGreenCircle title="Terms and conditions and transaction" key={index}>
                   <LegalContent />
               </CardCollapseGreenCircle> 
         )

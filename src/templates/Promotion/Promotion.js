@@ -8,6 +8,7 @@ import { LoadDataPaging } from '../../functions/Utils';
 import { useDispatch, useSelector } from "react-redux";
 import { promotionAction , newsAction} from "../../store/action/index";
 import { convertDateShow } from "../../functions/Utils";
+import CardNoData from '../../components/common/CardNoData';
 
 const Promotion = () => {
     const promotions = useSelector(state => state.newsReducer);
@@ -47,9 +48,10 @@ const handleChangePage = (value) =>{
                     <div className="latest_news p-0 ">
                         <div className="container container-sm container-md tab-content">
                             <div className="latest_news--content tab-pane fade active show" id="home">
+                               {promotionList && promotionList.lenth > 0 ? 
                                 <div className="row">
-                                    {promotionList && promotionList.map((item, index)=><RowPromotion data ={item} key={index} index={item.id}/>)}     
-                                </div>
+                                    {promotionList && promotionList.map((item, index)=><RowPromotion data ={item} key={index} index={item.id}/>)}  
+                                </div>:<CardNoData /> }
                             </div>
                         </div>
                         <Pagination data={LoadDataPaging(total_record, page, total_page, limit)} onChange = {handleChangePage}/>
