@@ -59,13 +59,14 @@ export const accountService = {
         return api.handleRequest(url, requestOptions);
     },
 
-    changePassword(token) {
+    changePassword(new_password, new_password_repeat, current_password) {
+        const body = { new_password, new_password_repeat, current_password }
         const requestOptions = {
-            method: 'GET',
-            headers: api.getHeader(TOKEN)
+            method: 'POST',
+            headers: api.getHeader(TOKEN),
+            body: body
         };
-        const params = { };
-        const url = api.getUrl(api.CHANGE_PASSWORD, params);
+        const url = api.getUrl(api.CHANGE_PASSWORD);
         return api.handleRequest(url, requestOptions);
     },
 
