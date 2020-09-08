@@ -17,6 +17,7 @@ const Form = (props) => {
     }
     const logout = () => {
         localStorage.removeItem('user');
+        window.location.reload()
     }
     const login = useSelector(state => state.accountReducer);
     const isLoginSuccess = login.login.success;

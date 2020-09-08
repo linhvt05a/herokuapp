@@ -40,6 +40,8 @@ const Login = (props) => {
         console.log(value);
         // dispatch(accountAction.loadLogin({ username: "customer@minerva.vn", password: "123" }));
         dispatch(accountAction.loadLogin({ username: value.username, password: value.password }))
+
+        
     }
 
     return (

@@ -52,18 +52,11 @@ function getUrl(url, data = {}) {
 }
 
 
-function getHeader(token, content_type = CONTENT_TYPE, auth_type = 'Basic') {
-    console.log('data', token, content_type, auth_type);
-    var auth = auth_type + ' ' + token;
-    token ? auth : auth = '';
-
-    // var check = localStorage.getItem('user');
-    // console.log('user:',check);
-    var headers;
-
+function getHeader(token, content_type = CONTENT_TYPE, auth_type = 'Bearer') {
+    let headers;
     if(token){
         headers = {
-            'Authorization':auth,
+            'Authorization':auth_type + ' ' + token,
             'MNV-encode': MNV_ENCODE,
         }
     }else{
@@ -72,9 +65,7 @@ function getHeader(token, content_type = CONTENT_TYPE, auth_type = 'Basic') {
         }
     }
 
-    
-
-    console.log('headers',headers);
+    // console.log('headers request: ',headers);
 
     if (content_type && content_type !== '') {
         headers['content_type'] = content_type

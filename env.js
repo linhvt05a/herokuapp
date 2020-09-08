@@ -1,3 +1,12 @@
 export const NODE_ENV = 'dev';
-export const TOKEN = ''; // Production
-// export const TOKEN_TEST = "MTA5ODpjNTE0NThlZTc3Y2ZjNTAyYTFkMmIxNTY0MDI1M2MxNGY1ZjNmNTA5"
+
+const token = () => {
+    if (localStorage.getItem('user')) {
+        let token = JSON.parse(localStorage.getItem('user')).token;
+        if (token) { return token }
+    }
+    return null
+}; // Production
+export const TOKEN = token()
+
+
