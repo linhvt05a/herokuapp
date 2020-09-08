@@ -2,6 +2,7 @@ import React from 'react';
 import { translate } from '../../../functions/Utils';
 import { SelectCustom } from "../../../components/base"
 import { useTranslation } from 'react-i18next';
+import { NAME_GENDER } from "./index"
 
 const InfoEdit = props => {
     let { t } = useTranslation()
@@ -13,8 +14,9 @@ const InfoEdit = props => {
                         label={<>{translate("cart_name")} <span className="star">*</span></>}
                         titleClassName="label"
                         classNameSelec="js-select2 form-control select2-hidden-accessible"
-                        value={1}
-                        datas={[{ value: 1, label: t("cart_mr") }, { value: 2, label: t("cart_mrs") },]} />
+                        value={0}
+                        trans={true}
+                        datas={NAME_GENDER} />
                 </div>
                 <div className="col-12 col-sm-6">
                     <div className="form-group">

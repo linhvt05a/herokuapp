@@ -32,10 +32,11 @@ const CardCartProductList = (props) => {
         let newCheckProduct = [].concat(allProduct);
         for (let i = 0;i < allProduct.length;i++) {
             for (let j = 0;j < allProduct[i].product.length;j++) {
-                newCheckProduct[i].product[j] = checked
+                newCheckProduct[i].product[j] = { checked: checked }
             }
             newCheckProduct[i].checked = checked
         }
+        console.log(newCheckProduct)
         setCheck({ ...check, allProject: checked, allProduct: newCheckProduct })
     }
     const onCheckAllProduct = (checked, index) => {
@@ -46,7 +47,7 @@ const CardCartProductList = (props) => {
             if (index == i) {
                 newCheckProduct[i].checked = checked;
                 for (let j = 0;j < newCheckProduct[i].product.length;j++) {
-                    newCheckProduct[i].product[j] = checked
+                    newCheckProduct[i].product[j] = { checked: checked }
                 }
             }
             if (!newCheckProduct[i].checked) { newCheckProject = false; }
@@ -61,9 +62,9 @@ const CardCartProductList = (props) => {
             newCheckProduct[i].checked = true;
             for (let j = 0;j < allProduct[i].product.length;j++) {
                 if (index == j && indexParent == i) {
-                    newCheckProduct[i].product[j] = checked
+                    newCheckProduct[i].product[j] = { checked: checked }
                 }
-                if (!newCheckProduct[i].product[j]) { newCheckProduct[i].checked = false; }
+                if (!newCheckProduct[i].product[j].checked) { newCheckProduct[i].checked = false; }
             }
             if (!newCheckProduct[i].checked) { newCheckProject = false; }
         }
@@ -88,11 +89,9 @@ const CardCartProductList = (props) => {
                                     key={i + 1}
                                     showPaymentProgressModal={showPaymentProgressModal}
                                     showPromotionModal={showPromotionModal}
-                                    checked={item}
+                                    checked={item.checked}
                                     onChange={checked => onCheckProduct(checked, i, index)} />
                             })}
-                            {/* <ItemProjectProduct showPaymentProgressModal={showPaymentProgressModal} showPromotionModal={showPromotionModal} />
-                      <ItemProjectProduct showPaymentProgressModal={showPaymentProgressModal} showPromotionModal={showPromotionModal} /> */}
                         </div>]
                     )
                 })

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Trans } from 'react-i18next';
-import { CardCartSummary, CardCollapseProductList, CardInfoDetail, CardAgreementForm } from './Layout'
+import { CardCartSummary, CardCollapseProductList, CardBuyerInfo, CardAgreementForm } from './Layout'
 import { useHistory } from 'react-router-dom';
 
 const ConfirmOrderInfo = (props) => {
@@ -24,7 +24,7 @@ const ConfirmOrderInfo = (props) => {
                 </h2>
                 <div className="row">
                     <div className="col-12 col-sm-12 col-lg-8 main-cart__confirm">
-                        <CardInfoDetail />
+                        <CardBuyerInfo />
                         <CardAgreementForm STATE={({ checked, setChecked })} />
                         <div class="text-right mt-2 mb-45">
                             <button

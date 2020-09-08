@@ -73,7 +73,7 @@ const Cart = (props) => {
                 <div className="row">
                     <CardCartProductList showPaymentProgressModal={showPaymentProgressModal} showPromotionModal={showPromotionModal} />
                     <div className="col-12 col-sm-12 col-lg-4">
-                        <CardCartSummary extend showPaymentProgressModal={showPaymentProgressModal} visible={state.paymentProgressModalVisible} />
+                        <CardCartSummary extend onNext={() => history.push("/cart/customer-info")} />
                     </div>
                 </div>
             </div>
@@ -90,7 +90,7 @@ const Cart = (props) => {
                     visible={state.promotionModalVisible}
                     widthModal="400px"
                     showPromotionModal={showPromotionModal}
-                    onNext={() => history.push("/cart/customer-info")}
+                    onNext={() => showPromotionModal(false)}
                     dataOutput={getPromotionData} />}
             {/* {state.accountModalVisible &&
                 <ModalCustom
