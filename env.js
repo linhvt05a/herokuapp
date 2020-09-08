@@ -1,3 +1,3 @@
 export const NODE_ENV = 'dev';
-export const TOKEN = 'MTAwNjpNVEF3Tmpwa05ESmlPVGc1WldVM05HWmhNMlZrWXpWaFlqQXhOalV4T1RReFl6QmtOVFUyTW1Oa1pUVTQ='; // Production
-export const TOKEN_TEST = "MTA5ODpjNTE0NThlZTc3Y2ZjNTAyYTFkMmIxNTY0MDI1M2MxNGY1ZjNmNTA5"
+export const TOKEN = ''; // Production
+// export const TOKEN_TEST = "MTA5ODpjNTE0NThlZTc3Y2ZjNTAyYTFkMmIxNTY0MDI1M2MxNGY1ZjNmNTA5"
