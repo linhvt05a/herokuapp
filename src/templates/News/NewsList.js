@@ -115,7 +115,7 @@ const News = (props) => {
                 </h3>
                 <div className="row">
                     <div className="col-sm-12 col-md-12 col-lg-8 col-xl-8">
-                       <div className="row_content">
+                        <div className="row_content">
                             {newsList && newsList.length > 0 ? newsList.map((news, index) => <RowNews data={news} key={index}/>):
                                 <CardNoData />
                             }

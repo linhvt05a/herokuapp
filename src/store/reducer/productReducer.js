@@ -6,11 +6,98 @@ const initialState = {
   comingSoonProductList: {},
   productTypeList: {},
   productDetailList: {},
-  productIncentive:[],
-  productFavoriteList: [],
+  productIncentive: [],
   productSignup: [],
   isFetching: false,
-};
+  productFavoriteList: {
+    "success": true,
+    "detail": {
+        "list_product": [
+            {
+                "product_id": 216,
+                "product_name": "Căn hộ A.03-12",
+                "product_acreage": 120.0,
+                "product_address": null,
+                "product_floor_or_lot_id": 30,
+                "product_status_id": 2,
+                "product_type_id": 1,
+                "product_love_flag": true,
+                "product_avatar_url": "https://cloudapi.minerva.vn/cdn/sunnyworld-sale-dev/valencia-area.jpg",
+                "product_real_price": 0.0,
+                "product_real_price_unit_id": null,
+                "product_real_price_unit_name": null,
+                "product_estimate_price": 100000000.0,
+                "product_estimate_price_unit_id": 1,
+                "product_estimate_price_unit_name": "VND",
+                "product_total_bedroom": 2,
+                "product_total_bathroom": 1,
+                "product_total_watcher": 1000,
+                "product_total_lover": 1,
+                "product_architecture_type_id": null,
+                "product_architecture_type_name": null,
+                "product_acreage_unit_name": "m²",
+                "product_status_name": "Chưa bán",
+                "list_product_direction": []
+            },
+            {
+                "product_id": 260,
+                "product_name": "Căn hộ A.3A-01",
+                "product_acreage": 120.0,
+                "product_address": null,
+                "product_floor_or_lot_id": 31,
+                "product_status_id": 3,
+                "product_type_id": 1,
+                "product_love_flag": true,
+                "product_avatar_url": "https://cloudapi.minerva.vn/cdn/sunnyworld-sale-dev/valencia-area.jpg",
+                "product_real_price": 0.0,
+                "product_real_price_unit_id": null,
+                "product_real_price_unit_name": null,
+                "product_estimate_price": 757575247.0,
+                "product_estimate_price_unit_id": 1,
+                "product_estimate_price_unit_name": "VND",
+                "product_total_bedroom": 2,
+                "product_total_bathroom": 1,
+                "product_total_watcher": 1000,
+                "product_total_lover": 1,
+                "product_architecture_type_id": null,
+                "product_architecture_type_name": null,
+                "product_acreage_unit_name": "m²",
+                "product_status_name": "Đang bán",
+                "list_product_direction": []
+            },
+            {
+                "product_id": 215,
+                "product_name": "Căn hộ A.03-07",
+                "product_acreage": 120.0,
+                "product_address": null,
+                "product_floor_or_lot_id": 30,
+                "product_status_id": 2,
+                "product_type_id": 1,
+                "product_love_flag": true,
+                "product_avatar_url": "https://cloudapi.minerva.vn/cdn/sunnyworld-sale-dev/valencia-area.jpg",
+                "product_real_price": 0.0,
+                "product_real_price_unit_id": null,
+                "product_real_price_unit_name": null,
+                "product_estimate_price": 13000000000.0,
+                "product_estimate_price_unit_id": 1,
+                "product_estimate_price_unit_name": "VND",
+                "product_total_bedroom": 2,
+                "product_total_bathroom": 1,
+                "product_total_watcher": 1000,
+                "product_total_lover": 1,
+                "product_architecture_type_id": null,
+                "product_architecture_type_name": null,
+                "product_acreage_unit_name": "m²",
+                "product_status_name": "Chưa bán",
+                "list_product_direction": []
+            }
+        ]
+    },
+    "total_page": 1,
+    "total_record": 3,
+    "page": 1
+  }
+}
 
 export default (state = initialState, action) => {
   switch (action.type) {
@@ -38,13 +125,13 @@ export default (state = initialState, action) => {
         productTypeList: action.response,
         isFetching: true,
       };
-    case productAction.PRODUCT_DETAIL_LIST_SUCCESS:            
+    case productAction.PRODUCT_DETAIL_LIST_SUCCESS:
       return {
         ...state,
         productDetailList: action.response,
         isFetching: true,
       };
-//linh add 
+    //linh add
     case productAction.PRODUCT_INCENTIVE_LIST_SUCCESS:
       return {
         ...state,
@@ -65,7 +152,7 @@ export default (state = initialState, action) => {
         productSignup: action.response,
         isFetching: true,
       };
-      // end linh add
+    // end linh add
     default:
       return state;
   }
