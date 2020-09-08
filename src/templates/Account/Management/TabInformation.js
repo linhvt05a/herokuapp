@@ -5,7 +5,7 @@ import { UploadAvatar, CardFile } from "../index";
 import { accountAction, commonAction } from "../../../store/action/index";
 
 const TabInformation = (props) => {
-    
+    let { activeTab } = props;
     const dispatch = useDispatch();
 
     const [state, setState] = useState({
@@ -30,7 +30,7 @@ const TabInformation = (props) => {
     
     // console.log('hhhh', img, state.avatar);
     return (
-        <div class="tab-pane fade active show" id="tab_01" role="tabpanel" aria-labelledby="tab_01">
+        <div class={`tab-pane fade ${activeTab === 0 ? "active show": ""}`} id="tab_01" role="tabpanel" aria-labelledby="tab_01">
             {profile && profile != null ?
             <div class="row user-acc__info">
                 <div class="col-12 col-sm-12 col-md-12 col-lg-4 mb-4 mb-lg-0">
