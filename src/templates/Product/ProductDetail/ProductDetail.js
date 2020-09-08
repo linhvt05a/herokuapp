@@ -7,7 +7,7 @@ import ProductDetailLeft from './Container/ProductDetailLeft';
 import TabsSlider from './TabsSlider';
 
 import SalesAccordion from './SalesAccordion';
-import { productDetailAction } from "../../../store/action";
+import { productAction } from "../../../store/action";
 import { useParams } from 'react-router-dom';
 
 
@@ -18,10 +18,10 @@ const ProductDetail = (props) => {
     const { id } = useParams();
 
     useEffect(() => {
-        dispatch(productDetailAction.ProductDetailLoadList({ product_id: id, tab_include: `["detail","price","image","layout","document","history"]` }))
+        dispatch(productAction.ProductDetailLoadList({ product_id: id, tab_include: `["detail","price","image","layout","document","history"]` }))
     }, [])
 
-    const data = useSelector(state => state.productDetailReducer.List.detail);
+    const data = useSelector(state => state.productReducer.productDetailList.detail);
 
     return (
         data ?

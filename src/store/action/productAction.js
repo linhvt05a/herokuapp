@@ -32,6 +32,10 @@ const actions = {
     PRODUCT_SIGNUP_FAILURE: 'PRODUCT_SIGNUP_FAILURE',
     PRODUCT_SIGNUP_SUCCESS: 'PRODUCT_SIGNUP_SUCCESS',
 
+    PRODUCT_DETAIL_LIST_REQUEST: 'PRODUCT_DETAIL_LIST_REQUEST',
+    PRODUCT_DETAIL_LIST_FAILURE: 'PRODUCT_DETAIL_LIST_FAILURE',
+    PRODUCT_DETAIL_LIST_SUCCESS: 'PRODUCT_DETAIL_LIST_SUCCESS',
+
     loadHotProductList: (params) => ({
         type: actions.HOT_PRODUCT_LIST_REQUEST,
         params: params
@@ -49,6 +53,11 @@ const actions = {
 
     loadProductTypeList: (params) => ({
         type: actions.PRODUCT_TYPE_LIST_REQUEST,
+        params: params
+    }),
+
+    ProductDetailLoadList: (params) => ({
+        type: actions.PRODUCT_DETAIL_LIST_REQUEST,
         params: params
     }),
 
