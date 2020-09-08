@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Tooltip } from 'antd';
 import { Trans } from "react-i18next";
 import { formatCurrency } from "../../functions/Utils";
@@ -8,14 +8,33 @@ import { Link } from 'react-router-dom'
 
 
 const ItemProduct = (props) => {
-
+    const [active, setActive] = useState(false)
     const { data } = props
 
+const saveToProduct = () => {
+    setActive(!active)
+    const product_id = data.product_id
+    const product_name = data.product_name
+    const product_acreage = data.product_acreage
+    const product_total_bedroom = data.product_total_bedroom
+    const product_total_bathroom = data.product_total_bathroom
+    const product_avatar_url = data.product_avatar_url
+
+    const newItem = { 
+        product_id, 
+        product_name,
+        product_acreage, 
+        product_total_bedroom ,
+        product_total_bathroom, 
+        product_avatar_url
+            }
+    localStorage.setItem('saveList',JSON.stringify(newItem))
+}
     return (
         <div className="item">
             <figure className="image">
                 {
-                    data.product_love_flag == true && <i className="liked fas fa-heart" />
+                    data.product_love_flag == true && <i className={`liked fas fa-heart ${active ? " active": ""}`} onClick={saveToProduct}/>
                 }
                 {
                     data.product_avatar_url != ""
