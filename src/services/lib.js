@@ -53,14 +53,20 @@ function getUrl(url, data = {}) {
 
 
 function getHeader(token, content_type = CONTENT_TYPE, auth_type = 'Bearer') {
-    console.log('Token', token);
-    var auth = auth_type + ' ' + token;
-    var authHasToken = {}
-    token ? authHasToken = {'Authorization': auth} : authHasToken = ''
-    var headers = {
-        authHasToken,
-        'MNV-encode': MNV_ENCODE,
+    let headers;
+    if(token){
+        headers = {
+            'Authorization':auth_type + ' ' + token,
+            'MNV-encode': MNV_ENCODE,
+        }
+    }else{
+        headers = {
+            'MNV-encode': MNV_ENCODE,
+        }
     }
+
+    // console.log('headers request: ',headers);
+
     if (content_type && content_type !== '') {
         headers['content_type'] = content_type
     }

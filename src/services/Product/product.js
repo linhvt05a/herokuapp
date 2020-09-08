@@ -1,5 +1,5 @@
 import api from '../api';
-import { TOKEN, TOKEN_TEST } from '../../../env';
+import { TOKEN } from '../../../env';
 
 export const productService = {
 
@@ -65,12 +65,11 @@ export const productService = {
     },
 
     //BEGIN SERVICE LINH
-    productFavoriteList(TOKEN_TEST) {
+    productFavoriteList() {
         const requestOptions = {
             method: 'GET',
-            headers: api.getHeader(TOKEN_TEST)
+            headers: api.getHeader(TOKEN)
         };
-
         const url = api.getUrl(api.PRODUCT_FAVORITE_LIST);
         return api.handleRequest(url, requestOptions);
     },
