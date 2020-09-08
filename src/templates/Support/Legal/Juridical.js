@@ -16,7 +16,11 @@ const Juridical = (props)=> {
     const total_record =legalRecord && legalRecord != null ? legalRecord.total_record: null
     const page = legalRecord && legalRecord != null ? legalRecord.page: null
     const limit = 0
-
+    const[navigate, setNavigate] = useState('')
+    const handleClick = (id) =>{
+        setNavigate(id)
+    }
+    
   useEffect(() => {
     dispatch(legalAction.legalList({}))
 }, []);

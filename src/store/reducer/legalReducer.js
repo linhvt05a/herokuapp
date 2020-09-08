@@ -2,6 +2,8 @@ import { legalAction } from "../action";
 
 const initialState = {
   legalFormSupport: [],
+  legalFilter:[],
+  legalSearch:[],
   legalCategories: {success : true, detail:
     [{category_id:1, category_name:'Transaction rules'},{category_id:2, category_name:'Sale contract'},{category_id:3, category_name:'Other'}]
   },
@@ -51,6 +53,22 @@ export default (state = initialState, action) => {
         isFetching: true,
         isLoadingList: false,
       };
+
+      case legalAction.LEGAL_FILTER_BY_CATEGORIES_SUCCESS:
+      return {
+        ...state,
+        legalFilter: action.response,
+        isFetching: true,
+        isLoadingList: false,
+      };
+
+      case legalAction.LEGAL_SEARCH_BY_KEY_SUCCESS:
+        return {
+          ...state,
+          legalSearch: action.response,
+          isFetching: true,
+          isLoadingList: false,
+        };
     default:
       return state;
   }

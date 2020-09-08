@@ -28,6 +28,30 @@ export function* legalForm(payload) {
     }
 }
 
+export function* legalFilter(payload) {
+    try {
+        const response = yield legalService.legalFilter(payload)
+        response.success ? yield put({ type: legalAction.LEGAL_FILTER_BY_CATEGORIES_SUCCESS, response }) : yield put({ type: legalAction.LEGAL_FILTER_BY_CATEGORIES_FAILURE, response });
+    } catch (err) {
+        yield put({ type: legalAction.LEGAL_FILTER_BY_CATEGORIES_FAILURE, err });
+    }
+}
+
+export function* legalSearch(payload) {
+    try {
+        const response = yield legalService.legalSearch(payload)
+        response.success ? yield put({ type: legalAction.LEGAL_SEARCH_BY_KEY_SUCCESS, response }) : yield put({ type: legalAction.LEGAL_SEARCH_BY_KEY_FAILURE, response });
+    } catch (err) {
+        yield put({ type: legalAction.LEGAL_SEARCH_BY_KEY_FAILURE, err });
+    }
+}
+
+export function*legalSearchWatcher() {
+    yield takeLatest(legalAction.LEGAL_SEARCH_BY_KEY_REQUEST, legalSearch);
+}
+export function*legalFilterWatcher() {
+    yield takeLatest(legalAction.LEGAL_FILTER_BY_CATEGORIES_REQUEST, legalFilter);
+}
 export function*legalFormWatcher() {
     yield takeLatest(legalAction.LEGAL_FORM_REQUEST, legalForm);
 }
@@ -43,6 +67,8 @@ export default function* rootSaga() {
     yield all([
         fork(legalListWatcher),
         fork(legalCategoriesWatcher),
-        fork(legalFormWatcher)
+        fork(legalFormWatcher),
+        fork(legalFilterWatcher),
+        fork(legalSearchWatcher),
     ]);
 }
