@@ -2,7 +2,6 @@
 import { put, takeLatest, all, fork } from "redux-saga/effects";
 import { productService } from "../../services/index";
 import { productAction } from '../action/index';
-import {TOKEN } from '../../../env';
 
 export function* hotProductList(payload) {
     let { token, page, limit, project_id, area_id, block_id, project_status_id, province_id, district_id, list_product_type_id, number_of_bedroom,

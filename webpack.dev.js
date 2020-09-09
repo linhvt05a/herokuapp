@@ -1,31 +1,22 @@
 const merge = require('webpack-merge');
-const TerserPlugin = require('terser-webpack-plugin');
-const common = require('./webpack.common.js');
+const common = require('./webpack.common');
 
-module.exports = merge( common, {
+module.exports = merge(common, {
     mode: 'development',
+    devtool: 'innline-source-map',
     output: {
-        path: __dirname + '/build-dev',
+        path: __dirname + '/build',
         publicPath: '/',
         filename: 'bundle.js'
     },
-    optimization: {
-        minimize: true,
-        minimizer: [
-            new TerserPlugin({
-                sourceMap: false,
-                extractComments: 'all',
-                // terserOptions: {
-                //     compress: {
-                //         pure_funcs: [
-                //             'console.log',
-                //             'console.info',
-                //             'console.debug',
-                //             'console.warn'
-                //         ]
-                //     }
-                //  }
-            })
-        ],
-    },
+    devServer: {
+        contentBase: './build',
+        proxy: {
+            '/': 'http://localhost:5000'
+        },
+        writeToDisk: true,
+        port: 3001,
+        hot: true,
+
+    }
 });

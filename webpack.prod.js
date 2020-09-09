@@ -1,6 +1,6 @@
 const merge = require('webpack-merge');
 const TerserPlugin = require('terser-webpack-plugin');
-const common = require('./webpack.common.js');
+const common = require('./webpack.common');
 
 module.exports = merge( common, {
     mode: 'production',
@@ -15,16 +15,16 @@ module.exports = merge( common, {
             new TerserPlugin({
                 sourceMap: false,
                 extractComments: 'all',
-                terserOptions: {
-                    compress: {
-                        pure_funcs: [
-                            'console.log',
-                            'console.info',
-                            'console.debug',
-                            'console.warn'
-                        ]
-                    }
-                 }
+                // terserOptions: {
+                //     compress: {
+                //         pure_funcs: [
+                //             'console.log',
+                //             'console.info',
+                //             'console.debug',
+                //             'console.warn'
+                //         ]
+                //     }
+                //  }
             })
         ],
     },

@@ -1,6 +1,6 @@
 
 import api from '../api';
-import { TOKEN } from '../../../env';
+import { TOKEN } from '../../functions/Utils';
 
 
 export const promotionService = {

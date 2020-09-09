@@ -5,6 +5,7 @@ const globImporter = require("node-sass-glob-importer");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 
+
 module.exports = {
     // entry: './src/index.js',
     entry: {
@@ -35,8 +36,7 @@ module.exports = {
                 loader: 'url-loader',
                 options: {
                     limit: 8000, // Convert images < 8kb to base64 strings
-                    name: '[name].[ext]',
-                    outputPath: 'images/'
+                    name: 'images/[name].[ext]'
                 }
             },
             {
@@ -62,6 +62,11 @@ module.exports = {
     resolve: {
         extensions: ['*', '.js', '.jsx']
     },
+    // output: {
+    //     path: __dirname + '/build',
+    //     publicPath: '/',
+    //     filename: 'bundle.js'
+    // },
     plugins: [
         new MiniCssExtractPlugin({
             filename: "css/[name].css",
@@ -71,6 +76,6 @@ module.exports = {
             {
                 template: "./public/index.html"
             }
-        ),
+        )
     ],
-};                 
+};

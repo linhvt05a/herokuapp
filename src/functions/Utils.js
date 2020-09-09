@@ -311,3 +311,12 @@ function converAddress(address = []) {
     }
     return { _city, _district, _ward, _address }
 }
+
+const token = () => {
+    if (localStorage.getItem('user')) {
+        let token = JSON.parse(localStorage.getItem('user')).token;
+        if (token) { return token }
+    }
+    return null
+}; // Production
+export const TOKEN = token()
