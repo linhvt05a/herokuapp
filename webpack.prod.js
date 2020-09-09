@@ -4,6 +4,11 @@ const common = require('./webpack.common.js');
 
 module.exports = merge( common, {
     mode: 'production',
+    output: {
+        path: __dirname + '/build-prod',
+        publicPath: '/',
+        filename: 'bundle.js'
+    },
     optimization: {
         minimize: true,
         minimizer: [
