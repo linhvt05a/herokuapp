@@ -1,6 +1,6 @@
 import React from 'react';
 import { Trans } from 'react-i18next';
-import { Select, Input } from 'antd';
+import { CardInfoEdit } from "./index"
 
 const CardCustomerInfo = (props) => {
 
@@ -14,7 +14,8 @@ const CardCustomerInfo = (props) => {
                     <a href="#" className="link"><Trans>cart_general_information</Trans></a>
                     <Trans>cart_note_4</Trans>
                 </div>
-                <div className="info-buyer__change">
+                <CardInfoEdit />
+                {/* <div className="info-buyer__change">
                     <div className="row">
                         <div className="col-12 col-sm-6">
                             <div className="form-group">
@@ -118,7 +119,7 @@ const CardCustomerInfo = (props) => {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>*/}
             </div>
             <div className="text-right mt-2">
                 <a className="btn btn_purple text-uppercase" onClick={props.onNext}><Trans>button_confirm</Trans></a>

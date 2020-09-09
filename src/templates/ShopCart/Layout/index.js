@@ -5,7 +5,6 @@ import CardPromotionModal from '../Modal/CardPromotionModal'
 import CardAccountModal from '../Modal/CardAccountModal'
 import CardCustomerInfo from './CardCustomerInfo'
 import CardCollapseProductList from './CardCollapseProductList'
-import CardInfoDetail from './CardInfoDetail'
 import CardAgreementForm from './CardAgreementForm'
 import CardPayments from './CardPayments'
 import CardInfoEdit from "./CardInfoEdit";
@@ -15,8 +14,10 @@ import CardBillInfomation from "./CardBillInfomation";
 import CardRemittanceReceipt from "./CardRemittanceReceipt"
 import CardNotificationModal from "../Modal/CardNotificationModal"
 import ModalCustom from '../../../components/base/Modal/ModalCustom';
+import { NAME_GENDER } from "../../../contant"
 
 export {
-    CardCartProductList, CardCartSummary, CardPaymentProgressModal, CardPromotionModal, CardAccountModal, CardCustomerInfo, CardCollapseProductList, CardInfoDetail,
-    CardAgreementForm, CardPayments, CardInfoEdit, CardOrderDetail, CardBuyerInfo, CardBillInfomation, CardRemittanceReceipt, CardNotificationModal, ModalCustom
+    CardCartProductList, CardCartSummary, CardPaymentProgressModal, CardPromotionModal, CardAccountModal, CardCustomerInfo, CardCollapseProductList,
+    CardAgreementForm, CardPayments, CardInfoEdit, CardOrderDetail, CardBuyerInfo, CardBillInfomation, CardRemittanceReceipt, CardNotificationModal, ModalCustom,
+    NAME_GENDER
 }

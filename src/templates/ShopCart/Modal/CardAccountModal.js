@@ -2,12 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { Input, Form, Button } from 'antd';
 import { translate } from '../../../functions/Utils';
+import { accountAction } from '../../../store/action';
+import { useDispatch } from 'react-redux';
 
 const CardAccountModal = (props) => {
-    const { clearData, isClearData, onNext } = props
+    const { clearData, isClearData, onNext } = props;
+    const dispatch = useDispatch()
     const [formInfo] = Form.useForm();
     const { t } = useTranslation()
-
     useEffect(() => {
         if (isClearData) {
             clearData()
@@ -41,13 +43,16 @@ const CardAccountModal = (props) => {
         },
     }
 
-    formInfo.setFieldsValue({
-        email: '',
-        password: ''
-    });
+    useEffect(() => {
+        formInfo.setFieldsValue({
+            email: 'customer@minerva.vn',
+            password: '123'
+        });
+    }, [])
 
     const onSubmitInfo = (values) => {
         console.log('Success:', values);
+        dispatch(accountAction.loadLogin({ username: values.email, password: values.password }))
         onNext()
     };
 
@@ -67,7 +72,7 @@ const CardAccountModal = (props) => {
                             <Form.Item className="form-group" name="email" rules={validatorInfo.email.form}>
                                 <Input placeholder={validatorInfo.email.placeholder} type={validatorInfo.email.type} className="form-control" />
                             </Form.Item>
-                            <Form.Item className="form-group" name="question" rules={validatorInfo.password.form}>
+                            <Form.Item className="form-group" name="password" rules={validatorInfo.password.form}>
                                 <Input placeholder={validatorInfo.password.placeholder} type={validatorInfo.password.type} className="form-control" />
                             </Form.Item>
                             <Form.Item shouldUpdate className="text-center submit">
