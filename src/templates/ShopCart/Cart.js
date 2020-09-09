@@ -6,16 +6,26 @@ import { useHistory } from "react-router-dom";
 
 const Cart = (props) => {
     let history = useHistory();
-    const user = JSON.parse(localStorage.getItem('user'));
+
+
     const [state, setState] = useState({
         paymentProgressModalVisible: false,
         promotionModalVisible: false,
-        accountModalVisible: false
+        accountModalVisible: false,
+        cart: {},
+        onSubmit: false
     });
     const [check, setCheck] = React.useState({
         allProject: false,
         allProduct: [],
     })
+    React.useEffect(() => {
+        let cart = localStorage.getItem("buy_now_cart");
+        const user = JSON.parse(localStorage.getItem('user'));
+        // console.log(JSON.parse(cart));
+        // localStorage.removeItem("buy_now_cart")
+        setState({ ...state, cart: JSON.parse(cart) })
+    }, [])
     const showPaymentProgressModal = (isShow) => {
         setState({
             ...state,
@@ -67,7 +77,15 @@ const Cart = (props) => {
         // })
         // data lay duoc sau khi luu
     }
-
+    const onSubmit = () => {
+        for (let i in check.allProduct) {
+            for (let j in check.allProduct[i].product) {
+                if (check.allProduct[i].product[j].checked) {
+                    setState({ ...state, onSubmit: true })
+                }
+            }
+        }
+    }
     return (
         <div className="main-cart bg_grey">
             <div className="container container-sm container-md">
@@ -75,10 +93,17 @@ const Cart = (props) => {
                     <span><Trans>cart_product_list</Trans></span>
                 </h2>
                 <div className="row">
-                    <CardCartProductList showPaymentProgressModal={showPaymentProgressModal} showPromotionModal={showPromotionModal} check={check} setCheck={setCheck} />
-                    <div className="col-12 col-sm-12 col-lg-4">
-                        <CardCartSummary extend onNext={() => history.push("/cart/customer-info")} />
-                    </div>
+                    <CardCartProductList
+                        showPaymentProgressModal={showPaymentProgressModal}
+                        showPromotionModal={showPromotionModal}
+                        check={check}
+                        setCheck={setCheck}
+                        datas={state.cart}
+                        onSubmit={onSubmit} />
+                    {state.onSubmit &&
+                        <div className="col-12 col-sm-12 col-lg-4">
+                            <CardCartSummary extend onNext={() => history.push("/cart/customer-info")} />
+                        </div>}
                 </div>
             </div>
             {state.paymentProgressModalVisible &&

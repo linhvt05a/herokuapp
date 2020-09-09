@@ -2,11 +2,11 @@ import React from 'react';
 import { Tooltip } from 'antd';
 import InputCheckboxViolet from '../../../components/base/Input/InputCheckboxViolet'
 import { Trans } from 'react-i18next';
+import { IMAGE_LOGO } from '../../../contant';
 
 const ItemProjectProduct = (props) => {
 
-    const { showPaymentProgressModal, showPromotionModal } = props
-
+    const { showPaymentProgressModal, showPromotionModal, data, like, saveToProduct } = props
     const showPaymentProgress = () => {
         showPaymentProgressModal(true)
     }
@@ -21,8 +21,16 @@ const ItemProjectProduct = (props) => {
                 <div className="apartment__img-area">
                     <InputCheckboxViolet checked={props.checked} onChange={props.onChange} />
                     <figure className="block-img">
-                        <i className="liked active fas fa-heart" />
-                        <img src="../images/intro_project_6.jpg" className="img-fluid img" alt="Căn hộ Saigon Royal" />
+                        {
+                            <i className={`liked${like ? " active" : ""} fas fa-heart`} onClick={() => saveToProduct(!like)} />
+                        }
+                        {
+                            data.product_avatar_url != ""
+                                ? <img className="img-fluid img" src={data.product_avatar_url} alt={data.product_name} />
+                                : <img className="logo_default" src={IMAGE_LOGO} alt={data.product_name} />
+                        }
+                        {/* <i className="liked active fas fa-heart" /> */}
+                        {/* <img src="../images/intro_project_6.jpg" className="img-fluid img" alt="Căn hộ Saigon Royal" /> */}
                         <span className="delete"><Trans>cart_delete_product</Trans></span>
                     </figure>
                 </div>

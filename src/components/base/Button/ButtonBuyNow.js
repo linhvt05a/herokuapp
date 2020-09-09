@@ -12,11 +12,13 @@ const ButtonBuyNow = props => {
     const onBuy = () => {
         let user = localStorage.getItem("user");
         if (user) {
+            localStorage.setItem("buy_now_cart", JSON.stringify(data))
             history.push("/cart");
-            console.log(data);
+            // console.log(data);
         }
         else {
-            console.log(data);
+            // console.log(data);
+            localStorage.setItem("buy_now_cart", JSON.stringify(data))
             setVisible(true)
         }
     }

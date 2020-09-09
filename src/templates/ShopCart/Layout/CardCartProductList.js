@@ -4,7 +4,7 @@ import InputCheckboxViolet from '../../../components/base/Input/InputCheckboxVio
 import { ItemProjectName, ItemProjectProduct } from '../Item/index'
 
 const CardCartProductList = (props) => {
-    const { showPaymentProgressModal, showPromotionModal, setCheck, check } = props
+    const { showPaymentProgressModal, showPromotionModal, setCheck, check, datas, onSubmit } = props
     let allCheck = localStorage.getItem("AllCheckProject");
 
     React.useEffect(() => {
@@ -16,19 +16,19 @@ const CardCartProductList = (props) => {
             for (let i = 0;i < 2;i++) {
                 let newCheckProduct = []
                 for (let j = 0;j < 2;j++) {
-                    newCheckProduct.push(false)
+                    newCheckProduct.push({ checked: false, like: datas.product_love_flag })
                 }
                 newCheck.push({ checked: false, product: newCheckProduct });
             }
             setCheck({ ...check, allProduct: newCheck })
         }
-    }, [])
+    }, [datas])
     const onCheckProject = (checked) => {
         let { allProduct } = check;
         let newCheckProduct = [].concat(allProduct);
         for (let i = 0;i < allProduct.length;i++) {
             for (let j = 0;j < allProduct[i].product.length;j++) {
-                newCheckProduct[i].product[j] = { checked: checked }
+                newCheckProduct[i].product[j].checked = checked
             }
             newCheckProduct[i].checked = checked
         }
@@ -42,7 +42,7 @@ const CardCartProductList = (props) => {
             if (index == i) {
                 newCheckProduct[i].checked = checked;
                 for (let j = 0;j < newCheckProduct[i].product.length;j++) {
-                    newCheckProduct[i].product[j] = { checked: checked }
+                    newCheckProduct[i].product[j].checked = checked
                 }
             }
             if (!newCheckProduct[i].checked) { newCheckProject = false; }
@@ -57,13 +57,36 @@ const CardCartProductList = (props) => {
             newCheckProduct[i].checked = true;
             for (let j = 0;j < allProduct[i].product.length;j++) {
                 if (index == j && indexParent == i) {
-                    newCheckProduct[i].product[j] = { checked: checked }
+                    newCheckProduct[i].product[j].checked = checked
                 }
                 if (!newCheckProduct[i].product[j].checked) { newCheckProduct[i].checked = false; }
             }
             if (!newCheckProduct[i].checked) { newCheckProject = false; }
         }
         setCheck({ ...check, allProject: newCheckProject, allProduct: newCheckProduct })
+    }
+    const onLike = (checked, index, indexParent) => {
+        let newCheckProduct = [].concat(check.allProduct);
+        let { allProduct } = check;
+        for (let i = 0;i < allProduct.length;i++) {
+            for (let j = 0;j < allProduct[i].product.length;j++) {
+                if (index == j && indexParent == i) {
+                    newCheckProduct[i].product[j].like = checked
+                }
+            }
+        }
+        setCheck({ ...check, allProduct: newCheckProduct })
+    }
+    const onDisabled = () => {
+        let { allProduct } = check;
+        for (let i = 0;i < allProduct.length;i++) {
+            for (let j = 0;j < allProduct[i].product.length;j++) {
+                if (allProduct[i].product[j].checked) {
+                    return false
+                }
+            }
+        }
+        return true
     }
     return (
         <div className="col-12 col-sm-12 col-lg-8 main-cart__order">
@@ -85,6 +108,9 @@ const CardCartProductList = (props) => {
                                     showPaymentProgressModal={showPaymentProgressModal}
                                     showPromotionModal={showPromotionModal}
                                     checked={item.checked}
+                                    data={datas}
+                                    like={item.like}
+                                    saveToProduct={(checked) => onLike(checked, i, index)}
                                     onChange={checked => onCheckProduct(checked, i, index)} />
                             })}
                         </div>]
@@ -92,6 +118,7 @@ const CardCartProductList = (props) => {
                 })
 
                 : null}
+            <div class="text-right mt-2" onClick={onSubmit}><a class={`btn btn_purple text-uppercase ${onDisabled() ? "diabled" : ""}`}>Xác nhận</a></div>
         </div>
     )
 }

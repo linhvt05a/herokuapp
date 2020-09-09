@@ -68,9 +68,9 @@ const CardPromotionModal = (props) => {
                                     <div className="title color_656565"><i><Trans>cart_choose_the_form</Trans></i></div>
                                     <Radio.Group onChange={onFormChange} value={selectedData} className="check_box_redemption">
                                         <Radio className="checkbox-inline style_04" value={1}>Quà tặng</Radio>
-                                        <Radio value={2}>
+                                        <Radio value={2} className="check_money align-items-baseline">
                                             Tiền
-                                            <Input disabled value="150.000.000" type="text" className="form-control modal_color_red" />
+                                            <Input disabled={selectedData != 2 ? true : false} defaultValue="150.000.000" type="text" className="form-control modal_color_red" />
                                         </Radio>
                                     </Radio.Group>
                                 </div>
