@@ -17,7 +17,7 @@ const CommonMenu = (props) =>{
                 <li className="options__menu-item" key={index}>
                   <Link className={catesId === item.category_id || navigate === item.category_id ? "active": ''} 
                         to={{ pathname: linkTo, state:{category_id: item.category_id}}} 
-                        onClick={()=>onClick(item.category_id)}
+                        onClick={()=>onClick( item.category_id)}
                   >
                     <i className="icon fas fa-angle-right mr-2" />
                       <Trans>{item.category_name}</Trans>

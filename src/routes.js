@@ -100,7 +100,7 @@ const MAIN = [
         "banner_class": ''
     },
     {
-        "path": "/product",
+        "path": "/productFavorite",
         "component": ProductList,
         "banner_title": "contact_banner_title",
         "banner_url": contact_banner_url,

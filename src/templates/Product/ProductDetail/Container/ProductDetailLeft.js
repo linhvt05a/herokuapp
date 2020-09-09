@@ -8,7 +8,7 @@ import { Banks, Ground, Introduce, Position, ImagesFirst, Ultilities } from '../
 const ProductDetailLeft = (props) => {
     const { data } = props;
 
-    // console.log('ProductDetailLeft', data);
+    console.log('ProductDetailLeft', data);
 
     return (
         data ?

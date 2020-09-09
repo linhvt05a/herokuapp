@@ -6,11 +6,11 @@ const initialState = {
   comingSoonProductList: {},
   productTypeList: {},
   productDetailList: {},
-  productIncentive:[],
-  productFavoriteList: [],
+  productIncentive: [],
   productSignup: [],
   isFetching: false,
-};
+  productFavoriteList: {}
+}
 
 export default (state = initialState, action) => {
   switch (action.type) {
@@ -38,13 +38,13 @@ export default (state = initialState, action) => {
         productTypeList: action.response,
         isFetching: true,
       };
-    case productAction.PRODUCT_DETAIL_LIST_SUCCESS:            
+    case productAction.PRODUCT_DETAIL_LIST_SUCCESS:
       return {
         ...state,
         productDetailList: action.response,
         isFetching: true,
       };
-//linh add 
+    //linh add
     case productAction.PRODUCT_INCENTIVE_LIST_SUCCESS:
       return {
         ...state,
@@ -65,7 +65,7 @@ export default (state = initialState, action) => {
         productSignup: action.response,
         isFetching: true,
       };
-      // end linh add
+    // end linh add
     default:
       return state;
   }

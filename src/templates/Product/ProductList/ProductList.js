@@ -11,7 +11,6 @@ const ProductList = (props) => {
   const product = useSelector(state => state.productReducer);
   const productListSuccess = product.productFavoriteList.success
   const productList = productListSuccess ? product.productFavoriteList : null ;
-
   const total_page = productList && productList != null ? productList.total_page : null
   const total_record =productList && productList != null ? productList.total_record: null
   const page = productList && productList != null ? productList.page: null
@@ -22,10 +21,16 @@ const ProductList = (props) => {
   const productListIncentive = productIncentiveSuccess ? productIncentive.productIncentive.detail : null;
 
   useEffect(() => {
+   
       dispatch(productAction.productFavoriteList({page: 1, limit: 5}));
       dispatch(productAction.productIncentive({}));
   }, []);
-  
+  const isLogin = JSON.parse(localStorage.getItem('user'))
+  const dataStorage = localStorage.getItem('saveList')
+  const data = JSON.parse(dataStorage)
+  const localList = []
+  localList.push(data)
+
   const signupValue = {fullName: '', emailSignup: '', passwordSignup: '', rePass:''}
   const signInValue = {emailSignIn:'', passwordSignIn:''}
 
@@ -49,7 +54,7 @@ function onPageChange (value) {
         <div className="striking_apartment label_filter">
           <CardHeader label="List of products" />
           <div className="row">
-            <ProductContent data={productList}  limit ={10} total_page={total_page} total_record={total_record} page={page} onPageChange ={onPageChange}/>
+            <ProductContent data={productList} localList={localList} limit ={10} total_page={total_page} total_record={total_record} page={page} onPageChange ={onPageChange}/>
             <ProductRightBar 
                 data ={productListIncentive} 
                 showSignInModal={()=>setShowSignIn(true)}

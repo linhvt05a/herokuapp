@@ -29,8 +29,10 @@ export const accountService = {
                 if (data) {
                     // store user details and basic auth credentials in local storage
                     localStorage.setItem('user', JSON.stringify(data['detail']));
+                    window.location.reload()
                 }
                 return data;
+                
             });
     },
     
