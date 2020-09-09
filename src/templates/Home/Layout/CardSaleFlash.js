@@ -18,7 +18,7 @@ const CardSaleFlash = (props) => {
     const datas = isGetHotProductListSuccess ? product.hotProductList : null;
     const dispatch = useDispatch();
     const [projectGroupId, setProjectGroupId] = useState(null);
-
+    
     useEffect(() => {
         if (detail) {
             dispatch(productAction.loadHotProductList({page: 1, limit: limit}));    
@@ -66,7 +66,7 @@ const CardSaleFlash = (props) => {
             }
         ]
     };
-
+   
     return (
         <div className="project_detail--list bg_grey sales_quick">
             <div className="container container-sm container-md">
@@ -83,9 +83,9 @@ const CardSaleFlash = (props) => {
                             detail ?
                                 <div className="row">
                                     {
-                                        datas.detail.list_product.map((item, index) => (
+                                        listProduct.map((item, index) => (
                                             <div key={index} className="col-12 col-sm-12 col-md-6 col-lg-4 mb-3">
-                                                <ItemProduct data={item} detail />
+                                                <ItemProduct data={item} detail  />
                                             </div>
                                         ))
                                     }
@@ -93,7 +93,7 @@ const CardSaleFlash = (props) => {
                                 <Slider {...settings}>
                                     {
                                         datas.detail.list_product.map((item, index) => (
-                                            <ItemProduct key={index} data={item} />
+                                            <ItemProduct key={item.product_id} data={item} />
                                         ))
                                     }
                                 </Slider> :
