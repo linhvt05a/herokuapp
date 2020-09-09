@@ -6,9 +6,11 @@ import TabPayment from "./Management/TabPayment"
 import TabFeedback from "./Management/TabFeedback"
 import UploadAvatar from "./Management/Infor/UploadAvatar"
 import CardFile from "./Management/Infor/CardFile"
+import ChangePass from "./Management/Infor/ChangePass"
+
 import Heading from "./Management/Core/Heading"
 import Label from "./Management/Core/Label"
-import ChangePass from "./Management/Infor/ChangePass"
+import UserFilter from "./Management/Core/UserFilter"
 
 import FormUser from "./User/Form"
 import FormUserMobile from "./User/FormMobile"
@@ -18,7 +20,9 @@ import Registry from "./User/Registry"
 import Logout from "./User/Logout"
 
 export {
-    Manage, TabInformation, TabOrder, TabJoinProject, TabPayment, TabFeedback, UploadAvatar, CardFile, Heading, Label, ChangePass,
+    Manage, TabInformation, TabOrder, TabJoinProject, TabPayment, TabFeedback, UploadAvatar, CardFile, ChangePass, 
+    
+    Heading, Label, UserFilter,
 
     FormUser, FormUserMobile, Login, ForgotPass, Registry, Logout
 }

@@ -104,6 +104,9 @@ const CardFile = (props) => {
         }));
         setMail(true);
     };
+    const emailInputFocus = () => {
+        setMail(false);
+    };
 
     const ismail = useSelector(state => state.accountReducer);
     const mailSuccess = ismail.emailCheck.success
@@ -128,6 +131,8 @@ const CardFile = (props) => {
     const updateSuccess = isupdate.updateCustomer.success
     const update = updateSuccess ? isupdate.updateCustomer.detail : null;
 
+    console.log(update);
+
     return (
         <div class="col-12 col-sm-12 col-md-12 col-lg-8">
             <Alert message="Một số thông tin của bạn vẫn còn thiếu. Xin bạn vui lòng cập nhật !" type="warning" showIcon closable />
@@ -139,6 +144,7 @@ const CardFile = (props) => {
                         <Label icon="fa-envelope" text="Email" />
                         <div class="col-12 col-sm-12 col-md-9">
                             <Input type="text" placeholder="Email" defaultValue={data.email}
+                            onFocus={emailInputFocus}
                             onBlur={emailInputBlur}
                             onChange={(value => setState({ ...state, customer_email: value.target.value }))} className="form-control" />
                             { mail ? mailSuccess ?

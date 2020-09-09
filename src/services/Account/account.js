@@ -131,9 +131,10 @@ export const accountService = {
             body: file
         };
     
-        console.log(headers,file)
+        console.log(headers,file, server_file_name, server_url)
         console.log(server_url);
-        // return api.handleRequest(url, requestOptions);
         return api.handleRequest(server_url, requestOptions);
-    },
+        // return handleResponseText(server_url, requestOptions);
+        // return fetch(server_url, requestOptions).then(handleResponseText)
+    }
 };

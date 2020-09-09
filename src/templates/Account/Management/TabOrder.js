@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { Trans } from "react-i18next";
-import { UploadAvatar, CardFile } from "../index";
-import { accountAction, commonAction } from "../../../store/action/index";
+import { UserFilter } from "../index";
 
 const TabOrder = (props) => {
     let { activeTab } = props;
@@ -11,20 +10,8 @@ const TabOrder = (props) => {
         <div class={`tab-pane fade ${activeTab === 1 ? "active show": ""}`} id="tab_02" role="tabpanel">
             <div class="row user-acc__order">
                 <div class="col-12 col-sm-12 col-md-12 col-lg-8">
-                    <div class="user-acc__filter">
-                        <div class="filter__left">
-                            <div class="form-group">
-                                <input type="text" placeholder="Nhập mã đơn hàng" class="form-control"/>
-                                <a href="#" class="btn btn_green">
-                                    TÌM KIẾM
-                                </a>
-                            </div>
-                        </div>
-                        <div class="filter__right">
-                            <a href="#" class="icon fas fa-calendar-alt"></a>
-                        </div>
-                    </div>
 
+                    <UserFilter />
                     <div class="project_item__list ">
                         <div class="table_original nowrap table-td-top">
                             <table>
