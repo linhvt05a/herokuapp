@@ -1,4 +1,4 @@
-export const NODE_ENV = 'dev';
+export const NODE_ENV = 'development';
 
 export const MODE_ENV = {
     local: {
