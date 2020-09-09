@@ -5,7 +5,7 @@ import { formatCurrency } from "../../functions/Utils";
 import { IMAGE_URL, IMAGE_LOGO } from "../../contant";
 import CardNoData from "./CardNoData";
 import { Link } from 'react-router-dom'
-import { ButtonBuy } from "../base";
+import { ButtonBuyNow } from "../base";
 
 
 const ItemProduct = (props) => {
@@ -104,7 +104,7 @@ const ItemProduct = (props) => {
                         </div>
                     </div>
                     <div className="price__item">
-                        <ButtonBuy data={data} />
+                        <ButtonBuyNow data={data} />
                     </div>
                 </div>
             </div>

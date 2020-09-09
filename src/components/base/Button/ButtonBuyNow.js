@@ -4,7 +4,7 @@ import { Trans } from 'react-i18next';
 import ModalCustom from '../Modal/ModalCustom';
 
 
-const ButtonBuy = props => {
+const ButtonBuyNow = props => {
     let history = useHistory();
     const [visible, setVisible] = React.useState(false)
     let { className, data } = props;
@@ -32,4 +32,4 @@ const ButtonBuy = props => {
         ]
     )
 }
-export default ButtonBuy
+export default ButtonBuyNow
