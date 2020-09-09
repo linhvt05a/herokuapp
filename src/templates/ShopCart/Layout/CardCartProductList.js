@@ -4,13 +4,9 @@ import InputCheckboxViolet from '../../../components/base/Input/InputCheckboxVio
 import { ItemProjectName, ItemProjectProduct } from '../Item/index'
 
 const CardCartProductList = (props) => {
-    const { showPaymentProgressModal, showPromotionModal } = props
+    const { showPaymentProgressModal, showPromotionModal, setCheck, check } = props
     let allCheck = localStorage.getItem("AllCheckProject");
-    const [check, setCheck] = React.useState({
-        allProject: false,
-        allProduct: [],
-        // product: [],
-    })
+
     React.useEffect(() => {
         if (allCheck) {
 
@@ -36,7 +32,6 @@ const CardCartProductList = (props) => {
             }
             newCheckProduct[i].checked = checked
         }
-        console.log(newCheckProduct)
         setCheck({ ...check, allProject: checked, allProduct: newCheckProduct })
     }
     const onCheckAllProduct = (checked, index) => {
@@ -97,7 +92,6 @@ const CardCartProductList = (props) => {
                 })
 
                 : null}
-
         </div>
     )
 }

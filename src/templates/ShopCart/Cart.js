@@ -12,6 +12,10 @@ const Cart = (props) => {
         promotionModalVisible: false,
         accountModalVisible: false
     });
+    const [check, setCheck] = React.useState({
+        allProject: false,
+        allProduct: [],
+    })
     const showPaymentProgressModal = (isShow) => {
         setState({
             ...state,
@@ -71,7 +75,7 @@ const Cart = (props) => {
                     <span><Trans>cart_product_list</Trans></span>
                 </h2>
                 <div className="row">
-                    <CardCartProductList showPaymentProgressModal={showPaymentProgressModal} showPromotionModal={showPromotionModal} />
+                    <CardCartProductList showPaymentProgressModal={showPaymentProgressModal} showPromotionModal={showPromotionModal} check={check} setCheck={setCheck} />
                     <div className="col-12 col-sm-12 col-lg-4">
                         <CardCartSummary extend onNext={() => history.push("/cart/customer-info")} />
                     </div>

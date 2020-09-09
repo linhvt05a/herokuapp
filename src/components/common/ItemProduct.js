@@ -5,36 +5,37 @@ import { formatCurrency } from "../../functions/Utils";
 import { IMAGE_URL, IMAGE_LOGO } from "../../contant";
 import CardNoData from "./CardNoData";
 import { Link } from 'react-router-dom'
+import { ButtonBuy } from "../base";
 
 
 const ItemProduct = (props) => {
     const [active, setActive] = useState(false)
     const { data } = props
 
-const saveToProduct = () => {
-    setActive(!active)
-    const product_id = data.product_id
-    const product_name = data.product_name
-    const product_acreage = data.product_acreage
-    const product_total_bedroom = data.product_total_bedroom
-    const product_total_bathroom = data.product_total_bathroom
-    const product_avatar_url = data.product_avatar_url
+    const saveToProduct = () => {
+        setActive(!active)
+        const product_id = data.product_id
+        const product_name = data.product_name
+        const product_acreage = data.product_acreage
+        const product_total_bedroom = data.product_total_bedroom
+        const product_total_bathroom = data.product_total_bathroom
+        const product_avatar_url = data.product_avatar_url
 
-    const newItem = { 
-        product_id, 
-        product_name,
-        product_acreage, 
-        product_total_bedroom ,
-        product_total_bathroom, 
-        product_avatar_url
-            }
-    localStorage.setItem('saveList',JSON.stringify(newItem))
-}
+        const newItem = {
+            product_id,
+            product_name,
+            product_acreage,
+            product_total_bedroom,
+            product_total_bathroom,
+            product_avatar_url
+        }
+        localStorage.setItem('saveList', JSON.stringify(newItem))
+    }
     return (
         <div className="item">
             <figure className="image">
                 {
-                    data.product_love_flag == true && <i className={`liked fas fa-heart ${active ? " active": ""}`} onClick={saveToProduct}/>
+                    data.product_love_flag == true && <i className={`liked fas fa-heart ${active ? " active" : ""}`} onClick={saveToProduct} />
                 }
                 {
                     data.product_avatar_url != ""
@@ -103,7 +104,7 @@ const saveToProduct = () => {
                         </div>
                     </div>
                     <div className="price__item">
-                        <a href="#" className="btn btn_green"><Trans>product_buy_now</Trans></a>
+                        <ButtonBuy data={data} />
                     </div>
                 </div>
             </div>
