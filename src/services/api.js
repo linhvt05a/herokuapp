@@ -15,8 +15,7 @@ if (process.env.NODE_ENV === 'production') {
     DOMAIN = MODE_ENV.local
 }
 
-console.log('---Env: ',process.env.NODE_ENV);
-console.log('---DOMAIN:',DOMAIN.api);
+console.log('---ENV:',process.env.NODE_ENV, '\n---DOMAIN:',DOMAIN.api);
 
 export default {
     CLOUD_SERVER_PATH: MODE_ENV.cloudapi + '/cdn/sunnyworld-workflow-clone/',
