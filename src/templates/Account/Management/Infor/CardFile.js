@@ -131,8 +131,6 @@ const CardFile = (props) => {
     const updateSuccess = isupdate.updateCustomer.success
     const update = updateSuccess ? isupdate.updateCustomer.detail : null;
 
-    console.log(update);
-
     return (
         <div class="col-12 col-sm-12 col-md-12 col-lg-8">
             <Alert message="Một số thông tin của bạn vẫn còn thiếu. Xin bạn vui lòng cập nhật !" type="warning" showIcon closable />

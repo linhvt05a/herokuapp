@@ -28,7 +28,6 @@ const TabInformation = (props) => {
         const image = URL.createObjectURL(avatarName);
         setState({ avatar: img })
     }
-    console.log('img', img);
     return (
         <div class={`tab-pane fade ${activeTab === 0 ? "active show": ""}`} id="tab_01" role="tabpanel" aria-labelledby="tab_01">
             {profile && profile != null ?
