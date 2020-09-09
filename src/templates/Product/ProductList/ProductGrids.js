@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import { Trans } from 'react-i18next';
 import { IMAGE_URL } from "../../../contant";
 import {Link} from 'react-router-dom'
+
 const ProductGrids = (props) => {
     const{data, userId} = props
+    console.log(data)
     return (
         <div className="striking_apartment--content">
         <div className="row">

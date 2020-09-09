@@ -12,8 +12,9 @@ import SliderRange from './Slider/SliderRange'
 import Sliders from './Slider/Sliders'
 import TextArea from './TextArea/TextArea'
 import InputRadioViolet from './Input/InputRadioViolet'
+import ButtonBuyNow from "./Button/ButtonBuyNow"
 
 export {
     InputBase, InputCheckbox, InputCheckboxViolet, InputCheckboxWhite, InputDatePicker, ButtonStyle, ModalCustom, SelectCustom,
-    SelectDefault, SelectMultiple, SliderRange, Sliders, TextArea, InputRadioViolet
+    SelectDefault, SelectMultiple, SliderRange, Sliders, TextArea, InputRadioViolet, ButtonBuyNow
 }

@@ -53,7 +53,7 @@ const CardCartSummary = (props) => {
                         </div>
                     </div>
                     <div className="text-center mt-2">
-                        <a className="btn btn_purple text-uppercase" onClick={() => showPaymentProgressModal(!visible)}><Trans>cart_deposit_proceed</Trans></a>
+                        <a className="btn btn_purple text-uppercase" onClick={props.onNext}><Trans>cart_deposit_proceed</Trans></a>
                     </div>
                 </div>
             }
