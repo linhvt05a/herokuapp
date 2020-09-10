@@ -1,7 +1,7 @@
 
 
 //shipping
-import { exampleService } from "./Example/Example";
+import { exampleService } from "./Example/example";
 import { productService } from "./Product/product"
 import { projectService } from "./Project/project";
 import { transactionService } from "./Transaction/transaction";
