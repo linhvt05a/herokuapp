@@ -1,6 +1,7 @@
 export default {
     cart_product_list: "Product List",
     cart: "Cart",
+    card_input_number: "Enter the number",
     cart_select_all: "Select all",
     cart_product: "product",
     cart_products: "products",

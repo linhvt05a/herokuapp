@@ -5,7 +5,7 @@ import { CardPaymentProgressModal, CardPromotionModal, CardAccountModal, CardNot
 
 const ModalCustom = (props) => {
 
-    const { visible, widthModal, showPaymentProgressModal, showPromotionModal, showAccountModal, showNotification, dataOutput, onNext } = props
+    const { visible, widthModal, showPaymentProgressModal, showPromotionModal, showAccountModal, showNotification, dataOutput, onNext, status = false } = props
     const [isClearData, setClearData] = useState(false)
 
     const handleCancel = () => {
@@ -24,7 +24,7 @@ const ModalCustom = (props) => {
     const afterClearData = () => {
         setClearData(false)
     }
-    let status = true
+
     return (
         <Modal
             visible={visible}

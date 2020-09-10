@@ -1,6 +1,7 @@
 export default {
     cart_product_list: "Danh sách sản phẩm",
     cart: "Giỏ hàng",
+    card_input_number: "Nhập số",
     cart_select_all: "Chọn tất cả",
     cart_product: "sản phẩm",
     cart_products: "sản phẩm",

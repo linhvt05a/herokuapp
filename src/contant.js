@@ -62,6 +62,78 @@ const DATA_INTRODUCE = {
 const NAME_GENDER = [
     { value: 0, label: "cart_mr" }, { value: 1, label: "cart_mrs" }
 ]
+const RULES = {
+    phone: {
+        form: [
+            {
+                required: true,
+                message: 'Missing information require!',
+            },
+            {
+                min: 9, max: 10,
+                message: "Phone numbers from 9 to 10 numbers"
+            }
+        ],
+        type: 'number'
+    },
+    identity: {
+        form: [
+            {
+                required: true,
+                message: 'Missing information require!',
+            },
+            {
+                min: 9,
+                message: "Identity Card from 9 numbers or more"
+            }
+        ],
+        type: 'number'
+    },
+    number: {
+        form: [
+            {
+                required: true,
+                message: 'Missing information require!',
+            }
+        ],
+        type: 'number'
+    },
+    email: {
+        form: [
+            {
+                type: 'email',
+                message: 'The input is not valid E-mail!',
+            },
+            {
+                required: true,
+                message: 'Missing information require!',
+            },
+        ],
+        type: 'email'
+    },
+    text: {
+        form: [
+            {
+                required: true,
+                message: 'Missing information require!'
+            }
+        ],
+        type: 'text'
+    },
+}
+
+const PAYMENT_METHOD = [
+    { id: 1, type: "PAYMENT_METHOD_MASTER_CARD" },
+    { id: 2, type: "PAYMENT_METHOD_ATM" },
+    { id: 3, type: "PAYMENT_METHOD_INTERNET_BANKING" }
+]
+const CREDIT_CARD_TYPE = [
+    { id: 1, type: "CREDIT_CARD_TYPE_VISA" },
+    { id: 2, type: "CREDIT_CARD_TYPE_MASTERCARD" },
+    { id: 3, type: "CREDIT_CARD_TYPE_AMEX" },
+    { id: 4, type: "CREDIT_CARD_TYPE_JCB" }
+]
+
 
 
 
@@ -74,5 +146,8 @@ module.exports = {
     PROJECT_SALE_GROUP,
     DIRECTION_TYPE,
     DATA_INTRODUCE,
-    NAME_GENDER
+    NAME_GENDER,
+    RULES,
+    PAYMENT_METHOD,
+    CREDIT_CARD_TYPE
 }

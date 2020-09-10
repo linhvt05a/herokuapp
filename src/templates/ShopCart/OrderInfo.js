@@ -1,12 +1,21 @@
 import React from 'react';
 import { ModalCustom, CardOrderDetail, CardBuyerInfo, CardCartSummary, CardCollapseProductList, CardBillInfomation, CardRemittanceReceipt } from "./Layout"
-import { translate } from '../../functions/Utils';
+import { translate, getLocalStore } from '../../functions/Utils';
+import { useHistory } from 'react-router-dom';
 
 const OrderInfo = (props) => {
+    let history = useHistory();
     const [visible, setVisible] = React.useState(false)
     const showNotification = (visible) => {
         setVisible(visible)
     }
+    React.useEffect(() => {
+        let user = getLocalStore("user")
+        if (!user) {
+            history.push("/");
+
+        }
+    }, [])
     const renderNote = () => {
         return (
             <ul className="list">
@@ -50,7 +59,7 @@ const OrderInfo = (props) => {
                     </div>
                 </div>
             </div>
-            <ModalCustom visible={visible} showNotification={showNotification} widthModal={`360px`} />
+            <ModalCustom status={false} visible={visible} showNotification={showNotification} widthModal={`360px`} />
         </div>
 
     )

@@ -2,6 +2,7 @@ import React from 'react';
 import { Trans } from 'react-i18next';
 import { CardCartSummary, CardCollapseProductList, CardBuyerInfo, CardAgreementForm } from './Layout'
 import { useHistory } from 'react-router-dom';
+import { getLocalStore } from '../../functions/Utils';
 
 const ConfirmOrderInfo = (props) => {
     let history = useHistory()
@@ -10,6 +11,12 @@ const ConfirmOrderInfo = (props) => {
         checkedAgreement: false,
         checkedInfomations: false
     })
+    React.useEffect(() => {
+        let user = getLocalStore("user")
+        if (!user) {
+            history.push("/")
+        }
+    }, [])
     const disableConfirm = () => {
         if (checked.checkedAgreement && checked.checkedBuyer && checked.checkedInfomations) {
             return false

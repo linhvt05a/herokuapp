@@ -1,9 +1,13 @@
 import React from 'react';
 import { Trans } from 'react-i18next';
 import { InputRadioViolet } from '../../../components/base'
+import { DatePicker } from 'antd';
+import { RULES } from '../../../contant';
+import { datePichkerLocation, translate } from "../../../functions/Utils"
 
 const CardPayments = (props) => {
-    let { checked, setChecked } = props;
+    let { checked, setChecked, Item } = props;
+
     const onChangeCredit = (check) => {
         setChecked({
             ...check,
@@ -60,7 +64,9 @@ const CardPayments = (props) => {
                                         <label className="label">Số thẻ
                                         <span className="star">*</span>
                                         </label>
-                                        <input type="text" placeholder="Nhập số" className="form-control" />
+                                        <Item name="cardNumber" rules={RULES.number.form}>
+                                            <input type={RULES.number.type} placeholder={translate("card_input_number", "t")} className="form-control" />
+                                        </Item>
                                     </div>
                                 </div>
                                 <div className="col-12 col-sm-6">
@@ -68,7 +74,9 @@ const CardPayments = (props) => {
                                         <label className="label">Tên in trên thẻ
                                         <span className="star">*</span>
                                         </label>
-                                        <input type="text" placeholder="Vd: Trần Thị Thu Hoài" className="form-control" />
+                                        <Item name="cardName" rules={RULES.text.form}>
+                                            <input type={RULES.text.type} placeholder="Vd: Trần Thị Thu Hoài" className="form-control" />
+                                        </Item>
                                     </div>
                                 </div>
                                 <div className="col-12 col-sm-6">
@@ -77,7 +85,10 @@ const CardPayments = (props) => {
                                         <span className="star">*</span>
                                         </label>
                                         <div className="date-picker">
-                                            <input type="text" placeholder="--/--" className="form-control js-datepicker" />
+                                            <Item name="cardDate" rules={RULES.text.form}>
+                                                {/* <input type="text" placeholder="--/--" className="form-control js-datepicker" /> */}
+                                                <DatePicker locale={datePichkerLocation()} showToday={false} className="form-control js-datepicker" placeholder="10/12" format="DD/MM" />
+                                            </Item>
                                         </div>
                                     </div>
                                 </div>
@@ -86,7 +97,9 @@ const CardPayments = (props) => {
                                         <label className="label">Mã bảo mật
                                         <span className="star">*</span>
                                         </label>
-                                        <input type="text" placeholder="Nhập số" className="form-control" />
+                                        <Item name="cardCode" rules={RULES.number.form}>
+                                            <input type={RULES.number.type} placeholder={translate("card_input_number", "t")} className="form-control" />
+                                        </Item>
                                     </div>
                                 </div>
                             </div>

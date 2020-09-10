@@ -4,7 +4,7 @@ import InputCheckboxViolet from '../../../components/base/Input/InputCheckboxVio
 import { ItemProjectName, ItemProjectProduct } from '../Item/index'
 
 const CardCartProductList = (props) => {
-    const { showPaymentProgressModal, showPromotionModal, setCheck, check, datas, onSubmit } = props
+    const { showPaymentProgressModal, showPromotionModal, setCheck, check, datas } = props
     let allCheck = localStorage.getItem("AllCheckProject");
 
     React.useEffect(() => {
@@ -77,6 +77,14 @@ const CardCartProductList = (props) => {
         }
         setCheck({ ...check, allProduct: newCheckProduct })
     }
+    const onSubmit = () => {
+        let doc = document.getElementsByClassName("top_banner ");
+        setTimeout(() => {
+            console.log(doc[0]);
+            doc[0].scrollIntoView(true)
+        }, 0);
+        props.onSubmit()
+    }
     const onDisabled = () => {
         let { allProduct } = check;
         for (let i = 0;i < allProduct.length;i++) {
@@ -118,7 +126,10 @@ const CardCartProductList = (props) => {
                 })
 
                 : null}
-            <div class="text-right mt-2" onClick={onSubmit}><a class={`btn btn_purple text-uppercase ${onDisabled() ? "diabled" : ""}`}>Xác nhận</a></div>
+            {onDisabled() ?
+                <div class={`text-right mt-2 disabled`} ><a class={`btn btn_purple text-uppercase disabled`}>Xác nhận</a></div>
+                :
+                <div class={`text-right mt-2`} onClick={onSubmit}><a class={`btn btn_purple text-uppercase`}>Xác nhận</a></div>}
         </div>
     )
 }

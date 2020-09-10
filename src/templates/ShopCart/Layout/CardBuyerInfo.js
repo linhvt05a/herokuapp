@@ -1,14 +1,47 @@
 import React from 'react';
 import { CardInfoEdit } from '../Layout';
-import { translate } from '../../../functions/Utils';
+import { translate, getLocalStore } from '../../../functions/Utils';
+import { Form } from "antd"
 
 const CardBuyerInfo = props => {
-    const [edit, setEdit] = React.useState(false)
+    const [edit, setEdit] = React.useState(false);
+    const onClick = () => {
+        setEdit(!edit)
+    }
+    let [form] = Form.useForm();
+    const [data, setData] = React.useState()
+    React.useEffect(() => {
+        let newdata = getLocalStore("sale_customer_order");
+        if (newdata) {
+            setData(newdata)
+        }
+        else {
+            setData({
+                gender: 1,
+                name: "Trần Thị Thu Hoài",
+                customers: 1,
+                identityCardNumber: '345020630',
+                nation: 1,
+                city: 1,
+                district: 1,
+                address: "220/4 đường Cách Mạng Tháng 8",
+                email: "thutran1975@gmail.com",
+                phone: "0909125620"
+            })
+        }
+    }, [])
     return (
         <div className="block block__03">
-            {edit ? <CardInfoEdit /> :
+            {edit == true ?
+                <div className="info-buyer__change">
+                    {data &&
+                        <CardInfoEdit data={data} form={form} onNext={onClick} />}
+                    <div className="text-center mt-2">
+                        <a className="btn btn_purple text-uppercase" onClick={() => form.submit()}>{translate("button_update")}</a>
+                    </div>
+                </div> :
                 [<h3 className="block__heading d-flex flex-column flex-lg-row align-items-start	align-items-lg-center" key="1">
-                    {translate("cart_buyer_infomation")}    <div className="can-edit ml-0 ml-lg-auto mt-2 mt-lg-0" onClick={() => setEdit(true)}>
+                    {translate("cart_buyer_infomation")}    <div className="can-edit ml-0 ml-lg-auto mt-2 mt-lg-0" onClick={() => onClick()}>
                         <i className="can-edit__icon fas fa-pencil-alt" />
                         <span className="can-edit__text" >{translate("button_edit")}</span>
                     </div>
@@ -23,8 +56,7 @@ const CardBuyerInfo = props => {
                             </div>
                         </th>
                         <td>
-                            <div className="info-buyer__value">
-                                Trần Thị Thu Hoài  </div>
+                            <div className="info-buyer__value">{data && data.name}    </div>
                         </td>
                     </tr>
                         <tr>
@@ -36,8 +68,7 @@ const CardBuyerInfo = props => {
                                 </div>
                             </th>
                             <td>
-                                <div className="info-buyer__value">
-                                    340320350  </div>
+                                <div className="info-buyer__value">{data && data.identityCardNumber}   </div>
                             </td>
                         </tr>
                         <tr>
@@ -49,8 +80,7 @@ const CardBuyerInfo = props => {
                                 </div>
                             </th>
                             <td>
-                                <div className="info-buyer__value">
-                                    24/3 đường Lê Hồng Phong, Phường 16, Q.3, Tp.HCM, Việt Nam   </div>
+                                <div className="info-buyer__value">{data && data.address}  </div>
                             </td>
                         </tr>
                         <tr>
@@ -62,8 +92,7 @@ const CardBuyerInfo = props => {
                                 </div>
                             </th>
                             <td>
-                                <div className="info-buyer__value">
-                                    dnha21068801@gmail.com </div>
+                                <div className="info-buyer__value">{data && data.email}</div>
                             </td>
                         </tr>
                         <tr>
@@ -75,7 +104,7 @@ const CardBuyerInfo = props => {
                                 </div>
                             </th>
                             <td>
-                                <div className="info-buyer__value">  0909 789 325  </div>
+                                <div className="info-buyer__value">{data && data.phone} </div>
                             </td>
                         </tr>
                     </tbody></table>]

@@ -1,6 +1,10 @@
 import React from 'react';
-import { Trans } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 import * as moment from 'moment';
+import "moment/locale/vi"
+import "moment/locale/en-au"
+import vi_VN from "antd/es/date-picker/locale/vi_VN";
+import en_US from "antd/es/date-picker/locale/en_US"
 
 export {
     differentList,
@@ -130,7 +134,7 @@ function LoadDataPaging(total_record, page, total_page, limit) {
         total_page: total_page,
         limit: limit,
     }
-    if(total_record === undefined || page === undefined || total_page === undefined || limit === undefined){
+    if (total_record === undefined || page === undefined || total_page === undefined || limit === undefined) {
         return null;
     } else if (total_record < 0 || page < 0 || total_page < 0 || limit < 0) {
         return null;
@@ -198,7 +202,7 @@ function sortlayout(item, datas, currentList) {
     }
     return myData
 }
- 
+
 function getNumberPercentRounding(number) {
     if (!number) {
         return 0
@@ -277,9 +281,25 @@ function formatCurrency(number) {
 
     }
 }
-
-function translate(text) {
-    return <Trans>{text}</Trans>
+export const formatDate = (date, type) => {
+    return moment(date).format(type)
+}
+export const getLocalStore = (text, remove) => {
+    let data = localStorage.getItem(text);
+    if (data) {
+        if (remove) { localStorage.removeItem(text) }
+        return JSON.parse(data);
+    }
+    return false
+}
+function translate(text, trans = false) {
+    if (trans) {
+        let { t } = useTranslation()
+        return t(text)
+    }
+    else {
+        return <Trans>{text}</Trans>
+    }
 }
 
 function converAddress(address = []) {
@@ -310,6 +330,16 @@ function converAddress(address = []) {
         }
     }
     return { _city, _district, _ward, _address }
+}
+
+export const datePichkerLocation = () => {
+    let language = localStorage.getItem("language");
+    switch (language) {
+        case "vi":
+            return vi_VN;
+        case "en":
+            return en_US
+    }
 }
 
 const token = () => {
