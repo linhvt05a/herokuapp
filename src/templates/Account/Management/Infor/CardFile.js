@@ -14,7 +14,6 @@ const CardFile = (props) => {
 
     var address = data.full_address.split(", ");
     var date_default = moment(data.birthday).format('YYYY-MM-DD'); 
-    console.log(date_default);
 
     const dispatch = useDispatch();
     const [mail, setMail] = useState(false);

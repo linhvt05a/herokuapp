@@ -3,7 +3,7 @@ import { Trans } from "react-i18next";
 import { Input, Select } from 'antd';
 
 const TableFilter = (props) => {
-    let { filterTab } = props;
+    let { filterTab, onOrderDetail } = props;
     return (
         <div class="project_item__list ">
             <div class="table_original nowrap table-td-top">
@@ -28,7 +28,7 @@ const TableFilter = (props) => {
                         <tr>
                             <td class="pl-0">1</td>
                             <td>
-                                <a href="#" class="link">000011419</a>
+                                <a onClick={onOrderDetail} class="link">000011419</a>
                             </td>
                             <td>
                                 <span class="color_656565">27/02/2020</span>
@@ -54,7 +54,7 @@ const TableFilter = (props) => {
                         <tr>
                             <td class="pl-0">1</td>
                             <td>
-                                <a href="#" class="link">000011419</a>
+                                <a onClick={onOrderDetail} class="link">000011419</a>
                             </td>
                             <td>
                                 <span class="color_656565">27/02/2020</span>
