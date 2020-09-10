@@ -1,5 +1,5 @@
 module.exports = {
-    NODE_ENV : 'development',
+    NODE_ENV : 'none',
     MODE_ENV:{
         local: {
             api: 'http://superapp.minerva.vn:9218'
