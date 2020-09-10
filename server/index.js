@@ -17,9 +17,12 @@ app.use(express.static("public"));
 
 // PROXY
 
+var env = require("../env");
+console.log('env:',env.MODE_ENV);
+
 // app.use('/api', createProxyMiddleware({ target: 'http://222.255.217.135:9117', changeOrigin: true }));
-app.use('/api', createProxyMiddleware({ target: 'http://superapp.minerva.vn:9218', changeOrigin: true }));
-app.use('/cdn', createProxyMiddleware({ target: 'https://cloudapi.minerva.vn', changeOrigin: true }));
+app.use('/api', createProxyMiddleware({ target: env.MODE_ENV.local.api, changeOrigin: true }));
+app.use('/cdn', createProxyMiddleware({ target: env.MODE_ENV.cloudapi, changeOrigin: true }));
 
 // REACT
 app.get('/*', (req, res) => {

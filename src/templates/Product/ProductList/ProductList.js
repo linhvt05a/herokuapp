@@ -26,11 +26,11 @@ const ProductList = (props) => {
       dispatch(productAction.productIncentive({}));
   }, []);
   const isLogin = JSON.parse(localStorage.getItem('user'))
-  const dataStorage = localStorage.getItem('saveList')
+  const dataStorage = sessionStorage.getItem('saveList')
   const data = JSON.parse(dataStorage)
   const localList = []
   localList.push(data)
-
+console.log(localList)
   const signupValue = {fullName: '', emailSignup: '', passwordSignup: '', rePass:''}
   const signInValue = {emailSignIn:'', passwordSignIn:''}
 

@@ -9,33 +9,20 @@ import { ButtonBuyNow } from "../base";
 
 
 const ItemProduct = (props) => {
+    const { data} = props
     const [active, setActive] = useState(false)
-    const { data } = props
+    const[newFavor, setFavor] = useState([])
 
-    const saveToProduct = () => {
+    const saveFavorite = (item) =>{
         setActive(!active)
-        const product_id = data.product_id
-        const product_name = data.product_name
-        const product_acreage = data.product_acreage
-        const product_total_bedroom = data.product_total_bedroom
-        const product_total_bathroom = data.product_total_bathroom
-        const product_avatar_url = data.product_avatar_url
-
-        const newItem = {
-            product_id,
-            product_name,
-            product_acreage,
-            product_total_bedroom,
-            product_total_bathroom,
-            product_avatar_url
-        }
-        localStorage.setItem('saveList', JSON.stringify(newItem))
+        newFavor.push(data)
+        sessionStorage.setItem('saveList', JSON.stringify(newFavor))
     }
     return (
         <div className="item">
             <figure className="image">
                 {
-                    data.product_love_flag == true && <i className={`liked fas fa-heart ${active ? " active" : ""}`} onClick={saveToProduct} />
+                    <i className={`liked fas fa-heart ${active || data.product_love_flag ? " active": ""}`} onClick={saveFavorite}/>
                 }
                 {
                     data.product_avatar_url != ""
