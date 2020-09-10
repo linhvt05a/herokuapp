@@ -7,7 +7,8 @@ const { createProxyMiddleware } = require('http-proxy-middleware');
 
 // Define
 const PORT = 5000;
-const LOCAL_PATH = path.join(__dirname, "..", "build");
+const LOCAL_PATH = path.join(__dirname, "../build");
+console.log('LOCAL_PATH',LOCAL_PATH);
 
 var app = express(); // create express app
 app.use(express.static(LOCAL_PATH));
@@ -18,9 +19,9 @@ app.use(express.static("public"));
 // PROXY
 
 var env = require("../env");
-console.log('env:',env.MODE_ENV);
+console.log('CURRENT_ENV:', env.NODE_ENV);
+console.log('MODE_ENV:', env.MODE_ENV);
 
-// app.use('/api', createProxyMiddleware({ target: 'http://222.255.217.135:9117', changeOrigin: true }));
 app.use('/api', createProxyMiddleware({ target: env.MODE_ENV.local.api, changeOrigin: true }));
 app.use('/cdn', createProxyMiddleware({ target: env.MODE_ENV.cloudapi, changeOrigin: true }));
 
@@ -34,6 +35,4 @@ app.listen(PORT, () => {
     console.log("Server started on port " + PORT);
 })
 
-//  "proxy": "http://222.255.217.135:9117",
-    //const url = http://vdfs.vietbando.vn/api/v1/no_auth/streetview/${req.query.id || ''}?batch=full;
-    //request.get(url).on('error', handleError).pipe(res);
+

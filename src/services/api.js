@@ -5,17 +5,20 @@ import {
 
 import { MODE_ENV } from '../../env'
 
+console.log('=============ENV & DOMAIN==================');
 
 let DOMAIN = ''
 if (process.env.NODE_ENV === 'production') {
-    DOMAIN = MODE_ENV.production
+    DOMAIN = MODE_ENV.production;
 } else if(process.env.NODE_ENV === 'development') {
-    DOMAIN = MODE_ENV.development
+    DOMAIN = MODE_ENV.development;
 } else {
-    DOMAIN = MODE_ENV.local
+    DOMAIN = MODE_ENV.local;
 }
 
 console.log('---ENV:',process.env.NODE_ENV, '\n---DOMAIN:',DOMAIN.api);
+console.log('=============END - ENV & DOMAIN==================');
+
 
 export default {
     CLOUD_SERVER_PATH:'/cdn/sunnyworld-workflow-clone/',
@@ -42,7 +45,7 @@ export default {
 
     SELLING_PRODUCT_LIST:  "/api/main_web/v1/infrastructure/product/selling/list/",
     COMING_SOON_PRODUCT_LIST:  "/api/main_web/v1/infrastructure/product/preparing_sell/list/",
-    PRODUCT_TYPE: DOMAIN + "/api/main_web/v1/infrastructure/product/architecture/list/",
+    PRODUCT_TYPE: "/api/main_web/v1/infrastructure/product/architecture/list/",
 
     // COMMON 
     PROVINCE_LIST:  "/api/fe/v1/province",
