@@ -41,7 +41,7 @@
     "webfontloader": "^1.6.28"
   },
   "scripts": {
-    "start": "webpack-dev-server --config webpack.local.js --open",
+    "start": "concurrently \"npm run client\" \"npm run server\"",
     "build-dev": "webpack --config webpack.dev.js --mode development",
     "build-prod": "webpack --config webpack.prod.js --mode production",
    

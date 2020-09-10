@@ -12,9 +12,9 @@ module.exports = merge(common, {
     },
     devServer: {
         contentBase: './build',
-        // proxy: {
-        //     '/': 'http://localhost:5000'
-        // },
+        proxy: {
+            '/': 'http://localhost:5000'
+        },
         writeToDisk: true,
         port: 3001,
         hot: true,
