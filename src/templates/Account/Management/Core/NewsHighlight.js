@@ -5,37 +5,37 @@ import { Input } from 'antd';
 
 const NewsHighlight = (props) => {
     return (
-        <div class="news_highlight">
-            <div class="news_highlight--heading">Phản hồi mới nhất</div>
-            <div class="news_highlight--content">
-                <div class="group">
-                    <a href="#" class="link"></a>
-                    <figure class="image">
+        <div className="news_highlight">
+            <div className="news_highlight--heading">Phản hồi mới nhất</div>
+            <div className="news_highlight--content">
+                <div className="group">
+                    <a href="#" className="link"></a>
+                    <figure className="image">
                         <img src={IMAGE_URL + "/images/user.jpg"} />
                     </figure>
-                    <div class="about ">
-                        <div class="title d-flex justify-content-between align-items-center">
-                            <span class="position">Phòng tư vấn</span>
-                            <span class="time">
+                    <div className="about ">
+                        <div className="title d-flex justify-content-between align-items-center">
+                            <span className="position">Phòng tư vấn</span>
+                            <span className="time">
                                 <i>3 giờ trước</i>
                             </span>
                         </div>
-                        <div class="content">Hỏi về đợt mở bán căn hộ của dự án VTP</div>
+                        <div className="content">Hỏi về đợt mở bán căn hộ của dự án VTP</div>
                     </div>
                 </div>
-                <div class="group">
-                    <a href="#" class="link"></a>
-                    <figure class="image">
+                <div className="group">
+                    <a href="#" className="link"></a>
+                    <figure className="image">
                         <img src={IMAGE_URL + "/images/user.jpg"} />
                     </figure>
-                    <div class="about ">
-                        <div class="title d-flex justify-content-between align-items-center">
-                            <span class="position">Phòng tư vấn</span>
-                            <span class="time">
+                    <div className="about ">
+                        <div className="title d-flex justify-content-between align-items-center">
+                            <span className="position">Phòng tư vấn</span>
+                            <span className="time">
                                 <i>13/04/2020</i>
                             </span>
                         </div>
-                        <div class="content">Hỏi về đợt mở bán căn hộ của dự án VTP</div>
+                        <div className="content">Hỏi về đợt mở bán căn hộ của dự án VTP</div>
                     </div>
                 </div>
             </div>

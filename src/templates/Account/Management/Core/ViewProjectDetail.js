@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Trans } from "react-i18next";
 import { ViewHorizontal, ViewVertical } from "../../index";
 
-const ViewProject = (props) => {
+const ViewProjectDetail = (props) => {
     return (
         <>
             <div class="project_item__detail">
@@ -193,4 +193,4 @@ const ViewProject = (props) => {
 
     )
 }
-export default ViewProject;
+export default ViewProjectDetail;
