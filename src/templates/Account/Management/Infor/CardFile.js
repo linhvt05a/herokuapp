@@ -10,6 +10,9 @@ import moment from 'moment';
 
 const CardFile = (props) => {
     let { data, avatarUpload } = props
+
+    var address = data.full_address.split(", "); 
+
     const dispatch = useDispatch();
     const [mail, setMail] = useState(false);
     const locationStore = useSelector(state => state.commonReducer);
@@ -28,7 +31,7 @@ const CardFile = (props) => {
         customer_mobile: "",
         customer_email: "",
         customer_business: "",
-        gender: "",
+        gender: 1,
         address: { _province: 0, _district: "", _ward: "", _address: "" },
         dataProvince: [],
         dataDistrict: [],
@@ -191,21 +194,21 @@ const CardFile = (props) => {
                         <div class="col-12 col-sm-12 col-md-9">
                             <div class="row">
                                 <div class="col-6">
-                                    <Input type="text" defaultValue={data.full_address} placeholder="---" className="form-control" 
+                                    <Input type="text" defaultValue={address[0]} placeholder="---" className="form-control" 
                                     onChange={(value => setState({ ...state, address: { _province: state.address._province, _district: state.address._district, _ward: state.address._ward, _address: value.target.value } }))} /> 
                                 </div>
                                 <div class="col-6">
-                                    <SelectCustom placeholder={<Trans>province</Trans>} datas={state.dataProvince} 
+                                    <SelectCustom defaultValue={address[3]} placeholder={<Trans>province</Trans>} datas={state.dataProvince} 
                                     onChange={onChangeCity} />
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-6">
-                                    <SelectCustom placeholder={<Trans>district</Trans>} datas={state.dataDistrict}
+                                    <SelectCustom defaultValue={address[2]} placeholder={<Trans>district</Trans>} datas={state.dataDistrict}
                                     onChange={onChangeDistrict}/> 
                                 </div>
                                 <div class="col-6">
-                                    <SelectCustom placeholder={<Trans>ward</Trans>} datas={state.dataWard}
+                                    <SelectCustom defaultValue={address[1]} placeholder={<Trans>ward</Trans>} datas={state.dataWard}
                                     onChange={onChangeWard} />
                                 </div>
                             </div>
@@ -221,7 +224,7 @@ const CardFile = (props) => {
                     <div class="form-group row align-items-center">
                         <Label icon="fa-venus-mars" text="Giới tính" />
                         <div class="col-12 col-sm-12 col-md-9">
-                            <Radio.Group onChange={radioOnChange} defaultValue={state.value} style={{display: "flex"}}>
+                            <Radio.Group onChange={radioOnChange} defaultValue={state.gender} style={{display: "flex"}}>
                                 <Radio value={1}>Nam</Radio>
                                 <Radio value={2}>Nữ</Radio>
                                 <Radio value={3}>Khác</Radio>

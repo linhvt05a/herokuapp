@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Trans } from "react-i18next";
-import { ViewHorizontal, ViewVertical } from "../../index";
 
 const ViewPaymentNotice = (props) => {
     return (
