@@ -47,9 +47,10 @@ export function* forgotPasswordWatcher() {
 
 // change Password
 export function* changePassword(payload) {
-    let { token } = payload.params
+    console.log(payload);
+    let { new_password, new_password_repeat, current_password } = payload.params
     try {
-        const response = yield accountService.changePassword(token);
+        const response = yield accountService.changePassword( new_password, new_password_repeat, current_password );
         response.success ? yield put({ type: accountAction.CHANGE_PASSWORD_SUCCESS, response }) : yield put({ type: accountAction.CHANGE_PASSWORD_FAILURE, response });
     } catch (err) {
         yield put({ type: accountAction.CHANGE_PASSWORD_FAILURE, err });
@@ -115,6 +116,20 @@ export function* uploadImageWatcher() {
     yield takeLatest(accountAction.IMAGE_REQUEST, uploadImage);
 }
 
+// check email
+export function* emailCheck(payload) {
+    let {email} = payload.params
+    try {
+        const response = yield accountService.emailCheck(email);
+        response.success ? yield put({ type: accountAction.EMAIL_CHECK_SUCCESS, response }) : yield put({ type: accountAction.EMAIL_CHECK_FAILURE, response });
+    } catch (err) {
+        yield put({ type: accountAction.EMAIL_CHECK_FAILURE, err });
+    }
+}
+export function* emailCheckWatcher() {
+    yield takeLatest(accountAction.EMAIL_CHECK_REQUEST, emailCheck);
+}
+
 // root Saga
 export default function* rootSaga() {
     yield all([
@@ -126,5 +141,6 @@ export default function* rootSaga() {
         fork(updateProfileWatcher),
         fork(updateCustomerWatcher),
         fork(uploadImageWatcher),
+        fork(emailCheckWatcher),
     ]);
 }

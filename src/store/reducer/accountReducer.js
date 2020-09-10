@@ -9,6 +9,7 @@ const initialState = {
     updateProfile: [],
     updateCustomer: [],
     uploadImage: {},
+    emailCheck: {},
 
     isFetching: false
 };
@@ -55,6 +56,11 @@ export default (state = initialState, action) => {
             return { ...state, isFetching: false, uploadImage: action.response };
         case accountAction.IMAGE_REQUEST:
             return { ...state, isFetching: false, uploadImage: { success: false, error: action.error } };
+
+        case accountAction.EMAIL_CHECK_SUCCESS:
+            return { ...state, isFetching: false, emailCheck: action.response };
+        case accountAction.EMAIL_CHECK_REQUEST:
+            return { ...state, isFetching: false, emailCheck: { success: false, error: action.error } };
 
         default:
             return state;
