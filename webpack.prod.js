@@ -3,12 +3,12 @@ const TerserPlugin = require('terser-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const common = require('./webpack.common');
 
-module.exports = merge( common, {
+module.exports = merge(common, {
     mode: 'production',
     output: {
         path: __dirname + '/build-prod',
         publicPath: '/',
-        filename: 'bundle.js'
+        filename: 'bundle.js',
     },
     plugins: [
         new CopyPlugin({
@@ -19,6 +19,9 @@ module.exports = merge( common, {
         }),
     ],
     optimization: {
+        removeAvailableModules: false,
+        removeEmptyChunks: false,
+        splitChunks: false,
         minimize: true,
         minimizer: [
             new TerserPlugin({
