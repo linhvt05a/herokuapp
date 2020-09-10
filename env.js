@@ -1,12 +1,19 @@
-export const NODE_ENV = 'dev';
-
-const token = () => {
-    if (localStorage.getItem('user')) {
-        let token = JSON.parse(localStorage.getItem('user')).token;
-        if (token) { return token }
+module.exports = {
+    NODE_ENV : 'development',
+    MODE_ENV:{
+        local: {
+            api: 'http://superapp.minerva.vn:9218'
+        },
+        development: {
+            api: 'http://superapp.minerva.vn:9218'
+        },
+        production: {
+            api: 'http://superapp.minerva.vn:9216'
+        },
+        cloudapi: 'https://cloudapi.minerva.vn'
     }
-    return null
-}; // Production
-export const TOKEN = token()
+};
+
+
 
 

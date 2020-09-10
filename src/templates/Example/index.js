@@ -6,7 +6,6 @@ import { examAction } from "../../store/action";
 import ExampleItem from "./ExampleItem";
 import Select from '../../components/base/Select/Select';
 import InputBase from '../../components/base/Input/InputBase';
-// import { TOKEN } from "../../../../env";
 
 
 

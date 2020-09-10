@@ -62,11 +62,11 @@ module.exports = {
     resolve: {
         extensions: ['*', '.js', '.jsx']
     },
-    output: {
-        path: __dirname + '/build',
-        publicPath: '/',
-        filename: 'bundle.js'
-    },
+    // output: {
+    //     path: __dirname + '/build',
+    //     publicPath: '/',
+    //     filename: 'bundle.js'
+    // },
     plugins: [
         new MiniCssExtractPlugin({
             filename: "css/[name].css",
