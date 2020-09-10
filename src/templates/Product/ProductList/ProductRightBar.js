@@ -6,7 +6,7 @@ const ProductRightBar = (props) =>{
     return(
         <div className="col-12 col-sm-12 col-lg-4">
         
-          <Promotion heading="Priority policy" data={data}/>
+          <Promotion heading="Priority policy" data={data?.list_promotion_policy}/>
         
       </div>
        

@@ -4,13 +4,13 @@ import { IMAGE_URL } from "../../../contant";
 import {Link} from 'react-router-dom'
 
 const ProductGrids = (props) => {
-    const{data, userId} = props
+    const{data, userId, localList} = props
     console.log(data)
     return (
         <div className="striking_apartment--content">
         <div className="row">
             { data && data.detail.list_product.map((item, index)=><ProductRow data={item} key={index}/>)}
-        </div>
+        </div>:
       </div>   
     )
 }
