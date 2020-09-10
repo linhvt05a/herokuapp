@@ -119,47 +119,83 @@
     }
 }
 
-.table_detail_pay {
+.table_basic {
     margin: 20px 0;
-
     @media (max-width: 991px) {
         overflow-x: auto;
     }
 
     table {
         text-align: center;
-        width: 100%;
         min-width: 800px;
-        // table-layout: fixed;
-    }
-    tbody {
-        // display: block;
-        // overflow: auto;
-        // width: calc(100% - 15px);
-    }
-    tr {
-        // display: table;
-        // width: calc(100% - 17px);
+        width: 100%;
+        // overflow-x: auto;
     }
 
     th {
         color: #6d30ab;
         background-color: rgba(109, 48, 171, 0.15);
         font-size: 16px;
-        padding: 20px 5px;
-        border: 2px solid #6d30ab;
+        padding: 18px 5px;
+        border: 1px solid #6d30ab;
         font-weight: bold;
 
     }
 
     td {
-        padding: 20px 10px;
+        padding: 19px 10px;
         font-size: 16px;
         font-weight: 500;
-        border: 2px solid #6d30ab;
+        border: 1px solid #6d30ab;
+    }
+
+    tr:nth-of-type(1) {
+        td {
+            border-top: none;
+        }
+    }
+
+    tr:last-child {
+        td {
+            border-bottom: none;
+        }
+    }
+
+    .top_table {
+        padding-right: 12px;
+        @media (min-width: 992px) and (max-width:1199px){
+            padding-right: 10px;
+        }
+    }
+
+    .body_table {
+        overflow-y: auto;
+        overflow-x: unset;
+        height: 500px;
+        padding-right: 5px;
+        @include scrollbarTable;
+        @media (min-width: 992px) and (max-width:1199px){
+            padding-right: 3px;
+        }
+        &::-webkit-scrollbar-thumb {
+            outline: none;
+        }
+
+        @media (max-width: 991px) {
+            min-width: 807px;
+            width: 100%;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f4f4f4;
+        }
     }
 
     .bottom_table {
+        padding-right: 12px;
+        @media (min-width: 992px) and (max-width:1199px){
+            padding-right: 10px;
+        }
         table {
             background-color: #6d30ab;
             border: none;
@@ -168,9 +204,11 @@
         th {
             color: #fff;
             font-size: 20px;
+            padding: 15px 5px;
         }
 
         td {
+
             border: none;
         }
     }

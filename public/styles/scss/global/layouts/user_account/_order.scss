@@ -1,6 +1,16 @@
 .user-acc {
     &__order {}
-
+    &__payment{
+        .project_item__list{
+            .tab_table_pay{
+                table{
+                    th:nth-child(n+4) {
+                        text-align: center;
+                      }
+                }
+            }
+        }
+    }
     &__total_sales {
         @media (max-width: 991px) {
             margin-bottom: 35px;
