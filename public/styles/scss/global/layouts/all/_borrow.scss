@@ -295,6 +295,9 @@
 
     &__info {
         margin-top: 10px;
+        .label_borrow_info{
+            font-size: 15px;
+        }
     }
 
     &__calculator {
@@ -472,7 +475,7 @@
                         padding-left: 15px;
                         color: #656565;
                         position: relative;
-
+                        align-items: baseline;
                         @media(max-width: 767px) {
                             font-size: 14px;
                             padding-left: 10px;

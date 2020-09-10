@@ -386,6 +386,10 @@
                 color: #ffffff;
                 z-index: 3;
                 cursor: pointer;
+
+                &.active{
+                    color: #e9c301;
+                }
             }
 
             .delete {
@@ -496,10 +500,8 @@
                         font-size: 12px !important;
                         padding: 5px 0;
                         flex-flow: wrap;
-
+                        justify-content: space-between;
                         .child {
-                            flex: 1;
-
                             @media (max-width: 480px) {
                                 flex: 50%;
                                 text-align: left !important;

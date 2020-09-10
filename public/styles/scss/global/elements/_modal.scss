@@ -86,10 +86,16 @@
     }
 }
 
+.modal_center_horizontal {
+    display: flex;
+    justify-content: center;
+}
+
 .modal_special {
     box-shadow: 0 8px 5px 0 rgba(0, 0, 0, 0.13);
     width: 100%;
     max-width: 400px;
+
     .modal_label {
         font-size: 16px;
     }
@@ -107,67 +113,113 @@
         text-align: center;
     }
 
-    .list_special_offers {
-        display: flex;
-        align-items: baseline;
-        border-bottom: solid 1px #dee2e6;
-        padding: 10px 0;
+    .content_offers {
+        font-size: 16px;
+        width: 100%;
+    }
 
-        .modal_icon_check {
-            color: #51c471;
-            margin-right: 10px;
-        }
+    .link_change_money {
+        text-decoration: underline;
+        font-size: 12px;
+        margin-top: 5px;
+    }
 
-        .content_offers {
-            font-size: 16px;
-            width: 100%;
-            .link_change_money {
-                text-decoration: underline;
-                font-size: 12px;
-            }
-        }
+    .list_style_02 {
+        &--item {
+            border-bottom: solid 1px #dee2e6;
+            margin: 20px 0;
+            padding-bottom: 16px;
 
-        .redemption_form {
-            display: none;
-            .title {
-                font-size: 12px;
-            }
-
-            .check_box_redemption {
-                display: flex;
+            &::before {
                 font-size: 14px;
+            }
+        }
+
+    }
+
+    //test icon show hide pass 
+
+
+    // end test icon show hide pass 
+    .redemption_form {
+        display: none;
+        margin-top: 5px;
+
+        .title {
+            font-size: 12px;
+        }
+
+        .check_box_redemption {
+            display: flex;
+            font-size: 14px;
+            margin-top: 5px;
+
+            @media (max-width: 767px) {
+                display: block;
+
+            }
+
+            input {
+                text-align: center;
+                width: 50%;
+                margin-left: 15px;
+
                 @media (max-width: 767px) {
-                    display: block;
+                    width: 100%;
                 }
-                input{
-                    text-align: center;
-                    width: 50%;
-                    margin-left: 15px;
-                    @media (max-width: 767px) {
-                        width: 100%;
-                    }
+            }
+
+            .check_money {
+                display: flex;
+                padding-left: 30px;
+
+                @media (max-width: 767px) {
+                    padding-left: 0;
                 }
-                .check_money{
-                    display: flex;
-                    padding-left: 30px;
-                    @media (max-width: 767px) {
-                        padding-left: 0;
-                    }
-                    .modal_color_red{
-                        height: 26px;
-                        max-width: 100px;
-                        width: 100%;
-                        font-size: 12px;
-                    }
+
+                .modal_color_red {
+                    height: 26px;
+                    max-width: 100px;
+                    width: 100%;
+                    font-size: 12px;
                 }
             }
         }
     }
-    
+
 }
-.text_register_link{
-    br{
+
+.input_pass_block {
+    display: flex;
+    width: 100%;
+    border: solid 1px #e0e0e0;
+    align-items: center;
+    background-color: #fff;
+
+    input {
+        border: none !important;
+        outline: none !important;
+
+        &::placeholder {
+            color: #989898;
+        }
+    }
+    input:focus {
+        box-shadow: none !important;
+    }
+    .show_hide_pass {
+        width: 21px;
+        height: 16px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        cursor: pointer;
+        margin-right: 10px;
+    }
+}
+.text_register_link {
+    br {
         display: none;
+
         @media (max-width: 374px) {
             display: block;
         }

@@ -218,11 +218,12 @@ textarea {
     //checkbox circle on modal 10_01_gio_hang_list
     &.style_04 {
         color: #656565;
-        padding-left: 25px;
+        padding-left: 20px;
 
         .checkbox-custom-dummy {
-            width: 17px;
-            height: 16px;
+            width: 14px;
+            height: 14px;
+            top: 1px;
             border-radius: 50%;
             border: solid 1px #9a9a9a;
             background-color: #ffffff;
@@ -235,11 +236,11 @@ textarea {
 
                 &::after {
                     border: 1px solid #6d30ab;
-                    width: 11px;
-                    height: 11px;
+                    width: 8px;
+                    height: 8px;
                     border-radius: 50%;
                     background-color: #6d30ab;
-                    top: 1px;
+                    top: 2px;
                     left: 2px;
                 }
             }

@@ -45,6 +45,15 @@
                 &:hover{
                     text-decoration: none;
                 }
+                br{
+                    display: none;
+                    @media screen and (min-width: 992px) and (max-width: 1199px) {
+                        display: block;
+                    }
+                    @media screen and (max-width: 341px) {
+                        display: block;
+                    }
+                }
             }
         }
     }
