@@ -5,7 +5,6 @@ import { Heading, Label, ChangePass } from "../../index";
 import { Alert, Input, Select, DatePicker, Radio } from 'antd';
 import { accountAction, commonAction } from "../../../../store/action/index";
 import { SelectCustom } from '../../../../components/base';
-import InputDatePicker from '../../../../components/base/Input/InputDatePicker';
 import moment from 'moment';
 
 const dateFormat = 'DD/MM/YYYY';
@@ -13,7 +12,9 @@ const dateFormat = 'DD/MM/YYYY';
 const CardFile = (props) => {
     let { data, avatarUpload } = props
 
-    var address = data.full_address.split(", "); 
+    var address = data.full_address.split(", ");
+    var date_default = moment(data.birthday).format('YYYY-MM-DD'); 
+    console.log(date_default);
 
     const dispatch = useDispatch();
     const [mail, setMail] = useState(false);
@@ -30,7 +31,7 @@ const CardFile = (props) => {
         customer_name: "",
         customer_birthday: "",
         customer_title: "",
-        customer_mobile: "",
+        customer_mobile: date_default,
         customer_email: "",
         customer_business: "",
         gender: 1,
@@ -184,8 +185,6 @@ const CardFile = (props) => {
                             <div class="date-picker">
                                 <DatePicker defaultValue={moment(data.birthday)} format={dateFormat} 
                                 onChange={onChangeDate} name="dateFrom" placeholder="From date" style={{width: '100%', height: 48 }}/>
-                                {/* <InputDatePicker style={{width: '100%', height: 48 }} defaultValue={data.birthday}  
-                                name="dateFrom" placeholder="From date" onChange={onChangeDate}/> */}
                             </div>
                         </div>
                     </div>
