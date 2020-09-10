@@ -11,11 +11,11 @@ var tab = [
 ]
 const CustomerAccount = (props) => {
     let { data } = props;
-    const [acount, setStateAccount] = useState({
+    const [account, setStateAccount] = useState({
         activeTab: 0,
     });
     const onItemClickTab = (index) => {
-        setStateAccount({...acount, activeTab: index})
+        setStateAccount({...account, activeTab: index})
     }
     return (
         <div class="bg_grey user-acc">
@@ -27,13 +27,13 @@ const CustomerAccount = (props) => {
                     <ul class="user-acc__tab nav nav-tabs">
                         {tab && tab.map((item, index) => (
                             <li className="nav-item" key={index}>
-                                <a className={`nav-link ${acount.activeTab != index ? "" : 'active'}`} onClick={event => onItemClickTab(index)} >
+                                <a className={`nav-link ${account.activeTab != index ? "" : 'active'}`} onClick={event => onItemClickTab(index)} >
                                     <Trans>{item.tabTitle}</Trans></a>
                             </li>
                         ))}
                     </ul>
                 </div>
-                <Manage activeTab={acount} />
+                <Manage activeTab={account.activeTab} />
             </div>
         </div>
     )

@@ -61,13 +61,14 @@ export const accountService = {
         return api.handleRequest(url, requestOptions);
     },
 
-    changePassword(token) {
+    changePassword(new_password, new_password_repeat, current_password) {
+        const body = { new_password, new_password_repeat, current_password }
         const requestOptions = {
-            method: 'GET',
-            headers: api.getHeader(TOKEN)
+            method: 'POST',
+            headers: api.getHeader(TOKEN),
+            body: body
         };
-        const params = { };
-        const url = api.getUrl(api.CHANGE_PASSWORD, params);
+        const url = api.getUrl(api.CHANGE_PASSWORD);
         return api.handleRequest(url, requestOptions);
     },
 
@@ -102,6 +103,17 @@ export const accountService = {
         return api.handleRequest(url, requestOptions);
     },
 
+    emailCheck(email) {
+        const body = { email }
+        const requestOptions = {
+            method: 'POST',
+            headers: api.getHeader(TOKEN),
+            body: body
+        };
+        const url = api.getUrl(api.CHECK_EMAIL);
+        return api.handleRequest(url, requestOptions);
+    },
+
     uploadFile(file) {
         let file_name = file.name
         let file_size = file.size
@@ -121,7 +133,7 @@ export const accountService = {
     
         console.log(headers,file)
         console.log(server_url);
-        // return api.handleRequest(url, requestOptions);
         return api.handleRequest(server_url, requestOptions);
-    },
+        // return fetch(server_url, requestOptions).then(handleResponseText)
+    }
 };
