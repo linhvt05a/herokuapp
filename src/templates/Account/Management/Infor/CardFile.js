@@ -2,11 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { Trans } from "react-i18next";
 import { Heading, Label, ChangePass } from "../../index";
-import { Alert, Input, Select, Row, Col, Group, Radio } from 'antd';
+import { Alert, Input, Select, DatePicker, Radio } from 'antd';
 import { accountAction, commonAction } from "../../../../store/action/index";
 import { SelectCustom } from '../../../../components/base';
 import InputDatePicker from '../../../../components/base/Input/InputDatePicker';
 import moment from 'moment';
+
+const dateFormat = 'DD/MM/YYYY';
 
 const CardFile = (props) => {
     let { data, avatarUpload } = props
@@ -88,11 +90,9 @@ const CardFile = (props) => {
         setState({ ...state, gender: e.target.value })
     };
     const onChangeDate = (name, value) => {
-        const dateFormat = "YYYY-MM-DD";
-        const formatSend = moment(value).format(dateFormat);
-        setState({ ...state, customer_birthday: formatSend })
-
-        console.log(formatSend, value);
+        var date = moment(value, dateFormat).format('YYYY-MM-DD');
+        setState({ ...state, customer_birthday: date })
+        console.log(date, value);
     }
     const changePassword = () => {
         setState({...state, passActive: 1});
@@ -117,10 +117,10 @@ const CardFile = (props) => {
 
     const updateProfile = () => {
         dispatch(accountAction.loadUpdateCustomer({
-            avatar: avatarUpload,
+            // avatar: avatarUpload,
             email: state.customer_email,
             name: state.customer_name,
-            // birthday: state.customer_birthday,
+            birthday: state.customer_birthday,
             address: state.address._address,
             province: state.address._province, 
             district: state.address._district, 
@@ -152,8 +152,6 @@ const CardFile = (props) => {
                                 <span style={{color: "#ff4d4f" }}>Email không tồn tại!</span>:
                                 <span style={{color: "#ff4d4f" }}>Email đã tồn tại!</span> :''
                             }
-                            
-                            
                         </div>
                     </div>
                     <div class="form-group row align-items-center">
@@ -184,8 +182,10 @@ const CardFile = (props) => {
                         <Label icon="fa-calendar-alt" text="Ngày sinh" />
                         <div class="col-12 col-sm-12 col-md-9">
                             <div class="date-picker">
-                                <InputDatePicker style={{width: '100%', height: 48 }} defaultValue={data.birthday}  
-                                name="dateFrom" placeholder="From date" onChange={onChangeDate}/>
+                                <DatePicker defaultValue={moment(data.birthday)} format={dateFormat} 
+                                onChange={onChangeDate} name="dateFrom" placeholder="From date" style={{width: '100%', height: 48 }}/>
+                                {/* <InputDatePicker style={{width: '100%', height: 48 }} defaultValue={data.birthday}  
+                                name="dateFrom" placeholder="From date" onChange={onChangeDate}/> */}
                             </div>
                         </div>
                     </div>
