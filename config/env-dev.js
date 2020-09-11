@@ -5,6 +5,5 @@ module.exports = {
         cloudapi: 'https://cloudapi.minerva.vn',
         port:3001,
         show_log:false,
-        hot_reload: false
     }
 };

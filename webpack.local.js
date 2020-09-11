@@ -18,8 +18,10 @@ module.exports = merge(common, {
         },
         writeToDisk: true,
         port: env.MODE_ENV.port,
-        hot: !env.MODE_ENV.hot_reload,
-        inline: env.MODE_ENV.hot_reload
+        host: 'localhost',
+        hot: false,
+        inline: true,
+        liveReload: false
     },
     plugins: [
         new CopyPlugin({
@@ -28,6 +30,6 @@ module.exports = merge(common, {
                 { from: "./public/font-page", to: "./font-page" },
             ],
         }),
-        
+
     ],
 });
