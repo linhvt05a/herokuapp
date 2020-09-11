@@ -62,7 +62,7 @@ function onPageChange (value) {
   dispatch(productAction.productFavoriteList({page: value, limit: 2}))
 }
   const [showSignInModal, setShowSignIn] = useState(false)
-  
+  console.log(localData)
   return (
     <div className="save_product bg_grey">
       <div className="container container-sm container-md">
