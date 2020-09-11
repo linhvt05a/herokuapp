@@ -7,6 +7,7 @@ import { FloatingRates } from './FloatingRates';
 import { InputLoanNumber } from './LoanContainer/InputLoanNumber';
 import { InterestDebtForm } from './LoanContainer/InterestDebtForm';
 import { SidebarRight } from './SidebarRight/SidebarRight';
+import { AmountInformation, Banking } from './Layout';
 
 const LoanPolicy = () => {
 
@@ -94,57 +95,14 @@ const LoanPolicy = () => {
     return (
         <div className="borrow bg_grey">
             <div className="container container-sm container-md">
-                <HeadingFilter headerBodyClassName="borrow--heading" labelHeader="Chính sách cho vay" status onStatusClick={onStatusClick} loanPolicyTabs={state.loanPolicyTabs} />
+                <HeadingFilter headerBodyClassName="borrow--heading" labelHeader="Chính sách cho vay" onStatusClick={onStatusClick} loanPolicyTabs={state.loanPolicyTabs} />
                 <div className="tab-content">
                     <div className="tab-pane fade active show" id="borrow01" role="tabpanel" aria-labelledby="borrow01-tab">
                         <div className="row">
                             <div className="col-12 col-sm-12 col-lg-8">
                                 <div className="borrow__wrap">
-                                    <div className="borrow__item">
-                                        <div className="borrow__title text-uppercase">THÔNG TIN SỐ TIỀN
-                            <i className="sub">
-                                                Nhập số tiền của sản phẩm dự án, chúng tôi sẽ đề nghị khoản vay cho ban.
-                            </i>
-                                        </div>
-                                        <div className="borrow__info">
-                                            <div className="row">
-                                                <div className="col-12 col-sm-6 col-xl-4">
-                                                    <div className="form-group mb-3 mb-xl-0">
-                                                        <label className="label">
-                                                            Giá sản phẩm <span className="unit">(đồng)</span>
-                                                        </label>
-                                                        <input type="text" placeholder="-" defaultValue="3.000.000.000" readOnly className="form-control color_e94c4c" />
-                                                    </div>
-                                                </div>
-                                                <div className="col-12 col-sm-6 col-xl-4">
-                                                    <div className="form-group mb-3 mb-xl-0">
-                                                        <label className="label">
-                                                            Số tiền trả trước <span className="unit">(đồng)</span>
-                                                        </label>
-                                                        <input type="text" placeholder="-" defaultValue="500.000.000" className="form-control" />
-                                                    </div>
-                                                </div>
-                                                <div className="col-12 col-sm-6 col-xl-4">
-                                                    <div className="form-group mb-3 mb-xl-0">
-                                                        <label className="label">
-                                                            Số tiền còn lại <span className="unit">(đồng)</span>
-                                                        </label>
-                                                        <input type="text" placeholder="-" defaultValue="2.500.000.000" className="form-control" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="borrow__item">
-                                        <div className="borrow__title text-uppercase">Chọn ngân hàng
-                            <i className="sub">
-                                                SCB ưu tiên hổ trợ mọi hình thức vay vốn
-                            </i>
-                                        </div>
-                                        <div className="borrow__banks borrowBanks">
-                                            <SliderSimple dataImgs={dataImgs} settings={settings} />
-                                        </div>
-                                    </div>
+                                    <AmountInformation />
+                                    <Banking />
                                     <FloatingRates />
                                 </div>
                             </div>
@@ -188,16 +146,6 @@ const LoanPolicy = () => {
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div className="borrow__item">
-                                        <div className="borrow__title">Chọn ngân hàng
-                            <i className="sub">
-                                                SCB ưu tiên hổ trợ mọi hình thức vay vốn
-                            </i>
-                                        </div>
-                                        <div className="borrow__banks borrowBanks">
-                                            <SliderSimple settings={settings} data={dataImgs} />
                                         </div>
                                     </div>
                                     <div className="borrow__item">
