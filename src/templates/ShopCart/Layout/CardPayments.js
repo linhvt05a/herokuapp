@@ -1,5 +1,5 @@
 import React from 'react';
-import { Trans } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 import { InputRadioViolet } from '../../../components/base'
 import { DatePicker } from 'antd';
 import { RULES } from '../../../contant';
@@ -7,7 +7,7 @@ import { datePichkerLocation, translate } from "../../../functions/Utils"
 
 const CardPayments = (props) => {
     let { checked, setChecked, Item } = props;
-
+    let { t } = useTranslation()
     const onChangeCredit = (check) => {
         setChecked({
             ...check,
@@ -65,7 +65,7 @@ const CardPayments = (props) => {
                                         <span className="star">*</span>
                                         </label>
                                         <Item name="cardNumber" rules={RULES.number.form}>
-                                            <input type={RULES.number.type} placeholder={translate("card_input_number", "t")} className="form-control" />
+                                            <input type={RULES.number.type} placeholder={translate("card_input_number", t)} className="form-control" />
                                         </Item>
                                     </div>
                                 </div>
@@ -98,7 +98,7 @@ const CardPayments = (props) => {
                                         <span className="star">*</span>
                                         </label>
                                         <Item name="cardCode" rules={RULES.number.form}>
-                                            <input type={RULES.number.type} placeholder={translate("card_input_number", "t")} className="form-control" />
+                                            <input type={RULES.number.type} placeholder={translate("card_input_number", t)} className="form-control" />
                                         </Item>
                                     </div>
                                 </div>
