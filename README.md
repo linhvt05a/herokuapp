@@ -1,15 +1,15 @@
 # Sunny Web Starting!!!!
 #
 # * config:
-#         - env.js (gitinore local) -> nếu muốn sử dụng thì copy từ env-dev.js  
-#         - env-dev.js -> save config env dev
+         - env.js (gitinore local) -> nếu muốn sử dụng thì copy từ env-dev.js  
+         - env-dev.js -> save config env dev
 # * locales -> translate
 # * public -> assets and style all
 # * server -> config for proxy
 # * webpack:
-#         - common.js --> config common
-#         - local.js --> running on source, call to proxy
-#         - dev.js, prod.js --> config for build env
+         - common.js --> config common
+         - local.js --> running on source, call to proxy
+         - dev.js, prod.js --> config for build env
 # #######################################################################################
 
 
