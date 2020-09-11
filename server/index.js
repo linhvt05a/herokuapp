@@ -19,10 +19,10 @@ app.use(express.static("public"));
 // PROXY
 
 var env = require("../env");
-console.log('CURRENT_ENV:', env.NODE_ENV);
-console.log('MODE_ENV:', env.MODE_ENV);
+// console.log('CURRENT_ENV:', env.NODE_ENV);
+// console.log('MODE_ENV:', env.MODE_ENV);
 
-app.use('/api', createProxyMiddleware({ target: env.MODE_ENV.local.api, changeOrigin: true }));
+app.use('/api', createProxyMiddleware({ target: env.MODE_ENV.api, changeOrigin: true }));
 app.use('/cdn', createProxyMiddleware({ target: env.MODE_ENV.cloudapi, changeOrigin: true }));
 
 // REACT

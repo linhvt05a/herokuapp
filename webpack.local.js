@@ -1,6 +1,7 @@
 const merge = require('webpack-merge');
 const CopyPlugin = require('copy-webpack-plugin');
 const common = require('./webpack.common');
+var env = require("./env");
 
 module.exports = merge(common, {
     mode: 'none',
@@ -16,9 +17,8 @@ module.exports = merge(common, {
             '/': 'http://localhost:5000'
         },
         writeToDisk: true,
-        port: 3001,
+        port: env.MODE_ENV.port,
         hot: true,
-
     },
     plugins: [
         new CopyPlugin({
