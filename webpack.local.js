@@ -18,7 +18,8 @@ module.exports = merge(common, {
         },
         writeToDisk: true,
         port: env.MODE_ENV.port,
-        hot: true,
+        hot: !env.MODE_ENV.hot_reload,
+        inline: env.MODE_ENV.hot_reload
     },
     plugins: [
         new CopyPlugin({
