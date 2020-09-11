@@ -14,7 +14,7 @@ const ConfirmOrderInfo = (props) => {
     React.useEffect(() => {
         let user = getLocalStore("user")
         if (!user) {
-            history.push("/")
+            history.push("/cart")
         }
     }, [])
     const disableConfirm = () => {
@@ -22,6 +22,9 @@ const ConfirmOrderInfo = (props) => {
             return false
         }
         return true
+    }
+    const onNext = () => {
+        history.push("/cart/deposit-payment")
     }
     return (
         <div className="main-cart bg_grey">
@@ -37,7 +40,7 @@ const ConfirmOrderInfo = (props) => {
                             <button
                                 class="btn btn_purple text-uppercase"
                                 disabled={disableConfirm()}
-                                onClick={() => history.push("/cart/deposit-payment")}
+                                onClick={() => onNext()}
                             ><Trans>button_confirm</Trans></button>
                         </div>
                     </div>

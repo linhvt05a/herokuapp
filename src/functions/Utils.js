@@ -1,5 +1,5 @@
 import React from 'react';
-import { Trans, useTranslation } from 'react-i18next';
+import { Trans, useTranslation, withTranslation } from 'react-i18next';
 import * as moment from 'moment';
 import "moment/locale/vi"
 import "moment/locale/en-au"
@@ -292,14 +292,115 @@ export const getLocalStore = (text, remove) => {
     }
     return false
 }
-function translate(text, trans = false) {
+const translate = (text, trans = false) => {
     if (trans) {
-        let { t } = useTranslation()
-        return t(text)
+        return trans(text)
     }
     else {
         return <Trans>{text}</Trans>
     }
+}
+function convertUnsignedString(s) {
+    let str = s;
+    str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a");
+    str = str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g, "e");
+    str = str.replace(/ì|í|ị|ỉ|ĩ/g, "i");
+    str = str.replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ/g, "o");
+    str = str.replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g, "u");
+    str = str.replace(/ỳ|ý|ỵ|ỷ|ỹ/g, "y");
+    str = str.replace(/đ/g, "d");
+    str = str.replace(/À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẩ|Ẫ|Ă|Ằ|Ắ|Ặ|Ẳ|Ẵ/g, "A");
+    str = str.replace(/È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ệ|Ể|Ễ/g, "E");
+    str = str.replace(/Ì|Í|Ị|Ỉ|Ĩ/g, "I");
+    str = str.replace(/Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ộ|Ổ|Ỗ|Ơ|Ờ|Ớ|Ợ|Ở|Ỡ/g, "O");
+    str = str.replace(/Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ự|Ử|Ữ/g, "U");
+    str = str.replace(/Ỳ|Ý|Ỵ|Ỷ|Ỹ/g, "Y");
+    str = str.replace(/Đ/g, "D");
+    return str;
+}
+export function validatoInputCurrency(value) {
+    let format = /[a-zA-z !@#$%^&*()_+\-=\[\]{};':,"\\|<>\/?]/;
+    return typeof value == "string" ? format.test(convertUnsignedString(value)) == false : true
+}
+export const validateErrorNumber = (value) => {
+    if (value == "") {
+        return 0
+    }
+    else
+        if (value.search(",00") !== -1) {
+            return value.replace(",00", "");
+        }
+
+    return value
+}
+export const convertStringToFloat = (value, noparse = false) => {
+    let text = value;
+    if (typeof text == "string") {
+        if (text.indexOf(0) == 0) {
+            text = text.slice(1, text.length)
+        }
+        let number = "";
+        for (let i = 0;i < text.length;i++) {
+            if (text[i] == ",") {
+                number = number + "."
+            }
+            else
+                if (text[i] != ".") {
+                    number = number + text[i]
+                }
+        }
+        return number == "" ? "" : noparse ? number : parseFloat(number)
+    }
+    else {
+        return text ? parseFloat(text) : 0
+    }
+}
+
+export const convertFloatToString = (value) => {
+    if (value) {
+        let newText = ""
+        let text = value;
+        let _add = 0;
+        let isExit = true;
+        if (typeof value == "string") {
+            text = value.split('').reverse().join("");
+        }
+        else {
+            text = JSON.stringify(value).split('').reverse().join("");
+        }
+        if (text.indexOf(".") != -1) {
+            isExit = false;
+        }
+        for (let i = 0;i < text.length;i++) {
+            if (text[i] === ".") {
+                newText = newText + ","
+                _add = 0;
+                isExit = true
+            }
+            else
+                if ((_add + 1) % 3 == 0) {
+                    if (i <= text.length - 2 && isExit) {
+                        if (text[i] >= 0 && text[i + 1] !== "-") {
+                            newText = newText + text[i] + ".";
+                            _add = 0
+                        }
+                        else {
+                            newText = newText + text[i]
+                        }
+                    }
+                    else {
+                        newText = newText + text[i]
+                    }
+                }
+                else {
+                    _add = _add + 1
+                    newText = newText + text[i]
+                }
+        }
+
+        return newText.split('').reverse().join('')
+    }
+    return 0;
 }
 
 function converAddress(address = []) {

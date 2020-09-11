@@ -7,7 +7,6 @@ import { useHistory } from "react-router-dom";
 const Cart = (props) => {
     let history = useHistory();
 
-
     const [state, setState] = useState({
         paymentProgressModalVisible: false,
         promotionModalVisible: false,
@@ -22,9 +21,11 @@ const Cart = (props) => {
     React.useEffect(() => {
         let cart = localStorage.getItem("buy_now_cart");
         const user = JSON.parse(localStorage.getItem('user'));
-        // console.log(JSON.parse(cart));
-        // localStorage.removeItem("buy_now_cart")
-        setState({ ...state, cart: JSON.parse(cart) })
+        localStorage.removeItem("buy_now_cart")
+        if (cart) {
+            setState({ ...state, cart: JSON.parse(cart) })
+        }
+
     }, [])
     const showPaymentProgressModal = (isShow) => {
         setState({

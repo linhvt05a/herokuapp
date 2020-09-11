@@ -12,7 +12,7 @@ const CustomerInfo = (props) => {
 
         let user = getLocalStore("user")
         if (!user) {
-            history.push("/")
+            history.push("/cart")
         }
         else {
             let newdata = getLocalStore("sale_customer_order");

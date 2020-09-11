@@ -11,19 +11,41 @@ import { ButtonBuyNow } from "../base";
 const ItemProduct = (props) => {
     const { data} = props
     const [active, setActive] = useState(false)
-    const[favorites, setFavorites] = useState([])
-    function saveProduct(favID){
+
+    function saveProduct(){
        setActive(!active)
-       if(!active){
+            if(!active){
+                var favor = JSON.parse(sessionStorage.getItem('favor'));
+            if (!favor) {
+                favor = [];
+            }
+            var index = favor.indexOf(function (favorItem) {
+                return favorItem.product_id == data.product_id;
+            });
+            if (index !== -1) {
+                
+            } else {
+                favor.push(data);
+                sessionStorage.setItem('favor',JSON.stringify(favor)); 
+            }
+            
+            }else{
+               var favorLocal = JSON.parse(sessionStorage.getItem('favor')); 
+                for (var index = 0; index <= favorLocal.length; index++) {
+                   if(favorLocal[index].product_id === data.product_id){
+                    favorLocal.splice(index, 1)
+                        sessionStorage.setItem('favor', JSON.stringify(favorLocal))
+                   } 
+                }
+            }
        
-       }
     }
 
     return (
         <div className="item">
             <figure className="image">
                 {
-                    <i className={`liked fas fa-heart ${active || data.product_love_flag ? " active": ""}`} onClick={()=>saveProduct(data.product_id)}/>
+                    <i className={`liked fas fa-heart ${active || data.product_love_flag ? " active": ""}`} onClick={saveProduct}/>
                 }
                 {
                     data.product_avatar_url != ""

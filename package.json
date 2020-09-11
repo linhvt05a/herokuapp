@@ -44,10 +44,8 @@
     "start": "concurrently \"npm run client\" \"npm run server\"",
     "build-dev": "webpack --config webpack.dev.js --mode development",
     "build-prod": "webpack --config webpack.prod.js --mode production",
-   
     "server": "node server/index.js",
     "client": "webpack-dev-server --config webpack.local.js --open",
-
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

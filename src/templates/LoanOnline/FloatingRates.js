@@ -25,7 +25,7 @@ export const FloatingRates = () => {
         setRateTerm(value)
     };
 
-    function convertDate(value){
+    function convertDate(value) {
         const date = moment(value).format('DD/MM/YYYY')
         setDateFrom(date)
         return date
@@ -121,13 +121,13 @@ export const FloatingRates = () => {
                             </label>
                             <div className="pull-range">
                                 <div className="slider-wrapper">
-                                <Slider
-                                    defaultValue={40}
-                                    displayBox="on"
-                                    min={0}
-                                    max={50}
-                                    onChange={onChangeRateTerm}
-                                    value={typeof rateTerm === 'number' ? rateTerm : 0} />
+                                    <Slider
+                                        defaultValue={40}
+                                        displayBox="on"
+                                        min={0}
+                                        max={50}
+                                        onChange={onChangeRateTerm}
+                                        value={typeof rateTerm === 'number' ? rateTerm : 0} />
                                 </div>
                                 <div className="input-group">
                                     <InputNumber
@@ -142,7 +142,7 @@ export const FloatingRates = () => {
                         </div>
                         <div className="form-group">
                             <label className="label">Ngày trả lãi</label>
-                            <InputDatePicker style={{width: '100%', height: 48, marginBottom: 20}} name="dateFrom" placeholder="From date" onChange={onChangeDate}/>
+                            <InputDatePicker style={{ width: '100%', height: 48, marginBottom: 20 }} name="dateFrom" placeholder="From date" onChange={onChangeDate} />
                         </div>
                     </div>
                 </div>
