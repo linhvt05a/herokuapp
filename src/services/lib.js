@@ -3,7 +3,8 @@ var pako = require('pako');
 
 const CONTENT_TYPE = 'application/json; charset=utf-8';
 const CONTENT_MULITPART = 'multipart/form-data';
-const MNV_ENCODE = 0
+const MNV_ENCODE = 0;
+const MNV_LANGUAGE = localStorage.getItem('language');
 
 function Encode(data) {
     var text = JSON.stringify(data);
@@ -58,10 +59,12 @@ function getHeader(token, content_type = CONTENT_TYPE, auth_type = 'Bearer') {
         headers = {
             'Authorization':auth_type + ' ' + token,
             'MNV-encode': MNV_ENCODE,
+            'MNV-LANGUAGE': MNV_LANGUAGE,
         }
     }else{
         headers = {
             'MNV-encode': MNV_ENCODE,
+            'MNV-LANGUAGE': MNV_LANGUAGE,
         }
     }
 
