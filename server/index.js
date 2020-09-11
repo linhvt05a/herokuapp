@@ -18,7 +18,7 @@ app.use(express.static("public"));
 
 // PROXY
 
-var env = require("../env");
+var env = require("../config/env");
 // console.log('CURRENT_ENV:', env.NODE_ENV);
 // console.log('MODE_ENV:', env.MODE_ENV);
 
