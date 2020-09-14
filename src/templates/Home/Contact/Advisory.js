@@ -64,7 +64,7 @@ const Advisory = (props) => {
             content: values.question
         }));
     }
-
+    //tu van mien phi
     return (
         <div className="container container-sm container-md">
             <div className="contact">

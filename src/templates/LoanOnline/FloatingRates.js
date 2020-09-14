@@ -1,30 +1,22 @@
 import React, { useState } from 'react';
-import { InputNumber, Slider, DatePicker } from 'antd';
 import moment from 'moment';
 import InputDatePicker from '../../components/base/Input/InputDatePicker';
-import { InputBase } from "./Layout"
+import { InputBase, InputSlider } from "./Layout"
 import { SelectDefault } from '../../components/base';
+import { useTranslation } from 'react-i18next';
+import { translate } from '../../functions/Utils';
 
-export const FloatingRates = () => {
-    const [inputValue, setInputValue] = useState(5);
-    const [loanTermTime, setLoanTermTime] = useState(10);
-    const [inputBorrow, setInputBorrow] = useState(500);
-    const [rateTerm, setRateTerm] = useState(24);
-
-    const data = [20];
-
+const FloatingRates = props => {
+    let { t } = useTranslation()
+    let { data, setData } = props
     const onChangeBorrow = value => {
-        setInputBorrow(value)
+        setData({ ...data, amountBorrow: value })
     };
 
     const onChangeLoanTerm = value => {
-        setLoanTermTime(value)
-
+        setData({ ...data, tenor: value })
     };
 
-    const onChangeRateTerm = value => {
-        setRateTerm(value)
-    };
 
     function convertDate(value) {
         const date = moment(value).format('DD/MM/YYYY')
@@ -44,10 +36,9 @@ export const FloatingRates = () => {
                     <SelectDefault
                         classNameGroup=" borrow__filter"
                         titleClassName="text uni-text-6d30ab w-100"
-                        label="Dạng vay :"
+                        label={`${translate("loan_type", t)} :`}
                         defaultValue={1}
                         onChange={e => console.log(e)}
-                        // classNameSelect="form-group "
                         datas={[{ value: 1, label: "Vay dư nợ giảm dần" }, { value: 2, label: "Vay trả đều hàng tháng" }]}
                     />
                 </span>
@@ -56,122 +47,74 @@ export const FloatingRates = () => {
             <div className="borrow__calculator">
                 <div className="row">
                     <div className="col-sm-12 col-md-6 col-lg-6">
-                        <div className="form-group">
-                            <label className="label">
-                                Số tiền cần vay
-                                    <span className="unit">(triệu vnd)</span>
-                            </label>
-                            <div className="pull-range">
-                                <div className="slider-wrapper">
-                                    <Slider
-                                        tipFormatter={null}
-                                        className="range range04"
-                                        defaultValue={inputBorrow}
-                                        min={0} max={2000}
-                                        onChange={onChangeBorrow}
-                                        value={typeof inputBorrow === 'number' ? inputBorrow : 0} />
-                                </div>
-                                <div className="input-group range-Value04">
-
-                                    <InputNumber
-                                        min={0}
-                                        max={2000}
-                                        style={{ margin: '0 16px' }}
-                                        value={inputBorrow}
-                                        onChange={onChangeBorrow}
-                                        className="form-control"
-                                    />
-                                    <div className="input-group-append">
-                                        <span className="input-group-text">
-                                            triệu
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="form-group">
-                            <label className="label">Lãi suất ưu đãi
-                                    <span className="unit">(%/năm)</span>
-                            </label>
-                            <input type="text" readonly className="form-control hightlight" value="6.00" placeholder="--" />
-                        </div>
-                        <div className="form-group">
-                            <label className="label">Lãi suất sau ưu đãi
-                                    <span className="unit">(%/năm)</span>
-                            </label>
-                            <input type="text" readOnly className="form-control hightlight" placeholder="--" />
-                        </div>
+                        <InputSlider
+                            className="input-group range-Value04"
+                            label={translate("loan_amount_borrow", t)}
+                            unit="triệu vnd"
+                            titleClassName="label"
+                            min={0}
+                            max={data.amount / data.unitPay}
+                            style={{ margin: '0 16px' }}
+                            value={data.amountBorrow}
+                            onChange={onChangeBorrow}
+                            classNameInput="form-control"
+                            classNameSlider="range range04"
+                            addonBefore=" triệu"
+                        />
+                        <InputBase
+                            label={translate("loan_preferential_interest", t)}
+                            titleClassName="label"
+                            unit="%/năm"
+                            readOnly
+                            type="text"
+                            value={data.interestIncentives}
+                            placeholder="--"
+                            classNameInput="form-control hightlight"
+                        />
+                        <InputBase
+                            label={translate("loan_affter_interest", t)}
+                            titleClassName="label"
+                            unit="%/năm"
+                            readOnly
+                            type="text"
+                            placeholder="--"
+                            value={data.affterIncentives}
+                            classNameInput="form-control hightlight"
+                        />
                     </div>
                     <div className="col-sm-12 col-md-6 col-lg-6">
+                        <InputSlider
+                            titleClassName="label"
+                            label={translate("loan_tenor", t)}
+                            unit="năm"
+                            className="input-group"
+                            min={1}
+                            max={data.maxTennor}
+                            style={{ margin: '0 16px' }}
+                            value={data.tenor}
+                            onChange={onChangeLoanTerm}
+                        />
+                        <InputSlider
+                            titleClassName="label"
+                            label={translate("loan_preferential_interest_rate", t)}
+                            unit="tháng"
+                            className="input-group"
+                            readOnly
+                            min={0}
+                            max={data.maxTennor * 12}
+                            style={{ margin: '0 16px' }}
+                            value={data.preferentialTerm}
+                        // onChange={onChangeRateTerm}
+                        />
                         <div className="form-group">
-                            <label className="label">Thời hạn vay
-                                    <span className="unit">(năm)</span>
-                            </label>
-                            <div className="pull-range">
-                                <div className="slider-wrapper">
-                                    <Slider
-                                        tipFormatter={null}
-                                        min={1}
-                                        max={100}
-                                        onChange={onChangeLoanTerm}
-                                        value={typeof loanTermTime === 'number' ? loanTermTime : 0}
-                                    />
-                                </div>
-                                <div className="input-group">
-                                    <InputNumber
-                                        min={1}
-                                        max={100}
-                                        style={{ margin: '0 16px' }}
-                                        value={loanTermTime}
-                                        onChange={onChangeLoanTerm}
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                        <div className="form-group">
-                            <label className="label">Thời hạn lãi suất ưu đãi
-                                    <span className="unit">(tháng)</span>
-                            </label>
-                            <div className="pull-range">
-                                <div className="slider-wrapper">
-                                    <Slider
-                                        tipFormatter={null}
-                                        defaultValue={40}
-                                        min={0}
-                                        max={50}
-                                        onChange={onChangeRateTerm}
-                                        value={typeof rateTerm === 'number' ? rateTerm : 0} />
-                                </div>
-                                <div className="input-group">
-                                    <InputNumber
-                                        readOnly
-                                        min={0}
-                                        max={50}
-                                        style={{ margin: '0 16px' }}
-                                        value={rateTerm}
-                                        onChange={onChangeRateTerm}
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                        <div className="form-group">
-                            <label className="label">Ngày trả lãi</label>
+                            <label className="label">{translate("loan_interest_payment_date")}</label>
                             <InputDatePicker style={{ width: '100%', height: 48, marginBottom: 20 }} name="dateFrom" placeholder="From date" onChange={onChangeDate} />
                         </div>
                     </div>
                 </div>
-                <div className="row paymentBeforeDeadline_01 d-none">
-                    <div className="col-sm-12 col-md-6 col-lg-6">
-                        <div className="form-group">
-                            <label className="label">Thời gian dự tính thanh toán
-                                    <span className="unit">(tháng)</span>
-                            </label>
-                            <input type="text" className="form-control" />
-                        </div>
-                    </div>
-                </div>
-                <button className="btn btn_purple">Xem kết quả</button>
+                <button className="btn btn_purple" onClick={props.onSubmit}>Xem kết quả</button>
             </div>
         </div>
     )
 }
+export default React.memo(FloatingRates)

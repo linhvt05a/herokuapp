@@ -22,6 +22,7 @@ const Cart = (props) => {
         let cart = localStorage.getItem("buy_now_cart");
         const user = JSON.parse(localStorage.getItem('user'));
         // localStorage.removeItem("buy_now_cart")
+        console.log("chay", cart)
         if (cart) {
             setState({ ...state, cart: JSON.parse(cart) })
         }

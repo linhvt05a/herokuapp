@@ -14,6 +14,11 @@ if (MODE_ENV.show_log == false) {
     console.log = () => { };
 }
 
+console.log('MODE_ENV:', MODE_ENV);
+if (MODE_ENV.show_log == false) {
+    console.log = () => { };
+}
+
 
 ReactDOM.render(
     <App />,

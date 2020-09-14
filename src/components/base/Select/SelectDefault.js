@@ -5,7 +5,7 @@ import { Trans } from 'react-i18next';
 
 
 const SelectDefault = (props) => {
-    const { className, name, value, defaultValue, label, errors, style, datas, placeholder, onChange, isClear, classNameGroup, trans, require, onSearch, disabled, titleClassName, classNameSelect } = props;
+    const { name, value, defaultValue, label, errors, style, datas, placeholder, onChange, isClear, classNameGroup, trans, require, disabled, titleClassName, classNameSelect } = props;
     const { Option } = Select;
     return (
         <div className={classNameGroup ? classNameGroup : "form-group"}>
