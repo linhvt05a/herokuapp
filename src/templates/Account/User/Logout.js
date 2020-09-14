@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Trans } from "react-i18next";
 
 const Logout = (props) => {
-    let { success, handleLogout, user } = props;
+    let { handleLogout, user } = props;
     return (
         user && user != null ?
         <div className={`header_register form_logged ${user != null ? "": "d-none" }`} style={{ maxWidth: "360px" }}>
