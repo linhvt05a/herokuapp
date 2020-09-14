@@ -6,13 +6,15 @@ module.exports = {
         port:3001,
 
         //dev
-        // show_log:true,
-        // hot:true,
-        // liveReload:true 
+        show_log:true,
+        hot:true,
+        liveReload:true,
+        host:'localhost',
 
         //server
-        show_log:false,
-        hot:false,
-        liveReload:false
+        // show_log:false,
+        // hot:false,
+        // liveReload:false,
+        // host:'superapp.minerva.vn/'
     }
 };
