@@ -11,8 +11,8 @@ module.exports = merge(common, {
     output: {
         path: path.join(__dirname, 'dist'),
         publicPath: '/',
-        filename: 'bundle.js',
-        chunkFilename: '[name].js',
+        filename: '[name].[hash].js',
+        chunkFilename: '[name].js'
     },
     devServer: {
         contentBase: path.join(__dirname, "dist"),
@@ -20,8 +20,8 @@ module.exports = merge(common, {
         proxy: { '/': 'http://localhost:5000' },
         port: env.MODE_ENV.port,
         hot: env.MODE_ENV.hot,
-        liveReload: env.MODE_ENV.liveReload,
         host: env.MODE_ENV.host,
+        liveReload:env.MODE_ENV.liveReload
         // port: 3001,
         // hot: true,
     }
