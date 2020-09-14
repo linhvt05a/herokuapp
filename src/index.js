@@ -7,16 +7,16 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import '../public/styles/cssLibs';
-import {MODE_ENV} from '../config/env-dev';
+import { MODE_ENV } from '../config/env-dev';
 
 
 ReactDOM.render(
     <App />,
     document.getElementById('root')
 );
-console.log('MODE_ENV:',MODE_ENV);
+console.log('MODE_ENV:', MODE_ENV);
 if (!MODE_ENV.show_log)
-    console.log = () => {};
+    console.log = () => { };
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

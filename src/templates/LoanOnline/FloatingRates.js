@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { InputNumber, Slider, DatePicker } from 'antd';
 import moment from 'moment';
 import InputDatePicker from '../../components/base/Input/InputDatePicker';
-const dateFormat = 'YYYY/MM/DD';
+import { InputBase } from "./Layout"
+import { SelectDefault } from '../../components/base';
 
 export const FloatingRates = () => {
     const [inputValue, setInputValue] = useState(5);
@@ -36,10 +37,19 @@ export const FloatingRates = () => {
     }
 
     return (
-        <div className="borrow__item aa">
+        <div className="borrow__item">
             <div className="borrow__title">
-                <span className="d-flex align-items-center text-uppercase">
-                    Lãi thả nổi - Dư nợ giảm dần<i className="icon_info fas fa-info-circle" />
+                <span className="d-flex align-items-center text-uppercase borrow__top">
+                    Vay Dư nợ giảm dần
+                    <SelectDefault
+                        classNameGroup=" borrow__filter"
+                        titleClassName="text uni-text-6d30ab w-100"
+                        label="Dạng vay :"
+                        defaultValue={1}
+                        onChange={e => console.log(e)}
+                        // classNameSelect="form-group "
+                        datas={[{ value: 1, label: "Vay dư nợ giảm dần" }, { value: 2, label: "Vay trả đều hàng tháng" }]}
+                    />
                 </span>
                 <span className="sub">Nhập các thông tin cần thiết, bạn sẽ biết ngay số tiền lãi cần trả hàng tháng.</span>
             </div>
@@ -54,12 +64,15 @@ export const FloatingRates = () => {
                             <div className="pull-range">
                                 <div className="slider-wrapper">
                                     <Slider
+                                        tipFormatter={null}
+                                        className="range range04"
                                         defaultValue={inputBorrow}
                                         min={0} max={2000}
                                         onChange={onChangeBorrow}
                                         value={typeof inputBorrow === 'number' ? inputBorrow : 0} />
                                 </div>
                                 <div className="input-group range-Value04">
+
                                     <InputNumber
                                         min={0}
                                         max={2000}
@@ -122,8 +135,8 @@ export const FloatingRates = () => {
                             <div className="pull-range">
                                 <div className="slider-wrapper">
                                     <Slider
+                                        tipFormatter={null}
                                         defaultValue={40}
-                                        displayBox="on"
                                         min={0}
                                         max={50}
                                         onChange={onChangeRateTerm}
@@ -131,6 +144,7 @@ export const FloatingRates = () => {
                                 </div>
                                 <div className="input-group">
                                     <InputNumber
+                                        readOnly
                                         min={0}
                                         max={50}
                                         style={{ margin: '0 16px' }}
@@ -146,13 +160,6 @@ export const FloatingRates = () => {
                         </div>
                     </div>
                 </div>
-                <div className="checkbox-paymentBeforeDeadline">
-                    <label className="checkbox-inline">
-                        <input name="checkbox-2" type="checkbox" className="checkbox-custom" />
-                        <span className="checkbox-custom-dummy" />
-                                Thanh toán trước hạn ?
-                                </label>
-                </div>
                 <div className="row paymentBeforeDeadline_01 d-none">
                     <div className="col-sm-12 col-md-6 col-lg-6">
                         <div className="form-group">
@@ -162,14 +169,6 @@ export const FloatingRates = () => {
                             <input type="text" className="form-control" />
                         </div>
                     </div>
-                    {/* <div class="col-sm-12 col-md-6 col-lg-6">
-                                                <div class="form-group">
-                                                    <label class="label">Phí thanh toán trước hạn
-                                                        <span class="unit">(%)</span>
-                                                    </label>
-                                                    <input type="text" value="3.0" readonly class="form-control">
-                                                </div>
-                                            </div> */}
                 </div>
                 <button className="btn btn_purple">Xem kết quả</button>
             </div>

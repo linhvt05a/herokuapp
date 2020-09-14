@@ -21,7 +21,7 @@ const Cart = (props) => {
     React.useEffect(() => {
         let cart = localStorage.getItem("buy_now_cart");
         const user = JSON.parse(localStorage.getItem('user'));
-        localStorage.removeItem("buy_now_cart")
+        // localStorage.removeItem("buy_now_cart")
         if (cart) {
             setState({ ...state, cart: JSON.parse(cart) })
         }
