@@ -15,8 +15,8 @@ module.exports = merge(common, {
         proxy: { '/': 'http://localhost:5000' },
         port: env.MODE_ENV.port,
         host: env.MODE_ENV.host,
-        inline: true,
-        hot: true,
+        inline: env.MODE_ENV.liveReload,
+        hot: env.MODE_ENV.liveReload,
         historyApiFallback: true,
     }
 });
