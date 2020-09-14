@@ -14,7 +14,7 @@ ReactDOM.render(
     <App />,
     document.getElementById('root')
 );
-
+console.log('MODE_ENV:',MODE_ENV);
 if (!MODE_ENV.show_log)
     console.log = () => {};
 

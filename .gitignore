@@ -14,6 +14,7 @@
 /build-prod
 /.idea
 /config/env.js
+/dist
 
 # misc
 .DS_Store

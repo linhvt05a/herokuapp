@@ -7,14 +7,12 @@ const { createProxyMiddleware } = require('http-proxy-middleware');
 
 // Define
 const PORT = 5000;
-const LOCAL_PATH = path.join(__dirname, "../build");
-console.log('LOCAL_PATH',LOCAL_PATH);
+const LOCAL_PATH = path.join(__dirname, "../dist");
+console.log('LOCAL_PATH:',LOCAL_PATH);
 
 var app = express(); // create express app
 app.use(express.static(LOCAL_PATH));
 app.use(express.static("public"));
-//app.use(bodyParser.urlencoded({ extended: false }));
-//app.use(pino);
 
 // PROXY
 
