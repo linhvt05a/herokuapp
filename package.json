@@ -41,13 +41,15 @@
     "webfontloader": "^1.6.28"
   },
   "scripts": {
-    "start": "concurrently \"npm run client\" \"npm run server\" --inspect",
+    "start": "concurrently \"npm run client\" \"npm run server\" \"npm run clean\" --inspect",
     "build-dev": "webpack --config webpack.dev.js --mode development",
     "build-prod": "webpack --config webpack.prod.js --mode production",
     "server": "node server/index.js",
     "client": "webpack-dev-server --config webpack.local.js --open",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "clean": "rmdir /s /q dist"
+
   },
   "browserslist": {
     "production": [

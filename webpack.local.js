@@ -4,9 +4,6 @@ const common = require('./webpack.common');
 var env = require("./config/env");
 var path = require('path');
 
-// Host
-const host = process.env.host || 'localhost';
-
 module.exports = merge(common, {
     mode: 'none',
     devtool: 'innline-source-map',
@@ -14,7 +11,7 @@ module.exports = merge(common, {
         path: path.join(__dirname, 'dist'),
         publicPath: '/',
         filename: 'bundle.js',
-        chunkFilename: '[name].js'
+        chunkFilename: '[name].js',
     },
     devServer: {
         contentBase: path.join(__dirname, "dist"),
@@ -23,7 +20,8 @@ module.exports = merge(common, {
         port: env.MODE_ENV.port,
         hot: env.MODE_ENV.hot,
         liveReload: env.MODE_ENV.liveReload,
+        host: env.MODE_ENV.host,
         // port: 3001,
         // hot: true,
-    },
+    }
 });

@@ -72,7 +72,7 @@ export function* productFavoriteList(payload) {
     try {
         const response = yield productService.productFavoriteList(token);
         response.success ? yield put({ type: productAction.PRODUCT_FAVORITE_LIST_SUCCESS, response }) : yield put({ type: productAction.PRODUCT_FAVORITE_LIST_FAILURE, response });
-        console.log(response)
+        // console.log(response)
     } catch (err) {
         yield put({ type: productAction.PRODUCT_FAVORITE_LIST_FAILURE, err });
     }
@@ -90,7 +90,7 @@ export function* productSignup(payload) {
     console.log(payload)
     try {
         const response = yield productService.productSignup(payload);
-        console.log(response)
+        // console.log(response)
         response.success ? yield put({ type: productAction.PRODUCT_SIGNUP_SUCCESS, response }) : yield put({ type: productAction.PRODUCT_SIGNUP_FAILURE, response });
     } catch (err) {
         yield put({ type: productAction.PRODUCT_SIGNUP_FAILURE, err });
