@@ -1,7 +1,7 @@
 const merge = require('webpack-merge');
 const CopyPlugin = require('copy-webpack-plugin');
 const common = require('./webpack.common');
-var env = require("./config/env");
+var env = require("./config/env-dev");
 
 module.exports = merge(common, {
     mode: 'none',

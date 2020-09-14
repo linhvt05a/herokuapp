@@ -7,7 +7,8 @@ import { productAction, accountAction} from "../../../../store/action/index";
 
 const MenuRight = (props) => {
     const [inHoverProfile, setHoverProfile] = useState(false);
-    const user = localStorage.getItem('user')
+    // const user = localStorage.getItem('user')
+    const user = JSON.parse(localStorage.getItem('user'));
     const [dataLocal,setDatalocal] = useState([])
     const dispatch = useDispatch();
     const product = useSelector(state => state.productReducer);
