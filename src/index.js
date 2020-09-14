@@ -7,7 +7,7 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import '../public/styles/cssLibs';
-import {MODE_ENV} from '../config/env';
+import {MODE_ENV} from '../config/env-dev';
 
 
 ReactDOM.render(

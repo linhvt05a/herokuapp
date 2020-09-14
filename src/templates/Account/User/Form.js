@@ -19,9 +19,7 @@ const Form = (props) => {
         localStorage.removeItem('user');
         window.location.reload()
     }
-    const login = useSelector(state => state.accountReducer);
-    const isLoginSuccess = login.login.success;
-    const respon = isLoginSuccess ? login.login.detail : null;
+    
     const user = JSON.parse(localStorage.getItem('user'));
 
     return (
@@ -46,7 +44,7 @@ const Form = (props) => {
                 </ul>
                 <div className="tab-content">
                     <div className={`tab-pane fade ${tab == 0 ? "show active": ""}`} id="pills-login">
-                        <Login showTap={showTap} success={respon} />
+                        <Login showTap={showTap} />
                     </div>
                     <div className={`tab-pane fade ${tab == 1 ? "show active": ""}`} id="pills-signup">
                         <Registry />
@@ -61,7 +59,7 @@ const Form = (props) => {
                 <ForgotPass />
             </div>
             {/* form_logged */}
-            <Logout success={respon} handleLogout={logout} user={user} />
+            <Logout handleLogout={logout} user={user} />
         </>
     );
 }
