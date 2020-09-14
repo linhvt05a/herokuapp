@@ -1,7 +1,7 @@
 const merge = require('webpack-merge');
 const CopyPlugin = require('copy-webpack-plugin');
 const common = require('./webpack.common');
-var env = require("./env");
+var env = require("./config/env");
 
 module.exports = merge(common, {
     mode: 'none',
@@ -18,7 +18,10 @@ module.exports = merge(common, {
         },
         writeToDisk: true,
         port: env.MODE_ENV.port,
-        hot: true,
+        host: 'localhost',
+        hot: false,
+        inline: true,
+        liveReload: false
     },
     plugins: [
         new CopyPlugin({
@@ -27,6 +30,6 @@ module.exports = merge(common, {
                 { from: "./public/font-page", to: "./font-page" },
             ],
         }),
-        
+
     ],
 });
