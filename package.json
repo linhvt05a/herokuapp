@@ -42,10 +42,10 @@
     "webfontloader": "^1.6.28"
   },
   "scripts": {
-    "start": "concurrently \"npm run client\" \"npm run server\" ",
+    "start": "concurrently \"npm run client\" \"npm run server\" \"npm run clean-dist\" ",
     "build-dev": "webpack --config webpack.dev.js --mode development",
     "build-prod": "webpack --config webpack.prod.js --mode production",
-    "client": "webpack-dev-server --config webpack.local.js --open",
+    "client": "webpack-dev-server --config webpack.local.js --open --inline",
     "server": "node server/index.js",
     "clean-dist": "rmdir /s /q dist",
     "clean-nm": "rmdir /s /q node_modules",
