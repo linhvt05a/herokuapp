@@ -8,19 +8,21 @@ import transaction_level from './en/transaction_level';
 import cart from './en/cart';
 import introduce from './en/introduce';
 import header from './en/header';
-import news from './en/news'
+import news from './en/news';
+import loan from "./en/loan"
 const en = {
-    ...home, 
-    ...promotion, 
-    ...project, 
-    ...product, 
-    ...base, 
-    ...product_detail, 
-    ...transaction_level, 
-    ...cart, 
+    ...home,
+    ...promotion,
+    ...project,
+    ...product,
+    ...base,
+    ...product_detail,
+    ...transaction_level,
+    ...cart,
     ...introduce,
     ...header,
-    ...news
+    ...news,
+    ...loan
 }
 
 export default en;

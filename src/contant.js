@@ -1,6 +1,7 @@
 const IMAGE_URL = "../"
 const IMAGE_LOGO = "../images/default_image_minerva.png"
 const PHONE_NUMBER = "1900 - 123 - 456"
+const MOBILE_WIDTH = 767
 
 const PROJECT_STATUS = [
     { value: 1, label: "home_waiting_sale" },
@@ -141,6 +142,7 @@ module.exports = {
     IMAGE_URL,
     IMAGE_LOGO,
     PHONE_NUMBER,
+    MOBILE_WIDTH,
 
     PROJECT_STATUS,
     PROJECT_SALE_GROUP,

@@ -7,16 +7,20 @@ var path = require('path');
 
 module.exports = merge(common, {
     mode: 'none',
-    devtool: 'inline-source-map',
-    
+    devtool: 'innline-source-map',
+    output: {
+        path: path.join(__dirname, 'dist'),
+        publicPath: '/',
+        filename: '[name].[hash].js',
+        chunkFilename: '[name].js'
+    },
     devServer: {
-        contentBase: "./dist",
+        contentBase: path.join(__dirname, "dist"),
         writeToDisk: true,
         proxy: { '/': 'http://localhost:5000' },
         port: env.MODE_ENV.port,
+        hot: env.MODE_ENV.hot,
         host: env.MODE_ENV.host,
-        inline: env.MODE_ENV.liveReload,
-        hot: env.MODE_ENV.liveReload,
-        historyApiFallback: true,
+        liveReload: env.MODE_ENV.liveReload
     }
 });

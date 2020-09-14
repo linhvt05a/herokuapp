@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { Link, NavLink } from "react-router-dom";
-import { Trans } from "react-i18next";
 import BannerAds from "./TopNav/BannerAds";
 import NavLeft from "./TopNav/NavLeft";
 import NavRight from "./TopNav/NavRight";
 import Logo from "./Menu/Logo";
 import MenuLeft from "./Menu/MenuLeft";
 import MenuRight from "./Menu/MenuRight";
-import { Hidden } from '@material-ui/core';
+import { MOBILE_WIDTH } from "../../../contant"
 
 function Header() {
     const [show, setShowAdvisory] = useState(false);
@@ -18,8 +16,8 @@ function Header() {
 
     useEffect(() => {
         const onScroll = e => {
-          setScrollTop(e.target.documentElement.scrollTop);
-          setScrolling(e.target.documentElement.scrollTop > scrollTop);
+            setScrollTop(e.target.documentElement.scrollTop);
+            setScrolling(e.target.documentElement.scrollTop > scrollTop);
         };
         window.addEventListener("scroll", onScroll);
         return () => window.removeEventListener("scroll", onScroll);
@@ -43,11 +41,13 @@ function Header() {
             <div className="container container-sm container-md">
                 <div className="header_wrap">
                     <Logo />
+                    {/* ui mobile */}
                     <button class="mb_toggle" onClick={() => setMBToggle(!isMBToggle)}>
                         <span></span>
                     </button>
-                    <MenuLeft active={isMBToggle} hideMBToggle={hideMBToggle} />
-                    <MenuRight />
+                    {/* end */}
+                    <MenuLeft active={isMBToggle} hideMBToggle={hideMBToggle} MOBILE_WIDTH={MOBILE_WIDTH} />
+                    <MenuRight MOBILE_WIDTH={MOBILE_WIDTH} />
                 </div>
             </div>
             <div className={`modal-background ${isMBToggle ? 'active' : ''}`} />

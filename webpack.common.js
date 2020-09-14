@@ -7,11 +7,10 @@ var path = require('path');
 var env = require("./config/env");
 
 var domain =  env.MODE_ENV.host + ':' + (env.MODE_ENV.port ? env.MODE_ENV.port : 0000)
-console.log(domain);
 
 module.exports = {
     entry: [
-            'webpack-dev-server/client?http://'+domain+'',
+        'webpack-dev-server/client?http://'+domain+'',
         //bundle the client for webpack dev server
         //and connect to the provided endpoint
   

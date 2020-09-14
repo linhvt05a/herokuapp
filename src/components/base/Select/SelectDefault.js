@@ -1,21 +1,37 @@
 import React from 'react';
 import { Select } from 'antd';
+import { Trans } from 'react-i18next';
 
-const { Option } = Select;
 
-function handleChange() {
-    console.log('sfsdfsd');
-}
+
 const SelectDefault = (props) => {
+    const { name, value, defaultValue, label, errors, style, datas, placeholder, onChange, isClear, classNameGroup, trans, require, disabled, titleClassName, classNameSelect } = props;
+    const { Option } = Select;
     return (
-        <Select defaultValue="lucy" style={{ width: 120 }} onChange={handleChange}>
-            <Option value="jack">Jack</Option>
-            <Option value="lucy">Lucy</Option>
-            <Option value="disabled" disabled>
-                Disabled
-            </Option>
-            <Option value="Yiminghe">yiminghe</Option>
-        </Select>
+        <div className={classNameGroup ? classNameGroup : "form-group"}>
+            {
+                label &&
+                <label className={titleClassName ? titleClassName : "fw-medium"}>
+                    <Trans>{label}</Trans>
+                    {
+                        require ? <span class="uni_star_e94c4c"> *</span> : ""
+                    }
+                </label>
+            }
+            <Select
+                defaultValue={defaultValue}
+                style={{ width: style, height: 48 }}
+                dropdownClassName="js-select2"
+                className={classNameSelect ? classNameSelect : "form-control"}
+                onChange={onChange}
+                disabled={disabled}
+                value={isClear ? null : value}
+                placeholder={<Trans>{placeholder}</Trans>}
+                children={datas && datas.map((e, key) => {
+                    return <Option name={name} key={key} value={e.value}>{trans ? <Trans>{e.label}</Trans> : e.label}</Option>;
+                })} /><br />
+            <span style={{ color: 'red', fontSize: 12 }}><Trans>{errors}</Trans></span>
+        </div>
     )
 }
 
