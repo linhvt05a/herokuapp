@@ -1,32 +1,26 @@
 const merge = require('webpack-merge');
 const CopyPlugin = require('copy-webpack-plugin');
 const common = require('./webpack.common');
+var env = require("./config/env");
+var path = require('path');
+
 
 module.exports = merge(common, {
     mode: 'none',
     devtool: 'innline-source-map',
     output: {
-        path: __dirname + '/build',
+        path: path.join(__dirname, 'dist'),
         publicPath: '/',
-        filename: 'bundle.js'
+        filename: '[name].[hash].js',
+        chunkFilename: '[name].js'
     },
     devServer: {
-        contentBase: './build',
-        proxy: {
-            '/': 'http://localhost:5000'
-        },
+        contentBase: path.join(__dirname, "dist"),
         writeToDisk: true,
-        port: 3001,
-        hot: true,
-
-    },
-    plugins: [
-        new CopyPlugin({
-            patterns: [
-                { from: "./public/images", to: "./images" },
-                { from: "./public/font-page", to: "./font-page" },
-            ],
-        }),
-        
-    ],
+        proxy: { '/': 'http://localhost:5000' },
+        port: env.MODE_ENV.port,
+        hot: env.MODE_ENV.hot,
+        host: env.MODE_ENV.host,
+        liveReload: env.MODE_ENV.liveReload
+    }
 });

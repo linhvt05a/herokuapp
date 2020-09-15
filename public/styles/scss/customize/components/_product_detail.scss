@@ -27,8 +27,13 @@
 }
 
 .no_flashsale{
-    &.apartment_slider .image_type{
-        left: 0;
-        margin: 0;
+    &.apartment_slider {
+        .card-body {
+            background-color: #ddd;
+        }
+        .image_type {
+            left: 0;
+            margin: 0;
+        }
     }
 }

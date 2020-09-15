@@ -7,10 +7,10 @@ const Manage = (props) => {
     return (
         <div class="tab-content">
             <TabInformation activeTab={activeTab} />
-            <TabOrder activeTab={activeTab} />
+            <TabOrder activeTab={activeTab} status={false} />
             <TabJoinProject activeTab={activeTab} />
             <TabPayment activeTab={activeTab} />
-            <TabFeedback activeTab={activeTab}/>
+            <TabFeedback activeTab={activeTab} />
         </div>
     )
 }

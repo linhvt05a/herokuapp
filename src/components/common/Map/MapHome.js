@@ -15,17 +15,17 @@ L.Icon.Default.mergeOptions({
 });
 
 function MapHome(props) {
-    const position = [10.782504, 106.695931];
+    const position = [16.0709261545449, 108.180991165145];
     return (
-        <Map 
-            center={position} zoom={13} 
+        <Map
+            center={position} zoom={5.4}
             style={{ height: "670px", zIndex: 0 }}
             attributionControl={false}
-            >
-            <ReactLeafletGoogleLayer 
-                useGoogMapsLoade = {true}
-                googleMapsLoaderConf={{KEY: 'AIzaSyDZt7EWQR3cI-a_0to4VT2JVcF-c7ti6Ro'}} 
-                type={'hybrid'} 
+        >
+            <ReactLeafletGoogleLayer
+                useGoogMapsLoade={true}
+                googleMapsLoaderConf={{ KEY: 'AIzaSyDZt7EWQR3cI-a_0to4VT2JVcF-c7ti6Ro' }}
+                type={'hybrid'}
             />
             {/* <TileLayer
                 attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'

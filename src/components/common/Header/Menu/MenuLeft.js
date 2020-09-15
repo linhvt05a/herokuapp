@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { Link, NavLink } from "react-router-dom";
 import { Trans } from "react-i18next";
 import { FormUserMobile } from '../../../../templates/Account/index';
-import {IMAGE_URL} from '../../../../contant'
+import { IMAGE_URL } from '../../../../contant'
 
 const MenuLeft = (props) => {
-    const {active, hideMBToggle} = props;
+    const { active, hideMBToggle } = props;
     const [clickMenuSupport, setMenuSupport] = useState(false);
     const [clickMenuLogin, setMenuLogin] = useState(false);
     const [inHoverNav, setHoverNav] = useState(false);
@@ -19,7 +19,7 @@ const MenuLeft = (props) => {
                         alt="Minerva"
                     />
                 </NavLink>
-                <i className="icon-close" onClick={hideMBToggle} style={{cursor: "pointer"}}>×</i>
+                <i className="icon-close" onClick={hideMBToggle} style={{ cursor: "pointer" }}>×</i>
             </li>
             <li className="item mt-3 mt-md-0">
                 <NavLink exact activeClassName="active" className="item-link" to="/">
@@ -42,7 +42,7 @@ const MenuLeft = (props) => {
                     <Trans>header_menu_exchanges</Trans>
                 </NavLink>
             </li>
-            <li className={`item hasChild dropdown d-none d-md-block ${inHoverNav ? "open": ''}`} >
+            <li className={`item hasChild dropdown d-none d-md-block ${inHoverNav ? "open" : ''}`} >
                 <div onMouseEnter={() => setHoverNav(true)}
                     className="item-link dropdown-toggle cursor-pointer"
                 >
@@ -171,7 +171,7 @@ const MenuLeft = (props) => {
                     <i className="pr-1 fas fa-user-circle" />
                     Đăng ký / Đăng nhập
                 </Link>
-                <FormUserMobile active={clickMenuLogin} />
+                {document.defaultView.innerWidth <= props.MOBILE_WIDTH && <FormUserMobile active={clickMenuLogin} />}
             </li>
         </ul>
     )

@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import Slider from 'react-slick';
 
 const SliderSimple = (props) => {
-	const {data, settings} = props
+	const { data, settings } = props
 
 	const ref = useRef({});
 
@@ -17,24 +17,14 @@ const SliderSimple = (props) => {
 
 	return (
 		<Slider ref={ref} {...settings}>
-			<div>
-				<h3>1</h3>
-			</div>
-			<div>
-				<h3>2</h3>
-			</div>
-			<div>
-				<h3>3</h3>
-			</div>
-			<div>
-				<h3>4</h3>
-			</div>
-			<div>
-				<h3>5</h3>
-			</div>
-			<div>
-				<h3>6</h3>
-			</div>
+			{props.dataImgs &&
+				props.dataImgs.map((item, index) => {
+					return (
+						<figure key={index}>
+							<img src={item.image_url} alt={item.name} />
+						</figure>
+					)
+				})}
 		</Slider>
 	);
 };

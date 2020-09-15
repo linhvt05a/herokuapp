@@ -7,22 +7,20 @@ const { createProxyMiddleware } = require('http-proxy-middleware');
 
 // Define
 const PORT = 5000;
-const LOCAL_PATH = path.join(__dirname, "../build");
-console.log('LOCAL_PATH',LOCAL_PATH);
+const LOCAL_PATH = path.join(__dirname, "../dist");
+console.log('LOCAL_PATH:', LOCAL_PATH);
 
 var app = express(); // create express app
 app.use(express.static(LOCAL_PATH));
 app.use(express.static("public"));
-//app.use(bodyParser.urlencoded({ extended: false }));
-//app.use(pino);
 
 // PROXY
 
-var env = require("../env");
-console.log('CURRENT_ENV:', env.NODE_ENV);
-console.log('MODE_ENV:', env.MODE_ENV);
+var env = require("../config/env");
+// console.log('CURRENT_ENV:', env.NODE_ENV);
+// console.log('MODE_ENV:', env.MODE_ENV);
 
-app.use('/api', createProxyMiddleware({ target: env.MODE_ENV.local.api, changeOrigin: true }));
+app.use('/api', createProxyMiddleware({ target: env.MODE_ENV.api, changeOrigin: true }));
 app.use('/cdn', createProxyMiddleware({ target: env.MODE_ENV.cloudapi, changeOrigin: true }));
 
 // REACT

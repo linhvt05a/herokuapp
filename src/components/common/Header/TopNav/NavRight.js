@@ -16,6 +16,7 @@ const NavRight = (props) => {
     const changeLanguage = (lng) => {
         localStorage.setItem('language', lng);
         i18n.changeLanguage(lng);
+        window.location.reload();
     }
 
 

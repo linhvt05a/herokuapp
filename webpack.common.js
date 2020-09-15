@@ -3,15 +3,24 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const globImporter = require("node-sass-glob-importer");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+var path = require('path');
+var env = require("./config/env");
 
-
+var domain =  env.MODE_ENV.host + ':' + (env.MODE_ENV.port ? env.MODE_ENV.port : 0000)
 
 module.exports = {
-    // entry: './src/index.js',
-    entry: {
-        libs: './src/index.js',
-        m_main: './public/styles/scss/main.scss'
-    },
+    entry: [
+        'webpack-dev-server/client?http://'+domain+'',
+        //bundle the client for webpack dev server
+        //and connect to the provided endpoint
+  
+        'webpack/hot/only-dev-server',
+        //bundle the client for hot reloading
+        //only- means to only hot reload for successful updates
+        './src/index.js',
+    ],
+
+    // entry:'./src/index.js',
     module: {
         rules: [
             {
@@ -63,15 +72,20 @@ module.exports = {
     resolve: {
         extensions: ['*', '.js', '.jsx']
     },
+    output: {
+        path: path.join(__dirname, 'dist'),
+        publicPath: '/',
+        filename: '[name].[hash].js',
+        chunkFilename: '[name].[hash].js'
+    },
     plugins: [
         new MiniCssExtractPlugin({
             filename: "css/[name].css",
         }),
         new webpack.HotModuleReplacementPlugin(),
-        new HtmlWebpackPlugin(
-            {
-                template: "./public/index.html"
-            }
-        )
+        new HtmlWebpackPlugin({
+            inject: true,
+            template: "./public/index.html"
+        })
     ]
 };

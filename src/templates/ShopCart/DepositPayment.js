@@ -24,7 +24,7 @@ const DepositPayment = (props) => {
     React.useEffect(() => {
         let user = getLocalStore("user")
         if (!user) {
-            history.push("/")
+            history.push("/cart")
         }
         else {
             let newCard = getLocalStore("PAYMENT_METHOD", true);

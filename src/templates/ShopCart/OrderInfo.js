@@ -12,7 +12,7 @@ const OrderInfo = (props) => {
     React.useEffect(() => {
         let user = getLocalStore("user")
         if (!user) {
-            history.push("/");
+            history.push("/cart");
 
         }
     }, [])

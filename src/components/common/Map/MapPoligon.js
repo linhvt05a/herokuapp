@@ -15,37 +15,46 @@ L.Icon.Default.mergeOptions({
 });
 
 function MapPoligon(props) {
-    let { data } = props;
+    let { data, zoom } = props;
 
     //https://blog.logrocket.com/how-to-use-react-leaflet/
     //https://github.com/PaulLeCam/react-leaflet/blob/master/example/components/other-layers.js
 
     const position = [16.0709261545449, 108.180991165145];
     return (
-        <Map 
-            center={position} zoom={5} 
+        <Map
+            center={position} zoom={zoom ? zoom : 5}
             style={{ height: "670px", zIndex: 0 }}
             attributionControl={false}
-            // zoomControl={false}
-            >   
-                <ReactLeafletGoogleLayer 
-                    useGoogMapsLoade = {true}
-                    googleMapsLoaderConf={{KEY: 'AIzaSyDZt7EWQR3cI-a_0to4VT2JVcF-c7ti6Ro'}} 
-                    type={'hybrid'} 
-                    attributionControl={false}
-                />
-                {/* <TileLayer
+        // zoomControl={false}
+        >
+            <ReactLeafletGoogleLayer
+                useGoogMapsLoade={true}
+                googleMapsLoaderConf={{ KEY: 'AIzaSyDZt7EWQR3cI-a_0to4VT2JVcF-c7ti6Ro' }}
+                type={'hybrid'}
+                attributionControl={false}
+            />
+            {/* <TileLayer
                     attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                     url=''
                 /> */}
 
-                {data && data.map((item, index) => (
-                    <Marker position={[item.lat, item.lon]} key={index} className="custom_marker_map">
-                        <Popup closeButton={false} className="custom_popup_map" onOpen={true}>
-                            {item.project_name}
-                        </Popup>
-                    </Marker>
-                ))} 
+            {data && data.map((item, index) => (
+                <Marker position={[item.lat, item.lon]} key={index} className="custom_marker_map"
+                // onmouseover={(e) => {
+                //     console.log("chay", e);
+                //     e.target.openPopup();
+                // }}
+                // onmouseout={(e) => {
+                //     console.log("chay", e);
+                //     e.target.closePopup();
+                // }}
+                >
+                    <Popup closeButton={false} className="custom_popup_map" onOpen={true}>
+                        {item.project_name}
+                    </Popup>
+                </Marker>
+            ))}
         </Map>
     );
 }

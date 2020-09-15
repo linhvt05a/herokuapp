@@ -1,6 +1,8 @@
 import React from 'react'
+import { convertFloatToString } from '../../../functions/Utils';
 
-export const SidebarRight = () => {
+export const SidebarRight = props => {
+    let { data } = props;
     return (
         <div className="col-12 col-sm-12 col-lg-4">
             <div className="sales_box">
@@ -17,30 +19,20 @@ export const SidebarRight = () => {
                         <div className="details__01">
                             <div className="chart-detail">
                                 <span className="status status01">
-                                    Số tiền vay
-                                    <b>500.000.000</b>
+                                    Số tiền vay <b>{convertFloatToString(data.amountBorrow * data.unitPay)}</b>
                                 </span>
                                 <span className="status status02">
                                     Tổng tiền lãi
                                     {/*<b>232.083.313</b>*/}
-                                    <b className="null">--</b>
+                                    <b className="null">{convertFloatToString(data.amountBorrow * (data.interestIncentives * 100) * data.unitPay / 10000)}</b>
                                 </span>
                             </div>
                         </div>
                         <div className="details__02">
                             <span className="text">
-                                Số tiền trả kỳ đầu (vnd)
-                                <b>6.666.667</b>
+                                Số tiền TB hàng tháng trả (đồng)<b>{convertFloatToString(parseFloat(((data.amountBorrow * data.unitPay) + (data.amountBorrow * (data.interestIncentives * 100) * data.unitPay / 10000)) / (data.tenor * 12)).toFixed(0))}</b>
                             </span>
-                            <span className="text">
-                                Tiết kiệm trả nợ trước hạn (vnd)
-                                <b className="null">--</b>
-                            </span>
-                            <span className="text">
-                                Phí phạt trả nợ trước hạn (vnd)
-                                <b className="null">--</b>
-                            </span>
-                            <a href="#" className="download"><i className="fas fa-download icon" /> Tải
+                            <a className="download"><i className="fas fa-download icon" /> Tải
                                 bảng thanh toán từng tháng </a>
                         </div>
                     </div>
@@ -50,9 +42,6 @@ export const SidebarRight = () => {
                             </a>
                         <a href="#" className="btn btn_purple text-uppercase">
                             ĐẶT CHỔ
-                            </a>
-                        <a href="#" className="btn mt-3 w-100 btn_red_outline text-uppercase">
-                            NỘP HỒ SƠ ONLINE
                             </a>
                     </div>
                 </div>

@@ -69,7 +69,6 @@ const Login = (props) => {
                         )
                     }}
                 </Form.Item>
-                {/* <div className="errors" style={{display: success != null ? "none" : "block"}}><Trans>user_pass_false</Trans></div> */}
             </Form>
             <div className="form-group mb-0 text-center">
                 <a onClick={event => showTap(3)}

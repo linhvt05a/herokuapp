@@ -2,13 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { Trans } from 'react-i18next';
 import { Radio, Input } from 'antd'
 import { translate } from '../../../functions/Utils';
+import { InputCurrency } from "../Layout"
 
 const CardPromotionModal = (props) => {
 
     const { onSaveClick, clearData, isClearData, onNext } = props
     const [selectedData, setSelectedData] = useState(null)
     const [isShowConvert, setShowConvert] = useState(null)
-
+    const [value, setValue] = useState(150000000)
     useEffect(() => {
         setSelectedData(null)
         setShowConvert(false)
@@ -33,7 +34,9 @@ const CardPromotionModal = (props) => {
     const onFormChange = (e) => {
         setSelectedData(e.target.value);
     }
-
+    const onChange = (value) => {
+        setValue(value)
+    }
     return (
         <div className="modal-content modal_special">
             <div className="modal-header">
@@ -44,21 +47,19 @@ const CardPromotionModal = (props) => {
                     <div className="form-group form_forgot--info">
                         <Trans>cart_product_incentives</Trans>
                     </div>
-                    <div className="form-group">
-                        <div className="list_special_offers">
-                            <div className="modal_icon_check">
+                    <div className="list_style_02">
+                        <div className="list_style_02--item">
+                            {/* <div className="modal_icon_check">
                                 <i className="fas fa-check" />
-                            </div>
+                            </div> */}
                             <div className="content_offers fw-medium">
                                 Giảm 2% giá trị sản phẩm
                             </div>
                         </div>
-                    </div>
-                    <div className="form-group">
-                        <div className="list_special_offers">
-                            <div className="modal_icon_check">
+                        <div className="list_style_02--item">
+                            {/* <div className="modal_icon_check">
                                 <i className="fas fa-check" />
-                            </div>
+                            </div> */}
                             <div className="content_offers fw-medium">
                                 Tặng 1 lượng vàng 9999
                                 <div className="link_change_money" style={{ display: isShowConvert ? "none" : "block" }}>
@@ -70,7 +71,14 @@ const CardPromotionModal = (props) => {
                                         <Radio className="checkbox-inline style_04" value={1}>Quà tặng</Radio>
                                         <Radio value={2} className="check_money align-items-baseline">
                                             Tiền
-                                            <Input disabled={selectedData != 2 ? true : false} defaultValue="150.000.000" type="text" className="form-control modal_color_red" />
+                                            <Input readOnly disabled={selectedData != 2 ? true : false} defaultValue="150.000.000" type="text" className="form-control modal_color_red" />
+                                            {/* <InputCurrency
+                                                disabled={selectedData != 2 ? true : false}
+                                                value={value}
+                                                onChange={onChange}
+                                                type="text"
+                                                readOnly={true}
+                                                className="form-control modal_color_red" /> */}
                                         </Radio>
                                     </Radio.Group>
                                 </div>

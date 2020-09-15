@@ -8,19 +8,21 @@ import transaction_level from './vi/transaction_level';
 import cart from './vi/cart';
 import introduce from './vi/introduce';
 import header from './vi/header';
-import news from './vi/news'
+import news from './vi/news';
+import loan from "./vi/loan"
 const vi = {
-    ...home, 
-    ...promotion, 
-    ...project, 
-    ...product, 
-    ...base, 
-    ...product_detail, 
-    ...transaction_level, 
+    ...home,
+    ...promotion,
+    ...project,
+    ...product,
+    ...base,
+    ...product_detail,
+    ...transaction_level,
     ...cart,
     ...introduce,
     ...header,
-    ...news
+    ...news,
+    ...loan
 }
 
 export default vi;
