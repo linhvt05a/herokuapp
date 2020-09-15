@@ -14,7 +14,7 @@ import HotProduct from "./templates/Product/HotProduct";
 import News from "./templates/News/NewsList";
 import NewsDetail from "./templates/News/NewsDetail";
 
-import RecruitmentList from "./templates/Support/Recruitment/RecruitmentList";
+import Recruitment from "./templates/Support/Recruitment/Recruitment";
 import RecruitmentDetail from "./templates/Support/Recruitment/RecruitmentDetail";
 
 import TransactionLevel from "./templates/TransactionLevel/TransactionLevel";
@@ -157,7 +157,7 @@ const MAIN = [
     },
     {
         "path": "/recruitment",
-        "component": RecruitmentList,
+        "component": Recruitment,
         "banner_title": "recruitmentList_banner_title",
         "banner_url": recruitmentList_banner_url,
         "banner_show": true,

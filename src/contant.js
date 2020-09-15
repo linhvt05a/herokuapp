@@ -35,7 +35,11 @@ const DIRECTION_TYPE = [
     { value: 7, label: "south_west" },
     { value: 8, label: "north_west" },
 ]
-
+const RECRUITMENT_STATUS = [ 
+    { value: 0, label: "New" },
+    { value: 1, label: "Hiring" },
+    { value: 2, label: "Hired" }
+]
 const DATA_INTRODUCE = {
     list_images: [
         { image_url: './images/in_overview01.jpg', image_alt: "test" },
@@ -151,5 +155,6 @@ module.exports = {
     NAME_GENDER,
     RULES,
     PAYMENT_METHOD,
-    CREDIT_CARD_TYPE
+    CREDIT_CARD_TYPE,
+    RECRUITMENT_STATUS
 }

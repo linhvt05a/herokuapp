@@ -13,6 +13,7 @@ export default {
     header_menu_juridical : 'Pháp lý',
     header_menu_news : 'Tin tức',
     header_menu_contact : 'Liên hệ',
+    header_menu_recruitment : 'Tuyển dụng',
 
     // login
     login: "Đăng nhập",

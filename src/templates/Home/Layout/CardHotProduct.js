@@ -8,6 +8,7 @@ import CardNoData from "../../../components/common/CardNoData";
 import Pagination from '../../../components/common/Pagination';
 import { LoadDataPaging } from '../../../functions/Utils';
 import { productAction } from "../../../store/action/index";
+import { PROJECT_SALE_GROUP } from "../../../contant";
 
 const CardHotProduct = (props) => {
 
@@ -54,7 +55,7 @@ const CardHotProduct = (props) => {
     return (
         <div className="striking_apartment label_filter bg_grey">
             <div className="container container-sm container-md">
-                <HeadingLine headerBodyClassName={headerBodyClassName} labelHeader={labelHeader} options={options ? options : undefined} trans onChange={onProjectGroupFilterChange} />
+                <HeadingLine headerBodyClassName={headerBodyClassName} data={PROJECT_SALE_GROUP} labelHeader={labelHeader} options={options ? options : undefined} trans onChange={onProjectGroupFilterChange} />
                 <div className="striking_apartment--content">
                     {
                         (datas && datas.detail && datas.detail.list_product && datas.detail.list_product != null && datas.detail.list_product.length > 0) ?
