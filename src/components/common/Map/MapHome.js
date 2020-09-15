@@ -39,4 +39,4 @@ function MapHome(props) {
         </Map>
     );
 }
-export default MapHome;
+export default React.memo(MapHome);

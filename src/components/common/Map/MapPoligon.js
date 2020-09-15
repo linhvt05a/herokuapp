@@ -58,4 +58,4 @@ function MapPoligon(props) {
         </Map>
     );
 }
-export default MapPoligon;
+export default React.memo(MapPoligon);

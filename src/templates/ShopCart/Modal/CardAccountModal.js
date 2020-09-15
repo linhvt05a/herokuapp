@@ -60,7 +60,7 @@ const CardAccountModal = (props) => {
         <div className="modal-content modal_special">
             <div className="modal-header">
                 <h5 className="modal-title">
-                    {t('cart_account')}</h5>
+                    {translate("cart_account", t)}</h5>
             </div>
             <div className="tab-content">
                 <div className="tab-pane fade show active">
@@ -83,7 +83,7 @@ const CardAccountModal = (props) => {
                                                 formInfo.getFieldsError().filter(({ errors }) => errors.length).length
                                             }
                                         >
-                                            {t('cart_login')}
+                                            {translate("cart_login", t)}
                                         </Button>
                                     )
                                 }}
@@ -99,7 +99,7 @@ const CardAccountModal = (props) => {
                         </div>
                         <div className="form-group mb-0 text-center">
                             <a className="text-forgot">
-                                {t('cart_forgot_password')}
+                                {translate("cart_forgot_password", t)}
                             </a>
                         </div>
                     </div>
