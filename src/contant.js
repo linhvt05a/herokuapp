@@ -1,7 +1,7 @@
 const IMAGE_URL = "../"
 const IMAGE_LOGO = "../images/default_image_minerva.png"
 const PHONE_NUMBER = "1900 - 123 - 456"
-const MOBILE_WIDTH = 767
+const MOBILE_WIDTH = 767;
 
 const PROJECT_STATUS = [
     { value: 1, label: "home_waiting_sale" },
@@ -136,6 +136,10 @@ const CREDIT_CARD_TYPE = [
 ]
 
 
+const LOCALSTORAGE_GET = {
+    LANG : localStorage.getItem('language'),
+    USER : JSON.parse(localStorage.getItem('user')),
+} 
 
 
 module.exports = {
@@ -143,6 +147,7 @@ module.exports = {
     IMAGE_LOGO,
     PHONE_NUMBER,
     MOBILE_WIDTH,
+    LOCALSTORAGE_GET,
 
     PROJECT_STATUS,
     PROJECT_SALE_GROUP,

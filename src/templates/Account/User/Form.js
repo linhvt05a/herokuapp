@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
 import { Trans } from "react-i18next";
+
 import { Login, ForgotPass, Registry, Logout } from '../index';
-import { accountAction } from "../../../store/action/index";
+import { LOCALSTORAGE_GET } from "../../../contant";
 
 
 const Form = (props) => {
@@ -20,7 +21,7 @@ const Form = (props) => {
         window.location.reload()
     }
     
-    const user = JSON.parse(localStorage.getItem('user'));
+    const user = LOCALSTORAGE_GET.USER;
 
     return (
         <>

@@ -1,21 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
 import { FormUser } from "../../../../templates/Account/index";
-import { IMAGE_URL } from '../../../../contant';
+import { IMAGE_URL, LOCALSTORAGE_GET } from '../../../../contant';
 import { useDispatch, useSelector } from "react-redux";
 import { productAction, accountAction } from "../../../../store/action/index";
 
 
 const MenuRight = (props) => {
+    const user = LOCALSTORAGE_GET.USER;
     const [inHoverProfile, setHoverProfile] = useState(false);
-    // const user = localStorage.getItem('user')
-    const user = JSON.parse(localStorage.getItem('user'));
     const [dataLocal, setDatalocal] = useState([])
     const dispatch = useDispatch();
     const product = useSelector(state => state.productReducer);
     const productListSuccess = product.productFavoriteList.success
     const favoriteList = productListSuccess ? product.productFavoriteList : null;
-    const loginData = localStorage.getItem('user')
+    const loginData = localStorage.getItem('user');
     const newArray = [];
     useEffect(() => {
         // dispatch(accountAction.loadLogin({}))

@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { Trans } from "react-i18next";
+import moment from 'moment';
+
 import { Heading, Label, ChangePass } from "../../index";
 import { Alert, Input, Select, DatePicker, Radio } from 'antd';
 import { accountAction, commonAction } from "../../../../store/action/index";
 import { SelectCustom } from '../../../../components/base';
-import moment from 'moment';
+import { LOCALSTORAGE_GET } from '../../../../contant';
 
 const dateFormat = 'DD/MM/YYYY';
 
@@ -22,7 +24,7 @@ const CardFile = (props) => {
         return { value, label }
     }
     useEffect(() => {
-        dispatch(commonAction.loadProvinceList({ lang: "vi" }))
+        dispatch(commonAction.loadProvinceList({ lang: LOCALSTORAGE_GET.LANG }))
     }, [])
 
     const [state, setState] = useState({

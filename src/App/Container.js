@@ -1,11 +1,12 @@
 //libs
 import React, { useState, useEffect, useRef, useLayoutEffect, Suspense } from 'react';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import TopBanner from "./components/common/Header/TopBanner";
-import { MAIN, PATHS } from "./routes"
-import { Error404 } from './templates/ErrorPage';
 import { I18nextProvider } from 'react-i18next';
-import i18n from './i18n'
+
+import TopBanner from "../components/common/Header/TopBanner";
+import { MAIN, PATHS } from "../routes"
+import { Error404 } from '../templates/ErrorPage';
+import i18n from '../i18n'
 
 const Container = () => {
 

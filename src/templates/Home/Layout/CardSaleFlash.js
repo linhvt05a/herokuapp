@@ -19,6 +19,8 @@ const CardSaleFlash = (props) => {
     const dispatch = useDispatch();
     const [projectGroupId, setProjectGroupId] = useState(null);
     
+    console.log(datas);
+
     useEffect(() => {
         if (detail) {
             dispatch(productAction.loadHotProductList({page: 1, limit: limit}));    
@@ -78,12 +80,12 @@ const CardSaleFlash = (props) => {
                     timeLine ? <ItemTimeLine datas={['2020-09-08T09:00:00', '2020-09-08T12:00:00', '2020-09-08T14:30:00', '2020-09-08T16:00:00', '2020-09-08T18:30:00']} /> : ""
                 }
                 <div className="striking_apartment--content jsSalesQuick">
-                    {
-                        (datas && datas.detail && datas.detail.list_product && datas.detail.list_product != null && datas.detail.list_product.length > 0) ?
-                            detail ?
+                    { 
+                        datas ? (datas.detail && datas.detail.list_product && datas.detail.list_product != null && datas.detail.list_product.length > 0) ?
+                                detail ?
                                 <div className="row">
                                     {
-                                        listProduct.map((item, index) => (
+                                        datas.detail.list_product.map((item, index) => (
                                             <div key={index} className="col-12 col-sm-12 col-md-6 col-lg-4 mb-3">
                                                 <ItemProduct data={item} detail  />
                                             </div>
@@ -96,8 +98,8 @@ const CardSaleFlash = (props) => {
                                             <ItemProduct key={item.product_id} data={item} />
                                         ))
                                     }
-                                </Slider> :
-                                <CardNoData />
+                                </Slider> : <CardNoData />
+                        :<CardNoData />
                     }
                 </div>
                 {

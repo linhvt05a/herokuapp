@@ -1,8 +1,8 @@
 //libs
-import React, { useState, useEffect, useRef , useLayoutEffect} from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Provider } from 'react-redux';
-import configureStore from './store';
+import configureStore from '../store';
 import MainPage from "./MainPage";
 
 const App = () => {
