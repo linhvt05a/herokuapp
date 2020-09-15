@@ -11,7 +11,7 @@ const InputNumberCustoms = props => {
                 <label className={titleClassName ? titleClassName : "fw-medium"}>
                     {label}
                     {
-                        unit ? <span class={classNameUnit ? classNameUnit : "unit"}>({unit})</span> : ""
+                        unit ? <span className={classNameUnit ? classNameUnit : "unit"}>({unit})</span> : ""
                     }
                 </label>
             }

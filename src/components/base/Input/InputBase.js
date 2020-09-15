@@ -33,11 +33,11 @@ const InputBase = (props) => {
                     <label className={titleClassName ? titleClassName : "fw-medium"}>
                         <Trans>{label}</Trans>
                         {
-                            require ? <span class="uni_star_e94c4c"> *</span> : ""
+                            require ? <span className="uni_star_e94c4c"> *</span> : ""
 
                         }
                         {
-                            unit ? <span class={classNameUnit ? classNameUnit : "unit"}>({unit})</span> : ""
+                            unit ? <span className={classNameUnit ? classNameUnit : "unit"}>({unit})</span> : ""
                         }
                     </label>
                 }

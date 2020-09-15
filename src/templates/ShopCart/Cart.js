@@ -22,7 +22,6 @@ const Cart = (props) => {
         let cart = localStorage.getItem("buy_now_cart");
         const user = JSON.parse(localStorage.getItem('user'));
         // localStorage.removeItem("buy_now_cart")
-        console.log("chay", cart)
         if (cart) {
             setState({ ...state, cart: JSON.parse(cart) })
         }
@@ -91,7 +90,7 @@ const Cart = (props) => {
     return (
         <div className="main-cart bg_grey">
             <div className="container container-sm container-md">
-                <h2 class="main_heading">
+                <h2 className="main_heading">
                     <span><Trans>cart_product_list</Trans></span>
                 </h2>
                 <div className="row">

@@ -11,9 +11,9 @@ const TabInformation = (props) => {
     const [state, setState] = useState({
         avatar: ''
     });
-    
+
     useEffect(() => {
-        dispatch(accountAction.loadProfile({ }))
+        dispatch(accountAction.loadProfile({}))
     }, [])
     const isprofile = useSelector(state => state.accountReducer);
     const profileSuccess = isprofile.profile.success
@@ -29,14 +29,14 @@ const TabInformation = (props) => {
         setState({ avatar: img })
     }
     return (
-        <div class={`tab-pane fade ${activeTab === 0 ? "active show": ""}`} id="tab_01" role="tabpanel" aria-labelledby="tab_01">
+        <div className={`tab-pane fade ${activeTab === 0 ? "active show" : ""}`} id="tab_01" role="tabpanel" aria-labelledby="tab_01">
             {profile && profile != null ?
-            <div class="row user-acc__info">
-                <div class="col-12 col-sm-12 col-md-12 col-lg-4 mb-4 mb-lg-0">
-                    <UploadAvatar avatar={profile.avatar} handleUploadAvatar={handleUploadAvatar} />
-                </div>
-                <CardFile data={profile} avatarUpload={state.avatar} /> 
-            </div> :''
+                <div className="row user-acc__info">
+                    <div className="col-12 col-sm-12 col-md-12 col-lg-4 mb-4 mb-lg-0">
+                        <UploadAvatar avatar={profile.avatar} handleUploadAvatar={handleUploadAvatar} />
+                    </div>
+                    <CardFile data={profile} avatarUpload={state.avatar} />
+                </div> : ''
             }
         </div>
     )

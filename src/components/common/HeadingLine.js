@@ -23,9 +23,9 @@ const HeadingLine = (props) => {
             }
             {
                 options &&
-                <div class="filter_select">
-                    <div class="text"><Trans>filter_by</Trans> : </div>
-                    <div class="filter_project form-group">
+                <div className="filter_select">
+                    <div className="text"><Trans>filter_by</Trans> : </div>
+                    <div className="filter_project form-group">
                         <Select
                             placeholder="Select--"
                             className="form-control"

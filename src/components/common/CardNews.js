@@ -30,11 +30,11 @@ const CardNews = (props) => {
                         <i className="icon fas fa-angle-double-right" />
                     </a>
                 </div>
-               {data && data.length > 0 ?
-                <Slider {...settings}>
-                    {data && data.map((news, index) => <NewsLoop item={news} key={index} />)}
-                </Slider>:
-                <CardNoData />
+                {data && data.length > 0 ?
+                    <Slider {...settings}>
+                        {data && data.map((news, index) => <NewsLoop item={news} key={index} />)}
+                    </Slider> :
+                    <CardNoData />
                 }
             </div>
         </div>
@@ -68,7 +68,7 @@ const CardNews = (props) => {
 const NewsLoop = (props) => {
     const { item } = props
     return (
-        <div class="latest_news--content">
+        <div className="latest_news--content">
             <div className="item " style={{ width: 354, marginLeft: 10 }}>
                 <figure className="img">
                     <img

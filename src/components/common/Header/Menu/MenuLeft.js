@@ -124,7 +124,7 @@ const MenuLeft = (props) => {
                 <NavLink activeClassName="active" className="item-link mr-0" to="/promotion">
                     <Trans>header_menu_promotion</Trans>
                 </NavLink>
-                <img src={`${IMAGE_URL}images/gift.png`} class="gift" />
+                <img src={`${IMAGE_URL}images/gift.png`} className="gift" />
             </li>
             <li className="item d-flex justify-content-between d-md-none">
                 <Link to="/#" className="item-link pr-0">

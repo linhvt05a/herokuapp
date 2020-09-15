@@ -15,7 +15,7 @@ const CardProjectList = (props) => {
             <div className="container container-sm container-md">
                 <div className="striking_apartment--content jsSalesQuick">
                     <HeadingLine headerBodyClassName={headerBodyClassName} labelHeader={labelHeader} />
-                        <div className="row">
+                    <div className="row">
                         {
                             (datas && datas.detail && datas.detail.list_product && datas.detail.list_product != null && datas.detail.list_product.length > 0) ?
                                 <div className="col-12 col-sm-12 col-lg-8">
@@ -36,12 +36,12 @@ const CardProjectList = (props) => {
                                     <CardNoData />
                                 </div>
                         }
-                            <div class="col-12 col-sm-12 col-lg-4">
-                                <CardInputSliderFilter
-                                    title="product_filter"
-                                    onFilterChange={onFilterChange} />
-                            </div>
-                        </div> 
+                        <div className="col-12 col-sm-12 col-lg-4">
+                            <CardInputSliderFilter
+                                title="product_filter"
+                                onFilterChange={onFilterChange} />
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

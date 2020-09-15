@@ -1,53 +1,41 @@
 import React, { useRef } from 'react';
+import PropTypes from 'prop-types';
 
+const DonutChart = props => {
+    const halfsize = (props.size * 0.5);
+    const radius = halfsize - (props.strokewidth * 0.5) - 5;
+    const circumference = 2 * Math.PI * radius;
+    const strokeval = ((props.value * circumference) / 100);
+    const dashval = (strokeval + ' ' + circumference);
 
-const ChartDonutText = props => {
-    let chartRef = useRef();
-    // React.useEffect(() => {
-    //     var chart = am4core.create("myChart", am4charts.PieChart);
-
-    //     // Add data
-    //     chart.data = [{
-    //         "country": "Lithuania",
-    //         "value": 501.9
-    //     }, {
-    //         "country": "Czechia",
-    //         "value": 301.9
-    //     }, {
-    //         "country": "Ireland",
-    //         "value": 201.1
-    //     }, {
-    //         "country": "Germany",
-    //         "value": 165.8
-    //     }, {
-    //         "country": "Australia",
-    //         "value": 139.9
-    //     }, {
-    //         "country": "Austria",
-    //         "value": 128.3
-    //     }];
-
-    //     // Add and configure Series
-    //     var pieSeries = chart.series.push(new am4charts.PieSeries());
-    //     pieSeries.dataFields.value = "value";
-    //     pieSeries.dataFields.category = "country";
-    //     pieSeries.labels.template.disabled = true;
-    //     pieSeries.ticks.template.disabled = true;
-
-    //     chart.legend = new am4charts.Legend();
-    //     chart.legend.position = "right";
-
-    //     chart.innerRadius = am4core.percent(60);
-
-    //     // var label = pieSeries.createChild(am4core.Label);
-    //     // label.text = "${values.value.sum}";
-    //     // label.horizontalCenter = "middle";
-    //     // label.verticalCenter = "middle";
-    //     // label.fontSize = 40;
-    // }, [chartRef])
+    const trackstyle = { strokeWidth: props.strokewidth - 10 };
+    const indicatorstyle = { strokeWidth: props.strokewidth, strokeDasharray: dashval }
+    const rotateval = 'rotate(-90 ' + halfsize + ',' + halfsize + ')';
 
     return (
-        <canvas id="myChart" ref={chartRef} height="250" className="my-chart" />
+        <svg width={props.size} height={props.size} className="donutchart">
+            <circle r={radius} cx={halfsize} cy={halfsize} transform={rotateval} style={trackstyle} className="donutchart-track" />
+            <circle r={radius} cx={halfsize} cy={halfsize} transform={rotateval} style={indicatorstyle} className="donutchart-indicator" />
+            <text className="donutchart-text" x={halfsize} y={halfsize} style={{ textAnchor: 'middle' }} >
+                <tspan className="donutchart-text-label" >Chiếm </tspan>
+                <tspan className="donutchart-text-percent">{props.value}</tspan>
+                <tspan className="donutchart-text-percent">%</tspan>
+                <tspan className="donutchart-text-label" x={halfsize} y={halfsize + 10}>số tiền trả</tspan>
+            </text>
+        </svg>
+    );
+}
+DonutChart.prototype = {
+    value: PropTypes.number,        // value the chart should show
+    valuelabel: PropTypes.string,   // label for the chart
+    size: PropTypes.number,         // diameter of chart
+    strokewidth: PropTypes.number   // width of chart line
+}
+const ChartDonutText = props => {
+    console.log(props.data);
+    return (
+        <DonutChart value={99} size={166} strokewidth={26} />
     )
+
 }
 export default ChartDonutText

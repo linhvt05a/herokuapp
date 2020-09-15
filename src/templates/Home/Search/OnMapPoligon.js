@@ -113,7 +113,7 @@ const OnMapPoligon = props => {
                         {active.showhide ? <MapPoligon data={searchList} zoom={6} /> : ''}
                         {active.search || active.position ? <MapPoligon data={searchList} zoom={6} /> : ''}
                         <span>
-                            <i class={`fas map_search--btn_exit ${active.search ? "fa-times" : "fa-search"}`} onClick={e => onHideSearch(e.target)} style={{ right: "auto", padding: "15px 20px", cursor: "pointer" }}></i>
+                            <i className={`fas map_search--btn_exit ${active.search ? "fa-times" : "fa-search"}`} onClick={e => onHideSearch(e.target)} style={{ right: "auto", padding: "15px 20px", cursor: "pointer" }}></i>
                         </span>
                     </div>
                 </div>

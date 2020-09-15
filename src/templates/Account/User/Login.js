@@ -9,7 +9,9 @@ const Login = (props) => {
     let { showTap, success } = props;
     const [formInfo] = Form.useForm();
     const dispatch = useDispatch();
-
+    const [error, setError] = useState()
+    let dataLogin = useSelector(state => state.accountReducer);
+    let { login } = dataLogin;
     const validatorInfo = {
         username: {
             form: [
@@ -34,14 +36,26 @@ const Login = (props) => {
             username: 'uyen',
             password: '1234',
         });
-
     }, [])
+    useEffect(() => {
+        if (login.success == false) {
+            if (login.error) {
+                setError(login.error)
+            }
+            else {
+                setError()
+            }
+        }
+        else {
+            if (!error) {
+                setError()
+            }
+        }
+    }, [login])
     const onSubmitLogin = value => {
         console.log(value);
         // dispatch(accountAction.loadLogin({ username: "customer@minerva.vn", password: "123" }));
         dispatch(accountAction.loadLogin({ username: value.username, password: value.password }))
-
-
     }
 
     return (
@@ -50,12 +64,14 @@ const Login = (props) => {
                 form={formInfo}
                 onFinish={onSubmitLogin}
                 name="form-login">
+                {/* {error && <span className=" color_e94c4c">{error}</span>} */}
                 <Form.Item className="form-group" name="username" rules={validatorInfo.username.form}>
                     <Input placeholder="Username" type="text" className="form-control" />
                 </Form.Item>
                 <Form.Item className="form-group" name="password" rules={validatorInfo.password.form}>
                     <Input.Password placeholder="Password" type="password" className="form-control" style={{ padding: "0 14px" }} />
                 </Form.Item>
+                {error && <div className=" color_e94c4c mb-3">{error}</div>}
                 <Form.Item shouldUpdate className="text-center submit">
                     {() => {
                         return (
