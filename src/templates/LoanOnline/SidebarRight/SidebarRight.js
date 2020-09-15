@@ -1,5 +1,6 @@
 import React from 'react'
 import { convertFloatToString } from '../../../functions/Utils';
+import { ChartDonutText } from "../Layout"
 
 export const SidebarRight = props => {
     let { data } = props;
@@ -13,7 +14,8 @@ export const SidebarRight = props => {
                     <span className="number">732.083.313</span>
                 </div>
                 <div className="borrow__calculator--result">
-                    <div className="graph_null">No data</div>
+                    <ChartDonutText />
+                    {/* <div className="graph_null">No data</div> */}
                     <div id="graph01" className="graph" />
                     <div className="details">
                         <div className="details__01">

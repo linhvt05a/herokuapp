@@ -31,8 +31,8 @@ const Login = (props) => {
 
     useEffect(() => {
         formInfo.setFieldsValue({
-            username: 'customer@minerva.vn',
-            password: '123',
+            username: 'uyen',
+            password: '1234',
         });
 
     }, [])
@@ -41,12 +41,12 @@ const Login = (props) => {
         // dispatch(accountAction.loadLogin({ username: "customer@minerva.vn", password: "123" }));
         dispatch(accountAction.loadLogin({ username: value.username, password: value.password }))
 
-        
+
     }
 
     return (
         <div className="form form_signInUp">
-            <Form noValidate
+            <Form
                 form={formInfo}
                 onFinish={onSubmitLogin}
                 name="form-login">

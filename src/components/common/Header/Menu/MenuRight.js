@@ -18,7 +18,7 @@ const MenuRight = (props) => {
     const loginData = localStorage.getItem('user')
     const newArray = [];
     useEffect(() => {
-        dispatch(accountAction.loadLogin({}))
+        // dispatch(accountAction.loadLogin({}))
 
         if (loginData && loginData.user_id !== null) {
             dispatch(productAction.productFavoriteList({ page: 1, limit: 5 }));
