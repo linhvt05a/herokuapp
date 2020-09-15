@@ -20,8 +20,6 @@ const ProductList = (props) => {
   const productIncentiveSuccess = productIncentive.productIncentive.success
   const productListIncentive = productIncentiveSuccess ? productIncentive.productIncentive.detail : null;
 
-  const login = useSelector(state => state.accountReducer)
-  const isLoginSuccess = login.login.success
   const loginData = localStorage.getItem('user')
   const [localData,setLocalData] = useState([])
   const newArray = [];
@@ -62,14 +60,20 @@ function onPageChange (value) {
   dispatch(productAction.productFavoriteList({page: value, limit: 2}))
 }
   const [showSignInModal, setShowSignIn] = useState(false)
-  console.log(localData)
+ 
   return (
     <div className="save_product bg_grey">
       <div className="container container-sm container-md">
         <div className="striking_apartment label_filter">
           <CardHeader label="List of products" />
           <div className="row">
-            <ProductContent data={productList} loginData={loginData} productLocal = {localData} limit ={10} total_page={total_page} total_record={total_record} page={page} onPageChange ={onPageChange}/>
+            <ProductContent 
+              data={productList} 
+              loginData={loginData} 
+              productLocal = {localData} 
+              limit ={10} total_page={total_page} 
+              total_record={total_record} page={page} 
+              onPageChange ={onPageChange}/>
             <ProductRightBar 
                 data ={productListIncentive} 
                 showSignInModal={()=>setShowSignIn(true)}

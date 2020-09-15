@@ -26,27 +26,22 @@ const ProductGrids = (props) => {
 const ProductRow = (props) =>{
     const{data} = props
     const[is_favorite, setIs_favorite] = useState(false)
-
     const saveToStorage = () =>{
         setIs_favorite(!is_favorite)
-                if(!is_favorite){
-                  var favorite = JSON.parse(sessionStorage.getItem('isFavor'))
+                  var favorite = JSON.parse(sessionStorage.getItem('favor'))
+                  for (var index = 0; index < favorite.length; index++) {
+                       if(favorite[index].product_id == data.product_id){
+                          favorite[index].is_favorite = is_favorite
+                          console.log(favorite)
+                       }
+                  }
                 if (!favorite) {
                   favorite = [];
               }
-              var index = favorite.indexOf(function (favorItem) {
-                return favorItem.product_id == data.product_id;
-            });
-            if(index !== -1){
-              
-            }else {
-              favorite.push({is_favorite:is_favorite, product_id:data.product_id})
-              sessionStorage.setItem('isFavor', JSON.stringify(favorite))
-              
-            }
-        }else {
-          
-        }
+            //   var index = favorite.indexOf(function (favorItem) {
+            //     return favorItem.product_id == data.product_id;
+            // });
+       
     
     }
     const saveToOder = (product_id) =>{

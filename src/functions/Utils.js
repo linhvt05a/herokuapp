@@ -81,7 +81,7 @@ function convertDateDDMMYYYY(date) {
 
 function convertDateYYYYMMDD(date) {
     try {
-        return moment(date, 'YYYY_MM_DD').format('yyyy-MM-dd')
+        return moment(date, 'DD-MM-YYYY').format('YYYY-MM-DD')
     } catch (e) {
         return date
     }
