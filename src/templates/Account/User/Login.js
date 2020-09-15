@@ -31,8 +31,8 @@ const Login = (props) => {
 
     useEffect(() => {
         formInfo.setFieldsValue({
-            username: 'customer@minerva.vn',
-            password: '123',
+            username: 'uyen',
+            password: '1234',
         });
 
     }, [])
