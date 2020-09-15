@@ -1,7 +1,6 @@
 //libs
-import React, { useState, useEffect, useRef, useLayoutEffect } from 'react';
+import React, { useState, useEffect, useRef, useLayoutEffect, Suspense } from 'react';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import configureStore from './store';
 import TopBanner from "./components/common/Header/TopBanner";
 import { MAIN, PATHS } from "./routes"
 import { Error404 } from './templates/ErrorPage';
@@ -31,17 +30,17 @@ const Container = () => {
     return (
         <I18nextProvider i18n={i18n}>
             <div className="page_container" style={{ paddingTop: dimensions.height }}>
-
-                <Switch >
-                    {MAIN.map((data, idx) => (
-                        <Route exact key={idx} path={data.path}>
-                            <TopBanner data={data} />
-                            <data.component />
-                        </Route>
-                    ))}
-                    <Route component={Error404} />
-                </Switch>
-
+                <Suspense fallback={<div>Loading...</div>}>
+                    <Switch >
+                        {MAIN.map((data, idx) => (
+                            <Route exact key={idx} path={data.path}>
+                                <TopBanner data={data} />
+                                <data.component />
+                            </Route>
+                        ))}
+                        <Route component={Error404} />
+                    </Switch>
+                </Suspense>
             </div>
         </I18nextProvider>
     );
