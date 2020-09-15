@@ -41,11 +41,20 @@ export default {
     heading_internal_utility: 'Tiện ích xung quanh',
     heading_banking_policy: 'Chính sách vay',
 
+    //button
+    button_end: "Kết thúc",
+    button_back: "Trở về",
+    button_save: "Lưu",
+    button_confirm: "Xác nhận",
+    button_delete: "Xóa",
+    button_edit: "Sửa",
+    button_delete_filter: "Xóa bộ lọc",
+
     text_from: 'Từ',
     text_to: 'Đến',
 
     //heading
-    heading_policy_advice: 'Policy Advice',
+    heading_policy_advice: 'Chính sách cho vay',
 
     // send contact
     contact: "Liên lạc",

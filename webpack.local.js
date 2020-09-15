@@ -21,6 +21,7 @@ module.exports = merge(common, {
         port: env.MODE_ENV.port,
         hot: env.MODE_ENV.hot,
         host: env.MODE_ENV.host,
-        liveReload: env.MODE_ENV.liveReload
+        liveReload: env.MODE_ENV.liveReload,
+        historyApiFallback: true
     }
 });
