@@ -11,6 +11,8 @@ import { newsAction } from "../../store/action/index";
 import {CommonFilter} from '../News/index'
 import moment from 'moment';
 import CardNoData from '../../components/common/CardNoData'
+import { convertDateShow } from "../../functions/Utils";
+
 const defaultValue = [{value:'', label:'Categories'}]
 
 const News = (props) => {
@@ -22,11 +24,12 @@ const News = (props) => {
     const[dateTo, setDateTo] = useState('')
     const [navigate, setNavigate] = useState({})
     const [catesId, setId] = useState('')
+    
     const news = useSelector(state => state.newsReducer);
     const newsListSuccess = news.newsList.success
     const newsList = newsListSuccess ? news.newsList.detail : null;
     const newRecord = newsListSuccess ? news.newsList : null
-
+    
     const newsCates = useSelector(state => state.newsReducer);
     const newsCateSuccess = newsCates.newsCategories.success
     const newsCategories = newsCateSuccess ? newsCates.newsCategories.detail : null;
@@ -40,7 +43,8 @@ const News = (props) => {
     const createData = (value, label) => {
         return { value, label }
     }
-
+   
+    
     useEffect(() => {
         if (newsCategories && newsCategories.length > 0) {
             let newData = [];
@@ -51,21 +55,34 @@ const News = (props) => {
         }
     }, [newsCategories]);
    
-    useEffect(() => {
-       
-        if(location.state && location.state !== null){
-            const cateID = location.state.paramsSearch
-            const nameSearch = location.state.titleNews
-            const dateTo = location.state.dateTo
+    useEffect(()=>{
+        if(location.state && location.state.category_id !== null){
             const category_id = location.state.category_id
-            setId(category_id)
-            const dateFrom = location.state.dateFrom
-            dispatch(newsAction.LoadNewsList({cateID, nameSearch,dateFrom, dateTo, category_id}))
-        }else{
-            dispatch(newsAction.LoadNewsList({}))
+            dispatch(newsAction.LoadNewsList({category_id}))
         }
-       
+    }, [])
+    useEffect(() => {
         dispatch(newsAction.newsCategories({}))
+        console.log(location.state)
+        if(
+            location.state && location.state.fromDate !== null || 
+            location.state && location.state.toDate !== null  ||
+            location.state && location.state.paramsSearch !== null ||
+            location.state && location.state.titleNews !== "" ||
+            location.state && location.state.category_id !== null
+            ){
+           
+            const fromDate = location.state.fromDate
+            const toDate = location.state.toDate
+            const paramsSearch = location.state.paramsSearch
+            const titleNews = location.state.titleNews
+            const category_id = location.state.category_id
+            dispatch(newsAction.LoadNewsList({cateID: paramsSearch,titleNews: titleNews, dateFrom: fromDate, dateTo: toDate, category_id}))
+        }else {
+            console.log(null)
+            dispatch(newsAction.LoadNewsList({cateID,dateFrom, dateTo}))
+        }
+
     }, []);
 
     const onPageChange = (value) =>{
@@ -168,7 +185,7 @@ const RowNews = (props) => {
                                 {data.news_title}
                             </Link>
                             <div className="times">
-                                Ngày đăng : {data.from_date}
+                                Ngày đăng : { convertDateShow(data.from_date)}
                             </div>
                             <p className="contain">
                                 {data.description}

@@ -12,7 +12,7 @@ module.exports = {
 		host: 'localhost',
 		port: 3001,
 
-		//server
+		// server
 		// show_log:false,
 		// hot:false,
 		// liveReload:false,

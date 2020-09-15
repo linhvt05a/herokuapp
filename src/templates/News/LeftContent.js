@@ -26,7 +26,7 @@ const LeftContent = (props) => {
           <div className="news_connect--time">
             <div className="title">
               <i className="far fa-clock" /> 
-                <Trans>Create at</Trans>: {convertDate(listDetail?.from_date)}
+                <Trans> Create at</Trans>: {convertDate(listDetail?.from_date)}
             </div>
           </div>
           <SocialNetwork social={social} />

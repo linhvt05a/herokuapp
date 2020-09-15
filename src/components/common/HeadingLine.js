@@ -6,7 +6,7 @@ import { PROJECT_SALE_GROUP } from "../../contant";
 
 const HeadingLine = (props) => {
 
-    const { headerBodyClassName, labelHeader, readmore, options, status, trans, link, onStatusClick, projectStatus, onChange } = props
+    const { headerBodyClassName, data, labelHeader, readmore, options, status, trans, link, onStatusClick, projectStatus, onChange } = props
     const { Option } = Select
 
     return (
@@ -30,7 +30,7 @@ const HeadingLine = (props) => {
                             placeholder="Select--"
                             className="form-control"
                             onChange={onChange}
-                            children={PROJECT_SALE_GROUP.length > 0 && PROJECT_SALE_GROUP.map((e, key) => {
+                            children={data.length > 0 && data.map((e, key) => {
                                 return <Option name={name} key={key} value={e.value}>{trans ? <Trans>{e.label}</Trans> : e.label}</Option>;
                             })}
                         />

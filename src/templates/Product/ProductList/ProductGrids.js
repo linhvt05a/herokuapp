@@ -1,11 +1,13 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import { Trans } from 'react-i18next';
 import { IMAGE_URL } from "../../../contant";
 import {Link} from 'react-router-dom'
 import {ProductNodata} from './index'
+import {formatCurrency} from '../../../functions/Utils'
 
 const ProductGrids = (props) => {
     const{data, productLocal, loginData} = props
+  
     return (
         <div className="striking_apartment--content">
         {loginData && loginData.user_id !== null ? 
@@ -23,8 +25,24 @@ const ProductGrids = (props) => {
 
 const ProductRow = (props) =>{
     const{data} = props
-    const saveToStorage = (product_id) =>{
-      localStorage.setItem('product_id', product_id)
+    const[is_favorite, setIs_favorite] = useState(false)
+    const saveToStorage = () =>{
+        setIs_favorite(!is_favorite)
+                  var favorite = JSON.parse(sessionStorage.getItem('favor'))
+                  for (var index = 0; index < favorite.length; index++) {
+                       if(favorite[index].product_id == data.product_id){
+                          favorite[index].is_favorite = is_favorite
+                          console.log(favorite)
+                       }
+                  }
+                if (!favorite) {
+                  favorite = [];
+              }
+            //   var index = favorite.indexOf(function (favorItem) {
+            //     return favorItem.product_id == data.product_id;
+            // });
+       
+    
     }
     const saveToOder = (product_id) =>{
       localStorage.setItem('product', product_id)
@@ -33,7 +51,7 @@ const ProductRow = (props) =>{
         <div className="col-12 col-sm-12 col-md-6">
         <div className="item">
           <figure className="image">
-            <i className="liked active fas fa-heart" onClick={()=>saveToStorage(data.product_id)}/>
+            <i className={!is_favorite && data.is_favorite === true ? "liked active fas fa-heart" : "liked fas fa-heart"} onClick={saveToStorage}/>
             <img
               src={data.product_avatar_url !="" ? data.product_avatar_url : IMAGE_URL +  "/images/no_data.png"}
               
@@ -44,7 +62,7 @@ const ProductRow = (props) =>{
               <a href="#" className="name">
                 {data.product_name}
               </a>
-              <p className="price mb-0">{data.prices} tỷ</p>
+              <p className="price mb-0">{formatCurrency(data.product_estimate_price)} tỷ</p>
             </div>
             <p className="address mb-0">
                 <Trans>Listed price (VND)</Trans>

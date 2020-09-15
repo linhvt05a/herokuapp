@@ -64,21 +64,26 @@ const ProductList = (props) => {
     dispatch(productAction.productFavoriteList({ page: value, limit: 2 }))
   }
   const [showSignInModal, setShowSignIn] = useState(false)
-
   return (
     <div className="save_product bg_grey">
       <div className="container container-sm container-md">
         <div className="striking_apartment label_filter">
           <CardHeader label="List of products" />
           <div className="row">
-            <ProductContent data={productList} loginData={loginData} productLocal={localData} limit={10} total_page={total_page} total_record={total_record} page={page} onPageChange={onPageChange} />
-            <ProductRightBar
-              data={productListIncentive}
-              showSignInModal={() => setShowSignIn(true)}
-              handleSignUp={handleSignUp}
-              handleChange={handleChangeSignup}
-              values={signupValues}
-              errors={signupErrors}
+            <ProductContent 
+              data={productList} 
+              loginData={loginData} 
+              productLocal = {localData} 
+              limit ={10} total_page={total_page} 
+              total_record={total_record} page={page} 
+              onPageChange ={onPageChange}/>
+            <ProductRightBar 
+                data ={productListIncentive} 
+                showSignInModal={()=>setShowSignIn(true)}
+                handleSignUp={handleSignUp} 
+                handleChange={handleChangeSignup} 
+                values= {signupValues} 
+                errors={signupErrors}
             />
           </div>
         </div>

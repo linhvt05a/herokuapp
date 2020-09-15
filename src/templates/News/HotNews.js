@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { Trans } from "react-i18next";
+import {convertDateShow} from '../../functions/Utils'
 
-const HotNews = (props) => {
+  const HotNews = (props) => {
   const{data} = props
   return (
     <div className="col-sm-12 col-md-12 col-lg-12 col-xl-12 " id="hotnews">
@@ -26,7 +27,7 @@ const RowNews = (props) =>{
       <a className="name" href="#">
        {data.news_title}
       </a>
-      <div className="time">Ngày đăng : {data.from_date}</div>
+      <div className="time"><Trans> Create at</Trans> : {convertDateShow(data.from_date)}</div>
     </div>
   </div>
   )

@@ -9,7 +9,7 @@ const RightContent = (props) => {
     const{data, paramsSearch,dateFrom, dateTo, titleNews,newsCategories, handleFilter,cateID, handleChange, changeDateTo, changeDateFrom, changeSelect} = props
     const[projectSelectList,setProjectList] = useState(null)
     const dispatch = useDispatch();
-    const [navigate, setNavigate] = useState({})
+    const [navigate, setNavigate] = useState('')
     const createData = (value, label) => {
         return { value, label }
     }
