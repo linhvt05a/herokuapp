@@ -1,10 +1,11 @@
 import { ToUTF8, FromUTF8 } from './utf.js'
+import { LOCALSTORAGE_GET } from '../contant'
 var pako = require('pako');
 
 const CONTENT_TYPE = 'application/json; charset=utf-8';
 const CONTENT_MULITPART = 'multipart/form-data';
 const MNV_ENCODE = 0;
-const MNV_LANGUAGE = localStorage.getItem('language');
+const MNV_LANGUAGE = LOCALSTORAGE_GET.LANG;
 
 function Encode(data) {
     var text = JSON.stringify(data);
@@ -79,7 +80,7 @@ function getHeader(token, content_type = CONTENT_TYPE, auth_type = 'Bearer') {
 
 function authHeader() {
     // return authorization header with basic auth credentials
-    let user = JSON.parse(localStorage.getItem('user'));
+    let user = LOCALSTORAGE_GET.USER;
     if (user && user.authdata) {
         return { 'Authorization': 'Basic ' + user.authdata };
     } else {

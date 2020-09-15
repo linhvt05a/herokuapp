@@ -3,14 +3,14 @@ import { Link } from "react-router-dom";
 import { Trans } from "react-i18next";
 import i18n from '../../../../i18n';
 
-import { IMAGE_URL } from '../../../../contant'
+import { IMAGE_URL,LOCALSTORAGE_GET } from '../../../../contant'
 
 
 const NavRight = (props) => {
     const [inHover, setHover] = useState(false);
     const [show, setShowAdvisory] = useState(false);
 
-    const langCurrent = localStorage.getItem('language')
+    const langCurrent = LOCALSTORAGE_GET.LANG
     // console.log(langCurrent);
 
     const changeLanguage = (lng) => {

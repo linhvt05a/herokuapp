@@ -5,12 +5,13 @@ import { Trans } from "react-i18next";
 import { Link } from "react-router-dom";
 import { ListSelect, InputRange, ListCheckbox } from "./index";
 import { MapPoligon } from "../../../components/common/Map/index";
+import { LOCALSTORAGE_GET } from "../../../contant";
 
 const OnMapPoligon = props => {
     let { active, onHideSearch } = props;
     const dispatch = useDispatch();
     useEffect(() => {
-        dispatch(commonAction.loadProvinceList({ lang: "vi" }))
+        dispatch(commonAction.loadProvinceList({ lang: LOCALSTORAGE_GET.LANG }))
     }, [])
     const province = useSelector(state => state.commonReducer);
     const isGetprovinceListSuccess = province.provinceList.success;

@@ -1,10 +1,10 @@
 import React from 'react';
 //components
 import Container from './Container';
-import Header from "./components/common/Header/Header";
-import Footer from "./components/common/Footer/Footer";
-import Notification from "./components/common/Notification";
-import Social from "./components/common/Social_fixed";
+import Header from "../components/common/Header/Header";
+import Footer from "../components/common/Footer/Footer";
+import Notification from "../components/common/Notification";
+import Social from "../components/common/Social_fixed";
 import { withTranslation } from 'react-i18next';
 
 const dataNotifications = [

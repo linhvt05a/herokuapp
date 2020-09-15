@@ -136,6 +136,10 @@ const CREDIT_CARD_TYPE = [
 ]
 
 
+const LOCALSTORAGE_GET = {
+    LANG: localStorage.getItem('language'),
+    USER: JSON.parse(localStorage.getItem('user')),
+}
 
 
 module.exports = {
