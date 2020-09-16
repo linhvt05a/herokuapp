@@ -113,12 +113,12 @@ const ProductButton = (props) =>{
   const {saveToOder} = props
     return(
         <div className="actions">
-            <Link  className="btn btn_purple" onClick={saveToOder}>
+            <button className="btn btn_purple" onClick={saveToOder}>
                 <Trans>ADD TO CART</Trans>
-            </Link>
-            <Link href="#" className="btn btn_white">
+            </button>
+            <button className="btn btn_white">
                 <Trans>SEE DETAIL</Trans>
-            </Link>
+            </button>
       </div>
     )
 }
