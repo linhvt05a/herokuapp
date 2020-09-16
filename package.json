@@ -48,6 +48,7 @@
     "client": "webpack-dev-server --config webpack.local.js --open --inline",
     "server": "node server/index.js",
     "clean-dist": "rmdir /s /q dist",
+    "clean-builddev": "rmdir /s /q build-dev",
     "clean-nm": "rmdir /s /q node_modules",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

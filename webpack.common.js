@@ -6,21 +6,8 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 var path = require('path');
 var env = require("./config/env");
 
-var domain =  env.MODE_ENV.host + ':' + (env.MODE_ENV.port ? env.MODE_ENV.port : 0000)
-
 module.exports = {
-    entry: [
-        'webpack-dev-server/client?http://'+domain+'',
-        //bundle the client for webpack dev server
-        //and connect to the provided endpoint
-  
-        'webpack/hot/only-dev-server',
-        //bundle the client for hot reloading
-        //only- means to only hot reload for successful updates
-        './src/index.js',
-    ],
-
-    // entry:'./src/index.js',
+    entry: ['./src/index.js',],
     module: {
         rules: [
             {
