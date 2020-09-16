@@ -1,12 +1,9 @@
 
 
-import React, { Component, useRef, useState } from 'react'
-import { Trans } from 'react-i18next';
-import { useSelector } from 'react-redux';
-
+import React, { useState } from 'react'
 
 const CardCollapse = (props) => {
-    const [active, setActive] = useState(false);
+    const [active, setActive] = useState(true);
 
     return (
         <div className="sales_collapse">

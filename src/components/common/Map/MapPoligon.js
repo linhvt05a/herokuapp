@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom'
 import { Map, Marker, Popup, Tooltip, TileLayer } from 'react-leaflet'
 import ReactLeafletGoogleLayer from 'react-leaflet-google-layer';
-import "leaflet/dist/leaflet.css";
-
 import L from 'leaflet';
 import { MAP_KEYS } from '../../../contant';
 
