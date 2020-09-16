@@ -27,6 +27,8 @@ module.exports = merge(common, {
         hot: env.MODE_ENV.local.hot,
         host: env.MODE_ENV.local.host,
         liveReload: env.MODE_ENV.local.liveReload,
-        historyApiFallback: true
+        historyApiFallback: true,
+        sockHost:env.MODE_ENV.sockHost,
+        sockPort:env.MODE_ENV.sockPort,
     }
 });
