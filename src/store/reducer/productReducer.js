@@ -9,7 +9,8 @@ const initialState = {
   productIncentive: [],
   productSignup: [],
   isFetching: false,
-  productFavoriteList: {}
+  productFavoriteList: {},
+  productMark : {}
 }
 
 export default (state = initialState, action) => {
@@ -65,6 +66,13 @@ export default (state = initialState, action) => {
         productSignup: action.response,
         isFetching: true,
       };
+
+      case productAction.PRODUCT_MARK_LIST_SUCCESS:
+        return {
+          ...state,
+          productMark: action.response,
+          isFetching: true,
+        };
     // end linh add
     default:
       return state;

@@ -96,6 +96,21 @@ export const productService = {
         const params = { project_id :13,area_id: 1,block_id : 2};
         const url = api.getUrl(api.PRODUCT_INCENTIVE, params);
         return api.handleRequest(url, requestOptions); 
+    },
+
+    productMark(payload){
+        const {newPost} = payload.params
+        const body = {list_product: newPost}
+        console.log(body)
+        const requestOptions = {
+            method: 'POST',
+            headers: api.getHeader(TOKEN),
+            body: body
+        };
+
+        
+        const url = api.getUrl(api.PRODUCT_MARKER);
+        return api.handleRequest(url, requestOptions); 
     }
     //END SERVICE LINH
     
