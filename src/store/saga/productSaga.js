@@ -3,6 +3,17 @@ import { put, takeLatest, all, fork } from "redux-saga/effects";
 import { productService } from "../../services/index";
 import { productAction } from '../action/index';
 
+
+export function* productMark(payload) {
+    console.log(payload)
+    try {
+        const response = yield productService.productMark(payload);
+        console.log(response)
+        response.success ? yield put({ type: productAction.PRODUCT_MARK_LIST_SUCCESS, response }) : yield put({ type: productAction.PRODUCT_MARK_LIST_FAILURE, response });
+    } catch (err) {
+        yield put({ type: productAction.PRODUCT_MARK_LIST_FAILURE, err });
+    }
+}
 export function* hotProductList(payload) {
     let { token, page, limit, project_id, area_id, block_id, project_status_id, province_id, district_id, list_product_type_id, number_of_bedroom,
         acreage_from, acreage_to, price_from, price_to, direction_id } = payload.params
@@ -130,6 +141,10 @@ export function* productDetailListlWatcher() {
     yield takeLatest(productAction.PRODUCT_DETAIL_LIST_REQUEST, productDetailList);
 }
 
+export function* productMarkWatcher() {
+    yield takeLatest(productAction.PRODUCT_MARK_LIST_REQUEST, productMark);
+}
+
 export default function* rootSaga() {
     yield all([
         fork(hotProductListWatcher),
@@ -139,6 +154,7 @@ export default function* rootSaga() {
         fork(productFavoriteListWatcher),
         fork(productIncentiveListWatcher),
         fork(productSignupWatcher),
-        fork(productDetailListlWatcher)
+        fork(productDetailListlWatcher),
+        fork(productMarkWatcher) 
     ]);
 }
