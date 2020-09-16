@@ -29,7 +29,7 @@ const ProductList = (props) => {
   const newArray = [];
 
   useEffect(() => {
-    dispatch(accountAction.loadLogin({}))
+    // dispatch(accountAction.loadLogin({}))
 
     if (loginData && loginData.user_id !== null) {
       dispatch(productAction.productFavoriteList({ page: 1, limit: 5 }));
