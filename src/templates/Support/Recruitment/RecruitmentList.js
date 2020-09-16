@@ -1,357 +1,45 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
 import HeadingLine from '../../../components/common/HeadingLine'
-import TopBanner from "../../../components/common/Header/TopBanner";
+import Pagination from '../../../components/common/Pagination'
+import {RecruitmentItem} from './index'
+import {LoadDataPaging} from '../../../functions/Utils'
+import {RECRUITMENT_STATUS} from '../../../contant'
+import { useDispatch, useSelector } from "react-redux";
+import { recruitmentAction } from "../../../store/action/index";
 
-class RecruitmentList extends React.Component {
-    render() {
-        return (
-            <div className="newsPage news">
-                {/* block over  */}
-                <div className="overview">
-                    <div className="container container-sm container-md">
-                        <h2 className="overview_heading pb-0">
-                            <span className="sub overview_heading pb-0 mt-0">
-                                Chúng tôi tìm kiếm những cá nhân chia sẻ giá trị
-                                của chúng tôi như một phương tiện củng cố và
-                                tiếp tục triết lý thành công của công ty. Chúng
-                                tôi đang tìm kiếm những người năng động, tích
-                                cực chuyên về:
-                            </span>
-                        </h2>
-                        <div className="overview_parts">
-                            <div className="item">
-                                <p className="icon">
-                                    <i className="fas fa-money-bill-wave" />
-                                </p>
-                                <p className="title">Kinh doanh</p>
-                            </div>
-                            <div className="item">
-                                <p className="icon">
-                                    <i className="fas fa-wrench" />
-                                </p>
-                                <p className="title">Kỹ thuật</p>
-                            </div>
-                            <div className="item">
-                                <p className="icon">
-                                    <i className="fas fa-laptop-code" />
-                                </p>
-                                <p className="title">Công nghệ</p>
-                            </div>
-                            <div className="item">
-                                <p className="icon">
-                                    <i className="fas fa-user-cog" />
-                                </p>
-                                <p className="title">Công nghệ</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {/* end block over  */}
-                {/* striking apartment  */}
-                <div className="recruitment label_filter bg_grey">
-                    <div className="container container-sm container-md">
-                        <HeadingLine headerBodyClassName="label_filter--heading" labelHeader="Vị trí đang tuyển" options trans/>
-                        <div className="recruitment--content">
-                            <div className="row">
-                                <div className="col-12 col-sm-12 col-md-6 col-lg-4 d-flex flex-column">
-                                    <div className="item">
-                                        <div className="information">
-                                            <Link
-                                                className="position"
-                                                to="./Recruitment-detail.html"
-                                            >
-                                                Nhân viên kinh doanh
-                                            </Link>
-                                            <div className="group group_sales">
-                                                Nhóm kinh doanh
-                                            </div>
-                                            <ul className="details">
-                                                <li>
-                                                    <i className="icon fas fa-user-alt" />
-                                                    <span className="text">
-                                                        Số lượng : 1 (người)
-                                                    </span>
-                                                </li>
-                                                <li>
-                                                    <i className="icon fas fa-map-marker-alt" />
-                                                    <span className="text">
-                                                        Nơi làm việc : Tp. Hồ
-                                                        Chí Minh
-                                                    </span>
-                                                </li>
-                                                <li>
-                                                    <i className="icon fas fa-clock" />
-                                                    <span className="text">
-                                                        Loại : toàn thời gian
-                                                    </span>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-12 col-sm-12 col-md-6 col-lg-4 d-flex flex-column">
-                                    <div className="item">
-                                        <div className="information">
-                                            <Link
-                                                className="position"
-                                                to="./Recruitment-detail.html"
-                                            >
-                                                Nhân viên kinh doanh
-                                            </Link>
-                                            <div className="group group_technical ">
-                                                Nhóm kỹ thuật
-                                            </div>
-                                            <ul className="details">
-                                                <li>
-                                                    <i className="icon fas fa-user-alt" />
-                                                    <span className="text">
-                                                        Số lượng : 1 (người)
-                                                    </span>
-                                                </li>
-                                                <li>
-                                                    <i className="icon fas fa-map-marker-alt" />
-                                                    <span className="text">
-                                                        Nơi làm việc : Tp. Hồ
-                                                        Chí Minh
-                                                    </span>
-                                                </li>
-                                                <li>
-                                                    <i className="icon fas fa-clock" />
-                                                    <span className="text">
-                                                        Loại : toàn thời gian
-                                                    </span>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-12 col-sm-12 col-md-6 col-lg-4 d-flex flex-column">
-                                    <div className="item">
-                                        <div className="information">
-                                            <Link
-                                                className="position"
-                                                to="./Recruitment-detail.html"
-                                            >
-                                                Nhân viên kinh doanh
-                                            </Link>
-                                            <div className="group group_lead">
-                                                Nhóm quản lý
-                                            </div>
-                                            <ul className="details">
-                                                <li>
-                                                    <i className="icon fas fa-user-alt" />
-                                                    <span className="text">
-                                                        Số lượng : 1 (người)
-                                                    </span>
-                                                </li>
-                                                <li>
-                                                    <i className="icon fas fa-map-marker-alt" />
-                                                    <span className="text">
-                                                        Nơi làm việc : Tp. Hồ
-                                                        Chí Minh
-                                                    </span>
-                                                </li>
-                                                <li>
-                                                    <i className="icon fas fa-clock" />
-                                                    <span className="text">
-                                                        Loại : toàn thời gian
-                                                    </span>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-12 col-sm-12 col-md-6 col-lg-4 d-flex flex-column">
-                                    <div className="item">
-                                        <div className="information">
-                                            <Link
-                                                className="position"
-                                                to="./Recruitment-detail.html"
-                                            >
-                                                Nhân viên kinh doanh
-                                            </Link>
-                                            <div className="group group_sales">
-                                                Nhóm kinh doanh
-                                            </div>
-                                            <ul className="details">
-                                                <li>
-                                                    <i className="icon fas fa-user-alt" />
-                                                    <span className="text">
-                                                        Số lượng : 1 (người)
-                                                    </span>
-                                                </li>
-                                                <li>
-                                                    <i className="icon fas fa-map-marker-alt" />
-                                                    <span className="text">
-                                                        Nơi làm việc : Tp. Hồ
-                                                        Chí Minh
-                                                    </span>
-                                                </li>
-                                                <li>
-                                                    <i className="icon fas fa-clock" />
-                                                    <span className="text">
-                                                        Loại : toàn thời gian
-                                                    </span>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-12 col-sm-12 col-md-6 col-lg-4 d-flex flex-column">
-                                    <div className="item">
-                                        <div className="information">
-                                            <Link
-                                                className="position"
-                                                to="./Recruitment-detail.html"
-                                            >
-                                                Nhân viên kinh doanh
-                                            </Link>
-                                            <div className="group group_sales">
-                                                Nhóm kinh doanh
-                                            </div>
-                                            <ul className="details">
-                                                <li>
-                                                    <i className="icon fas fa-user-alt" />
-                                                    <span className="text">
-                                                        Số lượng : 1 (người)
-                                                    </span>
-                                                </li>
-                                                <li>
-                                                    <i className="icon fas fa-map-marker-alt" />
-                                                    <span className="text">
-                                                        Nơi làm việc : Tp. Hồ
-                                                        Chí Minh
-                                                    </span>
-                                                </li>
-                                                <li>
-                                                    <i className="icon fas fa-clock" />
-                                                    <span className="text">
-                                                        Loại : toàn thời gian
-                                                    </span>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-12 col-sm-12 col-md-6 col-lg-4 d-flex flex-column">
-                                    <div className="item">
-                                        <div className="information">
-                                            <Link
-                                                className="position"
-                                                to="./Recruitment-detail.html"
-                                            >
-                                                Nhân viên kinh doanh
-                                            </Link>
-                                            <div className="group group_sales">
-                                                Nhóm kinh doanh
-                                            </div>
-                                            <ul className="details">
-                                                <li>
-                                                    <i className="icon fas fa-user-alt" />
-                                                    <span className="text">
-                                                        Số lượng : 1 (người)
-                                                    </span>
-                                                </li>
-                                                <li>
-                                                    <i className="icon fas fa-map-marker-alt" />
-                                                    <span className="text">
-                                                        Nơi làm việc : Tp. Hồ
-                                                        Chí Minh
-                                                    </span>
-                                                </li>
-                                                <li>
-                                                    <i className="icon fas fa-clock" />
-                                                    <span className="text">
-                                                        Loại : toàn thời gian
-                                                    </span>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-12 col-sm-12 col-md-6 col-lg-4 d-flex flex-column">
-                                    <div className="item">
-                                        <div className="information">
-                                            <Link
-                                                className="position"
-                                                to="./Recruitment-detail.html"
-                                            >
-                                                Nhân viên kinh doanh
-                                            </Link>
-                                            <div className="group group_sales">
-                                                Nhóm kinh doanh
-                                            </div>
-                                            <ul className="details">
-                                                <li>
-                                                    <i className="icon fas fa-user-alt" />
-                                                    <span className="text">
-                                                        Số lượng : 1 (người)
-                                                    </span>
-                                                </li>
-                                                <li>
-                                                    <i className="icon fas fa-map-marker-alt" />
-                                                    <span className="text">
-                                                        Nơi làm việc : Tp. Hồ
-                                                        Chí Minh
-                                                    </span>
-                                                </li>
-                                                <li>
-                                                    <i className="icon fas fa-clock" />
-                                                    <span className="text">
-                                                        Loại : toàn thời gian
-                                                    </span>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            {/*pagination*/}
-                            <ul className="pagination">
-                                <li className="page-item">
-                                    <Link className="page-link" to="#">
-                                        Đầu
-                                    </Link>
-                                </li>
-                                <li className="page-item">
-                                    <Link className="page-link" to="#">
-                                        <i className="fas fa-angle-double-left " />
-                                    </Link>
-                                </li>
-                                <li className="page-item">
-                                    <Link className="page-link" to="#">
-                                        1
-                                    </Link>
-                                </li>
-                                <li className="page-item">
-                                    <Link className="page-link active" to="#">
-                                        2
-                                    </Link>
-                                </li>
-                                <li className="page-item">
-                                    <Link className="page-link" to="#">
-                                        3
-                                    </Link>
-                                </li>
-                                <li className="page-item">
-                                    <Link className="page-link" to="#">
-                                        <i className="fas fa-angle-double-right " />
-                                    </Link>
-                                </li>
-                                <li className="page-item">
-                                    <Link className="page-link" to="#">
-                                        Cuối
-                                    </Link>
-                                </li>
-                            </ul>
-                            {/*end pagination*/}
-                        </div>
-                    </div>
-                </div>
-                {/* end striking apartment  */}
-            </div>
-        );
-    }
+const RecruitmentList = () =>{
+  const recruitment = useSelector(state => state.recruitmentReducer);
+  const recruitmentListSuccess = recruitment.recruitmentList.success
+  const recruitmentRecord = recruitmentListSuccess ? recruitment.recruitmentList : null
+  const recruitmentList = recruitmentListSuccess ? recruitment.recruitmentList.detail : null;
+
+  const total_page = recruitmentRecord && recruitmentRecord != null ? recruitmentRecord.total_page : null
+  const total_record = recruitmentRecord && recruitmentRecord != null ? recruitmentRecord.total_record: null
+  const page = recruitmentRecord && recruitmentRecord != null ? recruitmentRecord.page: null
+  const limit = 0
+
+  const dispatch = useDispatch();
+
+  const filterStatus = (recruitID) =>{
+    dispatch(recruitmentAction.recruitmentList({}))
+  }
+  const onPageChange = (value)=>{
+    dispatch(recruitmentAction.recruitmentList({page: value, limit: 3}))
+  }
+    useEffect(() => {
+        dispatch(recruitmentAction.recruitmentList({limit: 4}))
+    },[]);
+    return (
+        <div className="recruitment label_filter bg_grey">
+        <div className="container container-sm container-md">
+            <HeadingLine headerBodyClassName="label_filter--heading" labelHeader="recruitment_position" data={RECRUITMENT_STATUS} options= {[]} onChange={filterStatus} />
+          <div className="recruitment--content">
+            <RecruitmentItem data ={recruitmentList}/>
+            <Pagination data ={LoadDataPaging(total_record,page,total_page,limit)} onChange ={onPageChange}/>
+          </div>
+        </div>
+      </div>
+      
+    )
 }
-export default RecruitmentList;
+export default RecruitmentList

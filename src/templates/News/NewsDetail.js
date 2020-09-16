@@ -12,8 +12,7 @@ const NewsDetail = (props) => {
   const[cateID, setCateId] = useState('')
   const[dateFrom, setDateFrom] = useState('')
   const[dateTo, setDateTo] = useState('')
-  const[isFilter,setFilter] = useState(false)
-  const [dataSearch, setDataFilter] = useState('')
+
   const newsDetail = useSelector(state => state.newsReducer);
   const newsDetailSuccess = newsDetail.newsDetail.success
   const listDetail = newsDetailSuccess ? newsDetail.newsDetail.detail : null;
@@ -93,12 +92,12 @@ const changeDateTo = (value) =>{
 }
 
 function convertDateTo(value){
-  const date = moment(value).format('YYYY/MM/DD')
+  const date = moment(value).format('DD/MM/YYYY')
   setDateTo(date)
   return date
 }
 function convertDateFrom(value){
-  const date = moment(value).format('YYYY/MM/DD')
+  const date = moment(value).format('DD/MM/YYYY')
   setDateFrom(date)
   return date
 }

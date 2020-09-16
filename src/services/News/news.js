@@ -4,6 +4,7 @@ import { TOKEN } from '../../functions/Utils';
 export const newsService = {
   
     newsList(payload) {
+        console.log(payload)
         const {news_sort, nameSearch, cateID, dateFrom, dateTo, category_id, category_news_group} = payload.params
         const requestOptions = {
             method: 'GET',
@@ -11,11 +12,12 @@ export const newsService = {
         };
 
         const params = { 
-            news_sort, news_title:nameSearch ,
+            news_sort, 
+            news_title:nameSearch ,
             category_news_id: cateID ,
             from_date:dateFrom,
             to_date:dateTo, 
-            category_id: category_id , 
+            category_id, 
             category_news_group
         };
         const url = api.getUrl(api.NEWS_LIST, params);

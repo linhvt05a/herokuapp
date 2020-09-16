@@ -25,7 +25,16 @@ const ItemProduct = (props) => {
             if (index !== -1) {
                 
             } else {
-                favor.push(data);
+                favor.push({
+                    product_id: data.product_id,
+                    product_total_bathroom:data.product_total_bathroom,
+                    product_total_bedroom:data.product_total_bedroom, 
+                    product_estimate_price:data.product_estimate_price, 
+                    product_name: data.product_name, 
+                    product_acreage: data.product_acreage,
+                    is_favorite: true,
+                    product_avatar_url:data.product_avatar_url
+                });
                 sessionStorage.setItem('favor',JSON.stringify(favor)); 
             }
             

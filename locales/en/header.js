@@ -13,6 +13,7 @@ export default {
     header_menu_juridical : 'Juridical',
     header_menu_news : 'News',
     header_menu_contact : 'Contact',
+    header_menu_recruitment : 'Recruitment',
 
     // login
     login: "Login",

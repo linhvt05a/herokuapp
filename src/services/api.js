@@ -77,6 +77,8 @@ export default {
     NEWS_ADD_COMMENT: "/api/main_web/v1/news/comment/create/",
     NEWS_COMMENT_LIST: "api/main_web/v1/news/comment/",
 
+    RECRUITMENT_LIST:"",
+
     LEGAL_FORM: "",
 
     CONTACT_ADD: "/api/main_web/v1/counseling/add/",

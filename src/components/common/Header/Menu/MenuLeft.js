@@ -81,6 +81,14 @@ const MenuLeft = (props) => {
                             <Trans>header_menu_contact</Trans>
                         </NavLink>
                     </li>
+                    <li className="item-child">
+                        <NavLink activeClassName="active"
+                            className="item-child-link"
+                            to="/recruitment"
+                        >
+                            <Trans>header_menu_recruitment</Trans>
+                        </NavLink>
+                    </li>
                 </ul>
             </li>
             <li className="item header_register-mb d-block d-md-none hasChild">
@@ -118,6 +126,7 @@ const MenuLeft = (props) => {
                             <Trans>header_menu_contact</Trans>
                         </Link>
                     </li>
+                    
                 </ul>
             </li>
             <li className="item">

@@ -43,8 +43,8 @@ const HotProduct = lazy(() => import('./templates/Product/HotProduct'));
 const News = lazy(() => import('./templates/News/NewsList'));
 const NewsDetail = lazy(() => import('./templates/News/NewsDetail'));
 
-const RecruitmentList = lazy(() => import('./templates/Support/Recruitment/RecruitmentList'));
-const RecruitmentDetail = lazy(() => import('./templates/Support/Recruitment/RecruitmentDetail'));
+import Recruitment from "./templates/Support/Recruitment/Recruitment";
+import RecruitmentDetail from "./templates/Support/Recruitment/RecruitmentDetail";
 
 const TransactionLevel = lazy(() => import('./templates/TransactionLevel/TransactionLevel'));
 const ShoppingGuide = lazy(() => import('./templates/Support/ShopGuide/ShoppingGuide'));
@@ -189,7 +189,7 @@ const MAIN = [
     },
     {
         "path": "/recruitment",
-        "component": RecruitmentList,
+        "component": Recruitment,
         "banner_title": "recruitmentList_banner_title",
         "banner_url": recruitmentList_banner_url,
         "banner_show": true,

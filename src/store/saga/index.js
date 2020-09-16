@@ -10,6 +10,7 @@ import legalSaga from './legalSaga'
 import contactAddSaga from './contactAddSaga'
 import visitorSaga from './visitorSaga'
 import accountSaga from './accountSaga'
+import recruitmentSaga from './recruitmentSaga'
 function* allSaga() {
   yield all([
     examSaga(), projectSaga(), commonSaga(), productSaga(),
@@ -17,6 +18,7 @@ function* allSaga() {
     legalSaga(), contactAddSaga(),
     visitorSaga(),
     accountSaga(),
+    recruitmentSaga()
 
   ]);
 }
