@@ -99,8 +99,8 @@ export const productService = {
     },
 
     productMark(payload){
-        const {newPost} = payload.params
-        const body = {list_product: newPost}
+        const {postData} = payload.params
+        const body = {list_product: postData}
         console.log(body)
         const requestOptions = {
             method: 'POST',
