@@ -1,0 +1,16 @@
+.errorPage{
+    .image{
+        max-width: 300px;
+        margin: 0 auto;
+        @media (min-width:767px) {
+            max-width: 35vw;
+        }
+    }
+    .text{
+        font-size: 18px;
+        color:#bdc3dc;
+        @media (min-width:767px) {
+            font-size: 25px;
+        }
+    }
+}
