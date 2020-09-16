@@ -1,8 +1,9 @@
 import ItemProjectName from './ItemProjectName'
 import ItemProjectProduct from './ItemProjectProduct';
-import ItemProduct from "./ItemProduct"
+import ItemProduct from "./ItemProduct";
+import ItemProjectBorrow from "./ItemProjectBorrow"
 
 export {
     ItemProjectName, ItemProjectProduct,
-    ItemProduct
+    ItemProduct, ItemProjectBorrow
 }

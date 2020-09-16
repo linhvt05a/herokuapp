@@ -1,7 +1,7 @@
 import React from 'react';
 import { Trans } from 'react-i18next';
 import InputCheckboxViolet from '../../../components/base/Input/InputCheckboxViolet'
-import { ItemProjectName, ItemProjectProduct } from '../Item/index'
+import { ItemProjectName, ItemProjectProduct, ItemProjectBorrow } from '../Item/index'
 
 const CardCartProductList = (props) => {
     const { showPaymentProgressModal, showPromotionModal, setCheck, check, datas } = props

@@ -156,5 +156,6 @@ module.exports = {
     NAME_GENDER,
     RULES,
     PAYMENT_METHOD,
-    CREDIT_CARD_TYPE
+    CREDIT_CARD_TYPE,
+    LOCALSTORAGE_GET
 }

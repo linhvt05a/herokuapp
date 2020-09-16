@@ -14,7 +14,7 @@ const ItemProjectProduct = (props) => {
     }
 
     return (
-        <ItemProduct {...props}>
+        <ItemProduct show={true} {...props}>
             <div className="info-block">
                 <div className="description-apartment">
                     <div className="details">

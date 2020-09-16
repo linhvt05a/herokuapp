@@ -3,7 +3,7 @@ import React from 'react';
 
 
 const InputNumberCustoms = props => {
-    let { readOnly, label, onChange, value, addonBefore, className, classNameInput, style, min, max, defaultValue, classNameSlider, titleClassName, classNameUnit, unit } = props;
+    let { readOnly, label, onChange, value, addonBefore, className, classNameInput, style, min, max, defaultValue, classNameSlider, titleClassName, classNameUnit, unit, classNameGroupSlider } = props;
     return (
         <div className="form-group">
             {
@@ -15,7 +15,7 @@ const InputNumberCustoms = props => {
                     }
                 </label>
             }
-            <div className="pull-range">
+            <div className={classNameGroupSlider ? classNameGroupSlider : "pull-range"}>
                 <div className="slider-wrapper">
                     <Slider
                         tipFormatter={null}

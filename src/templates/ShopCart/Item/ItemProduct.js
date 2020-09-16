@@ -14,7 +14,7 @@ const ItemProduct = props => {
                     <InputCheckboxViolet checked={props.checked} onChange={props.onChange} />
                     <figure className="block-img">
                         {
-                            <i className={`liked${props.like ? " active" : ""} fas fa-heart`} onClick={() => props.saveToProduct(!props.like)} />
+                            props.show && <i className={`liked${props.like ? " active" : ""} fas fa-heart`} onClick={() => props.saveToProduct(!props.like)} />
                         }
                         {
                             props.data.product_avatar_url != ""
@@ -32,18 +32,20 @@ const ItemProduct = props => {
                             <div className="top">
                                 <a href="#" className="name fw-medium">{data.product_name}</a>
                             </div>
-                            <p className="address mb-0">{translate("cart_listed_price")} (đồng)
+                            {props.show ?
+                                <p className="address mb-0">{translate("cart_listed_price")} (đồng)
                                 <Tooltip title="đẹp vl">
-                                    <i className="noted fas fa-info-circle" />
-                                </Tooltip>
-                            </p>
+                                        <i className="noted fas fa-info-circle" />
+                                    </Tooltip>
+                                </p> : null}
                         </div>
                         <div className="price">
                             <div className="price__item ">
                                 <div className="price__discount fw-bold color_e94c4c">{convertFloatToString(data.product_estimate_price)}{data.product_estimate_price_unit_name}</div>
-                                <div className="price__origin color_e94c4c">
-                                    <span className="value color_656565 text-deco">2.198.360.000đ</span> 7%
-                                </div>
+                                {props.show ?
+                                    <div className="price__origin color_e94c4c">
+                                        <span className="value color_656565 text-deco">2.198.360.000đ</span> 7%
+                                </div> : null}
                             </div>
                         </div>
                     </div>
