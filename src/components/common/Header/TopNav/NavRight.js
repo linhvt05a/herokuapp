@@ -6,19 +6,16 @@ import i18n from '../../../../i18n';
 import { IMAGE_URL } from '../../../../contant';
 import { useDispatch, useSelector } from "react-redux";
 import { contactAddAction } from "../../../../store/action"
-import { langStorage } from '../../../../functions/Utils';
+import { getLocalStore } from '../../../../functions/Utils';
 
 const NavRight = (props) => {
     let dispatch = useDispatch()
     const [inHover, setHover] = useState(false);
-    // const [show, setShowAdvisory] = useState(false);
-
-    const langCurrent = langStorage.get
+    const langCurrent = getLocalStore('language')
     // console.log(langCurrent);
 
     const changeLanguage = (lng) => {
-        localStorage.setItem('language', lng);
-        i18n.changeLanguage(lng);
+        localStorage.setItem('language', JSON.stringify(lng));
         window.location.reload();
     }
     const setShowAdvisory = (show) => {
@@ -72,7 +69,7 @@ const NavRight = (props) => {
                             </button>
                         </li  >
                         <li className={`${langCurrent == 'cn' ? 'd-none' : ''}`}>
-                            <button className="language_link" onClick={() => changeLanguage('cn')}>
+                            <button className="language_link" onClick={() => changeLanguage('zh')}>
                                 <img
                                     alt="languages china"
                                     src={`${IMAGE_URL}images/lang_cn.jpg`}

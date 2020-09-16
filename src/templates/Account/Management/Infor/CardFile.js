@@ -7,7 +7,6 @@ import { Heading, Label, ChangePass } from "../../index";
 import { Alert, Input, Select, DatePicker, Radio } from 'antd';
 import { accountAction, commonAction } from "../../../../store/action/index";
 import { SelectCustom } from '../../../../components/base';
-import { langStorage } from '../../../../functions/Utils';
 
 const dateFormat = 'DD/MM/YYYY';
 
@@ -24,7 +23,7 @@ const CardFile = (props) => {
         return { value, label }
     }
     useEffect(() => {
-        dispatch(commonAction.loadProvinceList({ lang: langStorage.get }))
+        dispatch(commonAction.loadProvinceList({ lang: getLocalStore('language') }))
     }, [])
 
     const [state, setState] = useState({

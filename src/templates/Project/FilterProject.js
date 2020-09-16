@@ -5,13 +5,13 @@ import { Trans } from 'react-i18next';
 import { commonAction, projectAction } from "../../store/action";
 import { ListSelect, InputRange } from "../Home/Search/index";
 import { PROJECT_SALE_GROUP } from "../../contant";
-import { langStorage } from '../../functions/Utils';
+import { getLocalStore } from '../../functions/Utils';
 
 const FilterProject = (props) => {
 
     const dispatch = useDispatch();
     useEffect(() => {
-        dispatch(commonAction.loadProvinceList({ lang: langStorage.get }))
+        dispatch(commonAction.loadProvinceList({ lang: getLocalStore('language') }))
     }, [])
     const province = useSelector(state => state.commonReducer);
     const isGetprovinceListSuccess = province.provinceList.success;

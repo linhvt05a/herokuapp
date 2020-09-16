@@ -5,6 +5,7 @@ import "moment/locale/vi"
 import "moment/locale/en-au"
 import vi_VN from "antd/es/date-picker/locale/vi_VN";
 import en_US from "antd/es/date-picker/locale/en_US"
+import zh_CN from "antd/es/date-picker/locale/zh_CN"
 
 export {
     differentList,
@@ -440,6 +441,8 @@ export const datePichkerLocation = () => {
             return vi_VN;
         case "en":
             return en_US
+        case "zh":
+            return zh_CN
     }
 }
 
@@ -451,8 +454,3 @@ const token = () => {
     return null
 }; // Production
 export const TOKEN = token()
-
-export const langStorage =  {
-    get : localStorage.getItem('language'),
-    remove : localStorage.removeItem('language'),
-}
