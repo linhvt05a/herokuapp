@@ -1,43 +1,75 @@
 // import * as Login from './templates/Login';
+import React, { lazy } from 'react';
+
 import Elements from "./templates/Elements/Elements";
 import Example from "./templates/Example";
 
-import Home from "./templates/Home/Home";
+// import Home from "./templates/Home/Home";
+// import Project from "./templates/Project/Project";
+// import ProjectDetail from "./templates/Project/ProjectDetail";
+// import ProductDetail from "./templates/Product/ProductDetail/ProductDetail";
+// import ProductList from './templates/Product/ProductList/ProductList';
+// import HotProduct from "./templates/Product/HotProduct";
+// import News from "./templates/News/NewsList";
+// import NewsDetail from "./templates/News/NewsDetail";
+// import RecruitmentList from "./templates/Support/Recruitment/RecruitmentList";
+// import RecruitmentDetail from "./templates/Support/Recruitment/RecruitmentDetail";
+// import TransactionLevel from "./templates/TransactionLevel/TransactionLevel";
+// import ShoppingGuide from "./templates/Support/ShopGuide/ShoppingGuide";
+// import Legal from "./templates/Support/Legal/Juridical";
+// import Promotion from './templates/Promotion/Promotion';
+// import FlashSaleList from './templates/Promotion/FlashSaleList';
+// import PromotionList from './templates/Promotion/PromotionList';
+// import Account from "./templates/Account/CustomerAccount";
+// import PropertySelling from "./templates/PolicyPayment/PropertySelling";
+// import LoanPolicy from "./templates/LoanOnline/LoanPolicy";
+// import Introduce from "./templates/Support/Introduce/Introduce";
+// import Contact from "./templates/Support/Contact/Contact";
+// import Cart from "./templates/ShopCart/Cart";
+// import CustomerInfo from "./templates/ShopCart/CustomerInfo";
+// import ConfirmOrderInfo from "./templates/ShopCart/ConfirmOrderInfo";
+// import DepositPayment from "./templates/ShopCart/DepositPayment";
+// import OrderInfo from "./templates/ShopCart/OrderInfo"
 
-import Project from "./templates/Project/Project";
-import ProjectDetail from "./templates/Project/ProjectDetail";
+const Home = lazy(() => import('./templates/Home/Home'));
 
-import ProductDetail from "./templates/Product/ProductDetail/ProductDetail";
-import ProductList from './templates/Product/ProductList/ProductList';
-import HotProduct from "./templates/Product/HotProduct";
+const Project = lazy(() => import('./templates/Project/Project'));
+const ProjectDetail = lazy(() => import('./templates/Project/ProjectDetail'));
 
-import News from "./templates/News/NewsList";
-import NewsDetail from "./templates/News/NewsDetail";
+const ProductDetail = lazy(() => import('./templates/Product/ProductDetail/ProductDetail'));
+const ProductList = lazy(() => import('./templates/Product/ProductList/ProductList'));
+const HotProduct = lazy(() => import('./templates/Product/HotProduct'));
+
+const News = lazy(() => import('./templates/News/NewsList'));
+const NewsDetail = lazy(() => import('./templates/News/NewsDetail'));
 
 import Recruitment from "./templates/Support/Recruitment/Recruitment";
 import RecruitmentDetail from "./templates/Support/Recruitment/RecruitmentDetail";
 
-import TransactionLevel from "./templates/TransactionLevel/TransactionLevel";
-import ShoppingGuide from "./templates/Support/ShopGuide/ShoppingGuide";
-import Legal from "./templates/Support/Legal/Juridical";
-import Promotion from './templates/Promotion/Promotion';
-import FlashSaleList from './templates/Promotion/FlashSaleList';
-import PromotionList from './templates/Promotion/PromotionList';
+const TransactionLevel = lazy(() => import('./templates/TransactionLevel/TransactionLevel'));
+const ShoppingGuide = lazy(() => import('./templates/Support/ShopGuide/ShoppingGuide'));
+const Legal = lazy(() => import('./templates/Support/Legal/Juridical'));
+const Promotion = lazy(() => import('./templates/Promotion/Promotion'));
+const FlashSaleList = lazy(() => import('./templates/Promotion/FlashSaleList'));
+const PromotionList = lazy(() => import('./templates/Promotion/PromotionList'));
 
-import Account from "./templates/Account/CustomerAccount";
+const Account = lazy(() => import('./templates/Account/CustomerAccount'));
 
-import PropertySelling from "./templates/PolicyPayment/PropertySelling";
-import LoanPolicy from "./templates/LoanOnline/LoanPolicy";
+const PropertySelling = lazy(() => import('./templates/PolicyPayment/PropertySelling'));
+const LoanPolicy = lazy(() => import('./templates/LoanOnline/LoanPolicy'));
 
-import Introduce from "./templates/Support/Introduce/Introduce";
-import Contact from "./templates/Support/Contact/Contact";
+const Introduce = lazy(() => import('./templates/Support/Introduce/Introduce'));
+const Contact = lazy(() => import('./templates/Support/Contact/Contact'));
+
 //shipping Cart
-import Cart from "./templates/ShopCart/Cart";
-import CustomerInfo from "./templates/ShopCart/CustomerInfo";
-import ConfirmOrderInfo from "./templates/ShopCart/ConfirmOrderInfo";
-import DepositPayment from "./templates/ShopCart/DepositPayment";
-import OrderInfo from "./templates/ShopCart/OrderInfo"
+const Cart = lazy(() => import('./templates/ShopCart/Cart'));
+const CustomerInfo = lazy(() => import('./templates/ShopCart/CustomerInfo'));
+const ConfirmOrderInfo = lazy(() => import('./templates/ShopCart/ConfirmOrderInfo'));
+const DepositPayment = lazy(() => import('./templates/ShopCart/DepositPayment'));
+const OrderInfo = lazy(() => import('./templates/ShopCart/OrderInfo'));
 
+
+/*Top banner image url */
 const home_banner_url = '../images/project.jpg';
 const introduce_banner_url = '../images/project.jpg';
 const contact_banner_url = '../images/project.jpg';
@@ -100,7 +132,7 @@ const MAIN = [
         "banner_class": ''
     },
     {
-        "path": "/productFavorite",
+        "path": "/product-favorite",
         "component": ProductList,
         "banner_title": "contact_banner_title",
         "banner_url": contact_banner_url,

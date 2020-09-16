@@ -22,14 +22,14 @@ module.exports = {
 			// sockHost: 'superapp.minerva.vn',
 			// sockPort: 80,
 		},
-		development:{
+		dev:{
 			api: 'http://superapp.minerva.vn:9218',
 			cloudapi: 'https://cloudapi.minerva.vn',
 			show_log: false,
 			hot: false,
 			liveReload: false,
 		},
-		production:{
+		prod:{
 			api: 'http://superapp.minerva.vn:9218',
 			cloudapi: 'https://cloudapi.minerva.vn',
 			show_log: false,

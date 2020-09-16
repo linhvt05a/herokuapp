@@ -10,7 +10,7 @@ import CardNoData from '../../components/common/CardNoData';
 
 import { ItemHomeProject } from './Item/index'
 import { CardSaleFlash, CardHotProduct } from "./Layout/index";
-import { MapHome } from "../../components/common/Map/index";
+import { MapPoligon } from "../../components/common/Map/index";
 import { projectAction, newsAction } from "../../store/action/index";
 
 
@@ -34,43 +34,52 @@ const Home = (props) => {
         position: false,
         search: false,
         showhide: false,
+        myLocation: null
     });
 
     useEffect(() => {
         // dispatch(projectAction.loadProjectList({project_sale_status: `[${state.projectStatus}]`}));
         dispatch(projectAction.loadProjectList({}));
         dispatch(newsAction.LoadNewsList({}))
-       
-    }, []);
 
+
+    }, []);
+    const search = useSelector(state => state.projectReducer);
+    const isGetsearchListSuccess = search.projectList.success;
+    const searchList = isGetsearchListSuccess ? search.projectList.detail : null;
     const onStatusClick = (e) => {
-        dispatch(projectAction.loadProjectList({project_sale_status: `[${parseInt(e.target.name)}]`}))
+        dispatch(projectAction.loadProjectList({ project_sale_status: `[${parseInt(e.target.name)}]` }))
         setState({
             projectStatus: parseInt(e.target.name)
         });
     }
 
     const handlerButtonPosition = () => {
-        setState({...state, position: true})
+        navigator.geolocation.getCurrentPosition(function (position) {
+            // console.log(position);
+            // console.log("Latitude is :", position.coords.latitude);
+            // console.log("Longitude is :", position.coords.longitude);
+        })
+        setState({ ...state, position: true })
     }
 
     const handlerButtonSearch = () => {
-        setState({...state, search: true})
+        setState({ ...state, search: true })
     }
 
     const setHideSearch = (target) => {
-        if(target.className.indexOf('fa-times') > -1) {
+        if (target.className.indexOf('fa-times') > -1) {
             target.className = "fas map_search--btn_exit fa-search"
-            setState({...state, search: false, position: false, showhide: true})
+            setState({ ...state, search: false, position: false, showhide: true })
         } else {
             target.className = "fas map_search--btn_exit fa-times active"
-            setState({...state, search: true, position: true, showhide: false})
+            setState({ ...state, search: true, position: true, showhide: false })
         }
     }
 
     var newListProject = []
     projectList && projectList.length > 0 && projectList.map((item, index) => {
-        if(item.project_sale_status === 3){
+        if (item.project_sale_status === 3) {
             newListProject.push(item)
         }
     })
@@ -79,13 +88,13 @@ const Home = (props) => {
         <div className="homePage">
             {/* block map  */}
             <div className="map">
-                <div className="map_origin" style={{display : state.position || state.search || state.showhide ? "none" : ""}}>
+                <div className="map_origin" style={{ display: state.position || state.search || state.showhide ? "none" : "" }}>
                     <figure>
-                        <MapHome />
+                        <MapPoligon data={searchList} zoom={5.5} />
                     </figure>
                     <LocationView HandlerPosition={handlerButtonPosition} HandlerSearch={handlerButtonSearch} />
                 </div>
-                <OnMapPoligon active={state} onHideSearch={setHideSearch}/>
+                <OnMapPoligon active={state} onHideSearch={setHideSearch} />
             </div>
 
             {/*end block map  */}
@@ -102,24 +111,24 @@ const Home = (props) => {
                 <div className="project_list project_tab">
                     <div className="container container-sm container-md">
                         <HeadingLine headerBodyClassName="project_list--heading" labelHeader="project_list" status onStatusClick={onStatusClick} projectStatus={state.projectStatus} />
-                        
-                            {
-                                (newListProject && newListProject.length > 0) ?
+
+                        {
+                            (newListProject && newListProject.length > 0) ?
                                 <>
                                     <div className="row project_list--content project_tab--content">
                                         {
                                             newListProject.map((item, index) => (
                                                 index < 7 &&
                                                 <ItemHomeProject
-                                                key={index}
-                                                data={item}
-                                                projectStatus={state.projectStatus}
-                                                bodyClassName={
-                                                    index === 0 ? "col col-12 col-sm-6 col-md-7 col-xl-7" :
-                                                    index === 1 ? "col col-12 col-sm-6 col-md-5 col-xl-5" :
-                                                    (index === 2 || index === 3 || index === 4) ? "col col-12 col-sm-4 col-md-4 col-xl-4" :
-                                                    "col col-12 col-sm-6 col-md-6 col-xl-6"
-                                                } />
+                                                    key={index}
+                                                    data={item}
+                                                    projectStatus={state.projectStatus}
+                                                    bodyClassName={
+                                                        index === 0 ? "col col-12 col-sm-6 col-md-7 col-xl-7" :
+                                                            index === 1 ? "col col-12 col-sm-6 col-md-5 col-xl-5" :
+                                                                (index === 2 || index === 3 || index === 4) ? "col col-12 col-sm-4 col-md-4 col-xl-4" :
+                                                                    "col col-12 col-sm-6 col-md-6 col-xl-6"
+                                                    } />
                                             ))
                                         }
                                     </div>
@@ -132,8 +141,8 @@ const Home = (props) => {
                                         </div>
                                     }
                                 </> : <CardNoData />
-                            }
-                        
+                        }
+
                     </div>
                 </div>
             }

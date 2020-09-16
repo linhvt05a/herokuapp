@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
-import { Trans } from 'react-i18next';
-import { CardCartProductList, CardCartSummary } from './Layout/index';
-import ModalCustom from '../../components/base/Modal/ModalCustom';
 import { useHistory } from "react-router-dom";
+import { Trans } from 'react-i18next';
+
+import { CardCartProductList, CardCartSummary } from './Layout/index';
+import { LOCALSTORAGE_GET } from '../../contant';
+import ModalCustom from '../../components/base/Modal/ModalCustom';
+import { getLocalStore } from '../../functions/Utils';
+
 
 const Cart = (props) => {
     let history = useHistory();
@@ -19,12 +23,11 @@ const Cart = (props) => {
         allProduct: [],
     })
     React.useEffect(() => {
-        let cart = localStorage.getItem("buy_now_cart");
-        const user = JSON.parse(localStorage.getItem('user'));
+        let cart = getLocalStore("buy_now_cart");
+        const user = LOCALSTORAGE_GET.USER;
         // localStorage.removeItem("buy_now_cart")
-        console.log("chay", cart)
         if (cart) {
-            setState({ ...state, cart: JSON.parse(cart) })
+            setState({ ...state, cart: cart })
         }
 
     }, [])
@@ -91,7 +94,7 @@ const Cart = (props) => {
     return (
         <div className="main-cart bg_grey">
             <div className="container container-sm container-md">
-                <h2 class="main_heading">
+                <h2 className="main_heading">
                     <span><Trans>cart_product_list</Trans></span>
                 </h2>
                 <div className="row">

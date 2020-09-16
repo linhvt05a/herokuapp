@@ -5,6 +5,7 @@ import ReactLeafletGoogleLayer from 'react-leaflet-google-layer';
 import "leaflet/dist/leaflet.css";
 
 import L from 'leaflet';
+import { MAP_KEYS } from '../../../contant';
 
 delete L.Icon.Default.prototype._getIconUrl;
 
@@ -24,7 +25,7 @@ function MapHome(props) {
         >
             <ReactLeafletGoogleLayer
                 useGoogMapsLoade={true}
-                googleMapsLoaderConf={{ KEY: 'AIzaSyDZt7EWQR3cI-a_0to4VT2JVcF-c7ti6Ro' }}
+                googleMapsLoaderConf={{ KEY: MAP_KEYS }}
                 type={'hybrid'}
             />
             {/* <TileLayer

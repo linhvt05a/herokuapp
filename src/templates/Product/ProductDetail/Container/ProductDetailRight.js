@@ -12,9 +12,9 @@ const ProductDetailRight = (props) => {
     return (
         data ?
             <div className="apartment_detail">
-                <div class="sales_heading">
-                    <span class="text">Giá niêm yết (đồng)
-                        <i class="icon_info fas fa-info-circle"></i>
+                <div className="sales_heading">
+                    <span className="text">Giá niêm yết (đồng)
+                        <i className="icon_info fas fa-info-circle"></i>
                     </span>
                     <span className="number">
                         {formatCurrency(parseInt(data.product_sale_price))}{data.product_sale_price_master_unit}
@@ -106,7 +106,7 @@ const ProductDetailRight = (props) => {
                                     return (
                                         <tr key={index}>
                                             <td className="icon">
-                                                <i class="icon_label fas fa-couch"></i>
+                                                <i className="icon_label fas fa-couch"></i>
                                             </td>
                                             <td className="name">
                                                 {item.name} ( {item.area_unit_name} )

@@ -27,8 +27,9 @@
     }
 }
 .leaflet-left {
+    margin-top: 5px;
     right: 0;
-    left: auto;
+    left: auto !important;
     .leaflet-control {
         margin-right: 10px;
     }

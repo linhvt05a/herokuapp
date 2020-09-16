@@ -4,10 +4,15 @@ const common = require('./webpack.common');
 var env = require("./config/env");
 var path = require('path');
 
+// var domain = env.MODE_ENV.local.host + ':' + (env.MODE_ENV.local.port ? env.MODE_ENV.local.port : 0000)
 
 module.exports = merge(common, {
     mode: 'none',
     devtool: 'innline-source-map',
+    // entry: [
+    //     'webpack-dev-server/client?http://' + domain + '',
+    //     'webpack/hot/only-dev-server',
+    // ],
     output: {
         path: path.join(__dirname, 'dist'),
         publicPath: '/',
@@ -18,10 +23,12 @@ module.exports = merge(common, {
         contentBase: path.join(__dirname, "dist"),
         writeToDisk: true,
         proxy: { '/': 'http://localhost:5000' },
-        port: env.MODE_ENV.port,
-        hot: env.MODE_ENV.hot,
-        host: env.MODE_ENV.host,
-        liveReload: env.MODE_ENV.liveReload,
-        historyApiFallback: true
+        port: env.MODE_ENV.local.port,
+        hot: env.MODE_ENV.local.hot,
+        host: env.MODE_ENV.local.host,
+        liveReload: env.MODE_ENV.local.liveReload,
+        historyApiFallback: true,
+        sockHost: env.MODE_ENV.sockHost,
+        sockPort: env.MODE_ENV.sockPort,
     }
 });

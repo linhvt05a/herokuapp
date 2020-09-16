@@ -5,7 +5,7 @@ import { useForm } from 'antd/lib/form/Form';
 import {ButtonStyle, InputBase, InputDatePicker, SelectCustom} from '../../components/base'
 import moment from 'moment';
 import { useDispatch, useSelector } from "react-redux";
-import {newsFilterAction, projectSelectAction} from "../../store/action/index";
+import {newsAction, productAction} from "../../store/action/index";
 
 const FilterProject = (props) =>{
     const[dateFrom, setDateFrom] = useState(null)
@@ -44,7 +44,7 @@ const FilterProject = (props) =>{
         setProjectId(value)
     }
     const filterSearch = () =>{
-        dispatch(newsFilterAction.filterNews({newsTitle, project_ID, dateFrom, dateTo}))
+        dispatch(newsAction.filterNews({newsTitle, project_ID, dateFrom, dateTo}))
     }
 
     const projectSelect = useSelector(state => state.projectSelectReducer);
@@ -52,7 +52,7 @@ const FilterProject = (props) =>{
     const projectList = projectSelectSuccess ? projectSelect.projectList.detail : null;
 
     useEffect(() => {
-        dispatch(projectSelectAction.projectSelect({}))
+        dispatch(projectAction.loadProjectList({}))
     }, []);
 
     useEffect(() => {

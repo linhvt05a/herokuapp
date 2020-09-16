@@ -3,19 +3,21 @@ import { Trans, useTranslation } from 'react-i18next';
 import { Input, Form, Button } from 'antd';
 import { translate } from '../../../functions/Utils';
 import { accountAction } from '../../../store/action';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 const CardAccountModal = (props) => {
     const { clearData, isClearData, onNext } = props;
     const dispatch = useDispatch()
     const [formInfo] = Form.useForm();
     const { t } = useTranslation()
+    const [error, setError] = useState()
     useEffect(() => {
         if (isClearData) {
             clearData()
         }
     }, [isClearData])
-
+    let dataLogin = useSelector(state => state.accountReducer);
+    let { login } = dataLogin;
     const validatorInfo = {
         email: {
             form: [
@@ -49,18 +51,32 @@ const CardAccountModal = (props) => {
             password: '123'
         });
     }, [])
-
+    useEffect(() => {
+        if (login.success == false) {
+            if (login.error) {
+                setError(login.error)
+            }
+            else {
+                setError()
+            }
+        }
+        else {
+            if (login.length > 0) {
+                onNext()
+                setError()
+            }
+        }
+    }, [login])
     const onSubmitInfo = (values) => {
         console.log('Success:', values);
         dispatch(accountAction.loadLogin({ username: values.email, password: values.password }))
-        onNext()
+        // onNext()
     };
 
     return (
         <div className="modal-content modal_special">
             <div className="modal-header">
-                <h5 className="modal-title">
-                    {translate("cart_account", t)}</h5>
+                <h5 className="modal-title">{translate("cart_account")}</h5>
             </div>
             <div className="tab-content">
                 <div className="tab-pane fade show active">
@@ -69,6 +85,7 @@ const CardAccountModal = (props) => {
                             form={formInfo}
                             onFinish={onSubmitInfo}
                             name="form-chat-info">
+                            {error && <span className=" color_e94c4c">{error}</span>}
                             <Form.Item className="form-group" name="email" rules={validatorInfo.email.form}>
                                 <Input placeholder={validatorInfo.email.placeholder} type={validatorInfo.email.type} className="form-control" />
                             </Form.Item>
@@ -83,7 +100,7 @@ const CardAccountModal = (props) => {
                                                 formInfo.getFieldsError().filter(({ errors }) => errors.length).length
                                             }
                                         >
-                                            {translate("cart_login", t)}
+                                            {translate("cart_login")}
                                         </Button>
                                     )
                                 }}

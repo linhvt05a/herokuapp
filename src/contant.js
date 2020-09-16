@@ -2,7 +2,7 @@ const IMAGE_URL = "../"
 const IMAGE_LOGO = "../images/default_image_minerva.png"
 const PHONE_NUMBER = "1900 - 123 - 456"
 const MOBILE_WIDTH = 767
-
+const MAP_KEYS = "AIzaSyDZt7EWQR3cI-a_0to4VT2JVcF-c7ti6Ro"
 const PROJECT_STATUS = [
     { value: 1, label: "home_waiting_sale" },
     { value: 2, label: "home_coming_soon" },
@@ -35,7 +35,7 @@ const DIRECTION_TYPE = [
     { value: 7, label: "south_west" },
     { value: 8, label: "north_west" },
 ]
-const RECRUITMENT_STATUS = [ 
+const RECRUITMENT_STATUS = [
     { value: 0, label: "New" },
     { value: 1, label: "Hiring" },
     { value: 2, label: "Hired" }
@@ -140,6 +140,10 @@ const CREDIT_CARD_TYPE = [
 ]
 
 
+const LOCALSTORAGE_GET = {
+    LANG: localStorage.getItem('language'),
+    USER: JSON.parse(localStorage.getItem('user')),
+}
 
 
 module.exports = {
@@ -147,6 +151,7 @@ module.exports = {
     IMAGE_LOGO,
     PHONE_NUMBER,
     MOBILE_WIDTH,
+    MAP_KEYS,
 
     PROJECT_STATUS,
     PROJECT_SALE_GROUP,
@@ -156,5 +161,6 @@ module.exports = {
     RULES,
     PAYMENT_METHOD,
     CREDIT_CARD_TYPE,
+    LOCALSTORAGE_GET,
     RECRUITMENT_STATUS
 }

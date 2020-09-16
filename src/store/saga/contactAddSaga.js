@@ -31,9 +31,24 @@ export function* advisoryAddWatcher() {
     yield takeLatest(contactAddAction.ADVISORY_REQUEST, advisoryAdd);
 }
 
+export function* registrationNewsletter(payload) {
+    let { email } = payload.params
+    try {
+        const response = yield contactService.registrationNewsletter(email);
+        response.success ? yield put({ type: contactAddAction.NEWSLETTER_REGISTRATION_SUCCESS, response }) : yield put({ type: contactAddAction.NEWSLETTER_REGISTRATION_FAILURE, response });
+    } catch (err) {
+        yield put({ type: contactAddAction.NEWSLETTER_REGISTRATION_FAILURE, err });
+    }
+}
+
+export function* registrationNewsletterWatcher() {
+    yield takeLatest(contactAddAction.NEWSLETTER_REGISTRATION_REQUEST, registrationNewsletter);
+}
+
 export default function* rootSaga() {
     yield all([
         fork(contactAddWatcher),
-        fork(advisoryAddWatcher)
+        fork(advisoryAddWatcher),
+        fork(registrationNewsletterWatcher)
     ]);
 }

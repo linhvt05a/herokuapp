@@ -5,22 +5,23 @@ import { Trans } from "react-i18next";
 import { Link } from "react-router-dom";
 import { ListSelect, InputRange, ListCheckbox } from "./index";
 import { MapPoligon } from "../../../components/common/Map/index";
+import { LOCALSTORAGE_GET } from "../../../contant";
 
 const OnMapPoligon = props => {
     let { active, onHideSearch } = props;
     const dispatch = useDispatch();
     useEffect(() => {
-        dispatch(commonAction.loadProvinceList({ lang: "vi" }))
+        dispatch(commonAction.loadProvinceList({ lang: LOCALSTORAGE_GET.LANG }))
     }, [])
     const province = useSelector(state => state.commonReducer);
     const isGetprovinceListSuccess = province.provinceList.success;
     const provinceList = isGetprovinceListSuccess ? province.provinceList.detail : null;
 
     const [statesubmit, setStateSubmit] = useState({
-        _city: null, _district: null, _status: null,
+        _city: 0, _district: 0, _status: 0,
         range_area: [],
         range_price: [],
-        project_sale_group_type: null
+        project_sale_group_type: 0
     })
 
     const HandleCity = (value) => {
@@ -79,6 +80,7 @@ const OnMapPoligon = props => {
     const searchList = isGetsearchListSuccess ? search.projectList.detail : null;
 
     const OnSearchProject = (e) => {
+        console.log(statesubmit);
         dispatch(projectAction.loadProjectList({
             province_id: statesubmit._city,
             region_id: statesubmit._district,
@@ -113,7 +115,7 @@ const OnMapPoligon = props => {
                         {active.showhide ? <MapPoligon data={searchList} zoom={6} /> : ''}
                         {active.search || active.position ? <MapPoligon data={searchList} zoom={6} /> : ''}
                         <span>
-                            <i class={`fas map_search--btn_exit ${active.search ? "fa-times" : "fa-search"}`} onClick={e => onHideSearch(e.target)} style={{ right: "auto", padding: "15px 20px", cursor: "pointer" }}></i>
+                            <i className={`fas map_search--btn_exit ${active.search ? "fa-times" : "fa-search"}`} onClick={e => onHideSearch(e.target)} style={{ right: "auto", padding: "15px 20px", cursor: "pointer" }}></i>
                         </span>
                     </div>
                 </div>

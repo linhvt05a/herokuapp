@@ -5,7 +5,7 @@ const ItemProjectName = (props) => {
     return (
         <div className="block select-check  uni-text-6d30ab fw-bold">
             <InputCheckboxViolet checked={props.checked} onChange={props.onChange} />
-            <span class="title-project">Dự án Royal Garden</span>
+            <span className="title-project">Dự án Royal Garden</span>
         </div>
     )
 }

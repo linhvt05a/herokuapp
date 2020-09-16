@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Trans } from "react-i18next";
 
 const Heading = (props) => {
-    let {title, content } = props;
+    let { title, content } = props;
     return (
-        <div class="heading">
+        <div className="heading">
             {title}
-            <span class="sub">
+            <span className="sub">
                 {content}
             </span>
         </div>

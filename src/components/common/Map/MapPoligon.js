@@ -5,6 +5,7 @@ import ReactLeafletGoogleLayer from 'react-leaflet-google-layer';
 import "leaflet/dist/leaflet.css";
 
 import L from 'leaflet';
+import { MAP_KEYS } from '../../../contant';
 
 delete L.Icon.Default.prototype._getIconUrl;
 
@@ -13,6 +14,7 @@ L.Icon.Default.mergeOptions({
     iconUrl: require('../../../../public/images/marker.png'),
     //shadowUrl: require('leaflet/dist/images/marker-shadow.png')
 });
+
 
 function MapPoligon(props) {
     let { data, zoom } = props;
@@ -26,11 +28,12 @@ function MapPoligon(props) {
             center={position} zoom={zoom ? zoom : 5}
             style={{ height: "670px", zIndex: 0 }}
             attributionControl={false}
+            scrollWheelZoom="center"
         // zoomControl={false}
         >
             <ReactLeafletGoogleLayer
                 useGoogMapsLoade={true}
-                googleMapsLoaderConf={{ KEY: 'AIzaSyDZt7EWQR3cI-a_0to4VT2JVcF-c7ti6Ro' }}
+                googleMapsLoaderConf={{ KEY: MAP_KEYS }}
                 type={'hybrid'}
                 attributionControl={false}
             />

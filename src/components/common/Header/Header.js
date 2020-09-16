@@ -42,7 +42,7 @@ function Header() {
                 <div className="header_wrap">
                     <Logo />
                     {/* ui mobile */}
-                    <button class="mb_toggle" onClick={() => setMBToggle(!isMBToggle)}>
+                    <button className="mb_toggle" onClick={() => setMBToggle(!isMBToggle)}>
                         <span></span>
                     </button>
                     {/* end */}

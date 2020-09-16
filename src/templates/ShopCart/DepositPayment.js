@@ -72,7 +72,7 @@ const DepositPayment = (props) => {
     return (
         <div className="main-cart bg_grey">
             <div className="container container-sm container-md">
-                <h2 class="main_heading">
+                <h2 className="main_heading">
                     <span><Trans>cart_deposit_payment</Trans></span>
                 </h2>
                 {/* <div className="row"> */}
@@ -84,9 +84,9 @@ const DepositPayment = (props) => {
                                 setChecked={setChecked}
                                 form={form}
                                 Item={Item} />
-                            <div class="text-right mt-2">
+                            <div className="text-right mt-2">
                                 <a
-                                    class={`btn btn_purple text-uppercase ${disableConfirm() ? "disabled" : ""}`}
+                                    className={`btn btn_purple text-uppercase ${disableConfirm() ? "disabled" : ""}`}
                                     onClick={() => onFinish()}
                                 ><Trans>button_confirm</Trans></a>
                             </div>

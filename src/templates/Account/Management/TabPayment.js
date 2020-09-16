@@ -8,16 +8,16 @@ const TabPayment = (props) => {
     let { activeTab } = props;
     const dispatch = useDispatch();
     return (
-        <div class={`tab-pane fade ${activeTab === 3 ? "active show" : ""}`} id="tab_04" role="tabpanel" aria-labelledby="tab_04">
-            <div class="row user-acc__payment">
-                <div class="col-12 col-sm-12 col-md-12 col-lg-8">
+        <div className={`tab-pane fade ${activeTab === 3 ? "active show" : ""}`} id="tab_04" role="tabpanel" aria-labelledby="tab_04">
+            <div className="row user-acc__payment">
+                <div className="col-12 col-sm-12 col-md-12 col-lg-8">
                     <UserFilter filterTab={3} />
-                    <div class="project_item__list ">
-                        <div class="table_original nowrap table-td-top">
+                    <div className="project_item__list ">
+                        <div className="table_original nowrap table-td-top">
                             <table>
                                 <thead>
                                     <tr>
-                                        <th class="pl-0">STT</th>
+                                        <th className="pl-0">STT</th>
                                         <th>TẦNG</th>
                                         <th style={{ width: "120px" }}>SẢN PHẨM</th>
                                         <th>THÁNG 1</th>
@@ -36,283 +36,283 @@ const TabPayment = (props) => {
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td class="number">
+                                        <td className="number">
                                             1
                                         </td>
                                         <td colspan="14">
-                                            <div class="floor">
-                                                <span class="floor_name">B6</span>
-                                                <div class="floor_total">Tổng sản phẩm : 3</div>
+                                            <div className="floor">
+                                                <span className="floor_name">B6</span>
+                                                <div className="floor_total">Tổng sản phẩm : 3</div>
                                             </div>
                                         </td>
                                     </tr>
-                                    <tr class="parent">
-                                        <td colspan="15" class="name border-bottom-none">
+                                    <tr className="parent">
+                                        <td colspan="15" className="name border-bottom-none">
                                             Royal Garden
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td class="number">
+                                        <td className="number">
                                             2
                                         </td>
                                         <td colspan="14">
-                                            <div class="floor">
-                                                <span class="floor_name">B6</span>
-                                                <div class="floor_total">Tổng sản phẩm : 3</div>
+                                            <div className="floor">
+                                                <span className="floor_name">B6</span>
+                                                <div className="floor_total">Tổng sản phẩm : 3</div>
                                             </div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td colspan="2"></td>
-                                        <td class="pl-0 align-middle">
-                                            <a href="#" class="apartment_name">
+                                        <td className="pl-0 align-middle">
+                                            <a href="#" className="apartment_name">
                                                 Căn hộ B6 - F01
                                             </a>
                                         </td>
                                         <td>
-                                            <div class="payment_process">
-                                                <i class="icon type payment_status_1 fas fa-check-circle"></i>
-                                                <div class="money">
+                                            <div className="payment_process">
+                                                <i className="icon type payment_status_1 fas fa-check-circle"></i>
+                                                <div className="money">
                                                     120.000.000
                                                 </div>
-                                                <div class="date">( 10/01/2020 )</div>
+                                                <div className="date">( 10/01/2020 )</div>
                                             </div>
                                         </td>
                                         <td>
-                                            <div class="payment_process">
-                                                <i class="icon type payment_status_1 fas fa-check-circle"></i>
-                                                <div class="money">
+                                            <div className="payment_process">
+                                                <i className="icon type payment_status_1 fas fa-check-circle"></i>
+                                                <div className="money">
                                                     120.000.000
                                                 </div>
-                                                <div class="date">( 10/01/2020 )</div>
+                                                <div className="date">( 10/01/2020 )</div>
                                             </div>
                                         </td>
                                         <td>
-                                            <div class="payment_process">
-                                                <i class="icon type payment_status_1 fas fa-check-circle"></i>
-                                                <div class="money">
+                                            <div className="payment_process">
+                                                <i className="icon type payment_status_1 fas fa-check-circle"></i>
+                                                <div className="money">
                                                     120.000.000
                                                 </div>
-                                                <div class="date">( 10/01/2020 )</div>
+                                                <div className="date">( 10/01/2020 )</div>
                                             </div>
                                         </td>
                                         <td>
-                                            <div class="payment_process">
-                                                <i class="icon type payment_status_1 fas fa-check-circle"></i>
-                                                <div class="money">
+                                            <div className="payment_process">
+                                                <i className="icon type payment_status_1 fas fa-check-circle"></i>
+                                                <div className="money">
                                                     120.000.000
                                                 </div>
-                                                <div class="date">( 10/01/2020 )</div>
+                                                <div className="date">( 10/01/2020 )</div>
                                             </div>
                                         </td>
                                         <td>
-                                            <div class="payment_process">
-                                                <i class="icon type payment_status_1 fas fa-check-circle"></i>
-                                                <div class="money">
+                                            <div className="payment_process">
+                                                <i className="icon type payment_status_1 fas fa-check-circle"></i>
+                                                <div className="money">
                                                     120.000.000
                                                 </div>
-                                                <div class="date">( 10/01/2020 )</div>
+                                                <div className="date">( 10/01/2020 )</div>
                                             </div>
                                         </td>
                                         <td>
-                                            <div class="payment_process">
-                                                <i class="icon type payment_status_1 fas fa-check-circle"></i>
-                                                <div class="money">
+                                            <div className="payment_process">
+                                                <i className="icon type payment_status_1 fas fa-check-circle"></i>
+                                                <div className="money">
                                                     120.000.000
                                                 </div>
-                                                <div class="date">( 10/01/2020 )</div>
+                                                <div className="date">( 10/01/2020 )</div>
                                             </div>
                                         </td>
                                         <td>
-                                            <div class="payment_process">
-                                                <i class="icon type payment_status_1 fas fa-check-circle"></i>
-                                                <div class="money">
+                                            <div className="payment_process">
+                                                <i className="icon type payment_status_1 fas fa-check-circle"></i>
+                                                <div className="money">
                                                     120.000.000
                                                 </div>
-                                                <div class="date">( 10/01/2020 )</div>
+                                                <div className="date">( 10/01/2020 )</div>
                                             </div>
                                         </td>
                                         <td>
-                                            <div class="payment_process">
-                                                <i class="icon type payment_status_1 fas fa-check-circle"></i>
-                                                <div class="money">
+                                            <div className="payment_process">
+                                                <i className="icon type payment_status_1 fas fa-check-circle"></i>
+                                                <div className="money">
                                                     120.000.000
                                                 </div>
-                                                <div class="date">( 10/01/2020 )</div>
+                                                <div className="date">( 10/01/2020 )</div>
                                             </div>
                                         </td>
                                         <td>
-                                            <div class="payment_process">
-                                                <i class="icon type payment_status_1 fas fa-check-circle"></i>
-                                                <div class="money">
+                                            <div className="payment_process">
+                                                <i className="icon type payment_status_1 fas fa-check-circle"></i>
+                                                <div className="money">
                                                     120.000.000
                                                 </div>
-                                                <div class="date">( 10/01/2020 )</div>
+                                                <div className="date">( 10/01/2020 )</div>
                                             </div>
                                         </td>
                                         <td>
-                                            <div class="payment_process">
-                                                <i class="icon type payment_status_1 fas fa-check-circle"></i>
-                                                <div class="money">
+                                            <div className="payment_process">
+                                                <i className="icon type payment_status_1 fas fa-check-circle"></i>
+                                                <div className="money">
                                                     120.000.000
                                                 </div>
-                                                <div class="date">( 10/01/2020 )</div>
+                                                <div className="date">( 10/01/2020 )</div>
                                             </div>
                                         </td>
                                         <td>
-                                            <div class="payment_process">
-                                                <i class="icon type payment_status_1 fas fa-check-circle"></i>
-                                                <div class="money">
+                                            <div className="payment_process">
+                                                <i className="icon type payment_status_1 fas fa-check-circle"></i>
+                                                <div className="money">
                                                     120.000.000
                                                 </div>
-                                                <div class="date">( 10/01/2020 )</div>
+                                                <div className="date">( 10/01/2020 )</div>
                                             </div>
                                         </td>
                                         <td>
-                                            <div class="payment_process">
-                                                <i class="icon type payment_status_1 fas fa-check-circle"></i>
-                                                <div class="money">
+                                            <div className="payment_process">
+                                                <i className="icon type payment_status_1 fas fa-check-circle"></i>
+                                                <div className="money">
                                                     120.000.000
                                                 </div>
-                                                <div class="date">( 10/01/2020 )</div>
+                                                <div className="date">( 10/01/2020 )</div>
                                             </div>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td class="number">
+                                        <td className="number">
                                             2
                                         </td>
                                         <td colspan="14">
-                                            <div class="floor">
-                                                <span class="floor_name">B6</span>
-                                                <div class="floor_total">Tổng sản phẩm : 3</div>
+                                            <div className="floor">
+                                                <span className="floor_name">B6</span>
+                                                <div className="floor_total">Tổng sản phẩm : 3</div>
                                             </div>
                                         </td>
                                     </tr>
-                                    <tr class="last">
-                                        <td colspan="2" class="border-bottom-none"></td>
-                                        <td class="pl-0 align-middle">
-                                            <a href="#" class="apartment_name">
+                                    <tr className="last">
+                                        <td colspan="2" className="border-bottom-none"></td>
+                                        <td className="pl-0 align-middle">
+                                            <a href="#" className="apartment_name">
                                                 Căn hộ B6 - F02
                                             </a>
                                         </td>
                                         <td>
-                                            <div class="payment_process">
-                                                <i class="icon type payment_status_4 fas fa-stop-circle"></i>
-                                                <div class="money">
+                                            <div className="payment_process">
+                                                <i className="icon type payment_status_4 fas fa-stop-circle"></i>
+                                                <div className="money">
                                                     120.000.000
                                                 </div>
-                                                <div class="date">( 10/01/2020 )</div>
+                                                <div className="date">( 10/01/2020 )</div>
                                             </div>
                                         </td>
                                         <td>
-                                            <div class="payment_process">
-                                                <i class="icon type payment_status_4 fas fa-stop-circle"></i>
-                                                <div class="money">
+                                            <div className="payment_process">
+                                                <i className="icon type payment_status_4 fas fa-stop-circle"></i>
+                                                <div className="money">
                                                     120.000.000
                                                 </div>
-                                                <div class="date">( 10/01/2020 )</div>
-                                                <div class="noted payment_status_4">Dừng đóng tiền</div>
+                                                <div className="date">( 10/01/2020 )</div>
+                                                <div className="noted payment_status_4">Dừng đóng tiền</div>
                                             </div>
                                         </td>
                                         <td>
-                                            <div class="payment_process">
-                                                <i class="icon type payment_status_4 fas fa-stop-circle"></i>
-                                                <div class="money">
+                                            <div className="payment_process">
+                                                <i className="icon type payment_status_4 fas fa-stop-circle"></i>
+                                                <div className="money">
                                                     120.000.000
                                                 </div>
-                                                <div class="date">( 10/01/2020 )</div>
-                                                <div class="noted payment_status_4">Dừng đóng tiền</div>
+                                                <div className="date">( 10/01/2020 )</div>
+                                                <div className="noted payment_status_4">Dừng đóng tiền</div>
                                             </div>
                                         </td>
                                         <td>
-                                            <div class="payment_process">
-                                                <i class="icon type payment_status_4 fas fa-stop-circle"></i>
-                                                <div class="money">
+                                            <div className="payment_process">
+                                                <i className="icon type payment_status_4 fas fa-stop-circle"></i>
+                                                <div className="money">
                                                     120.000.000
                                                 </div>
-                                                <div class="date">( 10/01/2020 )</div>
-                                                <div class="noted payment_status_4">Dừng đóng tiền</div>
+                                                <div className="date">( 10/01/2020 )</div>
+                                                <div className="noted payment_status_4">Dừng đóng tiền</div>
                                             </div>
                                         </td>
                                         <td>
-                                            <div class="payment_process">
-                                                <i class="icon type payment_status_4 fas fa-stop-circle"></i>
-                                                <div class="money">
+                                            <div className="payment_process">
+                                                <i className="icon type payment_status_4 fas fa-stop-circle"></i>
+                                                <div className="money">
                                                     120.000.000
                                                 </div>
-                                                <div class="date">( 10/01/2020 )</div>
-                                                <div class="noted payment_status_4">Dừng đóng tiền</div>
+                                                <div className="date">( 10/01/2020 )</div>
+                                                <div className="noted payment_status_4">Dừng đóng tiền</div>
                                             </div>
                                         </td>
                                         <td>
-                                            <div class="payment_process">
-                                                <i class="icon type payment_status_4 fas fa-stop-circle"></i>
-                                                <div class="money">
+                                            <div className="payment_process">
+                                                <i className="icon type payment_status_4 fas fa-stop-circle"></i>
+                                                <div className="money">
                                                     120.000.000
                                                 </div>
-                                                <div class="date">( 10/01/2020 )</div>
-                                                <div class="noted payment_status_4">Dừng đóng tiền</div>
+                                                <div className="date">( 10/01/2020 )</div>
+                                                <div className="noted payment_status_4">Dừng đóng tiền</div>
                                             </div>
                                         </td>
                                         <td>
-                                            <div class="payment_process">
-                                                <i class="icon type payment_status_4 fas fa-stop-circle"></i>
-                                                <div class="money">
+                                            <div className="payment_process">
+                                                <i className="icon type payment_status_4 fas fa-stop-circle"></i>
+                                                <div className="money">
                                                     120.000.000
                                                 </div>
-                                                <div class="date">( 10/01/2020 )</div>
-                                                <div class="noted payment_status_4">Dừng đóng tiền</div>
+                                                <div className="date">( 10/01/2020 )</div>
+                                                <div className="noted payment_status_4">Dừng đóng tiền</div>
                                             </div>
                                         </td>
                                         <td>
-                                            <div class="payment_process">
-                                                <i class="icon type payment_status_4 fas fa-stop-circle"></i>
-                                                <div class="money">
+                                            <div className="payment_process">
+                                                <i className="icon type payment_status_4 fas fa-stop-circle"></i>
+                                                <div className="money">
                                                     120.000.000
                                                 </div>
-                                                <div class="date">( 10/01/2020 )</div>
-                                                <div class="noted payment_status_4">Dừng đóng tiền</div>
+                                                <div className="date">( 10/01/2020 )</div>
+                                                <div className="noted payment_status_4">Dừng đóng tiền</div>
                                             </div>
                                         </td>
                                         <td>
-                                            <div class="payment_process">
-                                                <i class="icon type payment_status_4 fas fa-stop-circle"></i>
-                                                <div class="money">
+                                            <div className="payment_process">
+                                                <i className="icon type payment_status_4 fas fa-stop-circle"></i>
+                                                <div className="money">
                                                     120.000.000
                                                 </div>
-                                                <div class="date">( 10/01/2020 )</div>
-                                                <div class="noted payment_status_4">Dừng đóng tiền</div>
+                                                <div className="date">( 10/01/2020 )</div>
+                                                <div className="noted payment_status_4">Dừng đóng tiền</div>
                                             </div>
                                         </td>
                                         <td>
-                                            <div class="payment_process">
-                                                <i class="icon type payment_status_4 fas fa-stop-circle"></i>
-                                                <div class="money">
+                                            <div className="payment_process">
+                                                <i className="icon type payment_status_4 fas fa-stop-circle"></i>
+                                                <div className="money">
                                                     120.000.000
                                                 </div>
-                                                <div class="date">( 10/01/2020 )</div>
-                                                <div class="noted payment_status_4">Dừng đóng tiền</div>
+                                                <div className="date">( 10/01/2020 )</div>
+                                                <div className="noted payment_status_4">Dừng đóng tiền</div>
                                             </div>
                                         </td>
                                         <td>
-                                            <div class="payment_process">
-                                                <i class="icon type payment_status_4 fas fa-stop-circle"></i>
-                                                <div class="money">
+                                            <div className="payment_process">
+                                                <i className="icon type payment_status_4 fas fa-stop-circle"></i>
+                                                <div className="money">
                                                     120.000.000
                                                 </div>
-                                                <div class="date">( 10/01/2020 )</div>
-                                                <div class="noted payment_status_4">Dừng đóng tiền</div>
+                                                <div className="date">( 10/01/2020 )</div>
+                                                <div className="noted payment_status_4">Dừng đóng tiền</div>
                                             </div>
                                         </td>
                                         <td>
-                                            <div class="payment_process">
-                                                <i class="icon type payment_status_4 fas fa-stop-circle"></i>
-                                                <div class="money">
+                                            <div className="payment_process">
+                                                <i className="icon type payment_status_4 fas fa-stop-circle"></i>
+                                                <div className="money">
                                                     120.000.000
                                                 </div>
-                                                <div class="date">( 10/01/2020 )</div>
-                                                <div class="noted payment_status_4">Dừng đóng tiền</div>
+                                                <div className="date">( 10/01/2020 )</div>
+                                                <div className="noted payment_status_4">Dừng đóng tiền</div>
                                             </div>
                                         </td>
                                     </tr>
@@ -321,8 +321,8 @@ const TabPayment = (props) => {
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-sm-12 col-md-12 col-lg-4">
-                    <ViewPaymentNotice /> 
+                <div className="col-12 col-sm-12 col-md-12 col-lg-4">
+                    <ViewPaymentNotice />
                     <ViewTotalMoney />
                 </div>
             </div>
