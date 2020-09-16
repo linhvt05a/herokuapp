@@ -26,23 +26,15 @@ const CardNews = (props) => {
                         <span><Trans>home_latest_news</Trans></span>
                     </h3>
                     <a href="/news" className="readmore">
-                        {data && data.length > 3 ? <span><Trans>home_latest_news_read_more</Trans></span>: ""}
-                    { data && data.length > 3 ? <i className="icon fas fa-angle-double-right" />:""}
+                        {data && data.length > 3 ? <span><Trans>home_latest_news_read_more</Trans></span> : ""}
+                        {data && data.length > 3 ? <i className="icon fas fa-angle-double-right" /> : ""}
                     </a>
                 </div>
-<<<<<<< HEAD
                 {data && data.length > 0 ?
                     <Slider {...settings}>
                         {data && data.map((news, index) => <NewsLoop item={news} key={index} />)}
                     </Slider> :
                     <CardNoData />
-=======
-            {data && data.length > 0 ?
-                <Slider {...settings}>
-                    {data && data.map((news, index) => <NewsLoop item={news} key={index} />)}
-                </Slider>:
-                <CardNoData />
->>>>>>> develop
                 }
             </div>
         </div>

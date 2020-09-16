@@ -3,12 +3,15 @@ import { Link } from "react-router-dom";
 import { Trans } from "react-i18next";
 import i18n from '../../../../i18n';
 
-import { IMAGE_URL,LOCALSTORAGE_GET } from '../../../../contant'
+import { IMAGE_URL, LOCALSTORAGE_GET } from '../../../../contant';
+import { useDispatch, useSelector } from "react-redux";
+import { contactAddAction } from "../../../../store/action"
 
 
 const NavRight = (props) => {
+    let dispatch = useDispatch()
     const [inHover, setHover] = useState(false);
-    const [show, setShowAdvisory] = useState(false);
+    // const [show, setShowAdvisory] = useState(false);
 
     const langCurrent = LOCALSTORAGE_GET.LANG
     // console.log(langCurrent);
@@ -18,12 +21,16 @@ const NavRight = (props) => {
         i18n.changeLanguage(lng);
         window.location.reload();
     }
-
+    const setShowAdvisory = (show) => {
+        dispatch(contactAddAction.chatShow(show))
+    }
+    const chatBox = useSelector(state => state.contactAddReducer);
+    let { showChat } = chatBox
 
     return (
         <ul className="header_contact d-none d-md-flex">
             <li className="chat">
-                <p className="mb-0 cursor-pointer" onClick={() => setShowAdvisory(!show)}>
+                <p className="mb-0 cursor-pointer" onClick={() => setShowAdvisory(!showChat)}>
                     <i className="fas fa-comments" />
                     <Trans>header_menu_advisory</Trans>
                 </p>

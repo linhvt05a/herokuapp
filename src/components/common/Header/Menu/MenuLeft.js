@@ -126,7 +126,7 @@ const MenuLeft = (props) => {
                             <Trans>header_menu_contact</Trans>
                         </Link>
                     </li>
-                    
+
                 </ul>
             </li>
             <li className="item">

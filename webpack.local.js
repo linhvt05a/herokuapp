@@ -4,7 +4,7 @@ const common = require('./webpack.common');
 var env = require("./config/env");
 var path = require('path');
 
-var domain = env.MODE_ENV.local.host + ':' + (env.MODE_ENV.local.port ? env.MODE_ENV.local.port : 0000)
+// var domain = env.MODE_ENV.local.host + ':' + (env.MODE_ENV.local.port ? env.MODE_ENV.local.port : 0000)
 
 module.exports = merge(common, {
     mode: 'none',
@@ -28,7 +28,7 @@ module.exports = merge(common, {
         host: env.MODE_ENV.local.host,
         liveReload: env.MODE_ENV.local.liveReload,
         historyApiFallback: true,
-        sockHost:env.MODE_ENV.sockHost,
-        sockPort:env.MODE_ENV.sockPort,
+        sockHost: env.MODE_ENV.sockHost,
+        sockPort: env.MODE_ENV.sockPort,
     }
 });

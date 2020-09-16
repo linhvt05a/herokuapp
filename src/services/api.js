@@ -55,6 +55,11 @@ export default {
     WARD_LIST: DOMAIN.api + "/api/fe/v1/ward",
     STATUS_LIST: DOMAIN.api + "/api/be/v1/common/project/status",
     MINMAX_LIST: DOMAIN.api + "/api/main_web/v1/project/min_max",
+    PROVINCE_LIST: "/api/fe/v1/province",
+    DISTRICT_LIST: "/api/fe/v1/district",
+    WARD_LIST: "/api/fe/v1/ward",
+    STATUS_LIST: "/api/be/v1/common/project/status",
+    MINMAX_LIST: "/api/main_web/v1/project/min_max/",
 
     // ACCOUNT
     LOGIN: DOMAIN.api + "/api/main_web/v1/login/",
@@ -90,6 +95,8 @@ export default {
     FILTER_NEWS: DOMAIN.api + "",
 
     PROMOTION_LIST: DOMAIN.api + "",
+    //footer email
+    NEWSLETTER_REGISTRATION: "/api/main_web/v1/news/register_receive_information/",
 
     getHeader,
     getUrl,
