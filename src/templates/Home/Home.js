@@ -19,7 +19,7 @@ import { OnMapPoligon } from "./Search/index";
 
 import Advisory from "./Contact/Advisory";
 import AppManagerment from './AppManagerment/AppManagerment';
-
+import { PROJECT_SALE_GROUP } from "../../contant";
 const Home = (props) => {
 
     const news = useSelector(state => state.newsReducer);
@@ -110,7 +110,7 @@ const Home = (props) => {
                 isGetProjectListSuccess &&
                 <div className="project_list project_tab">
                     <div className="container container-sm container-md">
-                        <HeadingLine headerBodyClassName="project_list--heading" labelHeader="project_list" status onStatusClick={onStatusClick} projectStatus={state.projectStatus} />
+                        <HeadingLine headerBodyClassName="project_list--heading" data={PROJECT_SALE_GROUP} labelHeader="project_list" status onStatusClick={onStatusClick} projectStatus={state.projectStatus} />
 
                         {
                             (newListProject && newListProject.length > 0) ?

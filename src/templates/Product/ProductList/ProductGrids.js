@@ -9,13 +9,13 @@ import { productAction} from "../../../store/action/index";
 
 const ProductGrids = (props) => {
     const{data, productLocal, loginData} = props
-    console.log(data)
+    const dataProduct = data && data.detail.list_product
    
     return (
         <div className="striking_apartment--content">
         {loginData && loginData.user_id !== null ? 
         <div className="row">
-            {data && data.detail.list_product.map((item, index)=><ProductRow loginData={loginData} data={item} key={index}/>)}
+            {dataProduct && dataProduct.map((item, index)=><ProductRow loginData={loginData} dataProduct={dataProduct} data={item} key={index}/>)}
         </div>:
         <div className="row">
             {productLocal && productLocal.map((item, index)=><ProductRow loginData={loginData}  data={item} key={index}/>)}
@@ -27,7 +27,7 @@ const ProductGrids = (props) => {
 }
 
 const ProductRow = (props) =>{
-    const{data, loginData} = props
+    const{data, loginData, dataProduct} = props
     const[is_favorite, setIs_favorite] = useState(false)
     const [postFavor,setFavor] = useState([])
     const dispatch = useDispatch();
@@ -36,14 +36,32 @@ const ProductRow = (props) =>{
     }
     
     var postData = []
+    var postProduct = []
     const isFavor = JSON.parse(sessionStorage.getItem("favor")) 
     
-    const saveToStorage = (productID) => {
+    const saveToStorage = (productID, is_favorite) => {
      if(loginData !== null){
+       
         setIs_favorite(!is_favorite)
-        var newData = []
-        newData.push(data)
-        console.log(newData)
+        if(!is_favorite){
+          if (!postData) {
+            postData = [];
+        }
+        var index = dataProduct.indexOf(function (favorItem) {
+            return favorItem.product_id == productID;
+        });
+        if (index !== -1) {
+
+        } else {
+          postData.push({
+                product_id: productID,
+                is_favorite: true,
+            });
+        }
+        console.log(postData)
+        }
+    
+        
      }else {
       setIs_favorite(!is_favorite)
       var favorite = JSON.parse(sessionStorage.getItem('favor'))
@@ -92,7 +110,7 @@ const ProductRow = (props) =>{
            {loginData === null ? 
            <i className={!is_favorite && data.is_favorite === true ? "liked active fas fa-heart" : "liked fas fa-heart"} onClick={()=>saveToStorage(data.product_id)}/>
            :
-          <i className={!is_favorite || data.is_favorite === true ? "liked active fas fa-heart" : "liked fas fa-heart"} onClick={()=>saveToStorage(data.product_id)}/>
+          <i className={!is_favorite || data.is_favorite === true ? "liked active fas fa-heart" : "liked fas fa-heart"} onClick={()=>saveToStorage(data.product_id, is_favorite)}/>
           }
             <img
               src={data.product_avatar_url !="" ? data.product_avatar_url : IMAGE_URL +  "/images/no_data.png"}
