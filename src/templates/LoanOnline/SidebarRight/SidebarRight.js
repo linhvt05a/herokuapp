@@ -11,11 +11,11 @@ export const SidebarRight = props => {
                     <span className="text">Tổng tiền phải trả (đồng)
                             <i className="icon_info fas fa-info-circle" />
                     </span>
-                    <span className="number">732.083.313</span>
+                    <span className="number">{convertFloatToString((data.amountBorrow * data.unitPay) + (data.amountBorrow * (data.interestIncentives * 100) * data.unitPay / 10000))}</span>
                 </div>
                 <div className="borrow__calculator--result">
-                    <ChartDonutText />
-                    {/* <div className="graph_null">No data</div> */}
+                    {data ? <ChartDonutText data={data} /> : <div className="graph_null">No data</div>}
+
                     <div id="graph01" className="graph" />
                     <div className="details">
                         <div className="details__01">

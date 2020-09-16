@@ -11,7 +11,8 @@ const initialState = {
     uploadImage: {},
     emailCheck: {},
 
-    isFetching: false
+    isFetching: false,
+    error: false,
 };
 
 export default (state = initialState, action) => {
@@ -19,13 +20,13 @@ export default (state = initialState, action) => {
 
         case accountAction.LOGIN_SUCCESS:
             return { ...state, isFetching: false, login: action.response };
-        case accountAction.LOGIN_REQUEST:
-            return { ...state, isFetching: false, login: { success: false, error: action.error } };
+        case accountAction.LOGIN_FAILURE:
+            return { ...state, isFetching: false, login: { success: false, error: action.err } };
 
         case accountAction.REGISTRY_SUCCESS:
             return { ...state, isFetching: false, registry: action.response };
         case accountAction.REGISTRY_REQUEST:
-            return { ...state, isFetching: false, registry: { success: false, error: action.error } };
+            return { ...state, isFetching: false, registry: { success: false, error: action.err } };
 
         case accountAction.FORGOT_PASSWORD_SUCCESS:
             return { ...state, isFetching: false, forgotPassword: action.response };

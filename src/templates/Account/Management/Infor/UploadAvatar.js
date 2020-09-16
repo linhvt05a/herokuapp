@@ -20,21 +20,21 @@ const UploadAvatar = (props) => {
         handleUploadAvatar(file);
     }
     return (
-        <div class="avatar">
-            <div class="avatar__image">
-                <div class="center no-data">
-                    <i class="icon fas fa-camera-retro"></i>
-                    <span class="text">Cập nhật ảnh</span>
+        <div className="avatar">
+            <div className="avatar__image">
+                <div className="center no-data">
+                    <i className="icon fas fa-camera-retro"></i>
+                    <span className="text">Cập nhật ảnh</span>
                 </div>
-                <div class={`center has-data ${avatar == null ? "d-none" : ""}`}>
-                    <img class="uploaded_avatar" src={avatar} alt="avatar" ref={uploadedImage}/>
+                <div className={`center has-data ${avatar == null ? "d-none" : ""}`}>
+                    <img className="uploaded_avatar" src={avatar} alt="avatar" ref={uploadedImage} />
                 </div>
 
-                <input class="upload" type="file" accept="image/x-png,image/gif,image/jpeg,image/jpg" onChange={handleImageUpload} ref={imageUploader} />
+                <input className="upload" type="file" accept="image/x-png,image/gif,image/jpeg,image/jpg" onChange={handleImageUpload} ref={imageUploader} />
             </div>
-            <div class={`upload_again ${avatar == null ? "d-none" : ""}`}>
-                <i class="icon fas fa-camera-retro"></i>
-                <input class="upload" type="file" />
+            <div className={`upload_again ${avatar == null ? "d-none" : ""}`}>
+                <i className="icon fas fa-camera-retro"></i>
+                <input className="upload" type="file" />
             </div>
         </div>
     )

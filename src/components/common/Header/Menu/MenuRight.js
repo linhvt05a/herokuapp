@@ -49,7 +49,10 @@ const MenuRight = (props) => {
             </div>
             <div className="item">
                 <Link to="/cart" className="link">
-                    <i className="icon cart fas fa-cart-plus" />
+                    <span className="icon">
+                        <i className="icon cart fas fa-cart-plus" />
+                        <i className="number">4</i>
+                    </span>
                 </Link>
             </div>
             <div className={`item dropdown ${inHoverProfile ? "open" : ''}`}>

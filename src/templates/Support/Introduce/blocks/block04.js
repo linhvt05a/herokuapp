@@ -1,4 +1,4 @@
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import React from "react";
 
 
@@ -27,18 +27,18 @@ const Block04 = (props) => {
                 <div className="project_list ">
                     <div className="row">
                         <div className="col-sm-12 col-md-6 col-xl-4">
-                            <div class="project_list--item">
-                                <figure className="image" style={{backgroundImage: 'url(./assets/images/project_list01.jpg)'}}>
+                            <div className="project_list--item">
+                                <figure className="image" style={{ backgroundImage: 'url(./assets/images/project_list01.jpg)' }}>
                                 </figure>
                                 <div className="heading">
                                     <div className="heading__name">Dự Án Royal Garden</div>
                                     <div className="heading__date">Đợt 1 : 02/04/2020 - 30/04/2020</div>
                                     <div className="heading__list-btn">
-                                    <a href="#" className="btn btn_green">
-                                        CHI TIẾT
+                                        <a href="#" className="btn btn_green">
+                                            CHI TIẾT
                                     </a>
-                                    <a href="#" className="btn btn_white">
-                                        SẢN PHẨM
+                                        <a href="#" className="btn btn_white">
+                                            SẢN PHẨM
                                     </a>
                                     </div>
                                 </div>

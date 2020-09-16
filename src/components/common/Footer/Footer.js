@@ -5,18 +5,32 @@ import {
     Input,
     Button,
     AutoComplete,
+    message
 } from 'antd';
-  
+import { useDispatch, useSelector } from "react-redux";
+import { contactAddAction } from "../../../store/action"
+
 const AutoCompleteOption = AutoComplete.Option;
 
 function Footer() {
+    const dispatch = useDispatch()
     const [form] = Form.useForm();
     const [autoCompleteResult, setAutoCompleteResult] = useState([]);
-
+    let dataStore = useSelector(state => state.contactAddReducer);
+    let { messageLitter, error } = dataStore
     const onFinish = values => {
-        console.log('Received values of form: ', values);
+        dispatch(contactAddAction.registrationNewsletter({ email: values.email }))
     };
-
+    useEffect(() => {
+        if (messageLitter != null) {
+            if (error) {
+                message.warning(messageLitter)
+            }
+            else {
+                message.success(messageLitter)
+            }
+        }
+    }, [messageLitter])
     return (
         <footer className="footer">
             <div className="footer_top">
@@ -132,7 +146,7 @@ function Footer() {
                                         form={form}
                                         name="registermail"
                                         onFinish={onFinish}
-                                        >
+                                    >
                                         <Form.Item
                                             name="email"
                                             placeholder="Email của bạn"
@@ -186,7 +200,7 @@ function Footer() {
                         Bản quyền của Minerva năm 2020
                     </span>
                 </div>
-            </div>    
+            </div>
         </footer>
     );
 }

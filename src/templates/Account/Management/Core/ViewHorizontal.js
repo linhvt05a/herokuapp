@@ -3,32 +3,32 @@ import { Trans } from "react-i18next";
 
 const ViewHorizontal = (props) => {
     return (
-        <div class="view_horizontal">
-            <div class="item">
-                <i class="icon fas fa-building"></i>
-                <div class="text">
-                    <span class="text-uppercase">
+        <div className="view_horizontal">
+            <div className="item">
+                <i className="icon fas fa-building"></i>
+                <div className="text">
+                    <span className="text-uppercase">
                         MÃ ĐƠN HÀNG
                     </span>
-                    <span class="value">000011419</span>
+                    <span className="value">000011419</span>
                 </div>
             </div>
-            <div class="item">
-                <i class="icon fas fa-money-bill-wave"></i>
-                <div class="text">
-                    <span class="text-uppercase">
+            <div className="item">
+                <i className="icon fas fa-money-bill-wave"></i>
+                <div className="text">
+                    <span className="text-uppercase">
                         SỐ TIỀN CỌC (đồng)
                     </span>
-                    <span class="value money">50.000.000</span>
+                    <span className="value money">50.000.000</span>
                 </div>
             </div>
-            <div class="item">
-                <i class="icon fas fa-boxes"></i>
-                <div class="text">
-                    <span class="text-uppercase">
+            <div className="item">
+                <i className="icon fas fa-boxes"></i>
+                <div className="text">
+                    <span className="text-uppercase">
                         TRẠNG THÁI
                     </span>
-                    <span class="value times waiting">Chờ duyệt</span>
+                    <span className="value times waiting">Chờ duyệt</span>
                 </div>
             </div>
         </div>

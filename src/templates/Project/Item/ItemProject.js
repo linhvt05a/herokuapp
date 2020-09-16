@@ -13,15 +13,15 @@ const ItemProject = (props) => {
                 <div className="wrap">
                     {
                         data.project_sale_status === 3 ?
-                        <div className="sell_status selling">
-                            <Trans>home_selling</Trans>
-                        </div> :
-                        data.project_sale_status === 2 ?
-                        <div className="sell_status will_sell">
-                            <Trans>home_coming_soon</Trans>
-                        </div> : ""
+                            <div className="sell_status selling">
+                                <Trans>home_selling</Trans>
+                            </div> :
+                            data.project_sale_status === 2 ?
+                                <div className="sell_status will_sell">
+                                    <Trans>home_coming_soon</Trans>
+                                </div> : ""
                     }
-                    <figure className="image" style={{backgroundImage: "url("+ data.avatar_url +")"}} />
+                    <figure className="image" style={{ backgroundImage: "url(" + data.avatar_url + ")" }} />
                     <div className="text">
                         <p className="name">
                             {data.project_name}
@@ -33,13 +33,13 @@ const ItemProject = (props) => {
                             <Link to="/#" className="btn btn_green text-uppercase">
                                 <Trans>home_detail_button_title</Trans>
                             </Link>
-                            <Link to={{pathname: "/project/" + data.project_id, state: {projectId: data.project_id, projectName: data.project_name, projectStatus: data.project_sale_status}}} className="btn btn_white text-uppercase">
+                            <Link to={{ pathname: "/project/" + data.project_id, state: { projectId: data.project_id, projectName: data.project_name, projectStatus: data.project_sale_status } }} className="btn btn_white text-uppercase">
                                 <Trans>home_product_button_title</Trans>
                             </Link>
                         </div>
                     </div>
                 </div>
-                <div class="icon_big_sale">
+                <div className="icon_big_sale">
                     <img src={IMAGE_URL + "/images/icon_big_sale.png"} />
                 </div>
             </div>

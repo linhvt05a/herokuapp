@@ -3,7 +3,7 @@ import { Trans } from 'react-i18next';
 import CardNoData from '../CardNoData';
 import moment from 'moment'
 
-function convertDate(value){
+function convertDate(value) {
 	const date = moment().format("DD/MM/YYYY")
 	return date
 }
@@ -11,8 +11,8 @@ const HeadingPurplePromotion = (props) => {
 	const { data, heading } = props;
 	return (
 		<>
-			<div class="heading_purple">
-				<span class="title"><Trans>{heading}</Trans></span>
+			<div className="heading_purple">
+				<span className="title"><Trans>{heading}</Trans></span>
 			</div>
 
 			<div className="card border-0 mt-0">

@@ -19,31 +19,31 @@ const TabJoinProject = (props) => {
     }
     
     return (
-        <div class={`tab-pane fade ${activeTab === 2 ? "active show" : ""}`} id="tab_03" role="tabpanel" aria-labelledby="tab_03">
+        <div className={`tab-pane fade ${activeTab === 2 ? "active show" : ""}`} id="tab_03" role="tabpanel" aria-labelledby="tab_03">
             {/* <!-- list project  --> */}
-            <div class="row user-acc__project">
-                <div class="col-12 col-sm-12 col-md-12 col-lg-8">
+            <div className="row user-acc__project">
+                <div className="col-12 col-sm-12 col-md-12 col-lg-8">
                     <UserFilter 
                         activeGird={onActiveGird} 
                         activeList={onActiveList} 
                         filterTab={activeTab} 
                         girdlist={girdlist}
                     />
-                    <div class="project_item__grid" style={{display: girdlist === 0 ? "block" : "none"}}>
-                        <div class="row">
+                    <div className="project_item__grid" style={{display: girdlist === 0 ? "block" : "none"}}>
+                        <div className="row">
                             <ViewProject getIdProject={handleIdProject} />
                             <ViewProject getIdProject={handleIdProject} />
                         </div>
                     </div>
-                    <div class="project_item__list" style={{display: girdlist === 1 ? "block" : "none"}}>
+                    <div className="project_item__list" style={{display: girdlist === 1 ? "block" : "none"}}>
                         <TableOriginal />
                     </div>
-                    <div class="project__detail" style={{display: girdlist === 2 ? "block" : "none"}}>
+                    <div className="project__detail" style={{display: girdlist === 2 ? "block" : "none"}}>
                         <ViewProjectDetail />
                     </div>
                 </div>
 
-                <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+                <div className="col-12 col-sm-12 col-md-12 col-lg-4">
                     <ViewPaymentNotice />
                     <ViewTotalMoney />
                 </div>

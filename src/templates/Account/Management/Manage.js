@@ -5,7 +5,7 @@ import { TabInformation, TabOrder, TabJoinProject, TabPayment, TabFeedback } fro
 const Manage = (props) => {
     let { activeTab } = props;
     return (
-        <div class="tab-content">
+        <div className="tab-content">
             <TabInformation activeTab={activeTab} />
             <TabOrder activeTab={activeTab} status={false} />
             <TabJoinProject activeTab={activeTab} />

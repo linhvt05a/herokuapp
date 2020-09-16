@@ -1,7 +1,7 @@
 import React from 'react';
 import { Trans } from 'react-i18next';
 import InputCheckboxViolet from '../../../components/base/Input/InputCheckboxViolet'
-import { ItemProjectName, ItemProjectProduct } from '../Item/index'
+import { ItemProjectName, ItemProjectProduct, ItemProjectBorrow } from '../Item/index'
 
 const CardCartProductList = (props) => {
     const { showPaymentProgressModal, showPromotionModal, setCheck, check, datas } = props
@@ -98,11 +98,11 @@ const CardCartProductList = (props) => {
     }
     return (
         <div className="col-12 col-sm-12 col-lg-8 main-cart__order">
-            <div class="block select-check fw-bold bg_white">
+            <div className="block select-check fw-bold bg_white">
                 <InputCheckboxViolet checked={check.allProject} onChange={(checked) => onCheckProject(checked)} />
-                <span class="title-project"><Trans>cart_select_all</Trans> (5 <Trans>cart_products</Trans>)</span>
-                <div class="icon-trash">
-                    <a class="fas fa-trash-alt icon-trash" onClick={() => alert("tính năng đang phát triển")}></a>
+                <span className="title-project"><Trans>cart_select_all</Trans> (5 <Trans>cart_products</Trans>)</span>
+                <div className="icon-trash">
+                    <a className="fas fa-trash-alt icon-trash" onClick={() => alert("tính năng đang phát triển")}></a>
                 </div>
             </div>
             {check.allProduct.length > 0 ?
@@ -127,9 +127,9 @@ const CardCartProductList = (props) => {
 
                 : null}
             {onDisabled() ?
-                <div class={`text-right mt-2 disabled`} ><a class={`btn btn_purple text-uppercase disabled`}>Xác nhận</a></div>
+                <div className={`text-right mt-2 disabled`} ><a className={`btn btn_purple text-uppercase disabled`}>Xác nhận</a></div>
                 :
-                <div class={`text-right mt-2`} onClick={onSubmit}><a class={`btn btn_purple text-uppercase`}>Xác nhận</a></div>}
+                <div className={`text-right mt-2`} onClick={onSubmit}><a className={`btn btn_purple text-uppercase`}>Xác nhận</a></div>}
         </div>
     )
 }

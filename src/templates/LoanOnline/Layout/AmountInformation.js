@@ -5,7 +5,8 @@ const AmountInformation = props => {
     let { data } = props;
     return (
         <div className="borrow__item">
-            <div className="borrow__title text-uppercase">THÔNG TIN VAY   <i className="sub"> Nhập số tiền của sản phẩm dự án, chúng tôi sẽ đề nghị khoản vay cho ban. </i>
+            <div className="borrow__title text-uppercase">THÔNG TIN VAY
+             <i className="sub"> Nhập số tiền của sản phẩm dự án, chúng tôi sẽ đề nghị khoản vay cho ban. </i>
             </div>
             <div className="borrow__info">
                 <div className="row">

@@ -22,10 +22,9 @@ const Cart = (props) => {
         allProduct: [],
     })
     React.useEffect(() => {
-        let cart = getLocalStore('buy_now_cart');
-        console.log("chay", cart)
+        let cart = getLocalStore("buy_now_cart");
         if (cart) {
-            setState({ ...state, cart: JSON.parse(cart) })
+            setState({ ...state, cart: cart })
         }
 
     }, [])
@@ -92,7 +91,7 @@ const Cart = (props) => {
     return (
         <div className="main-cart bg_grey">
             <div className="container container-sm container-md">
-                <h2 class="main_heading">
+                <h2 className="main_heading">
                     <span><Trans>cart_product_list</Trans></span>
                 </h2>
                 <div className="row">

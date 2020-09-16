@@ -21,19 +21,19 @@ const ChangePass = (props) => {
     const changepass = changeSuccess ? change.changePassword.detail : null;
     // console.log(changepass);
     return (
-        <div class={`pwd_new justify-content-start align-items-center flex-column flex-sm-row ${showpass === 0 ? "d-none" : "d-flex"}`} >
-            <div class="row">
-            <div class="col-12 col-sm-12 col-md-4">
+        <div className={`pwd_new justify-content-start align-items-center flex-column flex-sm-row ${showpass === 0 ? "d-none" : "d-flex"}`} >
+            <div className="row">
+                <div className="col-12 col-sm-12 col-md-4">
                     <Input type="password" placeholder="Mật khẩu cũ" className="form-control" />
                 </div>
-                <div class="col-12 col-sm-12 col-md-4">
+                <div className="col-12 col-sm-12 col-md-4">
                     <Input type="password" placeholder="Mật khẩu mới" className="form-control password_new_input" />
                 </div>
-                <div class="col-12 col-sm-12 col-md-4">
-                    <Input type="password" placeholder="Nhập lại" className="form-control" onBlur={handleInputBlur} />   
+                <div className="col-12 col-sm-12 col-md-4">
+                    <Input type="password" placeholder="Nhập lại" className="form-control" onBlur={handleInputBlur} />
                 </div>
             </div>
-            <div class="text_pwd text_closepwd text-nowrap" onClick={handelOnBack}>Quay lại</div>
+            <div className="text_pwd text_closepwd text-nowrap" onClick={handelOnBack}>Quay lại</div>
         </div>
     )
 }

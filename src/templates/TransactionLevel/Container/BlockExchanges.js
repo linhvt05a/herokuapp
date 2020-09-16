@@ -10,7 +10,7 @@ const BlockExchanges = (props) => {
     useEffect(() => {
         if (data.list_floor_or_lot.length > 0) {
             let temp = [].concat(activeIndex);
-            for (let index = 0; index < data.list_floor_or_lot.length; index++) {
+            for (let index = 0;index < data.list_floor_or_lot.length;index++) {
                 temp.push(-1)
             }
             setActiveIndex(temp)
@@ -30,7 +30,7 @@ const BlockExchanges = (props) => {
 
         <div className="exchanges_apartment">
             <div className="exchanges_apartment--wrap">
-                <h5 class="fw-bold uni-text-6d30ab text-uppercase title_product_list"><Trans>cart_product_list</Trans></h5>
+                <h5 className="fw-bold uni-text-6d30ab text-uppercase title_product_list"><Trans>cart_product_list</Trans></h5>
                 {
                     (data && data.list_floor_or_lot != null && data.list_floor_or_lot.length > 0)
                         ? data.list_floor_or_lot.map((item, index) =>
@@ -62,7 +62,7 @@ const BlockExchanges = (props) => {
                                         item.list_product && item.list_product != null && item.list_product.length > 0 ?
                                             item.list_product.map((item_p, i) => (
                                                 <div key={i}
-                                                    className={"exchanges_apartment--child sdfa sales_status_0" + item_p.product_status_id  +
+                                                    className={"exchanges_apartment--child sdfa sales_status_0" + item_p.product_status_id +
                                                         (activeIndex[index] != -1 ? activeIndex[index] == item_p.product_status_id ? " unShaded" : " shaded" : " unShaded")}
                                                 >
                                                     <div className="line line--1">
@@ -91,21 +91,21 @@ const BlockExchanges = (props) => {
                                                             </div>
                                                         </div>
                                                         <div className="right">
-                                                            {   
-                                                                item_p.list_product_direction && item_p.list_product_direction.length > 0 
-                                                                    ? item_p.list_product_direction.map((value, index) =>{
-                                                                        return ( 
+                                                            {
+                                                                item_p.list_product_direction && item_p.list_product_direction.length > 0
+                                                                    ? item_p.list_product_direction.map((value, index) => {
+                                                                        return (
                                                                             <div key={index}>
                                                                                 <span className="direction">
                                                                                     {value.product_direction_name}
                                                                                 </span>
-                                                                                { (index + 1) ===  item_p.list_product_direction.length ? '' : '-'}
-                                                                            </div> 
+                                                                                { (index + 1) === item_p.list_product_direction.length ? '' : '-'}
+                                                                            </div>
                                                                         )
                                                                     })
                                                                     : '-'
                                                             }
-                                                            
+
                                                         </div>
                                                     </div>
                                                     <div className="line line--4">

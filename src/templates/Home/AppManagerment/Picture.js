@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {IMAGE_URL} from '../../../contant'
+import { IMAGE_URL } from '../../../contant'
 
 const Picture = () => {
 	return (
@@ -15,4 +15,4 @@ const Picture = () => {
 	);
 }
 
-export default Picture;
+export default React.memo(Picture);

@@ -18,10 +18,10 @@ const OnMapPoligon = props => {
     const provinceList = isGetprovinceListSuccess ? province.provinceList.detail : null;
 
     const [statesubmit, setStateSubmit] = useState({
-        _city: null, _district: null, _status: null,
+        _city: 0, _district: 0, _status: 0,
         range_area: [],
         range_price: [],
-        project_sale_group_type: null
+        project_sale_group_type: 0
     })
 
     const HandleCity = (value) => {
@@ -80,6 +80,7 @@ const OnMapPoligon = props => {
     const searchList = isGetsearchListSuccess ? search.projectList.detail : null;
 
     const OnSearchProject = (e) => {
+        console.log(statesubmit);
         dispatch(projectAction.loadProjectList({
             province_id: statesubmit._city,
             region_id: statesubmit._district,
@@ -114,7 +115,7 @@ const OnMapPoligon = props => {
                         {active.showhide ? <MapPoligon data={searchList} zoom={6} /> : ''}
                         {active.search || active.position ? <MapPoligon data={searchList} zoom={6} /> : ''}
                         <span>
-                            <i class={`fas map_search--btn_exit ${active.search ? "fa-times" : "fa-search"}`} onClick={e => onHideSearch(e.target)} style={{ right: "auto", padding: "15px 20px", cursor: "pointer" }}></i>
+                            <i className={`fas map_search--btn_exit ${active.search ? "fa-times" : "fa-search"}`} onClick={e => onHideSearch(e.target)} style={{ right: "auto", padding: "15px 20px", cursor: "pointer" }}></i>
                         </span>
                     </div>
                 </div>

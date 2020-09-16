@@ -39,7 +39,7 @@ const CustomerInfo = (props) => {
     return (
         <div className="main-cart bg_grey">
             <div className="container container-sm container-md">
-                <h2 class="main_heading">
+                <h2 className="main_heading">
                     <span><Trans>cart_customer_infor</Trans></span>
                 </h2>
                 <div className="row">
