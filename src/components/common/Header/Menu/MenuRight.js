@@ -60,14 +60,9 @@ const MenuRight = (props) => {
                     onMouseEnter={() => setHoverProfile(true)}
                     aria-expanded={inHoverProfile}>
                     {
-                        // user != null ?
-                        // <img src={user.avatar_url} className="avatarLogin" /> :
-                        // user != null && user.avatar_url == null ?
-                        //     <img src={`${IMAGE_URL}images/favicon.png`} className="avatarLogin" /> :
-                        //     <i className="icon user fas fa-user-circle" />
-
-                        user ? <img src={user.avatar_url ? user.avatar_url : `${IMAGE_URL}images/favicon.png`} className="avatarLogin" /> : <i className="icon user fas fa-user-circle" />
-
+                        user 
+                        ? <img src={user.avatar_url ? user.avatar_url : `${IMAGE_URL}images/favicon.png`} className="avatarLogin" /> 
+                        : <i className="icon user fas fa-user-circle" />
                     }
                 </Link>
                 <div className="dropdown-menu" onMouseLeave={() => setHoverProfile(false)}>
