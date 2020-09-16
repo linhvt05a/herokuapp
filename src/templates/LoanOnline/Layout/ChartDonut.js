@@ -32,7 +32,6 @@ DonutChart.prototype = {
     strokewidth: PropTypes.number   // width of chart line
 }
 const ChartDonutText = props => {
-    console.log(props.data);
     return (
         <DonutChart value={99} size={166} strokewidth={26} />
     )

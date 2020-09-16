@@ -6,6 +6,11 @@ import { useHistory } from 'react-router-dom';
 
 const PropertySelling = () => {
     let history = useHistory();
+    let productID = history.location.state.productID
+    const onNext = () => {
+        console.log("chay");
+        history.push({ pathname: "/loan-policy", state: { value: 123 } })
+    }
     return (
         <div className="sales_policy bg_grey">
             <div className="container container-sm container-md">
@@ -15,7 +20,7 @@ const PropertySelling = () => {
                         <PropertyContain />
                     </div>
                     <div className="col-12 col-sm-12 col-lg-4">
-                        <PropertyFilter onNext={() => history.push("/loan-policy")} />
+                        <PropertyFilter onNext={() => onNext()} />
                     </div>
                 </div>
             </div>

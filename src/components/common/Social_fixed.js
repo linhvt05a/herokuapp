@@ -25,23 +25,23 @@ const SocialFixed = (props) => {
 				{
 					PHONE_NUMBER ?
 						<li>
-							<Link to="/#" className={`phone ${showPhone ? "active" : ''}`} onClick={() => setShowPhoneNumber(!showPhone)}>
+							<a className={`phone ${showPhone ? "active" : ''}`} onClick={() => setShowPhoneNumber(!showPhone)}>
 								<i className="icon fas fa-phone-alt" />
 								<i className="text">{PHONE_NUMBER}</i>
-							</Link>
+							</a>
 						</li>
 						: null
 				}
 
 				<li>
-					<Link to="/#" className="chat startChatOnline" onClick={() => setShowAdvisory(!showChat)}>
+					<a className="chat startChatOnline" onClick={() => setShowAdvisory(!showChat)}>
 						<i className="icon fas fa-comments" />
-					</Link>
+					</a>
 				</li>
 				<li>
-					<Link to="/#" className={`totop toTop`} onClick={() => ScrollToTop()} >
+					<a className={`totop toTop`} onClick={() => ScrollToTop()} >
 						<i className="icon fas fa-chevron-up" />
-					</Link>
+					</a>
 				</li>
 			</ul>
 

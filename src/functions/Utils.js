@@ -114,7 +114,7 @@ function getTextDefault(value) {
 function copyList(list) {
     var result = []
     if (list) {
-        for (var i = 0; i < list.length; i++) {
+        for (var i = 0;i < list.length;i++) {
             var model = {}
             var data = list[i]
             for (var key in data) {
@@ -144,7 +144,7 @@ function LoadDataPaging(total_record, page, total_page, limit) {
 //Kiểm tra khác nhau giữa 2 list, và key đặt biệt để kiểm tra nếu list đầu tiên đã có thì sẽ là khác (dùng cho Add)
 function differentList(firstList, nextList, keyDifferentInFirst) {
     if (firstList.length == nextList.length) {
-        for (var i = 0; i < firstList.length; i++) {
+        for (var i = 0;i < firstList.length;i++) {
             var data = firstList[i]
             var model = nextList[i]
             for (var key in data) {
@@ -170,7 +170,7 @@ function deleteModelInList(list, key, value) {
 function convertListToArrayId(list, keyId) {
     var result = []
     if (list) {
-        for (var i = 0; i < list.length; i++) {
+        for (var i = 0;i < list.length;i++) {
             result.push(list[i][keyId])
         }
     }
@@ -218,7 +218,7 @@ function convertAcreagetoInt(number) {
     let num = number;
     let N = /\D/gi;
     if (typeof number == "string") {
-        for (let i = 0; i < number.length; i++) {
+        for (let i = 0;i < number.length;i++) {
             if (N.test(number[i]) === false && isStart === -1) {
                 isStart = i;
             }
@@ -281,7 +281,7 @@ function formatCurrency(number) {
 
     }
 }
-export const formatDate = (date, type) => {
+export const formatDate = (date, type = "DD/MM/YYYY") => {
     return moment(date).format(type)
 }
 export const getLocalStore = (text, remove) => {
@@ -340,7 +340,7 @@ export const convertStringToFloat = (value, noparse = false) => {
             text = text.slice(1, text.length)
         }
         let number = "";
-        for (let i = 0; i < text.length; i++) {
+        for (let i = 0;i < text.length;i++) {
             if (text[i] == ",") {
                 number = number + "."
             }
@@ -371,7 +371,7 @@ export const convertFloatToString = (value) => {
         if (text.indexOf(".") != -1) {
             isExit = false;
         }
-        for (let i = 0; i < text.length; i++) {
+        for (let i = 0;i < text.length;i++) {
             if (text[i] === ".") {
                 newText = newText + ","
                 _add = 0;
@@ -410,7 +410,7 @@ function converAddress(address = []) {
     let _address
     let index = 0;
     let isStart = address.length;
-    for (let i = address.length; i > 0; i--) {
+    for (let i = address.length;i > 0;i--) {
         if (address[i] == ",") {
 
             if (index === 2) {
@@ -452,7 +452,7 @@ const token = () => {
 }; // Production
 export const TOKEN = token()
 
-export const langStorage =  {
-    get : localStorage.getItem('language'),
-    remove : localStorage.removeItem('language'),
+export const langStorage = {
+    get: localStorage.getItem('language'),
+    remove: localStorage.removeItem('language'),
 }

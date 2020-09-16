@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Trans } from 'react-i18next';
 import { formatCurrency } from '../../../../functions/Utils'
 import { IMAGE_URL } from '../../../../contant'
+import { Link } from 'react-router-dom';
 
 
 const ProductDetailRight = (props) => {
@@ -123,7 +124,10 @@ const ProductDetailRight = (props) => {
                     <div className="list_button d-flex flex-wrap">
                         <a href="/" className="btn btn_green text-uppercase"><Trans>MUA NGAY</Trans></a>
                         <a href="/" className="btn btn_purple text-uppercase"><Trans>NGÂN SÁCH</Trans></a>
-                        <a href="/" className="btn btn_red_outline w-100 mt-2 text-uppercase"><Trans>XEM NGÂN HÀNG</Trans></a>
+                        <Link to={{
+                            pathname: "/property-selling",
+                            state: { productID: data.product_id }
+                        }} className="btn btn_red_outline w-100 mt-2 text-uppercase"><Trans>XEM NGÂN HÀNG</Trans></Link>
                     </div>
                 </div>
             </div> : ""

@@ -26,7 +26,7 @@ const UploadAvatar = (props) => {
                     <i className="icon fas fa-camera-retro"></i>
                     <span className="text">Cập nhật ảnh</span>
                 </div>
-                <div className={`center has-data ${avatar == null ? "d-none" : ""}`}>
+                <div className={`center has-data ${avatar ? "d-none" : ""}`}>
                     <img className="uploaded_avatar" src={avatar} alt="avatar" ref={uploadedImage} />
                 </div>
 

@@ -14,7 +14,7 @@ import { MapPoligon } from "../../components/common/Map/index";
 import { projectAction, newsAction } from "../../store/action/index";
 
 
-import { LocationView, YourPosition } from "./Location/index";
+import { LocationView } from "./Location/index";
 import { OnMapPoligon } from "./Search/index";
 
 import Advisory from "./Contact/Advisory";
@@ -34,14 +34,12 @@ const Home = (props) => {
         position: false,
         search: false,
         showhide: false,
-        myLocation: null
     });
 
     useEffect(() => {
         // dispatch(projectAction.loadProjectList({project_sale_status: `[${state.projectStatus}]`}));
         dispatch(projectAction.loadProjectList({}));
         dispatch(newsAction.LoadNewsList({}))
-
 
     }, []);
     const search = useSelector(state => state.projectReducer);

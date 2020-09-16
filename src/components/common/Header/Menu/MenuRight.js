@@ -15,12 +15,11 @@ const MenuRight = (props) => {
     const product = useSelector(state => state.productReducer);
     const productListSuccess = product.productFavoriteList.success
     const favoriteList = productListSuccess ? product.productFavoriteList : null;
-    const loginData = getLocalStore('user');
     const newArray = [];
     useEffect(() => {
         // dispatch(accountAction.loadLogin({}))
 
-        if (loginData && loginData.user_id !== null) {
+        if (user && user.user_id !== null) {
             dispatch(productAction.productFavoriteList({ page: 1, limit: 5 }));
         } else {
             const dataStorage = sessionStorage.getItem('favor')
@@ -43,7 +42,7 @@ const MenuRight = (props) => {
                 <Link to="/product-favorite" className="link">
                     <span className="icon">
                         <i className="heart far fa-heart" />
-                        <FavoriteCount dataLocal={dataLocal} favoriteList={favoriteList} loginData={loginData} />
+                        <FavoriteCount dataLocal={dataLocal} favoriteList={favoriteList} loginData={user} />
                     </span>
                 </Link>
             </div>
@@ -60,9 +59,10 @@ const MenuRight = (props) => {
                     onMouseEnter={() => setHoverProfile(true)}
                     aria-expanded={inHoverProfile}>
                     {
-                        user 
-                        ? <img src={user.avatar_url ? user.avatar_url : `${IMAGE_URL}images/favicon.png`} className="avatarLogin" /> 
-                        : <i className="icon user fas fa-user-circle" />
+                        user ?
+                            <img src={user.avatar_url ? user.avatar_url : `${IMAGE_URL}images/favicon.png`} className="avatarLogin" />
+                            : <i className="icon user fas fa-user-circle" />
+
                     }
                 </Link>
                 <div className="dropdown-menu" onMouseLeave={() => setHoverProfile(false)}>
