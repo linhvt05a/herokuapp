@@ -30,6 +30,8 @@ import Example from "./templates/Example";
 // import ConfirmOrderInfo from "./templates/ShopCart/ConfirmOrderInfo";
 // import DepositPayment from "./templates/ShopCart/DepositPayment";
 // import OrderInfo from "./templates/ShopCart/OrderInfo"
+// import Recruitment from "./templates/Support/Recruitment/Recruitment";
+// import RecruitmentDetail from "./templates/Support/Recruitment/RecruitmentDetail";
 
 const Home = lazy(() => import('./templates/Home/Home'));
 
@@ -43,8 +45,8 @@ const HotProduct = lazy(() => import('./templates/Product/HotProduct'));
 const News = lazy(() => import('./templates/News/NewsList'));
 const NewsDetail = lazy(() => import('./templates/News/NewsDetail'));
 
-import Recruitment from "./templates/Support/Recruitment/Recruitment";
-import RecruitmentDetail from "./templates/Support/Recruitment/RecruitmentDetail";
+const Recruitment = lazy(() => import('./templates/Support/Recruitment/Recruitment'));
+const RecruitmentDetail = lazy(() => import('./templates/Support/Recruitment/RecruitmentDetail'));
 
 const TransactionLevel = lazy(() => import('./templates/TransactionLevel/TransactionLevel'));
 const ShoppingGuide = lazy(() => import('./templates/Support/ShopGuide/ShoppingGuide'));

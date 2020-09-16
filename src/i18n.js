@@ -4,10 +4,11 @@ import { initReactI18next } from "react-i18next";
 import en from '../locales/en.js';
 import vi from '../locales/vi.js';
 
-let lang = localStorage.getItem('language');
+let lang = JSON.parse(localStorage.getItem('language'));
+console.log('dd',lang);
 if( !lang ){
     lang = "en";
-    localStorage.setItem('language', lang);
+    localStorage.setItem('language', JSON.stringify(lang));
 }
 
 // let lang = 'en';
