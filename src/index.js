@@ -12,8 +12,8 @@ import '../public/styles/scss/main.scss';
 import {MODE_ENV} from '../config/env';
 
 
-// console.log('MODE_ENV:',MODE_ENV);
-if (MODE_ENV.show_log == false){
+console.log('MODE_ENV:',MODE_ENV);
+if (MODE_ENV.show_log == false){    
     console.log = () => {};
 }
 

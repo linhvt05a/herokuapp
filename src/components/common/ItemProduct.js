@@ -9,13 +9,13 @@ import { ButtonBuyNow } from "../base";
 
 
 const ItemProduct = (props) => {
-    const { data} = props
+    const { data } = props
     const [active, setActive] = useState(false)
 
-    function saveProduct(){
-       setActive(!active)
-            if(!active){
-                var favor = JSON.parse(sessionStorage.getItem('favor'));
+    function saveProduct() {
+        setActive(!active)
+        if (!active) {
+            var favor = JSON.parse(sessionStorage.getItem('favor'));
             if (!favor) {
                 favor = [];
             }
@@ -23,38 +23,38 @@ const ItemProduct = (props) => {
                 return favorItem.product_id == data.product_id;
             });
             if (index !== -1) {
-                
+
             } else {
                 favor.push({
                     product_id: data.product_id,
-                    product_total_bathroom:data.product_total_bathroom,
-                    product_total_bedroom:data.product_total_bedroom, 
-                    product_estimate_price:data.product_estimate_price, 
-                    product_name: data.product_name, 
+                    product_total_bathroom: data.product_total_bathroom,
+                    product_total_bedroom: data.product_total_bedroom,
+                    product_estimate_price: data.product_estimate_price,
+                    product_name: data.product_name,
                     product_acreage: data.product_acreage,
                     is_favorite: true,
-                    product_avatar_url:data.product_avatar_url
+                    product_avatar_url: data.product_avatar_url
                 });
-                sessionStorage.setItem('favor',JSON.stringify(favor)); 
+                sessionStorage.setItem('favor', JSON.stringify(favor));
             }
-            
-            }else{
-               var favorLocal = JSON.parse(sessionStorage.getItem('favor')); 
-                for (var index = 0; index <= favorLocal.length; index++) {
-                   if(favorLocal[index].product_id === data.product_id){
+
+        } else {
+            var favorLocal = JSON.parse(sessionStorage.getItem('favor'));
+            for (var index = 0; index <= favorLocal.length; index++) {
+                if (favorLocal[index].product_id === data.product_id) {
                     favorLocal.splice(index, 1)
-                        sessionStorage.setItem('favor', JSON.stringify(favorLocal))
-                   } 
+                    sessionStorage.setItem('favor', JSON.stringify(favorLocal))
                 }
             }
-       
+        }
+
     }
 
     return (
         <div className="item">
             <figure className="image">
                 {
-                    <i className={`liked fas fa-heart ${active || data.product_love_flag ? " active": ""}`} onClick={saveProduct}/>
+                    <i className={`liked fas fa-heart ${active || data.product_love_flag ? " active" : ""}`} onClick={saveProduct} />
                 }
                 {
                     data.product_avatar_url != ""
@@ -93,17 +93,19 @@ const ItemProduct = (props) => {
                     </span>
                 </p>
                 {
-                    data.project_group_type === 1 ?
+                    data.product_group_type_id === 1 ?
+                        //housing
                         <p className="child mb-0">
                             <i className="icon fas fa-restroom" />
                             <span className="text">
                                 {data.product_total_bathroom ? data.product_total_bathroom : '-'}
                             </span>
                         </p> :
+                        //building
                         <p className="child mb-0">
                             <i className=" icon fas fa-expand-arrows-alt" />
                             <span className="text">
-                                {data.product_total_bathroom ? data.product_total_bathroom : '-'}
+                                {data.product_width ? data.product_width : '-'} x {data.product_length ? data.product_length : '-'}
                             </span>
                         </p>
                 }
@@ -119,7 +121,7 @@ const ItemProduct = (props) => {
                     <div className="price__item">
                         <div className="price__discount">{formatCurrency(data.product_estimate_price) + data.product_estimate_price_unit_name}</div>
                         <div className="price__origin">
-                            <span className="value">2.444.888.000đ </span> 8%
+                            <span className="value">{data.product_real_price ? data.product_real_price : '0000000000'} </span> {data.product_discount_percent ? product_discount_percent : '-'}
                         </div>
                     </div>
                     <div className="price__item">
