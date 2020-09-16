@@ -1,20 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
 import { FormUser } from "../../../../templates/Account/index";
-import { IMAGE_URL, LOCALSTORAGE_GET } from '../../../../contant';
+import { IMAGE_URL } from '../../../../contant';
 import { useDispatch, useSelector } from "react-redux";
 import { productAction, accountAction } from "../../../../store/action/index";
+import { getLocalStore } from '../../../../functions/Utils';
 
 
 const MenuRight = (props) => {
-    const user = LOCALSTORAGE_GET.USER;
+    const user = getLocalStore('user');
     const [inHoverProfile, setHoverProfile] = useState(false);
     const [dataLocal, setDatalocal] = useState([])
     const dispatch = useDispatch();
     const product = useSelector(state => state.productReducer);
     const productListSuccess = product.productFavoriteList.success
     const favoriteList = productListSuccess ? product.productFavoriteList : null;
-    const loginData = localStorage.getItem('user');
+    const loginData = getLocalStore('user');
     const newArray = [];
     useEffect(() => {
         // dispatch(accountAction.loadLogin({}))
@@ -56,11 +57,14 @@ const MenuRight = (props) => {
                     onMouseEnter={() => setHoverProfile(true)}
                     aria-expanded={inHoverProfile}>
                     {
-                        user != null ?
-                            <img src={user.avatar_url} className="avatarLogin" /> :
-                            user != null && user.avatar_url == null ?
-                                <img src={`${IMAGE_URL}images/favicon.png`} className="avatarLogin" /> :
-                                <i className="icon user fas fa-user-circle" />
+                        // user != null ?
+                        // <img src={user.avatar_url} className="avatarLogin" /> :
+                        // user != null && user.avatar_url == null ?
+                        //     <img src={`${IMAGE_URL}images/favicon.png`} className="avatarLogin" /> :
+                        //     <i className="icon user fas fa-user-circle" />
+
+                        user ? <img src={user.avatar_url ? user.avatar_url : `${IMAGE_URL}images/favicon.png`} className="avatarLogin" /> : <i className="icon user fas fa-user-circle" />
+
                     }
                 </Link>
                 <div className="dropdown-menu" onMouseLeave={() => setHoverProfile(false)}>

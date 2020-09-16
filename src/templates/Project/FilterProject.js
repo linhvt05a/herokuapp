@@ -4,13 +4,14 @@ import { Link } from "react-router-dom";
 import { Trans } from 'react-i18next';
 import { commonAction, projectAction } from "../../store/action";
 import { ListSelect, InputRange } from "../Home/Search/index";
-import { PROJECT_SALE_GROUP, LOCALSTORAGE_GET } from "../../contant";
+import { PROJECT_SALE_GROUP } from "../../contant";
+import { langStorage } from '../../functions/Utils';
 
 const FilterProject = (props) => {
 
     const dispatch = useDispatch();
     useEffect(() => {
-        dispatch(commonAction.loadProvinceList({ lang: LOCALSTORAGE_GET.LANG }))
+        dispatch(commonAction.loadProvinceList({ lang: langStorage.get }))
     }, [])
     const province = useSelector(state => state.commonReducer);
     const isGetprovinceListSuccess = province.provinceList.success;

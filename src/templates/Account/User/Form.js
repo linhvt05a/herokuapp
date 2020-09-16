@@ -4,7 +4,7 @@ import { Link, NavLink } from "react-router-dom";
 import { Trans } from "react-i18next";
 
 import { Login, ForgotPass, Registry, Logout } from '../index';
-import { LOCALSTORAGE_GET } from "../../../contant";
+import { getLocalStore } from '../../../functions/Utils';
 
 
 const Form = (props) => {
@@ -17,16 +17,16 @@ const Form = (props) => {
         setTab(active)
     }
     const logout = () => {
-        localStorage.removeItem('user');
+        getLocalStore('user', true)
         window.location.reload()
     }
     
-    const user = LOCALSTORAGE_GET.USER;
+    const user = getLocalStore('user');
 
     return (
         <>
             {/* form_register */}
-            <div className={`header_register form_register ${user != null ? "d-none": ""}`}>
+            <div className={`header_register form_register ${user ? "d-none": ""}`}>
                 <ul className="nav header_register--heading" role="tablist">
                     <li className="nav-item">
                         <a onClick={event => showTap(0)}

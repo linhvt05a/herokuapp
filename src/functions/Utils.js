@@ -5,7 +5,6 @@ import "moment/locale/vi"
 import "moment/locale/en-au"
 import vi_VN from "antd/es/date-picker/locale/vi_VN";
 import en_US from "antd/es/date-picker/locale/en_US"
-import { LOCALSTORAGE_GET } from "../contant"
 
 export {
     differentList,
@@ -445,10 +444,15 @@ export const datePichkerLocation = () => {
 }
 
 const token = () => {
-    if (LOCALSTORAGE_GET.USER) {
-        let token = LOCALSTORAGE_GET.USER.token;
+    if (getLocalStore('user')) {
+        let token = getLocalStore('user').token;
         if (token) { return token }
     }
     return null
 }; // Production
 export const TOKEN = token()
+
+export const langStorage =  {
+    get : localStorage.getItem('language'),
+    remove : localStorage.removeItem('language'),
+}
