@@ -453,13 +453,4 @@ const token = () => {
     }
     return null
 }; // Production
-<<<<<<< HEAD
 export const TOKEN = token()
-
-export const langStorage = {
-    get: localStorage.getItem('language'),
-    remove: localStorage.removeItem('language'),
-}
-=======
-export const TOKEN = token()
->>>>>>> develop
