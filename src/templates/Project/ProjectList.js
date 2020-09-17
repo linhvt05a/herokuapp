@@ -2,14 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import HeadingLine from '../../components/common/HeadingLine';
 import Pagination from '../../components/common/Pagination';
-import FilterProject from './Layout/FilterProject';
+import FilterProjectList from './FilterProjectList';
 import { projectAction } from "../../store/action/index";
 import CardNoData from '../../components/common/CardNoData';
 import { LoadDataPaging } from '../../functions/Utils';
 import ItemProject_02 from '../../components/common/Project/ItemProject_02';
 
 
-const Project = (props) => {
+const ProjectList = (props) => {
 
     const project = useSelector(state => state.projectReducer);
     const isGetProjectListSuccess = project.projectList.success;
@@ -21,15 +21,15 @@ const Project = (props) => {
     const [state, setState] = useState({
         projectStatus: 0
     });
-    
+
     useEffect(() => {
         if (window.location.pathname === "/project/selling") {
-            dispatch(projectAction.loadProjectList({page: 1, limit: 6, project_sale_status: `[3]`}))
+            dispatch(projectAction.loadProjectList({ page: 1, limit: 6, project_sale_status: `[3]` }))
             setState({
                 projectStatus: 3
             })
         } else {
-            dispatch(projectAction.loadProjectList({page: 1, limit: 6, project_sale_status: `[2]`}))
+            dispatch(projectAction.loadProjectList({ page: 1, limit: 6, project_sale_status: `[2]` }))
             setState({
                 projectStatus: 2
             })
@@ -37,20 +37,20 @@ const Project = (props) => {
     }, []);
 
     const onStatusClick = (e) => {
-        dispatch(projectAction.loadProjectList({project_sale_status: `[${parseInt(e.target.name)}]`}))
+        dispatch(projectAction.loadProjectList({ project_sale_status: `[${parseInt(e.target.name)}]` }))
         setState({
             projectStatus: parseInt(e.target.name)
         });
     }
 
     const onPageChange = (value) => {
-        dispatch(projectAction.loadProjectList({page: value, limit: 6, project_sale_status: `[${state.projectStatus}]`}));
+        dispatch(projectAction.loadProjectList({ page: value, limit: 6, project_sale_status: `[${state.projectStatus}]` }));
     }
 
     return (
         <div className="projectPage">
             <div className="project_page bg_grey">
-                <FilterProject />
+                <FilterProjectList />
                 <div className="project_page--list project_tab">
                     <div className="container container-sm container-md">
                         <HeadingLine headerBodyClassName="project_list--heading" labelHeader="project_list" status onStatusClick={onStatusClick} projectStatus={state.projectStatus} />
@@ -58,8 +58,8 @@ const Project = (props) => {
                             {
                                 (projectList && projectList.length > 0) ? projectList.map((item, index) => (
                                     <ItemProject_02
-                                    key={index}
-                                    data={item} />
+                                        key={index}
+                                        data={item} />
                                 )) : <CardNoData />
                             }
                         </div>
@@ -70,4 +70,4 @@ const Project = (props) => {
         </div>
     )
 }
-export default Project;
+export default ProjectList;

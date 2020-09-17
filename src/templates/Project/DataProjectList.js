@@ -1,12 +1,12 @@
 import React from "react";
-import ItemProduct from "../../../components/common/ItemProduct";
-import HeadingLine from '../../../components/common/HeadingLine';
-import CardNoData from "../../../components/common/CardNoData";
-import CardInputSliderFilter from '../../../components/common/CardInputSliderFilter';
-import Pagination from '../../../components/common/Pagination';
-import { LoadDataPaging } from '../../../functions/Utils';
+import ItemProduct from "../../components/common/ItemProduct";
+import HeadingLine from '../../components/common/HeadingLine';
+import CardNoData from "../../components/common/CardNoData";
+import CardInputSliderFilter from '../../components/common/CardInputSliderFilter';
+import Pagination from '../../components/common/Pagination';
+import { LoadDataPaging } from '../../functions/Utils';
 
-const ListProject = (props) => {
+const DataProjectList = (props) => {
 
     const { headerBodyClassName, labelHeader, datas, limit, onPageChange, onFilterChange } = props
 
@@ -48,4 +48,4 @@ const ListProject = (props) => {
     )
 }
 
-export default ListProject;
+export default DataProjectList;

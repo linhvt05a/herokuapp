@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
-import ListProject from './Layout/ListProject';
 import { productAction } from "../../store/action/index";
+import TopBannerProjectDetail from './TopBannerProjectDetail';
+import DataProjectList from './DataProjectList';
+
 
 const ProjectDetail = (props) => {
 
@@ -53,15 +55,14 @@ const ProjectDetail = (props) => {
 
     return (
         <div className="projectDetailPage">
-            {
-                <ListProject 
-                headerBodyClassName="label_filter--heading"
-                labelHeader={location.state.projectName}
-                datas={location.state.projectStatus === 3 ? sellingProductList : comingSoonProductList}
-                limit={6}
-                onFilterChange={onFilterChange}
-                onPageChange={onPageChange} />
-            }
+            <TopBannerProjectDetail />
+            <DataProjectList 
+            headerBodyClassName="label_filter--heading"
+            labelHeader={location.state.projectName}
+            datas={location.state.projectStatus === 3 ? sellingProductList : comingSoonProductList}
+            limit={6}
+            onFilterChange={onFilterChange}
+            onPageChange={onPageChange} />
             
         </div>
     )
