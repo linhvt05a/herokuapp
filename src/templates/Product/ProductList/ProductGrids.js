@@ -13,13 +13,12 @@ const ProductGrids = (props) => {
    
     return (
         <div className="striking_apartment--content">
-        {loginData && loginData.user_id !== null ? 
+        {loginData && loginData !== null ? 
         <div className="row">
             {data && data.detail.list_product.map((item, index)=><ProductRow loginData={loginData} data={item} key={index}/>)}
         </div>:
         <div className="row">
             {productLocal && productLocal.map((item, index)=><ProductRow loginData={loginData}  data={item} key={index}/>)}
-            
         </div>
         }
       </div>   
@@ -29,71 +28,60 @@ const ProductGrids = (props) => {
 const ProductRow = (props) =>{
     const{data, loginData} = props
     const[is_favorite, setIs_favorite] = useState(false)
-    const [postFavor,setFavor] = useState([])
     const dispatch = useDispatch();
     const saveToOder = (product_id) =>{
-      localStorage.setItem('product', product_id)
+      
     }
     
-    var postData = []
-    const isFavor = JSON.parse(sessionStorage.getItem("favor")) 
     
     const saveToStorage = (productID) => {
-     if(loginData !== null){
+      var favor = [] 
+    
+      if(loginData && loginData !== null){
         setIs_favorite(!is_favorite)
-        var newData = []
-        newData.push(data)
-        console.log(newData)
-     }else {
-      setIs_favorite(!is_favorite)
-      var favorite = JSON.parse(sessionStorage.getItem('favor'))
-        for (var index = 0; index < favorite.length; index++) {
-             if(favorite[index].product_id == productID){
-              favorite[index].is_favorite = is_favorite
-                sessionStorage.setItem("favor", JSON.stringify(favorite))
-            }  
-        }
-        var index = favorite.indexOf(function (favorItem) {
+        console.log("post server")
+      }
+      else {
+        setIs_favorite(!is_favorite)
+        var favorite = JSON.parse(sessionStorage.getItem("favorite")) 
+        if (!favorite) {
+          favorite = [];
+      }
+      var index = favorite.indexOf(function (favorItem) {
           return favorItem.product_id == productID;
       });
-   
-      if(index !== -1){
-       
-      }else {
-        for (let index = 0; index < favorite.length; index++) {
+      if (index !== -1) {
+        
+      } else {
+        favorite.push({
+          product_id: productID,
+          is_favorite: is_favorite,
+      })
+      for (let index = 0; index < favorite.length; index++) {
           if(favorite[index].product_id == productID){
-          const newData = [...favorite]
-            newData.filter((item)=> {
-              if(item.product_id == productID){
-                for (var i = 0;  i < newData.length; i++){
-                    const newPost = {product_id: newData[i].product_id, is_favorite: newData[i].is_favorite}
-                   postData.push(newPost)
-                    
-                }
-                  
-              }
-            })
+              
+              favor.push({product_id: favorite[index].product_id, is_favorite: favorite[index].is_favorite})
+              console.log(favor)
+              sessionStorage.setItem('favorite', JSON.stringify(favor));
           }
-        }
-          sessionStorage.setItem('saveFavor',JSON.stringify(postData))
+      }
+        
         
       }
-      if (!favorite) {
-        favorite = [];
-    }  
-     }
-         
-  }
+     
+    }
+      
+}
+
     return(
         <div className="col-12 col-sm-12 col-md-6">
         <div className="item">
           <figure className="image">
             
-           {loginData === null ? 
-           <i className={!is_favorite && data.is_favorite === true ? "liked active fas fa-heart" : "liked fas fa-heart"} onClick={()=>saveToStorage(data.product_id)}/>
-           :
-          <i className={!is_favorite || data.is_favorite === true ? "liked active fas fa-heart" : "liked fas fa-heart"} onClick={()=>saveToStorage(data.product_id)}/>
-          }
+          {loginData && loginData !== null ?
+           <i className= { data.product_love_flag == true && !is_favorite ? "liked active fas fa-heart":"liked fas fa-heart" } onClick={()=>saveToStorage(data.product_id)}/>
+           :<i className= { data.is_favorite == true && !is_favorite ? "liked active fas fa-heart":"liked fas fa-heart" } onClick={()=>saveToStorage(data.product_id)}/>
+           }
             <img
               src={data.product_avatar_url !="" ? data.product_avatar_url : IMAGE_URL +  "/images/no_data.png"}
               
