@@ -387,7 +387,7 @@
                 z-index: 3;
                 cursor: pointer;
 
-                &.active{
+                &.active {
                     color: #e9c301;
                 }
             }
@@ -424,7 +424,7 @@
                 align-items: baseline;
 
                 @media (max-width: 440px) {
-                    display: block;
+                    display: flex;
                 }
 
                 .name {
@@ -481,7 +481,7 @@
                         }
                     }
 
-                    
+
                 }
             }
 
@@ -501,6 +501,7 @@
                         padding: 5px 0;
                         flex-flow: wrap;
                         justify-content: space-between;
+
                         .child {
                             @media (max-width: 480px) {
                                 flex: 50%;
@@ -618,9 +619,96 @@
                         height: 17%;
                     }
                 }
+
+                .pull-range {
+                    display: flex;
+                    align-items: center;
+
+                    .rangeValue02 {
+                        width: 55px;
+                        height: 33px;
+                    }
+                }
+
+            }
+
+
+        }
+
+        .title {
+            .title_borrow {
+                font-size: 18px;
+                
+            }
+            .heading{
+                flex-wrap: wrap;
+            }
+            .heading_big{
+                width: 50%;
+                @media (max-width: 475px) {
+                    width: 100%;
+                }
+            }
+            .name_apartment{
+                order: 1;
+            }
+            .img_bank{
+                order: 3;
+                width: 100%;
+                .top{
+                    margin: 10px 0;
+                    display: flex;
+                    align-items: center;
+                    @media (max-width: 475px) {
+                        display: block;
+                    }
+                    .name{
+                        margin: 0;
+                        padding: 0;
+                    }
+                }
+            }
+            .price{
+                order: 2;
+                text-align: right;
+                @media (max-width: 475px) {
+                    margin: 0;
+                    text-align: left;
+                }
+            }
+            .img {
+                border: 1px solid #9ea9bb;
+                border-radius: 5px;
+                margin-left: 10px;
+                width: 93px;
+                height: 33px;
+                // @media (max-width: 767px) {
+                //     margin-left: 0;
+                // }
             }
         }
 
+        .filter {
+            .description-apartment {
+                width: 50%;
+
+                @media (max-width: 767px) {
+                    width: 100%;
+                }
+            }
+
+            .cart-expenses {
+                width: 50%;
+
+                @media (max-width: 767px) {
+                    width: 100%;
+                }
+            }
+
+            .cart-expenses::before {
+                display: none;
+            }
+        }
 
     }
 

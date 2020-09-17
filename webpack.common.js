@@ -4,7 +4,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const globImporter = require("node-sass-glob-importer");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 var path = require('path');
-var env = require("./config/env");
+var env = require("./env/env");
 
 module.exports = {
     entry: ['./src/index.js',],

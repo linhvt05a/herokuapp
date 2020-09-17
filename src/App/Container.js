@@ -2,12 +2,12 @@
 import React, { useState, useEffect, useRef, useLayoutEffect, Suspense } from 'react';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { I18nextProvider } from 'react-i18next';
-import { Spin } from 'antd';
 
 import TopBanner from "../components/common/Header/TopBanner";
 import { MAIN, PATHS } from "../routes"
 import { Error404 } from '../templates/ErrorPage';
-import i18n from '../i18n'
+import i18n from '../i18n';
+import Loading from '../components/common/Loading';
 
 const Container = () => {
 
@@ -32,7 +32,7 @@ const Container = () => {
     return (
         <I18nextProvider i18n={i18n}>
             <div className="page_container" style={{ paddingTop: dimensions.height }}>
-                <Suspense fallback={loading()}>
+                <Suspense fallback={<Loading className="container"/>}>
                     <Switch >
                         {MAIN.map((data, idx) => (
                             <Route exact key={idx} path={data.path}>
@@ -48,12 +48,6 @@ const Container = () => {
     );
 }
 
-const loading = () => {
-    return (
-        <div className="container">
-            <Spin className="loading_full" tip="Loading..."></Spin>
-        </div>
-    )
-}
+
 
 export default Container;
