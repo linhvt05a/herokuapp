@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from "react-router-dom";
 import { CardHotProduct } from '../Home/Layout/index';
-import FilterProject from '../Project/FilterProject';
+import FilterProject from '../Project/Layout/FilterProject';
 
 const HotProduct = (props) => {
 

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Trans } from 'react-i18next';  
 import { Link } from "react-router-dom";
-import { ItemProduct } from "../Item/index";
+import ItemProduct from "../../../components/common/ItemProduct";
 import HeadingLine from '../../../components/common/HeadingLine';
 import CardNoData from "../../../components/common/CardNoData";
 import Pagination from '../../../components/common/Pagination';
