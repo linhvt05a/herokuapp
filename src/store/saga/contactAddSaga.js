@@ -45,10 +45,40 @@ export function* registrationNewsletterWatcher() {
     yield takeLatest(contactAddAction.NEWSLETTER_REGISTRATION_REQUEST, registrationNewsletter);
 }
 
+export function* getLoanPolicy(payload) {
+    let { token, product_id } = payload.params
+    try {
+        const response = yield contactService.getLoanPolicy(token, product_id);
+        response.success ? yield put({ type: contactAddAction.LOAN_POLICY_SUCCESS, response }) : yield put({ type: contactAddAction.LOAN_POLICY_FAILURE, response });
+    } catch (err) {
+        yield put({ type: contactAddAction.LOAN_POLICY_FAILURE, err });
+    }
+}
+
+export function* getLoanPolicyWatcher() {
+    yield takeLatest(contactAddAction.LOAN_POLICY_REQUEST, getLoanPolicy);
+}
+
+export function* getPolicy(payload) {
+    let { token, bank_id } = payload.params
+    try {
+        const response = yield contactService.getPolicy(token, bank_id);
+        response.success ? yield put({ type: contactAddAction.POLICY_SUCCESS, response }) : yield put({ type: contactAddAction.POLICY_FAILURE, response });
+    } catch (err) {
+        yield put({ type: contactAddAction.POLICY_FAILURE, err });
+    }
+}
+
+export function* getPolicyWatcher() {
+    yield takeLatest(contactAddAction.POLICY_REQUEST, getPolicy);
+}
+
 export default function* rootSaga() {
     yield all([
         fork(contactAddWatcher),
         fork(advisoryAddWatcher),
-        fork(registrationNewsletterWatcher)
+        fork(registrationNewsletterWatcher),
+        fork(getLoanPolicyWatcher),
+        fork(getPolicyWatcher)
     ]);
 }

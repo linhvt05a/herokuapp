@@ -14,6 +14,14 @@ const actions = {
     NEWSLETTER_REGISTRATION_SUCCESS: "NEWSLETTER_REGISTRATION_SUCCESS",
     NEWSLETTER_REGISTRATION_FAILURE: "NEWSLETTER_REGISTRATION_FAILURE",
 
+    LOAN_POLICY_REQUEST: "LOAN_POLICY_REQUEST",
+    LOAN_POLICY_SUCCESS: "LOAN_POLICY_SUCCESS",
+    LOAN_POLICY_FAILURE: "LOAN_POLICY_FAILURE",
+
+    POLICY_REQUEST: "POLICY_REQUEST",
+    POLICY_SUCCESS: "POLICY_SUCCESS",
+    POLICY_FAILURE: "POLICY_FAILURE",
+
 
     contactAdd: (params) => ({
         type: actions.CONTACT_ADD_REQUEST,
@@ -30,6 +38,14 @@ const actions = {
     }),
     registrationNewsletter: (params) => ({
         type: actions.NEWSLETTER_REGISTRATION_REQUEST,
+        params
+    }),
+    getLoanPolicy: (params) => ({
+        type: actions.LOAN_POLICY_REQUEST,
+        params
+    }),
+    getPolicy: (params) => ({
+        type: actions.POLICY_REQUEST,
         params
     })
 };

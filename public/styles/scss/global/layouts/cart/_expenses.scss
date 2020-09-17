@@ -3,13 +3,24 @@
    &__detail {
       padding: 20px 24px;
       background-color: #fff;
+      
+   }
+   .detail_bg_purble{
+      .cart-expenses__detail{
+          background-color: rgba(109, 48, 171, 0.08);
+      }
+      .temporary{
+         font-size: 16px;
+         margin-bottom: 15px;
+         @include fw-medium;
+      }
    }
    &__list {
       @include flexbox;
       @include align-items(center);
       @include justify-content(space-between);
       margin-bottom: 4px;
-      &.promotion {
+      &.star_green {
          .cart-expenses__title {
             color: #25b15f;
             &::before {
@@ -20,12 +31,24 @@
             color: #25b15f;
          }
       }
+      &.star_red {
+         .cart-expenses__title {
+            color: #e94c4c;
+            &::before {
+               color: #e94c4c;
+            }
+         }
+         .cart-expenses__value {
+            color: #e94c4c;
+         }
+      }
    }
    &__title {
       font-size: 16px;
       color: #0d0d0d;
       padding-left: 15px;
       position: relative;
+      @include fw-medium;
       &::before {
          position: absolute;
          content: "\f621";
@@ -56,11 +79,14 @@
       margin: 0;
       list-style-type: none;
       li{
-          border-bottom: 2px solid #f3f4f9;
+          border-bottom: 1px solid #f3f4f9;
       }
       li:nth-last-child(1){
          border-bottom: none;
       }
+   }
+   .title{
+      @include fw-medium;
    }
    &__product{
       margin-bottom: 20px;
@@ -71,6 +97,7 @@
          padding: 0 20px;
          padding-left: 0;
       }
+      
    }
    &__title{
       font-size: 18px;
@@ -79,16 +106,32 @@
    &__list {
       display: flex;
       padding: 10px 0;
-     
+      border-bottom: 1px solid #f3f4f9;
+      cursor: pointer;
    }
    &__list:nth-last-child(1){
       border-bottom: none;
    }
-   &__department::before {
-      content: "\25A0";
-      color: #9ea9bb;
-      font-size: 15px;
-      padding-right: 5px;
+   &__dropdown{
+      display: flex;
+      justify-content: space-between;
+      padding-left: 15px;
+      padding-bottom: 10px;
+        
+   }
+   &__department{
+      @include fw-medium;
+      
+      .icon{
+         transition: all 0.5s;
+         margin-left: 10px;
+         @media (max-width: 475px) {
+            margin: 0;
+        }
+         &.active{
+            @include transform( rotate(180deg));
+         }
+      }
    }
    &__price {
       margin-left: auto;

@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
-import TopBannerDetail from "./Item/TopBannerDetail";
-import { CardProjectList } from './Layout/index';
+import ListProject from './Layout/ListProject';
 import { productAction } from "../../store/action/index";
 
 const ProjectDetail = (props) => {
@@ -54,14 +53,16 @@ const ProjectDetail = (props) => {
 
     return (
         <div className="projectDetailPage">
-            <TopBannerDetail />
-            <CardProjectList 
+            {
+                <ListProject 
                 headerBodyClassName="label_filter--heading"
                 labelHeader={location.state.projectName}
                 datas={location.state.projectStatus === 3 ? sellingProductList : comingSoonProductList}
                 limit={6}
                 onFilterChange={onFilterChange}
                 onPageChange={onPageChange} />
+            }
+            
         </div>
     )
 }

@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Trans } from "react-i18next";
-import { IMAGE_URL } from "../../../contant";
-import { convertDateShow } from "../../../functions/Utils"
+import { IMAGE_URL } from "../../contant";
+import { convertDateShow } from "../../functions/Utils"
 
-const ItemHomeProject = (props) => {
+const ItemProject = (props) => {
 
     const { bodyClassName, data, projectStatus } = props
 
@@ -48,4 +48,4 @@ const ItemHomeProject = (props) => {
     )
 }
 
-export default ItemHomeProject;
+export default ItemProject;

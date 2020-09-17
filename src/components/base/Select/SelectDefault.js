@@ -20,7 +20,7 @@ const SelectDefault = (props) => {
             }
             <Select
                 defaultValue={defaultValue}
-                style={{ width: style, height: 48 }}
+                style={style}
                 dropdownClassName="js-select2"
                 className={classNameSelect ? classNameSelect : "form-control"}
                 onChange={onChange}

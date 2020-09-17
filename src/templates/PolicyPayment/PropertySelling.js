@@ -6,10 +6,8 @@ import { useHistory } from 'react-router-dom';
 
 const PropertySelling = () => {
     let history = useHistory();
-    let productID = history.location.state.productID
     const onNext = () => {
-        console.log("chay");
-        history.push({ pathname: "/loan-policy", state: { value: 123 } })
+        history.push({ pathname: "/loan-policy", state: history.location.state })
     }
     return (
         <div className="sales_policy bg_grey">

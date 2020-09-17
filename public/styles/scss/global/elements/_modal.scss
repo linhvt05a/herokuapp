@@ -93,13 +93,25 @@
 
 .modal_special {
     box-shadow: 0 8px 5px 0 rgba(0, 0, 0, 0.13);
-    width: 100%;
-    max-width: 400px;
-
+    max-width: 400px !important;
+    max-height: calc(100vh - 6rem) !important;
+    @media (max-width: 375px) {
+        height: 100%;
+    }
     .modal_label {
         font-size: 16px;
     }
-
+    // .modal-body{
+    //     // max-height: 800px;
+    //     overflow-y: auto;
+    //     @media (max-width: 991px) {
+    //         max-height: 600px;
+    //     }
+    // }
+    
+    .slick-track{
+        width: 100% !important;
+    }
     .modal_color_red {
         color: #e94c4c;
     }
@@ -112,7 +124,9 @@
         max-width: 18%;
         text-align: center;
     }
-
+    .form_signInUp{
+        width: 100% !important;
+    }
     .content_offers {
         font-size: 16px;
         width: 100%;
@@ -208,13 +222,21 @@
         box-shadow: none !important;
     }
     .show_hide_pass {
-        width: 21px;
-        height: 16px;
+        width: 22px;
+        height: 18px;
         background-size: cover;
         background-repeat: no-repeat;
         cursor: pointer;
         margin-right: 10px;
     }
+    // .show_pass{
+    //     width: 22px;
+    //     height: 18px;
+    //     background-size: cover;
+    //     background-repeat: no-repeat;
+    //     cursor: pointer;
+    //     margin-right: 10px;
+    // }
 }
 .text_register_link {
     br {

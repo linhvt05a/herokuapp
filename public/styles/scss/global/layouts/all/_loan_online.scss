@@ -360,7 +360,8 @@
 
                 .form_file_name {
                     max-width: 100%;
-                    input{
+
+                    input {
                         font-size: 14px;
                     }
                 }
@@ -534,6 +535,10 @@
                 color: #e94c4c;
             }
         }
+
+
+
+
     }
 
     &--profile_code {
@@ -862,6 +867,185 @@
 
         .complete {
             display: none;
+        }
+    }
+
+    .border-split {
+        width: 100%;
+        position: absolute;
+        left: 15px;
+        height: 3px;
+        background-color: #f3f4f9;
+        
+    }
+
+    &--info_borrower {
+        display: flex;
+
+        @media(max-width: 767px) {
+            display: block;
+        }
+
+        .avatar {
+            width: 20%;
+
+            @media(max-width: 767px) {
+                width: 100%;
+                text-align: center;
+            }
+
+            img {
+                width: 117px;
+                height: 117px;
+                border-radius: 50%;
+            }
+        }
+
+        .information {
+            width: 80%;
+            
+            @media(max-width: 1199px) {
+                padding-left: 10px;
+            }
+            @media(max-width: 767px) {
+                width: 100%;
+                text-align: center;
+                padding-top: 10px;
+            }
+
+            .name_info {
+                padding-bottom: 5px;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.13);
+
+                .name {
+                    font-size: 20px;
+                    @include fw-medium;
+                    color: #4a3bcc;
+                }
+            }
+
+            .title_grey {
+                display: block;
+                color: #9a9a9a;
+            }
+
+            .personal_info {
+                padding-top: 15px;
+                display: flex;
+                justify-content: space-between;
+
+                @media(max-width: 470px) {
+                    display: block;
+                    padding-top: 0;
+                }
+
+                .detail_info {
+                    @media(max-width: 470px) {
+                        padding: 5px 0;
+                        border-bottom: 1px solid rgba(0, 0, 0, 0.13);
+                    }
+                    &:not(:first-child) {
+                        padding-left: 20px;
+                        border-left: 1px solid rgba(0, 0, 0, 0.13);
+
+                        @media(max-width: 470px) {
+                            border-left: none;
+                            border-bottom: 1px solid rgba(0, 0, 0, 0.13);
+                        }
+                    }
+                    &:nth-last-child(1) {
+                        @media(max-width: 470px) {
+                           border: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &--apartment_id {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 15px;
+        margin-bottom: 5px;
+        @media(max-width: 767px) {
+            display: block;
+        }
+
+        .name_apartment {
+            font-size: 22px;
+            @include fw-medium;
+        }
+
+        .file_number {
+            font-size: 16px;
+            @include fw-normal;
+            span {
+                font-size: 20px;
+                @include fw-medium;
+                text-align: right;
+
+                @media(max-width: 767px) {
+                    text-align: left;
+                }
+            }
+        }
+    }
+
+    &--policy {
+        display: flex;
+        justify-content: space-between;
+        border-top: 1px solid rgba(0, 0, 0, 0.13);
+        padding-top: 10px;
+
+        .policy_list {
+            width:70%;
+            font-size: 12px;
+            @media(max-width: 767px) {
+                width:60%;
+            }
+            .title {
+                margin-bottom: 10px;
+                @include fw-normal;
+            }
+
+            .list_style_01--item {
+                font-size: 12px !important;
+                color: #0d0d0d;
+                @include fw-medium;
+            }
+
+            .money {
+                padding-left: 18px;
+                font-size: 16px;
+                font-weight: bold;
+            }
+
+            .icon {
+                color: #fff;
+                background-color: #fd7e14;
+                padding: 5px;
+                border-radius: 5px;
+                margin-right: 10px;
+            }
+
+        }
+
+        .content {
+            display: flex;
+            justify-content: space-between;
+            @media(max-width: 767px) {
+                display: block;
+            }
+        }
+
+        .bank {
+            width: 30%;
+            text-align: right;
+            @media(max-width: 767px) {
+                display: block; 
+                width:40%;
+            }
         }
     }
 

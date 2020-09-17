@@ -7,6 +7,8 @@ import { Heading, Label, ChangePass } from "../../index";
 import { Alert, Input, Form, DatePicker, Radio } from 'antd';
 import { accountAction, commonAction } from "../../../../store/action/index";
 import { SelectCustom } from '../../../../components/base';
+import { formatDate, translate, getLocalStore } from '../../../../functions/Utils';
+import { RULES } from '../../../../contant';
 
 const dateFormat = 'DD/MM/YYYY';
 

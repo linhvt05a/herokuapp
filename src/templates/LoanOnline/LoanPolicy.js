@@ -1,47 +1,64 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import HeadingFilter from '../../components/common/HeadingLine';
+import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
-import FloatingRates from './FloatingRates';
-import { SidebarRight } from './SidebarRight/SidebarRight';
-import { AmountInformation, Banking, PaymentDetail } from './Layout';
-import { useLocation, useHistory } from 'react-router-dom';
+import { AmountInformation, Banking, PaymentDetail, SidebarRight, FloatingRates, HeadingLine, contactAddAction } from './Layout';
+import { TOKEN } from '../../functions/Utils';
 
 const LoanPolicy = props => {
-    let history = useHistory();
-    console.log(history.location, props)
+    const history = useHistory();
     const dispatch = useDispatch();
+    let { product_id, price } = history.location.state
     let [state, setState] = useState({
         onSubmit: false,
-        amountBorrow: 0,//vay
-        amount: 3000000000,//tong
-        tenor: 1,//nam
-        maxTennor: 5,
-        pay: 0,//tra
-        preferentialTerm: 24,//uu dai
-        unitPay: 1000000,//don vi
-        interestIncentives: 6.12,//la uu dai
-        affterIncentives: 11.00//lai sau uu dai
-    })
+        // amountBorrow: 0,//vay
+        // amount: 0,//tong
+        // tenor: 0,//nam
+        // maxTennor: 0,
+        // pay: 0,//tra
+        // preferentialTerm: 0,//uu dai
+        // unitPay: 0,//don vi
+        // interestIncentives: 0,//la uu dai
+        // affterIncentives: 0//lai sau uu dai
+    });
+    let dataLoan = useSelector(state => state.contactAddReducer)
+    let { loanPolicyData, isLoadingLoan, errorLoan } = dataLoan;
+    //call pai
     React.useEffect(() => {
-        let { amount, amountBorrow, unitPay } = state
-        setState({ ...state, pay: amount - (amountBorrow * unitPay) })
+        dispatch(contactAddAction.getLoanPolicy({ token: TOKEN, product_id: product_id }))
+    }, [])
+    //set data
+    React.useEffect(() => {
+        console.log(loanPolicyData);
+        let data = loanPolicyData;
+        if (data) {
+            if (data.product) {
+                setState({ ...state, product: data.product })
+            }
+        }
+
+    }, [loanPolicyData])
+    //auto tinh
+    React.useEffect(() => {
+        // let { amount, amountBorrow, unitPay } = state
+        // setState({ ...state, pay: (amount - (amountBorrow * unitPay)) != NaN ? amount - (amountBorrow * unitPay) : 0 })
     }, [state.amountBorrow])
     return (
         <div className="borrow bg_grey">
             <div className="container container-sm container-md">
-                <HeadingFilter headerBodyClassName="borrow--heading" labelHeader="Chính sách cho vay" />
+                <HeadingLine headerBodyClassName="borrow--heading" labelHeader="Chính sách cho vay" />
                 <div className="tab-content">
                     <div className="tab-pane fade active show" id="borrow01" role="tabpanel" aria-labelledby="borrow01-tab">
                         <div className="row">
                             <div className="col-12 col-sm-12 col-lg-8">
                                 <div className="borrow__wrap">
-                                    <AmountInformation data={state} setData={setState} />
+                                    {console.log(state)}
+                                    {state.product && <AmountInformation data={state.product} setData={setState} />}
                                     <Banking />
-                                    <FloatingRates data={state} setData={setState} onSubmit={() => setState({ ...state, onSubmit: true })} />
+                                    {/* <FloatingRates data={null} setData={setState} onSubmit={() => setState({ ...state, onSubmit: true })} /> */}
                                 </div>
                             </div>
-                            <SidebarRight data={state} />
+                            <SidebarRight data={null} />
                         </div>
                         {state.onSubmit && <PaymentDetail data={Array.from(Array(20), (x, index) => index + 1)} />}
                     </div>

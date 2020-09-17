@@ -3,7 +3,7 @@ import {
     CONTENT_TYPE
 } from './lib.js';
 
-import { MODE_ENV } from '../../config/env'
+import { MODE_ENV } from '../../env/env'
 let DOMAIN = '';
 if (process.env.NODE_ENV === 'production') {
     DOMAIN = MODE_ENV.production;
@@ -27,7 +27,7 @@ export default {
     //EXAMPLE
     EXAMPLE_LIST: DOMAIN.api + "/api/be/v1/project/",
     PRODUCT_DETAIL_LIST: `/api/main_web/v1/infrastructure/product/detail/`,
-    PRODUCT_MARKER :"/api/main_web/v1/infrastructure/product/favorite/mark_or_remark/",
+    PRODUCT_MARKER: "/api/main_web/v1/infrastructure/product/favorite/mark_or_remark/",
 
     PRODUCT_DETAIL_LIST: DOMAIN.api + `/api/main_web/v1/infrastructure/product/detail/`,
     PRODUCT_FAVORITE_LIST: DOMAIN.api + "/api/main_web/v1/infrastructure/product/favorite/list/",
@@ -93,6 +93,11 @@ export default {
     FILTER_NEWS: DOMAIN.api + "",
 
     PROMOTION_LIST: DOMAIN.api + "",
+
+    //Loan
+    GET_LOAN_POLICY: "/api/main_web/v1/loan_policy/",
+    GET_POLICY: "/api/main_web/v1/loan_policy/policy/",
+
     //footer email
     NEWSLETTER_REGISTRATION: "/api/main_web/v1/news/register_receive_information/",
 

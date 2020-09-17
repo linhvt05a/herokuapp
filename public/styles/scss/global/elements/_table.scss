@@ -139,13 +139,12 @@
         padding: 18px 5px;
         border: 1px solid #6d30ab;
         font-weight: bold;
-
     }
 
     td {
         padding: 19px 10px;
         font-size: 16px;
-        font-weight: 500;
+        @include  fw-medium;
         border: 1px solid #6d30ab;
     }
 
@@ -202,13 +201,13 @@
         }
 
         th {
+            @include  fw-medium;
             color: #fff;
             font-size: 20px;
             padding: 15px 5px;
         }
 
         td {
-
             border: none;
         }
     }
