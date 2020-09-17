@@ -101,7 +101,7 @@ const PropertyFilter = (props) => {
                 </div>
                 <div className="sales_box--list_button">
                     <Link to="/" className="btn btn_green text-uppercase">MUA NGAY</Link>
-                    <Link to="/loan-policy" className="btn btn_purple text-uppercase" onClick={props.onNext}>{translate("heading_banking_policy")}</Link>
+                    <a className="btn btn_purple text-uppercase" onClick={props.onNext}>{translate("heading_banking_policy")}</a>
                 </div>
             </div>
         </div>

@@ -21,45 +21,45 @@ const FilterProject = (props) => {
         checked: false
     });
     const [statesubmit, setStateSubmit] = useState({
-        _city: null, _district: null, _status: null, 
-        range_area: [], 
-        range_price: [], 
+        _city: null, _district: null, _status: null,
+        range_area: [],
+        range_price: [],
         project_sale_group_type: null
     })
 
     const HandleCity = (value) => {
-        setStateSubmit({ 
-            ...statesubmit, 
-            _city: value, 
+        setStateSubmit({
+            ...statesubmit,
+            _city: value,
         })
     }
     const HandleDistrict = (value) => {
-        setStateSubmit({ 
+        setStateSubmit({
             ...statesubmit,
-            _district: value, 
+            _district: value,
         })
     }
     const HandleDStatus = (value) => {
-        setStateSubmit({ 
+        setStateSubmit({
             ...statesubmit,
             _status: value,
         })
     }
-    const changeAcreage =(e)=>{
+    const changeAcreage = (e) => {
         setStateSubmit({
             ...statesubmit,
-            range_area: e, 
+            range_area: e,
         })
     }
-    const changePrice = (e) =>{
+    const changePrice = (e) => {
         setStateSubmit({
             ...statesubmit,
-            range_price: e, 
+            range_price: e,
         })
     }
 
     var classNameRange = "col-12 col-sm-12 col-md-6";
-    
+
     const listCheckbox = (target, index) => {
         let newData = [].concat(click);
         let newList = [];
@@ -69,24 +69,24 @@ const FilterProject = (props) => {
         else { newData[index] = { id: index, status: "" } }
         setClick(newData)
         newData && newData.map((item, index) => {
-            if(item.status === "active"){
+            if (item.status === "active") {
                 newList.push(index)
             }
         })
-        setStateSubmit({ 
+        setStateSubmit({
             ...statesubmit,
-            project_sale_group_type: `[${newList}]` 
+            project_sale_group_type: `[${newList}]`
         })
     }
 
     const search = useSelector(state => state.projectReducer);
     const isGetsearchListSuccess = search.projectList.success;
     const searchList = isGetsearchListSuccess ? search.projectList.detail : null;
-    
-    const OnSearchProject = (e)=> {
-        dispatch(projectAction.loadProjectList({ 
-            province_id: statesubmit._city, 
-            region_id: statesubmit._district,
+
+    const OnSearchProject = (e) => {
+        dispatch(projectAction.loadProjectList({
+            province_id: statesubmit._city,
+            district_id: statesubmit._district,
             status_id: statesubmit._status,
             area_min: statesubmit.range_area[0],
             area_max: statesubmit.range_area[1],
@@ -96,19 +96,19 @@ const FilterProject = (props) => {
         }));
     }
 
-    console.log(searchList);
+    // console.log(searchList);
 
     return (
         <div className="project_page--filter">
             <div className="container container-sm container-md">
                 <div className="map_search--content" style={{ maxWidth: "100%" }}>
                     <h2 className="heading"><Trans>search_project_by</Trans></h2>
-                    <ListSelect data={provinceList} HandleCity={HandleCity} HandleDistrict={HandleDistrict} HandleDStatus={HandleDStatus}/>
-                    <InputRange 
+                    <ListSelect data={provinceList} HandleCity={HandleCity} HandleDistrict={HandleDistrict} HandleDStatus={HandleDStatus} />
+                    <InputRange
                         classRange={classNameRange}
                         changePrice={changePrice}
-                        valueArea={statesubmit.range_area} 
-                        valuePrice={statesubmit.range_price} 
+                        valueArea={statesubmit.range_area}
+                        valuePrice={statesubmit.range_price}
                         changeAcreage={changeAcreage}
                     />
                     <div className="map_search--option">
@@ -116,13 +116,13 @@ const FilterProject = (props) => {
                             <ul className="list-inline list-inline-sm">
                                 {PROJECT_SALE_GROUP.length > 0 && PROJECT_SALE_GROUP.map((item, index) => (
                                     item.value != 0 ?
-                                    <li key={index}>
-                                        <label onChange={event => listCheckbox(event.target, index)} 
-                                            className={`checkbox-inline ${click.length > 0 ? click[index] && click[index].status : null} ${state.checked ? 'active': '' }`}>
-                                            <input name="checkbox-1" value={item.value === 0 ? "": item.value} type="checkbox" className="checkbox-custom" />
-                                            <span className="checkbox-custom-dummy" /><Trans>{item.label}</Trans>
-                                        </label>
-                                    </li>: ""
+                                        <li key={index}>
+                                            <label onChange={event => listCheckbox(event.target, index)}
+                                                className={`checkbox-inline ${click.length > 0 ? click[index] && click[index].status : null} ${state.checked ? 'active' : ''}`}>
+                                                <input name="checkbox-1" value={item.value === 0 ? "" : item.value} type="checkbox" className="checkbox-custom" />
+                                                <span className="checkbox-custom-dummy" /><Trans>{item.label}</Trans>
+                                            </label>
+                                        </li> : ""
                                 ))}
                             </ul>
                         </div>

@@ -83,7 +83,7 @@ const OnMapPoligon = props => {
         console.log(statesubmit);
         dispatch(projectAction.loadProjectList({
             province_id: statesubmit._city,
-            region_id: statesubmit._district,
+            district_id: statesubmit._district,
             status_id: statesubmit._status,
             area_min: statesubmit.range_area[0],
             area_max: statesubmit.range_area[1],

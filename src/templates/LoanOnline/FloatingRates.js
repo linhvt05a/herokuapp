@@ -38,6 +38,7 @@ const FloatingRates = props => {
                         titleClassName="text uni-text-6d30ab w-100"
                         label={`${translate("loan_type", t)} :`}
                         defaultValue={1}
+                        style={{ paddingRight: 0, fontSize: `14px` }}
                         onChange={e => console.log(e)}
                         datas={[{ value: 1, label: "Vay dư nợ giảm dần" }, { value: 2, label: "Vay trả đều hàng tháng" }]}
                     />

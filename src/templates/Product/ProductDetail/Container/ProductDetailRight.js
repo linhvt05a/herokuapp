@@ -126,7 +126,7 @@ const ProductDetailRight = (props) => {
                         <a href="/" className="btn btn_purple text-uppercase"><Trans>NGÂN SÁCH</Trans></a>
                         <Link to={{
                             pathname: "/property-selling",
-                            state: { productID: data.product_id }
+                            state: { product_id: data.product_id, price: data.product_sale_price }
                         }} className="btn btn_red_outline w-100 mt-2 text-uppercase"><Trans>XEM NGÂN HÀNG</Trans></Link>
                     </div>
                 </div>
