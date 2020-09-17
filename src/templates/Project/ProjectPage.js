@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import HeadingLine from '../../components/common/HeadingLine';
-import { ItemProject } from './Item/index';
 import Pagination from '../../components/common/Pagination';
-import FilterProject from './FilterProject';
+import FilterProject from './Layout/FilterProject';
 import { projectAction } from "../../store/action/index";
 import CardNoData from '../../components/common/CardNoData';
 import { LoadDataPaging } from '../../functions/Utils';
+import ItemProject_02 from '../../components/common/Project/ItemProject_02';
 
 
 const Project = (props) => {
@@ -57,7 +57,7 @@ const Project = (props) => {
                         <div className="row project_list--content project_tab--content">
                             {
                                 (projectList && projectList.length > 0) ? projectList.map((item, index) => (
-                                    <ItemProject 
+                                    <ItemProject_02
                                     key={index}
                                     data={item} />
                                 )) : <CardNoData />

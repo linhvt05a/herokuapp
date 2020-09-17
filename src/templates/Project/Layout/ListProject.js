@@ -1,12 +1,12 @@
 import React from "react";
-import { ItemProduct } from "../../Home/Item/index";
+import ItemProduct from "../../../components/common/ItemProduct";
 import HeadingLine from '../../../components/common/HeadingLine';
 import CardNoData from "../../../components/common/CardNoData";
 import CardInputSliderFilter from '../../../components/common/CardInputSliderFilter';
 import Pagination from '../../../components/common/Pagination';
 import { LoadDataPaging } from '../../../functions/Utils';
 
-const CardProjectList = (props) => {
+const ListProject = (props) => {
 
     const { headerBodyClassName, labelHeader, datas, limit, onPageChange, onFilterChange } = props
 
@@ -48,4 +48,4 @@ const CardProjectList = (props) => {
     )
 }
 
-export default CardProjectList;
+export default ListProject;
