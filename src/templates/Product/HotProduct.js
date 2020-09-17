@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from "react-router-dom";
 import { CardHotProduct } from '../Home/Layout/index';
-import FilterProject from '../Project/Layout/FilterProject';
+import FilterProjectList from '../Project/FilterProjectList';
 
 const HotProduct = (props) => {
 
@@ -10,7 +10,7 @@ const HotProduct = (props) => {
     return (
         <div className="projectPage">
             <div className="project_page hot_product bg_grey">
-                <FilterProject />
+                <FilterProjectList />
                 <CardHotProduct headerBodyClassName="label_filter--heading" labelHeader="product_list_title" location={location} limit={9} detail />
             </div>
         </div>

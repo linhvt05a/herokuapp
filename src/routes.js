@@ -35,7 +35,7 @@ import Example from "./templates/Example";
 
 const Home = lazy(() => import('./templates/Home/Home'));
 
-const ProjectPage = lazy(() => import('./templates/Project/ProjectPage'));
+const ProjectList = lazy(() => import('./templates/Project/ProjectList'));
 const ProjectDetail = lazy(() => import('./templates/Project/ProjectDetail'));
 
 const ProductDetail = lazy(() => import('./templates/Product/ProductDetail/ProductDetail'));
@@ -151,7 +151,7 @@ const MAIN = [
     },
     {
         "path": "/project/selling",
-        "component": ProjectPage,
+        "component": ProjectList,
         "banner_title": "project_banner_title",
         "banner_url": project_banner_url,
         "banner_show": true,
@@ -159,7 +159,7 @@ const MAIN = [
     },
     {
         "path": "/project/coming-soon",
-        "component": ProjectPage,
+        "component": ProjectList,
         "banner_title": "project_banner_title",
         "banner_url": project_banner_url,
         "banner_show": true,
