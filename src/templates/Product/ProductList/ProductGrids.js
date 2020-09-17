@@ -9,13 +9,13 @@ import { productAction} from "../../../store/action/index";
 
 const ProductGrids = (props) => {
     const{data, productLocal, loginData} = props
-    console.log(data)
+    const dataProduct = data && data.detail.list_product
    
     return (
         <div className="striking_apartment--content">
         {loginData && loginData !== null ? 
         <div className="row">
-            {data && data.detail.list_product.map((item, index)=><ProductRow loginData={loginData} data={item} key={index}/>)}
+            {dataProduct && dataProduct.map((item, index)=><ProductRow loginData={loginData} dataProduct={dataProduct} data={item} key={index}/>)}
         </div>:
         <div className="row">
             {productLocal && productLocal.map((item, index)=><ProductRow loginData={loginData}  data={item} key={index}/>)}
@@ -26,28 +26,45 @@ const ProductGrids = (props) => {
 }
 
 const ProductRow = (props) =>{
-    const{data, loginData} = props
+    const{data, loginData, dataProduct} = props
     const[is_favorite, setIs_favorite] = useState(false)
     const dispatch = useDispatch();
     const saveToOder = (product_id) =>{
       
     }
-    
-    
+    var postData = []
     const saveToStorage = (productID) => {
-      var favor = [] 
+     if(loginData && loginData !== null){
+        setIs_favorite(!is_favorite)
+        // if(!is_favorite){
+        //   if (!postData) {
+        //     postData = [];
+        // }
+        // var index = dataProduct.indexOf(function (favorItem) {
+        //     return favorItem.product_id == productID;
+        // });
+        // if (index !== -1) {
+
+        // } else {
+        //   postData.push({
+        //         product_id: productID,
+        //         is_favorite: true,
+        //     });
+        // }
+        // console.log(postData)
+        // }
     
-      if(loginData && loginData !== null){
-        setIs_favorite(!is_favorite)
-        console.log("post server")
-      }
-      else {
-        setIs_favorite(!is_favorite)
-        var favorite = JSON.parse(sessionStorage.getItem("favorite")) 
-        if (!favorite) {
-          favorite = [];
-      }
-      var index = favorite.indexOf(function (favorItem) {
+        
+     }else {
+      setIs_favorite(!is_favorite)
+      var favorite = JSON.parse(sessionStorage.getItem('favor'))
+        for (var index = 0; index < favorite.length; index++) {
+             if(favorite[index].product_id == productID){
+              favorite[index].is_favorite = is_favorite
+                sessionStorage.setItem("favor", JSON.stringify(favorite))
+            }  
+        }
+        var index = favorite.indexOf(function (favorItem) {
           return favorItem.product_id == productID;
       });
       if (index !== -1) {
@@ -59,13 +76,21 @@ const ProductRow = (props) =>{
       })
       for (let index = 0; index < favorite.length; index++) {
           if(favorite[index].product_id == productID){
-              
-              favor.push({product_id: favorite[index].product_id, is_favorite: favorite[index].is_favorite})
-              console.log(favor)
-              sessionStorage.setItem('favorite', JSON.stringify(favor));
+          const newData = [...favorite]
+            newData.filter((item)=> {
+              if(item.product_id == productID){
+                for (var i = 0;  i < newData.length; i++){
+                    const newPost = {product_id: newData[i].product_id, is_favorite: newData[i].is_favorite}
+                   postData.push(newPost)
+                   
+                }
+                  
+              }
+            })
           }
-      }
-        
+        }
+        console.log(postData)
+          sessionStorage.setItem('saveFavor',JSON.stringify(postData))
         
       }
      

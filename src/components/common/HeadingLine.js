@@ -2,7 +2,7 @@ import React from "react";
 import { Trans } from 'react-i18next';
 import { Link } from "react-router-dom";
 import { Select } from 'antd';
-import { PROJECT_SALE_GROUP } from "../../contant";
+
 
 const HeadingLine = (props) => {
 
