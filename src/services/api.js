@@ -3,7 +3,7 @@ import {
     CONTENT_TYPE
 } from './lib.js';
 
-import { MODE_ENV } from '../../config/env'
+import { MODE_ENV } from '../../env/env'
 let DOMAIN = '';
 if (process.env.NODE_ENV === 'production') {
     DOMAIN = MODE_ENV.production;

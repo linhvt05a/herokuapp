@@ -9,7 +9,7 @@ import * as serviceWorker from "./serviceWorker";
 import '../public/styles/cssLibs.scss';
 import '../public/styles/scss/main.scss';
 
-import {MODE_ENV} from '../config/env';
+import {MODE_ENV} from '../env/env';
 
 
 // console.log('MODE_ENV:',MODE_ENV);

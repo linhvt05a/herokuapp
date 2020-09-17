@@ -1,7 +1,7 @@
 const merge = require('webpack-merge');
 const CopyPlugin = require('copy-webpack-plugin');
 const common = require('./webpack.common');
-var env = require("./config/env");
+var env = require("./env/env");
 var path = require('path');
 
 // var domain = env.MODE_ENV.local.host + ':' + (env.MODE_ENV.local.port ? env.MODE_ENV.local.port : 0000)
