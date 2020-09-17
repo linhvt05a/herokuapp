@@ -13,7 +13,7 @@ const ProductGrids = (props) => {
    
     return (
         <div className="striking_apartment--content">
-        {loginData && loginData.user_id !== null ? 
+        {loginData && loginData !== null ? 
         <div className="row">
             {dataProduct && dataProduct.map((item, index)=><ProductRow loginData={loginData} dataProduct={dataProduct} data={item} key={index}/>)}
         </div>:
@@ -29,37 +29,31 @@ const ProductGrids = (props) => {
 const ProductRow = (props) =>{
     const{data, loginData, dataProduct} = props
     const[is_favorite, setIs_favorite] = useState(false)
-    const [postFavor,setFavor] = useState([])
     const dispatch = useDispatch();
     const saveToOder = (product_id) =>{
       localStorage.setItem('product', product_id)
     }
-    
     var postData = []
-    var postProduct = []
-    const isFavor = JSON.parse(sessionStorage.getItem("favor")) 
-    
-    const saveToStorage = (productID, is_favorite) => {
-     if(loginData !== null){
-       
+    const saveToStorage = (productID) => {
+     if(loginData && loginData !== null){
         setIs_favorite(!is_favorite)
-        if(!is_favorite){
-          if (!postData) {
-            postData = [];
-        }
-        var index = dataProduct.indexOf(function (favorItem) {
-            return favorItem.product_id == productID;
-        });
-        if (index !== -1) {
+        // if(!is_favorite){
+        //   if (!postData) {
+        //     postData = [];
+        // }
+        // var index = dataProduct.indexOf(function (favorItem) {
+        //     return favorItem.product_id == productID;
+        // });
+        // if (index !== -1) {
 
-        } else {
-          postData.push({
-                product_id: productID,
-                is_favorite: true,
-            });
-        }
-        console.log(postData)
-        }
+        // } else {
+        //   postData.push({
+        //         product_id: productID,
+        //         is_favorite: true,
+        //     });
+        // }
+        // console.log(postData)
+        // }
     
         
      }else {
@@ -86,13 +80,14 @@ const ProductRow = (props) =>{
                 for (var i = 0;  i < newData.length; i++){
                     const newPost = {product_id: newData[i].product_id, is_favorite: newData[i].is_favorite}
                    postData.push(newPost)
-                    
+                   
                 }
                   
               }
             })
           }
         }
+        console.log(postData)
           sessionStorage.setItem('saveFavor',JSON.stringify(postData))
         
       }
@@ -107,10 +102,10 @@ const ProductRow = (props) =>{
         <div className="item">
           <figure className="image">
             
-           {loginData === null ? 
-           <i className={!is_favorite && data.is_favorite === true ? "liked active fas fa-heart" : "liked fas fa-heart"} onClick={()=>saveToStorage(data.product_id)}/>
+           {loginData && loginData !== null ? 
+           <i className={ data.product_love_flag === true && !is_favorite ? "liked active fas fa-heart" : "liked fas fa-heart"} onClick={()=>saveToStorage(data.product_id)}/>
            :
-          <i className={!is_favorite || data.is_favorite === true ? "liked active fas fa-heart" : "liked fas fa-heart"} onClick={()=>saveToStorage(data.product_id, is_favorite)}/>
+          <i className={ data.is_favorite === true && !is_favorite ? "liked active fas fa-heart" : "liked fas fa-heart"} onClick={()=>saveToStorage(data.product_id)}/>
           }
             <img
               src={data.product_avatar_url !="" ? data.product_avatar_url : IMAGE_URL +  "/images/no_data.png"}
