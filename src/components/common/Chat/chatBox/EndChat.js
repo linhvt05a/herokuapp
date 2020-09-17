@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Link } from "react-router-dom";
-import {  Button } from 'antd';
+import { Button } from 'antd';
 import { Trans } from 'react-i18next';
 
 const EndChat = (props) => {
@@ -11,16 +11,16 @@ const EndChat = (props) => {
             <div className="heading">
                 <Trans>end_chat</Trans>
                 <span className="heading_sub">
-                <Trans>title_end_chat</Trans>
+                    <Trans>title_end_chat</Trans>
                 </span>
             </div>
             <div className="list_btn">
-                <Link to="/#" className="btn btn_red end_chat_all" onClick={set_Exit}>
+                <a className="btn btn_red end_chat_all" onClick={set_Exit}>
                     <Trans>button_end</Trans>
-                </Link>
-                <Link to="/#" className="btn btn_green end_chat_back" onClick={set_Back}>
+                </a>
+                <a className="btn btn_green end_chat_back" onClick={set_Back}>
                     <Trans>button_back</Trans>
-                </Link>
+                </a>
             </div>
         </div>
     );

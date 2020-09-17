@@ -6,8 +6,8 @@ import { MapPosition } from "../../../components/common/Map/index";
 const YourPosition = (props) => {
     let { active } = props;
     return (
-        <div className={`map_my-place map_tab ${active.position == true ? "active" : "" }`}>
-            <MapPosition />
+        <div className={`map_my-place map_tab ${active.position == true ? "active" : ""}`}>
+            {/* <MapPosition /> */}
         </div>
     )
 }

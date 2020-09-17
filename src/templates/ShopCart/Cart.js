@@ -3,7 +3,6 @@ import { useHistory } from "react-router-dom";
 import { Trans } from 'react-i18next';
 
 import { CardCartProductList, CardCartSummary } from './Layout/index';
-import { LOCALSTORAGE_GET } from '../../contant';
 import ModalCustom from '../../components/base/Modal/ModalCustom';
 import { getLocalStore } from '../../functions/Utils';
 
@@ -24,8 +23,6 @@ const Cart = (props) => {
     })
     React.useEffect(() => {
         let cart = getLocalStore("buy_now_cart");
-        const user = LOCALSTORAGE_GET.USER;
-        // localStorage.removeItem("buy_now_cart")
         if (cart) {
             setState({ ...state, cart: cart })
         }

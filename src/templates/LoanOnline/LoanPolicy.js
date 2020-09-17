@@ -5,8 +5,11 @@ import HeadingFilter from '../../components/common/HeadingLine';
 import FloatingRates from './FloatingRates';
 import { SidebarRight } from './SidebarRight/SidebarRight';
 import { AmountInformation, Banking, PaymentDetail } from './Layout';
+import { useLocation, useHistory } from 'react-router-dom';
 
-const LoanPolicy = () => {
+const LoanPolicy = props => {
+    let history = useHistory();
+    console.log(history.location, props)
     const dispatch = useDispatch();
     let [state, setState] = useState({
         onSubmit: false,

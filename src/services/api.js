@@ -7,19 +7,16 @@ import { MODE_ENV } from '../../config/env'
 let DOMAIN = '';
 if (process.env.NODE_ENV === 'production') {
     DOMAIN = MODE_ENV.production;
-    console.log(1);
 } else if (process.env.NODE_ENV === 'development') {
     DOMAIN = MODE_ENV.development;
-    console.log(2);
 } else {
-    console.log(3);
     DOMAIN = MODE_ENV.local;
     DOMAIN.api = ''
 }
 
-console.log('=============ENV & MODE_ENV==================');
+console.log('********************');
 console.log('---ENV:', process.env.NODE_ENV, '\n---DOMAIN:', DOMAIN.api === '' ? 'local' : DOMAIN.api);
-console.log('=============END - ENV & MODE_ENV==================');
+console.log('********************');
 
 
 export default {

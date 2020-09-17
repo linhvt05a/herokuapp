@@ -2,8 +2,6 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { Map, Marker, Popup, TileLayer } from 'react-leaflet'
 import ReactLeafletGoogleLayer from 'react-leaflet-google-layer';
-import "leaflet/dist/leaflet.css";
-
 import L from 'leaflet';
 import { MAP_KEYS } from '../../../contant';
 
@@ -21,7 +19,7 @@ function MapHome(props) {
         <Map
             center={position} zoom={5.4}
             style={{ height: "670px", zIndex: 0 }}
-            attributionControl={false}
+            attributionControl={false}  
         >
             <ReactLeafletGoogleLayer
                 useGoogMapsLoade={true}

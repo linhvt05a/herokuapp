@@ -24,17 +24,11 @@ module.exports = {
 		},
 		dev:{
 			api: 'http://superapp.minerva.vn:9218',
-			cloudapi: 'https://cloudapi.minerva.vn',
-			show_log: false,
-			hot: false,
-			liveReload: false,
+			cloudapi: 'https://cloudapi.minerva.vn'
 		},
 		prod:{
 			api: 'http://superapp.minerva.vn:9218',
-			cloudapi: 'https://cloudapi.minerva.vn',
-			show_log: false,
-			hot: false,
-			liveReload: false,
+			cloudapi: 'https://cloudapi.minerva.vn'
 		},
 	}
 };

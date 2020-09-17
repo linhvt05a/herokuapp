@@ -7,7 +7,7 @@ import ModalCustom from '../../../components/base/Modal/ModalCustom'
 import { validateSignup, validateLogin } from '../../../components/base/ValidateInput/ValidateInput'
 import { useFormSignup, useFormSignIn } from '../../../components/base/ValidateInput/useForm'
 import { productAction, accountAction } from "../../../store/action/index";
-import { LOCALSTORAGE_GET } from "../../../contant";
+import { getLocalStore } from "../../../functions/Utils";
 
 const ProductList = (props) => {
   const product = useSelector(state => state.productReducer);
@@ -24,12 +24,12 @@ const ProductList = (props) => {
 
   const login = useSelector(state => state.accountReducer)
   const isLoginSuccess = login.login.success
-  const loginData = LOCALSTORAGE_GET.USER
+  const loginData = getLocalStore('user')
   const [localData, setLocalData] = useState([])
   const newArray = [];
 
   useEffect(() => {
-    dispatch(accountAction.loadLogin({}))
+    // dispatch(accountAction.loadLogin({}))
 
     if (loginData && loginData.user_id !== null) {
       dispatch(productAction.productFavoriteList({ page: 1, limit: 5 }));

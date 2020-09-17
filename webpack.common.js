@@ -74,5 +74,18 @@ module.exports = {
             inject: true,
             template: "./public/index.html"
         })
-    ]
+    ],
+    optimization: {
+        runtimeChunk: 'single',
+        moduleIds: 'hashed',
+        splitChunks: {
+            cacheGroups: {
+                vendor: {
+                    test: /[\\/]node_modules[\\/]/,
+                    name: 'vendors',
+                    chunks: 'all',
+                },
+            },
+        },
+    },
 };

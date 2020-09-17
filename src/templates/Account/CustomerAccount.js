@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Trans } from "react-i18next";
+import { useHistory } from 'react-router-dom';
+import { getLocalStore } from '../../functions/Utils';
 import { Manage } from "./index";
 
 var tab = [
@@ -9,11 +11,19 @@ var tab = [
     { tabTitle: "THANH TOÁN" },
     { tabTitle: "PHẢN HỒI" }
 ]
+
 const CustomerAccount = (props) => {
     let { data } = props;
+    let history = useHistory();
     const [account, setStateAccount] = useState({
         activeTab: 0,
     });
+
+    useEffect(() => {
+        if (!getLocalStore("user")) {
+            history.push("/")
+        }
+    }, [])
     const onItemClickTab = (index) => {
         setStateAccount({ ...account, activeTab: index })
     }

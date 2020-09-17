@@ -1,30 +1,32 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { Trans } from "react-i18next";
+import { Trans, useTranslation } from "react-i18next";
 import moment from 'moment';
 
 import { Heading, Label, ChangePass } from "../../index";
-import { Alert, Input, Select, DatePicker, Radio } from 'antd';
+import { Alert, Input, Form, DatePicker, Radio } from 'antd';
 import { accountAction, commonAction } from "../../../../store/action/index";
 import { SelectCustom } from '../../../../components/base';
-import { LOCALSTORAGE_GET } from '../../../../contant';
 
 const dateFormat = 'DD/MM/YYYY';
 
 const CardFile = (props) => {
     let { data, avatarUpload } = props
-
-    var address = data.full_address.split(", ");
-    var date_default = moment(data.birthday).format('YYYY-MM-DD');
-
+    let [form] = Form.useForm()
     const dispatch = useDispatch();
-    const [mail, setMail] = useState(false);
+    let { t } = useTranslation()
     const locationStore = useSelector(state => state.commonReducer);
+    const address = data.full_address.split(", ");
+    const date_default = formatDate(data.birthday)
+
+
+    const [mail, setMail] = useState(false);
+
     const createData = (value, label) => {
         return { value, label }
     }
     useEffect(() => {
-        dispatch(commonAction.loadProvinceList({ lang: LOCALSTORAGE_GET.LANG }))
+        dispatch(commonAction.loadProvinceList({ lang: getLocalStore('language') }))
     }, [])
 
     const [state, setState] = useState({
@@ -40,6 +42,7 @@ const CardFile = (props) => {
         dataProvince: [],
         dataDistrict: [],
         dataWard: [],
+
     });
 
     useEffect(() => {
@@ -83,18 +86,15 @@ const CardFile = (props) => {
         dispatch(commonAction.loadWardList({ district_id: value }))
         setState({ ...state, address: { _province: state.address._province, _district: value, _ward: "", _address: "" } })
     }
-
     const onChangeWard = (value) => {
         setState({ ...state, address: { _province: state.address._province, _district: state.address._district, _ward: value, _address: "" } })
     }
-
     const radioOnChange = e => {
         setState({ ...state, gender: e.target.value })
     };
     const onChangeDate = (name, value) => {
-        var date = moment(value, dateFormat).format('YYYY-MM-DD');
+        let date = formatDate(value, dateFormat)
         setState({ ...state, customer_birthday: date })
-        console.log(date, value);
     }
     const changePassword = () => {
         setState({ ...state, passActive: 1 });
@@ -104,10 +104,13 @@ const CardFile = (props) => {
     };
 
     const emailInputBlur = (value) => {
-        dispatch(accountAction.loadCheckEmail({
-            email: value.target.value
-        }));
-        setMail(true);
+        if (form.getFieldError("email").length == 0) {
+            dispatch(accountAction.loadCheckEmail({
+                email: value.target.value
+            }));
+            setMail(true);
+        }
+
     };
     const emailInputFocus = () => {
         setMail(false);
@@ -118,6 +121,7 @@ const CardFile = (props) => {
     const email = mailSuccess ? ismail.emailCheck.detail : null;
 
     const updateProfile = () => {
+        form.submit()
         dispatch(accountAction.loadUpdateCustomer({
             // avatar: avatarUpload,
             email: state.customer_email,
@@ -135,116 +139,118 @@ const CardFile = (props) => {
     const isupdate = useSelector(state => state.accountReducer);
     const updateSuccess = isupdate.updateCustomer.success
     const update = updateSuccess ? isupdate.updateCustomer.detail : null;
-
+    // console.log({ data });
     return (
         <div className="col-12 col-sm-12 col-md-12 col-lg-8">
-            <Alert message="Một số thông tin của bạn vẫn còn thiếu. Xin bạn vui lòng cập nhật !" type="warning" showIcon closable />
-            <div className="card">
-                <div className="card-body">
-                    <Heading title="Tài khoản" content="Một số thông tin tài khoản quan trọng" />
+            <Form form={form} initialValues={data}>
+                <Alert message="Một số thông tin của bạn vẫn còn thiếu. Xin bạn vui lòng cập nhật !" type="error" showIcon icon={<i className="fas fa-exclamation-triangle" />} />
+                <div className="card">
+                    <div className="card-body">
+                        <Heading title="Tài khoản" content="Một số thông tin tài khoản quan trọng" />
 
-                    <div className="form-group row align-items-center">
-                        <Label icon="fa-envelope" text="Email" />
-                        <div className="col-12 col-sm-12 col-md-9">
-                            <Input type="text" placeholder="Email" defaultValue={data.email}
-                                onFocus={emailInputFocus}
-                                onBlur={emailInputBlur}
-                                onChange={(value => setState({ ...state, customer_email: value.target.value }))} className="form-control" />
-                            {mail ? mailSuccess ?
-                                <span style={{ color: "#ff4d4f" }}>Email không tồn tại!</span> :
-                                <span style={{ color: "#ff4d4f" }}>Email đã tồn tại!</span> : ''
-                            }
-                        </div>
-                    </div>
-                    <div className="form-group row align-items-center">
-                        <Label icon="fa-lock" text="Mật khẩu" />
-                        <div className="col-12 col-sm-12 col-md-9">
-                            <div className={`row w-100 pwd_current ${state.passActive === 1 ? "d-none" : ""}`}>
-                                <div className="col-12 justify-content-start d-flex align-items-center flex-column flex-sm-row">
-                                    <Input.Password type="password" placeholder="Password" defaultValue="thutran1975@gmail.com" className="form-control" />
-                                    <div className="text_pwd text_changepwd text-nowrap" onClick={changePassword}>Đổi mật khẩu</div>
-                                </div>
+                        <div className="form-group row align-items-center">
+                            <Label icon="fa-envelope" text="Email" />
+                            <div className="col-12 col-sm-12 col-md-9">
+                                <Form.Item name="email" rules={RULES.email.form}>
+                                    <Input type="text" placeholder="Email"
+                                        onFocus={emailInputFocus}
+                                        onBlur={emailInputBlur}
+                                        onChange={(value => setState({ ...state, customer_email: value.target.value }))} className="form-control" />
+                                </Form.Item>
+                                {mail ? mailSuccess ?
+                                    <span style={{ color: "#ff4d4f" }}>Email không tồn tại!</span> :
+                                    <span style={{ color: "#ff4d4f" }}>Email đã tồn tại!</span> : ''
+                                }
                             </div>
-                            <ChangePass showpass={state.passActive} handelOnBack={handelOnBack} />
+                        </div>
+                        <div className="form-group row align-items-center">
+                            <Label icon="fa-lock" text="Mật khẩu" />
+                            <div className="col-12 col-sm-12 col-md-9">
+                                <div className={`row w-100 pwd_current ${state.passActive === 1 ? "d-none" : ""}`}>
+                                    <div className="col-12 justify-content-start d-flex align-items-center flex-column flex-sm-row">
+                                        <Input.Password type="password" placeholder="Password" defaultValue="thutran1975@gmail.com" className="form-control" />
+                                        <div className="text_pwd text_changepwd text-nowrap" onClick={changePassword}>Đổi mật khẩu</div>
+                                    </div>
+                                </div>
+                                <ChangePass showpass={state.passActive} handelOnBack={handelOnBack} form={form} />
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div className="card">
-                <div className="card-body">
-                    <Heading title="Hồ sơ" content="Thông tin cá nhân của bạn" />
-                    <div className="form-group row align-items-center">
-                        <Label icon="fa-envelope" text="Họ tên" />
-                        <div className="col-12 col-sm-12 col-md-9">
-                            <Input type="text" defaultValue={data.name}
-                                onChange={(value => setState({ ...state, customer_name: value.target.value }))} className="form-control" />
-                        </div>
-                    </div>
-                    <div className="form-group row align-items-center">
-                        <Label icon="fa-calendar-alt" text="Ngày sinh" />
-                        <div className="col-12 col-sm-12 col-md-9">
-                            <div className="date-picker">
-                                <DatePicker defaultValue={moment(data.birthday)} format={dateFormat}
-                                    onChange={onChangeDate} name="dateFrom" placeholder="From date" style={{ width: '100%', height: 48 }} />
+                <div className="card">
+                    <div className="card-body">
+                        <Heading title="Hồ sơ" content="Thông tin cá nhân của bạn" />
+                        <div className="form-group row align-items-center">
+                            <Label icon="fa-envelope" text="Họ tên" />
+                            <div className="col-12 col-sm-12 col-md-9">
+                                <Input type="text" defaultValue={data.name}
+                                    onChange={(value => setState({ ...state, customer_name: value.target.value }))} className="form-control" />
                             </div>
                         </div>
-                    </div>
-                    <div className="form-group row align-items-center">
-                        <Label icon="fa-map-marker-alt" text="Địa chỉ" />
-                        <div className="col-12 col-sm-12 col-md-9">
-                            <div className="row">
-                                <div className="col-6">
-                                    <Input type="text" defaultValue={address[0]} placeholder="---" className="form-control"
-                                        onChange={(value => setState({ ...state, address: { _province: state.address._province, _district: state.address._district, _ward: state.address._ward, _address: value.target.value } }))} />
-                                </div>
-                                <div className="col-6">
-                                    <SelectCustom defaultValue={address[3]} placeholder={<Trans>province</Trans>} datas={state.dataProvince}
-                                        onChange={onChangeCity} />
-                                </div>
-                            </div>
-                            <div className="row">
-                                <div className="col-6">
-                                    <SelectCustom defaultValue={address[2]} placeholder={<Trans>district</Trans>} datas={state.dataDistrict}
-                                        onChange={onChangeDistrict} />
-                                </div>
-                                <div className="col-6">
-                                    <SelectCustom defaultValue={address[1]} placeholder={<Trans>ward</Trans>} datas={state.dataWard}
-                                        onChange={onChangeWard} />
+                        <div className="form-group row align-items-center">
+                            <Label icon="fa-calendar-alt" text="Ngày sinh" />
+                            <div className="col-12 col-sm-12 col-md-9">
+                                <div className="date-picker">
+                                    <DatePicker defaultValue={moment(data.birthday)} format={dateFormat}
+                                        onChange={onChangeDate} name="dateFrom" placeholder="From date" style={{ width: '100%', height: 48 }} />
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div className="form-group row align-items-center">
-                        <Label icon="fa-phone-alt" text="Số điện thoại" />
-                        <div className="col-12 col-sm-12 col-md-9">
-                            <Input type="number" defaultValue={data.mobile} placeholder="---" className="form-control"
-                                onChange={(value => setState({ ...state, customer_mobile: value.target.value }))} />
+                        <div className="form-group row align-items-center">
+                            <Label icon="fa-map-marker-alt" text="Địa chỉ" />
+                            <div className="col-12 col-sm-12 col-md-9">
+                                <div className="row">
+                                    <div className="col-6">
+                                        <Input type="text" defaultValue={address[0]} placeholder="---" className="form-control"
+                                            onChange={(value => setState({ ...state, address: { _province: state.address._province, _district: state.address._district, _ward: state.address._ward, _address: value.target.value } }))} />
+                                    </div>
+                                    <div className="col-6">
+                                        <SelectCustom defaultValue={address[3]} placeholder={translate("province", t)} datas={state.dataProvince}
+                                            onChange={onChangeCity} />
+                                    </div>
+                                </div>
+                                <div className="row">
+                                    <div className="col-6">
+                                        <SelectCustom defaultValue={address[2]} placeholder={translate("district", t)} datas={state.dataDistrict}
+                                            onChange={onChangeDistrict} />
+                                    </div>
+                                    <div className="col-6">
+                                        <SelectCustom defaultValue={address[1]} placeholder={translate("ward", t)} datas={state.dataWard}
+                                            onChange={onChangeWard} />
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div className="form-group row align-items-center">
-                        <Label icon="fa-venus-mars" text="Giới tính" />
-                        <div className="col-12 col-sm-12 col-md-9">
-                            <Radio.Group onChange={radioOnChange} defaultValue={state.gender} style={{ display: "flex" }}>
-                                <Radio value={1}>Nam</Radio>
-                                <Radio value={2}>Nữ</Radio>
-                                <Radio value={3}>Khác</Radio>
-                            </Radio.Group>
+                        <div className="form-group row align-items-center">
+                            <Label icon="fa-phone-alt" text="Số điện thoại" />
+                            <div className="col-12 col-sm-12 col-md-9">
+                                <Input type="number" defaultValue={data.mobile} placeholder="---" className="form-control"
+                                    onChange={(value => setState({ ...state, customer_mobile: value.target.value }))} />
+                            </div>
                         </div>
-                    </div>
-                    <div className="form-group row align-items-center">
-                        <Label icon="fa-user-graduate" text="Nghề nghiệp" />
-                        <div className="col-12 col-sm-12 col-md-9 d-flex align-items-center">
-                            <Input type="text" defaultValue={data.department_name} placeholder="---" className="form-control"
-                                onChange={(value => setState({ ...state, customer_business: value.target.value }))} />
+                        <div className="form-group row align-items-center">
+                            <Label icon="fa-venus-mars" text="Giới tính" />
+                            <div className="col-12 col-sm-12 col-md-9">
+                                <Radio.Group onChange={radioOnChange} defaultValue={state.gender} style={{ display: "flex" }}>
+                                    <Radio value={1}>Nam</Radio>
+                                    <Radio value={2}>Nữ</Radio>
+                                    <Radio value={3}>Khác</Radio>
+                                </Radio.Group>
+                            </div>
+                        </div>
+                        <div className="form-group row align-items-center">
+                            <Label icon="fa-user-graduate" text="Nghề nghiệp" />
+                            <div className="col-12 col-sm-12 col-md-9 d-flex align-items-center">
+                                <Input type="text" defaultValue={data.department_name} placeholder="---" className="form-control"
+                                    onChange={(value => setState({ ...state, customer_business: value.target.value }))} />
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div className="text-right">
-                <a className="btn btn_purple text-uppercase" onClick={updateProfile}>
-                    cập nhật
-                </a>
-            </div>
+                <div className="text-right">
+                    <a className="btn btn_purple text-uppercase" onClick={updateProfile}>cập nhật </a>
+                </div>
+            </Form>
         </div>
     )
 }

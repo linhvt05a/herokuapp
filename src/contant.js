@@ -140,12 +140,6 @@ const CREDIT_CARD_TYPE = [
 ]
 
 
-const LOCALSTORAGE_GET = {
-    LANG: localStorage.getItem('language'),
-    USER: JSON.parse(localStorage.getItem('user')),
-}
-
-
 module.exports = {
     IMAGE_URL,
     IMAGE_LOGO,
@@ -161,6 +155,5 @@ module.exports = {
     RULES,
     PAYMENT_METHOD,
     CREDIT_CARD_TYPE,
-    LOCALSTORAGE_GET,
     RECRUITMENT_STATUS
 }

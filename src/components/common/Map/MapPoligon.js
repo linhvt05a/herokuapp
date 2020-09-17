@@ -1,20 +1,21 @@
 import React, { useState, useEffect } from 'react';
-import ReactDOM from 'react-dom'
 import { Map, Marker, Popup, Tooltip, TileLayer } from 'react-leaflet'
 import ReactLeafletGoogleLayer from 'react-leaflet-google-layer';
-import "leaflet/dist/leaflet.css";
-
 import L from 'leaflet';
 import { MAP_KEYS } from '../../../contant';
 
 delete L.Icon.Default.prototype._getIconUrl;
 
+// L.Icon.Default.mergeOptions({
+//     // iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
+//     iconUrl: require('../../../../public/images/marker.png'),
+//     //shadowUrl: require('leaflet/dist/images/marker-shadow.png')
+// });
 L.Icon.Default.mergeOptions({
-    // iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
+    iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
     iconUrl: require('../../../../public/images/marker.png'),
-    //shadowUrl: require('leaflet/dist/images/marker-shadow.png')
+    shadowUrl: require('leaflet/dist/images/marker-shadow.png')
 });
-
 
 function MapPoligon(props) {
     let { data, zoom } = props;
@@ -61,4 +62,4 @@ function MapPoligon(props) {
         </Map>
     );
 }
-export default React.memo(MapPoligon);
+export default MapPoligon;

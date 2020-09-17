@@ -10,7 +10,7 @@ const CustomerInfo = (props) => {
     const [data, setData] = React.useState()
     React.useEffect(() => {
 
-        let user = getLocalStore("user")
+        let user = getStorage.user
         if (!user) {
             history.push("/cart")
         }

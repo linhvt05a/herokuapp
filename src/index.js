@@ -6,13 +6,13 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App/App";
 import * as serviceWorker from "./serviceWorker";
-import '../public/styles/cssLibs';
+import '../public/styles/cssLibs.scss';
 import '../public/styles/scss/main.scss';
 
 import {MODE_ENV} from '../config/env';
 
 
-console.log('MODE_ENV:',MODE_ENV);
+// console.log('MODE_ENV:',MODE_ENV);
 if (MODE_ENV.show_log == false){    
     console.log = () => {};
 }
