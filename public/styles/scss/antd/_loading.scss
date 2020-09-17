@@ -17,3 +17,6 @@
         background-color: #bdc3dc;
     }
 }
+.ant-spin-spinning {
+    @include flex_center;
+}
