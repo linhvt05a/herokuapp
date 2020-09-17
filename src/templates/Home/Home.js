@@ -8,7 +8,6 @@ import CardOverView from '../../components/common/Overview'
 import HeadingLine from '../../components/common/HeadingLine'
 import CardNoData from '../../components/common/CardNoData';
 
-import { ItemHomeProject } from './Item/index'
 import { CardSaleFlash, CardHotProduct } from "./Layout/index";
 import { MapPoligon } from "../../components/common/Map/index";
 import { projectAction, newsAction } from "../../store/action/index";
@@ -19,6 +18,8 @@ import { OnMapPoligon } from "./Search/index";
 
 import Advisory from "./Contact/Advisory";
 import AppManagerment from './AppManagerment/AppManagerment';
+import ItemProject_01 from '../../components/common/Project/ItemProject_01';
+import { PROJECT_SALE_GROUP } from "../../contant";
 
 const Home = (props) => {
 
@@ -108,7 +109,7 @@ const Home = (props) => {
                 isGetProjectListSuccess &&
                 <div className="project_list project_tab">
                     <div className="container container-sm container-md">
-                        <HeadingLine headerBodyClassName="project_list--heading" labelHeader="project_list" status onStatusClick={onStatusClick} projectStatus={state.projectStatus} />
+                        <HeadingLine headerBodyClassName="project_list--heading" data={PROJECT_SALE_GROUP} labelHeader="project_list" status onStatusClick={onStatusClick} projectStatus={state.projectStatus} />
 
                         {
                             (newListProject && newListProject.length > 0) ?
@@ -117,7 +118,7 @@ const Home = (props) => {
                                         {
                                             newListProject.map((item, index) => (
                                                 index < 7 &&
-                                                <ItemHomeProject
+                                                <ItemProject_01
                                                     key={index}
                                                     data={item}
                                                     projectStatus={state.projectStatus}

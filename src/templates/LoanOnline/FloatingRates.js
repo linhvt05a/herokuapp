@@ -27,7 +27,6 @@ const FloatingRates = props => {
     const onChangeDate = (name, value) => {
         convertDate(value, name)
     }
-
     return (
         <div className="borrow__item">
             <div className="borrow__title">
@@ -51,35 +50,35 @@ const FloatingRates = props => {
                         <InputSlider
                             className="input-group range-Value04"
                             label={translate("loan_amount_borrow", t)}
-                            unit="triệu vnd"
+                            unit={data.maximum_loan_limit_money_master_unit_name}
                             titleClassName="label"
-                            min={0}
-                            max={data.amount / data.unitPay}
+                            min={data.minimum_loan_limit_money}
+                            max={data.maximum_loan_limit_money}
                             style={{ margin: '0 16px' }}
                             value={data.amountBorrow}
                             onChange={onChangeBorrow}
                             classNameInput="form-control"
                             classNameSlider="range range04"
-                            addonBefore=" triệu"
+                        // addonBefore={data.maximum_loan_limit_money_master_unit_name}
                         />
                         <InputBase
                             label={translate("loan_preferential_interest", t)}
                             titleClassName="label"
-                            unit="%/năm"
+                            unit={data.post_preferential_interest_rate_percent_master_unit_name}
                             readOnly
                             type="text"
-                            value={data.interestIncentives}
+                            value={data.post_preferential_interest_rate_percent}
                             placeholder="--"
                             classNameInput="form-control hightlight"
                         />
                         <InputBase
                             label={translate("loan_affter_interest", t)}
                             titleClassName="label"
-                            unit="%/năm"
+                            unit={data.preferential_interest_rate_percent_master_unit_name}
                             readOnly
                             type="text"
                             placeholder="--"
-                            value={data.affterIncentives}
+                            value={data.preferential_interest_rate_percent}
                             classNameInput="form-control hightlight"
                         />
                     </div>
@@ -87,10 +86,10 @@ const FloatingRates = props => {
                         <InputSlider
                             titleClassName="label"
                             label={translate("loan_tenor", t)}
-                            unit="năm"
+                            unit={data.minimum_loan_period_master_unit_name}
                             className="input-group"
-                            min={1}
-                            max={data.maxTennor}
+                            min={data.minimum_loan_period}
+                            max={data.maximum_loan_period}
                             style={{ margin: '0 16px' }}
                             value={data.tenor}
                             onChange={onChangeLoanTerm}
@@ -98,13 +97,13 @@ const FloatingRates = props => {
                         <InputSlider
                             titleClassName="label"
                             label={translate("loan_preferential_interest_rate", t)}
-                            unit="tháng"
+                            unit={data.preferential_term_master_unit_name}
                             className="input-group"
                             readOnly
                             min={0}
-                            max={data.maxTennor * 12}
+                            max={data.maximum_loan_period > data.preferential_term ? data.maximum_loan_period : data.preferential_term}
                             style={{ margin: '0 16px' }}
-                            value={data.preferentialTerm}
+                            value={data.preferential_term}
                         // onChange={onChangeRateTerm}
                         />
                         <div className="form-group">
@@ -118,4 +117,4 @@ const FloatingRates = props => {
         </div>
     )
 }
-export default React.memo(FloatingRates)
+export default FloatingRates

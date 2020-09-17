@@ -9,32 +9,33 @@ const AmountInformation = props => {
              <i className="sub"> Nhập số tiền của sản phẩm dự án, chúng tôi sẽ đề nghị khoản vay cho ban. </i>
             </div>
             <div className="borrow__info">
-                <div className="row">
-                    <div className="col-12 col-sm-6 col-xl-4">
-                        <div className="form-group mb-3 mb-xl-0">
-                            <label className="label">
-                                Giá sản phẩm <span className="unit">(đồng)</span>
-                            </label>
-                            <input type="text" placeholder="-" value={convertFloatToString(data.amount)} readOnly className="form-control color_e94c4c" />
+                {data &&
+                    <div className="row">
+                        <div className="col-12 col-sm-6 col-xl-4">
+                            <div className="form-group mb-3 mb-xl-0">
+                                <label className="label">
+                                    Giá sản phẩm <span className="unit">(đồng)</span>
+                                </label>
+                                <input type="text" placeholder="-" value={convertFloatToString(data.estimate_price)} readOnly className="form-control color_e94c4c" />
+                            </div>
                         </div>
-                    </div>
-                    <div className="col-12 col-sm-6 col-xl-4">
-                        <div className="form-group mb-3 mb-xl-0">
-                            <label className="label">
-                                Số tiền vay
+                        <div className="col-12 col-sm-6 col-xl-4">
+                            <div className="form-group mb-3 mb-xl-0">
+                                <label className="label">
+                                    Số tiền vay
                             </label>
-                            <input type="text" placeholder="-" value={convertFloatToString(data.amountBorrow * data.unitPay)} readOnly className="form-control" />
+                                <input type="text" placeholder="-" value={convertFloatToString(data.amountBorrow * data.unitPay)} readOnly className="form-control" />
+                            </div>
                         </div>
-                    </div>
-                    <div className="col-12 col-sm-6 col-xl-4">
-                        <div className="form-group mb-3 mb-xl-0">
-                            <label className="label">
-                                Số tiền thanh toán
+                        <div className="col-12 col-sm-6 col-xl-4">
+                            <div className="form-group mb-3 mb-xl-0">
+                                <label className="label">
+                                    Số tiền thanh toán
                             </label>
-                            <input type="text" placeholder="-" value={convertFloatToString(data.pay)} readOnly className="form-control" />
+                                <input type="text" placeholder="-" value={convertFloatToString(data.pay)} readOnly className="form-control" />
+                            </div>
                         </div>
-                    </div>
-                </div>
+                    </div>}
             </div>
         </div>
     )

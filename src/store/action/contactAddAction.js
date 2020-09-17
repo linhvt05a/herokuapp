@@ -1,4 +1,5 @@
 const actions = {
+    CLEAR_DATA_LOAN: "CLEAR_DATA_LOAN",
 
     CONTACT_ADD_REQUEST: 'CONTACT_ADD_REQUEST',
     CONTACT_ADD_FAILURE: 'CONTACT_ADD_FAILURE',
@@ -47,6 +48,9 @@ const actions = {
     getPolicy: (params) => ({
         type: actions.POLICY_REQUEST,
         params
+    }),
+    clearDataLoan: () => ({
+        type: actions.CLEAR_DATA_LOAN
     })
 };
 export default actions;

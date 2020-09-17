@@ -44,12 +44,14 @@ export default (state = initialState, action) => {
             return { ...state, isLoadingLoan: false, errorLoan: false, loanPolicyData: action.response.detail }
         case contactAddAction.LOAN_POLICY_FAILURE:
             return { ...state, isLoadingLoan: false, errorLoan: true, loanPolicyData: { success: false, error: action.error } }
-        case contactAddAction.LOAN_POLICY_REQUEST:
+        case contactAddAction.POLICY_REQUEST:
             return { ...state, isLoadingPolicy: true, errorPolicy: false, policyData: null }
-        case contactAddAction.LOAN_POLICY_SUCCESS:
+        case contactAddAction.POLICY_SUCCESS:
             return { ...state, isLoadingPolicy: false, errorPolicy: false, policyData: action.response.detail }
-        case contactAddAction.LOAN_POLICY_FAILURE:
+        case contactAddAction.POLICY_FAILURE:
             return { ...state, isLoadingPolicy: false, errorPolicy: true, policyData: { success: false, error: action.error } }
+        case contactAddAction.CLEAR_DATA_LOAN:
+            return { ...state, policyData: null, loanPolicyData: null }
         default:
             return state;
     }

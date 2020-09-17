@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import ItemTimeLine from "../../../components/common/Timeline/TimeLineItem";
-import { ItemProduct } from "../../Home/Item";
+import ItemProduct from "../../../components/common/ItemProduct";
 import HeadingLine from '../../../components/common/HeadingLine';
 import CardNoData from "../../../components/common/CardNoData";
 import Slider from "react-slick";
