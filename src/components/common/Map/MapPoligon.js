@@ -25,12 +25,11 @@ function MapPoligon(props) {
 
     let position = [16.0709261545449, 108.180991165145];
     if (myLocation) {
-
         position = myLocation
     }
     return (
         <Map
-            center={position} zoom={!myLocation ? zoom ? zoom : 5 : 17}
+            center={position} zoom={!myLocation ? zoom ? zoom : 5 : 16.4}
             style={{ height: "670px", zIndex: 0 }}
             attributionControl={false}
             scrollWheelZoom={false}
@@ -69,4 +68,4 @@ function MapPoligon(props) {
         </Map>
     );
 }
-export default MapPoligon;
+export default React.memo(MapPoligon);

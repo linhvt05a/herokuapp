@@ -56,10 +56,7 @@ const Home = (props) => {
 
     const handlerButtonPosition = () => {
         navigator.geolocation.getCurrentPosition(function (position) {
-            // console.log(position);
-            setState({ ...state, myLocation: [position.coords.latitude, position.coords.longitude] })
-            // console.log("Latitude is :", position.coords.latitude);
-            // console.log("Longitude is :", position.coords.longitude);
+            setState({ ...state, myLocation: [position.coords.latitude + 0.001, position.coords.longitude + 0.0066] })
         })
         setState({ ...state, position: true })
     }
