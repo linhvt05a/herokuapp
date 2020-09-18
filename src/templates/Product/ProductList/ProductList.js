@@ -22,14 +22,44 @@ const ProductList = (props) => {
   const productIncentiveSuccess = productIncentive.productIncentive.success
   const productListIncentive = productIncentiveSuccess ? productIncentive.productIncentive.detail : null;
 
+  const productMark= useSelector(state => state.productReducer);
+  const productMarkSuccess = productMark.productMark.success
+  if(productMarkSuccess == true){
+      sessionStorage.removeItem('favor')
+  }
+  const productMarkList = productMarkSuccess ? productMark.detail : null;
+  
   const login = useSelector(state => state.accountReducer)
   const isLoginSuccess = login.login.success
   const loginData = getLocalStore('user')
   const [localData, setLocalData] = useState([])
+  const [newObj, setNewObj] = useState([])
   const newArray = [];
-
+  const productNew = []
+  const postData = []
   useEffect(() => {
     if (loginData && loginData.user_id !== null) {
+      console.log(productList)
+      const dataSave = JSON.parse(sessionStorage.getItem('favor'))
+      console.log(dataSave)
+      if(dataSave && dataSave.length > 0){
+        dataSave && dataSave.forEach(obj => {
+          if (!productNew.some(o => o.product_id == obj.product_id)) {
+            productNew.push({ ...obj })
+          }
+        });
+        var rv = {};
+        for (var i = 0; i < productNew.length; ++i){
+          if (productNew[i] !== undefined) {
+           rv['product_id'] = productNew[i].product_id
+           rv['is_favorite'] = productNew[i].is_favorite
+          }
+          postData.push({product_id : rv['product_id'], is_favorite: rv['is_favorite']})
+         
+        }
+          dispatch(productAction.productMark({postData}))
+       
+      }
       dispatch(productAction.productFavoriteList({ page: 1, limit: 5 }));
     } else {
       const dataStorage = sessionStorage.getItem('favor')
