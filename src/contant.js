@@ -138,6 +138,10 @@ const CREDIT_CARD_TYPE = [
     { id: 3, type: "CREDIT_CARD_TYPE_AMEX" },
     { id: 4, type: "CREDIT_CARD_TYPE_JCB" }
 ]
+const LOAN_TYPE = [
+    { id: 1, type: "LOAN_TYPE_AMORTIZED_LOAN", label: "Amortized Loan" },
+    { id: 2, type: "LOAN_TYPE_FIXED_ANNUITY_LOAN", label: "Fixed Annuity Loan" }
+]
 
 
 module.exports = {
@@ -155,5 +159,6 @@ module.exports = {
     RULES,
     PAYMENT_METHOD,
     CREDIT_CARD_TYPE,
-    RECRUITMENT_STATUS
+    RECRUITMENT_STATUS,
+    LOAN_TYPE,
 }

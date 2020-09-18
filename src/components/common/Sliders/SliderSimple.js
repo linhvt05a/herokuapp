@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import Slider from 'react-slick';
 
 const SliderSimple = (props) => {
-	const { data, settings } = props
+	const { data, settings, onClick } = props
 
 	const ref = useRef({});
 
@@ -21,7 +21,7 @@ const SliderSimple = (props) => {
 				props.dataImgs.map((item, index) => {
 					return (
 						<figure key={index}>
-							<img src={item.image_url} alt={item.name} />
+							<img src={item.image_url} alt={item.name} onClick={() => onClick(item.id)} />
 						</figure>
 					)
 				})}

@@ -2,12 +2,12 @@ import React from 'react';
 import { SliderSimple } from "./index"
 
 const Banking = props => {
-
+    let { dispatch, actions, token } = props;
     const settings = {
         dots: true,
         infinite: true,
         speed: 500,
-        slidesToShow: 5,
+        slidesToShow: props.dataImgs ? props.dataImgs.length : 5,
         slidesToScroll: 5,
         initialSlide: 0,
         responsive: [
@@ -38,32 +38,17 @@ const Banking = props => {
             }
         ]
     };
-    const dataImgs = [
-        {
-            image_url: "../images/bank02.jpg"
-        },
-        {
-            image_url: "../images/bank03.jpg"
-        },
-        {
-            image_url: "../images/bank04.jpg"
-        },
-        {
-            image_url: "../images/bank05.jpg"
-        },
-        {
-            image_url: "../images/bank06.jpg"
-        },
-        {
-            image_url: "../images/bank07.jpg"
-        }
-    ];
+    const dataImgs = props.dataImgs;
+    const onClick = (bank_id) => {
+        console.log(bank_id);
+        dispatch(actions.getPolicy({ token, bank_id }))
+    }
     return (
         <div className="borrow__item">
             <div className="borrow__title text-uppercase">Chọn ngân hàng<i className="sub">  SCB ưu tiên hổ trợ mọi hình thức vay vốn</i>
             </div>
             <div className="borrow__banks borrowBanks">
-                <SliderSimple dataImgs={dataImgs} settings={settings} />
+                <SliderSimple dataImgs={dataImgs} settings={settings} onClick={onClick} />
             </div>
         </div>
     )

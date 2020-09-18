@@ -5,13 +5,16 @@ import PaymentDetail from "./PaymentDetail";
 import { InputBase } from "../../../components/base"
 import { InputSlider } from "../../../components/base";
 import ChartDonutText from "./ChartDonut";
-import { SidebarRight } from "../SidebarRight/SidebarRight";
+import SidebarRight from "../SidebarRight/SidebarRight";
 import FloatingRates from "../FloatingRates";
 import HeadingLine from "../../../components/common/HeadingLine";
-import { contactAddAction } from "../../../store/action"
+import { contactAddAction } from "../../../store/action";
+import Loading from "../../../components/common/Loading";
+import CardNoData from "../../../components/common/CardNoData"
 
 export {
     AmountInformation, PaymentDetail,
     Banking, SliderSimple, InputBase, InputSlider, ChartDonutText,
-    SidebarRight, FloatingRates, HeadingLine, contactAddAction
+    SidebarRight, FloatingRates, HeadingLine, contactAddAction, Loading,
+    CardNoData,
 }

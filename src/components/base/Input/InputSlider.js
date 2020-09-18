@@ -32,7 +32,7 @@ const InputNumberCustoms = props => {
                         style={style ? style : { margin: '0 16px' }}
                         value={value}
                         readOnly={readOnly ? true : false}
-                        disabled={readOnly ? true : false}
+                        // disabled={readOnly ? true : false}
                         onChange={onChange}
                         className={classNameInput ? classNameInput : "form-control"}
                     />

@@ -33,13 +33,8 @@ const ItemProject_02 = (props) => {
                             <Link to="/#" className="btn btn_green text-uppercase">
                                 <Trans>home_detail_button_title</Trans>
                             </Link>
-                            <Link to={{ pathname: "/project/" + data.project_id, 
-                                        state: { 
-                                            projectId: data.project_id, 
-                                            projectName: data.project_name, 
-                                            projectStatus: data.project_sale_status } 
-                                            }} 
-                                        className="btn btn_white text-uppercase">
+                            {console.log('xxx',data)}
+                            <Link to={{ pathname: "/project/" + data.project_id, state: { projectId: data.project_id, projectName: data.project_name, projectStatus: data.project_sale_status } }} className="btn btn_white text-uppercase">
                                 <Trans>home_product_button_title</Trans>
                             </Link>
                         </div>

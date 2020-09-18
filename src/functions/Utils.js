@@ -435,7 +435,7 @@ function converAddress(address = []) {
 }
 
 export const datePichkerLocation = () => {
-    let language = localStorage.getItem("language");
+    let language = getLocalStore("language")
     switch (language) {
         case "vi":
             return vi_VN;
