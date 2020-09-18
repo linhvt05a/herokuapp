@@ -33,67 +33,31 @@ const ProductRow = (props) =>{
       
     }
     var postData = []
+    const newArray = []
     const saveToStorage = (productID) => {
      if(loginData && loginData !== null){
         setIs_favorite(!is_favorite)
-        // if(!is_favorite){
-        //   if (!postData) {
-        //     postData = [];
-        // }
-        // var index = dataProduct.indexOf(function (favorItem) {
-        //     return favorItem.product_id == productID;
-        // });
-        // if (index !== -1) {
-
-        // } else {
-        //   postData.push({
-        //         product_id: productID,
-        //         is_favorite: true,
-        //     });
-        // }
-        // console.log(postData)
-        // }
-    
+       
+          for (let j = 0; j < dataProduct.length; j++) {
+           if(dataProduct[j].product_id == productID){
+              console.log(dataProduct[j].product_id = productID)
+              console.log(dataProduct[j].is_favorite  = is_favorite)
+              postData.push({product_id: dataProduct[j].product_id, is_favorite: dataProduct[j].is_favorite})
+           }
+          }
+          dispatch(productAction.productMark({postData}))
         
      }else {
       setIs_favorite(!is_favorite)
-      var favorite = JSON.parse(sessionStorage.getItem('favor'))
+      if(!is_favorite){
+        var favorite = JSON.parse(sessionStorage.getItem('favor'))
         for (var index = 0; index < favorite.length; index++) {
-             if(favorite[index].product_id == productID){
+            if(favorite[index].product_id == productID){
               favorite[index].is_favorite = is_favorite
                 sessionStorage.setItem("favor", JSON.stringify(favorite))
             }  
         }
-        var index = favorite.indexOf(function (favorItem) {
-          return favorItem.product_id == productID;
-      });
-      if (index !== -1) {
-        
-      } else {
-        favorite.push({
-          product_id: productID,
-          is_favorite: is_favorite,
-      })
-      for (let index = 0; index < favorite.length; index++) {
-          if(favorite[index].product_id == productID){
-          const newData = [...favorite]
-            newData.filter((item)=> {
-              if(item.product_id == productID){
-                for (var i = 0;  i < newData.length; i++){
-                    const newPost = {product_id: newData[i].product_id, is_favorite: newData[i].is_favorite}
-                   postData.push(newPost)
-                   
-                }
-                  
-              }
-            })
-          }
-        }
-        console.log(postData)
-          sessionStorage.setItem('saveFavor',JSON.stringify(postData))
-        
       }
-     
     }
       
 }
