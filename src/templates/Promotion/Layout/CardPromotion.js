@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { ItemProduct } from "../../Home/Item";
+import ItemProduct from "../../../components/common/ItemProduct";
 import HeadingLine from '../../../components/common/HeadingLine';
 import CardNoData from "../../../components/common/CardNoData";
 import Slider from "react-slick";
@@ -20,7 +20,7 @@ const CardPromotion = (props) => {
 
     useEffect(() => {
         if (detail) {
-            dispatch(productAction.loadHotProductList({page: 1, limit: limit}));    
+            dispatch(productAction.loadHotProductList({ page: 1, limit: limit }));
         } else {
             dispatch(productAction.loadHotProductList({}));
         }
@@ -28,19 +28,19 @@ const CardPromotion = (props) => {
 
     const onProjectGroupFilterChange = (value) => {
         if (value != 0) {
-            dispatch(productAction.loadHotProductList({page: 1, limit: limit, list_product_type_id: `[${value}]`}));
+            dispatch(productAction.loadHotProductList({ page: 1, limit: limit, list_product_type_id: `[${value}]` }));
             setProjectGroupId(value);
         } else {
-            dispatch(productAction.loadHotProductList({page: 1, limit: limit}));
+            dispatch(productAction.loadHotProductList({ page: 1, limit: limit }));
             setProjectGroupId(null);
         }
     }
 
     const onPageChange = (value) => {
         if (projectGroupId != null) {
-            dispatch(productAction.loadHotProductList({page: value, limit: limit, list_product_type_id: `[${projectGroupId}]`}));
+            dispatch(productAction.loadHotProductList({ page: value, limit: limit, list_product_type_id: `[${projectGroupId}]` }));
         } else {
-            dispatch(productAction.loadHotProductList({page: value, limit: limit}));
+            dispatch(productAction.loadHotProductList({ page: value, limit: limit }));
         }
     }
 
@@ -71,7 +71,7 @@ const CardPromotion = (props) => {
             <div className="container container-sm container-md">
                 <HeadingLine headerBodyClassName={headerBodyClassName} labelHeader={labelHeader} options={options ? options : undefined} readmore={readmore ? readmore : undefined} link="/promotion-list" onChange={onProjectGroupFilterChange} trans />
                 {
-                    banner ? <img src="../images/sale_banner.png" style={{width: "100%", marginBottom: "40px"}}></img> : ""
+                    banner ? <img src="../images/sale_banner.png" style={{ width: "100%", marginBottom: "40px" }}></img> : ""
                 }
                 <div className="striking_apartment--content jsSalesQuick">
                     {
@@ -93,7 +93,7 @@ const CardPromotion = (props) => {
                                         ))
                                     }
                                 </Slider> :
-                                <CardNoData />
+                            <CardNoData />
                     }
                 </div>
                 {
