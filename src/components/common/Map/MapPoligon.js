@@ -18,18 +18,24 @@ L.Icon.Default.mergeOptions({
 });
 
 function MapPoligon(props) {
-    let { data, zoom } = props;
+    let { data, zoom, myLocation } = props;
 
     //https://blog.logrocket.com/how-to-use-react-leaflet/
     //https://github.com/PaulLeCam/react-leaflet/blob/master/example/components/other-layers.js
 
-    const position = [16.0709261545449, 108.180991165145];
+    let position = [16.0709261545449, 108.180991165145];
+    if (myLocation) {
+
+        position = myLocation
+    }
     return (
         <Map
-            center={position} zoom={zoom ? zoom : 5}
+            center={position} zoom={!myLocation ? zoom ? zoom : 5 : 17}
             style={{ height: "670px", zIndex: 0 }}
             attributionControl={false}
             scrollWheelZoom={false}
+            animate={true}
+            viewport="center"
         // scrollWheelZoom="center"
         // zoomControl={false}
         >

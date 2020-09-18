@@ -35,6 +35,16 @@ const home = {
     home_single_villa: "Single Villa",
     home_duplex_villa: "Duplex Villa",
     home_all: "-- Tất cả --",
+    management_application: "Ứng dụng quản lý",
+    application_note_0: "Ứng dụng quản lý của chúng tôi với các tính năng nổi bật về việc quản lý các thông tin bất động sản và kèm theo điều khiển các thiết bị thông minh trong nhà như :",
+    project_management: "Quản lý dự án",
+    application_note_1: "Xây dựng các công trình bất động sản chất lượng, đạt chuẩn cao cấp và đáp ứng yêu cầu của bạn.",
+    application_note_2: "Xây dựng các công trình bất động sản chất lượng, đạt chuẩn cao cấp và đáp ứng yêu cầu của bạn.",
+    application_note_3: "Xây dựng các công trình bất động sản chất lượng, đạt chuẩn cao cấp và đáp ứng yêu cầu của bạn.",
+    application_note_4: "Xây dựng các công trình bất động sản chất lượng, đạt chuẩn cao cấp và đáp ứng yêu cầu của bạn.",
+    application_note_5: "Xây dựng các công trình bất động sản chất lượng, đạt chuẩn cao cấp và đáp ứng yêu cầu của bạn.",
+    application_note_6: "Xây dựng các công trình bất động sản chất lượng, đạt chuẩn cao cấp và đáp ứng yêu cầu của bạn.",
+
 }
 
 export default home;

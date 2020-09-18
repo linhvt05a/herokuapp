@@ -35,6 +35,7 @@ const Home = (props) => {
         position: false,
         search: false,
         showhide: false,
+        myLocation: null
     });
 
     useEffect(() => {
@@ -56,6 +57,7 @@ const Home = (props) => {
     const handlerButtonPosition = () => {
         navigator.geolocation.getCurrentPosition(function (position) {
             // console.log(position);
+            setState({ ...state, myLocation: [position.coords.latitude, position.coords.longitude] })
             // console.log("Latitude is :", position.coords.latitude);
             // console.log("Longitude is :", position.coords.longitude);
         })
@@ -89,9 +91,9 @@ const Home = (props) => {
             <div className="map">
                 <div className="map_origin" style={{ display: state.position || state.search || state.showhide ? "none" : "" }}>
                     <figure>
-                        <MapPoligon data={searchList} zoom={5.5} />
+                        <MapPoligon data={searchList} zoom={5.5} myLocation={state.myLocation} />
                     </figure>
-                    <LocationView HandlerPosition={handlerButtonPosition} HandlerSearch={handlerButtonSearch} />
+                    <LocationView HandlerPosition={handlerButtonPosition} HandlerSearch={handlerButtonSearch} clearLocation={() => setState({ ...state, myLocation: null })} />
                 </div>
                 <OnMapPoligon active={state} onHideSearch={setHideSearch} />
             </div>

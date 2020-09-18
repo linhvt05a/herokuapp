@@ -12,7 +12,7 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from "react-redux";
 import { contactAddAction } from "../../../store/action"
 import { translate } from '../../../functions/Utils';
-import { RULES } from '../../../contant';
+import { RULES, PHONE_NUMBER, EMAIL } from '../../../contant';
 
 const AutoCompleteOption = AutoComplete.Option;
 
@@ -36,6 +36,7 @@ function Footer() {
             }
         }
     }, [messageLitter])
+    let date = new Date()
     return (
         <footer className="footer">
             <div className="footer_top">
@@ -117,14 +118,14 @@ function Footer() {
                                         <Link to="tel:1900123456">
                                             <i className="fas fa-phone-alt" />
                                             <span className="number">
-                                                1900 - 123 - 456
+                                                {PHONE_NUMBER}
                                             </span>
                                         </Link>
                                     </li>
                                     <li>
                                         <Link to="/#">
                                             <i className="fas fa-envelope" />
-                                            info@minerva.vn
+                                            {EMAIL}
                                         </Link>
                                     </li>
                                     <li>
@@ -191,7 +192,7 @@ function Footer() {
             <div className="footer_bottom">
                 <div className="container">
                     <span className="footer_copy-right">
-                        Bản quyền của Minerva năm 2020
+                        {translate("copyright")} {date.getFullYear()}
                     </span>
                 </div>
             </div>

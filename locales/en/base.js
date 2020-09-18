@@ -66,6 +66,7 @@ export default {
     newsletter: "Sign up for the news",
     news_note: "Enter your email to receive the latest Real Estate news",
     your_email: "Your email",
+    copyright: "Copyright by Minerva ",
     //form
     invalid_email: "Invalid e-mail, please try again!",
     input_null: "Please enter in here!",

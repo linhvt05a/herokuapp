@@ -74,6 +74,7 @@ export default {
     newsletter: "Đăng ký nhận bản tin",
     news_note: "Nhập email của bạn để nhận tin tức mới nhất về Bất động sản",
     your_email: "Email của bạn",
+    copyright: "Bản quyền của Minerva năm ",
 
     //form
     invalid_email: "E-mail không hợp lệ, vui lòng thử lại!",

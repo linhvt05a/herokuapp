@@ -3,6 +3,8 @@ const { translate } = require("./functions/Utils")
 const IMAGE_URL = "../"
 const IMAGE_LOGO = "../images/default_image_minerva.png"
 const PHONE_NUMBER = "1900 - 123 - 456"
+const EMAIL = "info@minerva.vn"
+
 const MOBILE_WIDTH = 767
 const MAP_KEYS = "AIzaSyDZt7EWQR3cI-a_0to4VT2JVcF-c7ti6Ro"
 const PROJECT_STATUS = [
@@ -152,6 +154,7 @@ module.exports = {
     PHONE_NUMBER,
     MOBILE_WIDTH,
     MAP_KEYS,
+    EMAIL,
 
     PROJECT_STATUS,
     PROJECT_SALE_GROUP,

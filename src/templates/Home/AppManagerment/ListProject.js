@@ -1,42 +1,42 @@
 import React, { Component } from "react";
 
-const ListProject = () => {
+const ListProject = props => {
+	let { translate } = props
 	const list = [
 		{
 			id: 1,
-			name: "Quản lý dự án",
-			des:
-				"Xây dựng các công trình bất động sản chất lượng, đạt chuẩn cao cấp và đáp ứng yêu cầu của bạn",
+			name: translate("project_management"),
+			des: translate("application_note_1"),
 		},
 		{
 			id: 2,
-			name: "Quản lý dự án",
+			name: "Quản lý dự án 2",
 			des:
-				"Xây dựng các công trình bất động sản chất lượng, đạt chuẩn cao cấp và đáp ứng yêu cầu của bạn",
+				translate("application_note_2"),
 		},
 		{
 			id: 3,
-			name: "Quản lý dự án",
+			name: "Quản lý dự án 3",
 			des:
-				"Xây dựng các công trình bất động sản chất lượng, đạt chuẩn cao cấp và đáp ứng yêu cầu của bạn",
+				translate("application_note_3"),
 		},
 		{
 			id: 4,
-			name: "Quản lý dự án",
+			name: "Quản lý dự án 4",
 			des:
-				"Xây dựng các công trình bất động sản chất lượng, đạt chuẩn cao cấp và đáp ứng yêu cầu của bạn",
+				translate("application_note_4"),
 		},
 		{
 			id: 5,
-			name: "Quản lý dự án",
+			name: "Quản lý dự án 5",
 			des:
-				"Xây dựng các công trình bất động sản chất lượng, đạt chuẩn cao cấp và đáp ứng yêu cầu của bạn",
+				translate("application_note_5"),
 		},
 		{
 			id: 6,
-			name: "Quản lý dự án",
+			name: "Quản lý dự án 6",
 			des:
-				"Xây dựng các công trình bất động sản chất lượng, đạt chuẩn cao cấp và đáp ứng yêu cầu của bạn",
+				translate("application_note_6"),
 		},
 	];
 	return (
