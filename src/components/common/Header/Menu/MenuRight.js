@@ -16,13 +16,11 @@ const MenuRight = (props) => {
     const productListSuccess = product.productFavoriteList.success
     const favoriteList = productListSuccess ? product.productFavoriteList : null;
     const newArray = [];
+    const dataStorage = sessionStorage.getItem('favor')
     useEffect(() => {
-        // dispatch(accountAction.loadLogin({}))
-
-        if (user && user.user_id !== null) {
+        if (user && user !== null) {
             dispatch(productAction.productFavoriteList({ page: 1, limit: 5 }));
         } else {
-            const dataStorage = sessionStorage.getItem('favor')
             const data = JSON.parse(dataStorage)
             data && data.forEach(obj => {
                 if (!newArray.some(o => o.product_id == obj.product_id)) {
@@ -39,12 +37,12 @@ const MenuRight = (props) => {
                 <Link to="/#" className="link">
                     <img src={`${IMAGE_URL}images/live_stream.png`} className="live_stream" />
                 </Link>
-                <Link to="/product-favorite" className="link">
+                <a href="/product-favorite" className="link">
                     <span className="icon">
                         <i className="heart far fa-heart" />
                         <FavoriteCount dataLocal={dataLocal} favoriteList={favoriteList} loginData={user} />
                     </span>
-                </Link>
+                </a>
             </div>
             <div className="item">
                 <Link to="/cart" className="link">

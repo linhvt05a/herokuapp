@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {Modal} from 'antd';
 import {InputBase, ButtonStyle, SelectCustom, TextArea} from '../../components/base'
-import { Trans } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 import {validateVisit} from '../../components/base/ValidateInput/ValidateInput'
 import {useFormVisit} from '../../components/base/ValidateInput/useForm'
 import { useDispatch } from "react-redux";
@@ -11,7 +11,8 @@ const project = [{value:"", label:'--Select--'},{value:1, label:'donalll'},{valu
 
 
 const RegisterModal = (props) =>{
-  const [showModal, setShowModal] = useState(false)
+  const {t, i18n} = useTranslation()
+  const [showModal, setShowModal] = useState(true)
   const signValue = {visitName: '',visitMobile: '',visitSelect:'',visitContent:''}
   const {signValues, signErrors, handleChangeVisit, handleSelectVisit, handleSignVisit} = useFormVisit(signValue, visitRegister, validateVisit)
   const dispatch = useDispatch()
@@ -27,7 +28,7 @@ const RegisterModal = (props) =>{
                     <div className="modal-content">
                     <div className="modal-header">
                 <h5 className="modal-title">
-                      <Trans>Sign up to visit</Trans>
+                      <Trans>visitor_signup_title</Trans>
                 </h5>
                 <button type="button"  className="close" onClick={()=>setShowModal(false)}>
                   <i className="fas fa-times-circle" />

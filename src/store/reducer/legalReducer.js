@@ -20,7 +20,7 @@ const initialState = {
       },
       {
         id: 3,
-        title: " Other rules of the transaction",
+        title: "Other rules of the transaction",
       },
       
     ],

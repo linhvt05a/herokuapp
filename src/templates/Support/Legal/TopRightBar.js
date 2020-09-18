@@ -18,7 +18,7 @@ const TopRightBar = (props) =>{
         <div className="col-md-5 col-lg-4 col-xl-4">
                 <CommonMenu 
                     className="options mb-4 bg_white" 
-                    label="Categories" 
+                    label="legal_categories" 
                     dataMenu={legalCategories} 
                     className="options mb-4 bg_white" 
                     onClick = {handleClick}

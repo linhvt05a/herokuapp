@@ -11,6 +11,8 @@ import header from './vi/header';
 import news from './vi/news';
 import loan from "./vi/loan"
 import recruitment from './vi/recruitment'
+import legal from './vi/legal';
+import visitor from './vi/visitor'
 const vi = {
     ...home,
     ...promotion,
@@ -24,7 +26,8 @@ const vi = {
     ...header,
     ...news,
     ...loan,
-    ...recruitment
+    ...recruitment,
+    ...legal
 }
 
 export default vi;

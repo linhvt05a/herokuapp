@@ -18,7 +18,7 @@ const CardSaleFlash = (props) => {
     const datas = isGetHotProductListSuccess ? product.hotProductList : null;
     const dispatch = useDispatch();
     const [projectGroupId, setProjectGroupId] = useState(null);
-    
+    const dataProduct = datas && datas.detail.list_product
     console.log(datas);
 
     useEffect(() => {
@@ -87,7 +87,7 @@ const CardSaleFlash = (props) => {
                                     {
                                         datas.detail.list_product.map((item, index) => (
                                             <div key={index} className="col-12 col-sm-12 col-md-6 col-lg-4 mb-3">
-                                                <ItemProduct data={item} detail  />
+                                                <ItemProduct data={item} dataProduct={dataProduct} />
                                             </div>
                                         ))
                                     }
@@ -95,7 +95,7 @@ const CardSaleFlash = (props) => {
                                 <Slider {...settings}>
                                     {
                                         datas.detail.list_product.map((item, index) => (
-                                            <ItemProduct key={item.product_id} data={item} />
+                                            <ItemProduct key={item.product_id} data={item} dataProduct={dataProduct}/>
                                         ))
                                     }
                                 </Slider> : <CardNoData />

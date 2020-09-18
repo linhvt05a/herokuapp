@@ -5,6 +5,7 @@ import { Input, Form, Button } from 'antd';
 import {legalAction} from '../../../store/action/index'
 
 const JuridicalBox =(props) =>{
+    console.log(props)
     let { t } = props;
     const FormItem = Form.Item;
     const [formInfo] = Form.useForm();
@@ -77,7 +78,7 @@ const validatorInfo = {
                                     formInfo.getFieldsError().filter(({ errors }) => errors.length).length
                                 }
                             >
-                                <Trans>SEND MESSAGE</Trans>
+                                <Trans>btn_title_search</Trans>
                             </Button>
                             )
                     }}

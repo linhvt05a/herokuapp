@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Tooltip } from 'antd';
 import { Trans } from "react-i18next";
 import { formatCurrency } from "../../functions/Utils";
@@ -7,16 +7,26 @@ import CardNoData from "./CardNoData";
 import { Link } from 'react-router-dom'
 import { ButtonBuyNow } from "../base";
 import {getLocalStore} from '../../functions/Utils'
+import { useDispatch, useSelector } from "react-redux";
+import { productAction} from "../../store/action/index";
 
 const ItemProduct = (props) => {
-    const { data } = props
+    const { data, dataProduct } = props
     const [active, setActive] = useState(false)
     const loginData = getLocalStore('user')
-    function saveProduct(productID) {
+    const dispatch = useDispatch()
+    const postData = []
+    function saveProduct() {
+        setActive(!active)
         if(loginData && loginData !== null){
-            console.log(data)
-            setActive(!active)
-            
+            for (let j = 0; j < dataProduct.length; j++) {
+                if(dataProduct[j].product_id == data.product_id){
+                   console.log(dataProduct[j].product_id = data.product_id)
+                   postData.push({product_id: dataProduct[j].product_id, is_favorite: !active})
+                }
+               }
+               console.log(postData)
+               dispatch(productAction.productMark({postData}))
         }else {
             setActive(!active)
             if (!active) {

@@ -4,7 +4,8 @@ import { TOKEN } from '../../functions/Utils';
 
 export const legalService = {
     legalForm(payload) {
-        const body = {payload}
+        const {values} = payload.params
+        const body = {values}
         const requestOptions = {
             method: 'POST',
             headers: api.getHeader(TOKEN),
