@@ -1,5 +1,5 @@
 import React, { Component, useState } from 'react';
-import { Trans } from 'react-i18next';
+import { useTranslation, Trans } from 'react-i18next';
 import {Link} from 'react-router-dom'
 import CardNoData from '../../components/common/CardNoData';
 
@@ -25,13 +25,13 @@ const CommonMenu = (props) =>{
                 </li>
               ) : <CardNoData />}
             </ul>
-           {disableDisplay && <Search label="Search"/>}
+           {disableDisplay && <Search label="legal_title_search"/>}
           </div>
     )
 }
 
 const Search = (props) =>{
-
+  const { t, i18n } = useTranslation()
     const detectKey = (e)=>{
       const value = e.target.value
       if(e.key === 'Enter'){
@@ -46,11 +46,11 @@ const Search = (props) =>{
             <input
               type="text"
               className="w-100 form-control"
-              placeholder="Nhập nội dung"
+              placeholder={t('enter_content')}
             />
     </div>
   </div>
   )
 }
 
-export default CommonMenu
+export default  CommonMenu

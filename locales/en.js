@@ -11,6 +11,8 @@ import header from './en/header';
 import news from './en/news';
 import loan from "./en/loan"
 import recruitment from './en/recruitment'
+import legal from './en/legal'
+import visitor from './en/visitor'
 const en = {
     ...home,
     ...promotion,
@@ -24,7 +26,9 @@ const en = {
     ...header,
     ...news,
     ...loan,
-    ...recruitment
+    ...recruitment,
+    ...legal,
+    ...visitor
 }
 
 export default en;

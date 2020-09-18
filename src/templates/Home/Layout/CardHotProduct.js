@@ -18,7 +18,7 @@ const CardHotProduct = (props) => {
     const isGetHotProductListSuccess = product.hotProductList.success;
     const datas = isGetHotProductListSuccess ? product.hotProductList : null;
     const dispatch = useDispatch();
-
+    const dataProduct = datas && datas.detail.list_product
     const [projectGroupId, setProjectGroupId] = useState(null);
 
     useEffect(() => {
@@ -65,11 +65,11 @@ const CardHotProduct = (props) => {
                                     datas.detail.list_product.map((item, index) => (
                                         detail ?
                                         <div key={index} className="col-12 col-sm-12 col-md-6 col-lg-4 mb-3">
-                                            <ItemProduct data={item} />
+                                            <ItemProduct data={item} dataProduct={dataProduct}/>
                                         </div> :
                                         index < 6 ?
                                         <div key={index} className="col-12 col-sm-12 col-md-6 col-lg-4 mb-3">
-                                            <ItemProduct data={item} />
+                                            <ItemProduct data={item} dataProduct={dataProduct}/>
                                         </div> : ""
                                     ))
                                 }
