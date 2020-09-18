@@ -19,7 +19,7 @@ export default (state = initialState, action) => {
     switch (action.type) {
 
         case accountAction.LOGIN_SUCCESS:
-            return { ...state, isFetching: false, login: action.response };
+            return { ...state, isFetching: false, success: true, login: action.response };
         case accountAction.LOGIN_FAILURE:
             return { ...state, isFetching: false, login: { success: false, error: action.err } };
 

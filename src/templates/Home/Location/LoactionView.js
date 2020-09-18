@@ -11,20 +11,18 @@ const LocationView = props => {
                 <Trans>text_in_map_home</Trans>
             </h1>
             <div className="list_button d-flex justify-content-center">
-                <Link onClick={HandlerPosition}
-                    to="/#"
+                <a onClick={HandlerPosition}
                     className="btn btn_white map_to"
                     data-maptab="map_my-place"
                 >
                     <Trans>your_location</Trans>
-                </Link>
-                <Link onClick={HandlerSearch}
-                    to="/#"
+                </a>
+                <a onClick={HandlerSearch}
                     className="btn btn_green map_to"
                     data-maptab="map_search"
                 >
                     <Trans>search</Trans>
-                </Link>
+                </a>
             </div>
         </div>
     )

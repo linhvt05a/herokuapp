@@ -60,7 +60,8 @@ export default {
 
     text_timeline_the_end: 'The end at',
 
-    total: "Total"
+    total: "Total",
+    contact_us: "Contact us"
 
 
 }

@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import { Trans } from "react-i18next";
+import { Trans, useTranslation } from "react-i18next";
 import { Input, Form, Button } from 'antd';
 import { accountAction } from "../../../store/action/index";
+import { translate } from '../../../functions/Utils';
 
 const Login = (props) => {
     let { showTap, success } = props;
     const [formInfo] = Form.useForm();
     const dispatch = useDispatch();
+    const { t } = useTranslation()
     const [error, setError] = useState()
     let dataLogin = useSelector(state => state.accountReducer);
     let { login } = dataLogin;
@@ -53,9 +54,9 @@ const Login = (props) => {
         }
     }, [login])
     const onSubmitLogin = value => {
-        console.log(value);
+
         // dispatch(accountAction.loadLogin({ username: "customer@minerva.vn", password: "123" }));
-        dispatch(accountAction.loadLogin({ username: value.username, password: value.password }))
+        dispatch(accountAction.loadLogin({ username: value.username, password: value.password, onNext: props.onNext }))
     }
 
     return (
@@ -86,13 +87,26 @@ const Login = (props) => {
                     }}
                 </Form.Item>
             </Form>
-            <div className="form-group mb-0 text-center">
+            {/* <div className="form-group mb-0 text-center">
                 <a onClick={event => showTap(3)}
                     className="text-forgot forgotPassword">
                     <Trans>forfot_pass</Trans>
                 </a>
+            </div> */}
+            <div>
+                <div className="icon_star text-center">
+                    <i className="fas fa-bahai" />
+                </div>
+                <div className="text_register_link text-center">
+                    <a > Bạn chưa có tài khoản vậy hãy <span onClick={event => showTap(1)}> <br /> {translate("registry")}</span> </a>
+                </div>
             </div>
-        </div>
+            <div className="form-group mb-0 text-center">
+                <a className="text-forgot" onClick={event => showTap(3)}>
+                    {translate("cart_forgot_password", t)}
+                </a>
+            </div>
+        </div >
     );
 };
 export default Login;

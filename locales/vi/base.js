@@ -68,5 +68,6 @@ export default {
 
     text_timeline_the_end: 'kết thúc trong',
 
-    total: "Tổng"
+    total: "Tổng",
+    contact_us: "Liên hệ với chúng tôi"
 }

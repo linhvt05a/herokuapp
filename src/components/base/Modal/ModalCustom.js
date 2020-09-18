@@ -7,7 +7,7 @@ const ModalCustom = (props) => {
 
     const { visible, widthModal, showPaymentProgressModal, showPromotionModal, showAccountModal, showNotification, dataOutput, onNext, status = false } = props
     const [isClearData, setClearData] = useState(false)
-
+    const [show, setShow] = useState(0)
     const handleCancel = () => {
         setClearData(true)
         if (showPaymentProgressModal) {
@@ -15,6 +15,7 @@ const ModalCustom = (props) => {
         } else if (showPromotionModal) {
             showPromotionModal(false)
         } else if (showAccountModal) {
+            setShow(0)
             showAccountModal(false)
         } else if (showNotification) {
             showNotification(false)
@@ -43,7 +44,7 @@ const ModalCustom = (props) => {
 
             {
                 showAccountModal &&
-                <CardAccountModal clearData={afterClearData} isClearData={isClearData} onNext={onNext} />
+                <CardAccountModal tab={show} setTab={setShow} clearData={afterClearData} isClearData={isClearData} onNext={onNext} />
             }
 
             {

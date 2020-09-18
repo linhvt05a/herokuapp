@@ -43,7 +43,7 @@ const SidebarRight = props => {
                             <div className="details__02">
                                 <span className="text">
                                     {translate("loan_average_payment")} ({data.maximum_loan_limit_money_master_unit_name})
-                                    <b>{convertFloatToString(parseFloat(totalInterest() / data.tenor).toFixed(0))}</b>
+                                    <b>{convertFloatToString(parseInt(totalInterest() / data.tenor))}</b>
                                 </span>
                                 <a className="download"><i className="fas fa-download icon" /> Tải
                                 bảng thanh toán từng tháng </a>

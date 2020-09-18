@@ -29,7 +29,8 @@ function MapPoligon(props) {
             center={position} zoom={zoom ? zoom : 5}
             style={{ height: "670px", zIndex: 0 }}
             attributionControl={false}
-            scrollWheelZoom="center"
+            scrollWheelZoom={false}
+        // scrollWheelZoom="center"
         // zoomControl={false}
         >
             <ReactLeafletGoogleLayer

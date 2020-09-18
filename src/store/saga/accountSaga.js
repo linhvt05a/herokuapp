@@ -5,10 +5,17 @@ import { accountAction } from '../action/index';
 
 // login
 export function* login(payload) {
-    let { username, password } = payload.params
+    let { username, password, onNext } = payload.params
     try {
-        const response = yield accountService.login( username, password );
-        response.success ? yield put({ type: accountAction.LOGIN_SUCCESS, response }) : yield put({ type: accountAction.LOGIN_FAILURE, response });
+        const response = yield accountService.login(username, password, onNext);
+        if (response.success) {
+
+            yield put({ type: accountAction.LOGIN_SUCCESS, response })
+        }
+        else {
+            yield put({ type: accountAction.LOGIN_FAILURE, response });
+        }
+
     } catch (err) {
         yield put({ type: accountAction.LOGIN_FAILURE, err });
     }
@@ -50,7 +57,7 @@ export function* changePassword(payload) {
     console.log(payload);
     let { new_password, new_password_repeat, current_password } = payload.params
     try {
-        const response = yield accountService.changePassword( new_password, new_password_repeat, current_password );
+        const response = yield accountService.changePassword(new_password, new_password_repeat, current_password);
         response.success ? yield put({ type: accountAction.CHANGE_PASSWORD_SUCCESS, response }) : yield put({ type: accountAction.CHANGE_PASSWORD_FAILURE, response });
     } catch (err) {
         yield put({ type: accountAction.CHANGE_PASSWORD_FAILURE, err });
@@ -106,7 +113,7 @@ export function* updateCustomerWatcher() {
 export function* uploadImage(payload) {
     let { token, image } = payload.params
     try {
-        const response = yield accountService.uploadFile( image );
+        const response = yield accountService.uploadFile(image);
         response.success ? yield put({ type: accountAction.IMAGE_SUCCESS, response }) : yield put({ type: accountAction.IMAGE_FAILURE, response });
     } catch (err) {
         yield put({ type: accountAction.IMAGE_FAILURE, err });
@@ -118,7 +125,7 @@ export function* uploadImageWatcher() {
 
 // check email
 export function* emailCheck(payload) {
-    let {email} = payload.params
+    let { email } = payload.params
     try {
         const response = yield accountService.emailCheck(email);
         response.success ? yield put({ type: accountAction.EMAIL_CHECK_SUCCESS, response }) : yield put({ type: accountAction.EMAIL_CHECK_FAILURE, response });

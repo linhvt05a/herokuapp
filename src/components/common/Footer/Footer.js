@@ -9,6 +9,7 @@ import {
 } from 'antd';
 import { useDispatch, useSelector } from "react-redux";
 import { contactAddAction } from "../../../store/action"
+import { translate } from '../../../functions/Utils';
 
 const AutoCompleteOption = AutoComplete.Option;
 
@@ -105,7 +106,7 @@ function Footer() {
                         <div className="col-sm-12 col-md-6 col-xl-4 footer_border-lr mb-5 mb-xl-0">
                             <div className="footer_item footer_contact">
                                 <h2 className="label">
-                                    Liên hệ với chúng tôi
+                                    {translate("contact_us")}
                                 </h2>
                                 <ul>
                                     <li className="phone">

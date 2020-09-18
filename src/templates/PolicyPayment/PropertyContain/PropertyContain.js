@@ -2,17 +2,7 @@ import React from 'react'
 import { convertFloatToString } from '../../../functions/Utils'
 
 const PropertyContain = (props) => {
-    let data = {
-        total: 30000000000,
-        pile: 100000000,
-        dataPile: [
-            { pile: 350000000, progress: "10 ngày sau cọc, ký HĐMB", pay: 450000000, unit: "vnd", note: "chưa VAT", percent: "15", discount: false },
-            { pile: 150000000, progress: "30 ngày sau ký HĐMB", pay: 600000000, unit: "vnd", note: "", percent: "20", discount: false },
-            { pile: 150000000, progress: "45 ngày sau cọc, ký HĐMB", pay: 600000000, unit: "vnd", note: "", percent: "31", discount: true },
-            { pile: 250000000, progress: "65 ngày sau cọc, ký HĐMB", pay: 700000000, unit: "vnd", note: "", percent: "43", discount: true },
-            { pile: 250000000, progress: "100 ngày sau cọc, ký HĐMB", pay: 700000000, unit: "vnd", note: "", percent: "59", discount: true }
-        ]
-    }
+    let { data } = props
     const renderBoxRight = (data, index, item) => {
         return (
             <div className="item boxRight" key={index}>

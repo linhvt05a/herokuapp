@@ -16,10 +16,11 @@ import CardNotificationModal from "../Modal/NotificationModal"
 import ModalCustom from '../../../components/base/Modal/ModalCustom';
 import { NAME_GENDER } from "../../../contant";
 import CardNodata from "../../../components/common/CardNoData"
-import { InputCurrency } from "../../../components/base"
+import { InputCurrency } from "../../../components/base";
+import { Login, ForgotPass, Registry } from "../../Account"
 
 export {
     CardCartProductList, CardCartSummary, CardPaymentProgressModal, CardPromotionModal, CardAccountModal, CardCustomerInfo, CardCollapseProductList,
     CardAgreementForm, CardPayments, CardInfoEdit, CardOrderDetail, CardBuyerInfo, CardBillInfomation, CardRemittanceReceipt, CardNotificationModal, ModalCustom,
-    NAME_GENDER, CardNodata, InputCurrency
+    NAME_GENDER, CardNodata, InputCurrency, Login, ForgotPass, Registry
 }

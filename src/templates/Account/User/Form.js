@@ -31,23 +31,23 @@ const Form = (props) => {
                     <li className="nav-item">
                         <a onClick={event => showTap(0)}
                             className={`nav-link ${tab == 0 ? "active" : ""}`}
-                            id="pills-signin-tab">
+                        >
                             <Trans>login</Trans>
                         </a>
                     </li>
                     <li className="nav-item">
                         <a onClick={event => showTap(1)}
                             className={`nav-link ${tab == 1 ? "active" : ""}`}
-                            id="pills-signup-tab">
+                        >
                             <Trans>registry</Trans>
                         </a>
                     </li>
                 </ul>
                 <div className="tab-content">
-                    <div className={`tab-pane fade ${tab == 0 ? "show active" : ""}`} id="pills-login">
+                    <div className={`tab-pane fade ${tab == 0 ? "show active" : ""}`}>
                         <Login showTap={showTap} />
                     </div>
-                    <div className={`tab-pane fade ${tab == 1 ? "show active" : ""}`} id="pills-signup">
+                    <div className={`tab-pane fade ${tab == 1 ? "show active" : ""}`} >
                         <Registry />
                     </div>
                 </div>

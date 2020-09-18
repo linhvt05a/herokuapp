@@ -13,29 +13,30 @@ export const accountService = {
     //     return api.handleRequest(url, requestOptions);
     // },
 
-    login(username, password) {
+    login(username, password, onNext) {
         const token = btoa(username + ":" + password);
         const body = { username, password }
-    
+
         const requestOptions = {
             method: 'POST',
             headers: api.getHeader(token, api.CONTENT_TYPE, 'Basic'),
             body: body
         };
-    
+
         const url = api.getUrl(api.LOGIN)
         return api.handleRequest(url, requestOptions)
             .then(data => {
                 if (data) {
                     // store user details and basic auth credentials in local storage
                     localStorage.setItem('user', JSON.stringify(data['detail']));
+                    if (onNext) { onNext() }
                     window.location.reload()
                 }
                 return data;
-                
+
             });
     },
-    
+
     logout() {
         // remove user from local storage to log user out
         localStorage.removeItem('user');
@@ -77,7 +78,7 @@ export const accountService = {
             method: 'GET',
             headers: api.getHeader(TOKEN)
         };
-        const params = { };
+        const params = {};
         const url = api.getUrl(api.PROFILE, params);
         return api.handleRequest(url, requestOptions);
     },
@@ -87,12 +88,12 @@ export const accountService = {
             method: 'GET',
             headers: api.getHeader(TOKEN)
         };
-        const params = { };
+        const params = {};
         const url = api.getUrl(api.UPDATE_PROFILE, params);
         return api.handleRequest(url, requestOptions);
     },
 
-    updateCustomer(token, avatar, email, name, birthday, address, province, district, ward, phone, gender, workplace ) {
+    updateCustomer(token, avatar, email, name, birthday, address, province, district, ward, phone, gender, workplace) {
         const body = { avatar, email, name, birthday, address, province, district, ward, phone, gender, workplace }
         const requestOptions = {
             method: 'POST',
@@ -119,7 +120,7 @@ export const accountService = {
         let file_size = file.size
         let server_file_name = Date.now() + file_name
         let server_url = api.CLOUD_SERVER_PATH + server_file_name
-    
+
         const headers = {
             'Content-Length': file_size,
             'access-key': api.CLOUD_SERVER_ACCESS_KEY,
@@ -130,8 +131,8 @@ export const accountService = {
             headers: headers,
             body: file
         };
-    
-        console.log(headers,file)
+
+        console.log(headers, file)
         console.log(server_url);
         return api.handleRequest(server_url, requestOptions);
         // return fetch(server_url, requestOptions).then(handleResponseText)

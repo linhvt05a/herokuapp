@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import { useDispatch } from 'react-redux';
-import { SelectCustom } from "../../../components/base"
+import { ButtonBuyNow, SelectCustom } from "../../../components/base"
 import { convertFloatToString, translate } from '../../../functions/Utils';
 import { useTranslation } from 'react-i18next';
 
@@ -101,7 +101,8 @@ const PropertyFilter = (props) => {
                 </div>
                 <div className="sales_box--list_button">
                     <Link to="/" className="btn btn_green text-uppercase">{translate("product_buy_now")}</Link>
-                    <a className="btn btn_purple text-uppercase" onClick={props.onNext}>{translate("heading_banking_policy")}</a>
+                    {/* <ButtonBuyNow data={props.data} /> */}
+                    <span className="btn btn_purple text-uppercase" onClick={props.onNext}>{translate("heading_banking_policy")}</span>
                 </div>
             </div>
         </div>
