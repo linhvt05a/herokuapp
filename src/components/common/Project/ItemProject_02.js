@@ -5,7 +5,11 @@ import { IMAGE_URL } from "../../../contant";
 
 const ItemProject_02 = (props) => {
 
-    const { data } = props
+    const { data } = props;
+    const paramProject = {
+        pathname: "/project/" + data.project_id,
+        search: '?status=' + data.project_sale_status
+    };
 
     return (
         <div className="d-flex flex-column col-12 col-sm-6 col-md-6 cols-lg-4 col-xl-4">
@@ -33,8 +37,7 @@ const ItemProject_02 = (props) => {
                             <Link to="/#" className="btn btn_green text-uppercase">
                                 <Trans>home_detail_button_title</Trans>
                             </Link>
-                            {console.log('xxx',data)}
-                            <Link to={{ pathname: "/project/" + data.project_id, state: { projectId: data.project_id, projectName: data.project_name, projectStatus: data.project_sale_status } }} className="btn btn_white text-uppercase">
+                            <Link to={paramProject} className="btn btn_white text-uppercase" >
                                 <Trans>home_product_button_title</Trans>
                             </Link>
                         </div>
