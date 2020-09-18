@@ -101,6 +101,9 @@ export default {
     //footer email
     NEWSLETTER_REGISTRATION: "/api/main_web/v1/news/register_receive_information/",
 
+    //filter
+    FILTER_PROJECT: "/api/main_web/v1/project/list_short/",
+
     getHeader,
     getUrl,
     authHeader,
