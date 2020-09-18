@@ -27,13 +27,13 @@ export default {
     end_chat: "Do you want to end the conversation ?",
     title_end_chat: "Do you really want to end the conversation with us.",
 
-    text_from : 'From',
-    text_to : 'To',
+    text_from: 'From',
+    text_to: 'To',
 
     //heading
-    heading_policy_advice : 'Incentives',
-    heading_internal_utility : 'Gadgets around',
-    heading_banking_policy : 'Loan policy',
+    heading_policy_advice: 'Incentives',
+    heading_internal_utility: 'Gadgets around',
+    heading_banking_policy: 'Loan policy',
 
 
     // end_button: "End",
@@ -41,7 +41,7 @@ export default {
     // save: "Save",
 
     //button
-    button_end:"End",
+    button_end: "End",
     button_back: "Back",
     button_save: "Save",
     button_confirm: "Confirm",
@@ -54,11 +54,13 @@ export default {
     send_message: "SEND MESSAGE",
 
     // languages 
-    lang_vi : 'VietNamese',
-    lang_en : 'English',
-    lang_cn : 'China',
+    lang_vi: 'VietNamese',
+    lang_en: 'English',
+    lang_cn: 'China',
 
-    text_timeline_the_end : 'The end at'
+    text_timeline_the_end: 'The end at',
+
+    total: "Total"
 
 
 }

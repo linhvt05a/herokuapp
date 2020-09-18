@@ -100,7 +100,7 @@ const PropertyFilter = (props) => {
                     <input type="text" name="totalPayment" readOnly className="form-control color_e94c4c" value={convertFloatToString(progress.totalPayment)} />
                 </div>
                 <div className="sales_box--list_button">
-                    <Link to="/" className="btn btn_green text-uppercase">MUA NGAY</Link>
+                    <Link to="/" className="btn btn_green text-uppercase">{translate("product_buy_now")}</Link>
                     <a className="btn btn_purple text-uppercase" onClick={props.onNext}>{translate("heading_banking_policy")}</a>
                 </div>
             </div>

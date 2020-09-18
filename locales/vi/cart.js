@@ -80,4 +80,5 @@ export default {
     cart_select_file: "Chọn file",
     cart_upload_file: "Tải file lên tại đây",
     cart_deposit_product: "Đặt cọc mua sản phẩm",
+    cart_product_price: "Giá sản phẩm",
 }

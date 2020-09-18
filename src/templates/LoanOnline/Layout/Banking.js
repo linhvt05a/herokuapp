@@ -2,7 +2,7 @@ import React from 'react';
 import { SliderSimple } from "./index"
 
 const Banking = props => {
-    let { dispatch, actions, token } = props;
+    let { dispatch, actions, token, translate } = props;
     const settings = {
         dots: true,
         infinite: true,
@@ -40,12 +40,11 @@ const Banking = props => {
     };
     const dataImgs = props.dataImgs;
     const onClick = (bank_id) => {
-        console.log(bank_id);
         dispatch(actions.getPolicy({ token, bank_id }))
     }
     return (
         <div className="borrow__item">
-            <div className="borrow__title text-uppercase">Chọn ngân hàng<i className="sub">  SCB ưu tiên hổ trợ mọi hình thức vay vốn</i>
+            <div className="borrow__title text-uppercase">{translate("loan_choose_banks")}<i className="sub">{translate("loan_text_2")}</i>
             </div>
             <div className="borrow__banks borrowBanks">
                 <SliderSimple dataImgs={dataImgs} settings={settings} onClick={onClick} />

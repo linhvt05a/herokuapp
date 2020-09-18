@@ -53,6 +53,7 @@ export default {
     text_from: 'Từ',
     text_to: 'Đến',
 
+
     //heading
     heading_policy_advice: 'Chính sách cho vay',
 
@@ -65,5 +66,7 @@ export default {
     lang_en: 'Tiếng Anh',
     lang_cn: 'Tiếng Trung',
 
-    text_timeline_the_end: 'kết thúc trong'
+    text_timeline_the_end: 'kết thúc trong',
+
+    total: "Tổng"
 }

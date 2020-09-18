@@ -3,6 +3,7 @@ import { Trans, useTranslation, withTranslation } from 'react-i18next';
 import * as moment from 'moment';
 import "moment/locale/vi"
 import "moment/locale/en-au"
+import "moment/locale/zh-cn"
 import vi_VN from "antd/es/date-picker/locale/vi_VN";
 import en_US from "antd/es/date-picker/locale/en_US"
 import zh_CN from "antd/es/date-picker/locale/zh_CN"

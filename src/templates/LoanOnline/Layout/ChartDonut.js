@@ -33,7 +33,7 @@ DonutChart.prototype = {
 }
 const ChartDonutText = props => {
     return (
-        <DonutChart value={99} size={166} strokewidth={26} />
+        <DonutChart value={props.value > 0 ? parseInt(props.value) : 0} size={166} strokewidth={26} />
     )
 
 }

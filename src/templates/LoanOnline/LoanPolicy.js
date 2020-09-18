@@ -3,11 +3,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
 import { AmountInformation, Banking, PaymentDetail, SidebarRight, FloatingRates, HeadingLine, contactAddAction, Loading, CardNoData } from './Layout';
-import { TOKEN } from '../../functions/Utils';
+import { TOKEN, translate } from '../../functions/Utils';
+import { useTranslation } from 'react-i18next';
 
 const LoanPolicy = props => {
     const history = useHistory();
     const dispatch = useDispatch();
+    const { t } = useTranslation()
     let { product_id, price } = history.location.state
     let [state, setState] = useState({
         onSubmit: false,
@@ -54,9 +56,17 @@ const LoanPolicy = props => {
             setPolicy({ ...policyData, amountBorrow: policyData.minimum_loan_limit_money, tenor: policyData.minimum_loan_period });
             clearData()
         }
-        // let { amount, amountBorrow, unitPay } = state
-        // setState({ ...state, pay: (amount - (amountBorrow * unitPay)) != NaN ? amount - (amountBorrow * unitPay) : 0 })
+
     }, [policyData])
+
+    //tinh pay
+    React.useEffect(() => {
+        if (policy) {
+            let { estimate_price } = state.product;
+            let pay = estimate_price - policy.amountBorrow;
+            setState({ ...state, pay: pay != NaN ? pay : 0 })
+        }
+    }, [policy])
 
     const clearData = () => {
         dispatch(contactAddAction.clearDataLoan())
@@ -64,20 +74,20 @@ const LoanPolicy = props => {
     return (
         <div className="borrow bg_grey">
             <div className="container container-sm container-md">
-                <HeadingLine headerBodyClassName="borrow--heading" labelHeader="Chính sách cho vay" />
+                <HeadingLine headerBodyClassName="borrow--heading" labelHeader={translate("loan_policy", t)} />
                 <div className="tab-content">
                     <div className="tab-pane fade active show" id="borrow01" role="tabpanel" aria-labelledby="borrow01-tab">
                         <div className="row">
                             <div className="col-12 col-sm-12 col-lg-8">
                                 <div className="borrow__wrap">
-                                    {!isLoadingLoan ? state.product ? <AmountInformation data={state.product} setData={setState} /> : <CardNoData /> : <Loading />}
-                                    {!isLoadingLoan ? state.banks && <Banking dataImgs={state.banks} dispatch={dispatch} actions={contactAddAction} token={TOKEN} /> : null}
-                                    {!isLoadingPolicy ? policy && <FloatingRates data={policy} setData={setPolicy} onSubmit={() => setState({ ...state, onSubmit: true })} /> : <Loading />}
+                                    {!isLoadingLoan ? state.product ? <AmountInformation translate={translate} pay={state.pay} data={state.product} setData={setState} amountBorrow={policy && policy.amountBorrow} /> : <CardNoData /> : <Loading />}
+                                    {!isLoadingLoan ? state.banks && <Banking translate={translate} dataImgs={state.banks} dispatch={dispatch} actions={contactAddAction} token={TOKEN} /> : null}
+                                    {!isLoadingPolicy ? policy && <FloatingRates translate={translate} data={policy} setData={setPolicy} onSubmit={() => setState({ ...state, onSubmit: true })} /> : <Loading />}
                                 </div>
                             </div>
-                            <SidebarRight data={policy} />
+                            <SidebarRight data={policy} translate={translate} />
                         </div>
-                        {state.onSubmit && <PaymentDetail data={Array.from(Array(20), (x, index) => index + 1)} />}
+                        {state.onSubmit && <PaymentDetail translate={translate} data={Array.from(Array(policy.tenor > 0 ? policy.tenor : 0), (x, index) => index + 1)} date={policy.datePick} />}
                     </div>
                 </div>
             </div>

@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
-import moment from 'moment';
 import InputDatePicker from '../../components/base/Input/InputDatePicker';
 import { InputBase, InputSlider } from "./Layout"
 import { SelectDefault } from '../../components/base';
 import { useTranslation } from 'react-i18next';
-import { translate } from '../../functions/Utils';
 
 const FloatingRates = props => {
     let { t } = useTranslation()
-    let { data, setData } = props
+    let { data, setData, translate } = props
     const onChangeBorrow = value => {
         setData({ ...data, amountBorrow: value })
     };
@@ -17,21 +15,14 @@ const FloatingRates = props => {
         setData({ ...data, tenor: value })
     };
 
-
-    function convertDate(value) {
-        const date = moment(value).format('DD/MM/YYYY')
-        setDateFrom(date)
-        return date
-    }
-
     const onChangeDate = (name, value) => {
-        convertDate(value, name)
+        setData({ ...data, datePick: value })
     }
     return (
         <div className="borrow__item">
             <div className="borrow__title">
                 <span className="d-flex align-items-center text-uppercase borrow__top">
-                    Vay Dư nợ giảm dần
+                    {translate("loan_debt_decreased")}
                     <SelectDefault
                         classNameGroup=" borrow__filter"
                         titleClassName="text uni-text-6d30ab w-100"
@@ -39,10 +30,11 @@ const FloatingRates = props => {
                         defaultValue={1}
                         style={{ paddingRight: 0, fontSize: `14px` }}
                         onChange={e => console.log(e)}
-                        datas={[{ value: 1, label: "Vay dư nợ giảm dần" }, { value: 2, label: "Vay trả đều hàng tháng" }]}
+                        trans
+                        datas={[{ value: 1, label: "loan_debt_decreased" }, { value: 2, label: "Vay trả đều hàng tháng" }]}
                     />
                 </span>
-                <span className="sub">Nhập các thông tin cần thiết, bạn sẽ biết ngay số tiền lãi cần trả hàng tháng.</span>
+                <span className="sub">{translate("loan_text_3")}</span>
             </div>
             <div className="borrow__calculator">
                 <div className="row">
@@ -112,7 +104,7 @@ const FloatingRates = props => {
                         </div>
                     </div>
                 </div>
-                <button className="btn btn_purple" onClick={props.onSubmit}>Xem kết quả</button>
+                <button className="btn btn_purple" onClick={props.onSubmit}>{translate("loan_results")}</button>
             </div>
         </div>
     )
