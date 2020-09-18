@@ -58,6 +58,28 @@ export function* transBlockNameList(payload) {
     }
 }
 
+
+export function* getProjectList(payload) {
+    let { token, is_full_project } = payload.params
+
+    try {
+        const response = yield transactionService.getProjectList(token, is_full_project);
+        response.success ? yield put({ type: transactionAction.PROJECT_LIST_SUCCESS, response }) : yield put({ type: transactionAction.PROJECT_LIST_FAILURE, response });
+    } catch (err) {
+        yield put({ type: transactionAction.PROJECT_LIST_FAILURE, err });
+    }
+}
+
+export function* getProjectType(payload) {
+    let { token } = payload.params
+    try {
+        const response = yield transactionService.getProjectType(token);
+        response.success ? yield put({ type: transactionAction.PROJECT_TYPE_SUCCESS, response }) : yield put({ type: transactionAction.PROJECT_TYPE_FAILURE, response });
+    } catch (err) {
+        yield put({ type: transactionAction.PROJECT_TYPE_FAILURE, err });
+    }
+}
+
 export function* transListlWatcher() {
     yield takeLatest(transactionAction.TRANSACTION_LIST_REQUEST, transactionList);
 }
@@ -78,6 +100,13 @@ export function* transacBlockNameListWatcher() {
     yield takeLatest(transactionAction.TRANS_PROJECT_NAME_REQUEST, transBlockNameList);
 }
 
+export function* getProjectListWatcher() {
+    yield takeLatest(transactionAction.PROJECT_LIST_REQUEST, getProjectList);
+}
+export function* getProjectTypeWatcher() {
+    yield takeLatest(transactionAction.PROJECT_TYPE_REQUEST, getProjectType);
+}
+
 export default function* rootSaga() {
     yield all([
         fork(transListlWatcher),
@@ -85,5 +114,7 @@ export default function* rootSaga() {
         fork(transacProjectNameListWatcher),
         fork(transacAreaNameListWatcher),
         fork(transacBlockNameListWatcher),
+        fork(getProjectListWatcher),
+        fork(getProjectTypeWatcher),
     ]);
 }

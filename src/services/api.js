@@ -103,6 +103,7 @@ export default {
 
     //filter
     FILTER_PROJECT: "/api/main_web/v1/project/list_short/",
+    FILTER_PROJECT_TYPE: "/api/main_web/v1/common/project_sale/group/",
 
     getHeader,
     getUrl,

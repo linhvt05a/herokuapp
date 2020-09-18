@@ -52,4 +52,23 @@ export const transactionService = {
         const url = api.getUrl(api.BLOCK_LIST_SHORT, params);
         return api.handleRequest(url, requestOptions);
     },
+    getProjectList(token, is_full_project = false) {
+        const requestOptions = {
+            method: 'GET',
+            headers: api.getHeader(token)
+        };
+        const params = { is_full_project }
+        const url = api.getUrl(api.FILTER_PROJECT, params);
+        return api.handleRequest(url, requestOptions);
+    },
+    getProjectType(token) {
+        const requestOptions = {
+            method: 'GET',
+            headers: api.getHeader(token)
+        };
+        const params = {}
+        const url = api.getUrl(api.FILTER_PROJECT_TYPE, params);
+        return api.handleRequest(url, requestOptions);
+    }
+
 };

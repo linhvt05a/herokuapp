@@ -6,7 +6,9 @@ const initialState = {
     transacProjectNameList: {},
     transacAreaNameList: {},
     transacBlockNameList: {},
-    error : false
+    error: false,
+    projectList: [],
+    projectType: [],
 };
 
 export default (state = initialState, action) => {
@@ -17,10 +19,9 @@ export default (state = initialState, action) => {
                 transactionList: action.response,
                 isFetching: true,
                 isLoadingList: false,
-                error : false
+                error: false
             };
         case transactionAction.TRANSACTION_LIST_FAILURE:
-            console.log(33);
             return {
                 ...state,
                 transactionList: action.err,
@@ -75,6 +76,44 @@ export default (state = initialState, action) => {
                 transacBlockNameList: action.err,
                 isFetching: false,
             };
+        case transactionAction.PROJECT_LIST_REQUEST:
+            return {
+                ...state,
+                projectList: [],
+                success: false
+            }
+        case transactionAction.PROJECT_LIST_SUCCESS:
+            return {
+                ...state,
+                projectList: action.response.detail,
+                success: true
+            }
+        case transactionAction.PROJECT_LIST_FAILURE:
+            return {
+                ...state,
+                projectList: action.err,
+                success: true,
+                errorProject: true
+            }
+        case transactionAction.PROJECT_TYPE_REQUEST:
+            return {
+                ...state,
+                projectType: [],
+                success: false
+            }
+        case transactionAction.PROJECT_TYPE_SUCCESS:
+            return {
+                ...state,
+                projectType: action.response.detail,
+                success: true
+            }
+        case transactionAction.PROJECT_TYPE_FAILURE:
+            return {
+                ...state,
+                projectType: action.err,
+                success: true,
+                errorType: true
+            }
         default:
             return state;
     }

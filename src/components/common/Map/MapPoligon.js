@@ -24,9 +24,9 @@ function MapPoligon(props) {
     //https://github.com/PaulLeCam/react-leaflet/blob/master/example/components/other-layers.js
 
     let position = [16.0709261545449, 108.180991165145];
-    if (myLocation) {
-        position = myLocation
-    }
+    // if (myLocation.length > 0) {
+    //     position = myLocation
+    // }
     return (
         <Map
             center={position} zoom={!myLocation ? zoom ? zoom : 5 : 16.4}
@@ -50,6 +50,7 @@ function MapPoligon(props) {
                 /> */}
 
             {data && data.map((item, index) => (
+                item.lat && item.lon &&
                 <Marker position={[item.lat, item.lon]} key={index} className="custom_marker_map"
                 // onmouseover={(e) => {
                 //     console.log("chay", e);

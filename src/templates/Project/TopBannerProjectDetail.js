@@ -1,8 +1,9 @@
 import React from 'react';
 import { Select } from 'antd';
+import { SelectCustom } from "./index"
 
 const TopBannerProjectDetail = (props) => {
-
+    let { dataProjectList, dataProjectType, project_id } = props
     let { dataImg } = props;
     const onChangeProject = (value) => {
         console.log(`Chọn dự án ${value}`);
@@ -26,15 +27,19 @@ const TopBannerProjectDetail = (props) => {
                 <div className="project_detail--filter">
                     <div className="row">
                         <div className="col-3">
-                            <div className="form-group">
-                                <Select className="form-control hasIcon icon_project" placeholder="Chọn dự án" onChange={onChangeProject} >
+                            <SelectCustom
+                                datas={dataProjectList}
+                                value={project_id}
+                                onChange={onChangeProject}
+                                classNameSelect="form-control hasIcon icon_project"
+                            />
+                            {/* <Select className="form-control hasIcon icon_project" placeholder="Chọn dự án" onChange={onChangeProject} >
                                     <Select.Option selected disabled>Chọn dự án *</Select.Option>
                                     <Select.Option value="1">TPHCM</Select.Option>
                                     <Select.Option value="2">Hà Nội</Select.Option>
                                     <Select.Option value="3">Đà Nẵng</Select.Option>
                                     <Select.Option value="4">Bình Dương</Select.Option>
-                                </Select>
-                            </div>
+                                </Select> */}
                         </div>
                         <div className="col-3">
                             <div className="form-group">
