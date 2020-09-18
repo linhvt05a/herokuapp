@@ -1,3 +1,5 @@
+const { translate } = require("./functions/Utils")
+
 const IMAGE_URL = "../"
 const IMAGE_LOGO = "../images/default_image_minerva.png"
 const PHONE_NUMBER = "1900 - 123 - 456"
@@ -72,11 +74,11 @@ const RULES = {
         form: [
             {
                 required: true,
-                message: 'Missing information require!',
+                message: translate("input_null"),
             },
             {
                 min: 9, max: 10,
-                message: "Phone numbers from 9 to 10 numbers"
+                message: translate("phone_length")
             }
         ],
         type: 'number'
@@ -85,11 +87,11 @@ const RULES = {
         form: [
             {
                 required: true,
-                message: 'Missing information require!',
+                message: translate("input_null"),
             },
             {
                 min: 9,
-                message: "Identity Card from 9 numbers or more"
+                message: translate("identity_length")
             }
         ],
         type: 'number'
@@ -98,7 +100,7 @@ const RULES = {
         form: [
             {
                 required: true,
-                message: 'Missing information require!',
+                message: translate("input_null"),
             }
         ],
         type: 'number'
@@ -107,11 +109,11 @@ const RULES = {
         form: [
             {
                 type: 'email',
-                message: 'The input is not valid E-mail!',
+                message: translate("invalid_email"),
             },
             {
                 required: true,
-                message: 'Missing information require!',
+                message: translate("input_null"),
             },
         ],
         type: 'email'
@@ -120,7 +122,7 @@ const RULES = {
         form: [
             {
                 required: true,
-                message: 'Missing information require!'
+                message: translate("input_null")
             }
         ],
         type: 'text'

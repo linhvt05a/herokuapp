@@ -67,7 +67,18 @@ export default {
     lang_cn: 'Tiếng Trung',
 
     text_timeline_the_end: 'kết thúc trong',
-
+    //footer
     total: "Tổng",
-    contact_us: "Liên hệ với chúng tôi"
+    contact_us: "Liên hệ với chúng tôi",
+    us_address: "119 Pasteur, Phường 6, Quận 3, TPHCM",
+    newsletter: "Đăng ký nhận bản tin",
+    news_note: "Nhập email của bạn để nhận tin tức mới nhất về Bất động sản",
+    your_email: "Email của bạn",
+
+    //form
+    invalid_email: "E-mail không hợp lệ, vui lòng thử lại!",
+    input_null: "Vui lòng nhập vào đây!",
+    identity_length: "Chứng minh nhân dân từ 9 số trở lên",
+    phone_length: "Số điện thoại từ 9 đến 10 số",
+
 }

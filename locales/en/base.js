@@ -59,9 +59,16 @@ export default {
     lang_cn: 'China',
 
     text_timeline_the_end: 'The end at',
-
+    //footer
     total: "Total",
-    contact_us: "Contact us"
-
-
+    contact_us: "Contact us",
+    us_address: "119 Pasteur, Ward 6, District 3, HCMC",
+    newsletter: "Sign up for the news",
+    news_note: "Enter your email to receive the latest Real Estate news",
+    your_email: "Your email",
+    //form
+    invalid_email: "Invalid e-mail, please try again!",
+    input_null: "Please enter in here!",
+    identity_length: "Identity Card from 9 numbers or more",
+    phone_length: "Phone numbers from 9 to 10 numbers",
 }

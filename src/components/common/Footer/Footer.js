@@ -7,15 +7,19 @@ import {
     AutoComplete,
     message
 } from 'antd';
+import { useTranslation } from 'react-i18next';
+
 import { useDispatch, useSelector } from "react-redux";
 import { contactAddAction } from "../../../store/action"
 import { translate } from '../../../functions/Utils';
+import { RULES } from '../../../contant';
 
 const AutoCompleteOption = AutoComplete.Option;
 
 function Footer() {
     const dispatch = useDispatch()
     const [form] = Form.useForm();
+    const { t } = useTranslation()
     const [autoCompleteResult, setAutoCompleteResult] = useState([]);
     let dataStore = useSelector(state => state.contactAddReducer);
     let { messageLitter, error } = dataStore
@@ -45,27 +49,27 @@ function Footer() {
                                         <ul className="style_01">
                                             <li>
                                                 <Link to="/">
-                                                    Trang chủ
+                                                    {translate("header_menu_home")}
                                                 </Link>
                                             </li>
                                             <li>
                                                 <Link to="/introduce">
-                                                    Giới thiệu
+                                                    {translate("introduce_banner_title")}
                                                 </Link>
                                             </li>
                                             <li>
                                                 <Link to="/news">
-                                                    Tin tức
+                                                    {translate("header_menu_news")}
                                                 </Link>
                                             </li>
                                             <li>
                                                 <Link to="/recruitment">
-                                                    Tuyển dụng
+                                                    {translate("header_menu_recruitment")}
                                                 </Link>
                                             </li>
                                             <li>
                                                 <Link to="/contact">
-                                                    Liên hệ
+                                                    {translate("header_menu_contact")}
                                                 </Link>
                                             </li>
                                         </ul>
@@ -74,28 +78,28 @@ function Footer() {
                                         <ul className="style_01">
                                             <li>
                                                 <Link to="/project/selling">
-                                                    Danh sách dự án
+                                                    {translate("project_list")}
                                                 </Link>
                                             </li>
                                             <li>
                                                 <Link to="/hot-product">
-                                                    Sản phẩm nổi bật
+                                                    {translate("product_hot_product_banner_title")}
                                                 </Link>
                                             </li>
                                             <li>
                                                 <Link to="/promotion">
-                                                    Khuyến mãi
+                                                    {translate("header_menu_promotion")}
                                                 </Link>
                                             </li>
                                             <li>
                                                 <Link to="/shopping-guide">
-                                                    Hướng dẫn mua
+                                                    {translate("header_menu_buying_guide")}
                                                 </Link>
                                             </li>
 
                                             <li>
                                                 <Link to="/legal">
-                                                    Pháp lý
+                                                    {translate("header_menu_juridical")}
                                                 </Link>
                                             </li>
                                         </ul>
@@ -126,7 +130,7 @@ function Footer() {
                                     <li>
                                         <Link to="/#">
                                             <i className="fas fa-map-marker-alt" />
-                                            119 Pasteur, Phường 6, Quận 3, TPHCM
+                                            {translate("us_address")}
                                         </Link>
                                     </li>
                                 </ul>
@@ -135,12 +139,11 @@ function Footer() {
                         <div className="col-sm-12 col-md-6 col-xl-4 ml-md-auto mr-md-auto mt-xl-0">
                             <div className="footer_item footer_send_mail">
                                 <h2 className="label">
-                                    Đăng ký nhận bản tin
+                                    {translate("newsletter")}
                                 </h2>
                                 <div className="content">
                                     <p className="text_input-mail">
-                                        Nhập e-mail của bạn để nhận tin tức
-                                        mới nhất về Bất động sản
+                                        {translate("news_note")}
                                     </p>
                                     <Form
                                         className="input-group"
@@ -150,21 +153,11 @@ function Footer() {
                                     >
                                         <Form.Item
                                             name="email"
-                                            placeholder="Email của bạn"
-                                            rules={[
-                                                {
-                                                    type: 'email',
-                                                    message: 'E-mail không hợp lệ, vui lòng thử lại!',
-                                                },
-                                                {
-                                                    required: true,
-                                                    message: 'Vui lòng nhập E-mail của bạn!',
-                                                },
-                                            ]}>
-                                            <Input className="form-control" placeholder="Email của bạn" />
+                                            rules={RULES.email.form}>
+                                            <Input className="form-control" placeholder={translate("your_email", t)} />
                                         </Form.Item>
                                         <Button className="input-group-text" type="primary" htmlType="submit">
-                                            ĐĂNG KÝ
+                                            {translate("registry")}
                                         </Button>
                                     </Form>
                                     <ul className="list_social">
