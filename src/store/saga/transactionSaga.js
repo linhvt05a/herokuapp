@@ -93,11 +93,11 @@ export function* transacProjectNameListWatcher() {
 }
 
 export function* transacAreaNameListWatcher() {
-    yield takeLatest(transactionAction.TRANS_PROJECT_NAME_REQUEST, transAreaNameList);
+    yield takeLatest(transactionAction.TRANS_AREA_NAME_REQUEST, transAreaNameList);
 }
 
 export function* transacBlockNameListWatcher() {
-    yield takeLatest(transactionAction.TRANS_PROJECT_NAME_REQUEST, transBlockNameList);
+    yield takeLatest(transactionAction.TRANS_BLOCK_NAME_REQUEST, transBlockNameList);
 }
 
 export function* getProjectListWatcher() {

@@ -4,8 +4,8 @@ const initialState = {
     transactionList: {},
     transacProductTypeList: {},
     transacProjectNameList: {},
-    transacAreaNameList: {},
-    transacBlockNameList: {},
+    transacAreaNameList: [],
+    transacBlockNameList: [],
     error: false,
     projectList: [],
     projectType: [],
@@ -52,10 +52,15 @@ export default (state = initialState, action) => {
                 transacProjectNameList: action.err,
                 isFetching: false,
             };
+        case transactionAction.TRANS_AREA_NAME_REQUEST:
+            return {
+                ...state,
+                transacAreaNameList: [],
+            };
         case transactionAction.TRANS_AREA_NAME_SUCCESS:
             return {
                 ...state,
-                transacAreaNameList: action.response,
+                transacAreaNameList: action.response.detail,
                 isFetching: true,
             };
         case transactionAction.TRANS_AREA_NAME_FAILURE:
@@ -64,10 +69,16 @@ export default (state = initialState, action) => {
                 transacAreaNameList: action.err,
                 isFetching: false,
             };
+        case transactionAction.TRANS_BLOCK_NAME_REQUEST:
+            return {
+                ...state,
+                transacBlockNameList: [],
+
+            };
         case transactionAction.TRANS_BLOCK_NAME_SUCCESS:
             return {
                 ...state,
-                transacBlockNameList: action.response,
+                transacBlockNameList: action.response.detail,
                 isFetching: true,
             };
         case transactionAction.TRANS_BLOCK_NAME_FAILURE:

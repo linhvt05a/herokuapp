@@ -36,10 +36,10 @@ export const transactionService = {
     getAreaNameList(token, project_id) {
         const requestOptions = {
             method: 'GET',
-            headers: api.getHeader(TOKEN)
+            headers: api.getHeader(token)
         };
         const params = { project_id }
-        const url = api.getUrl(api.AREA_LIST_SHORT, params);
+        const url = api.getUrl(api.AREA_LIST_SHORT, params); console.log(url)
         return api.handleRequest(url, requestOptions);
     },
 
@@ -57,7 +57,7 @@ export const transactionService = {
             method: 'GET',
             headers: api.getHeader(token)
         };
-        const params = { is_full_project }
+        const params = { is_full_project: `${is_full_project}` }
         const url = api.getUrl(api.FILTER_PROJECT, params);
         return api.handleRequest(url, requestOptions);
     },

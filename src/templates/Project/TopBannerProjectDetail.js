@@ -3,24 +3,32 @@ import { Select } from 'antd';
 import { SelectCustom } from "./index"
 
 const TopBannerProjectDetail = (props) => {
-    let { dataProjectList, dataProjectType, project_id } = props
+    let { dataProjectList, dataProjectType, filter, dataProjectArea, dataProjectBlock } = props
     let { dataImg } = props;
     const onChangeProject = (value) => {
         console.log(`Chọn dự án ${value}`);
+        props.setFilter({ ...filter, project_id: value })
+        props.onChangeFilter({ project_id: value })
     }
 
     const onChangeArea = (value) => {
-        console.log(`Chọn khu ${value}`);
+        console.log(value);
+        props.setFilter({ ...filter, area_id: value });
+        props.onChangeFilter({ area_id: value })
     }
 
     const onChangeBlock = (value) => {
         console.log(`Chọn khối/lô ${value}`);
+        props.setFilter({ ...filter, block_id: value });
+        props.onChangeFilter({ block_id: value })
     }
 
     const onChangeCategory = (value) => {
         console.log(`Loại sản phẩm ${value}`);
+        props.setFilter({ ...filter, type_id: value });
+        props.onChangeFilter({ project_status_id: value })
     }
-
+    // console.log(dataProjectArea)
     return (
         <div className="top_banner--detail d-flex align-items-end" style={{ backgroundImage: "url(../images/VAP-tt-nha-dat-tang.jpg)" }}>
             <div className="container container-sm container-md">
@@ -29,50 +37,41 @@ const TopBannerProjectDetail = (props) => {
                         <div className="col-3">
                             <SelectCustom
                                 datas={dataProjectList}
-                                value={project_id}
+                                value={filter.project_id}
                                 onChange={onChangeProject}
                                 classNameSelect="form-control hasIcon icon_project"
                             />
-                            {/* <Select className="form-control hasIcon icon_project" placeholder="Chọn dự án" onChange={onChangeProject} >
-                                    <Select.Option selected disabled>Chọn dự án *</Select.Option>
-                                    <Select.Option value="1">TPHCM</Select.Option>
-                                    <Select.Option value="2">Hà Nội</Select.Option>
-                                    <Select.Option value="3">Đà Nẵng</Select.Option>
-                                    <Select.Option value="4">Bình Dương</Select.Option>
-                                </Select> */}
                         </div>
                         <div className="col-3">
-                            <div className="form-group">
-                                <Select className="form-control hasIcon icon_area" placeholder="Chọn khu" onChange={onChangeArea}>
-                                    <Select.Option selected disabled>Chọn khu *</Select.Option>
-                                    <Select.Option value="1">TPHCM</Select.Option>
-                                    <Select.Option value="2">Hà Nội</Select.Option>
-                                    <Select.Option value="3">Đà Nẵng</Select.Option>
-                                    <Select.Option value="4">Bình Dương</Select.Option>
-                                </Select>
-                            </div>
+                            <SelectCustom
+                                placeholder="Chọn khu"
+                                datas={dataProjectArea}
+                                value={filter.area_id}
+                                isClear={filter.area_id >= 0 ? false : true}
+                                onChange={onChangeArea}
+                                classNameSelect="form-control hasIcon icon_project"
+                            />
+
                         </div>
                         <div className="col-3">
-                            <div className="form-group">
-                                <Select className="form-control hasIcon icon_block" placeholder="Chọn khối/lô" onChange={onChangeBlock}>
-                                    <Select.Option selected disabled>Chọn khối/lô*</Select.Option>
-                                    <Select.Option value="1">TPHCM</Select.Option>
-                                    <Select.Option value="2">Hà Nội</Select.Option>
-                                    <Select.Option value="3">Đà Nẵng</Select.Option>
-                                    <Select.Option value="4">Bình Dương</Select.Option>
-                                </Select>
-                            </div>
+                            <SelectCustom
+                                placeholder="Chọn khối/lô"
+                                datas={dataProjectBlock}
+                                value={filter.block_id}
+                                isClear={filter.block_id >= 0 ? false : true}
+                                onChange={onChangeBlock}
+                                classNameSelect="form-control hasIcon icon_project"
+                            />
                         </div>
                         <div className="col-3">
-                            <div className="form-group">
-                                <Select className="form-control hasIcon icon_product" placeholder="Loại sản phẩm" onChange={onChangeCategory}>
-                                    <Select.Option selected disabled>Loại sản phẩm *</Select.Option>
-                                    <Select.Option value="1">TPHCM</Select.Option>
-                                    <Select.Option value="2">Hà Nội</Select.Option>
-                                    <Select.Option value="3">Đà Nẵng</Select.Option>
-                                    <Select.Option value="4">Bình Dương</Select.Option>
-                                </Select>
-                            </div>
+                            <SelectCustom
+                                placeholder="Loại sản phẩm"
+                                datas={dataProjectType}
+                                value={filter.type_id}
+                                isClear={filter.type_id >= 0 ? false : true}
+                                onChange={onChangeCategory}
+                                classNameSelect="form-control hasIcon icon_project"
+                            />
                         </div>
                     </div>
                 </div>
