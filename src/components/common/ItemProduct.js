@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Tooltip } from 'antd';
 import { Trans } from "react-i18next";
 import { formatCurrency } from "../../functions/Utils";
@@ -7,16 +7,27 @@ import CardNoData from "./CardNoData";
 import { Link } from 'react-router-dom'
 import { ButtonBuyNow } from "../base";
 import {getLocalStore} from '../../functions/Utils'
+import { useDispatch, useSelector } from "react-redux";
+import { productAction} from "../../store/action/index";
 
 const ItemProduct = (props) => {
-    const { data } = props
+    const { data, dataProduct } = props;
+    console.log(data, dataProduct);
     const [active, setActive] = useState(false)
     const loginData = getLocalStore('user')
-    function saveProduct(productID) {
+    const dispatch = useDispatch()
+    const postData = []
+    function saveProduct() {
+        setActive(!active)
         if(loginData && loginData !== null){
-            console.log(data)
-            setActive(!active)
-            
+            for (let j = 0; j < dataProduct.length; j++) {
+                if(dataProduct[j].product_id == data.product_id){
+                   console.log(dataProduct[j].product_id = data.product_id)
+                   postData.push({product_id: dataProduct[j].product_id, is_favorite: !active})
+                }
+               }
+               console.log(postData)
+               dispatch(productAction.productMark({postData}))
         }else {
             setActive(!active)
             if (!active) {
@@ -58,88 +69,90 @@ const ItemProduct = (props) => {
     }
 
     return (
-        <div className="item">
-            <figure className="image">
-                {
-                   loginData && loginData !== null ?
-                    <i className={ data.product_love_flag == true || active ? " liked active fas fa-heart" : "liked fas fa-heart"} onClick={saveProduct} />
-                    :
-                    <i className={ active  ? " liked active fas fa-heart " : "liked fas fa-heart"} onClick={saveProduct} />
-                }
-                {
-                    data.product_avatar_url != ""
-                        ? <img src={data.product_avatar_url} alt={data.product_name} />
-                        : <img className="logo_default" src={IMAGE_LOGO} alt={data.product_name} />
-                }
-                <div className="sell_status promotion"><Trans>product_off</Trans> <br /> %</div>
-                <img className="img_promotion" src={IMAGE_URL + "/images/item_promotion.png"} alt={data.product_name} />
-            </figure>
-            <div className="heading">
-                <div className="top">
-                    <Link to={"/product/" + data.product_id} className="name">{data.product_name}</Link>
-                </div>
-                <p className="address mb-0">{data.product_address}</p>
-            </div>
-            <div className="details">
-                <p className="child mb-0">
-                    <i className="icon far fa-object-ungroup" />
-                    <span className="text">
-                        {data.product_acreage} ( {data.product_acreage_unit_name} )
-                        <Tooltip title={data.product_acreage + " ( " + data.product_acreage_unit_name + " )"}>
-                            <i className="noted fas fa-info-circle" />
-                        </Tooltip>
-                    </span>
-                </p>
-                <p className="child mb-0">
-                    <i className="icon fas fa-compass" />
-                    <span className="text">
-                        {data.product_direction_name ? data.product_direction_name : '-'}
-                    </span>
-                </p>
-                <p className="child mb-0">
-                    <i className="icon fas fa-bed" />
-                    <span className="text">
-                        {data.product_total_bedroom ? data.product_total_bedroom : '-'}
-                    </span>
-                </p>
-                {
-                    data.product_group_type_id === 1 ?
-                        //housing
+            data 
+                ? <div className="item">
+                    <figure className="image">
+                        {
+                        loginData && loginData !== null ?
+                            <i className={ data.product_love_flag == true || active ? " liked active fas fa-heart" : "liked fas fa-heart"} onClick={saveProduct} />
+                            :
+                            <i className={ active  ? " liked active fas fa-heart " : "liked fas fa-heart"} onClick={saveProduct} />
+                        }
+                        {
+                            data.product_avatar_url != ""
+                                ? <img src={data.product_avatar_url} alt={data.product_name} />
+                                : <img className="logo_default" src={IMAGE_LOGO} alt={data.product_name} />
+                        }
+                        <div className="sell_status promotion"><Trans>product_off</Trans> <br /> %</div>
+                        <img className="img_promotion" src={IMAGE_URL + "/images/item_promotion.png"} alt={data.product_name} />
+                    </figure>
+                    <div className="heading">
+                        <div className="top">
+                            <Link to={"/product/" + data.product_id} className="name">{data.product_name}</Link>
+                        </div>
+                        <p className="address mb-0">{data.product_address}</p>
+                    </div>
+                    <div className="details">
                         <p className="child mb-0">
-                            <i className="icon fas fa-restroom" />
+                            <i className="icon far fa-object-ungroup" />
                             <span className="text">
-                                {data.product_total_bathroom ? data.product_total_bathroom : '-'}
-                            </span>
-                        </p> :
-                        //building
-                        <p className="child mb-0">
-                            <i className=" icon fas fa-expand-arrows-alt" />
-                            <span className="text">
-                                {data.product_width ? data.product_width : '-'} x {data.product_length ? data.product_length : '-'}
+                                {data.product_acreage} ( {data.product_acreage_unit_name} )
+                                <Tooltip title={data.product_acreage + " ( " + data.product_acreage_unit_name + " )"}>
+                                    <i className="noted fas fa-info-circle" />
+                                </Tooltip>
                             </span>
                         </p>
-                }
-            </div>
-            <div className="price">
-                <div className="price__label">
-                    <Trans>product_listed_price</Trans>
-                    <Tooltip title={formatCurrency(data.product_estimate_price) + data.product_estimate_price_unit_name}>
-                        <i className="noted fas fa-info-circle" />
-                    </Tooltip>
-                </div>
-                <div className="price__wrap">
-                    <div className="price__item">
-                        <div className="price__discount">{formatCurrency(data.product_estimate_price) + data.product_estimate_price_unit_name}</div>
-                        <div className="price__origin">
-                            <span className="value">{data.product_real_price ? data.product_real_price : '0000000000'} </span> {data.product_discount_percent ? product_discount_percent : '-'}
+                        <p className="child mb-0">
+                            <i className="icon fas fa-compass" />
+                            <span className="text">
+                                {data.product_direction_name ? data.product_direction_name : '-'}
+                            </span>
+                        </p>
+                        <p className="child mb-0">
+                            <i className="icon fas fa-bed" />
+                            <span className="text">
+                                {data.product_total_bedroom ? data.product_total_bedroom : '-'}
+                            </span>
+                        </p>
+                        {
+                            data.product_group_type_id === 1 ?
+                                //housing
+                                <p className="child mb-0">
+                                    <i className="icon fas fa-restroom" />
+                                    <span className="text">
+                                        {data.product_total_bathroom ? data.product_total_bathroom : '-'}
+                                    </span>
+                                </p> :
+                                //building
+                                <p className="child mb-0">
+                                    <i className=" icon fas fa-expand-arrows-alt" />
+                                    <span className="text">
+                                        {data.product_width ? data.product_width : '-'} x {data.product_length ? data.product_length : '-'}
+                                    </span>
+                                </p>
+                        }
+                    </div>
+                    <div className="price">
+                        <div className="price__label">
+                            <Trans>product_listed_price</Trans>
+                            <Tooltip title={formatCurrency(data.product_estimate_price) + data.product_estimate_price_unit_name}>
+                                <i className="noted fas fa-info-circle" />
+                            </Tooltip>
+                        </div>
+                        <div className="price__wrap">
+                            <div className="price__item">
+                                <div className="price__discount">{formatCurrency(data.product_estimate_price) + data.product_estimate_price_unit_name}</div>
+                                <div className="price__origin">
+                                    <span className="value">{data.product_real_price ? data.product_real_price : '0000000000'} </span> {data.product_discount_percent ? product_discount_percent : '-'}
+                                </div>
+                            </div>
+                            <div className="price__item">
+                                <ButtonBuyNow data={data} />
+                            </div>
                         </div>
                     </div>
-                    <div className="price__item">
-                        <ButtonBuyNow data={data} />
-                    </div>
                 </div>
-            </div>
-        </div>
+                : <CardNoData />
     )
 }
 

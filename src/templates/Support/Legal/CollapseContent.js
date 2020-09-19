@@ -3,6 +3,7 @@ import Pagination from "../../../components/common/Pagination";
 import { LoadDataPaging } from '../../../functions/Utils';
 import { Trans } from "react-i18next";
 import CardCollapseGreenCircle from '../../../components/common/CardCollapseGreenCircle'
+import { useTranslation } from 'react-i18next'
 
 const CollapseContent = (props) => {
     const {data,handleChangePage,limit, total_page, total_record,page} = props
@@ -24,11 +25,11 @@ const CollapseContent = (props) => {
 
 
 const LegalContent = (props) =>{
+  const { t, i18n } = useTranslation()
     return(
           <div className="content_detail--detail">
             <p>
-              - Điều khoản và Điều kiện sẽ được áp dụng cho Khách Hàng đặt cọc mua Sản
-              Phẩm trên VTP.
+              {t('hello.label')}
             </p>
             <br />
             - Khách Hàng tham gia giao dịch trên VTP bao gồm:

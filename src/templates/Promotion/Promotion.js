@@ -58,7 +58,7 @@ const Promotion = () => {
                     </div>
                 </div>
             </div>
-            <CardPromotion headerBodyClassName="label_filter--heading" labelHeader="hot_promotion" banner readmore />
+            {/* <CardPromotion headerBodyClassName="label_filter--heading" labelHeader="hot_promotion" banner readmore /> */}
         </div>
     )
 }

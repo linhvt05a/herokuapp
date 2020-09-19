@@ -21,10 +21,7 @@ const Juridical = (props)=> {
   useEffect(() => {
     dispatch(legalAction.legalList({}))
 }, []);
-//   const[isOpenCollapse, setOpenCollapse] = useState({})
-//       const openCollapse = (index) =>{
-//         setOpenCollapse(prevState => ({...prevState, [index]: !Boolean(prevState[index])}))
-// }
+
 const handleChangePage = (value)=>{
   dispatch(legalAction.legalList({page:value, limit:limit}))
 }
@@ -35,7 +32,7 @@ const handleClick = (category_id) =>{
         return (
             <div className="juridical">
             <div className="container container-sm container-md">
-              <CardHeader label="Juridical"/>
+              <CardHeader label="legal_title"/>
               <div className="row">
                 <CollapseContent 
                   data={listLegal} 
