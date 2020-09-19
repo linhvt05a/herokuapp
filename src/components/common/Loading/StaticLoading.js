@@ -2,7 +2,7 @@ import React from 'react';
 import { Spin } from 'antd';
 
 
-const Loading = (props) => {
+const StaticLoading = (props) => {
     return (
         <div className={props ? props.className : ''}>
             <Spin className="loading_full" tip="Loading..."></Spin>
@@ -10,4 +10,4 @@ const Loading = (props) => {
     )
 }
 
-export default Loading;
+export default StaticLoading;

@@ -7,7 +7,7 @@ import { MAIN } from "../routes";
 import { Error404 } from '../templates/ErrorPage';
 import TopBannerImage from "../components/common/TopBanner/TopBannerImage";
 import i18n from '../i18n';
-import Loading from '../components/common/Loading';
+import StaticLoading from '../components/common/Loading/StaticLoading';
 
 const Container = () => {
 
@@ -32,7 +32,7 @@ const Container = () => {
     return (
         <I18nextProvider i18n={i18n}>
             <div className="page_container" style={{ paddingTop: dimensions.height }}>
-                <Suspense fallback={<Loading className="container"/>}>
+                <Suspense fallback={<StaticLoading className="container"/>}>
                     <Switch >
                         {MAIN.map((data, idx) => (
                             <Route exact key={idx} path={data.path}>

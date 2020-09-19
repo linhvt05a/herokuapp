@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 
 import ItemTimeLine from "../../../components/common/Timeline/TimeLineItem";
 import ItemProduct from "../../../components/common/ItemProduct";
@@ -10,6 +9,8 @@ import Slider from "react-slick";
 import Pagination from '../../../components/common/Pagination';
 import { LoadDataPaging } from '../../../functions/Utils';
 import { productAction } from "../../../store/action/index";
+import SkeletonLoading from "../../../components/common/Loading/SkeletonLoading";
+
 
 const CardSaleFlash = (props) => {
 
@@ -21,18 +22,6 @@ const CardSaleFlash = (props) => {
     const dispatch = useDispatch();
     const [projectGroupId, setProjectGroupId] = useState(null);
     const dataProduct = datas && datas.detail.list_product
-
-    console.log(datas);
-
-
-    const SkeletonLoading = () => {
-        return (
-            <SkeletonTheme>
-                <Skeleton count={3}></Skeleton>
-            </SkeletonTheme>
-            
-        )
-    }
 
     useEffect(() => {
         if (detail) {
@@ -111,7 +100,7 @@ const CardSaleFlash = (props) => {
                                             <ItemProduct key={item.product_id} data={item} dataProduct={dataProduct}/>
                                         ))
                                     }
-                                </Slider> : ''
+                                </Slider> : <SkeletonLoading />
                             : <SkeletonLoading />
                     }
                 </div>
