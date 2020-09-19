@@ -1,6 +1,5 @@
 import React, { useState, useEffect} from "react";
 import { Link, useLocation } from "react-router-dom";
-import TopBanner from "../../components/common/Header/TopBanner";
 import { Categories, FilterProject, CommonMenu } from '../News/index'
 import RegisterModal from "./RegisterModal";
 import { Trans } from "react-i18next";

@@ -2,7 +2,7 @@ import React from 'react';
 import { Select } from 'antd';
 import { SelectCustom } from "./index"
 
-const TopBannerProjectDetail = (props) => {
+const TopBannerFilter = (props) => {
     let { dataProjectList, dataProjectType, filter, dataProjectArea, dataProjectBlock } = props
     let { dataImg } = props;
     const onChangeProject = (value) => {
@@ -79,4 +79,4 @@ const TopBannerProjectDetail = (props) => {
         </div>
     )
 }
-export default TopBannerProjectDetail;
+export default TopBannerFilter;

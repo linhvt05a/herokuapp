@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from "react-redux";
 
 import { transactionAction } from '../../store/action';
-import TopBannerFilter from "./TopBannerFilter";
+import TopBannerFilter from "../../components/common/TopBanner/TopBannerFilter";
 import TransactionContent from './Container/Main';
 
 const TransactionLevel = (props) => {
@@ -35,47 +35,6 @@ const TransactionLevel = (props) => {
     transacBlockNameList = transacBlockNameList.detail ? transacBlockNameList.detail : null;
 
     // console.log('projectNameList:', projectNameList);
-
-    const onChangeProject = (props) => {
-        console.log('project_id:', props);
-        dispatch(transactionAction.TransactionLoadList({
-            project_id: props,
-            area_id: projectInfoInit.areaId,
-            block_id: projectInfoInit.blockId
-        }))
-        setProjectInfoInit({
-            ...projectInfoInit,
-            project_id: projectInfoInit.projectId,
-            project_name: projectInfoInit.projectName
-        })
-    }
-    const onChangeArea = (props) => {
-        console.log('area_id:', props);
-        dispatch(transactionAction.TransactionLoadList({
-            project_id: projectInfoInit.projectId,
-            area_id: props,
-            block_id: projectInfoInit.blockId
-        }))
-        setProjectInfoInit({
-            ...projectInfoInit,
-            area_id: projectInfoInit.areaId,
-            area_name: projectInfoInit.areaName
-        })
-    }
-    const onChangeBlock = (props) => {
-        console.log('block_id:', props);
-        dispatch(transactionAction.TransactionLoadList({
-            project_id: projectId.projectId,
-            area_id: areaId.areaId,
-            block_id: props
-        }))
-        setProjectInfoInit({
-            ...projectInfoInit,
-            block_id: projectInfoInit.blockId,
-            block_name: projectInfoInit.blockName
-        })
-    }
-
 
     // --- ITEM DETAIL API----
     const transtion = useSelector(state => state.transactionReducer);
@@ -112,23 +71,22 @@ const TransactionLevel = (props) => {
     return (
         <div className="projectDetailPage">
             <TopBannerFilter
+                dataProjectList={dataProjectList}
+                dataProjectType={dataProjectType}
+                dataProjectArea={dataArea}
+                dataProjectBlock={dataBlock}
+                filter={filter}
+                setFilter={setFilter}
+                onChangeFilter={onChangeFilter}
+            />
+            <TransactionContent
                 projectInfoInit={projectInfoInit}
-                transacProjectNameList={transacProjectNameList}
-                transacAreaNameList={transacAreaNameList}
-                transacBlockNameList={transacBlockNameList}
-                onChangeBlock={onChangeBlock}
-                onChangeProject={onChangeProject}
-                onChangeArea={onChangeArea} />
-            {
-                <TransactionContent
-                    projectInfoInit={projectInfoInit}
-                    dataFilter={dataFilter}
-                    error={error}
-                    
-                    onFilterChange={onFilterChange}
-                    onDeleteFilterClick={onDeleteFilterClick}
-                />
-            }
+                dataFilter={dataFilter}
+                error={error}
+
+                onFilterChange={onFilterChange}
+                onDeleteFilterClick={onDeleteFilterClick}
+            />
         </div>
     )
 }

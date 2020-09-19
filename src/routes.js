@@ -1,5 +1,6 @@
 // import * as Login from './templates/Login';
 import React, { lazy } from 'react';
+import { BANNER_URL } from './contant'
 
 import Elements from "./templates/Elements/Elements";
 import Example from "./templates/Example";
@@ -71,33 +72,12 @@ const DepositPayment = lazy(() => import('./templates/ShopCart/DepositPayment'))
 const OrderInfo = lazy(() => import('./templates/ShopCart/OrderInfo'));
 
 
-/*Top banner image url */
-const home_banner_url = '../images/project.jpg';
-const introduce_banner_url = '../images/project.jpg';
-const contact_banner_url = '../images/project.jpg';
-const project_banner_url = '../images/project.jpg';
-const projectDetail_banner_url = '../images/project.jpg';
-const news_banner_url = '../images/newspaper.jpg';
-const newsDetail_banner_url = '../images/newspaper.jpg';
-const recruitmentList_banner_url = '../images/recruitment.jpg';
-const recruitmentDetail_banner_url = '../images/recruitment.jpg';
-const transactionLevel_banner_url = '../images/project.jpg';
-const shoppingGuide_banner_url = '../images/project.jpg';
-const juridical_banner_url = '../images/juridical.jpg';
-const promotion_banner_url = '../images/project.jpg';
-const flashSaleList_banner_url = '../images/flashsale.png';
-const promotionList_banner_url = '../images/sale_banner.png';
-const elements_banner_url = '../images/project.jpg';
-const example_banner_url = '../images/project.jpg';
-const cart_banner_url = '../images/project.jpg';
-const product_banner_url = '../images/project.jpg';
-
 const MAIN = [
     {
         "path": "/",
         "component": Home,
         "banner_title": "home_banner_title",
-        "banner_url": home_banner_url,
+        "banner_url": BANNER_URL.home_banner_url,
         "banner_show": false,
         "banner_class": ''
     },
@@ -105,7 +85,7 @@ const MAIN = [
         "path": "/elements",
         "component": Elements,
         "banner_title": "elements_banner_title",
-        "banner_url": elements_banner_url,
+        "banner_url": BANNER_URL.elements_banner_url,
         "banner_show": true,
         "banner_class": ''
     },
@@ -113,7 +93,7 @@ const MAIN = [
         "path": "/example",
         "component": Example,
         "banner_title": "example_banner_title",
-        "banner_url": example_banner_url,
+        "banner_url": BANNER_URL.example_banner_url,
         "banner_show": true,
         "banner_class": ''
     },
@@ -121,7 +101,7 @@ const MAIN = [
         "path": "/introduce",
         "component": Introduce,
         "banner_title": "introduce_banner_title",
-        "banner_url": introduce_banner_url,
+        "banner_url": BANNER_URL.introduce_banner_url,
         "banner_show": true,
         "banner_class": ''
     },
@@ -129,7 +109,7 @@ const MAIN = [
         "path": "/contact",
         "component": Contact,
         "banner_title": "contact_banner_title",
-        "banner_url": contact_banner_url,
+        "banner_url": BANNER_URL.contact_banner_url,
         "banner_show": true,
         "banner_class": ''
     },
@@ -137,7 +117,7 @@ const MAIN = [
         "path": "/product-favorite",
         "component": ProductList,
         "banner_title": "contact_banner_title",
-        "banner_url": contact_banner_url,
+        "banner_url": BANNER_URL.contact_banner_url,
         "banner_show": true,
         "banner_class": ''
     },
@@ -145,7 +125,7 @@ const MAIN = [
         "path": "/product/:id",
         "component": ProductDetail,
         "banner_title": "project_banner_title",
-        "banner_url": project_banner_url,
+        "banner_url": BANNER_URL.project_banner_url,
         "banner_show": false,
         "banner_class": ''
     },
@@ -153,7 +133,7 @@ const MAIN = [
         "path": "/project/selling",
         "component": ProjectList,
         "banner_title": "project_banner_title",
-        "banner_url": project_banner_url,
+        "banner_url": BANNER_URL.project_banner_url,
         "banner_show": true,
         "banner_class": ''
     },
@@ -161,7 +141,7 @@ const MAIN = [
         "path": "/project/coming-soon",
         "component": ProjectList,
         "banner_title": "project_banner_title",
-        "banner_url": project_banner_url,
+        "banner_url": BANNER_URL.project_banner_url,
         "banner_show": true,
         "banner_class": ''
     },
@@ -169,7 +149,7 @@ const MAIN = [
         "path": "/project/:id",
         "component": ProjectDetail,
         "banner_title": "projectDetail_banner_title",
-        "banner_url": projectDetail_banner_url,
+        "banner_url": BANNER_URL.projectDetail_banner_url,
         "banner_show": false,
         "banner_class": ''
     },
@@ -177,7 +157,7 @@ const MAIN = [
         "path": "/news",
         "component": News,
         "banner_title": "news_banner_title",
-        "banner_url": news_banner_url,
+        "banner_url": BANNER_URL.news_banner_url,
         "banner_show": true,
         "banner_class": ''
     },
@@ -185,7 +165,7 @@ const MAIN = [
         "path": "/news/:id",
         "component": NewsDetail,
         "banner_title": "newsDetail_banner_title",
-        "banner_url": newsDetail_banner_url,
+        "banner_url": BANNER_URL.newsDetail_banner_url,
         "banner_show": true,
         "banner_class": ''
     },
@@ -193,7 +173,7 @@ const MAIN = [
         "path": "/recruitment",
         "component": Recruitment,
         "banner_title": "recruitmentList_banner_title",
-        "banner_url": recruitmentList_banner_url,
+        "banner_url": BANNER_URL.recruitmentList_banner_url,
         "banner_show": true,
         "banner_class": ''
     },
@@ -201,7 +181,7 @@ const MAIN = [
         "path": "/recruitment/:id",
         "component": RecruitmentDetail,
         "banner_title": "recruitmentDetail_banner_title",
-        "banner_url": recruitmentDetail_banner_url,
+        "banner_url": BANNER_URL.recruitmentDetail_banner_url,
         "banner_show": true,
         "banner_class": ''
     },
@@ -209,7 +189,7 @@ const MAIN = [
         "path": "/exchanges",
         "component": TransactionLevel,
         "banner_title": "transactionLevel_banner_title",
-        "banner_url": transactionLevel_banner_url,
+        "banner_url": BANNER_URL.transactionLevel_banner_url,
         "banner_show": false,
         "banner_class": ''
     },
@@ -217,7 +197,7 @@ const MAIN = [
         "path": "/shopping-guide",
         "component": ShoppingGuide,
         "banner_title": "shoppingGuide_banner_title",
-        "banner_url": shoppingGuide_banner_url,
+        "banner_url": BANNER_URL.shoppingGuide_banner_url,
         "banner_show": true,
         "banner_class": ''
     },
@@ -225,7 +205,7 @@ const MAIN = [
         "path": "/legal",
         "component": Legal,
         "banner_title": "juridical_banner_title",
-        "banner_url": juridical_banner_url,
+        "banner_url": BANNER_URL.juridical_banner_url,
         "banner_show": true,
         "banner_class": ''
     },
@@ -233,7 +213,7 @@ const MAIN = [
         "path": "/promotion",
         "component": Promotion,
         "banner_title": "promotion_banner_title",
-        "banner_url": promotion_banner_url,
+        "banner_url": BANNER_URL.promotion_banner_url,
         "banner_show": true,
         "banner_class": ''
     },
@@ -241,7 +221,7 @@ const MAIN = [
         "path": "/flashsale",
         "component": FlashSaleList,
         "banner_title": "",
-        "banner_url": flashSaleList_banner_url,
+        "banner_url": BANNER_URL.flashSaleList_banner_url,
         "banner_show": true,
         "banner_class": ''
     },
@@ -249,21 +229,21 @@ const MAIN = [
         "path": "/hot-product",
         "component": HotProduct,
         "banner_title": "product_hot_product_banner_title",
-        "banner_url": product_banner_url,
+        "banner_url": BANNER_URL.product_banner_url,
         "banner_show": true
     },
     {
         "path": "/account",
         "component": Account,
         "banner_title": "customer_account_banner_title",
-        "banner_url": recruitmentList_banner_url,
+        "banner_url": BANNER_URL.recruitmentList_banner_url,
         "banner_show": true
     },
     {
         "path": "/cart",
         "component": Cart,
         "banner_title": "cart",
-        "banner_url": cart_banner_url,
+        "banner_url": BANNER_URL.cart_banner_url,
         "banner_show": true
     },
     {
@@ -280,35 +260,35 @@ const MAIN = [
         "path": "/cart/customer-info",
         "component": CustomerInfo,
         "banner_title": "cart",
-        "banner_url": cart_banner_url,
+        "banner_url": BANNER_URL.cart_banner_url,
         "banner_show": true
     },
     {
         "path": "/cart/confirm-order-info",
         "component": ConfirmOrderInfo,
         "banner_title": "cart",
-        "banner_url": cart_banner_url,
+        "banner_url": BANNER_URL.cart_banner_url,
         "banner_show": true
     },
     {
         "path": "/cart/deposit-payment",
         "component": DepositPayment,
         "banner_title": "cart",
-        "banner_url": cart_banner_url,
+        "banner_url": BANNER_URL.cart_banner_url,
         "banner_show": true
     },
     {
         "path": "/cart/orderinfo",
         "component": OrderInfo,
         "banner_title": "cart",
-        "banner_url": cart_banner_url,
+        "banner_url": BANNER_URL.cart_banner_url,
         "banner_show": true
     },
     {
         "path": "/promotion-list",
         "component": PromotionList,
         "banner_title": "",
-        "banner_url": promotionList_banner_url,
+        "banner_url": BANNER_URL.promotionList_banner_url,
         "banner_show": true,
         "banner_class": ''
     },

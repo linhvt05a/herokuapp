@@ -7,6 +7,30 @@ const EMAIL = "info@minerva.vn"
 
 const MOBILE_WIDTH = 767
 const MAP_KEYS = "AIzaSyDZt7EWQR3cI-a_0to4VT2JVcF-c7ti6Ro"
+
+/*Top banner image url */
+const BANNER_URL = {
+    home_banner_url : '../images/project.jpg',
+    introduce_banner_url : '../images/project.jpg',
+    contact_banner_url : '../images/project.jpg',
+    project_banner_url : '../images/project.jpg',
+    projectDetail_banner_url : '../images/project.jpg',
+    news_banner_url : '../images/newspaper.jpg',
+    newsDetail_banner_url : '../images/newspaper.jpg',
+    recruitmentList_banner_url : '../images/recruitment.jpg',
+    recruitmentDetail_banner_url : '../images/recruitment.jpg',
+    transactionLevel_banner_url : '../images/banner_exchanges.png',
+    shoppingGuide_banner_url : '../images/project.jpg',
+    juridical_banner_url : '../images/juridical.jpg',
+    promotion_banner_url : '../images/project.jpg',
+    flashSaleList_banner_url : '../images/flashsale.png',
+    promotionList_banner_url : '../images/sale_banner.png',
+    elements_banner_url : '../images/project.jpg',
+    example_banner_url : '../images/project.jpg',
+    cart_banner_url : '../images/project.jpg',
+    product_banner_url : '../images/project.jpg'
+}
+
 const PROJECT_STATUS = [
     { value: 1, label: "home_waiting_sale" },
     { value: 2, label: "home_coming_soon" },
@@ -148,9 +172,13 @@ const LOAN_TYPE = [
 ]
 
 
+
+
+
 module.exports = {
     IMAGE_URL,
     IMAGE_LOGO,
+    BANNER_URL,
     PHONE_NUMBER,
     MOBILE_WIDTH,
     MAP_KEYS,

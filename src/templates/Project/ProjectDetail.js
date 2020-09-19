@@ -4,7 +4,9 @@ import { useLocation } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
 
 import { productAction, transactionAction } from "../../store/action/index";
-import TopBannerProjectDetail from './TopBannerProjectDetail';
+import { useLocation, useParams } from "react-router-dom";
+import { productAction } from "../../store/action/index";
+import TopBannerFilter from '../../components/common/TopBanner/TopBannerFilter';
 import DataProjectList from './DataProjectList';
 import { TOKEN, translate } from '../../functions/Utils';
 
@@ -198,7 +200,7 @@ const ProjectDetail = (props) => {
     return (
         <div className="projectDetailPage">
             {projectName &&
-                <TopBannerProjectDetail
+                <TopBannerFilter
                     dataProjectList={dataProjectList}
                     dataProjectType={dataProjectType}
                     dataProjectArea={dataArea}
