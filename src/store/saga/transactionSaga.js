@@ -48,10 +48,10 @@ export function* transAreaNameList(payload) {
 }
 
 export function* transBlockNameList(payload) {
-    let { token, project_id } = payload.params
+    let { token, project_id, area_id } = payload.params
 
     try {
-        const response = yield transactionService.getBlockNameList(token, project_id);
+        const response = yield transactionService.getBlockNameList(token, project_id, area_id);
         response.success ? yield put({ type: transactionAction.TRANS_BLOCK_NAME_SUCCESS, response }) : yield put({ type: transactionAction.TRANS_BLOCK_NAME_FAILURE, response });
     } catch (err) {
         yield put({ type: transactionAction.TRANS_BLOCK_NAME_FAILURE, err });

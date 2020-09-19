@@ -108,14 +108,14 @@ const TopBannerFilter = (props) => {
     }
 
     const onChangeArea = (value) => {
-        setFilter({ ...filter, area_id: value });
+        setFilter({ ...filter, area_id: value, block_id: null });
         callApiBlock({ project_id: project_id, area_id: value })
-        props.onChangeFilter({ project_id: project_id, area_id: value });
+        props.onChangeFilter({ project_id: project_id, area_id: value, project_status_id: filter.type_id });
     }
 
     const onChangeBlock = (value) => {
         setFilter({ ...filter, block_id: value });
-        props.onChangeFilter({ project_id: project_id, area_id: filter.area_id, block_id: value });
+        props.onChangeFilter({ project_id: project_id, area_id: filter.area_id, block_id: value, project_status_id: filter.type_id });
     }
 
     const onChangeCategory = (value) => {

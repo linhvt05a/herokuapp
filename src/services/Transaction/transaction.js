@@ -43,12 +43,12 @@ export const transactionService = {
         return api.handleRequest(url, requestOptions);
     },
 
-    getBlockNameList(token, project_id) {
+    getBlockNameList(token, project_id, area_id) {
         const requestOptions = {
             method: 'GET',
             headers: api.getHeader(TOKEN)
         };
-        const params = { project_id }
+        const params = { project_id, area_id }
         const url = api.getUrl(api.BLOCK_LIST_SHORT, params);
         return api.handleRequest(url, requestOptions);
     },
