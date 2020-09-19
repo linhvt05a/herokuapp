@@ -9,7 +9,7 @@ import { useTranslation } from 'react-i18next';
 const TopBannerFilter = (props) => {
     const dispatch = useDispatch();
     const { t } = useTranslation()
-    let { dataImg, project_id } = props;
+    let { dataImg, project_id, noStatus } = props;
 
     const [dataProjectList, setDataProjectList] = React.useState();
     const [dataArea, setDataArea] = React.useState();
@@ -108,14 +108,14 @@ const TopBannerFilter = (props) => {
     }
 
     const onChangeArea = (value) => {
-        setFilter({ ...filter, area_id: value });
+        setFilter({ ...filter, area_id: value, block_id: null });
         callApiBlock({ project_id: project_id, area_id: value })
-        props.onChangeFilter({ project_id: project_id, area_id: value });
+        props.onChangeFilter({ project_id: project_id, area_id: value, project_status_id: filter.type_id });
     }
 
     const onChangeBlock = (value) => {
         setFilter({ ...filter, block_id: value });
-        props.onChangeFilter({ project_id: project_id, area_id: filter.area_id, block_id: value });
+        props.onChangeFilter({ project_id: project_id, area_id: filter.area_id, block_id: value, project_status_id: filter.type_id });
     }
 
     const onChangeCategory = (value) => {
@@ -128,37 +128,34 @@ const TopBannerFilter = (props) => {
             <div className="container container-sm container-md">
                 <div className="project_detail--filter">
                     <div className="row">
-                        <div className="col-3">
+                        <SelectCustom
+                            className={noStatus ? "col-4" : "col-3"}
+                            datas={dataProjectList}
+                            value={project_id}
+                            onChange={onChangeProject}
+                            classNameSelect="form-control hasIcon icon_project"
+                        />
+                        <SelectCustom
+                            className={noStatus ? "col-4" : "col-3"}
+                            placeholder="Chọn khu"
+                            datas={dataArea}
+                            value={filter.area_id}
+                            isClear={filter.area_id >= 0 ? false : true}
+                            onChange={onChangeArea}
+                            classNameSelect="form-control hasIcon icon_project"
+                        />
+                        <SelectCustom
+                            className={noStatus ? "col-4" : "col-3"}
+                            placeholder="Chọn khối/lô"
+                            datas={dataBlock}
+                            value={filter.block_id}
+                            isClear={filter.block_id >= 0 ? false : true}
+                            onChange={onChangeBlock}
+                            classNameSelect="form-control hasIcon icon_project"
+                        />
+                        {noStatus ? null :
                             <SelectCustom
-                                datas={dataProjectList}
-                                value={project_id}
-                                onChange={onChangeProject}
-                                classNameSelect="form-control hasIcon icon_project"
-                            />
-                        </div>
-                        <div className="col-3">
-                            <SelectCustom
-                                placeholder="Chọn khu"
-                                datas={dataArea}
-                                value={filter.area_id}
-                                isClear={filter.area_id >= 0 ? false : true}
-                                onChange={onChangeArea}
-                                classNameSelect="form-control hasIcon icon_project"
-                            />
-
-                        </div>
-                        <div className="col-3">
-                            <SelectCustom
-                                placeholder="Chọn khối/lô"
-                                datas={dataBlock}
-                                value={filter.block_id}
-                                isClear={filter.block_id >= 0 ? false : true}
-                                onChange={onChangeBlock}
-                                classNameSelect="form-control hasIcon icon_project"
-                            />
-                        </div>
-                        <div className="col-3">
-                            <SelectCustom
+                                className="col-3"
                                 placeholder="Loại sản phẩm"
                                 datas={dataProjectType}
                                 value={filter.type_id}
@@ -166,7 +163,7 @@ const TopBannerFilter = (props) => {
                                 onChange={onChangeCategory}
                                 classNameSelect="form-control hasIcon icon_project"
                             />
-                        </div>
+                        }
                     </div>
                 </div>
             </div>
