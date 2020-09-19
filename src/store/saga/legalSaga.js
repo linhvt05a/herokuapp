@@ -20,7 +20,7 @@ export function* legalCategories(payload) {
     }
 }
 export function* legalForm(payload) {
-    console.log(payload)
+    // console.log(payload)
     try {
         const response = yield legalService.legalForm(payload)
         // console.log(response)

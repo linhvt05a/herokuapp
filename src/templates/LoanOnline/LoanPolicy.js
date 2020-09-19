@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
-import { AmountInformation, Banking, PaymentDetail, SidebarRight, FloatingRates, HeadingLine, contactAddAction, Loading, CardNoData } from './Layout';
+import { AmountInformation, Banking, PaymentDetail, SidebarRight, FloatingRates, HeadingLine, contactAddAction, StaticLoading, CardNoData } from './Layout';
 import { TOKEN, translate } from '../../functions/Utils';
 import { useTranslation } from 'react-i18next';
 
@@ -80,9 +80,9 @@ const LoanPolicy = props => {
                         <div className="row">
                             <div className="col-12 col-sm-12 col-lg-8">
                                 <div className="borrow__wrap">
-                                    {!isLoadingLoan ? state.product ? <AmountInformation translate={translate} pay={state.pay} data={state.product} setData={setState} amountBorrow={policy && policy.amountBorrow} /> : <CardNoData /> : <Loading />}
+                                    {!isLoadingLoan ? state.product ? <AmountInformation translate={translate} pay={state.pay} data={state.product} setData={setState} amountBorrow={policy && policy.amountBorrow} /> : <CardNoData /> : <StaticLoading />}
                                     {!isLoadingLoan ? state.banks && <Banking translate={translate} dataImgs={state.banks} dispatch={dispatch} actions={contactAddAction} token={TOKEN} /> : null}
-                                    {!isLoadingPolicy ? policy && <FloatingRates translate={translate} data={policy} setData={setPolicy} onSubmit={() => setState({ ...state, onSubmit: true })} /> : <Loading />}
+                                    {!isLoadingPolicy ? policy && <FloatingRates translate={translate} data={policy} setData={setPolicy} onSubmit={() => setState({ ...state, onSubmit: true })} /> : <StaticLoading />}
                                 </div>
                             </div>
                             <SidebarRight data={policy} translate={translate} />

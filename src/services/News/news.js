@@ -4,7 +4,7 @@ import { TOKEN } from '../../functions/Utils';
 export const newsService = {
   
     newsList(payload) {
-        console.log(payload)
+        // console.log(payload)
         const {news_sort, nameSearch, cateID, dateFrom, dateTo, category_id, category_news_group} = payload.params
         const requestOptions = {
             method: 'GET',

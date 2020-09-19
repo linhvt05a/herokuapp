@@ -5,7 +5,7 @@ import { productAction } from '../action/index';
 
 
 export function* productMark(payload) {
-    console.log(payload)
+    // console.log(payload)
     try {
         const response = yield productService.productMark(payload);
         console.log(response)
@@ -98,7 +98,7 @@ export function* productIncentive(payload) {
 }
 
 export function* productSignup(payload) {
-    console.log(payload)
+    // console.log(payload)
     try {
         const response = yield productService.productSignup(payload);
         // console.log(response)

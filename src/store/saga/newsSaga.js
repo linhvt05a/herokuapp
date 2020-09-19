@@ -41,7 +41,7 @@ export function* newsHotList(payload) {
 }
 
 export function* newsCommentAdd(payload) {
-    console.log(payload)
+    // console.log(payload)
     try {
         const response = yield newsService.newsCommentAdd(payload);
         response.success ? yield put({ type: newsAction.NEWS_COMMENT_ADD_SUCCESS, response }) : yield put({ type: newsAction.NEWS_COMMENT_ADD_FAILURE, response });

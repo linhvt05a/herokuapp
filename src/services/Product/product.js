@@ -99,7 +99,7 @@ export const productService = {
     },
 
     productMark(payload){
-        console.log(payload)
+        // console.log(payload)
         const {postData} = payload.params
         const body = {list_product: postData}
         console.log(body)

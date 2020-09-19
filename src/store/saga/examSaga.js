@@ -6,7 +6,7 @@ import { examAction } from '../action';
 
 export function* exampleList(payload) {
 
-    console.log(payload);
+    // console.log(payload);
 
     let { token, search_name, status_id, setting_type } = payload.params
     try {
