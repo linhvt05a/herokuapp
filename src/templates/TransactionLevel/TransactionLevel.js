@@ -44,9 +44,22 @@ const TransactionLevel = (props) => {
     useEffect(() => {
         dispatch(transactionAction.loadTransProductTypeList({}));
     }, []);
-
-    const onFilterChange = (productType, direction, price, acreage) => {
+    const callApiProduct = ({ project_id, area_id, block_id, architecture_type_id, direction_id, price_from, price_to, acreage_from, acreage_to, project_status_id }) => {
         dispatch(transactionAction.TransactionLoadList({
+            project_id,
+            area_id,
+            block_id,
+            architecture_type_id,
+            direction_id,
+            price_from,
+            price_to,
+            acreage_from,
+            acreage_to,
+            project_status_id
+        }));
+    }
+    const onFilterChange = (productType, direction, price, acreage) => {
+        callApiProduct({
             project_id: projectInfoInit.projectId,
             area_id: projectInfoInit.areaId,
             block_id: projectInfoInit.blockId,
@@ -56,29 +69,46 @@ const TransactionLevel = (props) => {
             price_to: price[1],
             acreage_from: acreage[0],
             acreage_to: acreage[1]
-        }));
+        })
+        // dispatch(transactionAction.TransactionLoadList({
+        //     project_id: projectInfoInit.projectId,
+        //     area_id: projectInfoInit.areaId,
+        //     block_id: projectInfoInit.blockId,
+        //     architecture_type_id: productType,
+        //     direction_id: direction,
+        //     price_from: price[0],
+        //     price_to: price[1],
+        //     acreage_from: acreage[0],
+        //     acreage_to: acreage[1]
+        // }));
     }
 
     const onDeleteFilterClick = () => {
-        dispatch(transactionAction.TransactionLoadList({
+        callApiProduct({
             project_id: projectInfoInit.projectId,
             area_id: projectInfoInit.areaId,
             block_id: projectInfoInit.blockId
-        }));
+        })
+
+    }
+    const onChangeFilter = ({ project_id, area_id, block_id, project_status_id }) => {
+        callApiProduct({
+            project_id,
+            area_id,
+            block_id,
+            project_status_id
+        })
     }
 
     const dataFilter = useSelector(state => state.transactionReducer.transactionList.detail)
     return (
         <div className="projectDetailPage">
-            <TopBannerFilter
-                dataProjectList={dataProjectList}
-                dataProjectType={dataProjectType}
-                dataProjectArea={dataArea}
-                dataProjectBlock={dataBlock}
-                filter={filter}
-                setFilter={setFilter}
-                onChangeFilter={onChangeFilter}
-            />
+            {
+                <TopBannerFilter
+                    project_id={projectInfoInit.projectId}
+                    onChangeFilter={onChangeFilter}
+                    setProjectId={(value) => setProjectInfoInit({ ...projectInfoInit, projectId: value })}
+                />}
             <TransactionContent
                 projectInfoInit={projectInfoInit}
                 dataFilter={dataFilter}
