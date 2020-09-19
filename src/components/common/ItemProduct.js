@@ -12,7 +12,7 @@ import { productAction} from "../../store/action/index";
 
 const ItemProduct = (props) => {
     const { data, dataProduct } = props;
-    console.log(data, dataProduct);
+    // console.log(data, dataProduct);
     const [active, setActive] = useState(false)
     const loginData = getLocalStore('user')
     const dispatch = useDispatch()

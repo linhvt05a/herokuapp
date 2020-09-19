@@ -10,9 +10,15 @@ import { withTranslation } from 'react-i18next';
 const dataNotifications = [
     'Căn hộ B6 - F02 của Dự Án Royal Garden vừa được bán Dự Án Royal Garden vừa được bán'
 ]
+
 const MainPage = (props) => {
 
-    return(
+    document.addEventListener("DOMContentLoaded", function (event) {
+        //we ready baby
+        console.log(333);
+    });
+
+    return (
         <>
             <Header />
             <Notification datas={dataNotifications} />
@@ -20,7 +26,7 @@ const MainPage = (props) => {
             <Footer />
             <Social />
         </>
-    ) ;
+    );
 }
 
 export default withTranslation()(MainPage);
