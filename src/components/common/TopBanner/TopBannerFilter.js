@@ -1,10 +1,10 @@
 import { Form, Select } from 'antd';
 import React from 'react';
+import { BANNER_URL } from '../../../contant';
 
 const TopBannerFilter = (props) => {
     const {
         projectInfoInit,
-        projectId, areaId, blockId,
         onChangeProject, onChangeArea, onChangeBlock,
         transacProjectNameList, transacAreaNameList, transacBlockNameList
     } = props;
@@ -12,7 +12,7 @@ const TopBannerFilter = (props) => {
     // console.log('props 1',props);
 
     return (
-        <div className="top_banner--detail d-flex align-items-end" style={{ backgroundImage: "url(../images/banner_exchanges.png)" }}>
+        <div className="top_banner--detail d-flex align-items-end" style={{ backgroundImage: `url(${BANNER_URL.transactionLevel_banner_url})` }}>
             <div className="container container-sm container-md d-flex justify-content-center">
                 <div className="project_detail--filter column-3">
                     <Form>
@@ -74,6 +74,7 @@ const TopBannerFilter = (props) => {
                                     }
                                 </div>
                             </div>
+                            
                         </div>
                     </Form>
                 </div>

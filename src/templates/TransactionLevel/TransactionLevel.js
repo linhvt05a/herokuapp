@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from "react-redux";
 
 import { transactionAction } from '../../store/action';
-import TopBannerFilter from "./TopBannerFilter";
+import TopBannerFilter from "../../components/common/TopBanner/TopBannerFilter";
 import TransactionContent from './Container/Main';
 
 const TransactionLevel = (props) => {
@@ -65,8 +65,8 @@ const TransactionLevel = (props) => {
     const onChangeBlock = (props) => {
         console.log('block_id:', props);
         dispatch(transactionAction.TransactionLoadList({
-            project_id: projectId.projectId,
-            area_id: areaId.areaId,
+            project_id: projectInfoInit.projectId,
+            area_id: projectInfoInit.areaId,
             block_id: props
         }))
         setProjectInfoInit({
@@ -118,17 +118,16 @@ const TransactionLevel = (props) => {
                 transacBlockNameList={transacBlockNameList}
                 onChangeBlock={onChangeBlock}
                 onChangeProject={onChangeProject}
-                onChangeArea={onChangeArea} />
-            {
-                <TransactionContent
-                    projectInfoInit={projectInfoInit}
-                    dataFilter={dataFilter}
-                    error={error}
-                    
-                    onFilterChange={onFilterChange}
-                    onDeleteFilterClick={onDeleteFilterClick}
-                />
-            }
+                onChangeArea={onChangeArea}
+            />
+            <TransactionContent
+                projectInfoInit={projectInfoInit}
+                dataFilter={dataFilter}
+                error={error}
+
+                onFilterChange={onFilterChange}
+                onDeleteFilterClick={onDeleteFilterClick}
+            />
         </div>
     )
 }

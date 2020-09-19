@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useParams } from "react-router-dom";
 import { productAction } from "../../store/action/index";
-import TopBannerProjectDetail from './TopBannerProjectDetail';
+import TopBannerFilter from '../../components/common/TopBanner/TopBannerFilter';
 import DataProjectList from './DataProjectList';
 
 
@@ -93,7 +93,15 @@ const ProjectDetail = (props) => {
 
     return (
         <div className="projectDetailPage">
-            <TopBannerProjectDetail />
+            <TopBannerFilter
+                projectInfoInit={projectInfoInit}
+                transacProjectNameList={transacProjectNameList}
+                transacAreaNameList={transacAreaNameList}
+                transacBlockNameList={transacBlockNameList}
+                onChangeBlock={onChangeBlock}
+                onChangeProject={onChangeProject}
+                onChangeArea={onChangeArea} 
+            />
             <DataProjectList
             headerBodyClassName="label_filter--heading"
             labelHeader={location.state?location.state.projectName: ""}

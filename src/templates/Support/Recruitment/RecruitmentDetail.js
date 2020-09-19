@@ -1,8 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import TopBanner from "../../../components/common/Header/TopBanner";
-
 class RecruitmentDetail extends React.Component {
     render() {
         return (

@@ -3,9 +3,9 @@ import React, { useState, useEffect, useRef, useLayoutEffect, Suspense } from 'r
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { I18nextProvider } from 'react-i18next';
 
-import TopBanner from "../components/common/Header/TopBanner";
-import { MAIN, PATHS } from "../routes"
+import { MAIN } from "../routes";
 import { Error404 } from '../templates/ErrorPage';
+import TopBannerImage from "../components/common/TopBanner/TopBannerImage";
 import i18n from '../i18n';
 import Loading from '../components/common/Loading';
 
@@ -36,7 +36,7 @@ const Container = () => {
                     <Switch >
                         {MAIN.map((data, idx) => (
                             <Route exact key={idx} path={data.path}>
-                                <TopBanner data={data} />
+                                <TopBannerImage data={data} />
                                 <data.component />
                             </Route>
                         ))}

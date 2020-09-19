@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import TopBanner from "../../components/common/Header/TopBanner";
 import Pagination from '../../components/common/Pagination'
 import { CardPromotion } from './Layout/index'
 import { CardSaleFlash } from '../Home/Layout/index'

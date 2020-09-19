@@ -1,7 +1,7 @@
 import React from "react";
 import { Trans } from "react-i18next";
 
-const TopBanner = (props) => {
+const TopBannerImage = (props) => {
     let { data } = props;
     // console.log(2, data)
     return (
@@ -13,4 +13,4 @@ const TopBanner = (props) => {
     )
 }
 
-export default TopBanner;
+export default TopBannerImage;
