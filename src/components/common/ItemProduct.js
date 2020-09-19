@@ -111,7 +111,7 @@ const ItemProduct = (props) => {
                         <p className="child mb-0">
                             <i className="icon fas fa-bed" />
                             <span className="text">
-                                {data.product_total_bedroom ? data.product_total_bedroom : '-'}
+                                {data.product_architecture_type_name ? data.product_architecture_type_name : '-'}
                             </span>
                         </p>
                         {

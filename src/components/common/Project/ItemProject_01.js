@@ -8,8 +8,6 @@ const ItemProject_01 = (props) => {
 
     const { bodyClassName, data, projectStatus } = props;
 
-    console.log('ddd', props);
-
     const paramProject = {
         pathname: "/project/" + data.project_id,
         search: '?status=' + data.project_sale_status

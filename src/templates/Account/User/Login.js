@@ -98,7 +98,7 @@ const Login = (props) => {
                     <i className="fas fa-bahai" />
                 </div>
                 <div className="text_register_link text-center">
-                    <a > Bạn chưa có tài khoản vậy hãy <span onClick={event => showTap(1)}> <br /> {translate("registry")}</span> </a>
+                     Bạn chưa có tài khoản vậy hãy <span className="cursor-pointer" onClick={event => showTap(1)}> <br /> {translate("registry")}</span> 
                 </div>
             </div>
             <div className="form-group mb-0 text-center">

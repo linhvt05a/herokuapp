@@ -35,6 +35,9 @@
             opacity: 1 !important;
         }
     }
+    .nav-link:hover, .nav-link:focus {
+        text-decoration: none !important;
+    }
 }
 #form-login {
     .form-group {

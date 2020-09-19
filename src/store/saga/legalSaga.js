@@ -23,7 +23,7 @@ export function* legalForm(payload) {
     console.log(payload)
     try {
         const response = yield legalService.legalForm(payload)
-        console.log(response)
+        // console.log(response)
         response.success ? yield put({ type: legalAction.LEGAL_FORM_SUCCESS, response }) : yield put({ type: legalAction.LEGAL_FORM_FAILURE, response });
     } catch (err) {
         yield put({ type: legalAction.LEGAL_FORM_FAILURE, err });

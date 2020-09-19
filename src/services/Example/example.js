@@ -11,7 +11,7 @@ export const exampleService = {
 
         const params = { search_name, status_id, setting_type };
         const url = api.getUrl(api.PRODUCT_LIST, params);
-        console.log(url);
+        // console.log(url);
         return api.handleRequest(url, requestOptions);
     }
 

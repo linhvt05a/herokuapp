@@ -39,7 +39,7 @@ export const transactionService = {
             headers: api.getHeader(token)
         };
         const params = { project_id }
-        const url = api.getUrl(api.AREA_LIST_SHORT, params); console.log(url)
+        const url = api.getUrl(api.AREA_LIST_SHORT, params);
         return api.handleRequest(url, requestOptions);
     },
 

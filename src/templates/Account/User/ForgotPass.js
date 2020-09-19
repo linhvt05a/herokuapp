@@ -26,7 +26,7 @@ const ForgotPass = (props) => {
     }
     useEffect(() => {
         formInfo.setFieldsValue({
-            email: 'customer@minerva.vn',
+            email: '',
         });
     }, [])
 

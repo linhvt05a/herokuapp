@@ -98,7 +98,7 @@ const OnMapPoligon = props => {
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-12 col-sm-12 col-md-12 col-xl-6 p-0 bg_image justify-content-center flex-column"
-                        style={{ display: active.search ? "block" : "none" }}>
+                        style={{ display: active.search ? "flex" : "none" }}>
                         <div className="map_search--content_home">
                             <h2 className="heading"><Trans>search_project_by</Trans></h2>
                             <ListSelect data={provinceList} HandleCity={HandleCity} HandleDistrict={HandleDistrict} HandleDStatus={HandleDStatus} />

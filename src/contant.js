@@ -4,6 +4,7 @@ const IMAGE_URL = "../"
 const IMAGE_LOGO = "../images/default_image_minerva.png"
 const PHONE_NUMBER = "1900 - 123 - 456"
 const EMAIL = "info@minerva.vn"
+const TIMEOUT_ADS = 10000;
 
 const MOBILE_WIDTH = 767
 const MAP_KEYS = "AIzaSyDZt7EWQR3cI-a_0to4VT2JVcF-c7ti6Ro"
@@ -194,4 +195,5 @@ module.exports = {
     CREDIT_CARD_TYPE,
     RECRUITMENT_STATUS,
     LOAN_TYPE,
+    TIMEOUT_ADS
 }

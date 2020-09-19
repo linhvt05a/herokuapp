@@ -39,8 +39,7 @@ const Home = (props) => {
     });
 
     useEffect(() => {
-        // dispatch(projectAction.loadProjectList({project_sale_status: `[${state.projectStatus}]`}));
-        dispatch(projectAction.loadProjectList({}));
+        dispatch(projectAction.loadProjectList({project_sale_status: `[${state.projectStatus}]`}));
         dispatch(newsAction.LoadNewsList({}))
 
     }, []);
@@ -75,12 +74,16 @@ const Home = (props) => {
         }
     }
 
-    var newListProject = []
+    var newListProject = [];
     projectList && projectList.length > 0 && projectList.map((item, index) => {
         if (item.project_sale_status === 3) {
-            newListProject.push(item)
+            newListProject.push(item);
+        }
+        if (item.project_sale_status === 2) {
+            newListProject.push(item);
         }
     })
+
 
     return (
         <div className="homePage">
