@@ -10,7 +10,7 @@ const BlockExchanges = (props) => {
     useEffect(() => {
         if (data.list_floor_or_lot.length > 0) {
             let temp = [].concat(activeIndex);
-            for (let index = 0;index < data.list_floor_or_lot.length;index++) {
+            for (let index = 0; index < data.list_floor_or_lot.length; index++) {
                 temp.push(-1)
             }
             setActiveIndex(temp)
@@ -58,7 +58,7 @@ const BlockExchanges = (props) => {
                                 </div>
                                 <div className="exchanges_apartment--content">
                                     {
-                                        console.log(index),
+                                        // console.log(index),
                                         item.list_product && item.list_product != null && item.list_product.length > 0 ?
                                             item.list_product.map((item_p, i) => (
                                                 <div key={i}

@@ -35,6 +35,7 @@ const ProjectDetail = (props) => {
     //filter
     const project = useSelector(state => state.transactionReducer)
     const { projectList } = project;
+    let { isLoadingProduct } = product
 
     const callApiProduct = ({ page = 1, project_id, architecture_type_id, direction_id, price_from, price_to, acreage_from, acreage_to, area_id, block_id, project_status_id }) => {
         if (project_status === 3) {
@@ -71,12 +72,17 @@ const ProjectDetail = (props) => {
     }
     useEffect(() => {
         //filter api
-
-        if (project_status === 3) {
-            dispatch(productAction.loadSellingProductList({ page: 1, limit: 6, project_id: project_id }));
-        } else {
-            dispatch(productAction.loadComingSoonProductList({ page: 1, limit: 6, project_id: project_id }));
-        }
+        callApiProduct({
+            page: 1,
+            limit: 6,
+            project_id: project_id,
+            project_status_id: project_status
+        })
+        // if (project_status === 3) {
+        //     dispatch(productAction.loadSellingProductList({ page: 1, limit: 6, project_id: project_id }));
+        // } else {
+        //     dispatch(productAction.loadComingSoonProductList({ page: 1, limit: 6, project_id: project_id }));
+        // }
     }, []);
 
     useEffect(() => {
@@ -99,7 +105,8 @@ const ProjectDetail = (props) => {
             price_from: priceData[0],
             price_to: priceData[1],
             acreage_from: acreageData[0],
-            acreage_to: acreageData[1]
+            acreage_to: acreageData[1],
+            project_status_id: project_status
         })
         setProductTypeState(productTypeData);
         setDirectionState(directionData);
@@ -115,7 +122,8 @@ const ProjectDetail = (props) => {
             price_from: price[0],
             price_to: price[1],
             acreage_from: acreage[0],
-            acreage_to: acreage[1]
+            acreage_to: acreage[1],
+            project_status_id: project_status
         })
     }
     const onChangeFilter = ({ project_id, area_id, block_id, project_status_id }) => {
@@ -132,6 +140,7 @@ const ProjectDetail = (props) => {
                 <TopBannerFilter
                     project_id={projectName.id}
                     onChangeFilter={onChangeFilter}
+                    status={project_status}
                     noStatus={true}
                     setProjectId={(value) => setProjectName({ ...projectName, id: value })}
                 />}
@@ -141,6 +150,7 @@ const ProjectDetail = (props) => {
                 datas={project_status === 3 ? sellingProductList : comingSoonProductList}
                 limit={6}
                 onFilterChange={onFilterChange}
+                isloading={isLoadingProduct}
                 onPageChange={onPageChange} />
 
         </div>

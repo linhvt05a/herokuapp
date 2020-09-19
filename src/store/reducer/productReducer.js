@@ -10,7 +10,8 @@ const initialState = {
   productSignup: [],
   isFetching: false,
   productFavoriteList: {},
-  productMark : {}
+  productMark: {},
+  isLoadingProduct: true
 }
 
 export default (state = initialState, action) => {
@@ -21,17 +22,45 @@ export default (state = initialState, action) => {
         hotProductList: action.response,
         isFetching: true,
       };
+    case productAction.SELLING_PRODUCT_LIST_REQUEST:
+      return {
+        ...state,
+        sellingProductList: {},
+        isLoadingProduct: true
+      };
     case productAction.SELLING_PRODUCT_LIST_SUCCESS:
       return {
         ...state,
         sellingProductList: action.response,
         isFetching: true,
+        isLoadingProduct: false
+      };
+    case productAction.SELLING_PRODUCT_LIST_FAILURE:
+      return {
+        ...state,
+        sellingProductList: action.err,
+        isFetching: false,
+        isLoadingProduct: false
+      };
+    case productAction.COMING_SOON_PRODUCT_LIST_REQUEST:
+      return {
+        ...state,
+        comingSoonProductList: {},
+        isLoadingProduct: true
       };
     case productAction.COMING_SOON_PRODUCT_LIST_SUCCESS:
       return {
         ...state,
         comingSoonProductList: action.response,
         isFetching: true,
+        isLoadingProduct: false
+      };
+    case productAction.COMING_SOON_PRODUCT_LIST_FAILURE:
+      return {
+        ...state,
+        comingSoonProductList: action.err,
+        isFetching: false,
+        isLoadingProduct: false
       };
     case productAction.PRODUCT_TYPE_LIST_SUCCESS:
       return {
@@ -67,12 +96,12 @@ export default (state = initialState, action) => {
         isFetching: true,
       };
 
-      case productAction.PRODUCT_MARK_LIST_SUCCESS:
-        return {
-          ...state,
-          productMark: action.response,
-          isFetching: true,
-        };
+    case productAction.PRODUCT_MARK_LIST_SUCCESS:
+      return {
+        ...state,
+        productMark: action.response,
+        isFetching: true,
+      };
     // end linh add
     default:
       return state;

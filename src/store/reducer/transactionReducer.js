@@ -9,10 +9,18 @@ const initialState = {
     error: false,
     projectList: [],
     projectType: [],
+    isLoadingList: true,
 };
 
 export default (state = initialState, action) => {
     switch (action.type) {
+        case transactionAction.TRANSACTION_LIST_REQUEST:
+            return {
+                ...state,
+                transactionList: {},
+                isLoadingList: true,
+                error: false
+            };
         case transactionAction.TRANSACTION_LIST_SUCCESS:
             return {
                 ...state,
@@ -26,7 +34,8 @@ export default (state = initialState, action) => {
                 ...state,
                 transactionList: action.err,
                 isFetching: false,
-                error: true
+                error: true,
+                isLoadingList: false,
             };
         case transactionAction.TRANS_PRODUCT_TYPE_SUCCESS:
             return {

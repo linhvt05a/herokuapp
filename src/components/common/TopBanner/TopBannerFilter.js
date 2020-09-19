@@ -9,7 +9,7 @@ import { useTranslation } from 'react-i18next';
 const TopBannerFilter = (props) => {
     const dispatch = useDispatch();
     const { t } = useTranslation()
-    let { dataImg, project_id, noStatus } = props;
+    let { dataImg, project_id, noStatus, status, dataDefault } = props;
 
     const [dataProjectList, setDataProjectList] = React.useState();
     const [dataArea, setDataArea] = React.useState();
@@ -19,7 +19,8 @@ const TopBannerFilter = (props) => {
         project_id: project_id > 0 ? parseInt(project_id) : null,
         area_id: null,
         block_id: null,
-        type_id: null
+        type_id: status >= 0 ? status : null,
+        callDefault: true,
     });
     const project = useSelector(state => state.transactionReducer)
     const trans = useSelector(state => state.transactionReducer)
@@ -30,7 +31,8 @@ const TopBannerFilter = (props) => {
     };
 
     const callApiArea = ({ project_id }) => {
-        dispatch(transactionAction.transLoadAreaNameList({ token: TOKEN, project_id }))
+        dispatch(transactionAction.transLoadAreaNameList({ token: TOKEN, project_id }));
+        callApiBlock({ project_id })
     }
     const callApiBlock = ({ project_id, area_id }) => {
         dispatch(transactionAction.transLoadBlockNameList({ token: TOKEN, project_id, area_id }))
@@ -41,7 +43,6 @@ const TopBannerFilter = (props) => {
         dispatch(transactionAction.getProjectType({ token: TOKEN }));
         if (project_id) {
             callApiArea({ project_id });
-            callApiBlock({ project_id })
         }
     }, [])
     useEffect(() => {
@@ -54,7 +55,6 @@ const TopBannerFilter = (props) => {
             setDataProjectList(newProject)
         }
     }, [projectList])
-
     useEffect(() => {
         if (projectType.length > 0) {
             let newProject = []
@@ -65,6 +65,9 @@ const TopBannerFilter = (props) => {
                 }
                 newProject.push(createDataSelect(item.id, item.name))
             }
+            // if (dataDefault) {
+            //     setFilter({ ...filter, type_id: newProject[1].value })
+            // }
             setDataProjectType(newProject)
         }
     }, [projectType])
@@ -78,6 +81,9 @@ const TopBannerFilter = (props) => {
                 }
                 newData.push(createDataSelect(data[i].area_id, data[i].area_name))
             }
+            if (dataDefault) {
+                setFilter({ ...filter, area_id: newData[1].value })
+            }
             setDataArea(newData)
         }
     }, [transacAreaNameList])
@@ -85,12 +91,23 @@ const TopBannerFilter = (props) => {
         let data = transacBlockNameList;
         if (data.length > 0) {
             let newData = [];
+            let callDefualt = true
             for (let i = 0; i < data.length; i++) {
                 if (i == 0) {
                     newData.push(createDataSelect(0, translate("project_all", t)))
                 }
                 newData.push(createDataSelect(data[i].block_id, data[i].block_name))
             }
+            if (dataDefault) {
+                if (filter.callDefault) {
+                    callDefualt = false
+                    // setFilter({ ...filter, callDefault: false, block_id: newData[1].value })
+                    props.onChangeFilter({ project_id: project_id, project_status_id: filter.type_id, block_id: transacBlockNameList[0].block_id, area_id: transacAreaNameList[0].area_id });
+                }
+
+                setFilter({ ...filter, block_id: newData[1].value, callDefault: callDefualt })
+            }
+
             setDataBlock(newData)
         }
     }, [transacBlockNameList])
@@ -102,15 +119,16 @@ const TopBannerFilter = (props) => {
             ...filter,
             area_id: null,
             block_id: null,
-            type_id: null
+            type_id: null,
+            callDefault: true
         })
-        props.onChangeFilter({ project_id: value });
+        props.onChangeFilter({ project_id: value, project_status_id: filter.type_id, block_id: filter.block_id, area_id: filter.area_id });
     }
 
     const onChangeArea = (value) => {
-        setFilter({ ...filter, area_id: value, block_id: null });
-        callApiBlock({ project_id: project_id, area_id: value })
-        props.onChangeFilter({ project_id: project_id, area_id: value, project_status_id: filter.type_id });
+        setFilter({ ...filter, area_id: value, block_id: null, callDefault: true });
+        callApiBlock({ project_id: project_id, area_id: value, })
+        props.onChangeFilter({ project_id: project_id, area_id: value, project_status_id: filter.type_id, block_id: filter.block_id });
     }
 
     const onChangeBlock = (value) => {

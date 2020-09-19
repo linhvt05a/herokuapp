@@ -17,14 +17,14 @@ const TransactionLevel = (props) => {
     })
 
     useEffect(() => {
-        dispatch(transactionAction.TransactionLoadList({
-            project_id: projectInfoInit.projectId,
-            area_id: projectInfoInit.areaId,
-            block_id: projectInfoInit.blockId
-        }));
-        dispatch(transactionAction.transLoadProjectNameList({ project_id: projectInfoInit.projectId }))
-        dispatch(transactionAction.transLoadAreaNameList({ project_id: projectInfoInit.projectId }))
-        dispatch(transactionAction.transLoadBlockNameList({ project_id: projectInfoInit.projectId }))
+        // dispatch(transactionAction.TransactionLoadList({
+        //     project_id: projectInfoInit.projectId,
+        //     area_id: projectInfoInit.areaId,
+        //     block_id: projectInfoInit.blockId
+        // }));
+        // dispatch(transactionAction.transLoadProjectNameList({ project_id: projectInfoInit.projectId }))
+        // dispatch(transactionAction.transLoadAreaNameList({ project_id: projectInfoInit.projectId }))
+        // dispatch(transactionAction.transLoadBlockNameList({ project_id: projectInfoInit.projectId }))
     }, [])
 
     const projectNameList = useSelector(state => state.transactionReducer);
@@ -40,7 +40,7 @@ const TransactionLevel = (props) => {
     const transtion = useSelector(state => state.transactionReducer);
     const isGetTransProductTypeListSuccess = transtion.transacProductTypeList.success;
     const transacProductTypeList = isGetTransProductTypeListSuccess ? transtion.transacProductTypeList.detail : null;
-
+    const { isLoadingList } = transtion
     useEffect(() => {
         dispatch(transactionAction.loadTransProductTypeList({}));
     }, []);
@@ -70,17 +70,6 @@ const TransactionLevel = (props) => {
             acreage_from: acreage[0],
             acreage_to: acreage[1]
         })
-        // dispatch(transactionAction.TransactionLoadList({
-        //     project_id: projectInfoInit.projectId,
-        //     area_id: projectInfoInit.areaId,
-        //     block_id: projectInfoInit.blockId,
-        //     architecture_type_id: productType,
-        //     direction_id: direction,
-        //     price_from: price[0],
-        //     price_to: price[1],
-        //     acreage_from: acreage[0],
-        //     acreage_to: acreage[1]
-        // }));
     }
 
     const onDeleteFilterClick = () => {
@@ -107,13 +96,14 @@ const TransactionLevel = (props) => {
                 <TopBannerFilter
                     project_id={projectInfoInit.projectId}
                     onChangeFilter={onChangeFilter}
+                    dataDefault={true}
                     setProjectId={(value) => setProjectInfoInit({ ...projectInfoInit, projectId: value })}
                 />}
             <TransactionContent
                 projectInfoInit={projectInfoInit}
                 dataFilter={dataFilter}
                 error={error}
-
+                isLoading={isLoadingList}
                 onFilterChange={onFilterChange}
                 onDeleteFilterClick={onDeleteFilterClick}
             />
