@@ -132,6 +132,7 @@ const ProjectDetail = (props) => {
                 <TopBannerFilter
                     project_id={projectName.id}
                     onChangeFilter={onChangeFilter}
+                    noStatus={true}
                     setProjectId={(value) => setProjectName({ ...projectName, id: value })}
                 />}
             <DataProjectList
