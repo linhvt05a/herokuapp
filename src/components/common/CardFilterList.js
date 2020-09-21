@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import { Trans } from 'react-i18next';
-import { commonAction, projectAction } from "../../store/action";
-import { ListSelect, InputRange } from "../Home/Search/index";
+import { commonAction } from "../../store/action";
+import { ListSelect, InputRange } from "../../templates/Home/Search";
 import { PROJECT_SALE_GROUP } from "../../functions/Helper";
-import { getLocalStore } from '../../functions/Utils';
+import { getLocalStore, translate } from '../../functions/Utils';
 
 const CardFilterList = ({ title, onFilterSubmit }) => {
     const dispatch = useDispatch();

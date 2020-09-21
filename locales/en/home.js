@@ -26,7 +26,7 @@ export default {
     home_coming_soon: "Coming soon",
     home_detail_button_title: "Detail",
     home_product_button_title: "Product",
-    home_apartment: "Aparment",
+    home_apartment: "Apartment",
     home_duplex: "Duplex",
     home_officetel: "Officetel",
     home_studio: "Studio",
