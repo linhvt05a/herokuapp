@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Trans } from "react-i18next";
 import moment from 'moment'
+import {convertDateShow} from '../../../functions/Utils'
+
 const ProductPromotion = (props) => {
   const{data} = props
   return (
@@ -16,10 +18,7 @@ const ProductPromotion = (props) => {
     </div>
   );
 };
-function convertDate(value){
-  const date = moment(value).format('DD-MM-YYYY')
-  return date
-}
+
 const UserIncentives = (props) =>{
   const{data} = props
   
@@ -31,7 +30,7 @@ const UserIncentives = (props) =>{
         </a>
         <span className="date">
           <i className="icon far fa-clock" />
-            <Trans> From</Trans> : {convertDate(data.promotion_policy_start_date)} - <Trans>To</Trans> : {convertDate(data.promotion_policy_end_date) }
+            <Trans> From</Trans> : {convertDateShow(data.promotion_policy_start_date)} - <Trans>To</Trans> : {convertDateShow(data.promotion_policy_end_date) }
         </span>
       </div>
       <div className="list">

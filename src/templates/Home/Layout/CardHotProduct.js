@@ -16,18 +16,19 @@ const CardHotProduct = (props) => {
     const isGetHotProductListSuccess = product.hotProductList.success;
     const datas = isGetHotProductListSuccess ? product.hotProductList : null;
     const dispatch = useDispatch();
-    const dataProduct = datas && datas.detail.list_product
-    const [projectGroupId, setProjectGroupId] = useState(0);
+    const [projectGroupId, setProjectGroupId] = useState(null);
 
     const projectGroupSelected = location.search.split("=")[1]
 
 
     useEffect(() => {
+
+        
         if (detail) {
             if (projectGroupSelected == PROJECT_SALE_GROUP_VALUE('all').value) {
                 dispatch(productAction.loadHotProductList({ page: 1, limit: limit }));
             } else {
-                dispatch(productAction.loadHotProductList({ page: 1, limit: limit, list_product_type_id: `[${projectGroupSelected}]` }));
+                dispatch(productAction.loadHotProductList({ page: 1, limit: limit, list_product_type_id: `[${PROJECT_SALE_GROUP_VALUE(projectGroupSelected).id}]` }));
             }
         } else {
             dispatch(productAction.loadHotProductList({}));
@@ -61,7 +62,7 @@ const CardHotProduct = (props) => {
                     data={PROJECT_SALE_GROUP}
                     labelHeader={labelHeader}
                     onChange={onProjectGroupFilterChange}
-                    selected={projectGroupSelected}
+                    selected={PROJECT_SALE_GROUP_VALUE(projectGroupSelected).id}
                     options trans
                 />
                 <div className="striking_apartment--content">
@@ -73,11 +74,11 @@ const CardHotProduct = (props) => {
                                         datas.detail.list_product.map((item, index) => (
                                             detail
                                                 ? <div key={index} className="col-12 col-sm-12 col-md-6 col-lg-4 mb-3">
-                                                    <ItemProduct data={item} dataProduct={dataProduct} />
+                                                    <ItemProduct data={item}  />
                                                 </div>
                                                 : index < 6
                                                     ? <div key={index} className="col-12 col-sm-12 col-md-6 col-lg-4 mb-3">
-                                                        <ItemProduct data={item} dataProduct={dataProduct} />
+                                                        <ItemProduct data={item} />
                                                     </div>
                                                     : ""
                                         ))
