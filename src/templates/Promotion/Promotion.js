@@ -32,7 +32,7 @@ const Promotion = () => {
     }
     return (
         <div className="homePage">
-            <CardSaleFlash headerBodyClassName="label_filter--heading" labelHeader="flash_sale" banner readmore timeLine />
+            <CardSaleFlash headerBodyClassName="label_filter--heading" labelHeader="flash_sale" readmore timeLine />
             <div className="overview" >
                 <div className="container container-sm container-md">
                     <h2 className="overview_heading">

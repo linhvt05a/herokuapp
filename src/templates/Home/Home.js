@@ -97,12 +97,11 @@ const Home = (props) => {
                 </div>
                 <OnMapPoligon active={state} onHideSearch={setHideSearch} />
             </div>
-
             {/*end block map  */}
 
             <CardSaleFlash headerBodyClassName="label_filter--heading" labelHeader="flash_sale" readmore timeLine />
 
-            {/* block over  */}
+            {/* block over  */}-
             <CardOverView />
             {/* end block over  */}
 

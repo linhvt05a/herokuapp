@@ -162,3 +162,14 @@ a:hover {
     }
         
 }
+
+.flash_sale {
+    height: 350px;
+    @media (max-width:768px) {
+        height: 250px;
+    }
+}
+
+.ant-select-dropdown .rc-virtual-list-holder{
+    @include scrollbar;
+}

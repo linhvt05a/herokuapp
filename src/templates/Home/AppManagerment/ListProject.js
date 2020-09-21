@@ -5,38 +5,38 @@ const ListProject = props => {
 	const list = [
 		{
 			id: 1,
-			name: translate("project_management"),
-			des: translate("application_note_1"),
+			name: translate("project_management_label"),
+			des: translate("project_management_application_des"),
 		},
 		{
 			id: 2,
 			name: "Quản lý dự án 2",
 			des:
-				translate("application_note_2"),
+				translate("project_management_application_des"),
 		},
 		{
 			id: 3,
 			name: "Quản lý dự án 3",
 			des:
-				translate("application_note_3"),
+				translate("project_management_application_des"),
 		},
 		{
 			id: 4,
 			name: "Quản lý dự án 4",
 			des:
-				translate("application_note_4"),
+				translate("project_management_application_des"),
 		},
 		{
 			id: 5,
 			name: "Quản lý dự án 5",
 			des:
-				translate("application_note_5"),
+				translate("project_management_application_des"),
 		},
 		{
 			id: 6,
 			name: "Quản lý dự án 6",
 			des:
-				translate("application_note_6"),
+				translate("project_management_application_des"),
 		},
 	];
 	return (

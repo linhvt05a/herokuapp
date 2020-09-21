@@ -12,7 +12,7 @@ const AppManagerment = () => {
         <div className="app_managerment">
             <div className="container container-sm container-md">
                 <h3 className="main_heading">
-                    <span>{translate("management_application")}</span>
+                    <span>{translate("home_management_application_title")}</span>
                 </h3>
                 <div className="app_managerment--content">
                     <div className="row">

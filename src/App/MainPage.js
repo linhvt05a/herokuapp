@@ -8,8 +8,7 @@ import Header from "../components/common/Header/Header";
 import Footer from "../components/common/Footer/Footer";
 import Notification from "../components/common/Notification";
 import Social from "../components/common/Social_fixed";
-import { IMAGE_URL, TIMEOUT_ADS } from "../contant";
-import vi from '../../locales/vi';
+import { IMAGE_URL, TIMEOUT_ADS, LOADING_ADS } from "../contant";
 
 
 const dataNotifications = [
@@ -34,7 +33,8 @@ const MainPage = (props) => {
         <>
             <Modal
                 title="loading_ads"
-                visible={visible}
+                // visible={visible}
+                visible={LOADING_ADS}
                 mask={true}
                 onCancel={() => handleCancel(!visible)}
                 width={996}

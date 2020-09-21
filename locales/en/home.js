@@ -35,15 +35,10 @@ export default {
     home_single_villa: "Single Villa",
     home_duplex_villa: "Duplex Villa",
     home_all: "-- All --",
-    management_application: "Management application",
-    application_note_0: "Our management application with outstanding management features management of real estate information and attached to control equipment Smart indoors like: ",
-    project_management: "Project management",
-    application_note_1: "Build real estate projects with high quality, high standard and meet your requirements.",
-    application_note_2: "Build real estate projects with high quality, high standard and meet your requirements.",
-    application_note_3: "Build real estate projects with high quality, high standard and meet your requirements.",
-    application_note_4: "Build real estate projects with high quality, high standard and meet your requirements.",
-    application_note_5: "Build real estate projects with high quality, high standard and meet your requirements.",
-    application_note_6: "Build real estate projects with high quality, high standard and meet your requirements.",
+    home_management_application_title: "Management application",
+    home_management_application_note: "Our management application with outstanding management features management of real estate information and attached to control equipment Smart indoors like: ",
+    project_management_label: "Project management",
+    project_management_application_des: "Build real estate projects with high quality, high standard and meet your requirements.",
 
 
 }

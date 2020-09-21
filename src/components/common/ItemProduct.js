@@ -143,7 +143,7 @@ const ItemProduct = (props) => {
                             <div className="price__item">
                                 <div className="price__discount">{formatCurrency(data.product_estimate_price) + data.product_estimate_price_unit_name}</div>
                                 <div className="price__origin">
-                                    <span className="value">{data.product_real_price ? data.product_real_price : '0000000000'} </span> {data.product_discount_percent ? product_discount_percent : '-'}
+                                    <span className="value">{data.product_real_price ? data.product_real_price : formatCurrency(parseInt('1000000000000'))} </span> {data.product_discount_percent ? product_discount_percent : '-'}
                                 </div>
                             </div>
                             <div className="price__item">
