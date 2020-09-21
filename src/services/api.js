@@ -6,22 +6,22 @@ import {
 import { MODE_ENV } from '../../env/env'
 let DOMAIN = '';
 if (process.env.NODE_ENV === 'production') {
-    DOMAIN = MODE_ENV.production;
+    DOMAIN = MODE_ENV.prod;
 } else if (process.env.NODE_ENV === 'development') {
-    DOMAIN = MODE_ENV.development;
+    DOMAIN = MODE_ENV.dev;
 } else {
     DOMAIN = MODE_ENV.local;
     DOMAIN.api = ''
 }
 
 console.log('********************');
-console.log('---ENV:', process.env.NODE_ENV, '\n---DOMAIN:', DOMAIN.api === '' ? 'local' : DOMAIN.api);
+console.log('---ENV:', process.env.NODE_ENV, DOMAIN);
 console.log('********************');
 
 
 export default {
-    CLOUD_SERVER_PATH: DOMAIN + '/cdn/sunnyworld-workflow-clone/',
-    CLOUD_SERVER_ACCESS_KEY: DOMAIN.api + 'sunnyworld-workflow-clone',
+    CLOUD_SERVER_PATH: + '/cdn/sunnyworld-workflow-clone/',
+    CLOUD_SERVER_ACCESS_KEY: + 'sunnyworld-workflow-clone',
     LIMIT: 10,
 
     //EXAMPLE
