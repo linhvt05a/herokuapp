@@ -2,7 +2,7 @@ import React from 'react';
 
 const Collateral = props => {
     return (
-        <div className="loan_online--wrap" data-step={3}>
+        <div className="loan_online--wrap active" data-step={3}>
             <div className="loan_online--item">
                 <div className="heading">Tài sản đảm bảo</div>
                 <div className="form-group">
@@ -13,7 +13,7 @@ const Collateral = props => {
                         <div className="form-group">
                             <div className="list_checkbox">
                                 <label className="checkbox-inline active style_01 active" type="checkbox">
-                                    <input name defaultValue={1} type="checkbox" className="checkbox-custom" />
+                                    <input defaultValue={1} type="checkbox" className="checkbox-custom" />
                                     <span className="checkbox-custom-dummy" />
                       Quyền sở hữu nhà ở / Quyền sử dụng đất ở
                     </label>
@@ -24,7 +24,7 @@ const Collateral = props => {
                         <div className="form-group">
                             <div className="list_checkbox">
                                 <label className="checkbox-inline active style_01" type="checkbox">
-                                    <input name defaultValue={1} type="checkbox" className="checkbox-custom" />
+                                    <input defaultValue={1} type="checkbox" className="checkbox-custom" />
                                     <span className="checkbox-custom-dummy" />
                       Ô tô / Phương tiện / Máy móc thiết bị
                     </label>
@@ -35,7 +35,7 @@ const Collateral = props => {
                         <div className="form-group">
                             <div className="list_checkbox d-flex justify-content-between">
                                 <label className="checkbox-inline style_01 pr-4" type="checkbox">
-                                    <input name defaultValue={1} type="checkbox" className="checkbox-custom" />
+                                    <input defaultValue={1} type="checkbox" className="checkbox-custom" />
                                     <span className="checkbox-custom-dummy" />
                       Khác
                     </label>
@@ -54,7 +54,7 @@ const Collateral = props => {
                         <div className="form-group">
                             <div className="list_checkbox">
                                 <label className="checkbox-inline active style_01 active" type="checkbox">
-                                    <input name defaultValue={1} type="checkbox" className="checkbox-custom" />
+                                    <input defaultValue={1} type="checkbox" className="checkbox-custom" />
                                     <span className="checkbox-custom-dummy" />
                       Thuộc sở hữu của khách hàng vay
                     </label>
@@ -65,7 +65,7 @@ const Collateral = props => {
                         <div className="form-group">
                             <div className="list_checkbox">
                                 <label className="checkbox-inline active style_01" type="checkbox">
-                                    <input name defaultValue={1} type="checkbox" className="checkbox-custom" />
+                                    <input defaultValue={1} type="checkbox" className="checkbox-custom" />
                                     <span className="checkbox-custom-dummy" />
                       Hình thành từ vốn vay
                     </label>
@@ -76,7 +76,7 @@ const Collateral = props => {
                         <div className="form-group mb-0">
                             <div className="list_checkbox d-flex justify-content-between">
                                 <label className="checkbox-inline active style_01" type="checkbox">
-                                    <input name defaultValue={1} type="checkbox" className="checkbox-custom" />
+                                    <input defaultValue={1} type="checkbox" className="checkbox-custom" />
                                     <span className="checkbox-custom-dummy" />
                       Thuộc tài sản của bên thứ ba
                     </label>
@@ -87,7 +87,7 @@ const Collateral = props => {
                         <div className="form-group mb-0">
                             <div className="list_checkbox d-flex justify-content-between">
                                 <label className="checkbox-inline style_01 pr-4" type="checkbox">
-                                    <input name defaultValue={1} type="checkbox" className="checkbox-custom" />
+                                    <input defaultValue={1} type="checkbox" className="checkbox-custom" />
                                     <span className="checkbox-custom-dummy" />
                       Khác
                     </label>
@@ -106,7 +106,7 @@ const Collateral = props => {
                         <div className="form-group">
                             <div className="list_checkbox">
                                 <label className="checkbox-inline " type="checkbox">
-                                    <input name defaultValue={1} type="checkbox" className="checkbox-custom" />
+                                    <input defaultValue={1} type="checkbox" className="checkbox-custom" />
                                     <span className="checkbox-custom-dummy" />
                       Không
                     </label>
@@ -117,7 +117,7 @@ const Collateral = props => {
                         <div className="form-group">
                             <div className="list_checkbox">
                                 <label className="checkbox-inline active " type="checkbox">
-                                    <input name defaultValue={1} type="checkbox" className="checkbox-custom" />
+                                    <input defaultValue={1} type="checkbox" className="checkbox-custom" />
                                     <span className="checkbox-custom-dummy" />
                       Có, hiện tại đang thế chấp tại
                     </label>
@@ -145,7 +145,7 @@ const Collateral = props => {
                         <div className="form-group">
                             <div className="list_checkbox">
                                 <label className="checkbox-inline " type="checkbox">
-                                    <input name defaultValue={1} type="checkbox" className="checkbox-custom" />
+                                    <input defaultValue={1} type="checkbox" className="checkbox-custom" />
                                     <span className="checkbox-custom-dummy" />
                       Không
                     </label>
@@ -156,7 +156,7 @@ const Collateral = props => {
                         <div className="form-group">
                             <div className="list_checkbox">
                                 <label className="checkbox-inline active" type="checkbox">
-                                    <input name defaultValue={1} type="checkbox" className="checkbox-custom" />
+                                    <input defaultValue={1} type="checkbox" className="checkbox-custom" />
                                     <span className="checkbox-custom-dummy" />
                       Có
                     </label>
@@ -181,11 +181,11 @@ const Collateral = props => {
                           <label class="label">Quan hệ tín dụng với ngân hàng SCB <span class="star">*</span></label>
                           <div class="list_checkbox">
                               <label class="checkbox-inline active" type="radio">
-                                  <input name="checkbox_loan_01" value="1" type="radio" class="checkbox-custom"><span
+                                  <input ="checkbox_loan_01" value="1" type="radio" class="checkbox-custom"><span
                                       class="checkbox-custom-dummy"></span>Có
                               </label>
                               <label class="checkbox-inline" type="radio">
-                                  <input name="checkbox_loan_01" value="0" type="radio" class="checkbox-custom"><span
+                                  <input ="checkbox_loan_01" value="0" type="radio" class="checkbox-custom"><span
                                       class="checkbox-custom-dummy"></span>Không
                               </label>
                           </div>
@@ -267,12 +267,12 @@ const Collateral = props => {
                                   <td>
                                       <div class="checkYesNo">
                                           <label class="checkbox-inline active" type="radio">
-                                              <input name="checkbox_yes_no" value="1" type="radio"
+                                              <input ="checkbox_yes_no" value="1" type="radio"
                                                   class="checkbox-custom"><span
                                                   class="checkbox-custom-dummy"></span>Có
                                           </label>
                                           <label class="checkbox-inline" type="radio">
-                                              <input name="checkbox_yes_no" value="0" type="radio"
+                                              <input ="checkbox_yes_no" value="0" type="radio"
                                                   class="checkbox-custom"><span
                                                   class="checkbox-custom-dummy"></span>Không
                                           </label>
@@ -310,11 +310,11 @@ const Collateral = props => {
                                   class="star">*</span></label>
                           <div class="list_checkbox">
                               <label class="checkbox-inline active" type="radio">
-                                  <input name="checkbox_loan_02" value="1" type="radio" class="checkbox-custom"><span
+                                  <input ="checkbox_loan_02" value="1" type="radio" class="checkbox-custom"><span
                                       class="checkbox-custom-dummy"></span>Có
                               </label>
                               <label class="checkbox-inline" type="radio">
-                                  <input name="checkbox_loan_02" value="0" type="radio" class="checkbox-custom"><span
+                                  <input ="checkbox_loan_02" value="0" type="radio" class="checkbox-custom"><span
                                       class="checkbox-custom-dummy"></span>Không
                               </label>
                           </div>
@@ -382,12 +382,12 @@ const Collateral = props => {
                                   <td>
                                       <div class="checkYesNo">
                                           <label class="checkbox-inline active" type="radio">
-                                              <input name="checkbox_yes_no" value="1" type="radio"
+                                              <input ="checkbox_yes_no" value="1" type="radio"
                                                   class="checkbox-custom"><span
                                                   class="checkbox-custom-dummy"></span>Có
                                           </label>
                                           <label class="checkbox-inline" type="radio">
-                                              <input name="checkbox_yes_no" value="0" type="radio"
+                                              <input ="checkbox_yes_no" value="0" type="radio"
                                                   class="checkbox-custom"><span
                                                   class="checkbox-custom-dummy"></span>Không
                                           </label>
@@ -425,11 +425,11 @@ const Collateral = props => {
                           <label class="label">Vay cá nhân / tổ chức khác <span class="star">*</span></label>
                           <div class="list_checkbox">
                               <label class="checkbox-inline active" type="radio">
-                                  <input name="checkbox_loan_03" value="1" type="radio" class="checkbox-custom"><span
+                                  <input ="checkbox_loan_03" value="1" type="radio" class="checkbox-custom"><span
                                       class="checkbox-custom-dummy"></span>Có
                               </label>
                               <label class="checkbox-inline" type="radio">
-                                  <input name="checkbox_loan_03" value="0" type="radio" class="checkbox-custom"><span
+                                  <input ="checkbox_loan_03" value="0" type="radio" class="checkbox-custom"><span
                                       class="checkbox-custom-dummy"></span>Không
                               </label>
                           </div>

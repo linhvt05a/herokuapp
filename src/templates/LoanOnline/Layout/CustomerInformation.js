@@ -1,16 +1,25 @@
 import React from 'react';
+import { InputBase } from "../../../components/base"
 
-const CustomerInformation = props => {
+const CustomerInformation = ({ Item }) => {
     return (
         <div className="loan_online--wrap active" data-step={1}>
             <div className="loan_online--item">
                 <div className="heading">Thông tin khách hàng</div>
                 <div className="row">
                     <div className="col-12 col-md-6 col-lg-6 col-xl-4">
-                        <div className="form-group">
+                        <InputBase
+                            label="cart_customer_name"
+                            titleClassName="label"
+                            classNameInput="form-control"
+                            type="text"
+                            placeholder="Nhập họ tên"
+                            require
+                        />
+                        {/* <div className="form-group">
                             <label className="label">Họ tên <span className="star">*</span></label>
                             <input type="text" placeholder="Nhập họ tên" className="form-control" />
-                        </div>
+                        </div> */}
                     </div>
                     <div className="col-12 col-md-6 col-lg-6 col-xl-4">
                         <div className="form-group select2-italic">
