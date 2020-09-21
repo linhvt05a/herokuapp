@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import HeadingLine from '../../components/common/HeadingLine';
 import Pagination from '../../components/common/Pagination';
-import FilterProjectList from './FilterProjectList';
 import { projectAction } from "../../store/action/index";
 import CardNoData from '../../components/common/CardNoData';
 import { LoadDataPaging } from '../../functions/Utils';
 import ItemProject_02 from '../../components/common/Project/ItemProject_02';
+import CardFilterList from '../../components/common/CardFilterList';
 
 
 const ProjectList = (props) => {
@@ -46,11 +46,23 @@ const ProjectList = (props) => {
     const onPageChange = (value) => {
         dispatch(projectAction.loadProjectList({ page: value, limit: 6, project_sale_status: `[${state.projectStatus}]` }));
     }
-
+    const onFilterSubmit = ({ province_id, district_id, status_id, area_min, area_max, money_min, money_max, project_sale_status }) => {
+        dispatch(projectAction.loadProjectList({
+            province_id: province_id,
+            district_id: district_id,
+            status_id: status_id,
+            area_min: area_min,
+            area_max: area_max,
+            money_min: money_min,
+            money_max: money_max,
+            project_sale_status: project_sale_status
+        }));
+    }
     return (
         <div className="projectPage">
             <div className="project_page bg_grey">
-                <FilterProjectList />
+                {/* <FilterProjectList /> */}
+                <CardFilterList title="search_project_by" onFilterSubmit={onFilterSubmit} />
                 <div className="project_page--list project_tab">
                     <div className="container container-sm container-md">
                         <HeadingLine headerBodyClassName="project_list--heading" labelHeader="project_list" status onStatusClick={onStatusClick} projectStatus={state.projectStatus} />

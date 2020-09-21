@@ -3,6 +3,7 @@ export default {
     your_location: "Your location",
     search: "SEARCH",
     search_project_by: "Search project by",
+    search_product_by: "Search product by",
     range_of_price: "Range of price ( Billion VND)",
     range_of_area: "Area",
     province: "Province / City",

@@ -3,6 +3,7 @@ const home = {
     your_location: "Vị trí của bạn",
     search: "TÌM KIẾM",
     search_project_by: "Tìm kiếm dự án theo",
+    search_product_by: "Tìm kiếm sản phẩm theo",
     range_of_price: "Phạm vi giá ( tỷ đồng )",
     range_of_area: "Diện tích",
     province: "Tỉnh / thành phố",
