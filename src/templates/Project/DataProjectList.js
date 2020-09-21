@@ -18,7 +18,7 @@ const DataProjectList = (props) => {
                 <div className="striking_apartment--content jsSalesQuick">
                     <HeadingLine headerBodyClassName={headerBodyClassName} labelHeader={labelHeader} />
                     <div className="row">
-                        {isloading ? <StaticLoading /> :
+                        {isloading ? <div className="col-12 col-sm-12 col-lg-8"> <StaticLoading /> </div> :
                             (datas && datas.detail && datas.detail.list_product && datas.detail.list_product != null && datas.detail.list_product.length > 0) ?
                                 <div className="col-12 col-sm-12 col-lg-8">
                                     <div className="striking_apartment--content">

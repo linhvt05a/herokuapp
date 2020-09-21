@@ -60,10 +60,10 @@ export function* transBlockNameList(payload) {
 
 
 export function* getProjectList(payload) {
-    let { token, is_full_project } = payload.params
+    let { token, is_full_project, status } = payload.params
 
     try {
-        const response = yield transactionService.getProjectList(token, is_full_project);
+        const response = yield transactionService.getProjectList(token, is_full_project, status);
         response.success ? yield put({ type: transactionAction.PROJECT_LIST_SUCCESS, response }) : yield put({ type: transactionAction.PROJECT_LIST_FAILURE, response });
     } catch (err) {
         yield put({ type: transactionAction.PROJECT_LIST_FAILURE, err });
