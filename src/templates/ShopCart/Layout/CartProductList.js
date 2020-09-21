@@ -111,7 +111,7 @@ const CardCartProductList = (props) => {
                         [<ItemProjectName key={index} checked={data.checked} onChange={checked => onCheckAllProduct(checked, index)} />,
                         <div className="block bg_white apartment" key={check.allProduct.length + index + 1}>
                             {data.product && data.product.map((item, i) => {
-                                return <ItemProjectProduct
+                                return <ItemProjectBorrow
                                     key={i + 1}
                                     showPaymentProgressModal={showPaymentProgressModal}
                                     showPromotionModal={showPromotionModal}

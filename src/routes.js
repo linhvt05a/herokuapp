@@ -60,6 +60,7 @@ const Account = lazy(() => import('./templates/Account/CustomerAccount'));
 
 const PropertySelling = lazy(() => import('./templates/PolicyPayment/PropertySelling'));
 const LoanPolicy = lazy(() => import('./templates/LoanOnline/LoanPolicy'));
+const LoanOnline = lazy(() => import('./templates/LoanOnline/LoanOnline'));
 
 const Introduce = lazy(() => import('./templates/Support/Introduce/Introduce'));
 const Contact = lazy(() => import('./templates/Support/Contact/Contact'));
@@ -254,6 +255,11 @@ const MAIN = [
     {
         "path": "/loan-policy",
         "component": LoanPolicy,
+        "banner_show": false
+    },
+    {
+        "path": "/loan-online",
+        "component": LoanOnline,
         "banner_show": false
     },
     {

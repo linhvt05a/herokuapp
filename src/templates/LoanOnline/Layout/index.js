@@ -10,11 +10,12 @@ import FloatingRates from "../FloatingRates";
 import HeadingLine from "../../../components/common/HeadingLine";
 import { contactAddAction } from "../../../store/action";
 import StaticLoading from "../../../components/common/Loading/StaticLoading";
-import CardNoData from "../../../components/common/CardNoData"
+import CardNoData from "../../../components/common/CardNoData";
+import SidebarLeft from "./SidebarLeft"
 
 export {
     AmountInformation, PaymentDetail,
     Banking, SliderSimple, InputBase, InputSlider, ChartDonutText,
     SidebarRight, FloatingRates, HeadingLine, contactAddAction, StaticLoading,
-    CardNoData,
+    CardNoData, SidebarLeft
 }
