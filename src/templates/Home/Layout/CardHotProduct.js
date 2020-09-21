@@ -62,7 +62,10 @@ const CardHotProduct = (props) => {
                     data={PROJECT_SALE_GROUP}
                     labelHeader={labelHeader}
                     onChange={onProjectGroupFilterChange}
-                    selected={PROJECT_SALE_GROUP_VALUE(projectGroupSelected).id}
+                    selected={projectGroupSelected 
+                        ? PROJECT_SALE_GROUP_VALUE(projectGroupSelected).id 
+                        : PROJECT_SALE_GROUP_VALUE('all').id
+                    }
                     options trans
                 />
                 <div className="striking_apartment--content">
