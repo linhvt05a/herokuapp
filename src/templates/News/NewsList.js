@@ -1,7 +1,6 @@
 import React, { useState, useEffect} from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Categories, FilterProject, CommonMenu } from '../News/index'
-import RegisterModal from "./RegisterModal";
 import { Trans } from "react-i18next";
 import Pagination from '../../components/common/Pagination';
 import { LoadDataPaging } from '../../functions/Utils';
@@ -161,7 +160,6 @@ const News = (props) => {
                     </div>
                 </div>
             </div>
-            <RegisterModal />
         </div>
     );
 }

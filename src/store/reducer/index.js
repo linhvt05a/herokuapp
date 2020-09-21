@@ -11,7 +11,7 @@ import visitorReducer from './visitorReducer'
 import { combineReducers } from 'redux';
 import accountReducer from './accountReducer';
 import recruitmentReducer from './recruitmentReducer'
-
+import liveStreamReducer from './liveStreamReducer'
 const allReducers = combineReducers({
     examReducer, projectReducer, 
     productReducer,commonReducer,
@@ -20,6 +20,7 @@ const allReducers = combineReducers({
     newsReducer,contactAddReducer,
     visitorReducer,
     accountReducer,
-    recruitmentReducer
+    recruitmentReducer,
+    liveStreamReducer
 });
 export default allReducers; 

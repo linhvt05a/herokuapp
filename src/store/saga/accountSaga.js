@@ -54,7 +54,6 @@ export function* forgotPasswordWatcher() {
 
 // change Password
 export function* changePassword(payload) {
-    // console.log(payload);
     let { new_password, new_password_repeat, current_password } = payload.params
     try {
         const response = yield accountService.changePassword(new_password, new_password_repeat, current_password);

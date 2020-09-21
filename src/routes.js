@@ -43,6 +43,7 @@ const ConfirmOrderInfo = lazy(() => import('./templates/ShopCart/ConfirmOrderInf
 const DepositPayment = lazy(() => import('./templates/ShopCart/DepositPayment'));
 const OrderInfo = lazy(() => import('./templates/ShopCart/OrderInfo'));
 
+const LiveStream = lazy (() => import('./templates/LiveStream/LiveStream'));
 
 const MAIN = [
     {
@@ -248,6 +249,12 @@ const MAIN = [
         "banner_title": "",
         "banner_url": BANNER_URL.promotionList_banner_url,
         "banner_show": true,
+    },
+
+    {
+        "path": "/liveStream",
+        "component": LiveStream,
+        "banner_show": false,
     },
 ];
 

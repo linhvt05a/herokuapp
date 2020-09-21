@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-
 import CardHeader from "../../../components/common/CardHeader";
-import { ProductRightBar, ProductContent, ProductSignInModal } from './index'
+import { ProductRightBar, ProductContent} from './index'
 import ModalCustom from '../../../components/base/Modal/ModalCustom'
-import { validateSignup, validateLogin } from '../../../components/base/ValidateInput/ValidateInput'
-import { useFormSignup, useFormSignIn } from '../../../components/base/ValidateInput/useForm'
 import { productAction, accountAction } from "../../../store/action/index";
 import { getLocalStore } from "../../../functions/Utils";
 
@@ -27,16 +24,13 @@ const ProductList = (props) => {
   if(productMarkSuccess == true){
       sessionStorage.removeItem('favor')
   }
-  const productMarkList = productMarkSuccess ? productMark.detail : null;
-  
-  const login = useSelector(state => state.accountReducer)
-  const isLoginSuccess = login.login.success
   const loginData = getLocalStore('user')
   const [localData, setLocalData] = useState([])
-  const [newObj, setNewObj] = useState([])
+
   const newArray = [];
   const productNew = []
   const postData = []
+
   useEffect(() => {
     if (loginData && loginData.user_id !== null) {
       console.log(productList)
@@ -74,20 +68,6 @@ const ProductList = (props) => {
     dispatch(productAction.productIncentive({}));
   }, []);
 
-
-  const signupValue = { fullName: '', emailSignup: '', passwordSignup: '', rePass: '' }
-  const signInValue = { emailSignIn: '', passwordSignIn: '' }
-
-  const { signupValues, signupErrors, handleChangeSignup, handleSignUp } = useFormSignup(signupValue, register, validateSignup)
-  const { signInValues, signInErrors, handleChangeSignIn, handleSignIn } = useFormSignIn(signInValue, signIn, validateLogin)
-
-  function signIn() {
-    const user = signInValues.emailSignIn
-    const password = signupValues.passwordSignIn
-  }
-  function register() {
-    dispatch(productAction.productSignup({ signupValues }))
-  }
   function onPageChange(value) {
     dispatch(productAction.productFavoriteList({ page: value, limit: 2 }))
   }
@@ -108,10 +88,6 @@ const ProductList = (props) => {
             <ProductRightBar 
                 data ={productListIncentive} 
                 showSignInModal={()=>setShowSignIn(true)}
-                handleSignUp={handleSignUp} 
-                handleChange={handleChangeSignup} 
-                values= {signupValues} 
-                errors={signupErrors}
             />
           </div>
         </div>

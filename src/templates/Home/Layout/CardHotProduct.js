@@ -16,7 +16,6 @@ const CardHotProduct = (props) => {
     const isGetHotProductListSuccess = product.hotProductList.success;
     const datas = isGetHotProductListSuccess ? product.hotProductList : null;
     const dispatch = useDispatch();
-    const dataProduct = datas && datas.detail.list_product
     const [projectGroupId, setProjectGroupId] = useState(null);
     
     const projectGroupSelected = location.search.split("=")[1]
