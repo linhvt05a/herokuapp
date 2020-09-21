@@ -80,7 +80,6 @@ const CardCartProductList = (props) => {
     const onSubmit = () => {
         let doc = document.getElementsByClassName("top_banner ");
         setTimeout(() => {
-            console.log(doc[0]);
             doc[0].scrollIntoView(true)
         }, 0);
         props.onSubmit()

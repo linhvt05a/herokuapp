@@ -11,9 +11,7 @@ import { productAction } from "../../../store/action/index";
 import { PROJECT_SALE_GROUP } from "../../../contant";
 
 const CardHotProduct = (props) => {
-
     const { headerBodyClassName, labelHeader, location, limit, detail, options } = props
-
     const product = useSelector(state => state.productReducer);
     const isGetHotProductListSuccess = product.hotProductList.success;
     const datas = isGetHotProductListSuccess ? product.hotProductList : null;

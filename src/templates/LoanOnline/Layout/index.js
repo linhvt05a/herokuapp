@@ -12,10 +12,15 @@ import { contactAddAction } from "../../../store/action";
 import StaticLoading from "../../../components/common/Loading/StaticLoading";
 import CardNoData from "../../../components/common/CardNoData";
 import SidebarLeft from "./SidebarLeft"
+import CustomerInformation from "./CustomerInformation";
+import JobInformation from "./JobInformation";
+import Collateral from "./Collateral";
+import BorrowerInformation from "./BorrowerInformation"
 
 export {
     AmountInformation, PaymentDetail,
     Banking, SliderSimple, InputBase, InputSlider, ChartDonutText,
     SidebarRight, FloatingRates, HeadingLine, contactAddAction, StaticLoading,
-    CardNoData, SidebarLeft
+    CardNoData, SidebarLeft,
+    CustomerInformation, JobInformation, Collateral, BorrowerInformation
 }
