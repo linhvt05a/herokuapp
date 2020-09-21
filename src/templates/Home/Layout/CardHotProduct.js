@@ -20,12 +20,11 @@ const CardHotProduct = (props) => {
     const [projectGroupId, setProjectGroupId] = useState(0);
 
     const projectGroupSelected = location.search.split("=")[1]
-    console.log(projectGroupSelected);
 
 
     useEffect(() => {
         if (detail) {
-            if (projectGroupSelected == PROJECT_SALE_GROUP_VALUE('all').id) {
+            if (projectGroupSelected == PROJECT_SALE_GROUP_VALUE('all').value) {
                 dispatch(productAction.loadHotProductList({ page: 1, limit: limit }));
             } else {
                 dispatch(productAction.loadHotProductList({ page: 1, limit: limit, list_product_type_id: `[${projectGroupSelected}]` }));
