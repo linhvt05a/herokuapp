@@ -2,7 +2,7 @@ import React from "react";
 import { Trans } from 'react-i18next';
 import { Link } from "react-router-dom";
 import { Select } from 'antd';
-import { PROJECT_STATUS_VALUE } from "../../functions/Helper";
+import { PROJECT_SALE_GROUP_ID, PROJECT_SALE_GROUP_VALUE, PROJECT_STATUS_ID, PROJECT_STATUS_VALUE } from "../../functions/Helper";
 
 
 const HeadingLine = (props) => {
@@ -28,7 +28,7 @@ const HeadingLine = (props) => {
                     <div className="text"><Trans>filter_by</Trans> : </div>
                     <div className="filter_project form-group">
                         <Select
-                            defaultValue={parseInt(selected) ? parseInt(selected) : 0}
+                            defaultValue={parseInt(selected) ? parseInt(selected) : PROJECT_SALE_GROUP_VALUE('all').id}
                             placeholder="Select--"
                             className="form-control"
                             onChange={onChange}

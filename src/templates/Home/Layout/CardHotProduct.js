@@ -87,7 +87,6 @@ const CardHotProduct = (props) => {
                                 {
                                     (options && datas.detail.list_product.length > 3) &&
                                     <div className="text-center text-uppercase">
-                                        {console.log({projectGroupId})}
                                         <Link to={{
                                             pathname: "/hot-product/",
                                             search: "?filter-by=" + (projectGroupId ? PROJECT_SALE_GROUP_ID(projectGroupId).value : PROJECT_SALE_GROUP_VALUE('all').value)
