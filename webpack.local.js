@@ -14,13 +14,13 @@ module.exports = merge(common, {
     //     'webpack/hot/only-dev-server',
     // ],
     output: {
-        path: path.join(__dirname, 'dist'),
+        path: path.join(__dirname, 'build'),
         publicPath: '/',
         filename: '[name].[hash].js',
         chunkFilename: '[name].js'
     },
     devServer: {
-        contentBase: path.join(__dirname, "dist"),
+        contentBase: path.join(__dirname, "build"),
         writeToDisk: true,
         proxy: { '/': 'http://localhost:5000' },
         port: env.MODE_ENV.local.port,

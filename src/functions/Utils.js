@@ -286,7 +286,7 @@ function formatCurrency(number) {
 export const formatDate = (date, type = "DD/MM/YYYY") => {
     return moment(date).format(type)
 }
-export const getLocalStore = (text, remove) => {
+export const getLocalStore = (text, remove=false) => {
     let data = localStorage.getItem(text);
     if (data) {
         if (remove) { localStorage.removeItem(text) }

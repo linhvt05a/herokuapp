@@ -8,7 +8,8 @@ module.exports = merge(common, {
     output: {
         path: __dirname + '/build-prod',
         publicPath: '/',
-        filename: 'bundle.js',
+        filename: '[name].[hash].js',
+        chunkFilename: '[name].js'
     },
     plugins: [
         new CopyPlugin({
