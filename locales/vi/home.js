@@ -26,7 +26,7 @@ const home = {
     hot_product: "Sản phẩm nổi bật nhất",
     home_detail_button_title: "Chi tiết",
     home_product_button_title: "Sản phẩm",
-    home_aparment: "Aparment",
+    home_apartment: "Aparment",
     home_duplex: "Duplex",
     home_officetel: "Officetel",
     home_studio: "Studio",

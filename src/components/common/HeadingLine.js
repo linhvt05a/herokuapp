@@ -33,7 +33,7 @@ const HeadingLine = (props) => {
                             className="form-control"
                             onChange={onChange}
                             children={data && data.length > 0 && data.map((e, key) => {
-                                return <Option name={name} key={key} value={e.value}>{trans ? <Trans>{e.label}</Trans> : e.label}</Option>;
+                                return <Option name={name} key={key} value={e.id}>{trans ? <Trans>{e.label}</Trans> : e.label}</Option>;
                             })}
                         />
                     </div>
