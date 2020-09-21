@@ -136,6 +136,14 @@ const RULES = {
         ],
         type: 'email'
     },
+    password: {
+        form:[
+        { 
+            required: true, 
+            message:translate('Please input your Password!')
+        }
+        ]
+    },
     text: {
         form: [
             {

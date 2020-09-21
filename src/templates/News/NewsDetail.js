@@ -117,21 +117,7 @@ function convertDateFrom(value){
             />
           
           
-            <RightContent 
-              paramsSearch ={cateID}
-              titleNews = {nameSearch}
-              dateFrom ={dateFrom}
-              dateTo = {dateTo}
-              data={hotList} 
-              cateID={cateID} 
-              changeDateTo={changeDateTo} 
-              handleChange ={handleChangeNewsTitle} 
-              changeDateFrom={changeDateFrom} 
-              changeSelect={changeSelect} 
-              handleFilter={handleFilter} 
-              newsCategories={newsCategories} 
-
-            />
+            <RightContent  data={hotList} />
         </div>
       </div>
     </div>

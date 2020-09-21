@@ -8,28 +8,29 @@ import CardNoData from "../../../components/common/CardNoData";
 import Pagination from '../../../components/common/Pagination';
 import { LoadDataPaging } from '../../../functions/Utils';
 import { productAction } from "../../../store/action/index";
-import { PROJECT_SALE_GROUP } from "../../../functions/Helper";
+import { PROJECT_SALE_GROUP, PROJECT_SALE_GROUP_VALUE, PROJECT_SALE_GROUP_ID } from "../../../functions/Helper";
 
 const CardHotProduct = (props) => {
-    const { headerBodyClassName, labelHeader, limit, detail, options } = props;   
+    const { headerBodyClassName, labelHeader, limit, detail, options } = props;
     const product = useSelector(state => state.productReducer);
     const isGetHotProductListSuccess = product.hotProductList.success;
     const datas = isGetHotProductListSuccess ? product.hotProductList : null;
     const dispatch = useDispatch();
-    const dataProduct = datas && datas.detail.list_product
     const [projectGroupId, setProjectGroupId] = useState(null);
-    
+
     const projectGroupSelected = location.search.split("=")[1]
 
 
     useEffect(() => {
-        if(detail){
-            if(projectGroupSelected == 0){
-                dispatch(productAction.loadHotProductList({page: 1, limit: limit}));
-            }else{
-                dispatch(productAction.loadHotProductList({ page: 1, limit: limit, list_product_type_id: `[${projectGroupSelected}]` }));
+
+        
+        if (detail) {
+            if (projectGroupSelected == PROJECT_SALE_GROUP_VALUE('all').value) {
+                dispatch(productAction.loadHotProductList({ page: 1, limit: limit }));
+            } else {
+                dispatch(productAction.loadHotProductList({ page: 1, limit: limit, list_product_type_id: `[${PROJECT_SALE_GROUP_VALUE(projectGroupSelected).id}]` }));
             }
-        }else{
+        } else {
             dispatch(productAction.loadHotProductList({}));
         }
         setProjectGroupId(projectGroupSelected)
@@ -40,7 +41,7 @@ const CardHotProduct = (props) => {
             dispatch(productAction.loadHotProductList({ list_product_type_id: `[${value}]` }));
             setProjectGroupId(value);
         } else {
-            dispatch(productAction.loadHotProductList({page: 1, limit: limit}));
+            dispatch(productAction.loadHotProductList({ page: 1, limit: limit }));
             setProjectGroupId(0);
         }
     }
@@ -61,7 +62,10 @@ const CardHotProduct = (props) => {
                     data={PROJECT_SALE_GROUP}
                     labelHeader={labelHeader}
                     onChange={onProjectGroupFilterChange}
-                    selected={projectGroupSelected}
+                    selected={projectGroupSelected 
+                        ? PROJECT_SALE_GROUP_VALUE(projectGroupSelected).id 
+                        : PROJECT_SALE_GROUP_VALUE('all').id
+                    }
                     options trans
                 />
                 <div className="striking_apartment--content">
@@ -73,11 +77,11 @@ const CardHotProduct = (props) => {
                                         datas.detail.list_product.map((item, index) => (
                                             detail
                                                 ? <div key={index} className="col-12 col-sm-12 col-md-6 col-lg-4 mb-3">
-                                                    <ItemProduct data={item} dataProduct={dataProduct} />
+                                                    <ItemProduct data={item}  />
                                                 </div>
                                                 : index < 6
                                                     ? <div key={index} className="col-12 col-sm-12 col-md-6 col-lg-4 mb-3">
-                                                        <ItemProduct data={item} dataProduct={dataProduct} />
+                                                        <ItemProduct data={item} />
                                                     </div>
                                                     : ""
                                         ))
@@ -88,7 +92,7 @@ const CardHotProduct = (props) => {
                                     <div className="text-center text-uppercase">
                                         <Link to={{
                                             pathname: "/hot-product/",
-                                            search: "?filter-by=" + (projectGroupId ? projectGroupId : 0)
+                                            search: "?filter-by=" + (projectGroupId ? PROJECT_SALE_GROUP_ID(projectGroupId).value : PROJECT_SALE_GROUP_VALUE('all').value)
                                         }}
                                             className="btn btn_purple">
                                             <Trans>see_all</Trans>

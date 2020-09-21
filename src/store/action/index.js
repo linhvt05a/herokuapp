@@ -10,9 +10,10 @@ import contactAddAction from './contactAddAction'
 import visitorAction from './visitorAction'
 import accountAction from './accountAction'
 import recruitmentAction from './recruitmentAction'
+import liveStreamAction from './liveStreamAction'
 export {
   examAction, projectAction, productAction, promotionAction, commonAction,
   newsAction,transactionAction,
   legalAction, contactAddAction, visitorAction,
-  accountAction, recruitmentAction
+  accountAction, recruitmentAction, liveStreamAction
 }

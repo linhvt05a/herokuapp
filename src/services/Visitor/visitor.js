@@ -3,13 +3,14 @@ import { TOKEN } from '../../functions/Utils';
 
 export const visitorService = {
     visitorAdd(payload) {
-        const {visitContent,visitMobile,visitName,visitSelect} = payload.params.signValues
+        const {full_name,mobile,project_id,content} = payload.params.values
         const body = {
-            full_name:visitName, 
-            mobile: visitMobile,
-            project_id:visitSelect, 
-            content:visitContent
+            full_name,
+            mobile,
+            project_id ,
+            content,
         }
+        console.log(body)
         const requestOptions = {
             method: 'POST',
             headers: api.getHeader(TOKEN),

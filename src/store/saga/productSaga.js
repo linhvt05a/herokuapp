@@ -5,10 +5,8 @@ import { productAction } from '../action/index';
 
 
 export function* productMark(payload) {
-    // console.log(payload)
     try {
         const response = yield productService.productMark(payload);
-        console.log(response)
         response.success ? yield put({ type: productAction.PRODUCT_MARK_LIST_SUCCESS, response }) : yield put({ type: productAction.PRODUCT_MARK_LIST_FAILURE, response });
     } catch (err) {
         yield put({ type: productAction.PRODUCT_MARK_LIST_FAILURE, err });
@@ -83,7 +81,6 @@ export function* productFavoriteList(payload) {
     try {
         const response = yield productService.productFavoriteList(token);
         response.success ? yield put({ type: productAction.PRODUCT_FAVORITE_LIST_SUCCESS, response }) : yield put({ type: productAction.PRODUCT_FAVORITE_LIST_FAILURE, response });
-        // console.log(response)
     } catch (err) {
         yield put({ type: productAction.PRODUCT_FAVORITE_LIST_FAILURE, err });
     }
@@ -98,10 +95,9 @@ export function* productIncentive(payload) {
 }
 
 export function* productSignup(payload) {
-    // console.log(payload)
+    
     try {
         const response = yield productService.productSignup(payload);
-        // console.log(response)
         response.success ? yield put({ type: productAction.PRODUCT_SIGNUP_SUCCESS, response }) : yield put({ type: productAction.PRODUCT_SIGNUP_FAILURE, response });
     } catch (err) {
         yield put({ type: productAction.PRODUCT_SIGNUP_FAILURE, err });

@@ -11,24 +11,17 @@ import { useDispatch, useSelector } from "react-redux";
 import { productAction } from "../../store/action/index";
 
 const ItemProduct = (props) => {
-    const { data, dataProduct } = props;
-    // console.log(data, dataProduct);
+    const { data} = props;
     const [active, setActive] = useState(false)
     const loginData = getLocalStore('user')
     const dispatch = useDispatch()
     const postData = []
     function saveProduct() {
         setActive(!active)
-        if (loginData && loginData !== null) {
-            for (let j = 0; j < dataProduct.length; j++) {
-                if (dataProduct[j].product_id == data.product_id) {
-                    console.log(dataProduct[j].product_id = data.product_id)
-                    postData.push({ product_id: dataProduct[j].product_id, is_favorite: !active })
-                }
-            }
-            console.log(postData)
-            dispatch(productAction.productMark({ postData }))
-        } else {
+        if(loginData && loginData !== null){
+            postData.push({product_id: data.product_id, is_favorite: !active})
+            dispatch(productAction.productMark({postData}))
+        }else {
             setActive(!active)
             if (!active) {
                 var favor = JSON.parse(sessionStorage.getItem('favor'));
@@ -67,7 +60,6 @@ const ItemProduct = (props) => {
 
 
     }
-
     return (
         data
             ? <div className="item">
