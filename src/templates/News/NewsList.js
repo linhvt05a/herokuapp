@@ -59,29 +59,6 @@ const News = (props) => {
             dispatch(newsAction.LoadNewsList({category_id}))
         }
     }, [])
-    useEffect(() => {
-        dispatch(newsAction.newsCategories({}))
-        console.log(location.state)
-        if(
-            location.state && location.state.fromDate !== null || 
-            location.state && location.state.toDate !== null  ||
-            location.state && location.state.paramsSearch !== null ||
-            location.state && location.state.titleNews !== "" ||
-            location.state && location.state.category_id !== null
-            ){
-           
-            const fromDate = location.state.fromDate
-            const toDate = location.state.toDate
-            const paramsSearch = location.state.paramsSearch
-            const titleNews = location.state.titleNews
-            const category_id = location.state.category_id
-            dispatch(newsAction.LoadNewsList({cateID: paramsSearch,titleNews: titleNews, dateFrom: fromDate, dateTo: toDate, category_id}))
-        }else {
-            console.log(null)
-            dispatch(newsAction.LoadNewsList({cateID,dateFrom, dateTo}))
-        }
-
-    }, []);
 
     const onPageChange = (value) =>{
         dispatch(newsAction.LoadNewsList({page: value, limit: 10}))
@@ -138,14 +115,14 @@ const News = (props) => {
                         <Pagination data={LoadDataPaging(total_record, page, total_page, limit)} onChange ={onPageChange}/>
                     </div>
                     <div className="col-md-12 col-lg-4 col-xl-4 col-right_news mb-sm-3 mb-0">
-                        <CommonMenu 
+                        {/* <CommonMenu 
                             label="news_categories" 
                             dataMenu={newsCategories} 
                             className="options mb-4 bg_white" onClick = {handleClick}
                             navigate ={navigate}
                             catesId={catesId}
                             linkTo ="/news"
-                        />
+                        /> */}
                         <CommonFilter 
                             title="news_filter" 
                             placeholder="news_placeholder"
