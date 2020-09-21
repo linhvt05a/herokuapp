@@ -40,7 +40,7 @@ const FloatingRates = props => {
                 <div className="row">
                     <div className="col-sm-12 col-md-6 col-lg-6">
                         <InputSlider
-                            className="input-group range-Value04"
+                            classNameGroupInput="input-group range-Value04"
                             label={translate("loan_amount_borrow", t)}
                             unit={data.maximum_loan_limit_money_master_unit_name}
                             titleClassName="label"

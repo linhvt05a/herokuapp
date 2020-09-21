@@ -10,13 +10,12 @@ const TransactionContent = (props) => {
     const { dataFilter, projectInfoInit, error, onFilterChange, onDeleteFilterClick, isLoading } = props
 
     // console.log(dataFilter);
-    console.log(isLoading)
     return (
 
         <div className="exchanges bg_grey">
             <div className="container container-sm container-md">
                 <h2 className="main_heading"><span><Trans>exchanges_heading</Trans></span></h2>
-                {isLoading ? <StaticLoading /> : !error ?
+                {!error ?
                     <div className="row">
                         <div className="col-12 col-sm-12 col-lg-8 mb-4 mb-lg-0">
 
@@ -28,10 +27,9 @@ const TransactionContent = (props) => {
                                 onFilterChange={onFilterChange}
                                 onDeleteFilterClick={onDeleteFilterClick}
                             />
-
-                            {dataFilter ? <BlockExchanges data={dataFilter} /> : ''}
-
+                            {isLoading ? <StaticLoading /> : dataFilter ? <BlockExchanges data={dataFilter} /> : ''}
                         </div>
+
                         <div className="col-12 col-sm-12 col-lg-4">
 
                             <BlockPromotionPolicy

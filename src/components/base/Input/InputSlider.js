@@ -3,9 +3,9 @@ import React from 'react';
 
 
 const InputNumberCustoms = props => {
-    let { readOnly, label, onChange, value, addonBefore, className, classNameInput, style, min, max, defaultValue, classNameSlider, titleClassName, classNameUnit, unit, classNameGroupSlider } = props;
+    let { readOnly, label, onChange, value, addonBefore, className, classNameInput, style, min, max, defaultValue, classNameSlider, titleClassName, classNameUnit, unit, classNameGroupSlider, classNameGroupInput } = props;
     return (
-        <div className="form-group">
+        <div className={className ? className : "form-group"}>
             {
                 label &&
                 <label className={titleClassName ? titleClassName : "fw-medium"}>
@@ -16,16 +16,16 @@ const InputNumberCustoms = props => {
                 </label>
             }
             <div className={classNameGroupSlider ? classNameGroupSlider : "pull-range"}>
-                <div className="slider-wrapper">
-                    <Slider
-                        tipFormatter={null}
-                        className={classNameSlider ? classNameSlider : ""}
-                        min={min}
-                        max={max}
-                        onChange={onChange}
-                        value={typeof value === 'number' ? value : 0} />
-                </div>
-                <div className={className ? className : ""}>
+                {/* <div className="slider-wrapper"> */}
+                <Slider
+                    tipFormatter={null}
+                    className={classNameSlider ? classNameSlider : ""}
+                    min={min}
+                    max={max}
+                    onChange={onChange}
+                    value={typeof value === 'number' ? value : 0} />
+                {/* </div> */}
+                <div className={classNameGroupInput ? classNameGroupInput : ""}>
                     <InputNumber
                         min={min ? min : 0}
                         max={max ? max : 0}

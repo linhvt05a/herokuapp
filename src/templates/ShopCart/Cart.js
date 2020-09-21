@@ -104,7 +104,7 @@ const Cart = (props) => {
                         onSubmit={onSubmit} />
                     {state.onSubmit &&
                         <div className="col-12 col-sm-12 col-lg-4">
-                            <CardCartSummary extend onNext={() => history.push("/cart/customer-info")} />
+                            <CardCartSummary loanStatus={true} extend onNext={() => true ? history.push("/loan-online") : history.push("/cart/customer-info")} />
                         </div>}
                 </div>
             </div>

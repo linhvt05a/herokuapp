@@ -15,35 +15,29 @@ const TransactionLevel = (props) => {
         blockId: 2,
         blockName: "A1(QC TEST)"
     })
-
+    //call api lan 1
     useEffect(() => {
-        // dispatch(transactionAction.TransactionLoadList({
-        //     project_id: projectInfoInit.projectId,
-        //     area_id: projectInfoInit.areaId,
-        //     block_id: projectInfoInit.blockId
-        // }));
-        // dispatch(transactionAction.transLoadProjectNameList({ project_id: projectInfoInit.projectId }))
-        // dispatch(transactionAction.transLoadAreaNameList({ project_id: projectInfoInit.projectId }))
-        // dispatch(transactionAction.transLoadBlockNameList({ project_id: projectInfoInit.projectId }))
-    }, [])
+        dispatch(transactionAction.loadTransProductTypeList({}));
+    }, []);
 
+    //store
     const projectNameList = useSelector(state => state.transactionReducer);
-
     let { transacProjectNameList, transacAreaNameList, transacBlockNameList, error } = projectNameList;
     transacProjectNameList = transacProjectNameList.detail ? transacProjectNameList.detail : null;
     transacAreaNameList = transacAreaNameList.detail ? transacAreaNameList.detail : null;
     transacBlockNameList = transacBlockNameList.detail ? transacBlockNameList.detail : null;
-
-    // console.log('projectNameList:', projectNameList);
-
     // --- ITEM DETAIL API----
     const transtion = useSelector(state => state.transactionReducer);
     const isGetTransProductTypeListSuccess = transtion.transacProductTypeList.success;
     const transacProductTypeList = isGetTransProductTypeListSuccess ? transtion.transacProductTypeList.detail : null;
     const { isLoadingList } = transtion
-    useEffect(() => {
-        dispatch(transactionAction.loadTransProductTypeList({}));
-    }, []);
+    // console.log('projectNameList:', projectNameList);
+    //get project name
+    const project = useSelector(state => state.transactionReducer)
+    const { projectList } = project;
+
+
+    //call api filter
     const callApiProduct = ({ project_id, area_id, block_id, architecture_type_id, direction_id, price_from, price_to, acreage_from, acreage_to, project_status_id }) => {
         dispatch(transactionAction.TransactionLoadList({
             project_id,
@@ -58,6 +52,19 @@ const TransactionLevel = (props) => {
             project_status_id
         }));
     }
+
+    useEffect(() => {
+        if (projectList.length > 0) {
+            for (let i = 0;i < projectList.length;i++) {
+                let newProjectName = projectList[i]
+                if (newProjectName.project_id == projectInfoInit.projectId) {
+                    setProjectInfoInit({ ...projectInfoInit, projectId: newProjectName.project_id, projectName: newProjectName.project_name })
+                }
+            }
+        }
+    }, [projectList, projectInfoInit.projectId])
+
+
     const onFilterChange = (productType, direction, price, acreage) => {
         callApiProduct({
             project_id: projectInfoInit.projectId,
@@ -97,7 +104,10 @@ const TransactionLevel = (props) => {
                     project_id={projectInfoInit.projectId}
                     onChangeFilter={onChangeFilter}
                     dataDefault={true}
-                    setProjectId={(value) => setProjectInfoInit({ ...projectInfoInit, projectId: value })}
+                    noStatus={true}
+                    setProjectId={value => setProjectInfoInit({ ...projectInfoInit, projectId: value })}
+                    setAreaName={(value) => setProjectInfoInit({ ...projectInfoInit, areaName: value })}
+                    setBlockName={(value) => setProjectInfoInit({ ...projectInfoInit, blockName: value })}
                 />}
             <TransactionContent
                 projectInfoInit={projectInfoInit}

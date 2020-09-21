@@ -87,18 +87,18 @@ const ProjectDetail = (props) => {
 
     useEffect(() => {
         if (projectList.length > 0) {
-            for (let i = 0; i < projectList.length; i++) {
+            for (let i = 0;i < projectList.length;i++) {
                 let newProjectName = projectList[i]
                 if (newProjectName.project_id == projectName.id) {
                     setProjectName({ id: newProjectName.project_id, name: newProjectName.project_name })
                 }
             }
         }
-    }, [projectList])
+    }, [projectList, projectName.id])
 
     const onFilterChange = (productTypeData, directionData, priceData, acreageData) => {
         callApiProduct({
-            project_id: filter.project_id,
+            project_id: projectName.id,
             page: 1, limit: 6,
             architecture_type_id: productTypeData,
             direction_id: directionData,
@@ -116,7 +116,7 @@ const ProjectDetail = (props) => {
 
     const onPageChange = (value) => {
         callApiProduct({
-            page: value, limit: 6, project_id: filter.project_id,
+            page: value, limit: 6, project_id: projectName.id,
             architecture_type_id: productType,
             direction_id: direction,
             price_from: price[0],
@@ -134,14 +134,14 @@ const ProjectDetail = (props) => {
             project_status_id
         })
     }
+    { console.log(typeof project_status) }
     return (
         <div className="projectDetailPage">
             {projectName.id &&
                 <TopBannerFilter
                     project_id={projectName.id}
                     onChangeFilter={onChangeFilter}
-                    status={project_status}
-                    noStatus={true}
+                    status={typeof project_status == "string" ? parseInt(project_status) : project_status}
                     setProjectId={(value) => setProjectName({ ...projectName, id: value })}
                 />}
             <DataProjectList

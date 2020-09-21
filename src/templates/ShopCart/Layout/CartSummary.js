@@ -4,7 +4,7 @@ import { Trans } from 'react-i18next';
 
 const CardCartSummary = (props) => {
 
-    const { extend, visible, showPaymentProgressModal } = props
+    const { extend, visible, showPaymentProgressModal, loanStatus } = props
 
     return (
         <div className="cart-expenses mb-45 ">
@@ -16,24 +16,49 @@ const CardCartSummary = (props) => {
                 </span>
                 <span className="number">10.212.520.022</span>
             </div>
-            <div className={extend ? "cart-expenses__detail listed_price" : "cart-expenses__detail"}>
-                <div className="cart-expenses__list">
-                    <span className="cart-expenses__title"><Trans>cart_real_estate_prices</Trans></span>
-                    <span className="cart-expenses__value">9.586.779.409</span>
+            {loanStatus ?
+                <div className="cart-expenses__detail">
+                    <div className="color_e94c4c temporary"><i>Tạm tính</i></div>
+                    <div className="cart-expenses__list">
+                        <span className="cart-expenses__title">Tổng tiền niêm yết (vnd) </span>
+                        <span className="cart-expenses__value">9.586.779.409</span>
+                    </div>
+                    <div className="cart-expenses__list star_red">
+                        <span className="cart-expenses__title ">Số tiền vay (vnd)</span>
+                        <span className="cart-expenses__value ">681.577.024</span>
+                    </div>
+                    <div className="cart-expenses__list">
+                        <span className="cart-expenses__title">Lãi suất trung bình</span>
+                        <span className="cart-expenses__value">10%</span>
+                    </div>
+                    <div className="cart-expenses__list">
+                        <span className="cart-expenses__title">Thời gian vay tối đa</span>
+                        <span className="cart-expenses__value">10 năm</span>
+                    </div>
+                    <div className="cart-expenses__list star_green">
+                        <span className="cart-expenses__title">Tổng tiền lãi (vnd) </span>
+                        <span className="cart-expenses__value">1.000.000.000</span>
+                    </div>
                 </div>
-                <div className="cart-expenses__list">
-                    <span className="cart-expenses__title"><Trans>cart_vat</Trans> (<Trans>cart_provisional</Trans>)</span>
-                    <span className="cart-expenses__value">681.577.024</span>
-                </div>
-                <div className="cart-expenses__list">
-                    <span className="cart-expenses__title"><Trans>cart_maintain_expense</Trans> (<Trans>cart_provisional</Trans>)</span>
-                    <span className="cart-expenses__value">191.735.589</span>
-                </div>
-                <div className="cart-expenses__list promotion">
-                    <span className="cart-expenses__title"><Trans>cart_discount_amount</Trans></span>
-                    <span className="cart-expenses__value">247.571.950</span>
-                </div>
-            </div>
+                :
+                <div className={extend ? "cart-expenses__detail listed_price" : "cart-expenses__detail"}>
+                    <div className="cart-expenses__list">
+                        <span className="cart-expenses__title"><Trans>cart_real_estate_prices</Trans></span>
+                        <span className="cart-expenses__value">9.586.779.409</span>
+                    </div>
+                    <div className="cart-expenses__list">
+                        <span className="cart-expenses__title"><Trans>cart_vat</Trans> (<Trans>cart_provisional</Trans>)</span>
+                        <span className="cart-expenses__value">681.577.024</span>
+                    </div>
+                    <div className="cart-expenses__list">
+                        <span className="cart-expenses__title"><Trans>cart_maintain_expense</Trans> (<Trans>cart_provisional</Trans>)</span>
+                        <span className="cart-expenses__value">191.735.589</span>
+                    </div>
+                    <div className="cart-expenses__list promotion">
+                        <span className="cart-expenses__title"><Trans>cart_discount_amount</Trans></span>
+                        <span className="cart-expenses__value">247.571.950</span>
+                    </div>
+                </div>}
             {
                 extend &&
                 <div className="temporary-product bg_white">

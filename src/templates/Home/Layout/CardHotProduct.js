@@ -11,6 +11,7 @@ import { productAction } from "../../../store/action/index";
 import { PROJECT_SALE_GROUP } from "../../../contant";
 
 const CardHotProduct = (props) => {
+<<<<<<< HEAD
     const { headerBodyClassName, labelHeader, limit, detail, options } = props;   
     
     console.log(location);
@@ -18,6 +19,15 @@ const CardHotProduct = (props) => {
     const project_id = location.pathname.split("/")[2];
     const project_status = location.search.split("=")[1];
 
+=======
+<<<<<<< HEAD
+=======
+    // const location  = useLocation();
+    // console.log('location', location);
+
+>>>>>>> develop
+    const { headerBodyClassName, labelHeader, location, limit, detail, options } = props
+>>>>>>> develop
     const product = useSelector(state => state.productReducer);
     const isGetHotProductListSuccess = product.hotProductList.success;
     const datas = isGetHotProductListSuccess ? product.hotProductList : null;
