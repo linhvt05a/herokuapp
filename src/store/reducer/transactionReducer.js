@@ -65,6 +65,7 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 transacAreaNameList: [],
+                transacBlockNameList: [],
             };
         case transactionAction.TRANS_AREA_NAME_SUCCESS:
             return {

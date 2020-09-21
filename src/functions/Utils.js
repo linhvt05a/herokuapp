@@ -446,7 +446,9 @@ export const datePichkerLocation = () => {
             return zh_CN
     }
 }
-
+export const createDataSelect = (value, label) => {
+    return { value, label }
+};
 const token = () => {
     if (getLocalStore('user')) {
         let token = getLocalStore('user').token;

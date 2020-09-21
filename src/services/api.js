@@ -32,7 +32,7 @@ export default {
     PRODUCT_DETAIL_LIST: DOMAIN.api + `/api/main_web/v1/infrastructure/product/detail/`,
     PRODUCT_FAVORITE_LIST: DOMAIN.api + "/api/main_web/v1/infrastructure/product/favorite/list/",
 
-    TRANSACTION_LIST: DOMAIN.api + `/api/main_web/v1/infrastructure/product/trading_market/`,
+    TRANSACTION_LIST: `/api/main_web/v1/infrastructure/product/trading_market/`,
     AREA_LIST_SHORT: `/api/main_web/v1/infrastructure/area/list_short/`,
     BLOCK_LIST_SHORT: `/api/main_web/v1/infrastructure/block/list_short/`,
     PROJECT_LIST_SHORT: DOMAIN.api + `/api/main_web/v1/infrastructure/product/selling/list/`,
