@@ -11,10 +11,12 @@ import { productAction } from "../../../store/action/index";
 import { PROJECT_SALE_GROUP } from "../../../contant";
 
 const CardHotProduct = (props) => {
-    // const location  = useLocation();
-    // console.log('location', location);
+    const { headerBodyClassName, labelHeader, limit, detail, options } = props;   
+    
+    console.log(location);
 
-    const { headerBodyClassName, labelHeader, location, limit, detail, options } = props
+    const project_id = location.pathname.split("/")[2];
+    const project_status = location.search.split("=")[1];
 
     const product = useSelector(state => state.productReducer);
     const isGetHotProductListSuccess = product.hotProductList.success;
@@ -34,7 +36,7 @@ const CardHotProduct = (props) => {
         } else {
             dispatch(productAction.loadHotProductList({}));
         }
-    }, [location]);
+    }, []);
 
     const onProjectGroupFilterChange = (value) => {
         if (value != 0) {

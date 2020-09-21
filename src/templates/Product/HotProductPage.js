@@ -3,11 +3,7 @@ import { useLocation } from "react-router-dom";
 import { CardHotProduct } from '../Home/Layout/index';
 import FilterProjectList from '../Project/FilterProjectList';
 
-const HotProduct = (props) => {
-
-    const location = useLocation();
-
-    console.log('location', location);
+const HotProductPage = (props) => {
 
     return (
         <div className="projectPage">
@@ -23,4 +19,4 @@ const HotProduct = (props) => {
         </div>
     )
 }
-export default HotProduct;
+export default HotProductPage;

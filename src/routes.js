@@ -5,35 +5,6 @@ import { BANNER_URL } from './contant'
 import Elements from "./templates/Elements/Elements";
 import Example from "./templates/Example";
 
-// import Home from "./templates/Home/Home";
-// import Project from "./templates/Project/Project";
-// import ProjectDetail from "./templates/Project/ProjectDetail";
-// import ProductDetail from "./templates/Product/ProductDetail/ProductDetail";
-// import ProductList from './templates/Product/ProductList/ProductList';
-// import HotProduct from "./templates/Product/HotProduct";
-// import News from "./templates/News/NewsList";
-// import NewsDetail from "./templates/News/NewsDetail";
-// import RecruitmentList from "./templates/Support/Recruitment/RecruitmentList";
-// import RecruitmentDetail from "./templates/Support/Recruitment/RecruitmentDetail";
-// import TransactionLevel from "./templates/TransactionLevel/TransactionLevel";
-// import ShoppingGuide from "./templates/Support/ShopGuide/ShoppingGuide";
-// import Legal from "./templates/Support/Legal/Juridical";
-// import Promotion from './templates/Promotion/Promotion';
-// import FlashSaleList from './templates/Promotion/FlashSaleList';
-// import PromotionList from './templates/Promotion/PromotionList';
-// import Account from "./templates/Account/CustomerAccount";
-// import PropertySelling from "./templates/PolicyPayment/PropertySelling";
-// import LoanPolicy from "./templates/LoanOnline/LoanPolicy";
-// import Introduce from "./templates/Support/Introduce/Introduce";
-// import Contact from "./templates/Support/Contact/Contact";
-// import Cart from "./templates/ShopCart/Cart";
-// import CustomerInfo from "./templates/ShopCart/CustomerInfo";
-// import ConfirmOrderInfo from "./templates/ShopCart/ConfirmOrderInfo";
-// import DepositPayment from "./templates/ShopCart/DepositPayment";
-// import OrderInfo from "./templates/ShopCart/OrderInfo"
-// import Recruitment from "./templates/Support/Recruitment/Recruitment";
-// import RecruitmentDetail from "./templates/Support/Recruitment/RecruitmentDetail";
-
 const Home = lazy(() => import('./templates/Home/Home'));
 
 const ProjectList = lazy(() => import('./templates/Project/ProjectList'));
@@ -41,7 +12,7 @@ const ProjectDetail = lazy(() => import('./templates/Project/ProjectDetail'));
 
 const ProductDetail = lazy(() => import('./templates/Product/ProductDetail/ProductDetail'));
 const ProductList = lazy(() => import('./templates/Product/ProductList/ProductList'));
-const HotProduct = lazy(() => import('./templates/Product/HotProduct'));
+const HotProduct = lazy(() => import('./templates/Product/HotProductPage'));
 
 const News = lazy(() => import('./templates/News/NewsList'));
 const NewsDetail = lazy(() => import('./templates/News/NewsDetail'));

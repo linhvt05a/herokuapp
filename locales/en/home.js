@@ -34,7 +34,7 @@ export default {
     home_villa: "Villa",
     home_single_villa: "Single Villa",
     home_duplex_villa: "Duplex Villa",
-    home_all: "-- All --",
+    home_all: "All",
     home_management_application_title: "Management application",
     home_management_application_note: "Our management application with outstanding management features management of real estate information and attached to control equipment Smart indoors like: ",
     project_management_label: "Project management",

@@ -27,6 +27,7 @@ const HeadingLine = (props) => {
                     <div className="text"><Trans>filter_by</Trans> : </div>
                     <div className="filter_project form-group">
                         <Select
+                            defaultValue={0}
                             placeholder="Select--"
                             className="form-control"
                             onChange={onChange}

@@ -34,7 +34,7 @@ const home = {
     home_villa: "Villa",
     home_single_villa: "Single Villa",
     home_duplex_villa: "Duplex Villa",
-    home_all: "-- Tất cả --",
+    home_all: "Tất cả",
     home_management_application_title: "Ứng dụng quản lý",
     home_management_application_note: "Ứng dụng quản lý của chúng tôi với các tính năng nổi bật về việc quản lý các thông tin bất động sản và kèm theo điều khiển các thiết bị thông minh trong nhà như :",
     project_management_label: "Quản lý dự án",
