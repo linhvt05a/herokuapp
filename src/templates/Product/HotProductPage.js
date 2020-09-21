@@ -11,8 +11,7 @@ const HotProductPage = (props) => {
                 <FilterProjectList />
                 <CardHotProduct
                     headerBodyClassName="label_filter--heading"
-                    labelHeader="product_list_title"
-                    location={location} limit={9}
+                    labelHeader="product_list_title" limit={9}
                     detail
                 />
             </div>

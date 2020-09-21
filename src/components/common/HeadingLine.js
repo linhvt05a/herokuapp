@@ -6,7 +6,7 @@ import { Select } from 'antd';
 
 const HeadingLine = (props) => {
 
-    const { headerBodyClassName, data, labelHeader, readmore, options, status, trans, link, onStatusClick, projectStatus, onChange } = props
+    const { headerBodyClassName, data, labelHeader, readmore, options, selected, status, trans, link, onStatusClick, projectStatus, onChange } = props
     const { Option } = Select
 
     return (
@@ -27,7 +27,7 @@ const HeadingLine = (props) => {
                     <div className="text"><Trans>filter_by</Trans> : </div>
                     <div className="filter_project form-group">
                         <Select
-                            defaultValue={0}
+                            defaultValue={parseInt(selected) ? parseInt(selected) : 0}
                             placeholder="Select--"
                             className="form-control"
                             onChange={onChange}
