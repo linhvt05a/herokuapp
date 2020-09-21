@@ -13,6 +13,7 @@ import {legalService} from './Legal/legal'
 import {visitorService} from './Visitor/visitor'
 import { accountService } from './Account/account'
 import {recruitmentService} from './Recruitment/recruitment'
+import {streamingService} from './LiveStream/liveStream'
 export {
     exampleService,
     productService,
@@ -25,5 +26,6 @@ export {
     accountService,
     legalService,
     visitorService,
-    recruitmentService
+    recruitmentService,
+    streamingService
 }

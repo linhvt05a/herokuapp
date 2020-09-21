@@ -18,11 +18,9 @@ const ProductContent = (props) => {
               </div>
             </div>
             <ProductGrids data ={data} productLocal={productLocal} loginData={loginData}/>
-
            {loginData && loginData.user_id !== null ? 
             data && data.detail.list_product.length === 0 && <ProductNodata />
            : <DisplayNodata productLocal={productLocal}/>}
-
             <Pagination data={LoadDataPaging(total_record, page, total_page, limit)} onChange ={onPageChange}/>
           </div>
         

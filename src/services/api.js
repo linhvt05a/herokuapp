@@ -94,6 +94,7 @@ export default {
 
     PROMOTION_LIST: DOMAIN.api + "",
 
+    LIVE_STREAM_LIST :DOMAIN.api + "",
     //Loan
     GET_LOAN_POLICY: "/api/main_web/v1/loan_policy/",
     GET_POLICY: "/api/main_web/v1/loan_policy/policy/",

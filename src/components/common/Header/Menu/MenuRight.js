@@ -34,7 +34,7 @@ const MenuRight = (props) => {
     return (
         <div className="header_actions d-none d-md-flex">
             <div className="item">
-                <Link to="/#" className="link">
+                <Link to="/liveStream" className="link">
                     <img src={`${IMAGE_URL}images/live_stream.png`} className="live_stream" />
                 </Link>
                 <a href="/product-favorite" className="link">

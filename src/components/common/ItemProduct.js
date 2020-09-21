@@ -11,8 +11,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { productAction} from "../../store/action/index";
 
 const ItemProduct = (props) => {
-    const { data, dataProduct } = props;
-    // console.log(data, dataProduct);
+    const { data} = props;
     const [active, setActive] = useState(false)
     const loginData = getLocalStore('user')
     const dispatch = useDispatch()
@@ -20,14 +19,8 @@ const ItemProduct = (props) => {
     function saveProduct() {
         setActive(!active)
         if(loginData && loginData !== null){
-            for (let j = 0; j < dataProduct.length; j++) {
-                if(dataProduct[j].product_id == data.product_id){
-                   console.log(dataProduct[j].product_id = data.product_id)
-                   postData.push({product_id: dataProduct[j].product_id, is_favorite: !active})
-                }
-               }
-               console.log(postData)
-               dispatch(productAction.productMark({postData}))
+            postData.push({product_id: data.product_id, is_favorite: !active})
+            dispatch(productAction.productMark({postData}))
         }else {
             setActive(!active)
             if (!active) {
@@ -67,14 +60,13 @@ const ItemProduct = (props) => {
        
 
     }
-
     return (
             data 
                 ? <div className="item">
                     <figure className="image">
                         {
                         loginData && loginData !== null ?
-                            <i className={ data.product_love_flag == true || active ? " liked active fas fa-heart" : "liked fas fa-heart"} onClick={saveProduct} />
+                            <i className={ data.product_love_flag == true && active ? " liked active fas fa-heart" : "liked fas fa-heart"} onClick={saveProduct} />
                             :
                             <i className={ active  ? " liked active fas fa-heart " : "liked fas fa-heart"} onClick={saveProduct} />
                         }
