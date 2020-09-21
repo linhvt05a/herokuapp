@@ -1,5 +1,6 @@
 const { translate } = require("./functions/Utils")
 
+const LOADING_ADS = false;
 const IMAGE_URL = "../"
 const IMAGE_LOGO = "../images/default_image_minerva.png"
 const PHONE_NUMBER = "1900 - 123 - 456"
@@ -24,7 +25,7 @@ const BANNER_URL = {
     shoppingGuide_banner_url : '../images/project.jpg',
     juridical_banner_url : '../images/juridical.jpg',
     promotion_banner_url : '../images/project.jpg',
-    flashSaleList_banner_url : '../images/flashsale.png',
+    flashSaleList_banner_url : '../images/flashsale.jpg',
     promotionList_banner_url : '../images/sale_banner.png',
     elements_banner_url : '../images/project.jpg',
     example_banner_url : '../images/project.jpg',
@@ -195,5 +196,6 @@ module.exports = {
     CREDIT_CARD_TYPE,
     RECRUITMENT_STATUS,
     LOAN_TYPE,
-    TIMEOUT_ADS
+    TIMEOUT_ADS,
+    LOADING_ADS
 }

@@ -5,6 +5,7 @@ import Slider from "react-slick";
 import { convertDateHHmm, checkBeforeTime } from '../../../functions/Utils'
 import { IMAGE_URL } from '../../../contant'
 import TimeLineClock from "./TimeLineClock";
+import { Trans } from "react-i18next";
 
 const ItemTimeLine = (props) => {
 
@@ -26,7 +27,7 @@ const ItemTimeLine = (props) => {
     const renderer = ({ hours, minutes, seconds, completed }) => {
         if (completed) {
             setStartIndex(null)
-            return <div className="time-expected">Đã kết thúc</div>;
+            return <div className="time-expected"><Trans>text_timeline_finished</Trans></div>;
         } else {
             return (
                 <div className="time-running">
@@ -78,11 +79,11 @@ const ItemTimeLine = (props) => {
                         checkBeforeTime(item) ?
                         <div className="sales_timeline--time" key={index}>
                             <div className="time-main">{convertDateHHmm(item)}</div>
-                            <div className="time-expected">Sắp diễn ra</div>
+                            <div className="time-expected"><Trans>text_timeline_upcoming</Trans></div>
                         </div> :
                         <div className="sales_timeline--time" key={index}>
                             <div className="time-main">{convertDateHHmm(item)}</div>
-                            <div className="time-expected">Đã kết thúc</div>
+                            <div className="time-expected"><Trans>text_timeline_finished</Trans></div>
                         </div>
                     ))
                 }

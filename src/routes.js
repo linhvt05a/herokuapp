@@ -80,7 +80,6 @@ const MAIN = [
         "banner_title": "home_banner_title",
         "banner_url": BANNER_URL.home_banner_url,
         "banner_show": false,
-        "banner_class": ''
     },
     {
         "path": "/elements",
@@ -88,7 +87,6 @@ const MAIN = [
         "banner_title": "elements_banner_title",
         "banner_url": BANNER_URL.elements_banner_url,
         "banner_show": true,
-        "banner_class": ''
     },
     {
         "path": "/example",
@@ -96,7 +94,6 @@ const MAIN = [
         "banner_title": "example_banner_title",
         "banner_url": BANNER_URL.example_banner_url,
         "banner_show": true,
-        "banner_class": ''
     },
     {
         "path": "/introduce",
@@ -104,7 +101,6 @@ const MAIN = [
         "banner_title": "introduce_banner_title",
         "banner_url": BANNER_URL.introduce_banner_url,
         "banner_show": true,
-        "banner_class": ''
     },
     {
         "path": "/contact",
@@ -112,7 +108,6 @@ const MAIN = [
         "banner_title": "contact_banner_title",
         "banner_url": BANNER_URL.contact_banner_url,
         "banner_show": true,
-        "banner_class": ''
     },
     {
         "path": "/product-favorite",
@@ -120,7 +115,6 @@ const MAIN = [
         "banner_title": "contact_banner_title",
         "banner_url": BANNER_URL.contact_banner_url,
         "banner_show": true,
-        "banner_class": ''
     },
     {
         "path": "/product/:id",
@@ -128,7 +122,6 @@ const MAIN = [
         "banner_title": "project_banner_title",
         "banner_url": BANNER_URL.project_banner_url,
         "banner_show": false,
-        "banner_class": ''
     },
     {
         "path": "/project/selling",
@@ -136,7 +129,6 @@ const MAIN = [
         "banner_title": "project_banner_title",
         "banner_url": BANNER_URL.project_banner_url,
         "banner_show": true,
-        "banner_class": ''
     },
     {
         "path": "/project/coming-soon",
@@ -144,7 +136,6 @@ const MAIN = [
         "banner_title": "project_banner_title",
         "banner_url": BANNER_URL.project_banner_url,
         "banner_show": true,
-        "banner_class": ''
     },
     {
         "path": "/project/:id",
@@ -152,7 +143,6 @@ const MAIN = [
         "banner_title": "projectDetail_banner_title",
         "banner_url": BANNER_URL.projectDetail_banner_url,
         "banner_show": false,
-        "banner_class": ''
     },
     {
         "path": "/news",
@@ -160,7 +150,6 @@ const MAIN = [
         "banner_title": "news_banner_title",
         "banner_url": BANNER_URL.news_banner_url,
         "banner_show": true,
-        "banner_class": ''
     },
     {
         "path": "/news/:id",
@@ -168,7 +157,6 @@ const MAIN = [
         "banner_title": "newsDetail_banner_title",
         "banner_url": BANNER_URL.newsDetail_banner_url,
         "banner_show": true,
-        "banner_class": ''
     },
     {
         "path": "/recruitment",
@@ -176,7 +164,6 @@ const MAIN = [
         "banner_title": "recruitmentList_banner_title",
         "banner_url": BANNER_URL.recruitmentList_banner_url,
         "banner_show": true,
-        "banner_class": ''
     },
     {
         "path": "/recruitment/:id",
@@ -184,7 +171,6 @@ const MAIN = [
         "banner_title": "recruitmentDetail_banner_title",
         "banner_url": BANNER_URL.recruitmentDetail_banner_url,
         "banner_show": true,
-        "banner_class": ''
     },
     {
         "path": "/exchanges",
@@ -192,7 +178,6 @@ const MAIN = [
         "banner_title": "transactionLevel_banner_title",
         "banner_url": BANNER_URL.transactionLevel_banner_url,
         "banner_show": false,
-        "banner_class": ''
     },
     {
         "path": "/shopping-guide",
@@ -200,7 +185,6 @@ const MAIN = [
         "banner_title": "shoppingGuide_banner_title",
         "banner_url": BANNER_URL.shoppingGuide_banner_url,
         "banner_show": true,
-        "banner_class": ''
     },
     {
         "path": "/legal",
@@ -208,7 +192,6 @@ const MAIN = [
         "banner_title": "juridical_banner_title",
         "banner_url": BANNER_URL.juridical_banner_url,
         "banner_show": true,
-        "banner_class": ''
     },
     {
         "path": "/promotion",
@@ -216,15 +199,13 @@ const MAIN = [
         "banner_title": "promotion_banner_title",
         "banner_url": BANNER_URL.promotion_banner_url,
         "banner_show": true,
-        "banner_class": ''
     },
     {
         "path": "/flashsale",
         "component": FlashSaleList,
         "banner_title": "",
-        "banner_url": BANNER_URL.flashSaleList_banner_url,
-        "banner_show": true,
-        "banner_class": ''
+        "banner_url":'',
+        "banner_show": false,
     },
     {
         "path": "/hot-product",
@@ -296,7 +277,6 @@ const MAIN = [
         "banner_title": "",
         "banner_url": BANNER_URL.promotionList_banner_url,
         "banner_show": true,
-        "banner_class": ''
     },
 ];
 

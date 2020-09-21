@@ -59,6 +59,9 @@ export default {
     lang_cn: 'China',
 
     text_timeline_the_end: 'The end at',
+    text_timeline_finished: 'Finished',
+    text_timeline_upcoming: 'Upcoming',
+    
     //footer
     total: "Total",
     contact_us: "Contact us",

@@ -67,6 +67,9 @@ export default {
     lang_cn: 'Tiếng Trung',
 
     text_timeline_the_end: 'kết thúc trong',
+    text_timeline_finished: 'Đã kết thúc',
+    text_timeline_upcoming: 'Sắp diễn ra',
+    
     //footer
     total: "Tổng",
     contact_us: "Liên hệ với chúng tôi",
