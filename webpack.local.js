@@ -4,23 +4,13 @@ const common = require('./webpack.common');
 var env = require("./env/env");
 var path = require('path');
 
-// var domain = env.MODE_ENV.local.host + ':' + (env.MODE_ENV.local.port ? env.MODE_ENV.local.port : 0000)
 
 module.exports = merge(common, {
     mode: 'none',
-    devtool: 'innline-source-map',
-    // entry: [
-    //     'webpack-dev-server/client?http://' + domain + '',
-    //     'webpack/hot/only-dev-server',
-    // ],
-    output: {
-        path: path.join(__dirname, 'dist'),
-        publicPath: '/',
-        filename: '[name].[hash].js',
-        chunkFilename: '[name].js'
-    },
+    devtool: 'inline-source-map',
+    
     devServer: {
-        contentBase: path.join(__dirname, "dist"),
+        contentBase: "./build",
         writeToDisk: true,
         proxy: { '/': 'http://localhost:5000' },
         port: env.MODE_ENV.local.port,

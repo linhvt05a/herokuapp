@@ -27,7 +27,7 @@ module.exports = {
 			cloudapi: 'https://cloudapi.minerva.vn'
 		},
 		prod:{
-			api: 'http://superapp.minerva.vn:9218',
+			api: 'http://superapp.minerva.vn:9219',
 			cloudapi: 'https://cloudapi.minerva.vn'
 		},
 	}

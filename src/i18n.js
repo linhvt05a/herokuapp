@@ -6,7 +6,7 @@ import vi from '../locales/vi.js';
 let lang = JSON.parse(localStorage.getItem('language'));
 // console.log('dd',lang);
 if (!lang) {
-    lang = "en";
+    lang = 'en';
     localStorage.setItem('language', JSON.stringify(lang));
 }
 
