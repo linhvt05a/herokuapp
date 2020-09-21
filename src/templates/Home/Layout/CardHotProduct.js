@@ -23,11 +23,13 @@ const CardHotProduct = (props) => {
 
 
     useEffect(() => {
+
+        
         if (detail) {
-            if (projectGroupSelected == PROJECT_SALE_GROUP_VALUE('all').id) {
+            if (projectGroupSelected == PROJECT_SALE_GROUP_VALUE('all').value) {
                 dispatch(productAction.loadHotProductList({ page: 1, limit: limit }));
             } else {
-                dispatch(productAction.loadHotProductList({ page: 1, limit: limit, list_product_type_id: `[${projectGroupSelected}]` }));
+                dispatch(productAction.loadHotProductList({ page: 1, limit: limit, list_product_type_id: `[${PROJECT_SALE_GROUP_VALUE(projectGroupSelected).id}]` }));
             }
         } else {
             dispatch(productAction.loadHotProductList({}));
@@ -61,7 +63,7 @@ const CardHotProduct = (props) => {
                     data={PROJECT_SALE_GROUP}
                     labelHeader={labelHeader}
                     onChange={onProjectGroupFilterChange}
-                    selected={projectGroupSelected}
+                    selected={PROJECT_SALE_GROUP_VALUE(projectGroupSelected).id}
                     options trans
                 />
                 <div className="striking_apartment--content">

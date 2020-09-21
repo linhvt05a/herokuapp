@@ -28,7 +28,7 @@ const HeadingLine = (props) => {
                     <div className="text"><Trans>filter_by</Trans> : </div>
                     <div className="filter_project form-group">
                         <Select
-                            defaultValue={parseInt(selected) ? parseInt(selected) : PROJECT_SALE_GROUP_VALUE('all').id}
+                            defaultValue={ selected ? selected : PROJECT_SALE_GROUP_VALUE('all').id}
                             placeholder="Select--"
                             className="form-control"
                             onChange={onChange}
