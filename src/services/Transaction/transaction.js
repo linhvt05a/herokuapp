@@ -52,12 +52,12 @@ export const transactionService = {
         const url = api.getUrl(api.BLOCK_LIST_SHORT, params);
         return api.handleRequest(url, requestOptions);
     },
-    getProjectList(token, is_full_project = false) {
+    getProjectList(token, is_full_project = false, project_status) {
         const requestOptions = {
             method: 'GET',
             headers: api.getHeader(token)
         };
-        const params = { is_full_project: `${is_full_project}` }
+        const params = { is_full_project: `${is_full_project}`, project_status }
         const url = api.getUrl(api.FILTER_PROJECT, params);
         return api.handleRequest(url, requestOptions);
     },

@@ -11,9 +11,9 @@ import { productAction } from "../../../store/action/index";
 import { PROJECT_SALE_GROUP } from "../../../contant";
 
 const CardHotProduct = (props) => {
-    const { headerBodyClassName, labelHeader, limit, detail, options } = props;   
-    
-    console.log(location);
+    const { headerBodyClassName, labelHeader, limit, detail, options } = props;
+
+    // console.log(location);
 
     const project_id = location.pathname.split("/")[2];
     const project_status = location.search.split("=")[1];

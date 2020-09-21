@@ -38,7 +38,7 @@ const ProjectDetail = (props) => {
     let { isLoadingProduct } = product
 
     const callApiProduct = ({ page = 1, project_id, architecture_type_id, direction_id, price_from, price_to, acreage_from, acreage_to, area_id, block_id, project_status_id }) => {
-        if (project_status === 3) {
+        if (project_status == 3) {
             dispatch(productAction.loadSellingProductList({
                 page: page, limit: 6,
                 project_id: project_id,
@@ -76,7 +76,7 @@ const ProjectDetail = (props) => {
             page: 1,
             limit: 6,
             project_id: project_id,
-            project_status_id: project_status
+            // project_status_id: project_status
         })
         // if (project_status === 3) {
         //     dispatch(productAction.loadSellingProductList({ page: 1, limit: 6, project_id: project_id }));
@@ -97,6 +97,7 @@ const ProjectDetail = (props) => {
     }, [projectList, projectName.id])
 
     const onFilterChange = (productTypeData, directionData, priceData, acreageData) => {
+        console.log(productTypeData, directionData, priceData, acreageData);
         callApiProduct({
             project_id: projectName.id,
             page: 1, limit: 6,
@@ -106,7 +107,6 @@ const ProjectDetail = (props) => {
             price_to: priceData[1],
             acreage_from: acreageData[0],
             acreage_to: acreageData[1],
-            project_status_id: project_status
         })
         setProductTypeState(productTypeData);
         setDirectionState(directionData);
@@ -123,7 +123,6 @@ const ProjectDetail = (props) => {
             price_to: price[1],
             acreage_from: acreage[0],
             acreage_to: acreage[1],
-            project_status_id: project_status
         })
     }
     const onChangeFilter = ({ project_id, area_id, block_id, project_status_id }) => {
@@ -134,7 +133,6 @@ const ProjectDetail = (props) => {
             project_status_id
         })
     }
-    { console.log(typeof project_status) }
     return (
         <div className="projectDetailPage">
             {projectName.id &&
@@ -147,7 +145,7 @@ const ProjectDetail = (props) => {
             <DataProjectList
                 headerBodyClassName="label_filter--heading"
                 labelHeader={projectName ? projectName.name : ""}
-                datas={project_status === 3 ? sellingProductList : comingSoonProductList}
+                datas={project_status == 3 ? sellingProductList : comingSoonProductList}
                 limit={6}
                 onFilterChange={onFilterChange}
                 isloading={isLoadingProduct}
