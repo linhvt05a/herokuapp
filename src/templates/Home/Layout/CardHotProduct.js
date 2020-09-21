@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Trans } from 'react-i18next';
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import ItemProduct from "../../../components/common/ItemProduct";
 import HeadingLine from '../../../components/common/HeadingLine';
 import CardNoData from "../../../components/common/CardNoData";
@@ -11,31 +11,28 @@ import { productAction } from "../../../store/action/index";
 import { PROJECT_SALE_GROUP } from "../../../contant";
 
 const CardHotProduct = (props) => {
-    const { headerBodyClassName, labelHeader, limit, detail, options } = props;
-
-    // console.log(location);
-
-    const project_id = location.pathname.split("/")[2];
-    const project_status = location.search.split("=")[1];
-
+    const { headerBodyClassName, labelHeader, limit, detail, options } = props;   
     const product = useSelector(state => state.productReducer);
     const isGetHotProductListSuccess = product.hotProductList.success;
     const datas = isGetHotProductListSuccess ? product.hotProductList : null;
     const dispatch = useDispatch();
     const dataProduct = datas && datas.detail.list_product
     const [projectGroupId, setProjectGroupId] = useState(null);
+    
+    const projectGroupSelected = location.search.split("=")[1]
+
 
     useEffect(() => {
-        if (detail) {
-            if (location.state && location.state.projectGroupId && location.state.projectGroupId != null && location.state.projectGroupId != 0) {
-                dispatch(productAction.loadHotProductList({ page: 1, limit: limit, list_product_type_id: `[${location.state.projectGroupId}]` }));
-                setProjectGroupId(location.state.projectGroupId)
-            } else {
-                dispatch(productAction.loadHotProductList({ page: 1, limit: limit }));
+        if(detail){
+            if(projectGroupSelected == 0){
+                dispatch(productAction.loadHotProductList({page: 1, limit: limit}));
+            }else{
+                dispatch(productAction.loadHotProductList({ page: 1, limit: limit, list_product_type_id: `[${projectGroupSelected}]` }));
             }
-        } else {
+        }else{
             dispatch(productAction.loadHotProductList({}));
         }
+        setProjectGroupId(projectGroupSelected)
     }, []);
 
     const onProjectGroupFilterChange = (value) => {
@@ -43,8 +40,8 @@ const CardHotProduct = (props) => {
             dispatch(productAction.loadHotProductList({ list_product_type_id: `[${value}]` }));
             setProjectGroupId(value);
         } else {
-            dispatch(productAction.loadHotProductList({}));
-            setProjectGroupId(null);
+            dispatch(productAction.loadHotProductList({page: 1, limit: limit}));
+            setProjectGroupId(0);
         }
     }
 
@@ -64,6 +61,7 @@ const CardHotProduct = (props) => {
                     data={PROJECT_SALE_GROUP}
                     labelHeader={labelHeader}
                     onChange={onProjectGroupFilterChange}
+                    selected={projectGroupSelected}
                     options trans
                 />
                 <div className="striking_apartment--content">
@@ -90,7 +88,7 @@ const CardHotProduct = (props) => {
                                     <div className="text-center text-uppercase">
                                         <Link to={{
                                             pathname: "/hot-product/",
-                                            search: "?project-group=" + (projectGroupId ? projectGroupId : 0)
+                                            search: "?filter-by=" + (projectGroupId ? projectGroupId : 0)
                                         }}
                                             className="btn btn_purple">
                                             <Trans>see_all</Trans>
@@ -110,4 +108,4 @@ const CardHotProduct = (props) => {
     )
 }
 
-export default CardHotProduct;
+export default React.memo(CardHotProduct);

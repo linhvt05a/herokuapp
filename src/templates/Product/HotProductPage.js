@@ -29,8 +29,7 @@ const HotProductPage = (props) => {
                 <CardFilterList title={"search_product_by"} onFilterSubmit={onFilterSubmit} />
                 <CardHotProduct
                     headerBodyClassName="label_filter--heading"
-                    labelHeader="product_list_title"
-                    location={location} limit={limit}
+                    labelHeader="product_list_title" limit={limit}
                     detail
                 />
             </div>
