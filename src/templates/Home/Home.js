@@ -39,7 +39,7 @@ const Home = (props) => {
     });
 
     useEffect(() => {
-        dispatch(projectAction.loadProjectList({project_sale_status: `[${state.projectStatus}]`}));
+        dispatch(projectAction.loadProjectList({ project_sale_status: `[${state.projectStatus}]` }));
         dispatch(newsAction.LoadNewsList({}))
 
     }, []);
@@ -110,7 +110,14 @@ const Home = (props) => {
                 isGetProjectListSuccess &&
                 <div className="project_list project_tab">
                     <div className="container container-sm container-md">
-                        <HeadingLine headerBodyClassName="project_list--heading" data={PROJECT_SALE_GROUP} labelHeader="project_list" status onStatusClick={onStatusClick} projectStatus={state.projectStatus} />
+                        <HeadingLine 
+                            headerBodyClassName="project_list--heading"
+                            data={PROJECT_SALE_GROUP}
+                            labelHeader="project_list"
+                            status
+                            onStatusClick={onStatusClick}
+                            projectStatus={state.projectStatus}
+                        />
 
                         {
                             (newListProject && newListProject.length > 0) ?

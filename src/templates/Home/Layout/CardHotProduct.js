@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Trans } from 'react-i18next';
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import ItemProduct from "../../../components/common/ItemProduct";
 import HeadingLine from '../../../components/common/HeadingLine';
 import CardNoData from "../../../components/common/CardNoData";
@@ -11,6 +11,8 @@ import { productAction } from "../../../store/action/index";
 import { PROJECT_SALE_GROUP } from "../../../contant";
 
 const CardHotProduct = (props) => {
+    // const location  = useLocation();
+    // console.log('location', location);
 
     const { headerBodyClassName, labelHeader, location, limit, detail, options } = props
 
@@ -82,9 +84,12 @@ const CardHotProduct = (props) => {
                                     }
                                 </div>
                                 {
-                                    (options && datas.detail.list_product.length > 6) &&
+                                    (options && datas.detail.list_product.length > 3) &&
                                     <div className="text-center text-uppercase">
-                                        <Link to={{ pathname: "/hot-product", state: { projectGroupId: projectGroupId } }}
+                                        <Link to={{
+                                            pathname: "/hot-product/",
+                                            search: "?project-group=" + (projectGroupId ? projectGroupId : 0)
+                                        }}
                                             className="btn btn_purple">
                                             <Trans>see_all</Trans>
                                         </Link>
