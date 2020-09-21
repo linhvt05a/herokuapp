@@ -7,6 +7,7 @@ import { productAction, transactionAction } from "../../store/action/index";
 import TopBannerFilter from '../../components/common/TopBanner/TopBannerFilter';
 import DataProjectList from './DataProjectList';
 import { TOKEN, translate } from '../../functions/Utils';
+import { PROJECT_STATUS_VALUE } from '../../functions/Helper';
 
 
 const ProjectDetail = (props) => {
@@ -38,7 +39,7 @@ const ProjectDetail = (props) => {
     let { isLoadingProduct } = product
 
     const callApiProduct = ({ page = 1, project_id, architecture_type_id, direction_id, price_from, price_to, acreage_from, acreage_to, area_id, block_id, project_status_id }) => {
-        if (project_status == 3) {
+        if (project_status == PROJECT_STATUS_VALUE('on_sale').value) {
             dispatch(productAction.loadSellingProductList({
                 page: page, limit: 6,
                 project_id: project_id,
@@ -97,7 +98,6 @@ const ProjectDetail = (props) => {
     }, [projectList, projectName.id])
 
     const onFilterChange = (productTypeData, directionData, priceData, acreageData) => {
-        console.log(productTypeData, directionData, priceData, acreageData);
         callApiProduct({
             project_id: projectName.id,
             page: 1, limit: 6,
@@ -139,13 +139,13 @@ const ProjectDetail = (props) => {
                 <TopBannerFilter
                     project_id={projectName.id}
                     onChangeFilter={onChangeFilter}
-                    status={typeof project_status == "string" ? parseInt(project_status) : project_status}
+                    status={PROJECT_STATUS_VALUE(project_status).id}
                     setProjectId={(value) => setProjectName({ ...projectName, id: value })}
                 />}
             <DataProjectList
                 headerBodyClassName="label_filter--heading"
                 labelHeader={projectName ? projectName.name : ""}
-                datas={project_status == 3 ? sellingProductList : comingSoonProductList}
+                datas={project_status == PROJECT_STATUS_VALUE('on_sale').value ? sellingProductList : comingSoonProductList}
                 limit={6}
                 onFilterChange={onFilterChange}
                 isloading={isLoadingProduct}

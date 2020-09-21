@@ -10,49 +10,39 @@ const TIMEOUT_ADS = 10000;
 const MOBILE_WIDTH = 767
 const MAP_KEYS = "AIzaSyDZt7EWQR3cI-a_0to4VT2JVcF-c7ti6Ro"
 
+
+
 /*Top banner image url */
 const BANNER_URL = {
-    home_banner_url : '../images/project.jpg',
-    introduce_banner_url : '../images/project.jpg',
-    contact_banner_url : '../images/project.jpg',
-    project_banner_url : '../images/project.jpg',
-    projectDetail_banner_url : '../images/project.jpg',
-    news_banner_url : '../images/newspaper.jpg',
-    newsDetail_banner_url : '../images/newspaper.jpg',
-    recruitmentList_banner_url : '../images/recruitment.jpg',
-    recruitmentDetail_banner_url : '../images/recruitment.jpg',
-    transactionLevel_banner_url : '../images/banner_exchanges.png',
-    shoppingGuide_banner_url : '../images/project.jpg',
-    juridical_banner_url : '../images/juridical.jpg',
-    promotion_banner_url : '../images/project.jpg',
-    flashSaleList_banner_url : '../images/flashsale.jpg',
-    promotionList_banner_url : '../images/sale_banner.png',
-    elements_banner_url : '../images/project.jpg',
-    example_banner_url : '../images/project.jpg',
-    cart_banner_url : '../images/project.jpg',
-    product_banner_url : '../images/project.jpg'
+    home_banner_url: '../images/project.jpg',
+    introduce_banner_url: '../images/project.jpg',
+    contact_banner_url: '../images/project.jpg',
+    project_banner_url: '../images/project.jpg',
+    projectDetail_banner_url: '../images/project.jpg',
+    news_banner_url: '../images/newspaper.jpg',
+    newsDetail_banner_url: '../images/newspaper.jpg',
+    recruitmentList_banner_url: '../images/recruitment.jpg',
+    recruitmentDetail_banner_url: '../images/recruitment.jpg',
+    transactionLevel_banner_url: '../images/banner_exchanges.png',
+    shoppingGuide_banner_url: '../images/project.jpg',
+    juridical_banner_url: '../images/juridical.jpg',
+    promotion_banner_url: '../images/project.jpg',
+    flashSaleList_banner_url: '../images/flashsale.jpg',
+    promotionList_banner_url: '../images/sale_banner.png',
+    elements_banner_url: '../images/project.jpg',
+    example_banner_url: '../images/project.jpg',
+    cart_banner_url: '../images/project.jpg',
+    product_banner_url: '../images/project.jpg'
 }
 
-const PROJECT_STATUS = [
-    { value: 1, label: "home_waiting_sale" },
-    { value: 2, label: "home_coming_soon" },
-    { value: 3, label: "home_selling" },
-    { value: 4, label: "home_sold" },
-    { value: 5, label: "home_stop_selling" },
-]
 
-const PROJECT_SALE_GROUP = [
-    { value: 0, label: "home_all" },
-    { value: 1, label: "home_aparment" },
-    { value: 2, label: "home_duplex" },
-    { value: 3, label: "home_officetel" },
-    { value: 4, label: "home_studio" },
-    { value: 5, label: "home_penthouse" },
-    { value: 6, label: "home_shophouse" },
-    { value: 7, label: "home_villa" },
-    { value: 8, label: "home_single_villa" },
-    { value: 9, label: "home_duplex_villa" },
-]
+
+
+
+
+
+
+
 
 const DIRECTION_TYPE = [
     { value: 0, label: "project_all" },
@@ -156,7 +146,6 @@ const RULES = {
         type: 'text'
     },
 }
-
 const PAYMENT_METHOD = [
     { id: 1, type: "PAYMENT_METHOD_MASTER_CARD" },
     { id: 2, type: "PAYMENT_METHOD_ATM" },
@@ -173,11 +162,8 @@ const LOAN_TYPE = [
     { id: 2, type: "LOAN_TYPE_FIXED_ANNUITY_LOAN", label: "Fixed Annuity Loan" }
 ]
 
-
-
-
-
 module.exports = {
+
     IMAGE_URL,
     IMAGE_LOGO,
     BANNER_URL,
@@ -186,8 +172,6 @@ module.exports = {
     MAP_KEYS,
     EMAIL,
 
-    PROJECT_STATUS,
-    PROJECT_SALE_GROUP,
     DIRECTION_TYPE,
     DATA_INTRODUCE,
     NAME_GENDER,

@@ -2,6 +2,7 @@ import React from "react";
 import { Trans } from 'react-i18next';
 import { Link } from "react-router-dom";
 import { Select } from 'antd';
+import { PROJECT_STATUS_VALUE } from "../../functions/Helper";
 
 
 const HeadingLine = (props) => {
@@ -41,10 +42,18 @@ const HeadingLine = (props) => {
             {
                 status &&
                 <div className="project_list--status text-uppercase">
-                    <a name={3} className={projectStatus === 3 ? "status working active" : "status working"} onClick={onStatusClick}>
+                    <a 
+                        name={PROJECT_STATUS_VALUE('on_sale').id}
+                        className={projectStatus == PROJECT_STATUS_VALUE('on_sale').id ? "status working active" : "status working"}
+                        onClick={onStatusClick}
+                    >
                         <Trans>home_selling</Trans>
                     </a>
-                    <a name={2} className={projectStatus === 2 ? "status done active" : "status done"} onClick={onStatusClick}>
+                    <a 
+                        name={PROJECT_STATUS_VALUE('coming_soon').id}
+                        className={projectStatus == PROJECT_STATUS_VALUE('coming_soon').id ? "status done active" : "status done"}
+                        onClick={onStatusClick}
+                    >
                         <Trans>home_coming_soon</Trans>
                     </a>
                 </div>

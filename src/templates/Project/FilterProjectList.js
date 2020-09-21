@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Trans } from 'react-i18next';
 import { commonAction, projectAction } from "../../store/action";
 import { ListSelect, InputRange } from "../Home/Search/index";
-import { PROJECT_SALE_GROUP } from "../../contant";
+import { PROJECT_SALE_GROUP } from "../../functions/Helper";
 import { getLocalStore } from '../../functions/Utils';
 
 const FilterProjectList = (props) => {

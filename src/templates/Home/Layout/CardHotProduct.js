@@ -8,7 +8,7 @@ import CardNoData from "../../../components/common/CardNoData";
 import Pagination from '../../../components/common/Pagination';
 import { LoadDataPaging } from '../../../functions/Utils';
 import { productAction } from "../../../store/action/index";
-import { PROJECT_SALE_GROUP } from "../../../contant";
+import { PROJECT_SALE_GROUP } from "../../../functions/Helper";
 
 const CardHotProduct = (props) => {
     const { headerBodyClassName, labelHeader, limit, detail, options } = props;   

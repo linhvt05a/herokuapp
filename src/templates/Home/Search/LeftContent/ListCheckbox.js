@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Trans } from "react-i18next";
 import { Link } from "react-router-dom";
 import InputCheckbox from "../../../../components/base/Input/InputCheckbox";
-import { PROJECT_SALE_GROUP } from "../../../../contant";
+import { PROJECT_SALE_GROUP } from "../../../../functions/Helper";
 
 const ListCheckbox = (props) => {
     let { data, OnSearchProject, OnCheckbox } = props;

@@ -9,7 +9,7 @@ import Pagination from '../../../components/common/Pagination';
 import { LoadDataPaging } from '../../../functions/Utils';
 import { productAction } from "../../../store/action/index";
 import SkeletonLoading from "../../../components/common/Loading/SkeletonLoading";
-import { PROJECT_SALE_GROUP } from "../../../contant";
+import { PROJECT_SALE_GROUP } from "../../../functions/Helper";
 
 
 const CardSaleFlash = (props) => {
