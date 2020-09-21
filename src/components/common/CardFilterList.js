@@ -3,29 +3,36 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { Trans } from 'react-i18next';
 import { commonAction, projectAction } from "../../store/action";
-import { ListSelect, InputRange } from "../Home/Search/index";
-import { PROJECT_SALE_GROUP } from "../../contant";
-import { getLocalStore } from '../../functions/Utils';
+import { ListSelect, InputRange } from "../../templates/Home/Search";
+import { PROJECT_SALE_GROUP } from '../../contant';
+import { getLocalStore, translate } from '../../functions/Utils';
 
-const FilterProjectList = (props) => {
-
+const CardFilterList = ({ title, onFilterSubmit }) => {
     const dispatch = useDispatch();
-    useEffect(() => {
-        dispatch(commonAction.loadProvinceList({ lang: getLocalStore('language') }))
-    }, [])
-    const province = useSelector(state => state.commonReducer);
-    const isGetprovinceListSuccess = province.provinceList.success;
-    const provinceList = isGetprovinceListSuccess ? province.provinceList.detail : null;
-    const [click, setClick] = useState([]);
-    const [state, setState] = useState({
-        checked: false
-    });
+
     const [statesubmit, setStateSubmit] = useState({
         _city: null, _district: null, _status: null,
         range_area: [],
         range_price: [],
         project_sale_group_type: null
     })
+    const [click, setClick] = useState([]);
+    const [state, setState] = useState({
+        checked: false
+    });
+
+    const province = useSelector(state => state.commonReducer);
+    const isGetprovinceListSuccess = province.provinceList.success;
+    const provinceList = isGetprovinceListSuccess ? province.provinceList.detail : null;
+
+    const search = useSelector(state => state.projectReducer);
+    const isGetsearchListSuccess = search.projectList.success;
+    const searchList = isGetsearchListSuccess ? search.projectList.detail : null;
+
+
+    useEffect(() => {
+        dispatch(commonAction.loadProvinceList({ lang: getLocalStore('language') }))
+    }, [])
 
     const HandleCity = (value) => {
         setStateSubmit({
@@ -58,7 +65,7 @@ const FilterProjectList = (props) => {
         })
     }
 
-    var classNameRange = "col-12 col-sm-12 col-md-6";
+
 
     const listCheckbox = (target, index) => {
         let newData = [].concat(click);
@@ -79,21 +86,32 @@ const FilterProjectList = (props) => {
         })
     }
 
-    const search = useSelector(state => state.projectReducer);
-    const isGetsearchListSuccess = search.projectList.success;
-    const searchList = isGetsearchListSuccess ? search.projectList.detail : null;
+
+    const classNameRange = "col-12 col-sm-12 col-md-6";
 
     const OnSearchProject = (e) => {
-        dispatch(projectAction.loadProjectList({
-            province_id: statesubmit._city,
-            district_id: statesubmit._district,
-            status_id: statesubmit._status,
-            area_min: statesubmit.range_area[0],
-            area_max: statesubmit.range_area[1],
-            money_min: statesubmit.range_price[0],
-            money_max: statesubmit.range_price[1],
-            project_sale_status: statesubmit.project_sale_group_type
-        }));
+        if (onFilterSubmit) {
+            onFilterSubmit({
+                province_id: statesubmit._city,
+                district_id: statesubmit._district,
+                status_id: statesubmit._status,
+                area_min: statesubmit.range_area[0],
+                area_max: statesubmit.range_area[1],
+                money_min: statesubmit.range_price[0],
+                money_max: statesubmit.range_price[1],
+                project_sale_status: statesubmit.project_sale_group_type
+            })
+        }
+        // dispatch(projectAction.loadProjectList({
+        //     province_id: statesubmit._city,
+        //     district_id: statesubmit._district,
+        //     status_id: statesubmit._status,
+        //     area_min: statesubmit.range_area[0],
+        //     area_max: statesubmit.range_area[1],
+        //     money_min: statesubmit.range_price[0],
+        //     money_max: statesubmit.range_price[1],
+        //     project_sale_status: statesubmit.project_sale_group_type
+        // }));
     }
 
     // console.log(searchList);
@@ -102,7 +120,7 @@ const FilterProjectList = (props) => {
         <div className="project_page--filter">
             <div className="container container-sm container-md">
                 <div className="map_search--content" style={{ maxWidth: "100%" }}>
-                    <h2 className="heading"><Trans>search_project_by</Trans></h2>
+                    <h2 className="heading">{translate(title ? title : "search_project_by")}</h2>
                     <ListSelect data={provinceList} HandleCity={HandleCity} HandleDistrict={HandleDistrict} HandleDStatus={HandleDStatus} />
                     <InputRange
                         classRange={classNameRange}
@@ -120,7 +138,7 @@ const FilterProjectList = (props) => {
                                             <label onChange={event => listCheckbox(event.target, index)}
                                                 className={`checkbox-inline ${click.length > 0 ? click[index] && click[index].status : null} ${state.checked ? 'active' : ''}`}>
                                                 <input name="checkbox-1" value={item.value === 0 ? "" : item.value} type="checkbox" className="checkbox-custom" />
-                                                <span className="checkbox-custom-dummy" /><Trans>{item.label}</Trans>
+                                                <span className="checkbox-custom-dummy" />{translate(item.label)}
                                             </label>
                                         </li> : ""
                                 ))}
@@ -136,4 +154,4 @@ const FilterProjectList = (props) => {
     )
 }
 
-export default FilterProjectList;
+export default CardFilterList;
