@@ -85,7 +85,7 @@ const DATA_INTRODUCE = {
     ]
 }
 const NAME_GENDER = [
-    { value: 0, label: "cart_mr" }, { value: 1, label: "cart_mrs" }
+    { value: 0, label: "cart_mr" }, { value: 1, label: "cart_mrs" }, { value: 2, label: "other" }
 ]
 const RULES = {
     phone: {
@@ -137,11 +137,11 @@ const RULES = {
         type: 'email'
     },
     password: {
-        form:[
-        { 
-            required: true, 
-            message:translate('Please input your Password!')
-        }
+        form: [
+            {
+                required: true,
+                message: translate('Please input your Password!')
+            }
         ]
     },
     text: {

@@ -1,21 +1,26 @@
 import React from 'react';
-import { InputBase } from "../../../components/base"
+import { InputBase, InputDatePicker, SelectCustom } from "../../../components/base";
+import { Form } from "antd"
+import { NAME_GENDER } from '../../ShopCart/Layout';
 
-const CustomerInformation = ({ Item }) => {
+const CustomerInformation = props => {
+    const { Item } = Form
     return (
         <div className="loan_online--wrap active" data-step={1}>
             <div className="loan_online--item">
                 <div className="heading">Thông tin khách hàng</div>
                 <div className="row">
                     <div className="col-12 col-md-6 col-lg-6 col-xl-4">
-                        <InputBase
-                            label="cart_customer_name"
-                            titleClassName="label"
-                            classNameInput="form-control"
-                            type="text"
-                            placeholder="Nhập họ tên"
-                            require
-                        />
+                        <Item>
+                            <InputBase
+                                label="cart_customer_name"
+                                titleClassName="label"
+                                classNameInput="form-control"
+                                type="text"
+                                placeholder="Nhập họ tên"
+                                require
+                            />
+                        </Item>
                         {/* <div className="form-group">
                             <label className="label">Họ tên <span className="star">*</span></label>
                             <input type="text" placeholder="Nhập họ tên" className="form-control" />
@@ -24,13 +29,26 @@ const CustomerInformation = ({ Item }) => {
                     <div className="col-12 col-md-6 col-lg-6 col-xl-4">
                         <div className="form-group select2-italic">
                             <label className="label">Ngày sinh <span className="star">*</span></label>
-                            <div className="date-picker">
+                            <InputDatePicker
+                                placeholder="Chọn"
+                            />
+                            {/* <div className="date-picker">
                                 <input type="text" placeholder="Chọn" className="form-control js-datepicker" />
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                     <div className="col-12 col-md-6 col-lg-6 col-xl-4">
-                        <div className="form-group select2-italic">
+                        <SelectCustom
+                            classNameGroup="form-group select2-italic"
+                            label="Giới tính"
+                            require
+                            titleClassName="label"
+                            classNameSelect="form-control js-select2"
+                            datas={NAME_GENDER}
+                            defaultValue={0}
+                            trans
+                        />
+                        {/* <div className="form-group select2-italic">
                             <label className="label">Giới tính <span className="star">*</span></label>
                             <select className="form-control js-select2" data-placeholder="Chọn">
                                 <option value>xxxx</option>
@@ -38,7 +56,7 @@ const CustomerInformation = ({ Item }) => {
                                 <option value={2}>xxxx</option>
                                 <option value={3}>xxxx</option>
                             </select>
-                        </div>
+                        </div> */}
                     </div>
                     <div className="col-12 col-md-6 col-lg-6 col-xl-4">
                         <div className="form-group">

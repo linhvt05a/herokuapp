@@ -27,16 +27,16 @@ export const PROJECT_STATUS_ID = (id) => {
 // --------------------------------------------------------------
 
 export const PROJECT_SALE_GROUP = [
-    { id: 0, label: "home_all", value:'all' },
-    { id: 1, label: "home_apartment", value:'apartment' },
-    { id: 2, label: "home_duplex", value:'duplex' },
-    { id: 3, label: "home_officetel", value:'officetel' },
-    { id: 4, label: "home_studio" , value:'studio'},
-    { id: 5, label: "home_penthouse", value:'penthouse' },
-    { id: 6, label: "home_shophouse", value:'shophouse' },
-    { id: 7, label: "home_villa", value:'villa' },
-    { id: 8, label: "home_single_villa", value:'single_villa' },
-    { id: 9, label: "home_duplex_villa", value:'duplex_villa' },
+    { id: 0, label: "home_all", value: 'all' },
+    { id: 1, label: "home_apartment", value: 'apartment' },
+    { id: 2, label: "home_duplex", value: 'duplex' },
+    { id: 3, label: "home_officetel", value: 'officetel' },
+    { id: 4, label: "home_studio", value: 'studio' },
+    { id: 5, label: "home_penthouse", value: 'penthouse' },
+    { id: 6, label: "home_shophouse", value: 'shophouse' },
+    { id: 7, label: "home_villa", value: 'villa' },
+    { id: 8, label: "home_single_villa", value: 'single_villa' },
+    { id: 9, label: "home_duplex_villa", value: 'duplex_villa' },
 ]
 
 export const PROJECT_SALE_GROUP_VALUE = (value) => {
@@ -46,6 +46,26 @@ export const PROJECT_SALE_GROUP_VALUE = (value) => {
 
 export const PROJECT_SALE_GROUP_ID = (id) => {
     let x = PROJECT_SALE_GROUP.find(e => e.id == id)
+    if (x) { return x }
+}
+
+// --------------------------------------------------------------
+
+export const MARITAL_TYPE = [
+    { value: 0, label: "Có gia đình", text: "MARRIED" },
+    { value: 1, label: "Ly dị/góa", text: "SINGLE" },
+    { value: 2, label: "Độc thân", text: "DIVORCE" },
+    { value: 3, label: "Khác", text: "OTHERS" },
+]
+
+export const MARITAL_TYPE_VALUE = (value) => {
+    let text = `${value}`.toUpperCase();
+    let x = MARITAL_TYPE.find(e => e.text == text)
+    if (x) { return x }
+}
+
+export const MARITAL_TYPE_ID = (id) => {
+    let x = MARITAL_TYPE.find(e => e.value == id)
     if (x) { return x }
 }
 
