@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Pagination from '../../components/common/Pagination'
 import CardPromotion from './CardPromotion'
-import { CardSaleFlash } from '../Home/Layout/index'
 import { Trans } from 'react-i18next';
 import { LoadDataPaging } from '../../functions/Utils';
 import { useDispatch, useSelector } from "react-redux";

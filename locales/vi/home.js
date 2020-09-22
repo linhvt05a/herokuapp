@@ -40,11 +40,6 @@ const home = {
     home_management_application_note: "Ứng dụng quản lý của chúng tôi với các tính năng nổi bật về việc quản lý các thông tin bất động sản và kèm theo điều khiển các thiết bị thông minh trong nhà như :",
     project_management_label: "Quản lý dự án",
     project_management_application_des: "Xây dựng các công trình bất động sản chất lượng, đạt chuẩn cao cấp và đáp ứng yêu cầu của bạn.",
-    project_management_application_des: "Xây dựng các công trình bất động sản chất lượng, đạt chuẩn cao cấp và đáp ứng yêu cầu của bạn.",
-    project_management_application_des: "Xây dựng các công trình bất động sản chất lượng, đạt chuẩn cao cấp và đáp ứng yêu cầu của bạn.",
-    project_management_application_des: "Xây dựng các công trình bất động sản chất lượng, đạt chuẩn cao cấp và đáp ứng yêu cầu của bạn.",
-    project_management_application_des: "Xây dựng các công trình bất động sản chất lượng, đạt chuẩn cao cấp và đáp ứng yêu cầu của bạn.",
-    project_management_application_des: "Xây dựng các công trình bất động sản chất lượng, đạt chuẩn cao cấp và đáp ứng yêu cầu của bạn.",
 
 }
 
