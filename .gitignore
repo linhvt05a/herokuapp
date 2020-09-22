@@ -13,7 +13,7 @@
 /build-dev
 /build-prod
 /.idea
-/env/env.js
+# /env/env.js
 /dist
 
 # misc
