@@ -9,12 +9,28 @@ import CardNoData from './CardNoData';
 const CardNews = (props) => {
     const { data } = props
     const settings = {
-        infinite: true,
-        slidesPerRow: 3,
+        infinite: false,
         slidesToScroll: 1,
+        slidesToShow: 3,
         autoplay: true,
         nextArrow: <NextArrow />,
-        prevArrow: <PrevArrow />
+        prevArrow: <PrevArrow />,
+        responsive: [
+            {
+                breakpoint: 991,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 767,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+        ]
 
     }
 
@@ -30,12 +46,14 @@ const CardNews = (props) => {
                         {data && data.length > 3 ? <i className="icon fas fa-angle-double-right" /> : ""}
                     </a>
                 </div>
-                {data && data.length > 0 ?
-                    <Slider {...settings}>
-                        {data && data.map((news, index) => <NewsLoop item={news} key={index} />)}
-                    </Slider> :
-                    <CardNoData />
-                }
+                <div className="latest_news--content">
+                    {data && data.length > 0
+                        ? <Slider {...settings}>
+                            {data && data.map((news, index) => <NewsLoop item={news} key={index} />)}
+                        </Slider>
+                        : <CardNoData />
+                    }
+                </div>
             </div>
         </div>
 
@@ -68,29 +86,28 @@ const CardNews = (props) => {
 const NewsLoop = (props) => {
     const { item } = props
     return (
-        <div className="latest_news--content">
-            <div className="item " style={{ width: 354, marginLeft: 10 }}>
-                <figure className="img">
-                    <img
-                        className="w-100"
-                        src={item.news_avatar}
-                        alt="Mở bán khu biệt thự cao cấp ở Quận 7 , Tp.HCM"
-                    />
-                </figure>
-                <div className="box">
-                    <h4 className="name">
-                        <Link to={"/news/" + item.news_id} tabIndex={0}>
-                            {item.news_title}
-                        </Link>
-                    </h4>
-                    <div className="des">
-                        {item.description}
-                    </div>
-                    <span className="time">
-                        <i className="icon far fa-clock" />
-                        {convertDateShow(item.from_date)}
-                    </span>
+
+        <div className="item">
+            <figure className="img">
+                <img
+                    className="w-100"
+                    src={item.news_avatar}
+                    alt="Mở bán khu biệt thự cao cấp ở Quận 7 , Tp.HCM"
+                />
+            </figure>
+            <div className="box">
+                <h4 className="name">
+                    <Link to={"/news/" + item.news_id} tabIndex={0}>
+                        {item.news_title}
+                    </Link>
+                </h4>
+                <div className="des">
+                    {item.description}
                 </div>
+                <span className="time">
+                    <i className="icon far fa-clock" />
+                    {convertDateShow(item.from_date)}
+                </span>
             </div>
         </div>
     )
