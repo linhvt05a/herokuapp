@@ -7,7 +7,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { promotionAction, newsAction } from "../../store/action/index";
 import { convertDateShow } from "../../functions/Utils";
 import CardNoData from '../../components/common/CardNoData';
-import { IMAGE_URL } from '../../contant';
+import {BANNER_URL, IMAGE_URL} from '../../contant';
+import ProductList from "../Product/ProductList";
+import {PRODUCT_LIST_TYPE_VALUE} from "../../functions/Helper";
+import TopBannerCustom from "../../components/common/TopBanner/TopBannerCustom";
 
 const Promotion = () => {
     const promotions = useSelector(state => state.newsReducer);
@@ -21,7 +24,7 @@ const Promotion = () => {
     const total_page = promotionRecord && promotionRecord != null ? promotionRecord.total_page : null
     const total_record = promotionRecord && promotionRecord != null ? promotionRecord.total_record : null
     const page = promotionRecord && promotionRecord != null ? promotionRecord.page : null
-    const limit = 0
+    const limit = 6
 
     useEffect(() => {
         dispatch(newsAction.LoadNewsList({ category_news_group: 4 }))
@@ -32,11 +35,10 @@ const Promotion = () => {
     }
     return (
         <div className="promotion-page">
-            <CardSaleFlash
-                image_ads={`${IMAGE_URL}images/flashsale_smaller.jpg`}
-                headerBodyClassName="label_filter--heading"
-                labelHeader="flash_sale" readmore timeLine
-            />
+
+            <ProductList labelHeader="flash_sale" showSlider readmore numberItem={limit}
+                         productListType={PRODUCT_LIST_TYPE_VALUE('flash-sale').id}
+                         bannerImg={BANNER_URL.flashSaleList_banner_url} classSaleQuick="sales_quick" />
 
             <figure><img src={`${IMAGE_URL}images/promotion_ads_page.png`} className="w-100" alt="minerva" /></figure>
 
@@ -65,9 +67,11 @@ const Promotion = () => {
                 </div>
             </div>
 
+            <ProductList  labelHeader="attractive_promotion"  showSlider readmore numberItem={limit}
+                          productListType={PRODUCT_LIST_TYPE_VALUE('promotion-product').id}
+                          bannerImg={BANNER_URL.promotions_attractive_banner_url}  classSaleQuick="sales_quick" />
 
 
-            <CardPromotion headerBodyClassName="label_filter--heading" labelHeader="hot_promotion" banner readmore />
         </div>
     )
 }
