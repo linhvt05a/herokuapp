@@ -1,25 +1,12 @@
 import React, { useState } from 'react';
 import { Modal } from 'antd';
-import { CardPaymentProgressModal, CardPromotionModal, CardAccountModal, CardNotificationModal } from '../../../templates/ShopCart/Layout'
+import { translate } from '../../../functions/Utils';
 
 
 const ModalCustom = (props) => {
-    const { visible, widthModal, showPaymentProgressModal, showPromotionModal, showAccountModal, showNotification, dataOutput, onNext, status = false } = props
+    const { visible, widthModal, setVisible, title } = props
     const [isClearData, setClearData] = useState(false)
     const [show, setShow] = useState(0)
-    const handleCancel = () => {
-        setClearData(true)
-        if (showPaymentProgressModal) {
-            showPaymentProgressModal(false);
-        } else if (showPromotionModal) {
-            showPromotionModal(false)
-        } else if (showAccountModal) {
-            setShow(0)
-            showAccountModal(false)
-        } else if (showNotification) {
-            showNotification(false)
-        }
-    };
 
     const afterClearData = () => {
         setClearData(false)
@@ -28,29 +15,14 @@ const ModalCustom = (props) => {
     return (
         <Modal
             visible={visible}
-            onCancel={handleCancel}
+            onCancel={() => setVisible(false)}
             style={{ maxWidth: widthModal }}>
-
-            {
-                showPaymentProgressModal &&
-                <CardPaymentProgressModal onSaveClick={dataOutput} clearData={afterClearData} isClearData={isClearData} onNext={onNext} />
-            }
-
-            {
-                showPromotionModal &&
-                <CardPromotionModal onSaveClick={dataOutput} clearData={afterClearData} isClearData={isClearData} onNext={onNext} />
-            }
-
-            {
-                showAccountModal &&
-                <CardAccountModal tab={show} setTab={setShow} clearData={afterClearData} isClearData={isClearData} onNext={onNext} />
-            }
-
-            {
-                showNotification &&
-                <CardNotificationModal status={status} onNext={() => { return status ? null : showNotification(false) }} />
-            }
-
+            <div className="modal-content modal_special">
+                <div className="modal-header">
+                    <h5 className="modal-title">{title ? translate(title) : translate("cart_payment_policy")}</h5>
+                </div>
+                {props.children}
+            </div>
         </Modal>
     )
 }

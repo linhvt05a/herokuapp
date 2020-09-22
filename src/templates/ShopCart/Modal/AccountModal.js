@@ -4,7 +4,7 @@ import { Input, Form, Button } from 'antd';
 import { translate } from '../../../functions/Utils';
 import { accountAction } from '../../../store/action';
 import { useDispatch, useSelector } from 'react-redux';
-import { Login, ForgotPass, Registry } from "../Layout"
+import { Login, ForgotPass, Registry, ModalCustom } from "../Layout"
 
 const CardAccountModal = (props) => {
     const { clearData, isClearData, tab, setTab, onNext } = props;
@@ -29,10 +29,7 @@ const CardAccountModal = (props) => {
         }
     }
     return (
-        <div className="modal-content modal_special">
-            <div className="modal-header">
-                <h5 className="modal-title">{renderTitle()}</h5>
-            </div>
+        <ModalCustom title={renderTitle()} {...props}>
             <div className="tab-content">
                 <div className={`tab-pane fade ${tab == 0 ? "show active" : ""}`}>
                     <Login showTap={setTab} onNext={onNext} />
@@ -44,7 +41,7 @@ const CardAccountModal = (props) => {
                     <ForgotPass />
                 </div>
             </div>
-        </div>
+        </ModalCustom>
     )
 }
 

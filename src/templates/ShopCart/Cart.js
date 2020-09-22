@@ -3,7 +3,8 @@ import { useHistory } from "react-router-dom";
 import { Trans } from 'react-i18next';
 
 import { CardCartProductList, CardCartSummary } from './Layout/index';
-import ModalCustom from '../../components/base/Modal/ModalCustom';
+// import ModalCustom from '../../components/base/Modal/ModalCustom';
+import { CardPaymentProgressModal, CardPromotionModal } from "./Layout"
 import { getLocalStore } from '../../functions/Utils';
 
 
@@ -104,32 +105,23 @@ const Cart = (props) => {
                         onSubmit={onSubmit} />
                     {state.onSubmit &&
                         <div className="col-12 col-sm-12 col-lg-4">
-                            <CardCartSummary loanStatus={true} extend onNext={() => true ? history.push("/loan-online") : history.push("/cart/customer-info")} />
+                            <CardCartSummary loanStatus={true} extend onNext={() => history.push("/cart/customer-info")} />
                         </div>}
                 </div>
             </div>
-            {state.paymentProgressModalVisible &&
-                <ModalCustom
-                    visible={state.paymentProgressModalVisible}
-                    widthModal="400px"
-                    showPaymentProgressModal={showPaymentProgressModal}
-                    onNext={() => showPromotionModal(true)}
-                    dataOutput={getPaymentProgressData} />}
+            <CardPaymentProgressModal
+                visible={state.paymentProgressModalVisible}
+                widthModal="400px"
+                setVisible={showPaymentProgressModal}
+                onNext={() => showPromotionModal(true)}
+                onSaveClick={getPaymentProgressData} />
+            <CardPromotionModal
+                visible={state.promotionModalVisible}
+                widthModal="400px"
+                setVisible={showPromotionModal}
+                onNext={() => showPromotionModal(false)}
+                onSaveClick={getPromotionData} />
 
-            {state.promotionModalVisible &&
-                <ModalCustom
-                    visible={state.promotionModalVisible}
-                    widthModal="400px"
-                    showPromotionModal={showPromotionModal}
-                    onNext={() => showPromotionModal(false)}
-                    dataOutput={getPromotionData} />}
-            {/* {state.accountModalVisible &&
-                <ModalCustom
-                    visible={state.accountModalVisible}
-                    widthModal="360px"
-                    showAccountModal={showAccountModal}
-                    onNext={() => history.push("/cart/customer-info")}
-                    dataOutput={getAccountData} />} */}
 
         </div>
     )
