@@ -17,6 +17,19 @@ export default {
     loan_debt_decreased: "Vay Dư nợ giảm dần",
     loan_visit: "Thăm quan",
     loan_average_payment: "Số tiền TB hàng tháng trả",
-    loan_payment_detail: "Chi tiết thanh toán"
+    loan_payment_detail: "Chi tiết thanh toán",
+    loan_birthday: "Ngày sinh",
+    loan_gender: "Giới tính",
+    loan_chosse: "Chọn",
+    loan_other: "Khác",
+    loan_date_range: "Ngày cấp",
+    loan_input_dates: "Nhập ngày",
+    loan_issued: "Nơi cấp",
+    loan_marital_status: "Tình trạng hôn nhân",
+    loan_education_status: "Tình trạng học vấn",
+    loan_estate_status: "Tình trạng nhà ở/BĐS",
+    loan_chosse_place: "Chọn nơi",
+    loan_input: "Nhập",
+    loan_input_name: "Nhập họ tên",
 
 }

@@ -80,7 +80,6 @@ const OnMapPoligon = props => {
     const searchList = isGetsearchListSuccess ? search.projectList.detail : null;
 
     const OnSearchProject = (e) => {
-        console.log(statesubmit);
         dispatch(projectAction.loadProjectList({
             province_id: statesubmit._city,
             district_id: statesubmit._district,

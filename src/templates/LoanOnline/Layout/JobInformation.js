@@ -2,7 +2,7 @@ import React from 'react';
 
 const JobInformation = props => {
     return (
-        <div className="loan_online--wrap" data-step={2}>
+        <div className="loan_online--wrap active" data-step={2}>
             <div className="loan_online--item">
                 <div className="heading">Thông tin nghề nghiệp</div>
                 <div className="row">
