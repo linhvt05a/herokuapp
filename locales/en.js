@@ -13,6 +13,8 @@ import loan from "./en/loan"
 import recruitment from './en/recruitment'
 import legal from './en/legal'
 import visitor from './en/visitor'
+import buy_guide from './en/buy_guide'
+import buy from './en/buy.json'
 const en = {
     ...home,
     ...promotion,
@@ -28,7 +30,9 @@ const en = {
     ...loan,
     ...recruitment,
     ...legal,
-    ...visitor
+    ...visitor,
+    ...buy_guide,
+    ...buy
 }
 
 export default en;

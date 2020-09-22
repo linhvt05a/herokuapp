@@ -7,7 +7,7 @@ const ShoppingGuide = () => {
     return (
         <div className="direction_product">
             <div className="container container-sm container-md">
-                <CardHeader label="Shopping guide" />
+                <CardHeader label="buy_guide_title" />
                 <div className="row">
                     <LeftGuideBar selected={selected} setSelected={setSelected} />
                     <RightGuideBar selected={selected} />

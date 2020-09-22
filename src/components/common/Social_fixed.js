@@ -8,7 +8,6 @@ import { contactAddAction } from "../../store/action"
 import ChatOnline from '../common/Chat/ChatOnline'
 
 const SocialFixed = (props) => {
-	const { show } = props
 	let dispatch = useDispatch()
 	// const [showChat, setShowAdvisory] = useState(false);
 	const [showPhone, setShowPhoneNumber] = useState(false);

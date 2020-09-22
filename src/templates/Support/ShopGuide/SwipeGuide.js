@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
-import CardNoData from '../../../components/common/CardNoData'
+import { Trans, withTranslation } from 'react-i18next';
+
 const SwipeGuide = (props) =>{
-    const{item} = props
+    const{item, t} = props
       return(
         <div className="direction_product--detail slick-slide slick-current slick-active"
               style={{ width: 685 }}
             >
               <div className="step_detail uni-text-6d30ab">
-                Bước {item.step}:<span className="text">{item.title}</span>
+               <Trans>step</Trans>{item.step}:<span className="text">{item.title}</span>
               </div>
               <div className="group">
                 <div className="group_title uni-text-0d0d0d">
                   <i className="icon fas fa-mouse" />
-                  {item.field}
+                {item.field}
                 </div>
                 <p className="group_content">{item.criteria}</p>
                 <br />
@@ -37,4 +38,4 @@ const SwipeGuide = (props) =>{
           </div>
       )
     }
-  export default SwipeGuide
+  export default withTranslation() (SwipeGuide)
