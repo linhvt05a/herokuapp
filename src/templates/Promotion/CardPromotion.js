@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import ItemProduct from "../../../components/common/ItemProduct";
-import HeadingLine from '../../../components/common/HeadingLine';
-import CardNoData from "../../../components/common/CardNoData";
 import Slider from "react-slick";
-import Pagination from '../../../components/common/Pagination';
-import { LoadDataPaging } from '../../../functions/Utils';
-import { productAction } from "../../../store/action/index";
+
+import ItemProduct from "../../components/common/ItemProduct";
+import HeadingLine from '../../components/common/HeadingLine';
+import CardNoData from "../../components/common/CardNoData";
+import Pagination from '../../components/common/Pagination';
+import { LoadDataPaging } from '../../functions/Utils';
+import { productAction } from "../../store/action/index";
 
 const CardPromotion = (props) => {
 
@@ -69,7 +70,14 @@ const CardPromotion = (props) => {
     return (
         <div className="project_detail--list bg_grey sales_quick">
             <div className="container container-sm container-md">
-                <HeadingLine headerBodyClassName={headerBodyClassName} labelHeader={labelHeader} options={options ? options : undefined} readmore={readmore ? readmore : undefined} link="/promotion-list" onChange={onProjectGroupFilterChange} trans />
+                <HeadingLine
+                    headerBodyClassName={headerBodyClassName}
+                    labelHeader={labelHeader}
+                    options={options}
+                    readmore={readmore}
+                    link="/promotions-attractive"
+                    onChange={onProjectGroupFilterChange} trans
+                />
                 {
                     banner ? <img src="../images/sale_banner.png" style={{ width: "100%", marginBottom: "40px" }}></img> : ""
                 }

@@ -98,7 +98,7 @@ const TransactionLevel = (props) => {
 
     const dataFilter = useSelector(state => state.transactionReducer.transactionList.detail)
     return (
-        <div className="projectDetailPage">
+        <div className="transaction-page">
             {
                 <TopBannerFilter
                     project_id={projectInfoInit.projectId}
