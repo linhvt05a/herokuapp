@@ -3,20 +3,24 @@ import { Form } from "antd"
 import { SidebarLeft, CustomerInformation, JobInformation, Collateral, BorrowerInformation } from "./Layout"
 
 const LoanOnline = props => {
-    const [status, setStatus] = React.useState(2);
+    const [status, setStatus] = React.useState(1);
     let [form] = Form.useForm();
     let { Item } = Form
-    const [state, setState] = React.useState()
+    const [state, setState] = React.useState({
+        customerInformation: null,
+        job: [],
+        collateral: null
+    })
     const renderLoanOnline = (status) => {
         switch (status) {
             case 1:
                 return <CustomerInformation form={form} />
             case 2:
-                return <JobInformation Item={Item} />
+                return <JobInformation form={form} state={state.job} setState={(value => setState({ ...state, job: value }))} />
             case 3:
-                return <Collateral Item={Item} />
+                return <Collateral form={form} state={state.collateral} setState={(value => setState({ ...state, collateral: value }))} />
             case 4:
-                return <BorrowerInformation Item={Item} />
+                return <BorrowerInformation Item={Item} data={Array.from(Array(2), (x, index) => index + 1)} />
         }
     }
     const onNext = () => {
@@ -33,7 +37,7 @@ const LoanOnline = props => {
             <div className="container container-sm container-md">
                 <h2 className="main_heading"><span>Hồ sơ vay online</span></h2>
                 <div className="row">
-                    <SidebarLeft />
+                    <SidebarLeft status={status} />
                     <div className="col-12 col-sm-12 col-lg-8">
                         <Form form={form} onFinish={onFinish}>
                             {renderLoanOnline(status)}

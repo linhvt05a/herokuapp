@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import CardHeader from "../../components/common/CardHeader";
 import { CardVideo, CardButton, CardDescription, CardMode, VisitorForm } from "./index";
-import { liveStreamAction } from "../../store/action/index";
+import { liveStreamAction, contactAddAction } from "../../store/action/index";
 import { useDispatch, useSelector } from "react-redux";
 import SocialFixed from '../../components/common/Social_fixed'
 
@@ -12,7 +12,13 @@ const LiveStream = () => {
   const liveListSuccess = live.listStreaming.success;
   const liveList = liveListSuccess ? live.listStreaming.detail : null;
   const [show,setShow] = useState(false)
-  const [showChat, setShowChat] = useState(false)
+
+  const showChatBox = (show) =>{
+    dispatch(contactAddAction.chatShow({show}))
+  }
+  const chatBox = useSelector(state => state.contactAddReducer);
+  let{showChat} = chatBox
+
   return (
     <div className="news">
       <div className="container container-sm container-md">
@@ -23,7 +29,7 @@ const LiveStream = () => {
               <CardVideo url = "https://www.youtube.com/watch?v=ysz5S6PUM-U"/>
               <div className="btn_service">
                 <ul className="list-inline">
-                  <CardButton label="TƯ VẤN TRỰC TUYẾN" icon="fas fa-comments icon" showModel ={()=> setShowChat(true)}/>
+                  <CardButton label="TƯ VẤN TRỰC TUYẾN" icon="fas fa-comments icon" showModel ={()=>showChatBox(!showChat)}/>
                   <CardButton label="ĐĂNG KÝ THAM QUAN" icon="fas fa-file-alt icon" showModel={()=>setShow(true)}/>
                 </ul>
               </div>

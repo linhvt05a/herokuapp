@@ -1,5 +1,5 @@
 import React from 'react';
-import { ModalCustom, CardOrderDetail, CardBuyerInfo, CardCartSummary, CardCollapseProductList, CardBillInfomation, CardRemittanceReceipt } from "./Layout"
+import { CardNotificationModal, CardOrderDetail, CardBuyerInfo, CardCartSummary, CardCollapseProductList, CardBillInfomation, CardRemittanceReceipt } from "./Layout"
 import { translate, getLocalStore } from '../../functions/Utils';
 import { useHistory } from 'react-router-dom';
 
@@ -16,6 +16,9 @@ const OrderInfo = (props) => {
 
         }
     }, [])
+    const onNext = () => {
+        showNotification(false)
+    }
     const renderNote = () => {
         return (
             <ul className="list">
@@ -59,7 +62,13 @@ const OrderInfo = (props) => {
                     </div>
                 </div>
             </div>
-            <ModalCustom status={false} visible={visible} showNotification={showNotification} widthModal={`360px`} />
+            <CardNotificationModal
+                status={true}
+                visible={visible}
+                setVisible={showNotification}
+                widthModal={`360px`}
+                onNext={onNext}
+                onHistory={() => history.push({ pathname: "/cart", state: { status: true } })} />
         </div>
 
     )

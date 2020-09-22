@@ -15,12 +15,13 @@ import SidebarLeft from "./SidebarLeft"
 import CustomerInformation from "./CustomerInformation";
 import JobInformation from "./JobInformation";
 import Collateral from "./Collateral";
-import BorrowerInformation from "./BorrowerInformation"
+import BorrowerInformation from "./BorrowerInformation";
+import JobSalary from "./JobSalary"
 
 export {
     AmountInformation, PaymentDetail,
     Banking, SliderSimple, InputBase, InputSlider, ChartDonutText,
     SidebarRight, FloatingRates, HeadingLine, contactAddAction, StaticLoading,
     CardNoData, SidebarLeft,
-    CustomerInformation, JobInformation, Collateral, BorrowerInformation
+    CustomerInformation, JobInformation, Collateral, BorrowerInformation, JobSalary
 }

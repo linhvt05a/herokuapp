@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Trans } from 'react-i18next';
 import { Input, Select } from 'antd'
+import { ModalCustom } from "../Layout"
 
 const CardPaymentProgressModal = (props) => {
 
@@ -47,10 +48,7 @@ const CardPaymentProgressModal = (props) => {
     }
 
     return (
-        <div className="modal-content modal_special">
-            <div className="modal-header">
-                <h5 className="modal-title"><Trans>cart_payment_progress</Trans></h5>
-            </div>
+        <ModalCustom {...props}>
             <div className="modal-body m_slider save_product--modal-signin">
                 <div className="form form_signInUp">
                     <div className="form-group">
@@ -98,7 +96,7 @@ const CardPaymentProgressModal = (props) => {
                     </div>
                 </div>
             </div>
-        </div>
+        </ModalCustom>
     )
 }
 

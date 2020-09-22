@@ -35,14 +35,71 @@ const BANNER_URL = {
     product_banner_url: '../images/project.jpg',
     promotions_attractive_banner_url: '../images/sale_banner.png'
 }
+//loan Online
+const ESTATE_OWNER_TYPE = [
+    { value: 1, label: "Nhà sở hữu riêng", text: "OWNERSHIP" },
+    { value: 2, label: "Nhà đi thuê", text: "WITH_PARENTS" },
+    { value: 3, label: "Ở với bố mẹ", text: "RENT" },
+    { value: 4, label: "loan_other", text: "OTHERS" },
+]
 
 
+const EDUCATION_TYPE = [
+    { value: 1, label: "Đại học/trên đại học", text: "UNIVERSITY" },
+    { value: 2, label: "Cao đẳng", text: "COLLEGE" },
+    { value: 3, label: "Trung cấp", text: "INTERMEDIATE" },
+    { value: 4, label: "Dưới trung cấp", text: "HIGH_SCHOOL" },
+]
 
+const MARITAL_TYPE = [
+    { value: 1, label: "Có gia đình", text: "MARRIED" },
+    { value: 2, label: "Ly dị/góa", text: "SINGLE" },
+    { value: 3, label: "Độc thân", text: "DIVORCE" },
+    { value: 4, label: "loan_other", text: "OTHERS" },
+]
 
-
-
-
-
+const BUSINESS_TYPE = [
+    { value: 1, label: "Cơ quan nhà nước", text: "STATE_AGENCIES" },
+    { value: 2, label: "DN Tư nhân", text: "INDIVIDUAL" },
+    { value: 3, label: "CTCP/TNHH", text: "JOINT_STOCK_LIMITED" },
+    { value: 4, label: "loan_other", text: "OTHERS" },
+]
+const POSITION_JOB_TYPE = [
+    { value: 1, label: "Cán bộ quản lý/ Chủ doanh nghiệp", text: "MANAGER" },
+    { value: 2, label: "Cán bộ CNV", text: "STAFF" },
+    { value: 3, label: "Công nhân/Tự kinh doanh", text: "WORKER" },
+    { value: 4, label: "Lao động thời vụ/ Thất nghiệp/ Nghỉ hưu", text: "PART_TIME" },
+]
+const LABOR_CONSTRACT_TYPE = [
+    { value: 1, label: "Dưới 6 tháng/ không có hợp đồng lao động", text: "6_MONTH" },
+    { value: 2, label: "6 tháng đến 1 năm", text: "6_MONTH_1_YEAR" },
+    { value: 3, label: "1 đến 3 năm", text: "1_3_YEAR" },
+    { value: 4, label: "Trên 3 năm", text: "3_YEAR" },
+    { value: 5, label: "Không xác định thời hạn", text: "NO_LIMIT" },
+    { value: 6, label: "Tự làm chủ", text: "OWNERSHIP" },
+]
+const PAY_TYPE = [
+    { value: 1, label: "Qua tài khoản/ thẻ ATM của Vietinbank", text: "ATM" },
+    { value: 2, label: "Tài khoản ATM ngân hàng khác", text: "CASH" },
+    { value: 3, label: "Tiền mặt", text: "OTHERS" },
+]
+const DOCUMENT_TYPE = [
+    { value: 1, label: "Sao kê bảng lương", text: "PAYROLL_STATEMENT" },
+    { value: 2, label: "Hợp đồng lao động", text: "LABOR_CONTRACT" },
+]
+const FILE_CONTENT_TYPE = {
+    DEFAULT: 'application/octet-stream',
+    PDF: 'application/pdf',
+    PNG: 'image/png',
+    JPEG: 'image/jpeg',
+    JPG: 'image/jpg',
+    DOC: 'application/msword',
+    DOCX: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+    XLS: 'application/vnd.ms-excel',
+    XLSX: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+    DWG: 'image/vnd.dwg',
+}
+//-------------------------------------------------------------------------------
 
 
 const DIRECTION_TYPE = [
@@ -170,7 +227,52 @@ const LOAN_TYPE = [
     { id: 1, type: "LOAN_TYPE_AMORTIZED_LOAN", label: "Amortized Loan" },
     { id: 2, type: "LOAN_TYPE_FIXED_ANNUITY_LOAN", label: "Fixed Annuity Loan" }
 ]
-
+const BUY_GUIDE = [
+    {
+      "step":'2.1', 
+      "title":'Tiêu đề', 
+      "field":"Click chọn các trường thông tin trên khung (1)", 
+      "criteria":'Để tìm kiếm dự án theo các tiêu chí sau:', 
+      "categories":' Vị trí (Thành phố/ Quận huyện) | Tiến độ | Phạm vi giá (tỷ đồng) | Diện tích(m2) | Loại hình sản phẩm',
+      "guideMouse":'Sau đó click vào nút TÌM KIẾM',
+      "content":'Để đi bắt đầu tìm kiếm dựa trên những tiêu chí đã chọn ở trên.',
+      "webGuide":' Website sẽ hiển thị những dự án đúng với các tiêu chí bạn đã search.',
+      "guideImage":'../images/direction1.jpg'
+    },
+    {
+      step:'2.2', 
+      title:'Tiêu đề', 
+      field:'Click chọn các trường thông tin trên khung (1)', 
+      criteria:'Để tìm kiếm dự án theo các tiêu chí sau:', 
+      categories:' Vị trí (Thành phố/ Quận huyện) | Tiến độ | Phạm vi giá (tỷ đồng) | Diện tích(m2) | Loại hình sản phẩm',
+      guideMouse:'Sau đó click vào nút TÌM KIẾM',
+      content:'Để đi bắt đầu tìm kiếm dựa trên những tiêu chí đã chọn ở trên.',
+      webGuide:' Website sẽ hiển thị những dự án đúng với các tiêu chí bạn đã search.',
+      guideImage:'../images/direction1.jpg'
+    },
+    {
+      step:'2.3', 
+      title:'Tiêu đề', 
+      field:'Click chọn các trường thông tin trên khung (1)', 
+      criteria:'Để tìm kiếm dự án theo các tiêu chí sau:', 
+      categories:' Vị trí (Thành phố/ Quận huyện) | Tiến độ | Phạm vi giá (tỷ đồng) | Diện tích(m2) | Loại hình sản phẩm',
+      guideMouse:'Sau đó click vào nút TÌM KIẾM',
+      content:'Để đi bắt đầu tìm kiếm dựa trên những tiêu chí đã chọn ở trên.',
+      webGuide:' Website sẽ hiển thị những dự án đúng với các tiêu chí bạn đã search.',
+      guideImage:'../images/direction1.jpg'
+    },
+    {
+      step:'2.4', 
+      title:'Tiêu đề', 
+      field:'Click chọn các trường thông tin trên khung (1)', 
+      criteria:'Để tìm kiếm dự án theo các tiêu chí sau:', 
+      categories:' Vị trí (Thành phố/ Quận huyện) | Tiến độ | Phạm vi giá (tỷ đồng) | Diện tích(m2) | Loại hình sản phẩm',
+      guideMouse:'Sau đó click vào nút TÌM KIẾM',
+      content:'Để đi bắt đầu tìm kiếm dựa trên những tiêu chí đã chọn ở trên.',
+      webGuide:' Website sẽ hiển thị những dự án đúng với các tiêu chí bạn đã search.',
+      guideImage:'../images/direction1.jpg'
+    }
+  ]
 module.exports = {
 
     IMAGE_URL,
@@ -190,5 +292,16 @@ module.exports = {
     RECRUITMENT_STATUS,
     LOAN_TYPE,
     TIMEOUT_ADS,
-    LOADING_ADS
+    LOADING_ADS,
+
+    ESTATE_OWNER_TYPE,
+    EDUCATION_TYPE,
+    MARITAL_TYPE,
+    BUSINESS_TYPE,
+    POSITION_JOB_TYPE,
+    LABOR_CONSTRACT_TYPE,
+    PAY_TYPE,
+    DOCUMENT_TYPE,
+    FILE_CONTENT_TYPE,
+    BUY_GUIDE
 }

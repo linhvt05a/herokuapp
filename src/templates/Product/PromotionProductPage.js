@@ -4,8 +4,10 @@ import CardFilterList from '../../components/common/CardFilterList';
 import { productAction } from '../../store/action';
 import ProductList from "./ProductList";
 import {PRODUCT_LIST_TYPE_VALUE} from "../../functions/Helper";
+import {BANNER_URL} from "../../contant";
+import TopBannerCustom from "../../components/common/TopBanner/TopBannerCustom";
 
-const HotProductPage = (props) => {
+const FlashSalePage = (props) => {
     const dispatch = useDispatch();
     const limit = 9
 
@@ -23,14 +25,11 @@ const HotProductPage = (props) => {
         }))
     }
     return (
-        <div className="projectPage ">
-            <div className="project_page bg_grey">
-                <CardFilterList title={"search_product_by"} onFilterSubmit={onFilterSubmit} />
-                <ProductList  labelHeader="hot_product" numberItem={limit}
-                              productListType={PRODUCT_LIST_TYPE_VALUE('hot-product').id} classMb0="mb-0"/>
-
-            </div>
+        <div className="promotionDetailPage">
+            <TopBannerCustom className="flash_sale" img={BANNER_URL.promotions_attractive_banner_url} />
+            <ProductList  labelHeader="attractive_promotion" numberItem={limit}  showFilter
+                          productListType={PRODUCT_LIST_TYPE_VALUE('promotion-product').id}  classSaleQuick="sales_quick" />
         </div>
     )
 }
-export default HotProductPage;
+export default FlashSalePage;
