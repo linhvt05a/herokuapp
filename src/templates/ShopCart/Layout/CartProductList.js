@@ -5,9 +5,9 @@ import { translate } from '../../../functions/Utils';
 import { ItemProjectName, ItemProjectProduct, ItemProjectBorrow } from '../Item/index'
 
 const CardCartProductList = (props) => {
-    const { showPaymentProgressModal, showPromotionModal, setCheck, check, datas } = props
+    const { showPaymentProgressModal, showPromotionModal, setCheck, check, datas, status } = props
     let allCheck = localStorage.getItem("AllCheckProject");
-
+    console.log(status);
     React.useEffect(() => {
         if (allCheck) {
 
@@ -79,10 +79,10 @@ const CardCartProductList = (props) => {
         setCheck({ ...check, allProduct: newCheckProduct })
     }
     const onSubmit = () => {
-        let doc = document.getElementsByClassName("top_banner ");
-        setTimeout(() => {
-            doc[0].scrollIntoView(true)
-        }, 0);
+        // let doc = document.getElementsByClassName("top_banner ");
+        // setTimeout(() => {
+        //     doc[0].scrollIntoView(true)
+        // }, 0);
         props.onSubmit()
     }
     const onDisabled = () => {
@@ -111,15 +111,29 @@ const CardCartProductList = (props) => {
                         [<ItemProjectName key={index} checked={data.checked} onChange={checked => onCheckAllProduct(checked, index)} />,
                         <div className="block bg_white apartment" key={check.allProduct.length + index + 1}>
                             {data.product && data.product.map((item, i) => {
-                                return <ItemProjectProduct
-                                    key={i + 1}
-                                    showPaymentProgressModal={showPaymentProgressModal}
-                                    showPromotionModal={showPromotionModal}
-                                    checked={item.checked}
-                                    data={datas}
-                                    like={item.like}
-                                    saveToProduct={(checked) => onLike(checked, i, index)}
-                                    onChange={checked => onCheckProduct(checked, i, index)} />
+                                if (status && status.status) {
+                                    return <ItemProjectBorrow
+                                        key={i + 1}
+                                        showPaymentProgressModal={showPaymentProgressModal}
+                                        showPromotionModal={showPromotionModal}
+                                        checked={item.checked}
+                                        data={datas}
+                                        like={item.like}
+                                        saveToProduct={(checked) => onLike(checked, i, index)}
+                                        onChange={checked => onCheckProduct(checked, i, index)} />
+                                }
+                                else {
+                                    return <ItemProjectProduct
+                                        key={i + 1}
+                                        showPaymentProgressModal={showPaymentProgressModal}
+                                        showPromotionModal={showPromotionModal}
+                                        checked={item.checked}
+                                        data={datas}
+                                        like={item.like}
+                                        saveToProduct={(checked) => onLike(checked, i, index)}
+                                        onChange={checked => onCheckProduct(checked, i, index)} />
+                                }
+
                             })}
                         </div>]
                     )

@@ -14,10 +14,8 @@ const CardNotificationModal = props => {
                     <div className="title"> Đặt cọc thành công
                     <span className="sub">   Sản phẩm đã đặt mua thành công. <br />  Bạn có thể vào đơn hàng để kiểm tra lại </span>
                     </div>
-                    <div className="row">
-                        <a className="btn btn_red text-uppercase" data-dismiss="modal" onClick={onNext}>Đơn hàng</a>
-                        <a className="btn btn_red text-uppercase" data-dismiss="modal" onClick={onHistory}>NỘP HỒ SƠ VAY</a>
-                    </div>
+                    <a className="btn btn_red text-uppercase" data-dismiss="modal" onClick={onNext}>Đơn hàng</a>
+                    <a className="btn  text-uppercase" data-dismiss="modal" onClick={onHistory}>NỘP HỒ SƠ VAY</a>
                 </div> :
                     <div className="modal-body save_product--modal-signin">
                         <i className="icon las la-times" />

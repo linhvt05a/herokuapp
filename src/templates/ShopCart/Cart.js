@@ -10,7 +10,6 @@ import { getLocalStore } from '../../functions/Utils';
 
 const Cart = (props) => {
     let history = useHistory();
-
     const [state, setState] = useState({
         paymentProgressModalVisible: false,
         promotionModalVisible: false,
@@ -97,6 +96,7 @@ const Cart = (props) => {
                 </h2>
                 <div className="row">
                     <CardCartProductList
+                        status={history.location.state}
                         showPaymentProgressModal={showPaymentProgressModal}
                         showPromotionModal={showPromotionModal}
                         check={check}
@@ -105,7 +105,7 @@ const Cart = (props) => {
                         onSubmit={onSubmit} />
                     {state.onSubmit &&
                         <div className="col-12 col-sm-12 col-lg-4">
-                            <CardCartSummary loanStatus={true} extend onNext={() => history.push("/cart/customer-info")} />
+                            <CardCartSummary loanStatus={true} extend onNext={() => history.location.state ? history.push("/loan-online") : history.push("/cart/customer-info")} />
                         </div>}
                 </div>
             </div>
