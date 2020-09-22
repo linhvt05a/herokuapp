@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SidebarLeft = props => {
+const SidebarLeft = ({ status }) => {
     return (
         <div className="col-12 col-sm-12 col-lg-4">
             <div className="loan_online--process">
@@ -28,19 +28,19 @@ const SidebarLeft = props => {
                         </div>
                     </div>
                     <div className="loan_online--step">
-                        <div className="step step_1 active">
+                        <div className={`step step_1 ${status == 1 ? "active" : status > 1 && "done"}`}>
                             <span className="symbol">
                                 <i className="icon las la-address-card" />
                             </span>
                             <span className="text">Thông tin chung</span>
                         </div>
-                        <div className="step step_2">
+                        <div className={`step step_2 ${status == 2 ? "active" : status > 2 && "done"}`}>
                             <span className="symbol">
                                 <i className="icon las la-building" />
                             </span>
                             <span className="text">Công tác và thu nhập</span>
                         </div>
-                        <div className="step step_3">
+                        <div className={`step step_3 ${status == 3 ? "active" : status > 3 && "done"}`}>
                             <span className="symbol">
                                 <i className="icon las la-money-check-alt" />
                             </span>

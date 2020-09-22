@@ -26,7 +26,7 @@ const InputSelect = (props) => {
                                 defaultValue={defaultValue}
                                 showSearch
                                 onSearch={onSearch}
-                                style={{ width: style, height: 48 }}
+                                style={style ? style : { height: 48 }}
                                 className={classNameSelect ? classNameSelect : "form-control"}
                                 onChange={onChange}
                                 filterOption={(input, option) => {
@@ -44,7 +44,7 @@ const InputSelect = (props) => {
                             defaultValue={defaultValue}
                             showSearch
                             onSearch={onSearch}
-                            style={{ width: style, height: 48 }}
+                            style={style ? style : { height: 48 }}
                             className={classNameSelect ? classNameSelect : "form-control"}
                             onChange={onChange}
                             filterOption={(input, option) =>
