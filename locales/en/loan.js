@@ -17,5 +17,21 @@ export default {
     loan_debt_decreased: "Outstanding debt decreased",
     loan_visit: "Visit",
     loan_average_payment: "Average monthly payment",
-    loan_payment_detail: "Payment details"
+    loan_payment_detail: "Payment details",
+    loan_birthday: "Date of birth",
+    loan_gender: "Gender",
+    loan_chosse: "Select",
+    loan_other: "Other",
+    loan_date_range: "Date range",
+    loan_input_dates: "Dates",
+    loan_issued: "Issued by",
+    loan_marital_status: "Marital status",
+    loan_education_status: "Educational status",
+    loan_estate_status: "Real Estate Status",
+    loan_chosse_place: "Choose a place",
+    loan_input_email: "Enter email",
+    loan_input: "Input",
+    loan_input_name: "Enter your name",
+
+
 }

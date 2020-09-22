@@ -14,7 +14,7 @@ const SelectDefault = (props) => {
                 <label className={titleClassName ? titleClassName : "fw-medium"}>
                     <Trans>{label}</Trans>
                     {
-                        require ? <span className="uni_star_e94c4c"> *</span> : ""
+                        require ? <span className="star"> *</span> : ""
                     }
                 </label>
             }

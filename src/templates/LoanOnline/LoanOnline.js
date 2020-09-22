@@ -3,14 +3,14 @@ import { Form } from "antd"
 import { SidebarLeft, CustomerInformation, JobInformation, Collateral, BorrowerInformation } from "./Layout"
 
 const LoanOnline = props => {
-    const [status, setStatus] = React.useState(1);
+    const [status, setStatus] = React.useState(2);
     let [form] = Form.useForm();
     let { Item } = Form
-
+    const [state, setState] = React.useState()
     const renderLoanOnline = (status) => {
         switch (status) {
             case 1:
-                return <CustomerInformation Item={Item} />
+                return <CustomerInformation form={form} />
             case 2:
                 return <JobInformation Item={Item} />
             case 3:
@@ -21,6 +21,11 @@ const LoanOnline = props => {
     }
     const onNext = () => {
         form.submit()
+        // setStatus(status + 1);
+    }
+    const onFinish = (value) => {
+        let newdata = value
+        setState({ ...state, customerInformation: newdata })
         setStatus(status + 1);
     }
     return (
@@ -30,7 +35,7 @@ const LoanOnline = props => {
                 <div className="row">
                     <SidebarLeft />
                     <div className="col-12 col-sm-12 col-lg-8">
-                        <Form form={form}>
+                        <Form form={form} onFinish={onFinish}>
                             {renderLoanOnline(status)}
                         </Form>
                         {/* <CustomerInformation />

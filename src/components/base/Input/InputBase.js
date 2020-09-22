@@ -23,17 +23,18 @@ const InputBase = (props) => {
         unit,
         classNameUnit,
         classNameInput,
+        nameItem, rules,
         ...attr } = props;
 
     const renderInput = () => {
         return (
-            <div className="form-group">
+            <div className={className ? className : "form-group"}>
                 {
                     label &&
                     <label className={titleClassName ? titleClassName : "fw-medium"}>
                         <Trans>{label}</Trans>
                         {
-                            require ? <span className="uni_star_e94c4c"> *</span> : ""
+                            require ? <span className="star"> *</span> : ""
 
                         }
                         {
@@ -42,19 +43,36 @@ const InputBase = (props) => {
                     </label>
                 }
                 <div className="input-group">
-                    <Input
-                        className={classNameInput ? classNameInput : ""}
-                        style={style ? style : { height: 48, backgroundColor: background }}
-                        addonAfter={addonAfter}
-                        addonBefore={addonBefore}
-                        onChange={onChange}
-                        placeholder={placeholder}
-                        value={value}
-                        name={name}
-                        type={type}
-                        {...attr}
-                        readOnly={props.readOnly ? props.readOnly : undefined}
-                        disabled={disabled ? disabled : undefined} />
+                    {nameItem ?
+                        <Form.Item name={nameItem} rules={rules}>
+                            <Input
+                                className={classNameInput ? classNameInput : ""}
+                                style={style ? style : { height: 48, backgroundColor: background }}
+                                addonAfter={addonAfter}
+                                addonBefore={addonBefore}
+                                onChange={onChange}
+                                placeholder={placeholder}
+                                value={value}
+                                name={name}
+                                type={type}
+                                {...attr}
+                                readOnly={props.readOnly ? props.readOnly : undefined}
+                                disabled={disabled ? disabled : undefined} />
+                        </Form.Item>
+                        :
+                        <Input
+                            className={classNameInput ? classNameInput : ""}
+                            style={style ? style : { height: 48, backgroundColor: background }}
+                            addonAfter={addonAfter}
+                            addonBefore={addonBefore}
+                            onChange={onChange}
+                            placeholder={placeholder}
+                            value={value}
+                            name={name}
+                            type={type}
+                            {...attr}
+                            readOnly={props.readOnly ? props.readOnly : undefined}
+                            disabled={disabled ? disabled : undefined} />}
                     <span style={{ color: 'red', fontSize: 12, marginTop: top }}>{errors}</span>
                 </div>
             </div>

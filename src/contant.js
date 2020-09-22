@@ -85,7 +85,7 @@ const DATA_INTRODUCE = {
     ]
 }
 const NAME_GENDER = [
-    { value: 0, label: "cart_mr" }, { value: 1, label: "cart_mrs" }, { value: 2, label: "other" }
+    { value: 0, label: "cart_mr" }, { value: 1, label: "cart_mrs" }, { value: 2, label: "loan_other" }
 ]
 const RULES = {
     phone: {

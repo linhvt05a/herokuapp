@@ -53,11 +53,7 @@ export default {
     WARD_LIST: DOMAIN.api + "/api/fe/v1/ward",
     STATUS_LIST: DOMAIN.api + "/api/be/v1/common/project/status",
     MINMAX_LIST: DOMAIN.api + "/api/main_web/v1/project/min_max",
-    PROVINCE_LIST: DOMAIN.api + "/api/fe/v1/province",
-    DISTRICT_LIST: DOMAIN.api + "/api/fe/v1/district",
-    WARD_LIST: DOMAIN.api + "/api/fe/v1/ward",
-    STATUS_LIST: DOMAIN.api + "/api/be/v1/common/project/status",
-    MINMAX_LIST: DOMAIN.api + "/api/main_web/v1/project/min_max/",
+
 
     // ACCOUNT
     LOGIN: DOMAIN.api + "/api/main_web/v1/login/",
@@ -94,7 +90,7 @@ export default {
 
     PROMOTION_LIST: DOMAIN.api + "",
 
-    LIVE_STREAM_LIST :DOMAIN.api + "",
+    LIVE_STREAM_LIST: DOMAIN.api + "",
     //Loan
     GET_LOAN_POLICY: DOMAIN.api + "/api/main_web/v1/loan_policy/",
     GET_POLICY: DOMAIN.api + "/api/main_web/v1/loan_policy/policy/",
