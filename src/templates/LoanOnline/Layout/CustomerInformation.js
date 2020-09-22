@@ -1,14 +1,13 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Form, Input } from "antd"
+import { Form } from "antd"
+import { useTranslation } from 'react-i18next';
 
 import { InputBase, InputDatePicker, SelectCustom } from "../../../components/base";
 import { NAME_GENDER } from '../../ShopCart/Layout';
-import { EDUCATION_TYPE, ESTATE_OWNER_TYPE, MARITAL_TYPE } from '../../../functions/Helper';
 import { commonAction } from '../../../store/action';
 import { createDataSelect, getLocalStore, translate } from '../../../functions/Utils';
-import { useTranslation } from 'react-i18next';
-import { RULES } from '../../../contant';
+import { RULES, EDUCATION_TYPE, ESTATE_OWNER_TYPE, MARITAL_TYPE } from '../../../contant';
 
 const CustomerInformation = props => {
     let { form } = props
@@ -20,10 +19,7 @@ const CustomerInformation = props => {
         district: null,
         ward: null
     });
-    // const [state, setState] = React.useState({
-    //     city: "", district: "", ward: "", address: "",
-    //     fullname: ""
-    // })
+
     React.useEffect(() => {
         dispatch(commonAction.loadProvinceList({ lang: getLocalStore('language') }))
     }, [])

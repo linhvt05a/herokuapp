@@ -85,7 +85,6 @@ const ChatOnline = (props) => {
             clearChat: true
         })
     };
-
     return (
         <div className={`chat_online chatOnline ${active ? "active" : ''}`}>
             <label className="chatLabel">

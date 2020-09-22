@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Trans } from 'react-i18next';
 import { Radio, Input } from 'antd'
 import { translate } from '../../../functions/Utils';
-import { InputCurrency } from "../Layout"
+import { InputCurrency, ModalCustom } from "../Layout"
+
 
 const CardPromotionModal = (props) => {
 
@@ -38,10 +39,7 @@ const CardPromotionModal = (props) => {
         setValue(value)
     }
     return (
-        <div className="modal-content modal_special">
-            <div className="modal-header">
-                <h5 className="modal-title"><Trans>cart_special_offers</Trans></h5>
-            </div>
+        <ModalCustom title="cart_special_offers" {...props}>
             <div className="modal-body m_slider save_product--modal-signin">
                 <div className="form form_signInUp">
                     <div className="form-group form_forgot--info">
@@ -92,7 +90,7 @@ const CardPromotionModal = (props) => {
                     </div>
                 </div>
             </div>
-        </div>
+        </ModalCustom>
     )
 }
 

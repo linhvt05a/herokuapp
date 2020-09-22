@@ -1,6 +1,7 @@
 import React from 'react';
 import { Trans } from 'react-i18next';
 import InputCheckboxViolet from '../../../components/base/Input/InputCheckboxViolet'
+import { translate } from '../../../functions/Utils';
 import { ItemProjectName, ItemProjectProduct, ItemProjectBorrow } from '../Item/index'
 
 const CardCartProductList = (props) => {
@@ -110,7 +111,7 @@ const CardCartProductList = (props) => {
                         [<ItemProjectName key={index} checked={data.checked} onChange={checked => onCheckAllProduct(checked, index)} />,
                         <div className="block bg_white apartment" key={check.allProduct.length + index + 1}>
                             {data.product && data.product.map((item, i) => {
-                                return <ItemProjectBorrow
+                                return <ItemProjectProduct
                                     key={i + 1}
                                     showPaymentProgressModal={showPaymentProgressModal}
                                     showPromotionModal={showPromotionModal}
@@ -126,9 +127,9 @@ const CardCartProductList = (props) => {
 
                 : null}
             {onDisabled() ?
-                <div className={`text-right mt-2 disabled`} ><a className={`btn btn_purple text-uppercase disabled`}>Xác nhận</a></div>
+                <div className={`text-right mt-2 disabled`} ><a className={`btn btn_purple text-uppercase disabled`}>{translate("button_confirm")}</a></div>
                 :
-                <div className={`text-right mt-2`} onClick={onSubmit}><a className={`btn btn_purple text-uppercase`}>Xác nhận</a></div>}
+                <div className={`text-right mt-2`} onClick={onSubmit}><a className={`btn btn_purple text-uppercase`}>{translate("button_confirm")}</a></div>}
         </div>
     )
 }

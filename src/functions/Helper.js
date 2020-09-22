@@ -51,64 +51,10 @@ export const PROJECT_SALE_GROUP_ID = (id) => {
 
 // --------------------------------------------------------------
 
-export const MARITAL_TYPE = [
-    { value: 0, label: "Có gia đình", text: "MARRIED" },
-    { value: 1, label: "Ly dị/góa", text: "SINGLE" },
-    { value: 2, label: "Độc thân", text: "DIVORCE" },
-    { value: 3, label: "Khác", text: "OTHERS" },
-]
-
-export const MARITAL_TYPE_VALUE = (value) => {
-    let text = `${value}`.toUpperCase();
-    let x = MARITAL_TYPE.find(e => e.text == text)
-    if (x) { return x }
-}
-
-export const MARITAL_TYPE_ID = (id) => {
-    let x = MARITAL_TYPE.find(e => e.value == id)
-    if (x) { return x }
-}
-
-// --------------------------------------------------------------
 
 
-export const EDUCATION_TYPE = [
-    { value: 0, label: "Đại học/trên đại học", text: "UNIVERSITY" },
-    { value: 1, label: "Cao đẳng", text: "COLLEGE" },
-    { value: 2, label: "Trung cấp", text: "INTERMEDIATE" },
-    { value: 3, label: "Dưới trung cấp", text: "HIGH_SCHOOL" },
-]
 
-export const EDUCATION_TYPE_VALUE = (value) => {
-    let text = `${value}`.toUpperCase();
-    let x = EDUCATION_TYPE.find(e => e.text == text)
-    if (x) { return x }
-}
 
-export const EDUCATION_TYPE_ID = (id) => {
-    let x = EDUCATION_TYPE.find(e => e.value == id)
-    if (x) { return x }
-}
-
-// --------------------------------------------------------------
-
-export const ESTATE_OWNER_TYPE = [
-    { value: 0, label: "Nhà sở hữu riêng", text: "OWNERSHIP" },
-    { value: 1, label: "Nhà đi thuê", text: "WITH_PARENTS" },
-    { value: 2, label: "Ở với bố mẹ", text: "RENT" },
-    { value: 3, label: "Khác", text: "OTHERS" },
-]
-
-export const ESTATE_OWNER_TYPE_VALUE = (value) => {
-    let text = `${value}`.toUpperCase();
-    let x = ESTATE_OWNER_TYPE.find(e => e.text == text)
-    if (x) { return x }
-}
-
-export const ESTATE_OWNER_TYPE_ID = (id) => {
-    let x = ESTATE_OWNER_TYPE.find(e => e.value == id)
-    if (x) { return x }
-}
 
 // --------------------------------------------------------------
 
