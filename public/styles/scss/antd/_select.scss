@@ -78,7 +78,7 @@
         @include align-items(center);
         color: #0d0d0d;
     }
-    &.ant-input {
+    &.ant-input, &.ant-select-selection-search-input {
         color: #0d0d0d;
 
         &.ant-input-disabled {

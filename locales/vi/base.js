@@ -85,4 +85,7 @@ export default {
     identity_length: "Chứng minh nhân dân từ 9 số trở lên",
     phone_length: "Số điện thoại từ 9 đến 10 số",
 
+    register_visit_button : 'đăng ký',
+    register_visit_success : 'Bạn đã đăng ký thành công!',
+
 }

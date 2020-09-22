@@ -136,13 +136,13 @@ a:hover {
     @include flex-direction(column);
     @include align-items(flex-start);
 }
-.ant-modal-root{
-    .form_signInUp{
-        .ant-input-affix-wrapper > input.ant-input{
-            border-bottom: 1px solid #ced4da;
-        }
-    }
-}
+// .ant-modal-root{
+//     .form_signInUp{
+//         .ant-input-affix-wrapper > input.ant-input{
+//             border-bottom: 1px solid #ced4da;
+//         }
+//     }
+// }
 
 .project_detail--filter{
     .form-group{

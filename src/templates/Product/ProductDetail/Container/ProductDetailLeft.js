@@ -27,4 +27,4 @@ const ProductDetailLeft = (props) => {
     )
 }
 
-export default ProductDetailLeft;
+export default React.memo(ProductDetailLeft);

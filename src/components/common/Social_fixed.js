@@ -46,7 +46,7 @@ const SocialFixed = (props) => {
 				</li>
 			</ul>
 
-			<ChatOnline active={show} setActive={setShowAdvisory} />
+			<ChatOnline active={showChat} setActive={setShowAdvisory} />
 		</>
 	);
 };

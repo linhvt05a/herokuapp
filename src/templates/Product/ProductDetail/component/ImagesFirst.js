@@ -9,7 +9,6 @@ import TimeLineClock from '../../../../components/common/Timeline/TimeLineClock'
 
 const ImagesFirst = (props) => {
     const { data } = props;
-        console.log(data)
     const saveProduct = () =>{
         
     }
