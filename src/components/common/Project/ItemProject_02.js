@@ -2,13 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Trans } from "react-i18next";
 import { IMAGE_URL } from "../../../contant";
+import { PROJECT_STATUS_ID, PROJECT_STATUS_VALUE } from "../../../functions/Helper";
 
 const ItemProject_02 = (props) => {
 
     const { data } = props;
     const paramProject = {
         pathname: "/project/" + data.project_id,
-        search: '?status=' + data.project_sale_status
+        search: '?status=' + PROJECT_STATUS_ID(data.project_sale_status).value
     };
 
     return (
@@ -16,11 +17,11 @@ const ItemProject_02 = (props) => {
             <div className="project_page--item">
                 <div className="wrap">
                     {
-                        data.project_sale_status === 3 ?
+                        data.project_sale_status == PROJECT_STATUS_VALUE('on_sale').id ?
                             <div className="sell_status selling">
                                 <Trans>home_selling</Trans>
                             </div> :
-                            data.project_sale_status === 2 ?
+                            data.project_sale_status == PROJECT_STATUS_VALUE('coming_soon').id ?
                                 <div className="sell_status will_sell">
                                     <Trans>home_coming_soon</Trans>
                                 </div> : ""

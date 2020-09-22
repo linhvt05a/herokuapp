@@ -1,0 +1,20 @@
+.latest_news--content {
+    .item {
+        height: 95%;
+    }
+    .slick-track {
+        @include flex-wrap(nowrap);
+        width: 100% !important;
+    }
+    .slick-slide {
+        > div {
+            height: 100%;
+        }
+    }
+    .slick-arrow::before{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        @include transform(translate(-50%,-50%));
+    }
+}

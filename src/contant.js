@@ -32,7 +32,8 @@ const BANNER_URL = {
     elements_banner_url: '../images/project.jpg',
     example_banner_url: '../images/project.jpg',
     cart_banner_url: '../images/project.jpg',
-    product_banner_url: '../images/project.jpg'
+    product_banner_url: '../images/project.jpg',
+    promotions_attractive_banner_url: '../images/sale_banner.png'
 }
 
 
