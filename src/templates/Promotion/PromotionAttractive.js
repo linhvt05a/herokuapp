@@ -8,7 +8,7 @@ const PromotionAttractive = (props) => {
     return (
         <div className="promotion-attractive">
             <TopBannerCustom className="flash_sale" img={BANNER_URL.promotions_attractive_banner_url} />
-            <CardPromotion headerBodyClassName="label_filter--heading" labelHeader="Royal Garden" limit={9} options detail />
+            <CardPromotion headerBodyClassName="label_filter--heading" labelHeader="attractive_promotion" limit={9} options detail />
         </div>
     )
 }
