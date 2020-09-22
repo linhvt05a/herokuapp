@@ -248,7 +248,7 @@ const MAIN = [
         "component": PromotionList,
         "banner_title": "",
         "banner_url": BANNER_URL.promotionList_banner_url,
-        "banner_show": true,
+        "banner_show": false,
     },
 
     {
