@@ -23,9 +23,9 @@ const RecruitmentDetail = lazy(() => import('./templates/Support/Recruitment/Rec
 const TransactionLevel = lazy(() => import('./templates/TransactionLevel/TransactionLevel'));
 const ShoppingGuide = lazy(() => import('./templates/Support/ShopGuide/ShoppingGuide'));
 const Legal = lazy(() => import('./templates/Support/Legal/Juridical'));
-const Promotion = lazy(() => import('./templates/Promotion/Promotion'));
+const PromotionPage = lazy(() => import('./templates/Promotion/PromotionPage'));
 const FlashSaleList = lazy(() => import('./templates/Promotion/FlashSaleList'));
-const PromotionList = lazy(() => import('./templates/Promotion/PromotionList'));
+const PromotionAttractive = lazy(() => import('./templates/Promotion/PromotionAttractive'));
 
 const Account = lazy(() => import('./templates/Account/CustomerAccount'));
 
@@ -167,10 +167,17 @@ const MAIN = [
     },
     {
         "path": "/promotion",
-        "component": Promotion,
+        "component": PromotionPage,
         "banner_title": "promotion_banner_title",
         "banner_url": BANNER_URL.promotion_banner_url,
-        "banner_show": true,
+        "banner_show": false,
+    },
+    {
+        "path": "/promotions-attractive",
+        "component": PromotionAttractive,
+        "banner_title": "promotion_banner_title",
+        "banner_url": BANNER_URL.promotion_banner_url,
+        "banner_show": false,
     },
     {
         "path": "/flashsale",
@@ -242,13 +249,6 @@ const MAIN = [
         "banner_title": "cart",
         "banner_url": BANNER_URL.cart_banner_url,
         "banner_show": true
-    },
-    {
-        "path": "/promotion-list",
-        "component": PromotionList,
-        "banner_title": "",
-        "banner_url": BANNER_URL.promotionList_banner_url,
-        "banner_show": false,
     },
 
     {

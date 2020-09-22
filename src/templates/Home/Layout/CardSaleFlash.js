@@ -10,11 +10,12 @@ import { LoadDataPaging } from '../../../functions/Utils';
 import { productAction } from "../../../store/action/index";
 import SkeletonLoading from "../../../components/common/Loading/SkeletonLoading";
 import { PROJECT_SALE_GROUP } from "../../../functions/Helper";
+import { IMAGE_URL } from "../../../contant";
 
 
 const CardSaleFlash = (props) => {
 
-    const { headerBodyClassName, labelHeader, limit, detail, options, readmore, timeLine } = props
+    const { headerBodyClassName, labelHeader, limit, detail, options, readmore, timeLine, image_ads } = props
 
     const product = useSelector(state => state.productReducer);
     const isGetHotProductListSuccess = product.hotProductList.success;
@@ -83,6 +84,9 @@ const CardSaleFlash = (props) => {
                     link="/flashsale"
                     onChange={onProjectGroupFilterChange} trans
                 />
+
+                {image_ads ? <figure className="mb-5"><img className="w-100" src={image_ads} alt='Minerva' /></figure> : ''}
+
                 {
                     timeLine
                         ? <ItemTimeLine datas={['2020-09-08T09:00:00', '2020-09-08T12:00:00', '2020-09-08T14:30:00', '2020-09-08T16:00:00', '2020-09-08T18:30:00']} />

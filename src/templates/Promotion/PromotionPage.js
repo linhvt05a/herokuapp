@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Pagination from '../../components/common/Pagination'
-import { CardPromotion } from './Layout/index'
+import CardPromotion from './CardPromotion'
 import { CardSaleFlash } from '../Home/Layout/index'
 import { Trans } from 'react-i18next';
 import { LoadDataPaging } from '../../functions/Utils';
@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { promotionAction, newsAction } from "../../store/action/index";
 import { convertDateShow } from "../../functions/Utils";
 import CardNoData from '../../components/common/CardNoData';
+import { IMAGE_URL } from '../../contant';
 
 const Promotion = () => {
     const promotions = useSelector(state => state.newsReducer);
@@ -31,8 +32,15 @@ const Promotion = () => {
         dispatch(newsAction.LoadNewsList({ page: value, limit: 5, category_news_group: 4 }))
     }
     return (
-        <div className="homePage">
-            <CardSaleFlash headerBodyClassName="label_filter--heading" labelHeader="flash_sale" readmore timeLine />
+        <div className="promotion-page">
+            <CardSaleFlash
+                image_ads={`${IMAGE_URL}images/flashsale_smaller.jpg`}
+                headerBodyClassName="label_filter--heading"
+                labelHeader="flash_sale" readmore timeLine
+            />
+
+            <figure><img src={`${IMAGE_URL}images/promotion_ads_page.png`} className="w-100" alt="minerva" /></figure>
+
             <div className="overview" >
                 <div className="container container-sm container-md">
                     <h2 className="overview_heading">
@@ -57,7 +65,10 @@ const Promotion = () => {
                     </div>
                 </div>
             </div>
-            {/* <CardPromotion headerBodyClassName="label_filter--heading" labelHeader="hot_promotion" banner readmore /> */}
+
+
+
+            <CardPromotion headerBodyClassName="label_filter--heading" labelHeader="hot_promotion" banner readmore />
         </div>
     )
 }
