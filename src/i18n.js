@@ -2,6 +2,8 @@ import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import en from '../locales/en.js';
 import vi from '../locales/vi.js';
+import Backend from 'i18next-http-backend';
+import LanguageDetector from 'i18next-browser-languagedetector';
 
 let lang = JSON.parse(localStorage.getItem('language'));
 // console.log('dd',lang);
@@ -24,6 +26,8 @@ const resources = {
 };
 
 i18n
+.use(Backend)
+.use(LanguageDetector)
 .use(initReactI18next) // passes i18n down to react-i18next
 .init({
     resources,
