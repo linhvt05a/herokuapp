@@ -56,3 +56,22 @@ export const PROJECT_SALE_GROUP_ID = (id) => {
 
 
 
+// --------------------------------------------------------------
+
+export const PRODUCT_LIST_TYPE = [
+    { id: 1, label: "Hot product", text: "hot-product" },
+    { id: 2, label: "Flash sale", text: "flash-sale"  },
+    { id: 3, label: "Promotion attractive", text: "promotion-product"  },
+    { id: 4, label: "Other" , text: "other"},
+
+]
+
+export const PRODUCT_LIST_TYPE_VALUE = (value) => {
+    let x = PRODUCT_LIST_TYPE.find(e => e.text == value)
+    if (x) { return x }
+}
+
+export const PRODUCT_LIST_TYPE_ID = (id) => {
+    let x = PRODUCT_LIST_TYPE.find(e => e.id == id)
+    if (x) { return x }
+}

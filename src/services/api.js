@@ -15,7 +15,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 console.log('********************');
-console.log('---ENV:', process.env.NODE_ENV, DOMAIN);
+console.log('---ENV:', process.env.NODE_ENV);
 console.log('********************');
 
 

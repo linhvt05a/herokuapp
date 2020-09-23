@@ -1,3 +1,6 @@
 .btn.disabled, .btn:disabled, .btn[disabled="disabled"] {
     opacity: .65;
 }
+.btn{
+    text-transform: uppercase;
+}

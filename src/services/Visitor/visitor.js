@@ -10,7 +10,6 @@ export const visitorService = {
             project_id ,
             content,
         }
-        console.log(body)
         const requestOptions = {
             method: 'POST',
             headers: api.getHeader(TOKEN),

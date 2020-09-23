@@ -11,8 +11,8 @@ return (
         <div className="tabs h-100">
             <ul className="nav square nav-tabs" role="tablist">
                 <SupportGuide 
-                    step="Step 1" 
-                    title = "PRODUCT SEARCH" 
+                    step="guide_step" 
+                    title = "guide_search" 
                     content={
                         selected === true ? 
                         <div className="active">
@@ -23,13 +23,13 @@ return (
                             <img src="../images/review_purple.png" />
                         </div>
                     } 
-                    guideLine="Guide customers to find products to buy."
+                    guideLine="guide_des"
                     onSelectItem={()=> setSelected(true)}
                     active = {selected == true ? "nav-link active" : "nav-link"}
                 />
                 <SupportGuide 
-                    step ="Step 2" 
-                    title = "ORDER TO BUY PRODUCTS" 
+                    step ="guide_step2" 
+                    title = "guide_to_oder" 
                     content={ 
                         selected == false ? 
                         <div className="no_actived">
@@ -40,7 +40,7 @@ return (
                             <img src="../images/order.png" />
                         </div>
                     } 
-                    guideLine ="Guide customers how to order products, discuss loan policy" 
+                    guideLine ="guide_des_2" 
                     onSelectItem ={()=> setSelected(false)}
                     active = {selected == false ? "nav-link active" : "nav-link"}
                 />

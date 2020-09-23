@@ -13,6 +13,8 @@ import loan from "./vi/loan"
 import recruitment from './vi/recruitment'
 import legal from './vi/legal';
 import visitor from './vi/visitor'
+import buy_guide from './vi/buy_guide'
+import buy from './vi/buy.json'
 const vi = {
     ...home,
     ...promotion,
@@ -27,7 +29,9 @@ const vi = {
     ...news,
     ...loan,
     ...recruitment,
-    ...legal
+    ...legal,
+    ...buy_guide,
+    ...buy
 }
 
 export default vi;

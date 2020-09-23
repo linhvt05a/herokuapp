@@ -25,7 +25,7 @@ const ProductForm = (props) => {
       <div className="save_product--login">
         <FormHeading />
         <Form form={formInfo} name="register" onFinish={subMitted}>
-          <Form.Item name="full_name" rules={RULES.text.form}>
+          <Form.Item className="form-control" name="full_name" rules={RULES.text.form}>
             <Input placeholder= {t('Full name')} />
           </Form.Item>
           <Form.Item name="email" rules={RULES.email.form}>

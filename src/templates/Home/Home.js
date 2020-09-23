@@ -8,10 +8,8 @@ import CardOverView from '../../components/common/Overview'
 import HeadingLine from '../../components/common/HeadingLine'
 import CardNoData from '../../components/common/CardNoData';
 
-import { CardSaleFlash, CardHotProduct } from "./Layout/index";
 import { MapPoligon } from "../../components/common/Map/index";
 import { projectAction, newsAction } from "../../store/action/index";
-
 
 import { LocationView } from "./Location/index";
 import { OnMapPoligon } from "./Search/index";
@@ -20,6 +18,8 @@ import Advisory from "./Contact/Advisory";
 import AppManagerment from './AppManagerment/AppManagerment';
 import ItemProject_01 from '../../components/common/Project/ItemProject_01';
 import { PROJECT_SALE_GROUP } from "../../functions/Helper";
+import { PRODUCT_LIST_TYPE_VALUE } from "../../functions/Helper";
+import ProductList  from "../Product/ProductList";
 
 const Home = (props) => {
 
@@ -99,7 +99,8 @@ const Home = (props) => {
             </div>
             {/*end block map  */}
 
-            <CardSaleFlash headerBodyClassName="label_filter--heading" labelHeader="flash_sale" readmore timeLine />
+            <ProductList labelHeader="flash_sale" showSlider readmore
+                         productListType={PRODUCT_LIST_TYPE_VALUE('flash-sale').id} classSaleQuick="sales_quick"  />
 
             {/* block over  */}-
             <CardOverView />
@@ -160,7 +161,9 @@ const Home = (props) => {
             {/* end contact  */}
 
             {/* striking apartment  */}
-            <CardHotProduct headerBodyClassName="label_filter--heading" labelHeader="hot_product" options />
+            <ProductList  labelHeader="hot_product" showFilter
+                          productListType={PRODUCT_LIST_TYPE_VALUE('hot-product').id} classSaleQuick="sales_quick"  />
+
             {/* end striking apartment  */}
 
             {/* app_managerment  */}

@@ -1,6 +1,5 @@
 import React, { useState, useEffect} from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Categories, FilterProject, CommonMenu } from '../News/index'
 import { Trans } from "react-i18next";
 import Pagination from '../../components/common/Pagination';
 import { LoadDataPaging } from '../../functions/Utils';
@@ -14,14 +13,11 @@ import { convertDateShow } from "../../functions/Utils";
 const defaultValue = [{value:'', label:'Categories'}]
 
 const News = (props) => {
-    const location = useLocation()
     const[projectSelectList,setProjectList] = useState(null)
     const[nameSearch, setName] = useState('')
     const[cateID, setCateId] = useState('')
     const[dateFrom, setDateFrom] = useState('')
     const[dateTo, setDateTo] = useState('')
-    const [navigate, setNavigate] = useState({})
-    const [catesId, setId] = useState('')
     
     const news = useSelector(state => state.newsReducer);
     const newsListSuccess = news.newsList.success
@@ -54,10 +50,8 @@ const News = (props) => {
     }, [newsCategories]);
    
     useEffect(()=>{
-        if(location.state && location.state.category_id !== null){
-            const category_id = location.state.category_id
-            dispatch(newsAction.LoadNewsList({category_id}))
-        }
+            dispatch(newsAction.LoadNewsList({}))
+            dispatch(newsAction.newsCategories({}))
     }, [])
 
     const onPageChange = (value) =>{
@@ -95,10 +89,6 @@ const News = (props) => {
         return date
     }
 
-    const handleClick = (id) =>{
-        setNavigate(id)
-        dispatch(newsAction.LoadNewsList({category_id: id}))
-    }
     return (
         <div className="news">
             <div className="container container-sm container-md">
@@ -115,14 +105,6 @@ const News = (props) => {
                         <Pagination data={LoadDataPaging(total_record, page, total_page, limit)} onChange ={onPageChange}/>
                     </div>
                     <div className="col-md-12 col-lg-4 col-xl-4 col-right_news mb-sm-3 mb-0">
-                        {/* <CommonMenu 
-                            label="news_categories" 
-                            dataMenu={newsCategories} 
-                            className="options mb-4 bg_white" onClick = {handleClick}
-                            navigate ={navigate}
-                            catesId={catesId}
-                            linkTo ="/news"
-                        /> */}
                         <CommonFilter 
                             title="news_filter" 
                             placeholder="news_placeholder"

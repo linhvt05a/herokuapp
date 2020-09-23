@@ -12,7 +12,6 @@ const ProjectDetail = lazy(() => import('./templates/Project/ProjectDetail'));
 
 const ProductDetail = lazy(() => import('./templates/Product/ProductDetail/ProductDetail'));
 const ProductList = lazy(() => import('./templates/Product/ProductList/ProductList'));
-const HotProduct = lazy(() => import('./templates/Product/HotProductPage'));
 
 const News = lazy(() => import('./templates/News/NewsList'));
 const NewsDetail = lazy(() => import('./templates/News/NewsDetail'));
@@ -24,8 +23,9 @@ const TransactionLevel = lazy(() => import('./templates/TransactionLevel/Transac
 const ShoppingGuide = lazy(() => import('./templates/Support/ShopGuide/ShoppingGuide'));
 const Legal = lazy(() => import('./templates/Support/Legal/Juridical'));
 const PromotionPage = lazy(() => import('./templates/Promotion/PromotionPage'));
-const FlashSaleList = lazy(() => import('./templates/Promotion/FlashSaleList'));
-const PromotionAttractive = lazy(() => import('./templates/Promotion/PromotionAttractive'));
+const HotProductPage = lazy(() => import('./templates/Product/HotProductPage'));
+const FlashSalePage = lazy(() => import('./templates/Product/FlashSalePage'));
+const PromotionProductPage = lazy(() => import('./templates/Product/PromotionProductPage'));
 
 const Account = lazy(() => import('./templates/Account/CustomerAccount'));
 
@@ -173,22 +173,22 @@ const MAIN = [
         "banner_show": false,
     },
     {
-        "path": "/promotions-attractive",
-        "component": PromotionAttractive,
+        "path": "/promotion-product",
+        "component": PromotionProductPage,
         "banner_title": "promotion_banner_title",
         "banner_url": BANNER_URL.promotion_banner_url,
         "banner_show": false,
     },
     {
-        "path": "/flashsale",
-        "component": FlashSaleList,
+        "path": "/flash-sale",
+        "component": FlashSalePage,
         "banner_title": "",
         "banner_url":'',
         "banner_show": false,
     },
     {
         "path": "/hot-product",
-        "component": HotProduct,
+        "component": HotProductPage,
         "banner_title": "product_hot_product_banner_title",
         "banner_url": BANNER_URL.product_banner_url,
         "banner_show": true

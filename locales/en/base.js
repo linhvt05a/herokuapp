@@ -75,4 +75,7 @@ export default {
     input_null: "Please enter in here!",
     identity_length: "Identity Card from 9 numbers or more",
     phone_length: "Phone numbers from 9 to 10 numbers",
+
+    register_visit_button : 'Register',
+    register_visit_success : 'Register is successed',
 }

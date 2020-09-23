@@ -227,7 +227,52 @@ const LOAN_TYPE = [
     { id: 1, type: "LOAN_TYPE_AMORTIZED_LOAN", label: "Amortized Loan" },
     { id: 2, type: "LOAN_TYPE_FIXED_ANNUITY_LOAN", label: "Fixed Annuity Loan" }
 ]
-
+const BUY_GUIDE = [
+    {
+      "step":'2.1', 
+      "title":'Tiêu đề', 
+      "field":"Click chọn các trường thông tin trên khung (1)", 
+      "criteria":'Để tìm kiếm dự án theo các tiêu chí sau:', 
+      "categories":' Vị trí (Thành phố/ Quận huyện) | Tiến độ | Phạm vi giá (tỷ đồng) | Diện tích(m2) | Loại hình sản phẩm',
+      "guideMouse":'Sau đó click vào nút TÌM KIẾM',
+      "content":'Để đi bắt đầu tìm kiếm dựa trên những tiêu chí đã chọn ở trên.',
+      "webGuide":' Website sẽ hiển thị những dự án đúng với các tiêu chí bạn đã search.',
+      "guideImage":'../images/direction1.jpg'
+    },
+    {
+      step:'2.2', 
+      title:'Tiêu đề', 
+      field:'Click chọn các trường thông tin trên khung (1)', 
+      criteria:'Để tìm kiếm dự án theo các tiêu chí sau:', 
+      categories:' Vị trí (Thành phố/ Quận huyện) | Tiến độ | Phạm vi giá (tỷ đồng) | Diện tích(m2) | Loại hình sản phẩm',
+      guideMouse:'Sau đó click vào nút TÌM KIẾM',
+      content:'Để đi bắt đầu tìm kiếm dựa trên những tiêu chí đã chọn ở trên.',
+      webGuide:' Website sẽ hiển thị những dự án đúng với các tiêu chí bạn đã search.',
+      guideImage:'../images/direction1.jpg'
+    },
+    {
+      step:'2.3', 
+      title:'Tiêu đề', 
+      field:'Click chọn các trường thông tin trên khung (1)', 
+      criteria:'Để tìm kiếm dự án theo các tiêu chí sau:', 
+      categories:' Vị trí (Thành phố/ Quận huyện) | Tiến độ | Phạm vi giá (tỷ đồng) | Diện tích(m2) | Loại hình sản phẩm',
+      guideMouse:'Sau đó click vào nút TÌM KIẾM',
+      content:'Để đi bắt đầu tìm kiếm dựa trên những tiêu chí đã chọn ở trên.',
+      webGuide:' Website sẽ hiển thị những dự án đúng với các tiêu chí bạn đã search.',
+      guideImage:'../images/direction1.jpg'
+    },
+    {
+      step:'2.4', 
+      title:'Tiêu đề', 
+      field:'Click chọn các trường thông tin trên khung (1)', 
+      criteria:'Để tìm kiếm dự án theo các tiêu chí sau:', 
+      categories:' Vị trí (Thành phố/ Quận huyện) | Tiến độ | Phạm vi giá (tỷ đồng) | Diện tích(m2) | Loại hình sản phẩm',
+      guideMouse:'Sau đó click vào nút TÌM KIẾM',
+      content:'Để đi bắt đầu tìm kiếm dựa trên những tiêu chí đã chọn ở trên.',
+      webGuide:' Website sẽ hiển thị những dự án đúng với các tiêu chí bạn đã search.',
+      guideImage:'../images/direction1.jpg'
+    }
+  ]
 module.exports = {
 
     IMAGE_URL,
@@ -248,6 +293,7 @@ module.exports = {
     LOAN_TYPE,
     TIMEOUT_ADS,
     LOADING_ADS,
+
     ESTATE_OWNER_TYPE,
     EDUCATION_TYPE,
     MARITAL_TYPE,
@@ -256,5 +302,6 @@ module.exports = {
     LABOR_CONSTRACT_TYPE,
     PAY_TYPE,
     DOCUMENT_TYPE,
-    FILE_CONTENT_TYPE
+    FILE_CONTENT_TYPE,
+    BUY_GUIDE
 }

@@ -39,6 +39,14 @@
         text-decoration: none !important;
     }
 }
+
+.header_actions {
+    .number{
+        line-height: 15px;
+        @include flex_center;
+    }
+}
+
 #form-login {
     .form-group {
         .form-control {
